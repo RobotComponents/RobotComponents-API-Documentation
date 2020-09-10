@@ -1,0 +1,1604 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.ZoneData
+  commentId: T:RobotComponents.Actions.ZoneData
+  id: ZoneData
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.ZoneData.#ctor
+  - RobotComponents.Actions.ZoneData.#ctor(RobotComponents.Actions.ZoneData)
+  - RobotComponents.Actions.ZoneData.#ctor(System.Double)
+  - RobotComponents.Actions.ZoneData.#ctor(System.Int32)
+  - RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Actions.ZoneData.Duplicate
+  - RobotComponents.Actions.ZoneData.DuplicateAction
+  - RobotComponents.Actions.ZoneData.ExactPredefinedValue
+  - RobotComponents.Actions.ZoneData.FinePoint
+  - RobotComponents.Actions.ZoneData.IsValid
+  - RobotComponents.Actions.ZoneData.Name
+  - RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+  - RobotComponents.Actions.ZoneData.PathZoneOrientation
+  - RobotComponents.Actions.ZoneData.PathZoneTCP
+  - RobotComponents.Actions.ZoneData.PreDefinied
+  - RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.ZoneData.ToString
+  - RobotComponents.Actions.ZoneData.ValidPredefinedNames
+  - RobotComponents.Actions.ZoneData.ValidPredefinedValues
+  - RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+  - RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+  - RobotComponents.Actions.ZoneData.ZoneOrientation
+  langs:
+  - csharp
+  - vb
+  name: ZoneData
+  nameWithType: ZoneData
+  fullName: RobotComponents.Actions.ZoneData
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nZoneData class. Zoned Data is used to specify how a position is to be terminated, \ni.e. how close to the programmed position the axes must be before moving towards \nthe next position.\n"
+  syntax:
+    content: 'public class ZoneData : Action'
+    content.vb: >-
+      Public Class ZoneData
+          Inherits Action
+  inheritance:
+  - System.Object
+  - RobotComponents.Actions.Action
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Actions.ZoneData.#ctor
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData()
+  nameWithType: ZoneData.ZoneData()
+  fullName: RobotComponents.Actions.ZoneData.ZoneData()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines an empty ZoneData object. \n"
+  syntax:
+    content: public ZoneData()
+    content.vb: Public Sub New
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.#ctor(System.Double)
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData(Double)
+  nameWithType: ZoneData.ZoneData(Double)
+  fullName: RobotComponents.Actions.ZoneData.ZoneData(System.Double)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructor for creating a predefined ZoneData. \nABB defined already a number of zone data in the system module.\nUse -1 to define a fine point. \n"
+  syntax:
+    content: public ZoneData(double zone)
+    parameters:
+    - id: zone
+      type: System.Double
+      description: 'The size (the radius) of the TCP zone in mm. '
+    content.vb: Public Sub New(zone As Double)
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.#ctor(System.Int32)
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor(System.Int32)
+  id: '#ctor(System.Int32)'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData(Int32)
+  nameWithType: ZoneData.ZoneData(Int32)
+  fullName: RobotComponents.Actions.ZoneData.ZoneData(System.Int32)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructor for creating a predefined ZoneData. \nABB defined already a number of zone data in the system module.\nUse -1 to define a fine point. \n"
+  syntax:
+    content: public ZoneData(int zone)
+    parameters:
+    - id: zone
+      type: System.Int32
+      description: 'The size (the radius) of the TCP zone in mm. '
+    content.vb: Public Sub New(zone As Integer)
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData(String, Boolean, Double, Double, Double, Double, Double, Double)
+  nameWithType: ZoneData.ZoneData(String, Boolean, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Actions.ZoneData.ZoneData(System.String, System.Boolean, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines a custom ZoneData.\n"
+  syntax:
+    content: public ZoneData(string name, bool finep, double pzone_tcp = 0, double pzone_ori = 0, double pzone_eax = 0, double zone_ori = 0, double zone_leax = 0, double zone_reax = 0)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The ZoneData variable name. '
+    - id: finep
+      type: System.Boolean
+      description: 'Defines whether the movement is to terminate as a stop point (fine point) or as a fly-by point. '
+    - id: pzone_tcp
+      type: System.Double
+      description: 'The size (the radius) of the TCP zone in mm. '
+    - id: pzone_ori
+      type: System.Double
+      description: 'The zone size (the radius) for the tool reorientation. '
+    - id: pzone_eax
+      type: System.Double
+      description: 'The zone size (the radius) for external axes. '
+    - id: zone_ori
+      type: System.Double
+      description: 'The zone size for the tool reorientation in degrees. '
+    - id: zone_leax
+      type: System.Double
+      description: 'The zone size for linear external axes in mm. '
+    - id: zone_reax
+      type: System.Double
+      description: 'he zone size for rotating external axes in degrees. '
+    content.vb: Public Sub New(name As String, finep As Boolean, pzone_tcp As Double = 0, pzone_ori As Double = 0, pzone_eax As Double = 0, zone_ori As Double = 0, zone_leax As Double = 0, zone_reax As Double = 0)
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.#ctor(RobotComponents.Actions.ZoneData)
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor(RobotComponents.Actions.ZoneData)
+  id: '#ctor(RobotComponents.Actions.ZoneData)'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData(ZoneData)
+  nameWithType: ZoneData.ZoneData(ZoneData)
+  fullName: RobotComponents.Actions.ZoneData.ZoneData(RobotComponents.Actions.ZoneData)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates a new zonedata by duplicating an existing zonedata. \nThis creates a deep copy of the existing zonedata. \n"
+  syntax:
+    content: public ZoneData(ZoneData zonedata)
+    parameters:
+    - id: zonedata
+      type: RobotComponents.Actions.ZoneData
+      description: 'The speeddata that should be duplicated. '
+    content.vb: Public Sub New(zonedata As ZoneData)
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.Duplicate
+  commentId: M:RobotComponents.Actions.ZoneData.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: ZoneData.Duplicate()
+  fullName: RobotComponents.Actions.ZoneData.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDuplicates a ZoneData object\n"
+  syntax:
+    content: public ZoneData Duplicate()
+    return:
+      type: RobotComponents.Actions.ZoneData
+      description: 'Returns a deep copy of the ZoneData object. '
+    content.vb: Public Function Duplicate As ZoneData
+  overload: RobotComponents.Actions.ZoneData.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.DuplicateAction
+  commentId: M:RobotComponents.Actions.ZoneData.DuplicateAction
+  id: DuplicateAction
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: DuplicateAction()
+  nameWithType: ZoneData.DuplicateAction()
+  fullName: RobotComponents.Actions.ZoneData.DuplicateAction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA method to duplicate the ZoneData object to an Action object. \n"
+  syntax:
+    content: public override Action DuplicateAction()
+    return:
+      type: RobotComponents.Actions.Action
+      description: 'Returns a deep copy of the ZoneData object as an Action object. '
+    content.vb: Public Overrides Function DuplicateAction As Action
+  overridden: RobotComponents.Actions.Action.DuplicateAction
+  overload: RobotComponents.Actions.ZoneData.DuplicateAction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.ToString
+  commentId: M:RobotComponents.Actions.ZoneData.ToString
+  id: ToString
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ZoneData.ToString()
+  fullName: RobotComponents.Actions.ZoneData.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: RobotComponents.Actions.Action.ToString
+  overload: RobotComponents.Actions.ZoneData.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: ZoneData.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definition code of this action. \n"
+  syntax:
+    content: public override string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: ZoneData.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instruction code line. \n"
+  syntax:
+    content: public override string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.ZoneData.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: ZoneData.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: ZoneData.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.ZoneData.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.ZoneData.IsValid
+  commentId: P:RobotComponents.Actions.ZoneData.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: ZoneData.IsValid
+  fullName: RobotComponents.Actions.ZoneData.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA boolean that indicates if the SpeedData is valid. \n"
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: RobotComponents.Actions.Action.IsValid
+  overload: RobotComponents.Actions.ZoneData.IsValid*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: RobotComponents.Actions.ZoneData.Name
+  commentId: P:RobotComponents.Actions.ZoneData.Name
+  id: Name
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ZoneData.Name
+  fullName: RobotComponents.Actions.ZoneData.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe ZoneData variable name. \n"
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.Actions.ZoneData.Name*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.FinePoint
+  commentId: P:RobotComponents.Actions.ZoneData.FinePoint
+  id: FinePoint
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: FinePoint
+  nameWithType: ZoneData.FinePoint
+  fullName: RobotComponents.Actions.ZoneData.FinePoint
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines whether the movement is to terminate as a stop point (fine point) or as a fly-by point.\n"
+  syntax:
+    content: public bool FinePoint { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FinePoint As Boolean
+  overload: RobotComponents.Actions.ZoneData.FinePoint*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.PathZoneTCP
+  commentId: P:RobotComponents.Actions.ZoneData.PathZoneTCP
+  id: PathZoneTCP
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: PathZoneTCP
+  nameWithType: ZoneData.PathZoneTCP
+  fullName: RobotComponents.Actions.ZoneData.PathZoneTCP
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe size (the radius) of the TCP zone in mm.\n"
+  syntax:
+    content: public double PathZoneTCP { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property PathZoneTCP As Double
+  overload: RobotComponents.Actions.ZoneData.PathZoneTCP*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.PathZoneOrientation
+  commentId: P:RobotComponents.Actions.ZoneData.PathZoneOrientation
+  id: PathZoneOrientation
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: PathZoneOrientation
+  nameWithType: ZoneData.PathZoneOrientation
+  fullName: RobotComponents.Actions.ZoneData.PathZoneOrientation
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone size (the radius) for the tool reorientation. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
+  syntax:
+    content: public double PathZoneOrientation { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property PathZoneOrientation As Double
+  overload: RobotComponents.Actions.ZoneData.PathZoneOrientation*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+  commentId: P:RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+  id: PathZoneExternalAxes
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: PathZoneExternalAxes
+  nameWithType: ZoneData.PathZoneExternalAxes
+  fullName: RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone size (the radius) for external axes. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
+  syntax:
+    content: public double PathZoneExternalAxes { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property PathZoneExternalAxes As Double
+  overload: RobotComponents.Actions.ZoneData.PathZoneExternalAxes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.ZoneOrientation
+  commentId: P:RobotComponents.Actions.ZoneData.ZoneOrientation
+  id: ZoneOrientation
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneOrientation
+  nameWithType: ZoneData.ZoneOrientation
+  fullName: RobotComponents.Actions.ZoneData.ZoneOrientation
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone size for the tool reorientation in degrees. \nIf the robot is holding the work object, this means an angle of rotation for the work object.\n"
+  syntax:
+    content: public double ZoneOrientation { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ZoneOrientation As Double
+  overload: RobotComponents.Actions.ZoneData.ZoneOrientation*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+  commentId: P:RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+  id: ZoneExternalLinearAxes
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneExternalLinearAxes
+  nameWithType: ZoneData.ZoneExternalLinearAxes
+  fullName: RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone size for linear external axes in mm. \n"
+  syntax:
+    content: public double ZoneExternalLinearAxes { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ZoneExternalLinearAxes As Double
+  overload: RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+  commentId: P:RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+  id: ZoneExternalRotationalAxes
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneExternalRotationalAxes
+  nameWithType: ZoneData.ZoneExternalRotationalAxes
+  fullName: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone size for rotating external axes in degrees.\n"
+  syntax:
+    content: public double ZoneExternalRotationalAxes { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property ZoneExternalRotationalAxes As Double
+  overload: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.PreDefinied
+  commentId: P:RobotComponents.Actions.ZoneData.PreDefinied
+  id: PreDefinied
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: PreDefinied
+  nameWithType: ZoneData.PreDefinied
+  fullName: RobotComponents.Actions.ZoneData.PreDefinied
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA boolean that indicates if the zonedata is predefined by ABB. \n"
+  syntax:
+    content: public bool PreDefinied { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property PreDefinied As Boolean
+  overload: RobotComponents.Actions.ZoneData.PreDefinied*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.ExactPredefinedValue
+  commentId: P:RobotComponents.Actions.ZoneData.ExactPredefinedValue
+  id: ExactPredefinedValue
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ExactPredefinedValue
+  nameWithType: ZoneData.ExactPredefinedValue
+  fullName: RobotComponents.Actions.ZoneData.ExactPredefinedValue
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nIndicates if the exact predefined zonedata value is used.\nIf false the nearest predefined zonedata or a custom zonedata is used.\n"
+  syntax:
+    content: public bool ExactPredefinedValue { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property ExactPredefinedValue As Boolean
+  overload: RobotComponents.Actions.ZoneData.ExactPredefinedValue*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.ZoneData.ValidPredefinedNames
+  commentId: P:RobotComponents.Actions.ZoneData.ValidPredefinedNames
+  id: ValidPredefinedNames
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ValidPredefinedNames
+  nameWithType: ZoneData.ValidPredefinedNames
+  fullName: RobotComponents.Actions.ZoneData.ValidPredefinedNames
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines an array with valid predefined zonedata variable names\n"
+  syntax:
+    content: public static string[] ValidPredefinedNames { get; }
+    parameters: []
+    return:
+      type: System.String[]
+    content.vb: Public Shared ReadOnly Property ValidPredefinedNames As String()
+  overload: RobotComponents.Actions.ZoneData.ValidPredefinedNames*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+- uid: RobotComponents.Actions.ZoneData.ValidPredefinedValues
+  commentId: P:RobotComponents.Actions.ZoneData.ValidPredefinedValues
+  id: ValidPredefinedValues
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ValidPredefinedValues
+  nameWithType: ZoneData.ValidPredefinedValues
+  fullName: RobotComponents.Actions.ZoneData.ValidPredefinedValues
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines an array with valid predefined zonedata values\n"
+  syntax:
+    content: public static double[] ValidPredefinedValues { get; }
+    parameters: []
+    return:
+      type: System.Double[]
+    content.vb: Public Shared ReadOnly Property ValidPredefinedValues As Double()
+  overload: RobotComponents.Actions.ZoneData.ValidPredefinedValues*
+  modifiers.csharp:
+  - public
+  - static
+  - get
+  modifiers.vb:
+  - Public
+  - Shared
+  - ReadOnly
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RobotComponents.Actions.Action
+  commentId: T:RobotComponents.Actions.Action
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: RobotComponents.Actions.Action
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.ZoneData.#ctor*
+  commentId: Overload:RobotComponents.Actions.ZoneData.#ctor
+  isExternal: true
+  name: ZoneData
+  nameWithType: ZoneData.ZoneData
+  fullName: RobotComponents.Actions.ZoneData.ZoneData
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.ZoneData
+  commentId: T:RobotComponents.Actions.ZoneData
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ZoneData
+  nameWithType: ZoneData
+  fullName: RobotComponents.Actions.ZoneData
+- uid: RobotComponents.Actions.ZoneData.Duplicate*
+  commentId: Overload:RobotComponents.Actions.ZoneData.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: ZoneData.Duplicate
+  fullName: RobotComponents.Actions.ZoneData.Duplicate
+- uid: RobotComponents.Actions.Action.DuplicateAction
+  commentId: M:RobotComponents.Actions.Action.DuplicateAction
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: DuplicateAction()
+  nameWithType: Action.DuplicateAction()
+  fullName: RobotComponents.Actions.Action.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ZoneData.DuplicateAction*
+  commentId: Overload:RobotComponents.Actions.ZoneData.DuplicateAction
+  isExternal: true
+  name: DuplicateAction
+  nameWithType: ZoneData.DuplicateAction
+  fullName: RobotComponents.Actions.ZoneData.DuplicateAction
+- uid: RobotComponents.Actions.Action.ToString
+  commentId: M:RobotComponents.Actions.Action.ToString
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToString()
+  nameWithType: Action.ToString()
+  fullName: RobotComponents.Actions.Action.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ZoneData.ToString*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: ZoneData.ToString
+  fullName: RobotComponents.Actions.ZoneData.ToString
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Action.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: ZoneData.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Action.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ZoneData.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: ZoneData.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.ZoneData.ToRAPIDInstruction
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.IsValid
+  commentId: P:RobotComponents.Actions.Action.IsValid
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: IsValid
+  nameWithType: Action.IsValid
+  fullName: RobotComponents.Actions.Action.IsValid
+- uid: RobotComponents.Actions.ZoneData.IsValid*
+  commentId: Overload:RobotComponents.Actions.ZoneData.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: ZoneData.IsValid
+  fullName: RobotComponents.Actions.ZoneData.IsValid
+- uid: RobotComponents.Actions.ZoneData.Name*
+  commentId: Overload:RobotComponents.Actions.ZoneData.Name
+  isExternal: true
+  name: Name
+  nameWithType: ZoneData.Name
+  fullName: RobotComponents.Actions.ZoneData.Name
+- uid: RobotComponents.Actions.ZoneData.FinePoint*
+  commentId: Overload:RobotComponents.Actions.ZoneData.FinePoint
+  isExternal: true
+  name: FinePoint
+  nameWithType: ZoneData.FinePoint
+  fullName: RobotComponents.Actions.ZoneData.FinePoint
+- uid: RobotComponents.Actions.ZoneData.PathZoneTCP*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PathZoneTCP
+  isExternal: true
+  name: PathZoneTCP
+  nameWithType: ZoneData.PathZoneTCP
+  fullName: RobotComponents.Actions.ZoneData.PathZoneTCP
+- uid: RobotComponents.Actions.ZoneData.PathZoneOrientation*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PathZoneOrientation
+  isExternal: true
+  name: PathZoneOrientation
+  nameWithType: ZoneData.PathZoneOrientation
+  fullName: RobotComponents.Actions.ZoneData.PathZoneOrientation
+- uid: RobotComponents.Actions.ZoneData.PathZoneExternalAxes*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+  isExternal: true
+  name: PathZoneExternalAxes
+  nameWithType: ZoneData.PathZoneExternalAxes
+  fullName: RobotComponents.Actions.ZoneData.PathZoneExternalAxes
+- uid: RobotComponents.Actions.ZoneData.ZoneOrientation*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ZoneOrientation
+  isExternal: true
+  name: ZoneOrientation
+  nameWithType: ZoneData.ZoneOrientation
+  fullName: RobotComponents.Actions.ZoneData.ZoneOrientation
+- uid: RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+  isExternal: true
+  name: ZoneExternalLinearAxes
+  nameWithType: ZoneData.ZoneExternalLinearAxes
+  fullName: RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
+- uid: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+  isExternal: true
+  name: ZoneExternalRotationalAxes
+  nameWithType: ZoneData.ZoneExternalRotationalAxes
+  fullName: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
+- uid: RobotComponents.Actions.ZoneData.PreDefinied*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PreDefinied
+  isExternal: true
+  name: PreDefinied
+  nameWithType: ZoneData.PreDefinied
+  fullName: RobotComponents.Actions.ZoneData.PreDefinied
+- uid: RobotComponents.Actions.ZoneData.ExactPredefinedValue*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ExactPredefinedValue
+  isExternal: true
+  name: ExactPredefinedValue
+  nameWithType: ZoneData.ExactPredefinedValue
+  fullName: RobotComponents.Actions.ZoneData.ExactPredefinedValue
+- uid: RobotComponents.Actions.ZoneData.ValidPredefinedNames*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ValidPredefinedNames
+  isExternal: true
+  name: ValidPredefinedNames
+  nameWithType: ZoneData.ValidPredefinedNames
+  fullName: RobotComponents.Actions.ZoneData.ValidPredefinedNames
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: RobotComponents.Actions.ZoneData.ValidPredefinedValues*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ValidPredefinedValues
+  isExternal: true
+  name: ValidPredefinedValues
+  nameWithType: ZoneData.ValidPredefinedValues
+  fullName: RobotComponents.Actions.ZoneData.ValidPredefinedValues
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()

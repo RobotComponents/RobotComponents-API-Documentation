@@ -1,0 +1,799 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265
+  commentId: T:RobotComponents.Definitions.Presets.IRB6790_235_265
+  id: IRB6790_235_265
+  parent: RobotComponents.Definitions.Presets
+  children:
+  - RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits
+  - RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes
+  - RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes
+  - RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  - RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame
+  langs:
+  - csharp
+  - vb
+  name: IRB6790_235_265
+  nameWithType: IRB6790_235_265
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the IRB6790-235/2.65\n"
+  syntax:
+    content: public static class IRB6790_235_265
+    content.vb: Public Module IRB6790_235_265
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  commentId: M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  id: GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  parent: RobotComponents.Definitions.Presets.IRB6790_235_265
+  langs:
+  - csharp
+  - vb
+  name: GetRobot(String, Plane, RobotTool, List<ExternalAxis>)
+  nameWithType: IRB6790_235_265.GetRobot(String, Plane, RobotTool, List<ExternalAxis>)
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(System.String, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the IRB6790-235/2.65 Robot\n"
+  syntax:
+    content: public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxis = null)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The Robot name as a string. '
+    - id: positionPlane
+      type: Rhino.Geometry.Plane
+      description: 'The position of the robot in world coordinate space as plane. '
+    - id: tool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The robot end-effector as a Robot Tool. '
+    - id: externalAxis
+      type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+      description: 'The external axes attaced to the robot as list with External Axes. '
+    return:
+      type: RobotComponents.Definitions.Robot
+      description: 'Returns the Robot preset. '
+    content.vb: Public Shared Function GetRobot(name As String, positionPlane As Plane, tool As RobotTool, externalAxis As List(Of ExternalAxis) = Nothing) As Robot
+  overload: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot*
+  nameWithType.vb: IRB6790_235_265.GetRobot(String, Plane, RobotTool, List(Of ExternalAxis))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(System.String, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
+  name.vb: GetRobot(String, Plane, RobotTool, List(Of ExternalAxis))
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes
+  commentId: M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes
+  id: GetMeshes
+  parent: RobotComponents.Definitions.Presets.IRB6790_235_265
+  langs:
+  - csharp
+  - vb
+  name: GetMeshes()
+  nameWithType: IRB6790_235_265.GetMeshes()
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the base and link meshes in robot coordinate space. \n"
+  syntax:
+    content: public static List<Mesh> GetMeshes()
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'Returns a list with meshes. '
+    content.vb: Public Shared Function GetMeshes As List(Of Mesh)
+  overload: RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes
+  commentId: M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes
+  id: GetAxisPlanes
+  parent: RobotComponents.Definitions.Presets.IRB6790_235_265
+  langs:
+  - csharp
+  - vb
+  name: GetAxisPlanes()
+  nameWithType: IRB6790_235_265.GetAxisPlanes()
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the axis planes in robot coordinate space.\n"
+  syntax:
+    content: public static List<Plane> GetAxisPlanes()
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Plane}
+      description: 'Returns a list with planes. '
+    content.vb: Public Shared Function GetAxisPlanes As List(Of Plane)
+  overload: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits
+  commentId: M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits
+  id: GetAxisLimits
+  parent: RobotComponents.Definitions.Presets.IRB6790_235_265
+  langs:
+  - csharp
+  - vb
+  name: GetAxisLimits()
+  nameWithType: IRB6790_235_265.GetAxisLimits()
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the axis limits. \n"
+  syntax:
+    content: public static List<Interval> GetAxisLimits()
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Interval}
+      description: 'Returns a list with intervals. '
+    content.vb: Public Shared Function GetAxisLimits As List(Of Interval)
+  overload: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame
+  commentId: M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame
+  id: GetToolMountingFrame
+  parent: RobotComponents.Definitions.Presets.IRB6790_235_265
+  langs:
+  - csharp
+  - vb
+  name: GetToolMountingFrame()
+  nameWithType: IRB6790_235_265.GetToolMountingFrame()
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions.Presets
+  summary: "\nDefines the tool mounting frame in robot coordinate space. \n"
+  syntax:
+    content: public static Plane GetToolMountingFrame()
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'Returns the mounting frame. '
+    content.vb: Public Shared Function GetToolMountingFrame As Plane
+  overload: RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: RobotComponents.Definitions.Presets
+  commentId: N:RobotComponents.Definitions.Presets
+  isExternal: true
+  name: RobotComponents.Definitions.Presets
+  nameWithType: RobotComponents.Definitions.Presets
+  fullName: RobotComponents.Definitions.Presets
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot*
+  commentId: Overload:RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot
+  isExternal: true
+  name: GetRobot
+  nameWithType: IRB6790_235_265.GetRobot
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
+- uid: RobotComponents.Definitions.RobotTool
+  commentId: T:RobotComponents.Definitions.RobotTool
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: RobotTool
+  nameWithType: RobotTool
+  fullName: RobotComponents.Definitions.RobotTool
+- uid: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<ExternalAxis>
+  nameWithType: List<ExternalAxis>
+  fullName: System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>
+  nameWithType.vb: List(Of ExternalAxis)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis)
+  name.vb: List(Of ExternalAxis)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Definitions.ExternalAxis
+    name: ExternalAxis
+    nameWithType: ExternalAxis
+    fullName: RobotComponents.Definitions.ExternalAxis
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Definitions.ExternalAxis
+    name: ExternalAxis
+    nameWithType: ExternalAxis
+    fullName: RobotComponents.Definitions.ExternalAxis
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes*
+  commentId: Overload:RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes
+  isExternal: true
+  name: GetMeshes
+  nameWithType: IRB6790_235_265.GetMeshes
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetMeshes
+- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Mesh>
+  nameWithType: List<Mesh>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
+  nameWithType.vb: List(Of Mesh)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
+  name.vb: List(Of Mesh)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes*
+  commentId: Overload:RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes
+  isExternal: true
+  name: GetAxisPlanes
+  nameWithType: IRB6790_235_265.GetAxisPlanes
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisPlanes
+- uid: System.Collections.Generic.List{Rhino.Geometry.Plane}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Plane}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Plane>
+  nameWithType: List<Plane>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Plane>
+  nameWithType.vb: List(Of Plane)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Plane)
+  name.vb: List(Of Plane)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits*
+  commentId: Overload:RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits
+  isExternal: true
+  name: GetAxisLimits
+  nameWithType: IRB6790_235_265.GetAxisLimits
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetAxisLimits
+- uid: System.Collections.Generic.List{Rhino.Geometry.Interval}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Interval}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Interval>
+  nameWithType: List<Interval>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Interval>
+  nameWithType.vb: List(Of Interval)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Interval)
+  name.vb: List(Of Interval)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Interval
+    name: Interval
+    nameWithType: Interval
+    fullName: Rhino.Geometry.Interval
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Interval
+    name: Interval
+    nameWithType: Interval
+    fullName: Rhino.Geometry.Interval
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame*
+  commentId: Overload:RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame
+  isExternal: true
+  name: GetToolMountingFrame
+  nameWithType: IRB6790_235_265.GetToolMountingFrame
+  fullName: RobotComponents.Definitions.Presets.IRB6790_235_265.GetToolMountingFrame

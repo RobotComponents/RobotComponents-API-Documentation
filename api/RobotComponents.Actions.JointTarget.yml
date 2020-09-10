@@ -1,0 +1,1519 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.JointTarget
+  commentId: T:RobotComponents.Actions.JointTarget
+  id: JointTarget
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.JointTarget.#ctor
+  - RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.JointTarget)
+  - RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
+  - RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  - RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  - RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  - RobotComponents.Actions.JointTarget.CheckForAxisLimits(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.JointTarget.Duplicate
+  - RobotComponents.Actions.JointTarget.DuplicateAction
+  - RobotComponents.Actions.JointTarget.DuplicateTarget
+  - RobotComponents.Actions.JointTarget.ExternalJointPosition
+  - RobotComponents.Actions.JointTarget.IsValid
+  - RobotComponents.Actions.JointTarget.Name
+  - RobotComponents.Actions.JointTarget.RobotJointPosition
+  - RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.JointTarget.ToString
+  langs:
+  - csharp
+  - vb
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.Actions.JointTarget
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nJoint Target class, defines each individual axis position, for both the robot and the external axes.\n"
+  syntax:
+    content: 'public class JointTarget : Action, ITarget'
+    content.vb: >-
+      Public Class JointTarget
+          Inherits Action
+          Implements ITarget
+  inheritance:
+  - System.Object
+  - RobotComponents.Actions.Action
+  implements:
+  - RobotComponents.Actions.ITarget
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Actions.JointTarget.#ctor
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget()
+  nameWithType: JointTarget.JointTarget()
+  fullName: RobotComponents.Actions.JointTarget.JointTarget()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines an empty Joint Target object.\n"
+  syntax:
+    content: public JointTarget()
+    content.vb: Public Sub New
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
+  id: '#ctor(System.String,RobotComponents.Actions.RobotJointPosition)'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(String, RobotJointPosition)
+  nameWithType: JointTarget.JointTarget(String, RobotJointPosition)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(System.String, RobotComponents.Actions.RobotJointPosition)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines a joint target with an undefined external joint position\n"
+  syntax:
+    content: public JointTarget(string name, RobotJointPosition robJointPosition)
+    parameters:
+    - id: name
+      type: System.String
+      description: Joint target name, must be unique.
+    - id: robJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: The rob joint position
+    content.vb: Public Sub New(name As String, robJointPosition As RobotJointPosition)
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  id: '#ctor(System.String,System.Collections.Generic.List{System.Double})'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(String, List<Double>)
+  nameWithType: JointTarget.JointTarget(String, List<Double>)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(System.String, System.Collections.Generic.List<System.Double>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines a joint target with an undefined external joint position\n"
+  syntax:
+    content: public JointTarget(string name, List<double> axisValues)
+    parameters:
+    - id: name
+      type: System.String
+      description: Joint target name, must be unique.
+    - id: axisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: The rob joint position defined as a list with axis values
+    content.vb: Public Sub New(name As String, axisValues As List(Of Double))
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  nameWithType.vb: JointTarget.JointTarget(String, List(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.JointTarget.JointTarget(System.String, System.Collections.Generic.List(Of System.Double))
+  name.vb: JointTarget(String, List(Of Double))
+- uid: RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  id: '#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(String, RobotJointPosition, ExternalJointPosition)
+  nameWithType: JointTarget.JointTarget(String, RobotJointPosition, ExternalJointPosition)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(System.String, RobotComponents.Actions.RobotJointPosition, RobotComponents.Actions.ExternalJointPosition)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines a joint target\n"
+  syntax:
+    content: public JointTarget(string name, RobotJointPosition robJointPosition, ExternalJointPosition extJointPosition)
+    parameters:
+    - id: name
+      type: System.String
+      description: Joint target name, must be unique.
+    - id: robJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: The robot joint position
+    - id: extJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: The external joint position
+    content.vb: Public Sub New(name As String, robJointPosition As RobotJointPosition, extJointPosition As ExternalJointPosition)
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  id: '#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(String, List<Double>, List<Double>)
+  nameWithType: JointTarget.JointTarget(String, List<Double>, List<Double>)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(System.String, System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Double>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines a joint target\n"
+  syntax:
+    content: public JointTarget(string name, List<double> internalAxisValues, List<double> externalAxisValues)
+    parameters:
+    - id: name
+      type: System.String
+      description: Joint target name, must be unique.
+    - id: internalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: The robot joint position as a list with axis values
+    - id: externalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: The external joint position as a list wiht axis values
+    content.vb: Public Sub New(name As String, internalAxisValues As List(Of Double), externalAxisValues As List(Of Double))
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  nameWithType.vb: JointTarget.JointTarget(String, List(Of Double), List(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.JointTarget.JointTarget(System.String, System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Double))
+  name.vb: JointTarget(String, List(Of Double), List(Of Double))
+- uid: RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.JointTarget)
+  id: '#ctor(RobotComponents.Actions.JointTarget)'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(JointTarget)
+  nameWithType: JointTarget.JointTarget(JointTarget)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(RobotComponents.Actions.JointTarget)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates a new joint target by duplicating an existing joint target. \nThis creates a deep copy of the existing joint target. \n"
+  syntax:
+    content: public JointTarget(JointTarget jointTarget)
+    parameters:
+    - id: jointTarget
+      type: RobotComponents.Actions.JointTarget
+      description: 'The joint target that should be duplicated. '
+    content.vb: Public Sub New(jointTarget As JointTarget)
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.Duplicate
+  commentId: M:RobotComponents.Actions.JointTarget.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: JointTarget.Duplicate()
+  fullName: RobotComponents.Actions.JointTarget.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nMethod to duplicate the Joint Target object.\n"
+  syntax:
+    content: public JointTarget Duplicate()
+    return:
+      type: RobotComponents.Actions.JointTarget
+      description: Returns a deep copy of the Joint Target object.
+    content.vb: Public Function Duplicate As JointTarget
+  overload: RobotComponents.Actions.JointTarget.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.DuplicateTarget
+  commentId: M:RobotComponents.Actions.JointTarget.DuplicateTarget
+  id: DuplicateTarget
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: DuplicateTarget()
+  nameWithType: JointTarget.DuplicateTarget()
+  fullName: RobotComponents.Actions.JointTarget.DuplicateTarget()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA method to duplicate the Joint Target object to an ITarget object. \n"
+  syntax:
+    content: public ITarget DuplicateTarget()
+    return:
+      type: RobotComponents.Actions.ITarget
+      description: 'Returns a deep copy of the Joint Target object as an ITarget object. '
+    content.vb: Public Function DuplicateTarget As ITarget
+  overload: RobotComponents.Actions.JointTarget.DuplicateTarget*
+  implements:
+  - RobotComponents.Actions.ITarget.DuplicateTarget
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.DuplicateAction
+  commentId: M:RobotComponents.Actions.JointTarget.DuplicateAction
+  id: DuplicateAction
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: DuplicateAction()
+  nameWithType: JointTarget.DuplicateAction()
+  fullName: RobotComponents.Actions.JointTarget.DuplicateAction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA method to duplicate the Joint Target object to an Action object. \n"
+  syntax:
+    content: public override Action DuplicateAction()
+    return:
+      type: RobotComponents.Actions.Action
+      description: 'Returns a deep copy of the Joint Target object as an Action object. '
+    content.vb: Public Overrides Function DuplicateAction As Action
+  overridden: RobotComponents.Actions.Action.DuplicateAction
+  overload: RobotComponents.Actions.JointTarget.DuplicateAction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.ToString
+  commentId: M:RobotComponents.Actions.JointTarget.ToString
+  id: ToString
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: JointTarget.ToString()
+  fullName: RobotComponents.Actions.JointTarget.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: RobotComponents.Actions.Action.ToString
+  overload: RobotComponents.Actions.JointTarget.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.CheckForAxisLimits(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.JointTarget.CheckForAxisLimits(RobotComponents.Definitions.Robot)
+  id: CheckForAxisLimits(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: CheckForAxisLimits(Robot)
+  nameWithType: JointTarget.CheckForAxisLimits(Robot)
+  fullName: RobotComponents.Actions.JointTarget.CheckForAxisLimits(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCheks for the axis limits and returns a list with possible errors messages. \n"
+  syntax:
+    content: public List<string> CheckForAxisLimits(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info to check the axis values for. '
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: 'Returns a list with error messages. '
+    content.vb: Public Function CheckForAxisLimits(robot As Robot) As List(Of String)
+  overload: RobotComponents.Actions.JointTarget.CheckForAxisLimits*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: JointTarget.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definition code of this action. \n"
+  syntax:
+    content: public override string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: JointTarget.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instruction code line. \n"
+  syntax:
+    content: public override string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.JointTarget.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: JointTarget.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: JointTarget.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.JointTarget.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.JointTarget.IsValid
+  commentId: P:RobotComponents.Actions.JointTarget.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: JointTarget.IsValid
+  fullName: RobotComponents.Actions.JointTarget.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines if the Joint Target object is valid. \n"
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: RobotComponents.Actions.Action.IsValid
+  overload: RobotComponents.Actions.JointTarget.IsValid*
+  implements:
+  - RobotComponents.Actions.ITarget.IsValid
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: RobotComponents.Actions.JointTarget.Name
+  commentId: P:RobotComponents.Actions.JointTarget.Name
+  id: Name
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: JointTarget.Name
+  fullName: RobotComponents.Actions.JointTarget.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines the joint target variable name\n"
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.Actions.JointTarget.Name*
+  implements:
+  - RobotComponents.Actions.ITarget.Name
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.RobotJointPosition
+  commentId: P:RobotComponents.Actions.JointTarget.RobotJointPosition
+  id: RobotJointPosition
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: RobotJointPosition
+  nameWithType: JointTarget.RobotJointPosition
+  fullName: RobotComponents.Actions.JointTarget.RobotJointPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines the Robot Joint Position\n"
+  syntax:
+    content: public RobotJointPosition RobotJointPosition { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.RobotJointPosition
+    content.vb: Public Property RobotJointPosition As RobotJointPosition
+  overload: RobotComponents.Actions.JointTarget.RobotJointPosition*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.ExternalJointPosition
+  commentId: P:RobotComponents.Actions.JointTarget.ExternalJointPosition
+  id: ExternalJointPosition
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition
+  nameWithType: JointTarget.ExternalJointPosition
+  fullName: RobotComponents.Actions.JointTarget.ExternalJointPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines the External Joint Position\n"
+  syntax:
+    content: public ExternalJointPosition ExternalJointPosition { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.ExternalJointPosition
+    content.vb: Public Property ExternalJointPosition As ExternalJointPosition
+  overload: RobotComponents.Actions.JointTarget.ExternalJointPosition*
+  implements:
+  - RobotComponents.Actions.ITarget.ExternalJointPosition
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RobotComponents.Actions.Action
+  commentId: T:RobotComponents.Actions.Action
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.ITarget
+  commentId: T:RobotComponents.Actions.ITarget
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ITarget
+  nameWithType: ITarget
+  fullName: RobotComponents.Actions.ITarget
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.JointTarget.#ctor*
+  commentId: Overload:RobotComponents.Actions.JointTarget.#ctor
+  isExternal: true
+  name: JointTarget
+  nameWithType: JointTarget.JointTarget
+  fullName: RobotComponents.Actions.JointTarget.JointTarget
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: RobotComponents.Actions.RobotJointPosition
+  commentId: T:RobotComponents.Actions.RobotJointPosition
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RobotJointPosition
+  nameWithType: RobotJointPosition
+  fullName: RobotComponents.Actions.RobotJointPosition
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Double>
+  nameWithType: List<Double>
+  fullName: System.Collections.Generic.List<System.Double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of System.Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: RobotComponents.Actions.ExternalJointPosition
+  commentId: T:RobotComponents.Actions.ExternalJointPosition
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ExternalJointPosition
+  nameWithType: ExternalJointPosition
+  fullName: RobotComponents.Actions.ExternalJointPosition
+- uid: RobotComponents.Actions.JointTarget
+  commentId: T:RobotComponents.Actions.JointTarget
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.Actions.JointTarget
+- uid: RobotComponents.Actions.JointTarget.Duplicate*
+  commentId: Overload:RobotComponents.Actions.JointTarget.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: JointTarget.Duplicate
+  fullName: RobotComponents.Actions.JointTarget.Duplicate
+- uid: RobotComponents.Actions.JointTarget.DuplicateTarget*
+  commentId: Overload:RobotComponents.Actions.JointTarget.DuplicateTarget
+  isExternal: true
+  name: DuplicateTarget
+  nameWithType: JointTarget.DuplicateTarget
+  fullName: RobotComponents.Actions.JointTarget.DuplicateTarget
+- uid: RobotComponents.Actions.ITarget.DuplicateTarget
+  commentId: M:RobotComponents.Actions.ITarget.DuplicateTarget
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: DuplicateTarget()
+  nameWithType: ITarget.DuplicateTarget()
+  fullName: RobotComponents.Actions.ITarget.DuplicateTarget()
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.DuplicateTarget
+    name: DuplicateTarget
+    nameWithType: ITarget.DuplicateTarget
+    fullName: RobotComponents.Actions.ITarget.DuplicateTarget
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.DuplicateTarget
+    name: DuplicateTarget
+    nameWithType: ITarget.DuplicateTarget
+    fullName: RobotComponents.Actions.ITarget.DuplicateTarget
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.DuplicateAction
+  commentId: M:RobotComponents.Actions.Action.DuplicateAction
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: DuplicateAction()
+  nameWithType: Action.DuplicateAction()
+  fullName: RobotComponents.Actions.Action.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget.DuplicateAction*
+  commentId: Overload:RobotComponents.Actions.JointTarget.DuplicateAction
+  isExternal: true
+  name: DuplicateAction
+  nameWithType: JointTarget.DuplicateAction
+  fullName: RobotComponents.Actions.JointTarget.DuplicateAction
+- uid: RobotComponents.Actions.Action.ToString
+  commentId: M:RobotComponents.Actions.Action.ToString
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToString()
+  nameWithType: Action.ToString()
+  fullName: RobotComponents.Actions.Action.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget.ToString*
+  commentId: Overload:RobotComponents.Actions.JointTarget.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: JointTarget.ToString
+  fullName: RobotComponents.Actions.JointTarget.ToString
+- uid: RobotComponents.Actions.JointTarget.CheckForAxisLimits*
+  commentId: Overload:RobotComponents.Actions.JointTarget.CheckForAxisLimits
+  isExternal: true
+  name: CheckForAxisLimits
+  nameWithType: JointTarget.CheckForAxisLimits
+  fullName: RobotComponents.Actions.JointTarget.CheckForAxisLimits
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Action.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: JointTarget.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Action.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.JointTarget.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: JointTarget.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.JointTarget.ToRAPIDInstruction
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.IsValid
+  commentId: P:RobotComponents.Actions.Action.IsValid
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: IsValid
+  nameWithType: Action.IsValid
+  fullName: RobotComponents.Actions.Action.IsValid
+- uid: RobotComponents.Actions.JointTarget.IsValid*
+  commentId: Overload:RobotComponents.Actions.JointTarget.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: JointTarget.IsValid
+  fullName: RobotComponents.Actions.JointTarget.IsValid
+- uid: RobotComponents.Actions.ITarget.IsValid
+  commentId: P:RobotComponents.Actions.ITarget.IsValid
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: IsValid
+  nameWithType: ITarget.IsValid
+  fullName: RobotComponents.Actions.ITarget.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.JointTarget.Name*
+  commentId: Overload:RobotComponents.Actions.JointTarget.Name
+  isExternal: true
+  name: Name
+  nameWithType: JointTarget.Name
+  fullName: RobotComponents.Actions.JointTarget.Name
+- uid: RobotComponents.Actions.ITarget.Name
+  commentId: P:RobotComponents.Actions.ITarget.Name
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: Name
+  nameWithType: ITarget.Name
+  fullName: RobotComponents.Actions.ITarget.Name
+- uid: RobotComponents.Actions.JointTarget.RobotJointPosition*
+  commentId: Overload:RobotComponents.Actions.JointTarget.RobotJointPosition
+  isExternal: true
+  name: RobotJointPosition
+  nameWithType: JointTarget.RobotJointPosition
+  fullName: RobotComponents.Actions.JointTarget.RobotJointPosition
+- uid: RobotComponents.Actions.JointTarget.ExternalJointPosition*
+  commentId: Overload:RobotComponents.Actions.JointTarget.ExternalJointPosition
+  isExternal: true
+  name: ExternalJointPosition
+  nameWithType: JointTarget.ExternalJointPosition
+  fullName: RobotComponents.Actions.JointTarget.ExternalJointPosition
+- uid: RobotComponents.Actions.ITarget.ExternalJointPosition
+  commentId: P:RobotComponents.Actions.ITarget.ExternalJointPosition
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ExternalJointPosition
+  nameWithType: ITarget.ExternalJointPosition
+  fullName: RobotComponents.Actions.ITarget.ExternalJointPosition

@@ -1,0 +1,1834 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.Movement
+  commentId: T:RobotComponents.Actions.Movement
+  id: Movement
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.Movement.#ctor
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.ITarget)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.Movement,System.Boolean)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Actions.DigitalOutput)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Actions.DigitalOutput)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject,RobotComponents.Actions.DigitalOutput)
+  - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.WorkObject)
+  - RobotComponents.Actions.Movement.DigitalOutput
+  - RobotComponents.Actions.Movement.Duplicate
+  - RobotComponents.Actions.Movement.DuplicateAction
+  - RobotComponents.Actions.Movement.DuplicateWithoutMesh
+  - RobotComponents.Actions.Movement.GetGlobalTargetPlane
+  - RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+  - RobotComponents.Actions.Movement.IsValid
+  - RobotComponents.Actions.Movement.MovementType
+  - RobotComponents.Actions.Movement.RobotTool
+  - RobotComponents.Actions.Movement.SpeedData
+  - RobotComponents.Actions.Movement.SyncID
+  - RobotComponents.Actions.Movement.Target
+  - RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.Movement.ToString
+  - RobotComponents.Actions.Movement.WorkObject
+  - RobotComponents.Actions.Movement.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: Movement
+  nameWithType: Movement
+  fullName: RobotComponents.Actions.Movement
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nMovement class\n"
+  syntax:
+    content: 'public class Movement : Action'
+    content.vb: >-
+      Public Class Movement
+          Inherits Action
+  inheritance:
+  - System.Object
+  - RobotComponents.Actions.Action
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Actions.Movement.#ctor
+  commentId: M:RobotComponents.Actions.Movement.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement()
+  nameWithType: Movement.Movement()
+  fullName: RobotComponents.Actions.Movement.Movement()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nAn empty movement constructor.\n"
+  syntax:
+    content: public Movement()
+    content.vb: Public Sub New
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.ITarget)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.ITarget)
+  id: '#ctor(RobotComponents.Actions.ITarget)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(ITarget)
+  nameWithType: Movement.Movement(ITarget)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Actions.ITarget)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs robot movement with as only argument a robot target. \nThis constructor is typically used to cast a robot target to a robot movement. \n"
+  syntax:
+    content: public Movement(ITarget target)
+    parameters:
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    content.vb: Public Sub New(target As ITarget)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and an empty digital output. \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and an empty digital output. \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Definitions.RobotTool)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty digital output, a default work object (wobj0) and a empty robot tool (no override).\n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovemenType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: robotTool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The Robot Tool. This will override the set default tool. '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.WorkObject)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.WorkObject)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.WorkObject)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, WorkObject)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, WorkObject)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Definitions.WorkObject)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty digital output, an empty robot tool (no override) and a user definied work object. \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, WorkObject workObject)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: workObject
+      type: RobotComponents.Definitions.WorkObject
+      description: 'The Work Object as a Work Object '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, workObject As WorkObject)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Actions.DigitalOutput)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Actions.DigitalOutput)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Actions.DigitalOutput)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Actions.DigitalOutput)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and user definied digital output. \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: digitalOutput
+      type: RobotComponents.Actions.DigitalOutput
+      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, digitalOutput As DigitalOutput)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Definitions.RobotTool, RobotComponents.Definitions.WorkObject)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with an empty digital output.\n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: robotTool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The Robot Tool. This will override the set default tool. '
+    - id: workObject
+      type: RobotComponents.Definitions.WorkObject
+      description: 'The Work Object as a Work Object '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Actions.DigitalOutput)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Actions.DigitalOutput)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Actions.DigitalOutput)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Definitions.RobotTool, RobotComponents.Actions.DigitalOutput)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement with a default work object (wobj0). \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: robotTool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The Robot Tool. This will override the set default tool. '
+    - id: digitalOutput
+      type: RobotComponents.Actions.DigitalOutput
+      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, digitalOutput As DigitalOutput)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject,RobotComponents.Actions.DigitalOutput)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject,RobotComponents.Actions.DigitalOutput)
+  id: '#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject,RobotComponents.Actions.DigitalOutput)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Enumerations.MovementType, RobotComponents.Actions.ITarget, RobotComponents.Actions.SpeedData, RobotComponents.Actions.ZoneData, RobotComponents.Definitions.RobotTool, RobotComponents.Definitions.WorkObject, RobotComponents.Actions.DigitalOutput)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructs a robot movement. \n"
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.Enumerations.MovementType
+      description: 'The movement type as a MovementType. '
+    - id: target
+      type: RobotComponents.Actions.ITarget
+      description: 'The target as a Target. '
+    - id: speedData
+      type: RobotComponents.Actions.SpeedData
+      description: 'The SpeedData as a SpeedData '
+    - id: zoneData
+      type: RobotComponents.Actions.ZoneData
+      description: 'The ZoneData as a ZoneData '
+    - id: robotTool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The Robot Tool. This will override the set default tool. '
+    - id: workObject
+      type: RobotComponents.Definitions.WorkObject
+      description: 'The Work Object as a Work Object '
+    - id: digitalOutput
+      type: RobotComponents.Actions.DigitalOutput
+      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject, digitalOutput As DigitalOutput)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.Movement,System.Boolean)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.Movement,System.Boolean)
+  id: '#ctor(RobotComponents.Actions.Movement,System.Boolean)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(Movement, Boolean)
+  nameWithType: Movement.Movement(Movement, Boolean)
+  fullName: RobotComponents.Actions.Movement.Movement(RobotComponents.Actions.Movement, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates a new movement by duplicating an existing movement. \nThis creates a deep copy of the existing movement. \n"
+  syntax:
+    content: public Movement(Movement movement, bool duplicateMesh = true)
+    parameters:
+    - id: movement
+      type: RobotComponents.Actions.Movement
+      description: 'The movement that should be duplicated. '
+    - id: duplicateMesh
+      type: System.Boolean
+      description: 'A boolean that indicates if the mesh should be duplicated. '
+    content.vb: Public Sub New(movement As Movement, duplicateMesh As Boolean = True)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.Duplicate
+  commentId: M:RobotComponents.Actions.Movement.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: Movement.Duplicate()
+  fullName: RobotComponents.Actions.Movement.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDuplicates a robot movement.\n"
+  syntax:
+    content: public Movement Duplicate()
+    return:
+      type: RobotComponents.Actions.Movement
+      description: 'Returns a deep copy of the Movement object. '
+    content.vb: Public Function Duplicate As Movement
+  overload: RobotComponents.Actions.Movement.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.DuplicateWithoutMesh
+  commentId: M:RobotComponents.Actions.Movement.DuplicateWithoutMesh
+  id: DuplicateWithoutMesh
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: DuplicateWithoutMesh()
+  nameWithType: Movement.DuplicateWithoutMesh()
+  fullName: RobotComponents.Actions.Movement.DuplicateWithoutMesh()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDuplicates a robot movement without meshes that are part of the properties.\nSuch as the robot tool meshes and the meshes of the external axis that can be attached to the work object. \n"
+  syntax:
+    content: public Movement DuplicateWithoutMesh()
+    return:
+      type: RobotComponents.Actions.Movement
+      description: 'Returns a deep copy of the Movement object. '
+    content.vb: Public Function DuplicateWithoutMesh As Movement
+  overload: RobotComponents.Actions.Movement.DuplicateWithoutMesh*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.DuplicateAction
+  commentId: M:RobotComponents.Actions.Movement.DuplicateAction
+  id: DuplicateAction
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: DuplicateAction()
+  nameWithType: Movement.DuplicateAction()
+  fullName: RobotComponents.Actions.Movement.DuplicateAction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA method to duplicate the Movement object to an Action object. \n"
+  syntax:
+    content: public override Action DuplicateAction()
+    return:
+      type: RobotComponents.Actions.Action
+      description: 'Returns a deep copy of the Movement object as an Action object. '
+    content.vb: Public Overrides Function DuplicateAction As Action
+  overridden: RobotComponents.Actions.Action.DuplicateAction
+  overload: RobotComponents.Actions.Movement.DuplicateAction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.ToString
+  commentId: M:RobotComponents.Actions.Movement.ToString
+  id: ToString
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Movement.ToString()
+  fullName: RobotComponents.Actions.Movement.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: RobotComponents.Actions.Action.ToString
+  overload: RobotComponents.Actions.Movement.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.GetGlobalTargetPlane
+  commentId: M:RobotComponents.Actions.Movement.GetGlobalTargetPlane
+  id: GetGlobalTargetPlane
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: GetGlobalTargetPlane()
+  nameWithType: Movement.GetGlobalTargetPlane()
+  fullName: RobotComponents.Actions.Movement.GetGlobalTargetPlane()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCalculates the position and the orientation of the target in the world coordinate system. \nIf an external axis is attached to the work object this returns the pose of the \ntarget plane in the world coorinate space for axis values equal to zero.\n"
+  syntax:
+    content: public Plane GetGlobalTargetPlane()
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The the target plane in the world coordinate system. '
+    content.vb: Public Function GetGlobalTargetPlane As Plane
+  overload: RobotComponents.Actions.Movement.GetGlobalTargetPlane*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+  commentId: M:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+  id: GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: GetPosedGlobalTargetPlane(Robot, out Int32)
+  nameWithType: Movement.GetPosedGlobalTargetPlane(Robot, out Int32)
+  fullName: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot, out System.Int32)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCalculates the posed target plane for the defined Robot with attached external axes in world coorindate space.\n"
+  syntax:
+    content: public Plane GetPosedGlobalTargetPlane(Robot robot, out int logic)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info with the external axes that defined the axis logic. '
+    - id: logic
+      type: System.Int32
+      description: 'Retuns the axis logic number as an int. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The posed target plane in the word coordinate system. '
+    content.vb: Public Function GetPosedGlobalTargetPlane(robot As Robot, ByRef logic As Integer) As Plane
+  overload: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane*
+  nameWithType.vb: Movement.GetPosedGlobalTargetPlane(Robot, ByRef Int32)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot, ByRef System.Int32)
+  name.vb: GetPosedGlobalTargetPlane(Robot, ByRef Int32)
+- uid: RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Movement.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definition code of this action. \n"
+  syntax:
+    content: public override string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Movement.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instruction code line. \n"
+  syntax:
+    content: public override string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.Movement.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Movement.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Movement.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.Movement.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.Movement.IsValid
+  commentId: P:RobotComponents.Actions.Movement.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: Movement.IsValid
+  fullName: RobotComponents.Actions.Movement.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA boolean that indicates if the Movement object is valid.\n"
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: RobotComponents.Actions.Action.IsValid
+  overload: RobotComponents.Actions.Movement.IsValid*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: RobotComponents.Actions.Movement.MovementType
+  commentId: P:RobotComponents.Actions.Movement.MovementType
+  id: MovementType
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: MovementType
+  nameWithType: Movement.MovementType
+  fullName: RobotComponents.Actions.Movement.MovementType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe movement type.\n"
+  syntax:
+    content: public MovementType MovementType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.MovementType
+    content.vb: Public Property MovementType As MovementType
+  overload: RobotComponents.Actions.Movement.MovementType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.Target
+  commentId: P:RobotComponents.Actions.Movement.Target
+  id: Target
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: Movement.Target
+  fullName: RobotComponents.Actions.Movement.Target
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines the destination target of the robot and external axes for this movement.\n"
+  syntax:
+    content: public ITarget Target { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.ITarget
+    content.vb: Public Property Target As ITarget
+  overload: RobotComponents.Actions.Movement.Target*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.SyncID
+  commentId: P:RobotComponents.Actions.Movement.SyncID
+  id: SyncID
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: SyncID
+  nameWithType: Movement.SyncID
+  fullName: RobotComponents.Actions.Movement.SyncID
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe Synchronization id for multi move programming. \nThis ID number must be defined for coordinated synchronized movements in multi move systems. \nSet this property to -1 to define normal movements (not coordinated / not synchronized).\n"
+  syntax:
+    content: public int SyncID { get; set; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Property SyncID As Integer
+  overload: RobotComponents.Actions.Movement.SyncID*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.SpeedData
+  commentId: P:RobotComponents.Actions.Movement.SpeedData
+  id: SpeedData
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: SpeedData
+  nameWithType: Movement.SpeedData
+  fullName: RobotComponents.Actions.Movement.SpeedData
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe speed data that applies to movements. Speed data defines the velocity \nfor the tool center point, the tool reorientation, and external axes.\n"
+  syntax:
+    content: public SpeedData SpeedData { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.SpeedData
+    content.vb: Public Property SpeedData As SpeedData
+  overload: RobotComponents.Actions.Movement.SpeedData*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.ZoneData
+  commentId: P:RobotComponents.Actions.Movement.ZoneData
+  id: ZoneData
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: ZoneData
+  nameWithType: Movement.ZoneData
+  fullName: RobotComponents.Actions.Movement.ZoneData
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe zone data that applies to movements.\nIt defines the size of the generated corner path.\n"
+  syntax:
+    content: public ZoneData ZoneData { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.ZoneData
+    content.vb: Public Property ZoneData As ZoneData
+  overload: RobotComponents.Actions.Movement.ZoneData*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.RobotTool
+  commentId: P:RobotComponents.Actions.Movement.RobotTool
+  id: RobotTool
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: RobotTool
+  nameWithType: Movement.RobotTool
+  fullName: RobotComponents.Actions.Movement.RobotTool
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe tool in use when the robot moves. \n"
+  syntax:
+    content: public RobotTool RobotTool { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Definitions.RobotTool
+    content.vb: Public Property RobotTool As RobotTool
+  overload: RobotComponents.Actions.Movement.RobotTool*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.WorkObject
+  commentId: P:RobotComponents.Actions.Movement.WorkObject
+  id: WorkObject
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: WorkObject
+  nameWithType: Movement.WorkObject
+  fullName: RobotComponents.Actions.Movement.WorkObject
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe work object (coordinate system) to which the robot position in the instruction is related.\n"
+  syntax:
+    content: public WorkObject WorkObject { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Definitions.WorkObject
+    content.vb: Public Property WorkObject As WorkObject
+  overload: RobotComponents.Actions.Movement.WorkObject*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.DigitalOutput
+  commentId: P:RobotComponents.Actions.Movement.DigitalOutput
+  id: DigitalOutput
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: DigitalOutput
+  nameWithType: Movement.DigitalOutput
+  fullName: RobotComponents.Actions.Movement.DigitalOutput
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe digital output. If an empty digital output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). \nIf a valid digital output is combined movement will be created (MoveLDO or MoveJDO). \nIn case an absolute joint movement is set an extra code line will be added that sets the digital output (SetDO).\n"
+  syntax:
+    content: public DigitalOutput DigitalOutput { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.DigitalOutput
+    content.vb: Public Property DigitalOutput As DigitalOutput
+  overload: RobotComponents.Actions.Movement.DigitalOutput*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RobotComponents.Actions.Action
+  commentId: T:RobotComponents.Actions.Action
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: RobotComponents.Actions.Action
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.Movement.#ctor*
+  commentId: Overload:RobotComponents.Actions.Movement.#ctor
+  isExternal: true
+  name: Movement
+  nameWithType: Movement.Movement
+  fullName: RobotComponents.Actions.Movement.Movement
+- uid: RobotComponents.Actions.ITarget
+  commentId: T:RobotComponents.Actions.ITarget
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ITarget
+  nameWithType: ITarget
+  fullName: RobotComponents.Actions.ITarget
+- uid: RobotComponents.Enumerations.MovementType
+  commentId: T:RobotComponents.Enumerations.MovementType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: MovementType
+  nameWithType: MovementType
+  fullName: RobotComponents.Enumerations.MovementType
+- uid: RobotComponents.Actions.SpeedData
+  commentId: T:RobotComponents.Actions.SpeedData
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: SpeedData
+  nameWithType: SpeedData
+  fullName: RobotComponents.Actions.SpeedData
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
+- uid: RobotComponents.Actions.ZoneData
+  commentId: T:RobotComponents.Actions.ZoneData
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ZoneData
+  nameWithType: ZoneData
+  fullName: RobotComponents.Actions.ZoneData
+- uid: RobotComponents.Definitions.RobotTool
+  commentId: T:RobotComponents.Definitions.RobotTool
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: RobotTool
+  nameWithType: RobotTool
+  fullName: RobotComponents.Definitions.RobotTool
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Definitions.WorkObject
+  commentId: T:RobotComponents.Definitions.WorkObject
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: WorkObject
+  nameWithType: WorkObject
+  fullName: RobotComponents.Definitions.WorkObject
+- uid: RobotComponents.Actions.DigitalOutput
+  commentId: T:RobotComponents.Actions.DigitalOutput
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: DigitalOutput
+  nameWithType: DigitalOutput
+  fullName: RobotComponents.Actions.DigitalOutput
+- uid: RobotComponents.Actions.Movement
+  commentId: T:RobotComponents.Actions.Movement
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Movement
+  nameWithType: Movement
+  fullName: RobotComponents.Actions.Movement
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.Movement.Duplicate*
+  commentId: Overload:RobotComponents.Actions.Movement.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: Movement.Duplicate
+  fullName: RobotComponents.Actions.Movement.Duplicate
+- uid: RobotComponents.Actions.Movement.DuplicateWithoutMesh*
+  commentId: Overload:RobotComponents.Actions.Movement.DuplicateWithoutMesh
+  isExternal: true
+  name: DuplicateWithoutMesh
+  nameWithType: Movement.DuplicateWithoutMesh
+  fullName: RobotComponents.Actions.Movement.DuplicateWithoutMesh
+- uid: RobotComponents.Actions.Action.DuplicateAction
+  commentId: M:RobotComponents.Actions.Action.DuplicateAction
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: DuplicateAction()
+  nameWithType: Action.DuplicateAction()
+  fullName: RobotComponents.Actions.Action.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Movement.DuplicateAction*
+  commentId: Overload:RobotComponents.Actions.Movement.DuplicateAction
+  isExternal: true
+  name: DuplicateAction
+  nameWithType: Movement.DuplicateAction
+  fullName: RobotComponents.Actions.Movement.DuplicateAction
+- uid: RobotComponents.Actions.Action.ToString
+  commentId: M:RobotComponents.Actions.Action.ToString
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToString()
+  nameWithType: Action.ToString()
+  fullName: RobotComponents.Actions.Action.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Movement.ToString*
+  commentId: Overload:RobotComponents.Actions.Movement.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: Movement.ToString
+  fullName: RobotComponents.Actions.Movement.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: RobotComponents.Actions.Movement.GetGlobalTargetPlane*
+  commentId: Overload:RobotComponents.Actions.Movement.GetGlobalTargetPlane
+  isExternal: true
+  name: GetGlobalTargetPlane
+  nameWithType: Movement.GetGlobalTargetPlane
+  fullName: RobotComponents.Actions.Movement.GetGlobalTargetPlane
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
+- uid: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane*
+  commentId: Overload:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
+  isExternal: true
+  name: GetPosedGlobalTargetPlane
+  nameWithType: Movement.GetPosedGlobalTargetPlane
+  fullName: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Action.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.Movement.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: Movement.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.Movement.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Action.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Movement.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.Movement.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: Movement.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.Movement.ToRAPIDInstruction
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.IsValid
+  commentId: P:RobotComponents.Actions.Action.IsValid
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: IsValid
+  nameWithType: Action.IsValid
+  fullName: RobotComponents.Actions.Action.IsValid
+- uid: RobotComponents.Actions.Movement.IsValid*
+  commentId: Overload:RobotComponents.Actions.Movement.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: Movement.IsValid
+  fullName: RobotComponents.Actions.Movement.IsValid
+- uid: RobotComponents.Actions.Movement.MovementType*
+  commentId: Overload:RobotComponents.Actions.Movement.MovementType
+  isExternal: true
+  name: MovementType
+  nameWithType: Movement.MovementType
+  fullName: RobotComponents.Actions.Movement.MovementType
+- uid: RobotComponents.Actions.Movement.Target*
+  commentId: Overload:RobotComponents.Actions.Movement.Target
+  isExternal: true
+  name: Target
+  nameWithType: Movement.Target
+  fullName: RobotComponents.Actions.Movement.Target
+- uid: RobotComponents.Actions.Movement.SyncID*
+  commentId: Overload:RobotComponents.Actions.Movement.SyncID
+  isExternal: true
+  name: SyncID
+  nameWithType: Movement.SyncID
+  fullName: RobotComponents.Actions.Movement.SyncID
+- uid: RobotComponents.Actions.Movement.SpeedData*
+  commentId: Overload:RobotComponents.Actions.Movement.SpeedData
+  isExternal: true
+  name: SpeedData
+  nameWithType: Movement.SpeedData
+  fullName: RobotComponents.Actions.Movement.SpeedData
+- uid: RobotComponents.Actions.Movement.ZoneData*
+  commentId: Overload:RobotComponents.Actions.Movement.ZoneData
+  isExternal: true
+  name: ZoneData
+  nameWithType: Movement.ZoneData
+  fullName: RobotComponents.Actions.Movement.ZoneData
+- uid: RobotComponents.Actions.Movement.RobotTool*
+  commentId: Overload:RobotComponents.Actions.Movement.RobotTool
+  isExternal: true
+  name: RobotTool
+  nameWithType: Movement.RobotTool
+  fullName: RobotComponents.Actions.Movement.RobotTool
+- uid: RobotComponents.Actions.Movement.WorkObject*
+  commentId: Overload:RobotComponents.Actions.Movement.WorkObject
+  isExternal: true
+  name: WorkObject
+  nameWithType: Movement.WorkObject
+  fullName: RobotComponents.Actions.Movement.WorkObject
+- uid: RobotComponents.Actions.Movement.DigitalOutput*
+  commentId: Overload:RobotComponents.Actions.Movement.DigitalOutput
+  isExternal: true
+  name: DigitalOutput
+  nameWithType: Movement.DigitalOutput
+  fullName: RobotComponents.Actions.Movement.DigitalOutput

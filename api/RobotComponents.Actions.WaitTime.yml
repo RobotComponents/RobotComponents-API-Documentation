@@ -1,0 +1,1040 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.WaitTime
+  commentId: T:RobotComponents.Actions.WaitTime
+  id: WaitTime
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.WaitTime.#ctor
+  - RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)
+  - RobotComponents.Actions.WaitTime.#ctor(System.Double)
+  - RobotComponents.Actions.WaitTime.Duplicate
+  - RobotComponents.Actions.WaitTime.DuplicateAction
+  - RobotComponents.Actions.WaitTime.Duration
+  - RobotComponents.Actions.WaitTime.IsValid
+  - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.WaitTime.ToString
+  langs:
+  - csharp
+  - vb
+  name: WaitTime
+  nameWithType: WaitTime
+  fullName: RobotComponents.Actions.WaitTime
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nWaitTime class, defines waiting time between two actions. This command is used to wait a given amount of time.\n"
+  syntax:
+    content: 'public class WaitTime : Action'
+    content.vb: >-
+      Public Class WaitTime
+          Inherits Action
+  inheritance:
+  - System.Object
+  - RobotComponents.Actions.Action
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Actions.WaitTime.#ctor
+  commentId: M:RobotComponents.Actions.WaitTime.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: WaitTime()
+  nameWithType: WaitTime.WaitTime()
+  fullName: RobotComponents.Actions.WaitTime.WaitTime()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nDefines an empty WaitTime object. \n"
+  syntax:
+    content: public WaitTime()
+    content.vb: Public Sub New
+  overload: RobotComponents.Actions.WaitTime.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitTime.#ctor(System.Double)
+  commentId: M:RobotComponents.Actions.WaitTime.#ctor(System.Double)
+  id: '#ctor(System.Double)'
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: WaitTime(Double)
+  nameWithType: WaitTime.WaitTime(Double)
+  fullName: RobotComponents.Actions.WaitTime.WaitTime(System.Double)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nConstructor to create a WaitTime object. \n"
+  syntax:
+    content: public WaitTime(double Duration)
+    parameters:
+    - id: Duration
+      type: System.Double
+      description: 'The time, expressed in seconds, that program execution is to wait. '
+    content.vb: Public Sub New(Duration As Double)
+  overload: RobotComponents.Actions.WaitTime.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)
+  commentId: M:RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)
+  id: '#ctor(RobotComponents.Actions.WaitTime)'
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: WaitTime(WaitTime)
+  nameWithType: WaitTime.WaitTime(WaitTime)
+  fullName: RobotComponents.Actions.WaitTime.WaitTime(RobotComponents.Actions.WaitTime)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates a new WaitTime object by duplicating an existing WaitTime object. \nThis creates a deep copy of the existing WaitTime object. \n"
+  syntax:
+    content: public WaitTime(WaitTime waitTime)
+    parameters:
+    - id: waitTime
+      type: RobotComponents.Actions.WaitTime
+      description: 'The WaitTime that should be duplicated. '
+    content.vb: Public Sub New(waitTime As WaitTime)
+  overload: RobotComponents.Actions.WaitTime.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitTime.Duplicate
+  commentId: M:RobotComponents.Actions.WaitTime.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: WaitTime.Duplicate()
+  fullName: RobotComponents.Actions.WaitTime.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nMethod to duplicate the WaitTime object.\n"
+  syntax:
+    content: public WaitTime Duplicate()
+    return:
+      type: RobotComponents.Actions.WaitTime
+      description: Returns a deep copy of the WaitTime object.
+    content.vb: Public Function Duplicate As WaitTime
+  overload: RobotComponents.Actions.WaitTime.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitTime.DuplicateAction
+  commentId: M:RobotComponents.Actions.WaitTime.DuplicateAction
+  id: DuplicateAction
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: DuplicateAction()
+  nameWithType: WaitTime.DuplicateAction()
+  fullName: RobotComponents.Actions.WaitTime.DuplicateAction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA method to duplicate the WaitTime object to an Action object. \n"
+  syntax:
+    content: public override Action DuplicateAction()
+    return:
+      type: RobotComponents.Actions.Action
+      description: 'Returns a deep copy of the WaitTime object as an Action object. '
+    content.vb: Public Overrides Function DuplicateAction As Action
+  overridden: RobotComponents.Actions.Action.DuplicateAction
+  overload: RobotComponents.Actions.WaitTime.DuplicateAction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.ToString
+  commentId: M:RobotComponents.Actions.WaitTime.ToString
+  id: ToString
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: WaitTime.ToString()
+  fullName: RobotComponents.Actions.WaitTime.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: RobotComponents.Actions.Action.ToString
+  overload: RobotComponents.Actions.WaitTime.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: WaitTime.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definition code of this action. \n"
+  syntax:
+    content: public override string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: WaitTime.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instruction code line. \n"
+  syntax:
+    content: public override string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'Defines the Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'Returns the RAPID code line as a string. '
+    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.WaitTime.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: WaitTime.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: WaitTime.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  syntax:
+    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'Defines the RAPIDGenerator. '
+    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.WaitTime.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.WaitTime.IsValid
+  commentId: P:RobotComponents.Actions.WaitTime.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: WaitTime.IsValid
+  fullName: RobotComponents.Actions.WaitTime.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nA boolean that indicates if the WaitTime object is valid.\n"
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: RobotComponents.Actions.Action.IsValid
+  overload: RobotComponents.Actions.WaitTime.IsValid*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: RobotComponents.Actions.WaitTime.Duration
+  commentId: P:RobotComponents.Actions.WaitTime.Duration
+  id: Duration
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: Duration
+  nameWithType: WaitTime.Duration
+  fullName: RobotComponents.Actions.WaitTime.Duration
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nThe time, expressed in seconds, that program execution is to wait. Min. value 0 seconds. Max. value no limit. Resolution 0.001 seconds.\n"
+  syntax:
+    content: public double Duration { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Duration As Double
+  overload: RobotComponents.Actions.WaitTime.Duration*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RobotComponents.Actions.Action
+  commentId: T:RobotComponents.Actions.Action
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: RobotComponents.Actions.Action
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.WaitTime.#ctor*
+  commentId: Overload:RobotComponents.Actions.WaitTime.#ctor
+  isExternal: true
+  name: WaitTime
+  nameWithType: WaitTime.WaitTime
+  fullName: RobotComponents.Actions.WaitTime.WaitTime
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: RobotComponents.Actions.WaitTime
+  commentId: T:RobotComponents.Actions.WaitTime
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: WaitTime
+  nameWithType: WaitTime
+  fullName: RobotComponents.Actions.WaitTime
+- uid: RobotComponents.Actions.WaitTime.Duplicate*
+  commentId: Overload:RobotComponents.Actions.WaitTime.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: WaitTime.Duplicate
+  fullName: RobotComponents.Actions.WaitTime.Duplicate
+- uid: RobotComponents.Actions.Action.DuplicateAction
+  commentId: M:RobotComponents.Actions.Action.DuplicateAction
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: DuplicateAction()
+  nameWithType: Action.DuplicateAction()
+  fullName: RobotComponents.Actions.Action.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.WaitTime.DuplicateAction*
+  commentId: Overload:RobotComponents.Actions.WaitTime.DuplicateAction
+  isExternal: true
+  name: DuplicateAction
+  nameWithType: WaitTime.DuplicateAction
+  fullName: RobotComponents.Actions.WaitTime.DuplicateAction
+- uid: RobotComponents.Actions.Action.ToString
+  commentId: M:RobotComponents.Actions.Action.ToString
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToString()
+  nameWithType: Action.ToString()
+  fullName: RobotComponents.Actions.Action.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.WaitTime.ToString*
+  commentId: Overload:RobotComponents.Actions.WaitTime.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: WaitTime.ToString
+  fullName: RobotComponents.Actions.WaitTime.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Action.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.WaitTime.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: WaitTime.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Action.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.WaitTime.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.WaitTime.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: WaitTime.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.WaitTime.ToRAPIDInstruction
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.IsValid
+  commentId: P:RobotComponents.Actions.Action.IsValid
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: IsValid
+  nameWithType: Action.IsValid
+  fullName: RobotComponents.Actions.Action.IsValid
+- uid: RobotComponents.Actions.WaitTime.IsValid*
+  commentId: Overload:RobotComponents.Actions.WaitTime.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: WaitTime.IsValid
+  fullName: RobotComponents.Actions.WaitTime.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.WaitTime.Duration*
+  commentId: Overload:RobotComponents.Actions.WaitTime.Duration
+  isExternal: true
+  name: Duration
+  nameWithType: WaitTime.Duration
+  fullName: RobotComponents.Actions.WaitTime.Duration

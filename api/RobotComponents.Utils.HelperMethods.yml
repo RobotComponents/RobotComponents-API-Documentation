@@ -1,0 +1,982 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Utils.HelperMethods
+  commentId: T:RobotComponents.Utils.HelperMethods
+  id: HelperMethods
+  parent: RobotComponents.Utils
+  children:
+  - RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])
+  - RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)
+  - RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
+  - RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)
+  - RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)
+  - RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  - RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  langs:
+  - csharp
+  - vb
+  name: HelperMethods
+  nameWithType: HelperMethods
+  fullName: RobotComponents.Utils.HelperMethods
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nGeneral Helper methods\n"
+  syntax:
+    content: public static class HelperMethods
+    content.vb: Public Module HelperMethods
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.ToString
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)
+  commentId: M:RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)
+  id: ObjectToByteArray(System.Object)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: ObjectToByteArray(Object)
+  nameWithType: HelperMethods.ObjectToByteArray(Object)
+  fullName: RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nSerializes a common object to a byte array. \nTypically used for serializing robot meshes. \n"
+  syntax:
+    content: public static byte[] ObjectToByteArray(object obj)
+    parameters:
+    - id: obj
+      type: System.Object
+      description: 'The common object. '
+    return:
+      type: System.Byte[]
+      description: 'Returns the byte array. '
+    content.vb: Public Shared Function ObjectToByteArray(obj As Object) As Byte()
+  overload: RobotComponents.Utils.HelperMethods.ObjectToByteArray*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])
+  commentId: M:RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])
+  id: ByteArrayToObject(System.Byte[])
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: ByteArrayToObject(Byte[])
+  nameWithType: HelperMethods.ByteArrayToObject(Byte[])
+  fullName: RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nDeserializes a byte array to a common object. \nTypically used for deserializing robot meshes. \n"
+  syntax:
+    content: public static object ByteArrayToObject(byte[] data)
+    parameters:
+    - id: data
+      type: System.Byte[]
+      description: 'The byte array. '
+    return:
+      type: System.Object
+      description: 'Returns the common object. '
+    content.vb: Public Shared Function ByteArrayToObject(data As Byte()) As Object
+  overload: RobotComponents.Utils.HelperMethods.ByteArrayToObject*
+  nameWithType.vb: HelperMethods.ByteArrayToObject(Byte())
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte())
+  name.vb: ByteArrayToObject(Byte())
+- uid: RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)
+  id: FlipPlaneX(Rhino.Geometry.Plane)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: FlipPlaneX(Plane)
+  nameWithType: HelperMethods.FlipPlaneX(Plane)
+  fullName: RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nFlips the plane to the oposite direction by setting it&apos;s x-axis negative.\n"
+  syntax:
+    content: public static Plane FlipPlaneX(Plane plane)
+    parameters:
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The plane that needs to be flipped. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'Returns the flipped plane. '
+    content.vb: Public Shared Function FlipPlaneX(plane As Plane) As Plane
+  overload: RobotComponents.Utils.HelperMethods.FlipPlaneX*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
+  id: FlipPlaneY(Rhino.Geometry.Plane)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: FlipPlaneY(Plane)
+  nameWithType: HelperMethods.FlipPlaneY(Plane)
+  fullName: RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nFlips the plane to the oposite direction by setting it&apos;s y-axis negative.\n"
+  syntax:
+    content: public static Plane FlipPlaneY(Plane plane)
+    parameters:
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The plane that needs to be flipped. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'Returns the flipped plane. '
+    content.vb: Public Shared Function FlipPlaneY(plane As Plane) As Plane
+  overload: RobotComponents.Utils.HelperMethods.FlipPlaneY*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  id: QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Point3d, Quaternion)
+  nameWithType: HelperMethods.QuaternionToPlane(Point3d, Quaternion)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(Point3d origin, Quaternion quat)
+    parameters:
+    - id: origin
+      type: Rhino.Geometry.Point3d
+      description: 'The origin of the plane. '
+    - id: quat
+      type: Rhino.Geometry.Quaternion
+      description: 'The quarternion '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(origin As Point3d, quat As Quaternion) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  id: QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Plane, Point3d, Quaternion)
+  nameWithType: HelperMethods.QuaternionToPlane(Plane, Point3d, Quaternion)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(Plane refPlane, Point3d origin, Quaternion quat)
+    parameters:
+    - id: refPlane
+      type: Rhino.Geometry.Plane
+      description: 'The reference plane. '
+    - id: origin
+      type: Rhino.Geometry.Point3d
+      description: 'The origin of the plane. '
+    - id: quat
+      type: Rhino.Geometry.Quaternion
+      description: 'The quarternion '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(refPlane As Plane, origin As Point3d, quat As Quaternion) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  id: QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Point3d, Double, Double, Double, Double)
+  nameWithType: HelperMethods.QuaternionToPlane(Point3d, Double, Double, Double, Double)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d, System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(Point3d origin, double A, double B, double C, double D)
+    parameters:
+    - id: origin
+      type: Rhino.Geometry.Point3d
+      description: 'The origin of the plane. '
+    - id: A
+      type: System.Double
+      description: 'The real part of the quaternion. '
+    - id: B
+      type: System.Double
+      description: 'The first imaginary coefficient of the quaternion. '
+    - id: C
+      type: System.Double
+      description: 'The second imaginary coefficient of the quaternion. '
+    - id: D
+      type: System.Double
+      description: 'The third imaginary coefficient of the quaternion. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(origin As Point3d, A As Double, B As Double, C As Double, D As Double) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  id: QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Plane, Point3d, Double, Double, Double, Double)
+  nameWithType: HelperMethods.QuaternionToPlane(Plane, Point3d, Double, Double, Double, Double)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane, Rhino.Geometry.Point3d, System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(Plane refPlane, Point3d origin, double A, double B, double C, double D)
+    parameters:
+    - id: refPlane
+      type: Rhino.Geometry.Plane
+      description: 'The reference plane. '
+    - id: origin
+      type: Rhino.Geometry.Point3d
+      description: 'The origin of the plane. '
+    - id: A
+      type: System.Double
+      description: 'The real part of the quaternion. '
+    - id: B
+      type: System.Double
+      description: 'The first imaginary coefficient of the quaternion. '
+    - id: C
+      type: System.Double
+      description: 'The second imaginary coefficient of the quaternion. '
+    - id: D
+      type: System.Double
+      description: 'The third imaginary coefficient of the quaternion. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(refPlane As Plane, origin As Point3d, A As Double, B As Double, C As Double, D As Double) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: HelperMethods.QuaternionToPlane(Double, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(double x, double y, double z, double A, double B, double C, double D)
+    parameters:
+    - id: x
+      type: System.Double
+      description: 'The x coordinate of the plane origin. '
+    - id: y
+      type: System.Double
+      description: 'The y coordinate of the plane origin. '
+    - id: z
+      type: System.Double
+      description: The z coordinate of the plane origin.
+    - id: A
+      type: System.Double
+      description: 'The real part of the quaternion. '
+    - id: B
+      type: System.Double
+      description: 'The first imaginary coefficient of the quaternion. '
+    - id: C
+      type: System.Double
+      description: 'The second imaginary coefficient of the quaternion. '
+    - id: D
+      type: System.Double
+      description: 'The third imaginary coefficient of the quaternion. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(x As Double, y As Double, z As Double, A As Double, B As Double, C As Double, D As Double) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: QuaternionToPlane(Plane, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: HelperMethods.QuaternionToPlane(Plane, Double, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a Quarternion to a Plane.\n"
+  syntax:
+    content: public static Plane QuaternionToPlane(Plane refPlane, double x, double y, double z, double A, double B, double C, double D)
+    parameters:
+    - id: refPlane
+      type: Rhino.Geometry.Plane
+      description: 'The reference plane. '
+    - id: x
+      type: System.Double
+      description: 'The x coordinate of the plane origin. '
+    - id: y
+      type: System.Double
+      description: 'The y coordinate of the plane origin. '
+    - id: z
+      type: System.Double
+      description: The z coordinate of the plane origin.
+    - id: A
+      type: System.Double
+      description: 'The real part of the quaternion. '
+    - id: B
+      type: System.Double
+      description: 'The first imaginary coefficient of the quaternion. '
+    - id: C
+      type: System.Double
+      description: 'The second imaginary coefficient of the quaternion. '
+    - id: D
+      type: System.Double
+      description: 'The third imaginary coefficient of the quaternion. '
+    return:
+      type: Rhino.Geometry.Plane
+      description: 'The plane obtained with the orientation defined by the quarternion values. '
+    content.vb: Public Shared Function QuaternionToPlane(refPlane As Plane, x As Double, y As Double, z As Double, A As Double, B As Double, C As Double, D As Double) As Plane
+  overload: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  id: PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: PlaneToQuaternion(Plane, Plane)
+  nameWithType: HelperMethods.PlaneToQuaternion(Plane, Plane)
+  fullName: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane, Rhino.Geometry.Plane)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a plane to a quarternion.\n"
+  syntax:
+    content: public static Quaternion PlaneToQuaternion(Plane refPlane, Plane plane)
+    parameters:
+    - id: refPlane
+      type: Rhino.Geometry.Plane
+      description: 'The reference plane. '
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The plane that should be transformed. '
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: 'The quaternion as a Quaternion. '
+    content.vb: Public Shared Function PlaneToQuaternion(refPlane As Plane, plane As Plane) As Quaternion
+  overload: RobotComponents.Utils.HelperMethods.PlaneToQuaternion*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)
+  commentId: M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)
+  id: PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: PlaneToQuaternion(Plane, Plane, out Point3d)
+  nameWithType: HelperMethods.PlaneToQuaternion(Plane, Plane, out Point3d)
+  fullName: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane, Rhino.Geometry.Plane, out Rhino.Geometry.Point3d)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a plane to a quarternion.\n"
+  syntax:
+    content: public static Quaternion PlaneToQuaternion(Plane refPlane, Plane plane, out Point3d origin)
+    parameters:
+    - id: refPlane
+      type: Rhino.Geometry.Plane
+      description: 'The reference plane. '
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The plane that should be transformed. '
+    - id: origin
+      type: Rhino.Geometry.Point3d
+      description: 'The origin of the plane oriented based on the reference plane. '
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: 'The quaternion as a Quaternion. '
+    content.vb: Public Shared Function PlaneToQuaternion(refPlane As Plane, plane As Plane, ByRef origin As Point3d) As Quaternion
+  overload: RobotComponents.Utils.HelperMethods.PlaneToQuaternion*
+  nameWithType.vb: HelperMethods.PlaneToQuaternion(Plane, Plane, ByRef Point3d)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane, Rhino.Geometry.Plane, ByRef Rhino.Geometry.Point3d)
+  name.vb: PlaneToQuaternion(Plane, Plane, ByRef Point3d)
+- uid: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)
+  id: PlaneToQuaternion(Rhino.Geometry.Plane)
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: PlaneToQuaternion(Plane)
+  nameWithType: HelperMethods.PlaneToQuaternion(Plane)
+  fullName: RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nTransforms a plane to a quarternion with as reference plane WorldXY.\n"
+  syntax:
+    content: public static Quaternion PlaneToQuaternion(Plane plane)
+    parameters:
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The plane to should be transformed. '
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: The quaternion as a Quaternion.
+    content.vb: Public Shared Function PlaneToQuaternion(plane As Plane) As Quaternion
+  overload: RobotComponents.Utils.HelperMethods.PlaneToQuaternion*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: RobotComponents.Utils
+  commentId: N:RobotComponents.Utils
+  isExternal: true
+  name: RobotComponents.Utils
+  nameWithType: RobotComponents.Utils
+  fullName: RobotComponents.Utils
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Utils.HelperMethods.ObjectToByteArray*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.ObjectToByteArray
+  isExternal: true
+  name: ObjectToByteArray
+  nameWithType: HelperMethods.ObjectToByteArray
+  fullName: RobotComponents.Utils.HelperMethods.ObjectToByteArray
+- uid: System.Byte[]
+  isExternal: true
+  name: Byte[]
+  nameWithType: Byte[]
+  fullName: System.Byte[]
+  nameWithType.vb: Byte()
+  fullName.vb: System.Byte()
+  name.vb: Byte()
+  spec.csharp:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Byte
+    name: Byte
+    nameWithType: Byte
+    fullName: System.Byte
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: RobotComponents.Utils.HelperMethods.ByteArrayToObject*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.ByteArrayToObject
+  isExternal: true
+  name: ByteArrayToObject
+  nameWithType: HelperMethods.ByteArrayToObject
+  fullName: RobotComponents.Utils.HelperMethods.ByteArrayToObject
+- uid: RobotComponents.Utils.HelperMethods.FlipPlaneX*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.FlipPlaneX
+  isExternal: true
+  name: FlipPlaneX
+  nameWithType: HelperMethods.FlipPlaneX
+  fullName: RobotComponents.Utils.HelperMethods.FlipPlaneX
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
+- uid: RobotComponents.Utils.HelperMethods.FlipPlaneY*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.FlipPlaneY
+  isExternal: true
+  name: FlipPlaneY
+  nameWithType: HelperMethods.FlipPlaneY
+  fullName: RobotComponents.Utils.HelperMethods.FlipPlaneY
+- uid: RobotComponents.Utils.HelperMethods.QuaternionToPlane*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.QuaternionToPlane
+  isExternal: true
+  name: QuaternionToPlane
+  nameWithType: HelperMethods.QuaternionToPlane
+  fullName: RobotComponents.Utils.HelperMethods.QuaternionToPlane
+- uid: Rhino.Geometry.Point3d
+  isExternal: true
+  name: Point3d
+  nameWithType: Point3d
+  fullName: Rhino.Geometry.Point3d
+- uid: Rhino.Geometry.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: Rhino.Geometry.Quaternion
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: RobotComponents.Utils.HelperMethods.PlaneToQuaternion*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.PlaneToQuaternion
+  isExternal: true
+  name: PlaneToQuaternion
+  nameWithType: HelperMethods.PlaneToQuaternion
+  fullName: RobotComponents.Utils.HelperMethods.PlaneToQuaternion

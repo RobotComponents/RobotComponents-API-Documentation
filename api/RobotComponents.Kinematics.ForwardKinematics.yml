@@ -1,0 +1,1521 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Kinematics.ForwardKinematics
+  commentId: T:RobotComponents.Kinematics.ForwardKinematics
+  id: ForwardKinematics
+  parent: RobotComponents.Kinematics
+  children:
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.JointTarget,System.Boolean)
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
+  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Kinematics.ForwardKinematics)
+  - RobotComponents.Kinematics.ForwardKinematics.Calculate
+  - RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  - RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  - RobotComponents.Kinematics.ForwardKinematics.Clear
+  - RobotComponents.Kinematics.ForwardKinematics.Duplicate
+  - RobotComponents.Kinematics.ForwardKinematics.ErrorText
+  - RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  - RobotComponents.Kinematics.ForwardKinematics.HideMesh
+  - RobotComponents.Kinematics.ForwardKinematics.InLimits
+  - RobotComponents.Kinematics.ForwardKinematics.IsValid
+  - RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  - RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  - RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+  - RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  - RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+  - RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+  - RobotComponents.Kinematics.ForwardKinematics.ToString
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics
+  nameWithType: ForwardKinematics
+  fullName: RobotComponents.Kinematics.ForwardKinematics
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nForward Kinematics class\n"
+  syntax:
+    content: public class ForwardKinematics
+    content.vb: Public Class ForwardKinematics
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics()
+  nameWithType: ForwardKinematics.ForwardKinematics()
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines a empty ForwardKinematic Object.\n"
+  syntax:
+    content: public ForwardKinematics()
+    content.vb: Public Sub New
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Boolean)'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics(Robot, Boolean)
+  nameWithType: ForwardKinematics.ForwardKinematics(Robot, Boolean)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines a Forward Kinematic object.\n"
+  syntax:
+    content: public ForwardKinematics(Robot robotInfo, bool hideMesh = false)
+    parameters:
+    - id: robotInfo
+      type: RobotComponents.Definitions.Robot
+      description: 'Robot Information the FK should be calculated for. '
+    - id: hideMesh
+      type: System.Boolean
+      description: 'Boolean that indicates if the mesh will be supressed. '
+    content.vb: Public Sub New(robotInfo As Robot, hideMesh As Boolean = False)
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics(Robot, List<Double>, List<Double>, Boolean)
+  nameWithType: ForwardKinematics.ForwardKinematics(Robot, List<Double>, List<Double>, Boolean)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Double>, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines a Forward Kinematic Object for certain axis values.\n"
+  syntax:
+    content: public ForwardKinematics(Robot robotInfo, List<double> internalAxisValues, List<double> externalAxisValues, bool hideMesh = false)
+    parameters:
+    - id: robotInfo
+      type: RobotComponents.Definitions.Robot
+      description: Robot Information the FK should be calculated for.
+    - id: internalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: List of internal axis values. The length of the list should be equal to 6.
+    - id: externalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: List of external axis values. The length of the list should be (for now) equal to 1.
+    - id: hideMesh
+      type: System.Boolean
+      description: 'Boolean that indicates if the mesh will be supressed. '
+    content.vb: Public Sub New(robotInfo As Robot, internalAxisValues As List(Of Double), externalAxisValues As List(Of Double), hideMesh As Boolean = False)
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  nameWithType.vb: ForwardKinematics.ForwardKinematics(Robot, List(Of Double), List(Of Double), Boolean)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Double), System.Boolean)
+  name.vb: ForwardKinematics(Robot, List(Of Double), List(Of Double), Boolean)
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics(Robot, RobotJointPosition, ExternalJointPosition, Boolean)
+  nameWithType: ForwardKinematics.ForwardKinematics(Robot, RobotJointPosition, ExternalJointPosition, Boolean)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, RobotComponents.Actions.RobotJointPosition, RobotComponents.Actions.ExternalJointPosition, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines a Forward Kinematic Object for certain axis values.\n"
+  syntax:
+    content: public ForwardKinematics(Robot robotInfo, RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition, bool hideMesh = false)
+    parameters:
+    - id: robotInfo
+      type: RobotComponents.Definitions.Robot
+      description: Robot Information the FK should be calculated for.
+    - id: robotJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: The internal axis values as a Robot Joint Position.
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: The external axis values as an External Joint Position.
+    - id: hideMesh
+      type: System.Boolean
+      description: 'Boolean that indicates if the mesh will be supressed. '
+    content.vb: Public Sub New(robotInfo As Robot, robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition, hideMesh As Boolean = False)
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.JointTarget,System.Boolean)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.JointTarget,System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.JointTarget,System.Boolean)'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics(Robot, JointTarget, Boolean)
+  nameWithType: ForwardKinematics.ForwardKinematics(Robot, JointTarget, Boolean)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, RobotComponents.Actions.JointTarget, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines a Forward Kinematic object from a Joint Target.\n"
+  syntax:
+    content: public ForwardKinematics(Robot robotInfo, JointTarget jointTarget, bool hideMesh = false)
+    parameters:
+    - id: robotInfo
+      type: RobotComponents.Definitions.Robot
+      description: Robot Information the FK should be calculated for.
+    - id: jointTarget
+      type: RobotComponents.Actions.JointTarget
+      description: The internal and external axis values defined as a Joint Target.
+    - id: hideMesh
+      type: System.Boolean
+      description: 'Boolean that indicates if the mesh will be supressed. '
+    content.vb: Public Sub New(robotInfo As Robot, jointTarget As JointTarget, hideMesh As Boolean = False)
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Kinematics.ForwardKinematics)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Kinematics.ForwardKinematics)
+  id: '#ctor(RobotComponents.Kinematics.ForwardKinematics)'
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ForwardKinematics(ForwardKinematics)
+  nameWithType: ForwardKinematics.ForwardKinematics(ForwardKinematics)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Kinematics.ForwardKinematics)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nCreates a new forward kinematics by duplicating an existing forward kinematics.\nThis creates a deep copy of the existing forward kinematics.\n"
+  syntax:
+    content: public ForwardKinematics(ForwardKinematics forwardKinematics)
+    parameters:
+    - id: forwardKinematics
+      type: RobotComponents.Kinematics.ForwardKinematics
+      description: 'The forward kinematics that should be duplicated. '
+    content.vb: Public Sub New(forwardKinematics As ForwardKinematics)
+  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.Duplicate
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: ForwardKinematics.Duplicate()
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nA method to duplicate the Forward Kinematics object.\n"
+  syntax:
+    content: public ForwardKinematics Duplicate()
+    return:
+      type: RobotComponents.Kinematics.ForwardKinematics
+      description: 'Returns a deep copy of the Forward Kinematics object. '
+    content.vb: Public Function Duplicate As ForwardKinematics
+  overload: RobotComponents.Kinematics.ForwardKinematics.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.ToString
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.ToString
+  id: ToString
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: ForwardKinematics.ToString()
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: System.Object.ToString
+  overload: RobotComponents.Kinematics.ForwardKinematics.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate
+  id: Calculate
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Calculate()
+  nameWithType: ForwardKinematics.Calculate()
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nCalculates Forward Kinematics based on the internal and external axis values.\n"
+  syntax:
+    content: public void Calculate()
+    content.vb: Public Sub Calculate
+  overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  id: Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Calculate(List<Double>, List<Double>)
+  nameWithType: ForwardKinematics.Calculate(List<Double>, List<Double>)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Double>)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nSets new axis values and calculates the new solution.  \n"
+  syntax:
+    content: public void Calculate(List<double> internalAxisValues, List<double> externalAxisValues)
+    parameters:
+    - id: internalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: List of internal axis values in degree. The length of the list should be equal to 6.
+    - id: externalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: List of external axis values in meter. The length of the list should be (for now) equal to 1.
+    content.vb: Public Sub Calculate(internalAxisValues As List(Of Double), externalAxisValues As List(Of Double))
+  overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  nameWithType.vb: ForwardKinematics.Calculate(List(Of Double), List(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Double))
+  name.vb: Calculate(List(Of Double), List(Of Double))
+- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  id: Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Calculate(RobotJointPosition, ExternalJointPosition)
+  nameWithType: ForwardKinematics.Calculate(RobotJointPosition, ExternalJointPosition)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition, RobotComponents.Actions.ExternalJointPosition)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nSets new axis values and calculates the new solution.  \n"
+  syntax:
+    content: public void Calculate(RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition)
+    parameters:
+    - id: robotJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: The internal axis values as a Robot Joint Position.
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: The external axis values as an External Joint Position.
+    content.vb: Public Sub Calculate(robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition)
+  overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.Clear
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Clear
+  id: Clear
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: ForwardKinematics.Clear()
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Clear()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nClears the current solution\n"
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear
+  overload: RobotComponents.Kinematics.ForwardKinematics.Clear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.IsValid
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.IsValid
+  id: IsValid
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: ForwardKinematics.IsValid
+  fullName: RobotComponents.Kinematics.ForwardKinematics.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nA boolean that indicates if the Forward Kinematics object is valid. \n"
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.Kinematics.ForwardKinematics.IsValid*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  id: RobotInfo
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: RobotInfo
+  nameWithType: ForwardKinematics.RobotInfo
+  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nRobotInformation the FK should be calculated for.\n"
+  syntax:
+    content: public Robot RobotInfo { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Definitions.Robot
+    content.vb: Public Property RobotInfo As Robot
+  overload: RobotComponents.Kinematics.ForwardKinematics.RobotInfo*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+  id: PosedInternalAxisMeshes
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: PosedInternalAxisMeshes
+  nameWithType: ForwardKinematics.PosedInternalAxisMeshes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nCalcualte robot pose meshes\n"
+  syntax:
+    content: public List<Mesh> PosedInternalAxisMeshes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+    content.vb: Public ReadOnly Property PosedInternalAxisMeshes As List(Of Mesh)
+  overload: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  id: PosedExternalAxisMeshes
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: PosedExternalAxisMeshes
+  nameWithType: ForwardKinematics.PosedExternalAxisMeshes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nA List of meshes in pose for the external axis.\n"
+  syntax:
+    content: public List<List<Mesh>> PosedExternalAxisMeshes { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Collections.Generic.List{Rhino.Geometry.Mesh}}
+    content.vb: Public ReadOnly Property PosedExternalAxisMeshes As List(Of List(Of Mesh))
+  overload: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+  id: TCPPlane
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: TCPPlane
+  nameWithType: ForwardKinematics.TCPPlane
+  fullName: RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nCalculated posed TCP plane of the robot tool. \n"
+  syntax:
+    content: public Plane TCPPlane { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Plane
+    content.vb: Public ReadOnly Property TCPPlane As Plane
+  overload: RobotComponents.Kinematics.ForwardKinematics.TCPPlane*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.InLimits
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.InLimits
+  id: InLimits
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: InLimits
+  nameWithType: ForwardKinematics.InLimits
+  fullName: RobotComponents.Kinematics.ForwardKinematics.InLimits
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nBool that indicates if the internal and external values are within their limits\n"
+  syntax:
+    content: public bool InLimits { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property InLimits As Boolean
+  overload: RobotComponents.Kinematics.ForwardKinematics.InLimits*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+  id: RobotJointPosition
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: RobotJointPosition
+  nameWithType: ForwardKinematics.RobotJointPosition
+  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines the Robot Joint Position\n"
+  syntax:
+    content: public RobotJointPosition RobotJointPosition { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.RobotJointPosition
+    content.vb: Public Property RobotJointPosition As RobotJointPosition
+  overload: RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  id: ExternalJointPosition
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition
+  nameWithType: ForwardKinematics.ExternalJointPosition
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nDefines the External Joint Position\n"
+  syntax:
+    content: public ExternalJointPosition ExternalJointPosition { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Actions.ExternalJointPosition
+    content.vb: Public Property ExternalJointPosition As ExternalJointPosition
+  overload: RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  id: PosedExternalAxisPlanes
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: PosedExternalAxisPlanes
+  nameWithType: ForwardKinematics.PosedExternalAxisPlanes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nArray of external axis planes.\n"
+  syntax:
+    content: public Plane[] PosedExternalAxisPlanes { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Plane[]
+    content.vb: Public ReadOnly Property PosedExternalAxisPlanes As Plane()
+  overload: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.ErrorText
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.ErrorText
+  id: ErrorText
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: ErrorText
+  nameWithType: ForwardKinematics.ErrorText
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ErrorText
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nList of strings with collected error messages. \n"
+  syntax:
+    content: public List<string> ErrorText { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ErrorText As List(Of String)
+  overload: RobotComponents.Kinematics.ForwardKinematics.ErrorText*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.ForwardKinematics.HideMesh
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.HideMesh
+  id: HideMesh
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: HideMesh
+  nameWithType: ForwardKinematics.HideMesh
+  fullName: RobotComponents.Kinematics.ForwardKinematics.HideMesh
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\n\nA boolean that indicates if the posed mesh is or will be calculated\n"
+  syntax:
+    content: public bool HideMesh { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property HideMesh As Boolean
+  overload: RobotComponents.Kinematics.ForwardKinematics.HideMesh*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: RobotComponents.Kinematics
+  commentId: N:RobotComponents.Kinematics
+  isExternal: true
+  name: RobotComponents.Kinematics
+  nameWithType: RobotComponents.Kinematics
+  fullName: RobotComponents.Kinematics
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.#ctor
+  isExternal: true
+  name: ForwardKinematics
+  nameWithType: ForwardKinematics.ForwardKinematics
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Double>
+  nameWithType: List<Double>
+  fullName: System.Collections.Generic.List<System.Double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of System.Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: RobotComponents.Actions.RobotJointPosition
+  commentId: T:RobotComponents.Actions.RobotJointPosition
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RobotJointPosition
+  nameWithType: RobotJointPosition
+  fullName: RobotComponents.Actions.RobotJointPosition
+- uid: RobotComponents.Actions.ExternalJointPosition
+  commentId: T:RobotComponents.Actions.ExternalJointPosition
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ExternalJointPosition
+  nameWithType: ExternalJointPosition
+  fullName: RobotComponents.Actions.ExternalJointPosition
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: RobotComponents.Actions.JointTarget
+  commentId: T:RobotComponents.Actions.JointTarget
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.Actions.JointTarget
+- uid: RobotComponents.Kinematics.ForwardKinematics
+  commentId: T:RobotComponents.Kinematics.ForwardKinematics
+  parent: RobotComponents.Kinematics
+  isExternal: true
+  name: ForwardKinematics
+  nameWithType: ForwardKinematics
+  fullName: RobotComponents.Kinematics.ForwardKinematics
+- uid: RobotComponents.Kinematics.ForwardKinematics.Duplicate*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: ForwardKinematics.Duplicate
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Duplicate
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Kinematics.ForwardKinematics.ToString*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: ForwardKinematics.ToString
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.Calculate
+  isExternal: true
+  name: Calculate
+  nameWithType: ForwardKinematics.Calculate
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate
+- uid: RobotComponents.Kinematics.ForwardKinematics.Clear*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.Clear
+  isExternal: true
+  name: Clear
+  nameWithType: ForwardKinematics.Clear
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Clear
+- uid: RobotComponents.Kinematics.ForwardKinematics.IsValid*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: ForwardKinematics.IsValid
+  fullName: RobotComponents.Kinematics.ForwardKinematics.IsValid
+- uid: RobotComponents.Kinematics.ForwardKinematics.RobotInfo*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  isExternal: true
+  name: RobotInfo
+  nameWithType: ForwardKinematics.RobotInfo
+  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+  isExternal: true
+  name: PosedInternalAxisMeshes
+  nameWithType: ForwardKinematics.PosedInternalAxisMeshes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
+- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Mesh>
+  nameWithType: List<Mesh>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
+  nameWithType.vb: List(Of Mesh)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
+  name.vb: List(Of Mesh)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  isExternal: true
+  name: PosedExternalAxisMeshes
+  nameWithType: ForwardKinematics.PosedExternalAxisMeshes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+- uid: System.Collections.Generic.List{System.Collections.Generic.List{Rhino.Geometry.Mesh}}
+  commentId: T:System.Collections.Generic.List{System.Collections.Generic.List{Rhino.Geometry.Mesh}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<List<Mesh>>
+  nameWithType: List<List<Mesh>>
+  fullName: System.Collections.Generic.List<System.Collections.Generic.List<Rhino.Geometry.Mesh>>
+  nameWithType.vb: List(Of List(Of Mesh))
+  fullName.vb: System.Collections.Generic.List(Of System.Collections.Generic.List(Of Rhino.Geometry.Mesh))
+  name.vb: List(Of List(Of Mesh))
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Kinematics.ForwardKinematics.TCPPlane*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+  isExternal: true
+  name: TCPPlane
+  nameWithType: ForwardKinematics.TCPPlane
+  fullName: RobotComponents.Kinematics.ForwardKinematics.TCPPlane
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
+- uid: RobotComponents.Kinematics.ForwardKinematics.InLimits*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.InLimits
+  isExternal: true
+  name: InLimits
+  nameWithType: ForwardKinematics.InLimits
+  fullName: RobotComponents.Kinematics.ForwardKinematics.InLimits
+- uid: RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+  isExternal: true
+  name: RobotJointPosition
+  nameWithType: ForwardKinematics.RobotJointPosition
+  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
+- uid: RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  isExternal: true
+  name: ExternalJointPosition
+  nameWithType: ForwardKinematics.ExternalJointPosition
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+- uid: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  isExternal: true
+  name: PosedExternalAxisPlanes
+  nameWithType: ForwardKinematics.PosedExternalAxisPlanes
+  fullName: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+- uid: Rhino.Geometry.Plane[]
+  isExternal: true
+  name: Plane[]
+  nameWithType: Plane[]
+  fullName: Rhino.Geometry.Plane[]
+  nameWithType.vb: Plane()
+  fullName.vb: Rhino.Geometry.Plane()
+  name.vb: Plane()
+  spec.csharp:
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: RobotComponents.Kinematics.ForwardKinematics.ErrorText*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.ErrorText
+  isExternal: true
+  name: ErrorText
+  nameWithType: ForwardKinematics.ErrorText
+  fullName: RobotComponents.Kinematics.ForwardKinematics.ErrorText
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Kinematics.ForwardKinematics.HideMesh*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.HideMesh
+  isExternal: true
+  name: HideMesh
+  nameWithType: ForwardKinematics.HideMesh
+  fullName: RobotComponents.Kinematics.ForwardKinematics.HideMesh
