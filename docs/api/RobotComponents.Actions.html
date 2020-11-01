@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace RobotComponents.Actions
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -81,70 +81,74 @@
       <section><p>Absolute Joint Movement class</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></h4>
-      <section><p>Action class, abstract main class for all actions.</p>
+      <section><p>Represents a base class for all robot actions (declarations and instructions).</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.AutoAxisConfig.html">AutoAxisConfig</a></h4>
-      <section><p>Auto Axis Configuration Class, sets Auto Axis Configuration to True or False.</p>
+      <section><p>Represents the Auto Axis Configuration instruction.
+This action is used to switch on or off the monitoring of movements.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.CodeLine.html">CodeLine</a></h4>
-      <section><p>Code Line class, defines a CodeLine in RAPID Code.</p>
+      <section><p>Represent a custom (user definied) RAPID Code Line.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.Comment.html">Comment</a></h4>
-      <section><p>Comment class, defines a Comment in RAPID Code.
-A comment is only used to make the program easier to understand.
+      <section><p>Represents a comment in RAPID Code.
+This action is only used to make the program easier to understand.
 It has no effect on the execution of the program.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.DigitalOutput.html">DigitalOutput</a></h4>
-      <section><p>Digital Output class. Is used to change the value of a digital output signal.</p>
+      <section><p>Represents a Set Digital Output instruction.
+This action is used to set the value (state) of a digital output signal.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></h4>
-      <section><p>External Joint Position class, defines external joint position data. Is used to define
-the axis positions of external axes, positioners and workpiece manipulators.</p>
+      <section><p>Represents an External Joint Position declaration.
+This action is used to defined define the axis positions of external axes, positioners and workpiece manipulators.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.JointTarget.html">JointTarget</a></h4>
-      <section><p>Joint Target class, defines each individual axis position, for both the robot and the external axes.</p>
+      <section><p>Represents a Joint Target declaration.
+This action is used to define each individual axis position, for both the robot and the external axes.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.Movement.html">Movement</a></h4>
-      <section><p>Movement class</p>
+      <section><p>Represents several Move instructions (MoveAbsJ, MoveL, MoveJ, MoveLDO and MoveJDO).</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.OverrideRobotTool.html">OverrideRobotTool</a></h4>
-      <section><p>Override Robot Tool class</p>
+      <section><p>Represents the Override Robot Tool action.
+This action is used to set a new default Robot Tool from this action.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></h4>
-      <section><p>RAPID Generator class, creates RAPID Code from Actions.</p>
+      <section><p>Represents the RAPID Generator.
+This is class is used to generate the RAPID program and system module from a given set of actions.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></h4>
-      <section><p>Robot Joint Position class, defines the robot axis positions of the in degrees.</p>
+      <section><p>Represents the Robot Joint Position declaration.
+This action is used to define the robot axis positions in degrees.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.RobotTarget.html">RobotTarget</a></h4>
-      <section><p>Robot Target class, defines robot target data. The robt target data is used to define the position of the robot and external axes.</p>
+      <section><p>Represents the Robot Target declaration.
+This action is used to define the pose of the robot and the external axes.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.SpeedData.html">SpeedData</a></h4>
-      <section><p>SpeedData class. SpeedData is used to specify the velocity at which both the robot and the external axes move.
-Speed data defines the velocity at which the tool center point moves, the reorientation speed of the tool, and
-at which linear or rotating external axes move. When several different types of movement are combined, one of
-the velocities often limits all movements.The velocity of the other movements will be reduced in such a way
-that all movements will finish executing at the same time.</p>
+      <section><p>Represents a predefined or user definied Speed Data declaration.
+This action is used to specify the velocity at which both the robot and the external axes move.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.WaitDI.html">WaitDI</a></h4>
-      <section><p>Wait for Digital Input. This class is used to make the code line comamand WaitDI which is
-is used to wait until a digital input is set.</p>
+      <section><p>Represents a Wait for Digital Input instruction.
+This action is used to wait until a digital input is set.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.WaitTime.html">WaitTime</a></h4>
-      <section><p>WaitTime class, defines waiting time between two actions. This command is used to wait a given amount of time.</p>
+      <section><p>Represent the Wait Time instruction.
+This action is used to wait a given amount of time between two actions.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.ZoneData.html">ZoneData</a></h4>
-      <section><p>ZoneData class. Zoned Data is used to specify how a position is to be terminated,
-i.e. how close to the programmed position the axes must be before moving towards
-the next position.</p>
+      <section><p>Represents a predefined or user definied Zone Data declaration.
+This action is used to specify how a position is to be terminated.</p>
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="RobotComponents.Actions.IJointPosition.html">IJointPosition</a></h4>
-      <section><p>Defines the interface for different joint position types</p>
+      <section><p>Represents the interface for different Joint Positions.</p>
 </section>
       <h4><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></h4>
-      <section><p>A boolean that indicates if the Target object is valid.</p>
+      <section><p>Represents the interface for different target types.</p>
 </section>
 </article>
           </div>
@@ -156,7 +160,8 @@ the next position.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

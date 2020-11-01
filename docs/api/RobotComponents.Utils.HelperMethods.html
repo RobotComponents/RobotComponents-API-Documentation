@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class HelperMethods
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="RobotComponents_Utils_HelperMethods" data-uid="RobotComponents.Utils.HelperMethods" class="text-break">Class HelperMethods
   </h1>
-  <div class="markdown level0 summary"><p>General Helper methods</p>
+  <div class="markdown level0 summary"><p>Represents general helper methods</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -118,7 +118,7 @@
   <a id="RobotComponents_Utils_HelperMethods_ByteArrayToObject_" data-uid="RobotComponents.Utils.HelperMethods.ByteArrayToObject*"></a>
   <h4 id="RobotComponents_Utils_HelperMethods_ByteArrayToObject_System_Byte___" data-uid="RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])">ByteArrayToObject(Byte[])</h4>
   <div class="markdown level1 summary"><p>Deserializes a byte array to a common object.
-Typically used for deserializing robot meshes.</p>
+Typically used for deserializing robot meshes and data inside Goo classes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -154,7 +154,7 @@ Typically used for deserializing robot meshes.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Object</span></td>
-        <td><p>Returns the common object.</p>
+        <td><p>The common object.</p>
 </td>
       </tr>
     </tbody>
@@ -163,7 +163,7 @@ Typically used for deserializing robot meshes.</p>
   
   <a id="RobotComponents_Utils_HelperMethods_FlipPlaneX_" data-uid="RobotComponents.Utils.HelperMethods.FlipPlaneX*"></a>
   <h4 id="RobotComponents_Utils_HelperMethods_FlipPlaneX_Rhino_Geometry_Plane_" data-uid="RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)">FlipPlaneX(Plane)</h4>
-  <div class="markdown level1 summary"><p>Flips the plane to the oposite direction by setting it's x-axis negative.</p>
+  <div class="markdown level1 summary"><p>Flips a plane normal to the oposite direction by setting it's x-axis negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -199,7 +199,7 @@ Typically used for deserializing robot meshes.</p>
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><p>Returns the flipped plane.</p>
+        <td><p>Tshe flipped plane.</p>
 </td>
       </tr>
     </tbody>
@@ -208,7 +208,7 @@ Typically used for deserializing robot meshes.</p>
   
   <a id="RobotComponents_Utils_HelperMethods_FlipPlaneY_" data-uid="RobotComponents.Utils.HelperMethods.FlipPlaneY*"></a>
   <h4 id="RobotComponents_Utils_HelperMethods_FlipPlaneY_Rhino_Geometry_Plane_" data-uid="RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)">FlipPlaneY(Plane)</h4>
-  <div class="markdown level1 summary"><p>Flips the plane to the oposite direction by setting it's y-axis negative.</p>
+  <div class="markdown level1 summary"><p>Flips a plane normal to the oposite direction by setting it's y-axis negative.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -244,7 +244,7 @@ Typically used for deserializing robot meshes.</p>
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><p>Returns the flipped plane.</p>
+        <td><p>The flipped plane.</p>
 </td>
       </tr>
     </tbody>
@@ -254,7 +254,7 @@ Typically used for deserializing robot meshes.</p>
   <a id="RobotComponents_Utils_HelperMethods_ObjectToByteArray_" data-uid="RobotComponents.Utils.HelperMethods.ObjectToByteArray*"></a>
   <h4 id="RobotComponents_Utils_HelperMethods_ObjectToByteArray_System_Object_" data-uid="RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)">ObjectToByteArray(Object)</h4>
   <div class="markdown level1 summary"><p>Serializes a common object to a byte array.
-Typically used for serializing robot meshes.</p>
+Typically used for serializing robot meshes and data inside Goo classes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -290,7 +290,7 @@ Typically used for serializing robot meshes.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Byte</span>[]</td>
-        <td><p>Returns the byte array.</p>
+        <td><p>The byte array.</p>
 </td>
       </tr>
     </tbody>
@@ -335,7 +335,7 @@ Typically used for serializing robot meshes.</p>
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
-        <td><p>The quaternion as a Quaternion.</p>
+        <td><p>The quaternion.</p>
 </td>
       </tr>
     </tbody>
@@ -478,13 +478,13 @@ Typically used for serializing robot meshes.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Point3d</span></td>
         <td><span class="parametername">origin</span></td>
-        <td><p>The origin of the plane.</p>
+        <td><p>The origin of the new plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
         <td><span class="parametername">quat</span></td>
-        <td><p>The quarternion</p>
+        <td><p>The quarternion.</p>
 </td>
       </tr>
     </tbody>
@@ -697,7 +697,7 @@ Typically used for serializing robot meshes.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
         <td><span class="parametername">quat</span></td>
-        <td><p>The quarternion</p>
+        <td><p>The quarternion.</p>
 </td>
       </tr>
     </tbody>
@@ -878,7 +878,8 @@ Typically used for serializing robot meshes.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

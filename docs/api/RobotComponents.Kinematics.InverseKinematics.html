@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class InverseKinematics
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,7 @@
   
   <h1 id="RobotComponents_Kinematics_InverseKinematics" data-uid="RobotComponents.Kinematics.InverseKinematics" class="text-break">Class InverseKinematics
   </h1>
-  <div class="markdown level0 summary"><p>Inverse Kinematics class, defines the basic properties and methods for
-the inverse kinematics of a 6-axis robot and the attached external axes.</p>
+  <div class="markdown level0 summary"><p>Represent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,7 +114,7 @@ the inverse kinematics of a 6-axis robot and the attached external axes.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics__ctor" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor">InverseKinematics()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty Inverse Kinematics object</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Inverse Kinematics class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -126,13 +125,13 @@ the inverse kinematics of a 6-axis robot and the attached external axes.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics__ctor_RobotComponents_Actions_ITarget_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor(RobotComponents.Actions.ITarget,RobotComponents.Definitions.Robot)">InverseKinematics(ITarget, Robot)</h4>
-  <div class="markdown level1 summary"><p>Initiatize an inverse kinematics from a robot target and robot info.
-The target will be casted to robot movement with wobj0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Target.
+The target will be casted to robot movement with a default work object (wobj0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InverseKinematics(ITarget target, Robot robotInfo)</code></pre>
+    <pre><code class="lang-csharp hljs">public InverseKinematics(ITarget target, Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -147,13 +146,13 @@ The target will be casted to robot movement with wobj0.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
-        <td><p>The target to calculated the axis values for.</p>
+        <td><p>The Target</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
-        <td><span class="parametername">robotInfo</span></td>
-        <td><p>The robot info to calcilated the axis values for.</p>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot.</p>
 </td>
       </tr>
     </tbody>
@@ -162,12 +161,12 @@ The target will be casted to robot movement with wobj0.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics__ctor_RobotComponents_Actions_Movement_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor(RobotComponents.Actions.Movement,RobotComponents.Definitions.Robot)">InverseKinematics(Movement, Robot)</h4>
-  <div class="markdown level1 summary"><p>Initiatize an inverse kinematics from a robot movement and robot info.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Movement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InverseKinematics(Movement movement, Robot robotInfo)</code></pre>
+    <pre><code class="lang-csharp hljs">public InverseKinematics(Movement movement, Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -182,13 +181,13 @@ The target will be casted to robot movement with wobj0.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Movement.html">Movement</a></td>
         <td><span class="parametername">movement</span></td>
-        <td><p>The robot movement to calculated the axis values for.</p>
+        <td><p>The Movement.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
-        <td><span class="parametername">robotInfo</span></td>
-        <td><p>The robot info to calcilated the axis values for.</p>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot.</p>
 </td>
       </tr>
     </tbody>
@@ -197,8 +196,7 @@ The target will be casted to robot movement with wobj0.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics__ctor_RobotComponents_Kinematics_InverseKinematics_" data-uid="RobotComponents.Kinematics.InverseKinematics.#ctor(RobotComponents.Kinematics.InverseKinematics)">InverseKinematics(InverseKinematics)</h4>
-  <div class="markdown level1 summary"><p>Creates a new inverse kinematics by duplicating an existing inverse kinematics.
-This creates a deep copy of the existing inverse kinematics.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class by duplicating an existing Inverse Kinematics instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -218,7 +216,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Kinematics.InverseKinematics.html">InverseKinematics</a></td>
         <td><span class="parametername">inverseKinematics</span></td>
-        <td><p>The inverse kinematics that should be duplicated.</p>
+        <td><p>The Inverse Kinematics instance to duplicate.</p>
 </td>
       </tr>
     </tbody>
@@ -229,7 +227,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_ErrorText_" data-uid="RobotComponents.Kinematics.InverseKinematics.ErrorText*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_ErrorText" data-uid="RobotComponents.Kinematics.InverseKinematics.ErrorText">ErrorText</h4>
-  <div class="markdown level1 summary"><p>List of strings with collected error messages.</p>
+  <div class="markdown level1 summary"><p>Gets the collected error messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -255,7 +253,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_ExternalJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.ExternalJointPosition*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_ExternalJointPosition" data-uid="RobotComponents.Kinematics.InverseKinematics.ExternalJointPosition">ExternalJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the calculated External Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets the latest calculated External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -281,7 +279,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_InLimits_" data-uid="RobotComponents.Kinematics.InverseKinematics.InLimits*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_InLimits" data-uid="RobotComponents.Kinematics.InverseKinematics.InLimits">InLimits</h4>
-  <div class="markdown level1 summary"><p>Bool that indicates if the internal and external values are within their limits</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the internal and external values are within their limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -307,7 +305,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_IsValid_" data-uid="RobotComponents.Kinematics.InverseKinematics.IsValid*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_IsValid" data-uid="RobotComponents.Kinematics.InverseKinematics.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Inverse Kinematics object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -333,7 +331,8 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_Movement_" data-uid="RobotComponents.Kinematics.InverseKinematics.Movement*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_Movement" data-uid="RobotComponents.Kinematics.InverseKinematics.Movement">Movement</h4>
-  <div class="markdown level1 summary"><p>The robot movement where the axis values are caculated for.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Movement.
+The target and work object are obtained from this movement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -357,14 +356,14 @@ This creates a deep copy of the existing inverse kinematics.</p>
   </table>
   
   
-  <a id="RobotComponents_Kinematics_InverseKinematics_RobotInfo_" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotInfo*"></a>
-  <h4 id="RobotComponents_Kinematics_InverseKinematics_RobotInfo" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotInfo">RobotInfo</h4>
-  <div class="markdown level1 summary"><p>The robot info where the axis values are calculated for.</p>
+  <a id="RobotComponents_Kinematics_InverseKinematics_Robot_" data-uid="RobotComponents.Kinematics.InverseKinematics.Robot*"></a>
+  <h4 id="RobotComponents_Kinematics_InverseKinematics_Robot" data-uid="RobotComponents.Kinematics.InverseKinematics.Robot">Robot</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Robot RobotInfo { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Robot Robot { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -385,7 +384,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_RobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotJointPosition*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_RobotJointPosition" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotJointPosition">RobotJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the calculated Robot Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets the latest calculated Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -411,7 +410,7 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_RobotJointPositions_" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotJointPositions*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_RobotJointPositions" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotJointPositions">RobotJointPositions</h4>
-  <div class="markdown level1 summary"><p>Defines the eight calculated Robot Joint Positions</p>
+  <div class="markdown level1 summary"><p>Gets the eight latest calculated Robot Joint Positions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -437,10 +436,9 @@ This creates a deep copy of the existing inverse kinematics.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_RobotTool_" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotTool*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_RobotTool" data-uid="RobotComponents.Kinematics.InverseKinematics.RobotTool">RobotTool</h4>
-  <div class="markdown level1 summary"><p>The used robot tool for this inverse kinematics.
-By default the tool attached to the robot info is used.
-If a tool is set as a property of the movement, this tool will be used.
-The Movement.RobotTool overwrites the tool attached to the robot info.</p>
+  <div class="markdown level1 summary"><p>Gets the tool used by the this Inverse Kinematics.
+By default the tool attached to the robot is used.
+If a tool is set as a property of the movement, this tool will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -503,7 +501,7 @@ This method does not check the internal axis limits.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_Duplicate_" data-uid="RobotComponents.Kinematics.InverseKinematics.Duplicate*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_Duplicate" data-uid="RobotComponents.Kinematics.InverseKinematics.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Inverse Kinematics object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Inverse Kinematics instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -521,7 +519,7 @@ This method does not check the internal axis limits.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Kinematics.InverseKinematics.html">InverseKinematics</a></td>
-        <td><p>Returns a deep copy of the Inverse Kinematics object.</p>
+        <td><p>A deep copy of the Inverse Kinematics instance.</p>
 </td>
       </tr>
     </tbody>
@@ -539,7 +537,7 @@ This methods is typically used for using the Auto Axis Config inside the Path Ge
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public int GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public RobotJointPosition GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -569,7 +567,7 @@ This methods is typically used for using the Auto Axis Config inside the Path Ge
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Int32</span></td>
+        <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
         <td><p>Returns the closest axis configuration as an integer (0-7)</p>
 </td>
       </tr>
@@ -626,7 +624,8 @@ This method also resets the solution. Calculate() has to be called to get the ne
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

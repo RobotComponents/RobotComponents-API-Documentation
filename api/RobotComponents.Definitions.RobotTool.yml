@@ -7,6 +7,7 @@ items:
   children:
   - RobotComponents.Definitions.RobotTool.#ctor
   - RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
@@ -22,19 +23,18 @@ items:
   - RobotComponents.Definitions.RobotTool.Clear
   - RobotComponents.Definitions.RobotTool.Duplicate
   - RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh
+  - RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.RobotTool.GetRSToolData
   - RobotComponents.Definitions.RobotTool.GetToolOrientation
   - RobotComponents.Definitions.RobotTool.GetToolPosition
   - RobotComponents.Definitions.RobotTool.Inertia
-  - RobotComponents.Definitions.RobotTool.InertiaX
-  - RobotComponents.Definitions.RobotTool.InertiaY
-  - RobotComponents.Definitions.RobotTool.InertiaZ
   - RobotComponents.Definitions.RobotTool.IsValid
   - RobotComponents.Definitions.RobotTool.Mass
   - RobotComponents.Definitions.RobotTool.Mesh
   - RobotComponents.Definitions.RobotTool.Name
   - RobotComponents.Definitions.RobotTool.Orientation
   - RobotComponents.Definitions.RobotTool.Position
+  - RobotComponents.Definitions.RobotTool.ReferenceType
   - RobotComponents.Definitions.RobotTool.ReInitialize
   - RobotComponents.Definitions.RobotTool.RobotHold
   - RobotComponents.Definitions.RobotTool.ToolPlane
@@ -53,12 +53,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nRobotTool class, defines the basic properties and methods for any Robot Tool.\n"
+  summary: "\nRepresents a Robot Tool.\n"
   syntax:
-    content: public class RobotTool
-    content.vb: Public Class RobotTool
+    content: 'public class RobotTool : ISerializable'
+    content.vb: >-
+      Public Class RobotTool
+          Implements ISerializable
   inheritance:
   - System.Object
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -72,6 +76,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: RobotTool(SerializationInfo, StreamingContext)
+  nameWithType: RobotTool.RobotTool(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected RobotTool(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.RobotTool.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: RobotTool.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.RobotTool.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.RobotTool.#ctor
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor
   id: '#ctor'
@@ -89,7 +161,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nAn empty constuctor that create the default robot tool tool0. \nThe tool tool0 defines the wrist coordinate system, with the \norigin being the center of the mounting flange.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class with the default tool tool0.\n"
   syntax:
     content: public RobotTool()
     content.vb: Public Sub New
@@ -115,7 +187,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from planes with load data as defined for the default tool tool0.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from planes.\nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane)
     parameters:
@@ -154,7 +226,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from planes with load data as defined for the default tool tool0.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from planes.\nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane)
     parameters:
@@ -163,7 +235,7 @@ items:
       description: 'The tool name, must be unique. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The tool mesh as a list with meshes. '
+      description: 'The tool mesh as The list with robot meshes. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachement plane. '
@@ -196,7 +268,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from Euler data with load data as defined for the default tool tool0.\nThe attachment plane is set to WorldXY.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from Euler data.\nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, Mesh mesh, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)
     parameters:
@@ -247,7 +319,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from Euler data with load data as defined for the default tool tool0.\nThe attachment plane is set to WorldXY.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from Euler data.\nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, List<Mesh> meshes, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)
     parameters:
@@ -256,7 +328,7 @@ items:
       description: 'The tool name, must be unique. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The tool mesh as a list with meshes. '
+      description: 'The tool mesh. '
     - id: toolTransX
       type: System.Double
       description: 'The tool center point translation in x-direction. '
@@ -301,7 +373,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from the x, y and z coordinate and the four quarternion values. \nWith load data as defined for the default tool tool0.\nThe attachment plane is set to WorldXY.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. \nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, Mesh mesh, double x, double y, double z, double q1, double q2, double q3, double q4)
     parameters:
@@ -310,7 +382,7 @@ items:
       description: 'The tool name, must be unique. '
     - id: mesh
       type: Rhino.Geometry.Mesh
-      description: 'The tool mesh defined in the tool coordinate space. '
+      description: 'The tool mesh. '
     - id: x
       type: System.Double
       description: 'The x coordinate of the TCP point. '
@@ -355,7 +427,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from the x, y and z coordinate and the four quarternion values. \nWith load data as defined for the default tool tool0.\nThe attachment plane is set to WorldXY.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. \nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, List<Mesh> meshes, double x, double y, double z, double q1, double q2, double q3, double q4)
     parameters:
@@ -364,7 +436,7 @@ items:
       description: 'The tool name, must be unique. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The tool mesh defined in the tool coordinate space as a list with meshes '
+      description: 'The tool mesh. '
     - id: x
       type: System.Double
       description: 'The x coordinate of the TCP point. '
@@ -412,7 +484,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from the x, y and z coordinate and the four quarternion values. \nWith load data as defined for the default tool tool0.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, double x, double y, double z, double q1, double q2, double q3, double q4)
     parameters:
@@ -421,7 +493,7 @@ items:
       description: 'The tool name, must be unique. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The tool mesh defined in the tool coordinate space as a list with meshes '
+      description: 'The tool mesh. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachement plane. '
@@ -472,7 +544,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool from the TCP point and the TCP orientation defined as a quatertion.\nWith load data as defined for the default tool tool0. \nThe attachment plane is set to WorldXY.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class from a point and a quarternion.\nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
     content: public RobotTool(string name, Mesh mesh, Point3d point, Quaternion quat)
     parameters:
@@ -484,10 +556,10 @@ items:
       description: 'The tool mesh defined in the tool coordinate space. '
     - id: point
       type: Rhino.Geometry.Point3d
-      description: 'The point of the tool center as point '
+      description: 'The point of the TCP point. '
     - id: quat
       type: Rhino.Geometry.Quaternion
-      description: 'The orientation of the tool center point as quarternion '
+      description: 'The orientation of TCP point. '
     content.vb: Public Sub New(name As String, mesh As Mesh, point As Point3d, quat As Quaternion)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
   modifiers.csharp:
@@ -511,7 +583,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot tool with user defined load data. \n"
+  summary: "\nInitializes a new instance of the Robot Tool class.\n"
   syntax:
     content: public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Vector3d centerOfGravity, Quaternion centerOfGravityOrientation, Vector3d inertia)
     parameters:
@@ -526,10 +598,10 @@ items:
       description: 'The attachement plane. '
     - id: toolPlane
       type: Rhino.Geometry.Plane
-      description: 'The tool center point and tool orientation as a plane. '
+      description: 'The tool center point and tool orientation. '
     - id: robotHold
       type: System.Boolean
-      description: 'Boolean that indicates if the robot is holding the tool or if the tool is stationary. '
+      description: 'Specifies whether the robot is holding the tool. '
     - id: mass
       type: System.Double
       description: 'The weight of the tool in kg. '
@@ -565,16 +637,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCreates a new robot tool by duplicating an existing robot tool.\nThis creates a deep copy of the existing robot tool.\n"
+  summary: "\nInitializes a new instance of the Robot Tool class by duplicating an existing Robot Tool instance. \n"
   syntax:
     content: public RobotTool(RobotTool robotTool, bool duplicateMesh = true)
     parameters:
     - id: robotTool
       type: RobotComponents.Definitions.RobotTool
-      description: 'The robot tool that should be duplicated. '
+      description: 'The Robot Tool instance to duplicate. '
     - id: duplicateMesh
       type: System.Boolean
-      description: 'A boolean that indicates if the mesh should be duplicated. '
+      description: 'Specifies whether the meshes should be duplicated. '
     content.vb: Public Sub New(robotTool As RobotTool, duplicateMesh As Boolean = True)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
   modifiers.csharp:
@@ -598,12 +670,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the RobotTool object. \n"
+  summary: "\nReturns an exact duplicate of this Robot Tool instance.\n"
   syntax:
     content: public RobotTool Duplicate()
     return:
       type: RobotComponents.Definitions.RobotTool
-      description: 'Returns a deep copy for the RobotTool object. '
+      description: 'A deep copy of the Robot Tool instance. '
     content.vb: Public Function Duplicate As RobotTool
   overload: RobotComponents.Definitions.RobotTool.Duplicate*
   modifiers.csharp:
@@ -627,12 +699,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the RobotTool object without duplicating the mesh. It will set an empty mesh. \n"
+  summary: "\nReturns an exact duplicate of this Robot Tool instance without meshes.\n"
   syntax:
     content: public RobotTool DuplicateWithoutMesh()
     return:
       type: RobotComponents.Definitions.RobotTool
-      description: 'Returns a deep copy for the RobotTool object without a mesh. '
+      description: 'A deep copy of the Robot Tool instance without meshes. '
     content.vb: Public Function DuplicateWithoutMesh As RobotTool
   overload: RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh*
   modifiers.csharp:
@@ -857,7 +929,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA boolean that indicates if the Robot Tool object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -871,6 +943,37 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Definitions.RobotTool.ReferenceType
+  commentId: P:RobotComponents.Definitions.RobotTool.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: RobotTool.ReferenceType
+  fullName: RobotComponents.Definitions.RobotTool.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets or sets the Reference Type. \n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Definitions.RobotTool.ReferenceType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.RobotTool.Name
   commentId: P:RobotComponents.Definitions.RobotTool.Name
   id: Name
@@ -888,7 +991,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe tobot tool name, must be unique. \n"
+  summary: "\nGets or sets the tool name.\nEach tool name has to be unique.\n"
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -919,7 +1022,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe Robot Tool mesh\n"
+  summary: "\nGets or sets the mesh.\n"
   syntax:
     content: public Mesh Mesh { get; set; }
     parameters: []
@@ -950,7 +1053,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe robot tool attachment plane\n"
+  summary: "\nGets or sets the tool attachment plane.\n"
   syntax:
     content: public Plane AttachmentPlane { get; set; }
     parameters: []
@@ -981,7 +1084,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe robot tool center point and orientation defined as a plane\n"
+  summary: "\nGets or sets the position and orientaton of the tool center point. \n"
   syntax:
     content: public Plane ToolPlane { get; set; }
     parameters: []
@@ -1012,7 +1115,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines whether or not the robot is holding the tool.\nUse true if the robot is holding the tool. \nUse false if the robot is not holding the tool (e.g. stationary tool).\n"
+  summary: "\nGets or sets a value indicating whether the robot is holding the tool.\nUse true if the robot is holding the tool. \nUse false if the robot is not holding the tool (e.g. stationary tool).\n"
   syntax:
     content: public bool RobotHold { get; set; }
     parameters: []
@@ -1043,7 +1146,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe position of the the tool center point which is the offset between\nthe tool center plane and the attachment plane\n"
+  summary: "\nGets the position of the the tool center point which is the offset between the tool center plane and the attachment plane.\n"
   syntax:
     content: public Point3d Position { get; }
     parameters: []
@@ -1074,7 +1177,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe orientation of the tool center point as a Quaternion\n"
+  summary: "\nGets the orientation of the tool center point as a Quaternion.\n"
   syntax:
     content: public Quaternion Orientation { get; }
     parameters: []
@@ -1105,7 +1208,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe weight of the load in kg.\n"
+  summary: "\nGets or sets the weight of the load in kg.\n"
   syntax:
     content: public double Mass { get; set; }
     parameters: []
@@ -1136,7 +1239,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe center of gravity of the tool load.\n"
+  summary: "\nGets or sets the center of gravity of the tool load.\n"
   syntax:
     content: public Vector3d CenterOfGravity { get; set; }
     parameters: []
@@ -1167,7 +1270,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe orientation of the tool load coordinate system defined by the principal inertial axes of the \ntool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).\n"
+  summary: "\nGets or sets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. \nExpressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).\n"
   syntax:
     content: public Quaternion CenterOfGravityOrientation { get; set; }
     parameters: []
@@ -1198,7 +1301,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe moment of inertia of the load in kgm2.\n"
+  summary: "\nGets or set the moment of inertia of the load in kgm2.\n"
   syntax:
     content: public Vector3d Inertia { get; set; }
     parameters: []
@@ -1206,99 +1309,6 @@ items:
       type: Rhino.Geometry.Vector3d
     content.vb: Public Property Inertia As Vector3d
   overload: RobotComponents.Definitions.RobotTool.Inertia*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: RobotComponents.Definitions.RobotTool.InertiaX
-  commentId: P:RobotComponents.Definitions.RobotTool.InertiaX
-  id: InertiaX
-  parent: RobotComponents.Definitions.RobotTool
-  langs:
-  - csharp
-  - vb
-  name: InertiaX
-  nameWithType: RobotTool.InertiaX
-  fullName: RobotComponents.Definitions.RobotTool.InertiaX
-  type: Property
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Definitions
-  summary: "\nThe moment of inertia of the load around the x-axis of the tool load or payload coordinate system in kgm2.\n"
-  syntax:
-    content: public double InertiaX { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property InertiaX As Double
-  overload: RobotComponents.Definitions.RobotTool.InertiaX*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: RobotComponents.Definitions.RobotTool.InertiaY
-  commentId: P:RobotComponents.Definitions.RobotTool.InertiaY
-  id: InertiaY
-  parent: RobotComponents.Definitions.RobotTool
-  langs:
-  - csharp
-  - vb
-  name: InertiaY
-  nameWithType: RobotTool.InertiaY
-  fullName: RobotComponents.Definitions.RobotTool.InertiaY
-  type: Property
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Definitions
-  summary: "\nThe moment of inertia of the load around the y-axis of the tool load or payload coordinate system in kgm2.\n"
-  syntax:
-    content: public double InertiaY { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property InertiaY As Double
-  overload: RobotComponents.Definitions.RobotTool.InertiaY*
-  modifiers.csharp:
-  - public
-  - get
-  - set
-  modifiers.vb:
-  - Public
-- uid: RobotComponents.Definitions.RobotTool.InertiaZ
-  commentId: P:RobotComponents.Definitions.RobotTool.InertiaZ
-  id: InertiaZ
-  parent: RobotComponents.Definitions.RobotTool
-  langs:
-  - csharp
-  - vb
-  name: InertiaZ
-  nameWithType: RobotTool.InertiaZ
-  fullName: RobotComponents.Definitions.RobotTool.InertiaZ
-  type: Property
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Definitions
-  summary: "\nThe moment of inertia of the load around the z-axis of the tool load or payload coordinate system in kgm2.\n"
-  syntax:
-    content: public double InertiaZ { get; set; }
-    parameters: []
-    return:
-      type: System.Double
-    content.vb: Public Property InertiaZ As Double
-  overload: RobotComponents.Definitions.RobotTool.InertiaZ*
   modifiers.csharp:
   - public
   - get
@@ -1319,6 +1329,13 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1573,12 +1590,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Definitions.RobotTool.#ctor*
   commentId: Overload:RobotComponents.Definitions.RobotTool.#ctor
   isExternal: true
   name: RobotTool
   nameWithType: RobotTool.RobotTool
   fullName: RobotComponents.Definitions.RobotTool.RobotTool
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Definitions.RobotTool.GetObjectData*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: RobotTool.GetObjectData
+  fullName: RobotComponents.Definitions.RobotTool.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1817,6 +1917,25 @@ references:
   name: IsValid
   nameWithType: RobotTool.IsValid
   fullName: RobotComponents.Definitions.RobotTool.IsValid
+- uid: RobotComponents.Definitions.RobotTool.ReferenceType*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: RobotTool.ReferenceType
+  fullName: RobotComponents.Definitions.RobotTool.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Definitions.RobotTool.Name*
   commentId: Overload:RobotComponents.Definitions.RobotTool.Name
   isExternal: true
@@ -1883,21 +2002,3 @@ references:
   name: Inertia
   nameWithType: RobotTool.Inertia
   fullName: RobotComponents.Definitions.RobotTool.Inertia
-- uid: RobotComponents.Definitions.RobotTool.InertiaX*
-  commentId: Overload:RobotComponents.Definitions.RobotTool.InertiaX
-  isExternal: true
-  name: InertiaX
-  nameWithType: RobotTool.InertiaX
-  fullName: RobotComponents.Definitions.RobotTool.InertiaX
-- uid: RobotComponents.Definitions.RobotTool.InertiaY*
-  commentId: Overload:RobotComponents.Definitions.RobotTool.InertiaY
-  isExternal: true
-  name: InertiaY
-  nameWithType: RobotTool.InertiaY
-  fullName: RobotComponents.Definitions.RobotTool.InertiaY
-- uid: RobotComponents.Definitions.RobotTool.InertiaZ*
-  commentId: Overload:RobotComponents.Definitions.RobotTool.InertiaZ
-  isExternal: true
-  name: InertiaZ
-  nameWithType: RobotTool.InertiaZ
-  fullName: RobotComponents.Definitions.RobotTool.InertiaZ

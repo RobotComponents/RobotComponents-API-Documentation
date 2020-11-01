@@ -10,14 +10,17 @@ items:
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ExternalJointPosition.Add(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Add(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.Divide(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Divide(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.Duplicate
   - RobotComponents.Actions.ExternalJointPosition.DuplicateAction
+  - RobotComponents.Actions.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ExternalJointPosition.IsFixedSize
   - RobotComponents.Actions.ExternalJointPosition.IsValid
+  - RobotComponents.Actions.ExternalJointPosition.Item(System.Char)
   - RobotComponents.Actions.ExternalJointPosition.Item(System.Int32)
   - RobotComponents.Actions.ExternalJointPosition.Length
   - RobotComponents.Actions.ExternalJointPosition.Multiply(RobotComponents.Actions.ExternalJointPosition)
@@ -53,18 +56,19 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nExternal Joint Position class, defines external joint position data. Is used to define \nthe axis positions of external axes, positioners and workpiece manipulators. \n"
+  summary: "\nRepresents an External Joint Position declaration.\nThis action is used to defined define the axis positions of external axes, positioners and workpiece manipulators. \n"
   syntax:
-    content: 'public class ExternalJointPosition : Action, IJointPosition'
+    content: 'public class ExternalJointPosition : Action, IJointPosition, ISerializable'
     content.vb: >-
       Public Class ExternalJointPosition
           Inherits Action
-          Implements IJointPosition
+          Implements IJointPosition, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
   - RobotComponents.Actions.IJointPosition
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -78,6 +82,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition(SerializationInfo, StreamingContext)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected ExternalJointPosition(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: The context of this deserialization.
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ExternalJointPosition.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.ExternalJointPosition.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ExternalJointPosition.#ctor
   commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor
   id: '#ctor'
@@ -95,7 +167,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAn undefined external joint position. \nAll external axis values will be set to 9E9.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with undefinied external axis values.\n"
   syntax:
     content: public ExternalJointPosition()
     content.vb: Public Sub New
@@ -121,7 +193,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an external joint position. \n"
+  summary: "\nInitializes a new instance of the External Joint Position class.\n"
   syntax:
     content: public ExternalJointPosition(double Eax_a, double Eax_b = 9000000000, double Eax_c = 9000000000, double Eax_d = 9000000000, double Eax_e = 9000000000, double Eax_f = 9000000000)
     parameters:
@@ -166,13 +238,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an external joint position from a list with values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class from a list with values.\n"
   syntax:
     content: public ExternalJointPosition(List<double> externalAxisValues)
     parameters:
     - id: externalAxisValues
       type: System.Collections.Generic.List{System.Double}
-      description: The user defined external axis values as a list.
+      description: 'The external axis values. '
     content.vb: Public Sub New(externalAxisValues As List(Of Double))
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   nameWithType.vb: ExternalJointPosition.ExternalJointPosition(List(Of Double))
@@ -199,13 +271,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an external joint position from an array wth values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class from an array with values.\n"
   syntax:
     content: public ExternalJointPosition(double[] externalAxisValues)
     parameters:
     - id: externalAxisValues
       type: System.Double[]
-      description: The user defined external axis values as an array.
+      description: 'The external axis values. '
     content.vb: Public Sub New(externalAxisValues As Double())
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   nameWithType.vb: ExternalJointPosition.ExternalJointPosition(Double())
@@ -232,14 +304,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates a new external joint position by duplicating an existing external joint position. \nThis creates a deep copy of the existing external joint position. \n"
+  summary: "\nInitializes a new instance of the External Joint Position class by duplicating an existing External Joint Position instance. \n"
   syntax:
-    content: public ExternalJointPosition(ExternalJointPosition extJointPosition)
+    content: public ExternalJointPosition(ExternalJointPosition externalJointPosition)
     parameters:
-    - id: extJointPosition
+    - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position that should be duplicated. '
-    content.vb: Public Sub New(extJointPosition As ExternalJointPosition)
+      description: 'The External Joint Position instance to duplicate. '
+    content.vb: Public Sub New(externalJointPosition As ExternalJointPosition)
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   modifiers.csharp:
   - public
@@ -262,12 +334,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMethod to duplicate the Ext Joint Position object.\n"
+  summary: "\nReturns an exact duplicate of this Digital Output instance.\n"
   syntax:
     content: public ExternalJointPosition Duplicate()
     return:
       type: RobotComponents.Actions.ExternalJointPosition
-      description: Returns a deep copy of the Ext Joint Position object.
+      description: 'A deep copy of the Digital Output instance. '
     content.vb: Public Function Duplicate As ExternalJointPosition
   overload: RobotComponents.Actions.ExternalJointPosition.Duplicate*
   modifiers.csharp:
@@ -291,12 +363,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the Ext Joint Position object to an Action object. \n"
+  summary: "\nReturns an exact duplicate of this External Joint Position instance as an Action. \n"
   syntax:
     content: public override Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the Ext Joint Position object as an Action object. '
+      description: 'A deep copy of the External Joint Position instance as an Action. '
     content.vb: Public Overrides Function DuplicateAction As Action
   overridden: RobotComponents.Actions.Action.DuplicateAction
   overload: RobotComponents.Actions.ExternalJointPosition.DuplicateAction*
@@ -685,16 +757,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string.  '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration*
@@ -721,16 +793,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns an empty string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDInstruction*
@@ -757,13 +829,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration*
@@ -790,13 +862,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDInstruction*
@@ -1127,7 +1199,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines if the External Joint Position object is valid.\n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -1161,7 +1233,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines the number of elements in the External Joint Position\n"
+  summary: "\nGets the number of elements in the External Joint Position.\n"
   syntax:
     content: public int Length { get; }
     parameters: []
@@ -1194,7 +1266,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGet or set axis values through the indexer. \n"
+  summary: "\nGets or sets the axis values through the indexer. \n"
   syntax:
     content: public double this[int index] { get; set; }
     parameters:
@@ -1217,6 +1289,44 @@ items:
   - Public
   fullName.vb: RobotComponents.Actions.ExternalJointPosition.Item(System.Int32)
   name.vb: Item(Int32)
+- uid: RobotComponents.Actions.ExternalJointPosition.Item(System.Char)
+  commentId: P:RobotComponents.Actions.ExternalJointPosition.Item(System.Char)
+  id: Item(System.Char)
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: Item[Char]
+  nameWithType: ExternalJointPosition.Item[Char]
+  fullName: RobotComponents.Actions.ExternalJointPosition.Item[System.Char]
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the axis values through the indexer.\n"
+  syntax:
+    content: public double this[char index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Char
+      description: 'The index character. '
+    return:
+      type: System.Double
+      description: 'The axis value located at the given index. '
+    content.vb: Public Property Item(index As Char) As Double
+  overload: RobotComponents.Actions.ExternalJointPosition.Item*
+  nameWithType.vb: ExternalJointPosition.Item(Char)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.ExternalJointPosition.Item(System.Char)
+  name.vb: Item(Char)
 - uid: RobotComponents.Actions.ExternalJointPosition.IsFixedSize
   commentId: P:RobotComponents.Actions.ExternalJointPosition.IsFixedSize
   id: IsFixedSize
@@ -1234,7 +1344,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGets a value indicating whether the joint position array has a fixed size.\n"
+  summary: "\nGets a value indicating whether or not the joint position array has a fixed size.\n"
   syntax:
     content: public bool IsFixedSize { get; }
     parameters: []
@@ -1278,6 +1388,13 @@ references:
   name: IJointPosition
   nameWithType: IJointPosition
   fullName: RobotComponents.Actions.IJointPosition
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1532,12 +1649,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Actions.ExternalJointPosition.#ctor*
   commentId: Overload:RobotComponents.Actions.ExternalJointPosition.#ctor
   isExternal: true
   name: ExternalJointPosition
   nameWithType: ExternalJointPosition.ExternalJointPosition
   fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.ExternalJointPosition.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.ExternalJointPosition.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: ExternalJointPosition.GetObjectData
+  fullName: RobotComponents.Actions.ExternalJointPosition.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -2199,6 +2399,13 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  name: Char
+  nameWithType: Char
+  fullName: System.Char
 - uid: RobotComponents.Actions.ExternalJointPosition.IsFixedSize*
   commentId: Overload:RobotComponents.Actions.ExternalJointPosition.IsFixedSize
   isExternal: true

@@ -13,7 +13,7 @@ items:
   - RobotComponents.Kinematics.PathGenerator.IsValid
   - RobotComponents.Kinematics.PathGenerator.Paths
   - RobotComponents.Kinematics.PathGenerator.Planes
-  - RobotComponents.Kinematics.PathGenerator.RobotInfo
+  - RobotComponents.Kinematics.PathGenerator.Robot
   - RobotComponents.Kinematics.PathGenerator.RobotJointPositions
   - RobotComponents.Kinematics.PathGenerator.ToString
   langs:
@@ -29,7 +29,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nPath Generator class. This class does an approximation of the path the robot will follow.\n"
+  summary: "\nRepresent the Path Generator.\nThis class is used to approximate of the path the Robot will follow for a given set of Actions. \nSpeed Datas and Zone Datas are neglected. \n"
   syntax:
     content: public class PathGenerator
     content.vb: Public Class PathGenerator
@@ -65,7 +65,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCosntruct an empty path generator object\n"
+  summary: "\nInitializes an empty instance of the Path Generator class.\n"
   syntax:
     content: public PathGenerator()
     content.vb: Public Sub New
@@ -91,14 +91,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines a path generator object\n"
+  summary: "\nInitializes a new instance of the Path Generator class.\n"
   syntax:
-    content: public PathGenerator(Robot robotInfo)
+    content: public PathGenerator(Robot robot)
     parameters:
-    - id: robotInfo
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'The robot info to construct the path for. '
-    content.vb: Public Sub New(robotInfo As Robot)
+      description: 'The Robot to generate the path for. '
+    content.vb: Public Sub New(robot As Robot)
   overload: RobotComponents.Kinematics.PathGenerator.#ctor*
   modifiers.csharp:
   - public
@@ -189,7 +189,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA boolean that indicates if the Path Generator object is valid.\n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -203,16 +203,16 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: RobotComponents.Kinematics.PathGenerator.RobotInfo
-  commentId: P:RobotComponents.Kinematics.PathGenerator.RobotInfo
-  id: RobotInfo
+- uid: RobotComponents.Kinematics.PathGenerator.Robot
+  commentId: P:RobotComponents.Kinematics.PathGenerator.Robot
+  id: Robot
   parent: RobotComponents.Kinematics.PathGenerator
   langs:
   - csharp
   - vb
-  name: RobotInfo
-  nameWithType: PathGenerator.RobotInfo
-  fullName: RobotComponents.Kinematics.PathGenerator.RobotInfo
+  name: Robot
+  nameWithType: PathGenerator.Robot
+  fullName: RobotComponents.Kinematics.PathGenerator.Robot
   type: Property
   source:
     path: RobotComponents
@@ -220,14 +220,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe robot info to construct the path for.\n"
+  summary: "\nGets or sets the Robot.\n"
   syntax:
-    content: public Robot RobotInfo { get; }
+    content: public Robot Robot { get; }
     parameters: []
     return:
       type: RobotComponents.Definitions.Robot
-    content.vb: Public ReadOnly Property RobotInfo As Robot
-  overload: RobotComponents.Kinematics.PathGenerator.RobotInfo*
+    content.vb: Public ReadOnly Property Robot As Robot
+  overload: RobotComponents.Kinematics.PathGenerator.Robot*
   modifiers.csharp:
   - public
   - get
@@ -251,7 +251,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe list with planes the robot follows.\n"
+  summary: "\nGets the list with TCP planes the path follows.\n"
   syntax:
     content: public List<Plane> Planes { get; }
     parameters: []
@@ -282,7 +282,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nAn approximation of the path the TCP of the robot will follow.\nFor every movement a curve is constructed. \n"
+  summary: "\nGets the path curve as list with curve.\nFor every move instruction a curve is constructed. \n"
   syntax:
     content: public List<Curve> Paths { get; }
     parameters: []
@@ -313,7 +313,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe Robot Joint Positions set to follow the path. \n"
+  summary: "\nGets the latest calculated Robot Joint Position.\n"
   syntax:
     content: public List<RobotJointPosition> RobotJointPositions { get; }
     parameters: []
@@ -344,7 +344,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe External Joint Positions set to follow the path. \n"
+  summary: "\nGets the latest calculated External Joint Positions. \n"
   syntax:
     content: public List<ExternalJointPosition> ExternalJointPositions { get; }
     parameters: []
@@ -375,7 +375,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nList of strings with collected error messages. \n"
+  summary: "\nGets the collected error messages.\n"
   syntax:
     content: public List<string> ErrorText { get; }
     parameters: []
@@ -835,12 +835,12 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: RobotComponents.Kinematics.PathGenerator.RobotInfo*
-  commentId: Overload:RobotComponents.Kinematics.PathGenerator.RobotInfo
+- uid: RobotComponents.Kinematics.PathGenerator.Robot*
+  commentId: Overload:RobotComponents.Kinematics.PathGenerator.Robot
   isExternal: true
-  name: RobotInfo
-  nameWithType: PathGenerator.RobotInfo
-  fullName: RobotComponents.Kinematics.PathGenerator.RobotInfo
+  name: Robot
+  nameWithType: PathGenerator.Robot
+  fullName: RobotComponents.Kinematics.PathGenerator.Robot
 - uid: RobotComponents.Kinematics.PathGenerator.Planes*
   commentId: Overload:RobotComponents.Kinematics.PathGenerator.Planes
   isExternal: true

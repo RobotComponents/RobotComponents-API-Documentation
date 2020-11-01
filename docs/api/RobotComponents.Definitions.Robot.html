@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Robot
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,13 +73,17 @@
   
   <h1 id="RobotComponents_Definitions_Robot" data-uid="RobotComponents.Definitions.Robot" class="text-break">Class Robot
   </h1>
-  <div class="markdown level0 summary"><p>Robot class, defines the basic properties and methods for any Robot.</p>
+  <div class="markdown level0 summary"><p>Represents a 6-axis spherical Robot.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">Robot</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -106,7 +110,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Definitions_Robot_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Robot</code></pre>
+    <pre><code class="lang-csharp hljs">public class Robot : ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -114,7 +118,7 @@
   
   <a id="RobotComponents_Definitions_Robot__ctor_" data-uid="RobotComponents.Definitions.Robot.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_Robot__ctor" data-uid="RobotComponents.Definitions.Robot.#ctor">Robot()</h4>
-  <div class="markdown level1 summary"><p>An empty constuctor that creates an robot.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Robot class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -125,9 +129,7 @@
   
   <a id="RobotComponents_Definitions_Robot__ctor_" data-uid="RobotComponents.Definitions.Robot.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_Robot__ctor_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)">Robot(Robot)</h4>
-  <div class="markdown level1 summary"><p>Creates a new robot by duplicating an existing robot.
-This creates a deep copy of the existing robot.
-It clears the solution of the inverse and forward kinematics.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot class by duplicating an existing Robot instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -147,7 +149,42 @@ It clears the solution of the inverse and forward kinematics.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>The robot that should be duplicated.</p>
+        <td><p>The Robot instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_Robot__ctor_" data-uid="RobotComponents.Definitions.Robot.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_Robot__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">Robot(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Robot(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -156,7 +193,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot__ctor_" data-uid="RobotComponents.Definitions.Robot.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_Robot__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Collections_Generic_List_Rhino_Geometry_Plane__System_Collections_Generic_List_Rhino_Geometry_Interval__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_Definitions_RobotTool_" data-uid="RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)">Robot(String, List&lt;Mesh&gt;, List&lt;Plane&gt;, List&lt;Interval&gt;, Plane, Plane, RobotTool)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot without external axes.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot class without attached external axes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -176,43 +213,43 @@ It clears the solution of the inverse and forward kinematics.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The robot name.</p>
+        <td><p>The name.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The robot base and links meshes as a list defined in the world coorindate space.</p>
+        <td><p>The base and links meshes defined in the world coorindate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Plane</span>&gt;</td>
         <td><span class="parametername">internalAxisPlanes</span></td>
-        <td><p>The internal axes planes as a list defined in the world coorindate space.</p>
+        <td><p>The internal axes planes defined in the world coorindate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Interval</span>&gt;</td>
         <td><span class="parametername">internalAxisLimits</span></td>
-        <td><p>The internal axes limit as intervals.</p>
+        <td><p>The internal axes limit.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">basePlane</span></td>
-        <td><p>The position of the robot in the world coordinate space as a plane.</p>
+        <td><p>The position and orientation of the robot base in the world coordinate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">mountingFrame</span></td>
-        <td><p>The tool mounting frame as plane in the world coorindate space.</p>
+        <td><p>The tool mounting frame definied in the world coordinate space.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
         <td><span class="parametername">tool</span></td>
-        <td><p>The attached robot tool as a Robot Tool.</p>
+        <td><p>The Robot Tool.</p>
 </td>
       </tr>
     </tbody>
@@ -221,12 +258,12 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot__ctor_" data-uid="RobotComponents.Definitions.Robot.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_Robot__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Collections_Generic_List_Rhino_Geometry_Plane__System_Collections_Generic_List_Rhino_Geometry_Interval__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_Definitions_RobotTool_System_Collections_Generic_List_RobotComponents_Definitions_ExternalAxis__" data-uid="RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">Robot(String, List&lt;Mesh&gt;, List&lt;Plane&gt;, List&lt;Interval&gt;, Plane, Plane, RobotTool, List&lt;ExternalAxis&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot with attached external axes.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot class with attached external axes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Robot(string name, List&lt;Mesh&gt; meshes, List&lt;Plane&gt; internalAxisPlanes, List&lt;Interval&gt; internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, List&lt;ExternalAxis&gt; externalAxis)</code></pre>
+    <pre><code class="lang-csharp hljs">public Robot(string name, List&lt;Mesh&gt; meshes, List&lt;Plane&gt; internalAxisPlanes, List&lt;Interval&gt; internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, List&lt;ExternalAxis&gt; externalAxes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -241,49 +278,49 @@ It clears the solution of the inverse and forward kinematics.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The robot name.</p>
+        <td><p>The name.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The robot base and links meshes as a list defined in the world coorindate space.</p>
+        <td><p>The base and links meshes defined in the world coorindate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Plane</span>&gt;</td>
         <td><span class="parametername">internalAxisPlanes</span></td>
-        <td><p>The internal axes planes as a list defined in the world coorindate space.</p>
+        <td><p>The internal axes planes defined in the world coorindate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Interval</span>&gt;</td>
         <td><span class="parametername">internalAxisLimits</span></td>
-        <td><p>The internal axes limit as intervals.</p>
+        <td><p>The internal axes limit.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">basePlane</span></td>
-        <td><p>The position of the robot in the world coordinate space as a plane.</p>
+        <td><p>The position and orientation of the robot base in the world coordinate space.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">mountingFrame</span></td>
-        <td><p>The tool mounting frame as plane in the world coorindate space.</p>
+        <td><p>The tool mounting frame definied in the world coordinate space.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
         <td><span class="parametername">tool</span></td>
-        <td><p>The attached robot tool as a Robot Tool.</p>
+        <td><p>The Robot Tool.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="RobotComponents.Definitions.ExternalAxis.html">ExternalAxis</a>&gt;</td>
-        <td><span class="parametername">externalAxis</span></td>
-        <td><p>The list with attached external axes.</p>
+        <td><span class="parametername">externalAxes</span></td>
+        <td><p>The attached external axes.</p>
 </td>
       </tr>
     </tbody>
@@ -294,7 +331,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_BasePlane_" data-uid="RobotComponents.Definitions.Robot.BasePlane*"></a>
   <h4 id="RobotComponents_Definitions_Robot_BasePlane" data-uid="RobotComponents.Definitions.Robot.BasePlane">BasePlane</h4>
-  <div class="markdown level1 summary"><p>Defines the position plane of the robot in the world coordinate space.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the position and orientation of the robot in world coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -318,14 +355,14 @@ It clears the solution of the inverse and forward kinematics.</p>
   </table>
   
   
-  <a id="RobotComponents_Definitions_Robot_ExternalAxis_" data-uid="RobotComponents.Definitions.Robot.ExternalAxis*"></a>
-  <h4 id="RobotComponents_Definitions_Robot_ExternalAxis" data-uid="RobotComponents.Definitions.Robot.ExternalAxis">ExternalAxis</h4>
-  <div class="markdown level1 summary"><p>Defines the list with attached external axes.</p>
+  <a id="RobotComponents_Definitions_Robot_ExternalAxes_" data-uid="RobotComponents.Definitions.Robot.ExternalAxes*"></a>
+  <h4 id="RobotComponents_Definitions_Robot_ExternalAxes" data-uid="RobotComponents.Definitions.Robot.ExternalAxes">ExternalAxes</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the attached external axes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;ExternalAxis&gt; ExternalAxis { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;ExternalAxis&gt; ExternalAxes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -346,7 +383,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_ExternalAxisLimits_" data-uid="RobotComponents.Definitions.Robot.ExternalAxisLimits*"></a>
   <h4 id="RobotComponents_Definitions_Robot_ExternalAxisLimits" data-uid="RobotComponents.Definitions.Robot.ExternalAxisLimits">ExternalAxisLimits</h4>
-  <div class="markdown level1 summary"><p>Defines the list with external axis limits.</p>
+  <div class="markdown level1 summary"><p>Gets the external axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -372,7 +409,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_ExternalAxisPlanes_" data-uid="RobotComponents.Definitions.Robot.ExternalAxisPlanes*"></a>
   <h4 id="RobotComponents_Definitions_Robot_ExternalAxisPlanes" data-uid="RobotComponents.Definitions.Robot.ExternalAxisPlanes">ExternalAxisPlanes</h4>
-  <div class="markdown level1 summary"><p>Defines the list with external axis planes.</p>
+  <div class="markdown level1 summary"><p>Gets the external axis planes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -398,7 +435,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_ForwardKinematics_" data-uid="RobotComponents.Definitions.Robot.ForwardKinematics*"></a>
   <h4 id="RobotComponents_Definitions_Robot_ForwardKinematics" data-uid="RobotComponents.Definitions.Robot.ForwardKinematics">ForwardKinematics</h4>
-  <div class="markdown level1 summary"><p>The forward kinematics of this robot.</p>
+  <div class="markdown level1 summary"><p>Gets the Forward Kinimatics of this Robot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -424,7 +461,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_InternalAxisLimits_" data-uid="RobotComponents.Definitions.Robot.InternalAxisLimits*"></a>
   <h4 id="RobotComponents_Definitions_Robot_InternalAxisLimits" data-uid="RobotComponents.Definitions.Robot.InternalAxisLimits">InternalAxisLimits</h4>
-  <div class="markdown level1 summary"><p>Defines the list with internal axis limits in degrees.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the axis limits in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -450,7 +487,8 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_InternalAxisPlanes_" data-uid="RobotComponents.Definitions.Robot.InternalAxisPlanes*"></a>
   <h4 id="RobotComponents_Definitions_Robot_InternalAxisPlanes" data-uid="RobotComponents.Definitions.Robot.InternalAxisPlanes">InternalAxisPlanes</h4>
-  <div class="markdown level1 summary"><p>Defines the list with the internal axis planes. The Z-axis of the planes if defining the rotation centers.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the internal axis planes.
+The Z-axes of the planes define the rotation centers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -476,7 +514,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_InverseKinematics_" data-uid="RobotComponents.Definitions.Robot.InverseKinematics*"></a>
   <h4 id="RobotComponents_Definitions_Robot_InverseKinematics" data-uid="RobotComponents.Definitions.Robot.InverseKinematics">InverseKinematics</h4>
-  <div class="markdown level1 summary"><p>The inverse kinematics of this robot.</p>
+  <div class="markdown level1 summary"><p>Gets the Inverse Kinematics of this Robot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -502,7 +540,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_IsValid_" data-uid="RobotComponents.Definitions.Robot.IsValid*"></a>
   <h4 id="RobotComponents_Definitions_Robot_IsValid" data-uid="RobotComponents.Definitions.Robot.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Robot object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -528,12 +566,12 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_Meshes_" data-uid="RobotComponents.Definitions.Robot.Meshes*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Meshes" data-uid="RobotComponents.Definitions.Robot.Meshes">Meshes</h4>
-  <div class="markdown level1 summary"><p>A list with all the robot meshes, including the mesh of the attached tool.</p>
+  <div class="markdown level1 summary"><p>Gets the Robot meshes including the mesh of the attached tool.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;Mesh&gt; Meshes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Mesh&gt; Meshes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -554,7 +592,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_MountingFrame_" data-uid="RobotComponents.Definitions.Robot.MountingFrame*"></a>
   <h4 id="RobotComponents_Definitions_Robot_MountingFrame" data-uid="RobotComponents.Definitions.Robot.MountingFrame">MountingFrame</h4>
-  <div class="markdown level1 summary"><p>Defines the mounting plane of the tool in the world coordinate space.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the tool mounting frame in world coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -580,7 +618,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_Name_" data-uid="RobotComponents.Definitions.Robot.Name*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Name" data-uid="RobotComponents.Definitions.Robot.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The Robot name.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the Robot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -606,7 +644,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_Tool_" data-uid="RobotComponents.Definitions.Robot.Tool*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Tool" data-uid="RobotComponents.Definitions.Robot.Tool">Tool</h4>
-  <div class="markdown level1 summary"><p>Defines the attached robot tool.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Tool.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -632,7 +670,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_ToolPlane_" data-uid="RobotComponents.Definitions.Robot.ToolPlane*"></a>
   <h4 id="RobotComponents_Definitions_Robot_ToolPlane" data-uid="RobotComponents.Definitions.Robot.ToolPlane">ToolPlane</h4>
-  <div class="markdown level1 summary"><p>Defines the TCP plane of the tool in the world coordinate space.</p>
+  <div class="markdown level1 summary"><p>Gets the TCP plane in world coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -660,7 +698,7 @@ It clears the solution of the inverse and forward kinematics.</p>
   
   <a id="RobotComponents_Definitions_Robot_Duplicate_" data-uid="RobotComponents.Definitions.Robot.Duplicate*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Duplicate" data-uid="RobotComponents.Definitions.Robot.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Robot object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -678,7 +716,7 @@ It clears the solution of the inverse and forward kinematics.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
-        <td><p>Returns a deep copy for the Robot object.</p>
+        <td><p>A deep copy of the Robot instance.</p>
 </td>
       </tr>
     </tbody>
@@ -775,6 +813,41 @@ It clears the solution of the inverse and forward kinematics.</p>
   </table>
   
   
+  <a id="RobotComponents_Definitions_Robot_GetObjectData_" data-uid="RobotComponents.Definitions.Robot.GetObjectData*"></a>
+  <h4 id="RobotComponents_Definitions_Robot_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_Robot_ToString_" data-uid="RobotComponents.Definitions.Robot.ToString*"></a>
   <h4 id="RobotComponents_Definitions_Robot_ToString" data-uid="RobotComponents.Definitions.Robot.ToString">ToString()</h4>
   <div class="markdown level1 summary"><p>Returns a string that represents the current object.</p>
@@ -832,6 +905,10 @@ The attached external axes will not be transformed.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -842,7 +919,8 @@ The attached external axes will not be transformed.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

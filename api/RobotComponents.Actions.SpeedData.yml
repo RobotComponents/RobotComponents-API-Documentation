@@ -9,18 +9,22 @@ items:
   - RobotComponents.Actions.SpeedData.#ctor(RobotComponents.Actions.SpeedData)
   - RobotComponents.Actions.SpeedData.#ctor(System.Double)
   - RobotComponents.Actions.SpeedData.#ctor(System.Int32)
+  - RobotComponents.Actions.SpeedData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.SpeedData.Duplicate
   - RobotComponents.Actions.SpeedData.DuplicateAction
   - RobotComponents.Actions.SpeedData.ExactPredefinedValue
+  - RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.SpeedData.IsValid
   - RobotComponents.Actions.SpeedData.Name
   - RobotComponents.Actions.SpeedData.PreDefinied
+  - RobotComponents.Actions.SpeedData.ReferenceType
   - RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.SpeedData.ToString
+  - RobotComponents.Actions.SpeedData.UserDefinied
   - RobotComponents.Actions.SpeedData.V_LEAX
   - RobotComponents.Actions.SpeedData.V_ORI
   - RobotComponents.Actions.SpeedData.V_REAX
@@ -40,15 +44,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nSpeedData class. SpeedData is used to specify the velocity at which both the robot and the external axes move.\nSpeed data defines the velocity at which the tool center point moves, the reorientation speed of the tool, and \nat which linear or rotating external axes move. When several different types of movement are combined, one of \nthe velocities often limits all movements.The velocity of the other movements will be reduced in such a way \nthat all movements will finish executing at the same time.\n"
+  summary: "\nRepresents a predefined or user definied Speed Data declaration.\nThis action is used to specify the velocity at which both the robot and the external axes move.\n"
   syntax:
-    content: 'public class SpeedData : Action'
+    content: 'public class SpeedData : Action, ISerializable'
     content.vb: >-
       Public Class SpeedData
           Inherits Action
+          Implements ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -62,6 +69,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Actions.SpeedData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.SpeedData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: SpeedData(SerializationInfo, StreamingContext)
+  nameWithType: SpeedData.SpeedData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.SpeedData.SpeedData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected SpeedData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.SpeedData.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: SpeedData.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.SpeedData.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.SpeedData.#ctor
   commentId: M:RobotComponents.Actions.SpeedData.#ctor
   id: '#ctor'
@@ -79,7 +154,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an empty SpeedData object. \n"
+  summary: "\nInitializes an empty instance of the Speed Data class.\n"
   syntax:
     content: public SpeedData()
     content.vb: Public Sub New
@@ -105,7 +180,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor for creating a predefined SpeedData. ABB defined already a number of speed data in the system module.\n"
+  summary: "\nInitializes a new instance of the Speed Data class with predefined values.\n"
   syntax:
     content: public SpeedData(double v_tcp)
     parameters:
@@ -135,7 +210,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor for creating a predefined SpeedData. ABB defined already a number of speed data in the system module.\n"
+  summary: "\nInitializes a new instance of the Speed Data class with predefined values.\n"
   syntax:
     content: public SpeedData(int v_tcp)
     parameters:
@@ -165,13 +240,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor for creating a custom SpeedData. \n"
+  summary: "\nInitializes a new instance of the Speed Data class with custom values.\n"
   syntax:
     content: public SpeedData(string name, double v_tcp, double v_ori = 500, double v_leax = 5000, double v_reax = 1000)
     parameters:
     - id: name
       type: System.String
-      description: 'The SpeedData variable name. '
+      description: 'The Speed Data variable name, must be unique. '
     - id: v_tcp
       type: System.Double
       description: 'The velocity of the tool center point (TCP) in mm/s. '
@@ -207,13 +282,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates a new speeddata by duplicating an existing speeddata. \nThis creates a deep copy of the existing speeddata. \n"
+  summary: "\nInitializes a new instance of the Speed Data class by duplicating an existing Speed Data instance. \n"
   syntax:
     content: public SpeedData(SpeedData speeddata)
     parameters:
     - id: speeddata
       type: RobotComponents.Actions.SpeedData
-      description: 'The speeddata that should be duplicated. '
+      description: 'The Speed Data instance to duplicate. '
     content.vb: Public Sub New(speeddata As SpeedData)
   overload: RobotComponents.Actions.SpeedData.#ctor*
   modifiers.csharp:
@@ -237,12 +312,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDuplicates a SpeedData object\n"
+  summary: "\nReturns an exact duplicate of this Speed Data instance.\n"
   syntax:
     content: public SpeedData Duplicate()
     return:
       type: RobotComponents.Actions.SpeedData
-      description: 'Returns a deep copy of the SpeedData object. '
+      description: 'A deep copy of the Speed Data instance. '
     content.vb: Public Function Duplicate As SpeedData
   overload: RobotComponents.Actions.SpeedData.Duplicate*
   modifiers.csharp:
@@ -266,12 +341,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the SpeedData object to an Action object. \n"
+  summary: "\nReturns an exact duplicate of this Spee Data instance as an Action. \n"
   syntax:
     content: public override Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the SpeedData object as an Action object. '
+      description: 'A deep copy of the Speed Data instance as an Action. '
     content.vb: Public Overrides Function DuplicateAction As Action
   overridden: RobotComponents.Actions.Action.DuplicateAction
   overload: RobotComponents.Actions.SpeedData.DuplicateAction*
@@ -330,16 +405,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.SpeedData.ToRAPIDDeclaration*
@@ -366,16 +441,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.SpeedData.ToRAPIDInstruction*
@@ -402,13 +477,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.SpeedData.ToRAPIDDeclaration*
@@ -435,13 +510,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.SpeedData.ToRAPIDInstruction*
@@ -468,7 +543,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the SpeedData is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -485,6 +560,37 @@ items:
   - Public
   - Overrides
   - ReadOnly
+- uid: RobotComponents.Actions.SpeedData.ReferenceType
+  commentId: P:RobotComponents.Actions.SpeedData.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: SpeedData.ReferenceType
+  fullName: RobotComponents.Actions.SpeedData.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the reference type.\n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.SpeedData.ReferenceType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.SpeedData.Name
   commentId: P:RobotComponents.Actions.SpeedData.Name
   id: Name
@@ -502,7 +608,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe SpeedData variable name. \n"
+  summary: "\nGets or sets the speeddata variable name.\n"
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -533,7 +639,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe velocity of the tool center point (TCP) in mm/s.\nIf a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.\n"
+  summary: "\nGets or sets the velocity of the tool center point (TCP) in mm/s.\nIf a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.\n"
   syntax:
     content: public double V_TCP { get; set; }
     parameters: []
@@ -564,7 +670,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe reorientation velocity of the TCP expressed in degrees/s. \nIf a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.\n"
+  summary: "\nGets or sets the reorientation velocity of the TCP expressed in degrees/s. \nIf a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.\n"
   syntax:
     content: public double V_ORI { get; set; }
     parameters: []
@@ -595,7 +701,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe velocity of linear external axes in mm/s.\n"
+  summary: "\nGets or sets the velocity of linear external axes in mm/s.\n"
   syntax:
     content: public double V_LEAX { get; set; }
     parameters: []
@@ -626,7 +732,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe velocity of rotating external axes in degrees/s.\n"
+  summary: "\nGets or sets the velocity of rotating external axes in degrees/s.\n"
   syntax:
     content: public double V_REAX { get; set; }
     parameters: []
@@ -657,7 +763,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the speeddata is predefined by ABB. \n"
+  summary: "\nGets or sets a value indicating whether this speeddata is a predefined speeddata. \n"
   syntax:
     content: public bool PreDefinied { get; set; }
     parameters: []
@@ -665,6 +771,37 @@ items:
       type: System.Boolean
     content.vb: Public Property PreDefinied As Boolean
   overload: RobotComponents.Actions.SpeedData.PreDefinied*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.SpeedData.UserDefinied
+  commentId: P:RobotComponents.Actions.SpeedData.UserDefinied
+  id: UserDefinied
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: UserDefinied
+  nameWithType: SpeedData.UserDefinied
+  fullName: RobotComponents.Actions.SpeedData.UserDefinied
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether this speeddata is a user definied speeddata. \n"
+  syntax:
+    content: public bool UserDefinied { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UserDefinied As Boolean
+  overload: RobotComponents.Actions.SpeedData.UserDefinied*
   modifiers.csharp:
   - public
   - get
@@ -688,7 +825,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nIndicates if the exact predefined speeddata value is used.\nIf false the nearest predefined speedata or a custom zonedata is used.\n"
+  summary: "\nGets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value. \nIf false the nearest predefined speedata or a custom speeddata was used. \n"
   syntax:
     content: public bool ExactPredefinedValue { get; }
     parameters: []
@@ -719,7 +856,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an array with valid predefined speeddata variable names\n"
+  summary: "\nGets the valid predefined speeddata variable names.\n"
   syntax:
     content: public static string[] ValidPredefinedNames { get; }
     parameters: []
@@ -752,7 +889,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an array with valid predefined speeddata values\n"
+  summary: "\nGets the valid predefined speeddata values.\n"
   syntax:
     content: public static double[] ValidPredefinedValues { get; }
     parameters: []
@@ -789,6 +926,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1043,12 +1187,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Actions.SpeedData.#ctor*
   commentId: Overload:RobotComponents.Actions.SpeedData.#ctor
   isExternal: true
   name: SpeedData
   nameWithType: SpeedData.SpeedData
   fullName: RobotComponents.Actions.SpeedData.SpeedData
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.SpeedData.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.SpeedData.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: SpeedData.GetObjectData
+  fullName: RobotComponents.Actions.SpeedData.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -1373,6 +1600,25 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
+- uid: RobotComponents.Actions.SpeedData.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.SpeedData.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: SpeedData.ReferenceType
+  fullName: RobotComponents.Actions.SpeedData.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.SpeedData.Name*
   commentId: Overload:RobotComponents.Actions.SpeedData.Name
   isExternal: true
@@ -1409,6 +1655,12 @@ references:
   name: PreDefinied
   nameWithType: SpeedData.PreDefinied
   fullName: RobotComponents.Actions.SpeedData.PreDefinied
+- uid: RobotComponents.Actions.SpeedData.UserDefinied*
+  commentId: Overload:RobotComponents.Actions.SpeedData.UserDefinied
+  isExternal: true
+  name: UserDefinied
+  nameWithType: SpeedData.UserDefinied
+  fullName: RobotComponents.Actions.SpeedData.UserDefinied
 - uid: RobotComponents.Actions.SpeedData.ExactPredefinedValue*
   commentId: Overload:RobotComponents.Actions.SpeedData.ExactPredefinedValue
   isExternal: true

@@ -8,9 +8,11 @@ items:
   - RobotComponents.Actions.WaitTime.#ctor
   - RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)
   - RobotComponents.Actions.WaitTime.#ctor(System.Double)
+  - RobotComponents.Actions.WaitTime.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitTime.Duplicate
   - RobotComponents.Actions.WaitTime.DuplicateAction
   - RobotComponents.Actions.WaitTime.Duration
+  - RobotComponents.Actions.WaitTime.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitTime.IsValid
   - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -30,15 +32,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nWaitTime class, defines waiting time between two actions. This command is used to wait a given amount of time.\n"
+  summary: "\nRepresent the Wait Time instruction.\nThis action is used to wait a given amount of time between two actions.\n"
   syntax:
-    content: 'public class WaitTime : Action'
+    content: 'public class WaitTime : Action, ISerializable'
     content.vb: >-
       Public Class WaitTime
           Inherits Action
+          Implements ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -52,6 +57,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Actions.WaitTime.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.WaitTime.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: WaitTime(SerializationInfo, StreamingContext)
+  nameWithType: WaitTime.WaitTime(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.WaitTime.WaitTime(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected WaitTime(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.WaitTime.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.WaitTime.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.WaitTime.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: WaitTime.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.WaitTime.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.WaitTime.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.WaitTime.#ctor
   commentId: M:RobotComponents.Actions.WaitTime.#ctor
   id: '#ctor'
@@ -69,7 +142,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an empty WaitTime object. \n"
+  summary: "\nInitializes an empty instance of the Override Robot Tool class.\n"
   syntax:
     content: public WaitTime()
     content.vb: Public Sub New
@@ -95,14 +168,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor to create a WaitTime object. \n"
+  summary: "\nInitializes an empty instance of the Wait Time class.\n"
   syntax:
-    content: public WaitTime(double Duration)
+    content: public WaitTime(double duration)
     parameters:
-    - id: Duration
+    - id: duration
       type: System.Double
       description: 'The time, expressed in seconds, that program execution is to wait. '
-    content.vb: Public Sub New(Duration As Double)
+    content.vb: Public Sub New(duration As Double)
   overload: RobotComponents.Actions.WaitTime.#ctor*
   modifiers.csharp:
   - public
@@ -125,13 +198,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates a new WaitTime object by duplicating an existing WaitTime object. \nThis creates a deep copy of the existing WaitTime object. \n"
+  summary: "\nInitializes a new instance of the Wait Time class by duplicating an existing Wait Time instance. \n"
   syntax:
     content: public WaitTime(WaitTime waitTime)
     parameters:
     - id: waitTime
       type: RobotComponents.Actions.WaitTime
-      description: 'The WaitTime that should be duplicated. '
+      description: 'The Wait Time instance to duplicate. '
     content.vb: Public Sub New(waitTime As WaitTime)
   overload: RobotComponents.Actions.WaitTime.#ctor*
   modifiers.csharp:
@@ -155,12 +228,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMethod to duplicate the WaitTime object.\n"
+  summary: "\nReturns an exact duplicate of this Wait Time instance.\n"
   syntax:
     content: public WaitTime Duplicate()
     return:
       type: RobotComponents.Actions.WaitTime
-      description: Returns a deep copy of the WaitTime object.
+      description: 'A deep copy of the Wait Time instance. '
     content.vb: Public Function Duplicate As WaitTime
   overload: RobotComponents.Actions.WaitTime.Duplicate*
   modifiers.csharp:
@@ -184,12 +257,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the WaitTime object to an Action object. \n"
+  summary: "\nReturns an exact duplicate of this Wait Time instance as an Action. \n"
   syntax:
     content: public override Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the WaitTime object as an Action object. '
+      description: 'A deep copy of the Wait Time instance as an Action. '
     content.vb: Public Overrides Function DuplicateAction As Action
   overridden: RobotComponents.Actions.Action.DuplicateAction
   overload: RobotComponents.Actions.WaitTime.DuplicateAction*
@@ -248,16 +321,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration*
@@ -284,16 +357,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.WaitTime.ToRAPIDInstruction*
@@ -320,13 +393,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.WaitTime.ToRAPIDDeclaration*
@@ -353,13 +426,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.WaitTime.ToRAPIDInstruction*
@@ -386,7 +459,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the WaitTime object is valid.\n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -420,7 +493,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe time, expressed in seconds, that program execution is to wait. Min. value 0 seconds. Max. value no limit. Resolution 0.001 seconds.\n"
+  summary: "\nGets or sets the time, expressed in seconds, that program execution is to wait. \nMin. value 0 seconds. Max. value no limit. Resolution 0.001 seconds.\n"
   syntax:
     content: public double Duration { get; set; }
     parameters: []
@@ -455,6 +528,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -709,12 +789,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Actions.WaitTime.#ctor*
   commentId: Overload:RobotComponents.Actions.WaitTime.#ctor
   isExternal: true
   name: WaitTime
   nameWithType: WaitTime.WaitTime
   fullName: RobotComponents.Actions.WaitTime.WaitTime
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.WaitTime.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.WaitTime.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: WaitTime.GetObjectData
+  fullName: RobotComponents.Actions.WaitTime.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Double
   commentId: T:System.Double
   parent: System

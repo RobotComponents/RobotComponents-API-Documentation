@@ -9,22 +9,26 @@ items:
   - RobotComponents.Actions.ZoneData.#ctor(RobotComponents.Actions.ZoneData)
   - RobotComponents.Actions.ZoneData.#ctor(System.Double)
   - RobotComponents.Actions.ZoneData.#ctor(System.Int32)
+  - RobotComponents.Actions.ZoneData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.ZoneData.Duplicate
   - RobotComponents.Actions.ZoneData.DuplicateAction
   - RobotComponents.Actions.ZoneData.ExactPredefinedValue
   - RobotComponents.Actions.ZoneData.FinePoint
+  - RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ZoneData.IsValid
   - RobotComponents.Actions.ZoneData.Name
   - RobotComponents.Actions.ZoneData.PathZoneExternalAxes
   - RobotComponents.Actions.ZoneData.PathZoneOrientation
   - RobotComponents.Actions.ZoneData.PathZoneTCP
   - RobotComponents.Actions.ZoneData.PreDefinied
+  - RobotComponents.Actions.ZoneData.ReferenceType
   - RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.ZoneData.ToString
+  - RobotComponents.Actions.ZoneData.UserDefinied
   - RobotComponents.Actions.ZoneData.ValidPredefinedNames
   - RobotComponents.Actions.ZoneData.ValidPredefinedValues
   - RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes
@@ -43,15 +47,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nZoneData class. Zoned Data is used to specify how a position is to be terminated, \ni.e. how close to the programmed position the axes must be before moving towards \nthe next position.\n"
+  summary: "\nRepresents a predefined or user definied Zone Data declaration.\nThis action is used to specify how a position is to be terminated.\n"
   syntax:
-    content: 'public class ZoneData : Action'
+    content: 'public class ZoneData : Action, ISerializable'
     content.vb: >-
       Public Class ZoneData
           Inherits Action
+          Implements ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -65,6 +72,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Actions.ZoneData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.ZoneData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ZoneData(SerializationInfo, StreamingContext)
+  nameWithType: ZoneData.ZoneData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.ZoneData.ZoneData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected ZoneData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.ZoneData.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ZoneData.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.ZoneData.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ZoneData.#ctor
   commentId: M:RobotComponents.Actions.ZoneData.#ctor
   id: '#ctor'
@@ -82,7 +157,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an empty ZoneData object. \n"
+  summary: "\nInitializes an empty instance of the Zone Data class.\n"
   syntax:
     content: public ZoneData()
     content.vb: Public Sub New
@@ -108,7 +183,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor for creating a predefined ZoneData. \nABB defined already a number of zone data in the system module.\nUse -1 to define a fine point. \n"
+  summary: "\nInitializes a new instance of the Zone Data class with predefined values.\nUse -1 to define a fine point.\n"
   syntax:
     content: public ZoneData(double zone)
     parameters:
@@ -138,7 +213,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructor for creating a predefined ZoneData. \nABB defined already a number of zone data in the system module.\nUse -1 to define a fine point. \n"
+  summary: "\nInitializes a new instance of the Zone Data class with predefined values.\nUse -1 to define a fine point.\n"
   syntax:
     content: public ZoneData(int zone)
     parameters:
@@ -168,13 +243,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines a custom ZoneData.\n"
+  summary: "\nInitializes a new instance of the Zone Data class with custom values.\n"
   syntax:
     content: public ZoneData(string name, bool finep, double pzone_tcp = 0, double pzone_ori = 0, double pzone_eax = 0, double zone_ori = 0, double zone_leax = 0, double zone_reax = 0)
     parameters:
     - id: name
       type: System.String
-      description: 'The ZoneData variable name. '
+      description: 'The Zone Data variable name, must be unique. '
     - id: finep
       type: System.Boolean
       description: 'Defines whether the movement is to terminate as a stop point (fine point) or as a fly-by point. '
@@ -219,13 +294,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates a new zonedata by duplicating an existing zonedata. \nThis creates a deep copy of the existing zonedata. \n"
+  summary: "\nInitializes a new instance of the Zone Data class by duplicating an existing Zone Data instance. \n"
   syntax:
     content: public ZoneData(ZoneData zonedata)
     parameters:
     - id: zonedata
       type: RobotComponents.Actions.ZoneData
-      description: 'The speeddata that should be duplicated. '
+      description: 'The Zone Data instance to duplicate. '
     content.vb: Public Sub New(zonedata As ZoneData)
   overload: RobotComponents.Actions.ZoneData.#ctor*
   modifiers.csharp:
@@ -249,12 +324,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDuplicates a ZoneData object\n"
+  summary: "\nReturns an exact duplicate of this Zone Data instance.\n"
   syntax:
     content: public ZoneData Duplicate()
     return:
       type: RobotComponents.Actions.ZoneData
-      description: 'Returns a deep copy of the ZoneData object. '
+      description: 'A deep copy of the Zone Data instance. '
     content.vb: Public Function Duplicate As ZoneData
   overload: RobotComponents.Actions.ZoneData.Duplicate*
   modifiers.csharp:
@@ -278,12 +353,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the ZoneData object to an Action object. \n"
+  summary: "\nReturns an exact duplicate of this Zone Data instance as an Action. \n"
   syntax:
     content: public override Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the ZoneData object as an Action object. '
+      description: 'A deep copy of the Zone Data instance as an Action. '
     content.vb: Public Overrides Function DuplicateAction As Action
   overridden: RobotComponents.Actions.Action.DuplicateAction
   overload: RobotComponents.Actions.ZoneData.DuplicateAction*
@@ -342,16 +417,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
@@ -378,16 +453,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDInstruction*
@@ -414,13 +489,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
@@ -447,13 +522,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDInstruction*
@@ -480,7 +555,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the SpeedData is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -497,6 +572,37 @@ items:
   - Public
   - Overrides
   - ReadOnly
+- uid: RobotComponents.Actions.ZoneData.ReferenceType
+  commentId: P:RobotComponents.Actions.ZoneData.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: ZoneData.ReferenceType
+  fullName: RobotComponents.Actions.ZoneData.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the reference type.\n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.ZoneData.ReferenceType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ZoneData.Name
   commentId: P:RobotComponents.Actions.ZoneData.Name
   id: Name
@@ -514,7 +620,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe ZoneData variable name. \n"
+  summary: "\nGets or sets the ZoneData variable name. \n"
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -545,7 +651,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines whether the movement is to terminate as a stop point (fine point) or as a fly-by point.\n"
+  summary: "\nGets or sets a value indicating whether the movement is to terminate as a stop point (fine point) or as a fly-by point.\n"
   syntax:
     content: public bool FinePoint { get; set; }
     parameters: []
@@ -576,7 +682,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe size (the radius) of the TCP zone in mm.\n"
+  summary: "\nGets or sets the size (the radius) of the TCP zone in mm.\n"
   syntax:
     content: public double PathZoneTCP { get; set; }
     parameters: []
@@ -607,7 +713,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone size (the radius) for the tool reorientation. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
+  summary: "\nGets or sets the zone size (the radius) for the tool reorientation. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
   syntax:
     content: public double PathZoneOrientation { get; set; }
     parameters: []
@@ -638,7 +744,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone size (the radius) for external axes. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
+  summary: "\nGets or sets the zone size (the radius) for external axes. \nThe size is defined as the distance of the TCP from the programmed point in mm.\n"
   syntax:
     content: public double PathZoneExternalAxes { get; set; }
     parameters: []
@@ -669,7 +775,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone size for the tool reorientation in degrees. \nIf the robot is holding the work object, this means an angle of rotation for the work object.\n"
+  summary: "\nGets or sets the zone size for the tool reorientation in degrees. \nIf the robot is holding the work object, this means an angle of rotation for the work object.\n"
   syntax:
     content: public double ZoneOrientation { get; set; }
     parameters: []
@@ -700,7 +806,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone size for linear external axes in mm. \n"
+  summary: "\nGets or sets the zone size for linear external axes in mm. \n"
   syntax:
     content: public double ZoneExternalLinearAxes { get; set; }
     parameters: []
@@ -731,7 +837,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone size for rotating external axes in degrees.\n"
+  summary: "\nGets or sets the zone size for rotating external axes in degrees.\n"
   syntax:
     content: public double ZoneExternalRotationalAxes { get; set; }
     parameters: []
@@ -762,7 +868,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the zonedata is predefined by ABB. \n"
+  summary: "\nGets or sets a value indicating whether this zonedata is a predefined zonedata. \n"
   syntax:
     content: public bool PreDefinied { get; set; }
     parameters: []
@@ -770,6 +876,37 @@ items:
       type: System.Boolean
     content.vb: Public Property PreDefinied As Boolean
   overload: RobotComponents.Actions.ZoneData.PreDefinied*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ZoneData.UserDefinied
+  commentId: P:RobotComponents.Actions.ZoneData.UserDefinied
+  id: UserDefinied
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: UserDefinied
+  nameWithType: ZoneData.UserDefinied
+  fullName: RobotComponents.Actions.ZoneData.UserDefinied
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether this zonedata is a user definied zonedata. \n"
+  syntax:
+    content: public bool UserDefinied { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property UserDefinied As Boolean
+  overload: RobotComponents.Actions.ZoneData.UserDefinied*
   modifiers.csharp:
   - public
   - get
@@ -793,7 +930,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nIndicates if the exact predefined zonedata value is used.\nIf false the nearest predefined zonedata or a custom zonedata is used.\n"
+  summary: "\nGets or sets a value indicating whether this zonedata was constructed from an exact predefined speeddata value. \nIf false the nearest predefined speedata or a custom zonedata was used. \n"
   syntax:
     content: public bool ExactPredefinedValue { get; }
     parameters: []
@@ -824,7 +961,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an array with valid predefined zonedata variable names\n"
+  summary: "\nGets the valid predefined zonedata variable names.\n"
   syntax:
     content: public static string[] ValidPredefinedNames { get; }
     parameters: []
@@ -857,7 +994,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines an array with valid predefined zonedata values\n"
+  summary: "\nGets the valid predefined zonedata values.\n"
   syntax:
     content: public static double[] ValidPredefinedValues { get; }
     parameters: []
@@ -894,6 +1031,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1148,12 +1292,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Actions.ZoneData.#ctor*
   commentId: Overload:RobotComponents.Actions.ZoneData.#ctor
   isExternal: true
   name: ZoneData
   nameWithType: ZoneData.ZoneData
   fullName: RobotComponents.Actions.ZoneData.ZoneData
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.ZoneData.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.ZoneData.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: ZoneData.GetObjectData
+  fullName: RobotComponents.Actions.ZoneData.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.Double
   commentId: T:System.Double
   parent: System
@@ -1478,6 +1705,25 @@ references:
   name: IsValid
   nameWithType: ZoneData.IsValid
   fullName: RobotComponents.Actions.ZoneData.IsValid
+- uid: RobotComponents.Actions.ZoneData.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.ZoneData.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ZoneData.ReferenceType
+  fullName: RobotComponents.Actions.ZoneData.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.ZoneData.Name*
   commentId: Overload:RobotComponents.Actions.ZoneData.Name
   isExternal: true
@@ -1532,6 +1778,12 @@ references:
   name: PreDefinied
   nameWithType: ZoneData.PreDefinied
   fullName: RobotComponents.Actions.ZoneData.PreDefinied
+- uid: RobotComponents.Actions.ZoneData.UserDefinied*
+  commentId: Overload:RobotComponents.Actions.ZoneData.UserDefinied
+  isExternal: true
+  name: UserDefinied
+  nameWithType: ZoneData.UserDefinied
+  fullName: RobotComponents.Actions.ZoneData.UserDefinied
 - uid: RobotComponents.Actions.ZoneData.ExactPredefinedValue*
   commentId: Overload:RobotComponents.Actions.ZoneData.ExactPredefinedValue
   isExternal: true

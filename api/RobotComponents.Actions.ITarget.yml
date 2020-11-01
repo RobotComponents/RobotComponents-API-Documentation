@@ -9,6 +9,7 @@ items:
   - RobotComponents.Actions.ITarget.ExternalJointPosition
   - RobotComponents.Actions.ITarget.IsValid
   - RobotComponents.Actions.ITarget.Name
+  - RobotComponents.Actions.ITarget.ReferenceType
   langs:
   - csharp
   - vb
@@ -22,7 +23,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the Target object is valid.\n"
+  summary: "\nRepresents the interface for different target types.\n"
   syntax:
     content: public interface ITarget
     content.vb: Public Interface ITarget
@@ -49,12 +50,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMethod to duplicate the Target object as an ITarget object\n"
+  summary: "\nReturns an exact duplicate of this Target.\n"
   syntax:
     content: ITarget DuplicateTarget()
     return:
       type: RobotComponents.Actions.ITarget
-      description: 'Returns a deep copy of the ITarget object. '
+      description: 'The exact copy of this Target. '
     content.vb: Function DuplicateTarget As ITarget
   overload: RobotComponents.Actions.ITarget.DuplicateTarget*
 - uid: RobotComponents.Actions.ITarget.IsValid
@@ -74,7 +75,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nIndicates if the Target object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: bool IsValid { get; }
     parameters: []
@@ -86,6 +87,34 @@ items:
   - get
   modifiers.vb:
   - ReadOnly
+- uid: RobotComponents.Actions.ITarget.ReferenceType
+  commentId: P:RobotComponents.Actions.ITarget.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: ITarget.ReferenceType
+  fullName: RobotComponents.Actions.ITarget.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the Reference Type.\n"
+  syntax:
+    content: ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.ITarget.ReferenceType*
+  modifiers.csharp:
+  - get
+  - set
 - uid: RobotComponents.Actions.ITarget.Name
   commentId: P:RobotComponents.Actions.ITarget.Name
   id: Name
@@ -103,7 +132,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines the variable name of the Target\n"
+  summary: "\nGets or sets the Target variable name.\nEach Target variable name has to be unique.\n"
   syntax:
     content: string Name { get; set; }
     parameters: []
@@ -131,7 +160,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines the External Joint Position\n"
+  summary: "\nGets or sets the External Joint Position.\n"
   syntax:
     content: ExternalJointPosition ExternalJointPosition { get; set; }
     parameters: []
@@ -181,6 +210,25 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: RobotComponents.Actions.ITarget.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.ITarget.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ITarget.ReferenceType
+  fullName: RobotComponents.Actions.ITarget.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.ITarget.Name*
   commentId: Overload:RobotComponents.Actions.ITarget.Name
   isExternal: true

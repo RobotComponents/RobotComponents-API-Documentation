@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RobotTarget
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,8 @@
   
   <h1 id="RobotComponents_Actions_RobotTarget" data-uid="RobotComponents.Actions.RobotTarget" class="text-break">Class RobotTarget
   </h1>
-  <div class="markdown level0 summary"><p>Robot Target class, defines robot target data. The robt target data is used to define the position of the robot and external axes.</p>
+  <div class="markdown level0 summary"><p>Represents the Robot Target declaration.
+This action is used to define the pose of the robot and the external axes.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -85,6 +86,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></div>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,7 +113,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_RobotTarget_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RobotTarget : Action, ITarget</code></pre>
+    <pre><code class="lang-csharp hljs">public class RobotTarget : Action, ITarget, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -119,7 +121,7 @@
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor" data-uid="RobotComponents.Actions.RobotTarget.#ctor">RobotTarget()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty Robot Target object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Robot Target class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -130,8 +132,7 @@
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_RobotComponents_Actions_RobotTarget_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(RobotComponents.Actions.RobotTarget)">RobotTarget(RobotTarget)</h4>
-  <div class="markdown level1 summary"><p>Creates a new target by duplicating an existing target.
-This creates a deep copy of the existing target.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class by duplicating an existing Robot Target instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -151,7 +152,42 @@ This creates a deep copy of the existing target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RobotTarget.html">RobotTarget</a></td>
         <td><span class="parametername">target</span></td>
-        <td><p>The target that should be duplicated.</p>
+        <td><p>The Robot Target instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">RobotTarget(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RobotTarget(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -160,7 +196,7 @@ This creates a deep copy of the existing target.</p>
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane)">RobotTarget(String, Plane)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with default axis configuration.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an axis conguration set to zero and an undefined External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -180,13 +216,13 @@ This creates a deep copy of the existing target.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
+        <td><p>The target plane.</p>
 </td>
       </tr>
     </tbody>
@@ -195,7 +231,8 @@ This creates a deep copy of the existing target.</p>
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">RobotTarget(String, Plane, Plane, Int32)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target that will be re-oriented from the reference coordinate system to the global coordinate system.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position.
+The target planes will be reoriented from the reference plane to the world xy-plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -215,25 +252,25 @@ This creates a deep copy of the existing target.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
+        <td><p>The target plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">referencePlane</span></td>
-        <td><p>Reference plane. Target planes will be reoriented from this plane to the origon (WorldXY).</p>
+        <td><p>The reference plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot axis configuration as a number (0-7).</p>
+        <td><p>The axis configuration as a number (0-7).</p>
 </td>
       </tr>
     </tbody>
@@ -242,8 +279,8 @@ This creates a deep copy of the existing target.</p>
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">RobotTarget(String, Plane, Plane, Int32, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with a user defined external joint position.
-Target planes will be re-oriented from the reference coordinate system to the global coordinate system.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.
+The target planes will be reoriented from the reference plane to the world xy-plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -263,222 +300,31 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
+        <td><p>The target plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">referencePlane</span></td>
-        <td><p>Reference plane. Target planes will be reoriented from this plane to the origon (WorldXY).</p>
+        <td><p>The Reference plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot target axis configuration as a number (0-7).</p>
+        <td><p>The axis configuration as a number (0-7).</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The user defined external joint position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,System.Collections.Generic.List{System.Double})">RobotTarget(String, Plane, Plane, Int32, List&lt;Double&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with user defined (override) external axis values.
-Target planes will be re-oriented from the reference coordinate system to the global coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfig, List&lt;double&gt; Eax)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>Reference plane. Target planes will be reoriented from this plane to the origon (WorldXY).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot target axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">Eax</span></td>
-        <td><p>The user defined external axis values as a list.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTarget(String, Plane, Plane, Int32, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with user defined (override) external axis values.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfig, double Eax_a, double Eax_b = 9000000000, double Eax_c = 9000000000, double Eax_d = 9000000000, double Eax_e = 9000000000, double Eax_f = 9000000000)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>Reference plane. Target planes will be reoriented from this plane to the origin (WorldXY).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_a</span></td>
-        <td><p>The position of the external logical axis “a” expressed in degrees or mm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_b</span></td>
-        <td><p>The position of the external logical axis “b” expressed in degrees or mm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_c</span></td>
-        <td><p>The position of the external logical axis “c” expressed in degrees or mm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_d</span></td>
-        <td><p>The position of the external logical axis “d” expressed in degrees or mm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_e</span></td>
-        <td><p>The position of the external logical axis “e” expressed in degrees or mm.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">Eax_f</span></td>
-        <td><p>The position of the external logical axis “f” expressed in degrees or mm.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_System_Double___" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,System.Double[])">RobotTarget(String, Plane, Plane, Int32, Double[])</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with user defined (override) external axis values.
-Target planes will be re-oriented from the reference coordinate system to the global coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfig, double[] Eax)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>Reference plane. Target planes will be reoriented from this plane to the origon (WorldXY).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot target axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Double</span>[]</td>
-        <td><span class="parametername">Eax</span></td>
-        <td><p>The user defined external axis values as an array.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -487,7 +333,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32)">RobotTarget(String, Plane, Int32)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with a user defined axis configuration.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -507,19 +353,19 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
+        <td><p>Thr target plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot axis configuration as a number (0-7).</p>
+        <td><p>The axis configuration as a number (0-7).</p>
 </td>
       </tr>
     </tbody>
@@ -528,7 +374,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_System_Int32_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">RobotTarget(String, Plane, Int32, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with a user defined external joint position.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -548,72 +394,25 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
+        <td><p>The target plane.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Int32</span></td>
         <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot target axis configuration as a number (0-7).</p>
+        <td><p>The axis configuration as a number (0-7).</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The user defined external joint position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_RobotTarget__ctor_" data-uid="RobotComponents.Actions.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_System_Int32_System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32,System.Collections.Generic.List{System.Double})">RobotTarget(String, Plane, Int32, List&lt;Double&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot target with user defined (override) external axis values.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTarget(string name, Plane plane, int axisConfig, List&lt;double&gt; Eax)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Robot target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Robot target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Int32</span></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>Robot target axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">Eax</span></td>
-        <td><p>The user defined external joint positions as a list with axis values.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -624,7 +423,8 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_AxisConfig_" data-uid="RobotComponents.Actions.RobotTarget.AxisConfig*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_AxisConfig" data-uid="RobotComponents.Actions.RobotTarget.AxisConfig">AxisConfig</h4>
-  <div class="markdown level1 summary"><p>The axis configuration of the robot (0-7).</p>
+  <div class="markdown level1 summary"><p>Gets or set the axis configuration.
+Min. value 0. Max. value 7.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -650,7 +450,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_ExternalJointPosition_" data-uid="RobotComponents.Actions.RobotTarget.ExternalJointPosition*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_ExternalJointPosition" data-uid="RobotComponents.Actions.RobotTarget.ExternalJointPosition">ExternalJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the External Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets or sets the External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -676,7 +476,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_IsValid_" data-uid="RobotComponents.Actions.RobotTarget.IsValid*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_IsValid" data-uid="RobotComponents.Actions.RobotTarget.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicuate if the Robot Target object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -704,7 +504,8 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_Name_" data-uid="RobotComponents.Actions.RobotTarget.Name*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_Name" data-uid="RobotComponents.Actions.RobotTarget.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The robot target variable name, must be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Target variable name.
+Each Target variable name has to be unique.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -730,7 +531,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_Plane_" data-uid="RobotComponents.Actions.RobotTarget.Plane*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_Plane" data-uid="RobotComponents.Actions.RobotTarget.Plane">Plane</h4>
-  <div class="markdown level1 summary"><p>The position and orientation of the tool center as a plane.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the desired position and orientation of the tool center point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -756,7 +557,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_Quat_" data-uid="RobotComponents.Actions.RobotTarget.Quat*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_Quat" data-uid="RobotComponents.Actions.RobotTarget.Quat">Quat</h4>
-  <div class="markdown level1 summary"><p>The orientation of the tool, expressed in the form of a quaternion (q1, q2, q3, and q4).</p>
+  <div class="markdown level1 summary"><p>Gets or sets the desired orientation of the tool center point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -778,13 +579,39 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotTarget_ReferenceType_" data-uid="RobotComponents.Actions.RobotTarget.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_RobotTarget_ReferenceType" data-uid="RobotComponents.Actions.RobotTarget.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Reference Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
   <a id="RobotComponents_Actions_RobotTarget_Duplicate_" data-uid="RobotComponents.Actions.RobotTarget.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_Duplicate" data-uid="RobotComponents.Actions.RobotTarget.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>Method to duplicate the Target object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Target instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -802,7 +629,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RobotTarget.html">RobotTarget</a></td>
-        <td><p>Returns a deep copy of the Target object.</p>
+        <td><p>A deep copy of the Robot Target instance.</p>
 </td>
       </tr>
     </tbody>
@@ -811,7 +638,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_DuplicateAction_" data-uid="RobotComponents.Actions.RobotTarget.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_DuplicateAction" data-uid="RobotComponents.Actions.RobotTarget.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Target object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Target instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -829,7 +656,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the Target object as an Action object.</p>
+        <td><p>A deep copy of the Robot Target instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -840,7 +667,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_DuplicateTarget_" data-uid="RobotComponents.Actions.RobotTarget.DuplicateTarget*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_DuplicateTarget" data-uid="RobotComponents.Actions.RobotTarget.DuplicateTarget">DuplicateTarget()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Robot Target object to an ITarget object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Target instance as an ITarget.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -858,7 +685,42 @@ Target planes will be re-oriented from the reference coordinate system to the gl
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></td>
-        <td><p>Returns a deep copy of the Robot Target object as an ITarget object.</p>
+        <td><p>A deep copy of the Robot Target instance as an ITarget.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotTarget_GetObjectData_" data-uid="RobotComponents.Actions.RobotTarget.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_RobotTarget_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.RobotTarget.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
 </td>
       </tr>
     </tbody>
@@ -867,7 +729,8 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -887,7 +750,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -898,7 +761,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -918,7 +781,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -934,7 +797,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -945,7 +808,8 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -965,7 +829,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -976,7 +840,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   
   <a id="RobotComponents_Actions_RobotTarget_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_RobotTarget_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.RobotTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -996,7 +860,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -1012,7 +876,7 @@ Target planes will be re-oriented from the reference coordinate system to the gl
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -1052,6 +916,9 @@ Target planes will be re-oriented from the reference coordinate system to the gl
   <div>
       <a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a>
   </div>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -1062,7 +929,8 @@ Target planes will be re-oriented from the reference coordinate system to the gl
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

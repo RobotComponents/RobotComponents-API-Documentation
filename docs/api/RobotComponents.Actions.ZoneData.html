@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ZoneData
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,9 +73,8 @@
   
   <h1 id="RobotComponents_Actions_ZoneData" data-uid="RobotComponents.Actions.ZoneData" class="text-break">Class ZoneData
   </h1>
-  <div class="markdown level0 summary"><p>ZoneData class. Zoned Data is used to specify how a position is to be terminated,
-i.e. how close to the programmed position the axes must be before moving towards
-the next position.</p>
+  <div class="markdown level0 summary"><p>Represents a predefined or user definied Zone Data declaration.
+This action is used to specify how a position is to be terminated.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -83,6 +82,10 @@ the next position.</p>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></div>
     <div class="level2"><span class="xref">ZoneData</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -109,7 +112,7 @@ the next position.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_ZoneData_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ZoneData : Action</code></pre>
+    <pre><code class="lang-csharp hljs">public class ZoneData : Action, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -117,7 +120,7 @@ the next position.</p>
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor" data-uid="RobotComponents.Actions.ZoneData.#ctor">ZoneData()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty ZoneData object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Zone Data class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -128,8 +131,7 @@ the next position.</p>
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor_RobotComponents_Actions_ZoneData_" data-uid="RobotComponents.Actions.ZoneData.#ctor(RobotComponents.Actions.ZoneData)">ZoneData(ZoneData)</h4>
-  <div class="markdown level1 summary"><p>Creates a new zonedata by duplicating an existing zonedata.
-This creates a deep copy of the existing zonedata.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class by duplicating an existing Zone Data instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -149,7 +151,7 @@ This creates a deep copy of the existing zonedata.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ZoneData.html">ZoneData</a></td>
         <td><span class="parametername">zonedata</span></td>
-        <td><p>The speeddata that should be duplicated.</p>
+        <td><p>The Zone Data instance to duplicate.</p>
 </td>
       </tr>
     </tbody>
@@ -158,8 +160,7 @@ This creates a deep copy of the existing zonedata.</p>
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor_System_Double_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.Double)">ZoneData(Double)</h4>
-  <div class="markdown level1 summary"><p>Constructor for creating a predefined ZoneData.
-ABB defined already a number of zone data in the system module.
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.
 Use -1 to define a fine point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -189,8 +190,7 @@ Use -1 to define a fine point.</p>
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor_System_Int32_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.Int32)">ZoneData(Int32)</h4>
-  <div class="markdown level1 summary"><p>Constructor for creating a predefined ZoneData.
-ABB defined already a number of zone data in the system module.
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.
 Use -1 to define a fine point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -219,8 +219,43 @@ Use -1 to define a fine point.</p>
   
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">ZoneData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected ZoneData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor_System_String_System_Boolean_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">ZoneData(String, Boolean, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a custom ZoneData.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with custom values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -240,7 +275,7 @@ Use -1 to define a fine point.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The ZoneData variable name.</p>
+        <td><p>The Zone Data variable name, must be unique.</p>
 </td>
       </tr>
       <tr>
@@ -293,8 +328,8 @@ Use -1 to define a fine point.</p>
   
   <a id="RobotComponents_Actions_ZoneData_ExactPredefinedValue_" data-uid="RobotComponents.Actions.ZoneData.ExactPredefinedValue*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ExactPredefinedValue" data-uid="RobotComponents.Actions.ZoneData.ExactPredefinedValue">ExactPredefinedValue</h4>
-  <div class="markdown level1 summary"><p>Indicates if the exact predefined zonedata value is used.
-If false the nearest predefined zonedata or a custom zonedata is used.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata was constructed from an exact predefined speeddata value.
+If false the nearest predefined speedata or a custom zonedata was used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -320,7 +355,7 @@ If false the nearest predefined zonedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_ZoneData_FinePoint_" data-uid="RobotComponents.Actions.ZoneData.FinePoint*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_FinePoint" data-uid="RobotComponents.Actions.ZoneData.FinePoint">FinePoint</h4>
-  <div class="markdown level1 summary"><p>Defines whether the movement is to terminate as a stop point (fine point) or as a fly-by point.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the movement is to terminate as a stop point (fine point) or as a fly-by point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -346,7 +381,7 @@ If false the nearest predefined zonedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_ZoneData_IsValid_" data-uid="RobotComponents.Actions.ZoneData.IsValid*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_IsValid" data-uid="RobotComponents.Actions.ZoneData.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the SpeedData is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -374,7 +409,7 @@ If false the nearest predefined zonedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_ZoneData_Name_" data-uid="RobotComponents.Actions.ZoneData.Name*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_Name" data-uid="RobotComponents.Actions.ZoneData.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The ZoneData variable name.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the ZoneData variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -400,7 +435,7 @@ If false the nearest predefined zonedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_ZoneData_PathZoneExternalAxes_" data-uid="RobotComponents.Actions.ZoneData.PathZoneExternalAxes*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_PathZoneExternalAxes" data-uid="RobotComponents.Actions.ZoneData.PathZoneExternalAxes">PathZoneExternalAxes</h4>
-  <div class="markdown level1 summary"><p>The zone size (the radius) for external axes.
+  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for external axes.
 The size is defined as the distance of the TCP from the programmed point in mm.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -427,7 +462,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_PathZoneOrientation_" data-uid="RobotComponents.Actions.ZoneData.PathZoneOrientation*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_PathZoneOrientation" data-uid="RobotComponents.Actions.ZoneData.PathZoneOrientation">PathZoneOrientation</h4>
-  <div class="markdown level1 summary"><p>The zone size (the radius) for the tool reorientation.
+  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for the tool reorientation.
 The size is defined as the distance of the TCP from the programmed point in mm.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -454,7 +489,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_PathZoneTCP_" data-uid="RobotComponents.Actions.ZoneData.PathZoneTCP*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_PathZoneTCP" data-uid="RobotComponents.Actions.ZoneData.PathZoneTCP">PathZoneTCP</h4>
-  <div class="markdown level1 summary"><p>The size (the radius) of the TCP zone in mm.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the size (the radius) of the TCP zone in mm.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -480,7 +515,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_PreDefinied_" data-uid="RobotComponents.Actions.ZoneData.PreDefinied*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_PreDefinied" data-uid="RobotComponents.Actions.ZoneData.PreDefinied">PreDefinied</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the zonedata is predefined by ABB.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata is a predefined zonedata.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -504,9 +539,61 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   </table>
   
   
+  <a id="RobotComponents_Actions_ZoneData_ReferenceType_" data-uid="RobotComponents.Actions.ZoneData.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData_ReferenceType" data-uid="RobotComponents.Actions.ZoneData.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the reference type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_ZoneData_UserDefinied_" data-uid="RobotComponents.Actions.ZoneData.UserDefinied*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData_UserDefinied" data-uid="RobotComponents.Actions.ZoneData.UserDefinied">UserDefinied</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata is a user definied zonedata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UserDefinied { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_ZoneData_ValidPredefinedNames_" data-uid="RobotComponents.Actions.ZoneData.ValidPredefinedNames*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ValidPredefinedNames" data-uid="RobotComponents.Actions.ZoneData.ValidPredefinedNames">ValidPredefinedNames</h4>
-  <div class="markdown level1 summary"><p>Defines an array with valid predefined zonedata variable names</p>
+  <div class="markdown level1 summary"><p>Gets the valid predefined zonedata variable names.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -532,7 +619,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_ValidPredefinedValues_" data-uid="RobotComponents.Actions.ZoneData.ValidPredefinedValues*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ValidPredefinedValues" data-uid="RobotComponents.Actions.ZoneData.ValidPredefinedValues">ValidPredefinedValues</h4>
-  <div class="markdown level1 summary"><p>Defines an array with valid predefined zonedata values</p>
+  <div class="markdown level1 summary"><p>Gets the valid predefined zonedata values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -558,7 +645,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_ZoneExternalLinearAxes_" data-uid="RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ZoneExternalLinearAxes" data-uid="RobotComponents.Actions.ZoneData.ZoneExternalLinearAxes">ZoneExternalLinearAxes</h4>
-  <div class="markdown level1 summary"><p>The zone size for linear external axes in mm.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the zone size for linear external axes in mm.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -584,7 +671,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_ZoneExternalRotationalAxes_" data-uid="RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ZoneExternalRotationalAxes" data-uid="RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes">ZoneExternalRotationalAxes</h4>
-  <div class="markdown level1 summary"><p>The zone size for rotating external axes in degrees.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the zone size for rotating external axes in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -610,7 +697,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   
   <a id="RobotComponents_Actions_ZoneData_ZoneOrientation_" data-uid="RobotComponents.Actions.ZoneData.ZoneOrientation*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ZoneOrientation" data-uid="RobotComponents.Actions.ZoneData.ZoneOrientation">ZoneOrientation</h4>
-  <div class="markdown level1 summary"><p>The zone size for the tool reorientation in degrees.
+  <div class="markdown level1 summary"><p>Gets or sets the zone size for the tool reorientation in degrees.
 If the robot is holding the work object, this means an angle of rotation for the work object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -639,7 +726,7 @@ If the robot is holding the work object, this means an angle of rotation for the
   
   <a id="RobotComponents_Actions_ZoneData_Duplicate_" data-uid="RobotComponents.Actions.ZoneData.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_Duplicate" data-uid="RobotComponents.Actions.ZoneData.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>Duplicates a ZoneData object</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Zone Data instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -657,7 +744,7 @@ If the robot is holding the work object, this means an angle of rotation for the
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ZoneData.html">ZoneData</a></td>
-        <td><p>Returns a deep copy of the ZoneData object.</p>
+        <td><p>A deep copy of the Zone Data instance.</p>
 </td>
       </tr>
     </tbody>
@@ -666,7 +753,7 @@ If the robot is holding the work object, this means an angle of rotation for the
   
   <a id="RobotComponents_Actions_ZoneData_DuplicateAction_" data-uid="RobotComponents.Actions.ZoneData.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_DuplicateAction" data-uid="RobotComponents.Actions.ZoneData.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the ZoneData object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Zone Data instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -684,7 +771,7 @@ If the robot is holding the work object, this means an angle of rotation for the
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the ZoneData object as an Action object.</p>
+        <td><p>A deep copy of the Zone Data instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -693,9 +780,45 @@ If the robot is holding the work object, this means an angle of rotation for the
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
   
   
+  <a id="RobotComponents_Actions_ZoneData_GetObjectData_" data-uid="RobotComponents.Actions.ZoneData.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_ZoneData_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -715,7 +838,7 @@ If the robot is holding the work object, this means an angle of rotation for the
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -726,7 +849,7 @@ If the robot is holding the work object, this means an angle of rotation for the
   
   <a id="RobotComponents_Actions_ZoneData_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -746,7 +869,7 @@ If the robot is holding the work object, this means an angle of rotation for the
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -762,7 +885,7 @@ If the robot is holding the work object, this means an angle of rotation for the
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -773,7 +896,8 @@ If the robot is holding the work object, this means an angle of rotation for the
   
   <a id="RobotComponents_Actions_ZoneData_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -793,7 +917,7 @@ If the robot is holding the work object, this means an angle of rotation for the
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -804,7 +928,7 @@ If the robot is holding the work object, this means an angle of rotation for the
   
   <a id="RobotComponents_Actions_ZoneData_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_ZoneData_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -824,7 +948,7 @@ If the robot is holding the work object, this means an angle of rotation for the
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -840,7 +964,7 @@ If the robot is holding the work object, this means an angle of rotation for the
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -876,6 +1000,10 @@ If the robot is holding the work object, this means an angle of rotation for the
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_ToString">Action.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -886,7 +1014,8 @@ If the robot is holding the work object, this means an angle of rotation for the
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

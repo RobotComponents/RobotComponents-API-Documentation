@@ -10,6 +10,7 @@ items:
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval)
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(RobotComponents.Definitions.ExternalLinearAxis,System.Boolean)
+  - RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})
   - RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
@@ -17,24 +18,27 @@ items:
   - RobotComponents.Definitions.ExternalLinearAxis.AttachmentPlane
   - RobotComponents.Definitions.ExternalLinearAxis.AxisCurve
   - RobotComponents.Definitions.ExternalLinearAxis.AxisLimits
+  - RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
   - RobotComponents.Definitions.ExternalLinearAxis.AxisNumber
   - RobotComponents.Definitions.ExternalLinearAxis.AxisPlane
   - RobotComponents.Definitions.ExternalLinearAxis.AxisType
   - RobotComponents.Definitions.ExternalLinearAxis.BaseMesh
-  - RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(System.Double,System.Boolean@)
-  - RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(System.Double)
-  - RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
-  - RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(System.Double)
+  - RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  - RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
+  - RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  - RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Definitions.ExternalLinearAxis.Duplicate
   - RobotComponents.Definitions.ExternalLinearAxis.DuplicateExternalAxis
   - RobotComponents.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   - RobotComponents.Definitions.ExternalLinearAxis.DuplicateWithoutMesh
   - RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve
+  - RobotComponents.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.ExternalLinearAxis.IsValid
   - RobotComponents.Definitions.ExternalLinearAxis.LinkMesh
+  - RobotComponents.Definitions.ExternalLinearAxis.MovesRobot
   - RobotComponents.Definitions.ExternalLinearAxis.Name
   - RobotComponents.Definitions.ExternalLinearAxis.PosedMeshes
-  - RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(System.Double)
+  - RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Definitions.ExternalLinearAxis.ReInitialize
   - RobotComponents.Definitions.ExternalLinearAxis.ToString
   - RobotComponents.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)
@@ -51,15 +55,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nExternal linear axis class, main class for external linear axis.\n"
+  summary: "\nRepresents an External Linear Axis.\n"
   syntax:
-    content: 'public class ExternalLinearAxis : ExternalAxis'
+    content: 'public class ExternalLinearAxis : ExternalAxis, ISerializable'
     content.vb: >-
       Public Class ExternalLinearAxis
           Inherits ExternalAxis
+          Implements ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Definitions.ExternalAxis
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -73,6 +80,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Definitions.ExternalLinearAxis
+  langs:
+  - csharp
+  - vb
+  name: ExternalLinearAxis(SerializationInfo, StreamingContext)
+  nameWithType: ExternalLinearAxis.ExternalLinearAxis(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.ExternalLinearAxis(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected ExternalLinearAxis(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Definitions.ExternalLinearAxis
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ExternalLinearAxis.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.ExternalLinearAxis.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.ExternalLinearAxis.#ctor
   commentId: M:RobotComponents.Definitions.ExternalLinearAxis.#ctor
   id: '#ctor'
@@ -90,7 +165,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nAn empty constuctor that creates an empty external linear axis.\n"
+  summary: "\nInitializes an empty instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis()
     content.vb: Public Sub New
@@ -116,7 +191,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with empty meshes. \n"
+  summary: "\nInitializes a new instance of the External Linear Axis class with empty meshes.\n"
   syntax:
     content: public ExternalLinearAxis(Plane attachmentPlane, Vector3d axis, Interval axisLimits)
     parameters:
@@ -125,10 +200,10 @@ items:
       description: 'The attachment plane posed at the location for axis value 0. '
     - id: axis
       type: Rhino.Geometry.Vector3d
-      description: 'The positive movement direction of the external linear axis as a vector. '
+      description: 'The positive movement direction. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     content.vb: Public Sub New(attachmentPlane As Plane, axis As Vector3d, axisLimits As Interval)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -152,7 +227,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry. \n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(Plane attachmentPlane, Vector3d axis, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
@@ -161,16 +236,16 @@ items:
       description: 'The attachment plane posed at the location for axis value 0. '
     - id: axis
       type: Rhino.Geometry.Vector3d
-      description: 'The positive movement direction of the external linear axis as a vector. '
+      description: 'The positive movement direction. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMesh
       type: Rhino.Geometry.Mesh
-      description: 'The base mesh of the external linear axis. '
+      description: 'The base mesh. '
     - id: linkMesh
       type: Rhino.Geometry.Mesh
-      description: 'The link mesh of the external linear axis posed for external axis value 0. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(attachmentPlane As Plane, axis As Vector3d, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -194,7 +269,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry.\n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
@@ -206,13 +281,13 @@ items:
       description: 'The axis plane. The Z-axis defines the positive movement direction of the axis. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMesh
       type: Rhino.Geometry.Mesh
-      description: 'The base mesh of the external linear axis. '
+      description: 'The base mesh. '
     - id: linkMesh
       type: Rhino.Geometry.Mesh
-      description: 'The link mesh of the external linear axis posed for external axis value 0. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -236,28 +311,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry and a name.\n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(string name, Plane attachmentPlane, Vector3d axis, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
     - id: name
       type: System.String
-      description: 'The axis name as a string. '
+      description: 'The External Axis name. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachment plane posed at the location for axis value 0. '
     - id: axis
       type: Rhino.Geometry.Vector3d
-      description: 'The positive movement direction of the external linear axis as a vector. '
+      description: 'The positive movement direction. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMesh
       type: Rhino.Geometry.Mesh
-      description: 'The base mesh of the external linear axis. '
+      description: 'The base mesh. '
     - id: linkMesh
       type: Rhino.Geometry.Mesh
-      description: 'The link mesh of the external linear axis posed for external axis value 0. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(name As String, attachmentPlane As Plane, axis As Vector3d, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -281,28 +356,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry and a name.\n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(string name, Plane attachmentPlane, Vector3d axis, Interval axisLimits, List<Mesh> baseMeshes, List<Mesh> linkMeshes)
     parameters:
     - id: name
       type: System.String
-      description: 'The axis name as a string. '
+      description: 'The External Axis name. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachment plane posed at the location for axis value 0. '
     - id: axis
       type: Rhino.Geometry.Vector3d
-      description: 'The positive movement direction of the external linear axis as a vector. '
+      description: 'The positive movement direction. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMeshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The base mesh of the external linear axis as a list with Meshes '
+      description: 'The base mesh. '
     - id: linkMeshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The link mesh of the external linear axis posed for external axis value 0 as a list with Meshes. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(name As String, attachmentPlane As Plane, axis As Vector3d, axisLimits As Interval, baseMeshes As List(Of Mesh), linkMeshes As List(Of Mesh))
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   nameWithType.vb: ExternalLinearAxis.ExternalLinearAxis(String, Plane, Vector3d, Interval, List(Of Mesh), List(Of Mesh))
@@ -329,13 +404,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry and a name. \n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
     - id: name
       type: System.String
-      description: 'The axis name as a string. '
+      description: 'The External Axis name. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachment plane posed at the location for axis value 0. '
@@ -344,13 +419,13 @@ items:
       description: 'The axis plane. The Z-axis defines the positive movement direction of the axis. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMesh
       type: Rhino.Geometry.Mesh
-      description: 'The base mesh of the external linear axis. '
+      description: 'The base mesh. '
     - id: linkMesh
       type: Rhino.Geometry.Mesh
-      description: 'The link mesh of the external linear axis posed for external axis value 0. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(name As String, attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -374,13 +449,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines an external linear axis with a mesh geometry and a name. \n"
+  summary: "\nInitializes a new instance of the External Linear Axis class.\n"
   syntax:
     content: public ExternalLinearAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, List<Mesh> baseMeshes, List<Mesh> linkMeshes)
     parameters:
     - id: name
       type: System.String
-      description: 'The axis name as a string. '
+      description: 'The External Axis name. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
       description: 'The attachment plane posed at the location for axis value 0. '
@@ -389,13 +464,13 @@ items:
       description: 'The axis plane. The Z-axis defines the positive movement direction of the axis. '
     - id: axisLimits
       type: Rhino.Geometry.Interval
-      description: 'The movement limits of the external linear axis as an interval. '
+      description: 'The movement limits of the external linear axis. '
     - id: baseMeshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The base mesh of the external linear axis as list with meshes '
+      description: 'The base mesh. '
     - id: linkMeshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The link mesh of the external linear axis posed for external axis value 0 as a list with meshes. '
+      description: 'The link mesh posed for an external axis value set to 0. '
     content.vb: Public Sub New(name As String, attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMeshes As List(Of Mesh), linkMeshes As List(Of Mesh))
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   nameWithType.vb: ExternalLinearAxis.ExternalLinearAxis(String, Plane, Plane, Interval, List(Of Mesh), List(Of Mesh))
@@ -422,16 +497,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCreates a new external linear axis by duplicating an existing axis.\nThis creates a deep copy of the existing axis.\n"
+  summary: "\nInitializes a new instance of the External Linear Axis class by duplicating an existing External Linear Axis instance. \n"
   syntax:
     content: public ExternalLinearAxis(ExternalLinearAxis externalLinearAxis, bool duplicateMesh = true)
     parameters:
     - id: externalLinearAxis
       type: RobotComponents.Definitions.ExternalLinearAxis
-      description: 'The external linear axis that should be duplicated. '
+      description: 'The External Linear Axis instance to duplicate. '
     - id: duplicateMesh
       type: System.Boolean
-      description: 'A boolean that indicates if the mesh should be duplicated. '
+      description: 'Specifies whether the meshes should be duplicated. '
     content.vb: Public Sub New(externalLinearAxis As ExternalLinearAxis, duplicateMesh As Boolean = True)
   overload: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   modifiers.csharp:
@@ -455,12 +530,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the ExternalLinearAxis object. \n"
+  summary: "\nReturns an exact duplicate of this External Linear Axis instance.\n"
   syntax:
     content: public ExternalLinearAxis Duplicate()
     return:
       type: RobotComponents.Definitions.ExternalLinearAxis
-      description: 'Returns a deep copy for the ExternalLinearAxis object. '
+      description: 'A deep copy of the External Linear Axis instance. '
     content.vb: Public Function Duplicate As ExternalLinearAxis
   overload: RobotComponents.Definitions.ExternalLinearAxis.Duplicate*
   modifiers.csharp:
@@ -484,12 +559,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the ExternalLinearAxis object without duplicating the mesh. It will set an empty mesh. \n"
+  summary: "\nReturns an exact duplicate of this External Linear Axis instance without meshes.\n"
   syntax:
     content: public ExternalLinearAxis DuplicateWithoutMesh()
     return:
       type: RobotComponents.Definitions.ExternalLinearAxis
-      description: 'Returns a deep copy for the ExternalLinearAxis object without a mesh. '
+      description: 'A deep copy of the External Linear Axis instance without meshes. '
     content.vb: Public Function DuplicateWithoutMesh As ExternalLinearAxis
   overload: RobotComponents.Definitions.ExternalLinearAxis.DuplicateWithoutMesh*
   modifiers.csharp:
@@ -513,12 +588,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the ExternalLinearAxis object to an ExternalAxis object. \n"
+  summary: "\nReturns an exact duplicate of this External Linear Axis instance as an External Axis.\n"
   syntax:
     content: public override ExternalAxis DuplicateExternalAxis()
     return:
       type: RobotComponents.Definitions.ExternalAxis
-      description: 'Returns a deep copy of the ExternalLinearAxis object as an ExternalAxis object. '
+      description: 'A deep copy of the External Linear Axis instance as an External Axis. '
     content.vb: Public Overrides Function DuplicateExternalAxis As ExternalAxis
   overridden: RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxis
   overload: RobotComponents.Definitions.ExternalLinearAxis.DuplicateExternalAxis*
@@ -545,12 +620,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the ExternalLinearAxis object to an ExternalAxis object without the mesh. \n"
+  summary: "\nReturns an exact duplicate of this External Linear Axis instance as an External Axis without meshes.\n"
   syntax:
     content: public override ExternalAxis DuplicateExternalAxisWithoutMesh()
     return:
       type: RobotComponents.Definitions.ExternalAxis
-      description: 'Returns a deep copy of the ExternalLinearAxis object as an ExternalAxis object with empty meshes. '
+      description: 'A deep copy of the External Linear Axis instance as an External Axis without meshes. '
     content.vb: Public Overrides Function DuplicateExternalAxisWithoutMesh As ExternalAxis
   overridden: RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
   overload: RobotComponents.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh*
@@ -618,16 +693,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(System.Double,System.Boolean@)
-  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(System.Double,System.Boolean@)
-  id: CalculatePosition(System.Double,System.Boolean@)
+- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  id: CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalLinearAxis
   langs:
   - csharp
   - vb
-  name: CalculatePosition(Double, out Boolean)
-  nameWithType: ExternalLinearAxis.CalculatePosition(Double, out Boolean)
-  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(System.Double, out System.Boolean)
+  name: CalculatePosition(ExternalJointPosition, out Boolean)
+  nameWithType: ExternalLinearAxis.CalculatePosition(ExternalJointPosition, out Boolean)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition, out System.Boolean)
   type: Method
   source:
     path: RobotComponents
@@ -637,39 +712,39 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method does not take into account the axis limits. \n"
   syntax:
-    content: public override Plane CalculatePosition(double axisValue, out bool inLimits)
+    content: public override Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
-    - id: axisValue
-      type: System.Double
-      description: 'The external axis value to calculate the position of the attachment plane for. '
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: 'The external joint position to calculate the position of the attachment plane for. '
     - id: inLimits
       type: System.Boolean
       description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
-    content.vb: Public Overrides Function CalculatePosition(axisValue As Double, ByRef inLimits As Boolean) As Plane
-  overridden: RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)
+    content.vb: Public Overrides Function CalculatePosition(externalJointPosition As ExternalJointPosition, ByRef inLimits As Boolean) As Plane
+  overridden: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition*
-  nameWithType.vb: ExternalLinearAxis.CalculatePosition(Double, ByRef Boolean)
+  nameWithType.vb: ExternalLinearAxis.CalculatePosition(ExternalJointPosition, ByRef Boolean)
   modifiers.csharp:
   - public
   - override
   modifiers.vb:
   - Public
   - Overrides
-  fullName.vb: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(System.Double, ByRef System.Boolean)
-  name.vb: CalculatePosition(Double, ByRef Boolean)
-- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
-  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
-  id: CalculateTransformationMatrix(System.Double,System.Boolean@)
+  fullName.vb: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition, ByRef System.Boolean)
+  name.vb: CalculatePosition(ExternalJointPosition, ByRef Boolean)
+- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  id: CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalLinearAxis
   langs:
   - csharp
   - vb
-  name: CalculateTransformationMatrix(Double, out Boolean)
-  nameWithType: ExternalLinearAxis.CalculateTransformationMatrix(Double, out Boolean)
-  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(System.Double, out System.Boolean)
+  name: CalculateTransformationMatrix(ExternalJointPosition, out Boolean)
+  nameWithType: ExternalLinearAxis.CalculateTransformationMatrix(ExternalJointPosition, out Boolean)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition, out System.Boolean)
   type: Method
   source:
     path: RobotComponents
@@ -679,39 +754,39 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nCalculates the the transformation matrix for a defined external axis value. \nThis method does not take into account the axis limits. \n"
   syntax:
-    content: public override Transform CalculateTransformationMatrix(double axisValue, out bool inLimits)
+    content: public override Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
-    - id: axisValue
-      type: System.Double
-      description: 'The external axis value to calculate the position of the attachment plane for in mm. '
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: 'The external joint position to calculate the position of the attachment plane for in mm. '
     - id: inLimits
       type: System.Boolean
       description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
     return:
       type: Rhino.Geometry.Transform
       description: 'The transformation matrix '
-    content.vb: Public Overrides Function CalculateTransformationMatrix(axisValue As Double, ByRef inLimits As Boolean) As Transform
-  overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
+    content.vb: Public Overrides Function CalculateTransformationMatrix(externalJointPosition As ExternalJointPosition, ByRef inLimits As Boolean) As Transform
+  overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*
-  nameWithType.vb: ExternalLinearAxis.CalculateTransformationMatrix(Double, ByRef Boolean)
+  nameWithType.vb: ExternalLinearAxis.CalculateTransformationMatrix(ExternalJointPosition, ByRef Boolean)
   modifiers.csharp:
   - public
   - override
   modifiers.vb:
   - Public
   - Overrides
-  fullName.vb: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(System.Double, ByRef System.Boolean)
-  name.vb: CalculateTransformationMatrix(Double, ByRef Boolean)
-- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(System.Double)
-  id: CalculatePositionSave(System.Double)
+  fullName.vb: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition, ByRef System.Boolean)
+  name.vb: CalculateTransformationMatrix(ExternalJointPosition, ByRef Boolean)
+- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
+  id: CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalLinearAxis
   langs:
   - csharp
   - vb
-  name: CalculatePositionSave(Double)
-  nameWithType: ExternalLinearAxis.CalculatePositionSave(Double)
-  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(System.Double)
+  name: CalculatePositionSave(ExternalJointPosition)
+  nameWithType: ExternalLinearAxis.CalculatePositionSave(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
   type: Method
   source:
     path: RobotComponents
@@ -721,16 +796,16 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
   syntax:
-    content: public override Plane CalculatePositionSave(double axisValue)
+    content: public override Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)
     parameters:
-    - id: axisValue
-      type: System.Double
-      description: 'The external axis value to calculate the position of the attachment plane for in mm. '
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: 'The external joint position to calculate the position of the attachment plane for in mm. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
-    content.vb: Public Overrides Function CalculatePositionSave(axisValue As Double) As Plane
-  overridden: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
+    content.vb: Public Overrides Function CalculatePositionSave(externalJointPosition As ExternalJointPosition) As Plane
+  overridden: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave*
   modifiers.csharp:
   - public
@@ -738,16 +813,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(System.Double)
-  id: CalculateTransformationMatrixSave(System.Double)
+- uid: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
+  id: CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalLinearAxis
   langs:
   - csharp
   - vb
-  name: CalculateTransformationMatrixSave(Double)
-  nameWithType: ExternalLinearAxis.CalculateTransformationMatrixSave(Double)
-  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(System.Double)
+  name: CalculateTransformationMatrixSave(ExternalJointPosition)
+  nameWithType: ExternalLinearAxis.CalculateTransformationMatrixSave(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   type: Method
   source:
     path: RobotComponents
@@ -757,16 +832,16 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nCalculates the the transformation matrix for a defined external axis value. \nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
   syntax:
-    content: public override Transform CalculateTransformationMatrixSave(double axisValue)
+    content: public override Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)
     parameters:
-    - id: axisValue
-      type: System.Double
-      description: 'The external axis value to calculate the transformation matrix for in mm. '
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: 'The external joint position to calculate the transformation matrix for in mm. '
     return:
       type: Rhino.Geometry.Transform
       description: 'Returns the transformation matrix. '
-    content.vb: Public Overrides Function CalculateTransformationMatrixSave(axisValue As Double) As Transform
-  overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
+    content.vb: Public Overrides Function CalculateTransformationMatrixSave(externalJointPosition As ExternalJointPosition) As Transform
+  overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave*
   modifiers.csharp:
   - public
@@ -774,16 +849,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(System.Double)
-  id: PoseMeshes(System.Double)
+- uid: RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  id: PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalLinearAxis
   langs:
   - csharp
   - vb
-  name: PoseMeshes(Double)
-  nameWithType: ExternalLinearAxis.PoseMeshes(Double)
-  fullName: RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(System.Double)
+  name: PoseMeshes(ExternalJointPosition)
+  nameWithType: ExternalLinearAxis.PoseMeshes(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   type: Method
   source:
     path: RobotComponents
@@ -793,13 +868,16 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nCalculates the position of the external axis mesh for a defined external axis value.\n"
   syntax:
-    content: public override void PoseMeshes(double axisValue)
+    content: public override List<Mesh> PoseMeshes(ExternalJointPosition externalJointPosition)
     parameters:
-    - id: axisValue
-      type: System.Double
-      description: 'The external axis value to calculate the position of the meshes for in mm. '
-    content.vb: Public Overrides Sub PoseMeshes(axisValue As Double)
-  overridden: RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: 'The external joint position to calculate the position of the meshes for in mm. '
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The posed meshes. '
+    content.vb: Public Overrides Function PoseMeshes(externalJointPosition As ExternalJointPosition) As List(Of Mesh)
+  overridden: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   overload: RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes*
   modifiers.csharp:
   - public
@@ -886,7 +964,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA boolean that indicates if the External Linear Axis object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -920,7 +998,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe name of the external axis\n"
+  summary: "\nGets or sets the external axis name. \n"
   syntax:
     content: public override string Name { get; set; }
     parameters: []
@@ -954,7 +1032,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe attachment plane of the axis. \n"
+  summary: "\nGets or sets the attachment plane to attach a robot or work object.\n"
   syntax:
     content: public override Plane AttachmentPlane { get; set; }
     parameters: []
@@ -988,7 +1066,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe axis plane. The z-axis of the place defines the positive movement direction of the plane. \n"
+  summary: "\nGets or sets the axis plane.\nThe z-axis of the place defines the positive movement direction of the external linear axis.\n"
   syntax:
     content: public override Plane AxisPlane { get; set; }
     parameters: []
@@ -1022,7 +1100,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe movement limits of the linear axis in meters. \n"
+  summary: "\nGets or sets the axis limits in meters.\n"
   syntax:
     content: public override Interval AxisLimits { get; set; }
     parameters: []
@@ -1056,7 +1134,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe logic number of the external axis. \n"
+  summary: "\nGets or sets the axis logic as a number (-1, 0, 1, 2, 3, 4, 5).\n"
   syntax:
     content: public override int AxisNumber { get; set; }
     parameters: []
@@ -1073,6 +1151,40 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
+  commentId: P:RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
+  id: AxisLogic
+  parent: RobotComponents.Definitions.ExternalLinearAxis
+  langs:
+  - csharp
+  - vb
+  name: AxisLogic
+  nameWithType: ExternalLinearAxis.AxisLogic
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets the axis logic as a char (-, A, B, C, E, E, F).\n"
+  syntax:
+    content: public override char AxisLogic { get; }
+    parameters: []
+    return:
+      type: System.Char
+    content.vb: Public Overrides ReadOnly Property AxisLogic As Char
+  overridden: RobotComponents.Definitions.ExternalAxis.AxisLogic
+  overload: RobotComponents.Definitions.ExternalLinearAxis.AxisLogic*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
 - uid: RobotComponents.Definitions.ExternalLinearAxis.AxisType
   commentId: P:RobotComponents.Definitions.ExternalLinearAxis.AxisType
   id: AxisType
@@ -1090,7 +1202,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe axis movement type.\n"
+  summary: "\nGets the Axis Type.\n"
   syntax:
     content: public override AxisType AxisType { get; }
     parameters: []
@@ -1124,7 +1236,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe fixed base mesh of the external axis. \n"
+  summary: "\nGets or sets the fixed base mesh of the external axis. \n"
   syntax:
     content: public override Mesh BaseMesh { get; set; }
     parameters: []
@@ -1158,7 +1270,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe movable link mesh of the external axis posed for external axis value 0. \n"
+  summary: "\nGets or sets the movable link mesh of the external axis posed for external axis value set to 0.\n"
   syntax:
     content: public override Mesh LinkMesh { get; set; }
     parameters: []
@@ -1192,7 +1304,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe external linear axis curve. Defines the movement direction and the spatial\nlimits of the attachement plane.\n"
+  summary: "\nGets the axis curve. \nThe direction of the curve defines the movement direction and the spatial limits of the attachement plane.\n"
   syntax:
     content: public Curve AxisCurve { get; }
     parameters: []
@@ -1223,7 +1335,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe external axis mesh posed in a certain external axis value.\n"
+  summary: "\nGets latest calculated posed axis meshes.\n"
   syntax:
     content: public override List<Mesh> PosedMeshes { get; }
     parameters: []
@@ -1240,6 +1352,40 @@ items:
   - Public
   - Overrides
   - ReadOnly
+- uid: RobotComponents.Definitions.ExternalLinearAxis.MovesRobot
+  commentId: P:RobotComponents.Definitions.ExternalLinearAxis.MovesRobot
+  id: MovesRobot
+  parent: RobotComponents.Definitions.ExternalLinearAxis
+  langs:
+  - csharp
+  - vb
+  name: MovesRobot
+  nameWithType: ExternalLinearAxis.MovesRobot
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.MovesRobot
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets or sets a value indicating whether or not this External Linear Axis moves the Robot.\n"
+  syntax:
+    content: public override bool MovesRobot { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides Property MovesRobot As Boolean
+  overridden: RobotComponents.Definitions.ExternalAxis.MovesRobot
+  overload: RobotComponents.Definitions.ExternalLinearAxis.MovesRobot*
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  - Overrides
 references:
 - uid: RobotComponents.Definitions
   commentId: N:RobotComponents.Definitions
@@ -1261,6 +1407,13 @@ references:
   name: ExternalAxis
   nameWithType: ExternalAxis
   fullName: RobotComponents.Definitions.ExternalAxis
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1515,12 +1668,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Definitions.ExternalLinearAxis.#ctor*
   commentId: Overload:RobotComponents.Definitions.ExternalLinearAxis.#ctor
   isExternal: true
   name: ExternalLinearAxis
   nameWithType: ExternalLinearAxis.ExternalLinearAxis
   fullName: RobotComponents.Definitions.ExternalLinearAxis.ExternalLinearAxis
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Definitions.ExternalLinearAxis.GetObjectData*
+  commentId: Overload:RobotComponents.Definitions.ExternalLinearAxis.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: ExternalLinearAxis.GetObjectData
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Rhino.Geometry.Plane
   isExternal: true
   name: Plane
@@ -1780,15 +2016,15 @@ references:
   name: GetAxisCurve
   nameWithType: ExternalLinearAxis.GetAxisCurve
   fullName: RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve
-- uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)
+- uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: CalculatePosition(Double, Boolean)
-  nameWithType: ExternalAxis.CalculatePosition(Double, Boolean)
-  fullName: RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double, System.Boolean)
+  name: CalculatePosition(ExternalJointPosition, Boolean)
+  nameWithType: ExternalAxis.CalculatePosition(ExternalJointPosition, Boolean)
+  fullName: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition, System.Boolean)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
     name: CalculatePosition
     nameWithType: ExternalAxis.CalculatePosition
     fullName: RobotComponents.Definitions.ExternalAxis.CalculatePosition
@@ -1796,10 +2032,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1813,7 +2049,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
     name: CalculatePosition
     nameWithType: ExternalAxis.CalculatePosition
     fullName: RobotComponents.Definitions.ExternalAxis.CalculatePosition
@@ -1821,10 +2057,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1843,22 +2079,28 @@ references:
   name: CalculatePosition
   nameWithType: ExternalLinearAxis.CalculatePosition
   fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
+- uid: RobotComponents.Actions.ExternalJointPosition
+  commentId: T:RobotComponents.Actions.ExternalJointPosition
+  parent: RobotComponents.Actions
   isExternal: true
-  name: Double
-  nameWithType: Double
-  fullName: System.Double
-- uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
+  name: ExternalJointPosition
+  nameWithType: ExternalJointPosition
+  fullName: RobotComponents.Actions.ExternalJointPosition
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: CalculateTransformationMatrix(Double, Boolean)
-  nameWithType: ExternalAxis.CalculateTransformationMatrix(Double, Boolean)
-  fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double, System.Boolean)
+  name: CalculateTransformationMatrix(ExternalJointPosition, Boolean)
+  nameWithType: ExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, Boolean)
+  fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition, System.Boolean)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
     name: CalculateTransformationMatrix
     nameWithType: ExternalAxis.CalculateTransformationMatrix
     fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix
@@ -1866,10 +2108,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1883,7 +2125,7 @@ references:
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
     name: CalculateTransformationMatrix
     nameWithType: ExternalAxis.CalculateTransformationMatrix
     fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix
@@ -1891,10 +2133,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: ', '
     nameWithType: ', '
@@ -1918,15 +2160,15 @@ references:
   name: Transform
   nameWithType: Transform
   fullName: Rhino.Geometry.Transform
-- uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
+- uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: CalculatePositionSave(Double)
-  nameWithType: ExternalAxis.CalculatePositionSave(Double)
-  fullName: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
+  name: CalculatePositionSave(ExternalJointPosition)
+  nameWithType: ExternalAxis.CalculatePositionSave(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
     name: CalculatePositionSave
     nameWithType: ExternalAxis.CalculatePositionSave
     fullName: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave
@@ -1934,16 +2176,16 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)
     name: CalculatePositionSave
     nameWithType: ExternalAxis.CalculatePositionSave
     fullName: RobotComponents.Definitions.ExternalAxis.CalculatePositionSave
@@ -1951,10 +2193,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
@@ -1965,15 +2207,15 @@ references:
   name: CalculatePositionSave
   nameWithType: ExternalLinearAxis.CalculatePositionSave
   fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave
-- uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
+- uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: CalculateTransformationMatrixSave(Double)
-  nameWithType: ExternalAxis.CalculateTransformationMatrixSave(Double)
-  fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
+  name: CalculateTransformationMatrixSave(ExternalJointPosition)
+  nameWithType: ExternalAxis.CalculateTransformationMatrixSave(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
     name: CalculateTransformationMatrixSave
     nameWithType: ExternalAxis.CalculateTransformationMatrixSave
     fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave
@@ -1981,16 +2223,16 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
     name: CalculateTransformationMatrixSave
     nameWithType: ExternalAxis.CalculateTransformationMatrixSave
     fullName: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave
@@ -1998,10 +2240,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
@@ -2012,15 +2254,15 @@ references:
   name: CalculateTransformationMatrixSave
   nameWithType: ExternalLinearAxis.CalculateTransformationMatrixSave
   fullName: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave
-- uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
+- uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: PoseMeshes(Double)
-  nameWithType: ExternalAxis.PoseMeshes(Double)
-  fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
+  name: PoseMeshes(ExternalJointPosition)
+  nameWithType: ExternalAxis.PoseMeshes(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
     name: PoseMeshes
     nameWithType: ExternalAxis.PoseMeshes
     fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
@@ -2028,16 +2270,16 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
     name: PoseMeshes
     nameWithType: ExternalAxis.PoseMeshes
     fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
@@ -2045,10 +2287,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
     isExternal: true
   - name: )
     nameWithType: )
@@ -2228,6 +2470,26 @@ references:
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
+- uid: RobotComponents.Definitions.ExternalAxis.AxisLogic
+  commentId: P:RobotComponents.Definitions.ExternalAxis.AxisLogic
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: AxisLogic
+  nameWithType: ExternalAxis.AxisLogic
+  fullName: RobotComponents.Definitions.ExternalAxis.AxisLogic
+- uid: RobotComponents.Definitions.ExternalLinearAxis.AxisLogic*
+  commentId: Overload:RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
+  isExternal: true
+  name: AxisLogic
+  nameWithType: ExternalLinearAxis.AxisLogic
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.AxisLogic
+- uid: System.Char
+  commentId: T:System.Char
+  parent: System
+  isExternal: true
+  name: Char
+  nameWithType: Char
+  fullName: System.Char
 - uid: RobotComponents.Definitions.ExternalAxis.AxisType
   commentId: P:RobotComponents.Definitions.ExternalAxis.AxisType
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2305,3 +2567,16 @@ references:
   name: PosedMeshes
   nameWithType: ExternalLinearAxis.PosedMeshes
   fullName: RobotComponents.Definitions.ExternalLinearAxis.PosedMeshes
+- uid: RobotComponents.Definitions.ExternalAxis.MovesRobot
+  commentId: P:RobotComponents.Definitions.ExternalAxis.MovesRobot
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: MovesRobot
+  nameWithType: ExternalAxis.MovesRobot
+  fullName: RobotComponents.Definitions.ExternalAxis.MovesRobot
+- uid: RobotComponents.Definitions.ExternalLinearAxis.MovesRobot*
+  commentId: Overload:RobotComponents.Definitions.ExternalLinearAxis.MovesRobot
+  isExternal: true
+  name: MovesRobot
+  nameWithType: ExternalLinearAxis.MovesRobot
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.MovesRobot

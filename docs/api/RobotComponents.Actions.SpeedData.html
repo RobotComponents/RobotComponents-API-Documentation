@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class SpeedData
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,11 +73,8 @@
   
   <h1 id="RobotComponents_Actions_SpeedData" data-uid="RobotComponents.Actions.SpeedData" class="text-break">Class SpeedData
   </h1>
-  <div class="markdown level0 summary"><p>SpeedData class. SpeedData is used to specify the velocity at which both the robot and the external axes move.
-Speed data defines the velocity at which the tool center point moves, the reorientation speed of the tool, and
-at which linear or rotating external axes move. When several different types of movement are combined, one of
-the velocities often limits all movements.The velocity of the other movements will be reduced in such a way
-that all movements will finish executing at the same time.</p>
+  <div class="markdown level0 summary"><p>Represents a predefined or user definied Speed Data declaration.
+This action is used to specify the velocity at which both the robot and the external axes move.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -85,6 +82,10 @@ that all movements will finish executing at the same time.</p>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></div>
     <div class="level2"><span class="xref">SpeedData</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,7 +112,7 @@ that all movements will finish executing at the same time.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_SpeedData_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SpeedData : Action</code></pre>
+    <pre><code class="lang-csharp hljs">public class SpeedData : Action, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -119,7 +120,7 @@ that all movements will finish executing at the same time.</p>
   
   <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_SpeedData__ctor" data-uid="RobotComponents.Actions.SpeedData.#ctor">SpeedData()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty SpeedData object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Speed Data class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -130,8 +131,7 @@ that all movements will finish executing at the same time.</p>
   
   <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_SpeedData__ctor_RobotComponents_Actions_SpeedData_" data-uid="RobotComponents.Actions.SpeedData.#ctor(RobotComponents.Actions.SpeedData)">SpeedData(SpeedData)</h4>
-  <div class="markdown level1 summary"><p>Creates a new speeddata by duplicating an existing speeddata.
-This creates a deep copy of the existing speeddata.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Speed Data class by duplicating an existing Speed Data instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -151,7 +151,7 @@ This creates a deep copy of the existing speeddata.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.SpeedData.html">SpeedData</a></td>
         <td><span class="parametername">speeddata</span></td>
-        <td><p>The speeddata that should be duplicated.</p>
+        <td><p>The Speed Data instance to duplicate.</p>
 </td>
       </tr>
     </tbody>
@@ -160,7 +160,7 @@ This creates a deep copy of the existing speeddata.</p>
   
   <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_SpeedData__ctor_System_Double_" data-uid="RobotComponents.Actions.SpeedData.#ctor(System.Double)">SpeedData(Double)</h4>
-  <div class="markdown level1 summary"><p>Constructor for creating a predefined SpeedData. ABB defined already a number of speed data in the system module.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Speed Data class with predefined values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -189,7 +189,7 @@ This creates a deep copy of the existing speeddata.</p>
   
   <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_SpeedData__ctor_System_Int32_" data-uid="RobotComponents.Actions.SpeedData.#ctor(System.Int32)">SpeedData(Int32)</h4>
-  <div class="markdown level1 summary"><p>Constructor for creating a predefined SpeedData. ABB defined already a number of speed data in the system module.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Speed Data class with predefined values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -217,8 +217,43 @@ This creates a deep copy of the existing speeddata.</p>
   
   
   <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_SpeedData__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.SpeedData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">SpeedData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected SpeedData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_SpeedData__ctor_" data-uid="RobotComponents.Actions.SpeedData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_SpeedData__ctor_System_String_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)">SpeedData(String, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Constructor for creating a custom SpeedData.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Speed Data class with custom values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -238,7 +273,7 @@ This creates a deep copy of the existing speeddata.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The SpeedData variable name.</p>
+        <td><p>The Speed Data variable name, must be unique.</p>
 </td>
       </tr>
       <tr>
@@ -273,8 +308,8 @@ This creates a deep copy of the existing speeddata.</p>
   
   <a id="RobotComponents_Actions_SpeedData_ExactPredefinedValue_" data-uid="RobotComponents.Actions.SpeedData.ExactPredefinedValue*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ExactPredefinedValue" data-uid="RobotComponents.Actions.SpeedData.ExactPredefinedValue">ExactPredefinedValue</h4>
-  <div class="markdown level1 summary"><p>Indicates if the exact predefined speeddata value is used.
-If false the nearest predefined speedata or a custom zonedata is used.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value.
+If false the nearest predefined speedata or a custom speeddata was used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -300,7 +335,7 @@ If false the nearest predefined speedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_SpeedData_IsValid_" data-uid="RobotComponents.Actions.SpeedData.IsValid*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_IsValid" data-uid="RobotComponents.Actions.SpeedData.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the SpeedData is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -328,7 +363,7 @@ If false the nearest predefined speedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_SpeedData_Name_" data-uid="RobotComponents.Actions.SpeedData.Name*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_Name" data-uid="RobotComponents.Actions.SpeedData.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The SpeedData variable name.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the speeddata variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -354,7 +389,7 @@ If false the nearest predefined speedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_SpeedData_PreDefinied_" data-uid="RobotComponents.Actions.SpeedData.PreDefinied*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_PreDefinied" data-uid="RobotComponents.Actions.SpeedData.PreDefinied">PreDefinied</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the speeddata is predefined by ABB.</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata is a predefined speeddata.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -378,9 +413,61 @@ If false the nearest predefined speedata or a custom zonedata is used.</p>
   </table>
   
   
+  <a id="RobotComponents_Actions_SpeedData_ReferenceType_" data-uid="RobotComponents.Actions.SpeedData.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_SpeedData_ReferenceType" data-uid="RobotComponents.Actions.SpeedData.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the reference type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_SpeedData_UserDefinied_" data-uid="RobotComponents.Actions.SpeedData.UserDefinied*"></a>
+  <h4 id="RobotComponents_Actions_SpeedData_UserDefinied" data-uid="RobotComponents.Actions.SpeedData.UserDefinied">UserDefinied</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata is a user definied speeddata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool UserDefinied { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_SpeedData_V_LEAX_" data-uid="RobotComponents.Actions.SpeedData.V_LEAX*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_V_LEAX" data-uid="RobotComponents.Actions.SpeedData.V_LEAX">V_LEAX</h4>
-  <div class="markdown level1 summary"><p>The velocity of linear external axes in mm/s.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the velocity of linear external axes in mm/s.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -406,7 +493,7 @@ If false the nearest predefined speedata or a custom zonedata is used.</p>
   
   <a id="RobotComponents_Actions_SpeedData_V_ORI_" data-uid="RobotComponents.Actions.SpeedData.V_ORI*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_V_ORI" data-uid="RobotComponents.Actions.SpeedData.V_ORI">V_ORI</h4>
-  <div class="markdown level1 summary"><p>The reorientation velocity of the TCP expressed in degrees/s.
+  <div class="markdown level1 summary"><p>Gets or sets the reorientation velocity of the TCP expressed in degrees/s.
 If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -433,7 +520,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_V_REAX_" data-uid="RobotComponents.Actions.SpeedData.V_REAX*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_V_REAX" data-uid="RobotComponents.Actions.SpeedData.V_REAX">V_REAX</h4>
-  <div class="markdown level1 summary"><p>The velocity of rotating external axes in degrees/s.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the velocity of rotating external axes in degrees/s.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -459,7 +546,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_V_TCP_" data-uid="RobotComponents.Actions.SpeedData.V_TCP*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_V_TCP" data-uid="RobotComponents.Actions.SpeedData.V_TCP">V_TCP</h4>
-  <div class="markdown level1 summary"><p>The velocity of the tool center point (TCP) in mm/s.
+  <div class="markdown level1 summary"><p>Gets or sets the velocity of the tool center point (TCP) in mm/s.
 If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -486,7 +573,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_ValidPredefinedNames_" data-uid="RobotComponents.Actions.SpeedData.ValidPredefinedNames*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ValidPredefinedNames" data-uid="RobotComponents.Actions.SpeedData.ValidPredefinedNames">ValidPredefinedNames</h4>
-  <div class="markdown level1 summary"><p>Defines an array with valid predefined speeddata variable names</p>
+  <div class="markdown level1 summary"><p>Gets the valid predefined speeddata variable names.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -512,7 +599,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_ValidPredefinedValues_" data-uid="RobotComponents.Actions.SpeedData.ValidPredefinedValues*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ValidPredefinedValues" data-uid="RobotComponents.Actions.SpeedData.ValidPredefinedValues">ValidPredefinedValues</h4>
-  <div class="markdown level1 summary"><p>Defines an array with valid predefined speeddata values</p>
+  <div class="markdown level1 summary"><p>Gets the valid predefined speeddata values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -540,7 +627,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_Duplicate_" data-uid="RobotComponents.Actions.SpeedData.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_Duplicate" data-uid="RobotComponents.Actions.SpeedData.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>Duplicates a SpeedData object</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Speed Data instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -558,7 +645,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.SpeedData.html">SpeedData</a></td>
-        <td><p>Returns a deep copy of the SpeedData object.</p>
+        <td><p>A deep copy of the Speed Data instance.</p>
 </td>
       </tr>
     </tbody>
@@ -567,7 +654,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_DuplicateAction_" data-uid="RobotComponents.Actions.SpeedData.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_DuplicateAction" data-uid="RobotComponents.Actions.SpeedData.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the SpeedData object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Spee Data instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -585,7 +672,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the SpeedData object as an Action object.</p>
+        <td><p>A deep copy of the Speed Data instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -594,9 +681,45 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
   
   
+  <a id="RobotComponents_Actions_SpeedData_GetObjectData_" data-uid="RobotComponents.Actions.SpeedData.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_SpeedData_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_SpeedData_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -616,7 +739,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -627,7 +750,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -647,7 +770,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -663,7 +786,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -674,7 +797,8 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -694,7 +818,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -705,7 +829,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   
   <a id="RobotComponents_Actions_SpeedData_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_SpeedData_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -725,7 +849,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -741,7 +865,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -777,6 +901,10 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_ToString">Action.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -787,7 +915,8 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

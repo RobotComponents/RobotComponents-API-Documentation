@@ -9,11 +9,9 @@ items:
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.JointTarget,System.Boolean)
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
-  - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Kinematics.ForwardKinematics)
   - RobotComponents.Kinematics.ForwardKinematics.Calculate
   - RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
-  - RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
   - RobotComponents.Kinematics.ForwardKinematics.Clear
   - RobotComponents.Kinematics.ForwardKinematics.Duplicate
   - RobotComponents.Kinematics.ForwardKinematics.ErrorText
@@ -24,7 +22,7 @@ items:
   - RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
   - RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
   - RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  - RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  - RobotComponents.Kinematics.ForwardKinematics.Robot
   - RobotComponents.Kinematics.ForwardKinematics.RobotJointPosition
   - RobotComponents.Kinematics.ForwardKinematics.TCPPlane
   - RobotComponents.Kinematics.ForwardKinematics.ToString
@@ -41,7 +39,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nForward Kinematics class\n"
+  summary: "\nRepresent the Forward Kinematics for a 6-axis spherical Robot and its attached external axes. \n"
   syntax:
     content: public class ForwardKinematics
     content.vb: Public Class ForwardKinematics
@@ -77,7 +75,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines a empty ForwardKinematic Object.\n"
+  summary: "\nInitializes an empty instance of the Forward Kinematics class.\n"
   syntax:
     content: public ForwardKinematics()
     content.vb: Public Sub New
@@ -103,64 +101,22 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines a Forward Kinematic object.\n"
+  summary: "\nInitializes a new instance of the Forward Kinematics class.\n"
   syntax:
-    content: public ForwardKinematics(Robot robotInfo, bool hideMesh = false)
+    content: public ForwardKinematics(Robot robot, bool hideMesh = false)
     parameters:
-    - id: robotInfo
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Robot Information the FK should be calculated for. '
+      description: 'The Robot. '
     - id: hideMesh
       type: System.Boolean
-      description: 'Boolean that indicates if the mesh will be supressed. '
-    content.vb: Public Sub New(robotInfo As Robot, hideMesh As Boolean = False)
+      description: 'Specifies whether the mesh will be supressed. '
+    content.vb: Public Sub New(robot As Robot, hideMesh As Boolean = False)
   overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
-  commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)
-  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Boolean)'
-  parent: RobotComponents.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: ForwardKinematics(Robot, List<Double>, List<Double>, Boolean)
-  nameWithType: ForwardKinematics.ForwardKinematics(Robot, List<Double>, List<Double>, Boolean)
-  fullName: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Double>, System.Boolean)
-  type: Constructor
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Kinematics
-  summary: "\nDefines a Forward Kinematic Object for certain axis values.\n"
-  syntax:
-    content: public ForwardKinematics(Robot robotInfo, List<double> internalAxisValues, List<double> externalAxisValues, bool hideMesh = false)
-    parameters:
-    - id: robotInfo
-      type: RobotComponents.Definitions.Robot
-      description: Robot Information the FK should be calculated for.
-    - id: internalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: List of internal axis values. The length of the list should be equal to 6.
-    - id: externalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: List of external axis values. The length of the list should be (for now) equal to 1.
-    - id: hideMesh
-      type: System.Boolean
-      description: 'Boolean that indicates if the mesh will be supressed. '
-    content.vb: Public Sub New(robotInfo As Robot, internalAxisValues As List(Of Double), externalAxisValues As List(Of Double), hideMesh As Boolean = False)
-  overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
-  nameWithType.vb: ForwardKinematics.ForwardKinematics(Robot, List(Of Double), List(Of Double), Boolean)
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: RobotComponents.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.Definitions.Robot, System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Double), System.Boolean)
-  name.vb: ForwardKinematics(Robot, List(Of Double), List(Of Double), Boolean)
 - uid: RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
   commentId: M:RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)
   id: '#ctor(RobotComponents.Definitions.Robot,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,System.Boolean)'
@@ -178,23 +134,23 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines a Forward Kinematic Object for certain axis values.\n"
+  summary: "\nInitializes a new instance of the Forward Kinematics class with defined Joint Positions.\n"
   syntax:
-    content: public ForwardKinematics(Robot robotInfo, RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition, bool hideMesh = false)
+    content: public ForwardKinematics(Robot robot, RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition, bool hideMesh = false)
     parameters:
-    - id: robotInfo
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: Robot Information the FK should be calculated for.
+      description: 'The Robot. '
     - id: robotJointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: The internal axis values as a Robot Joint Position.
+      description: 'The Robot Joint Position. '
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: The external axis values as an External Joint Position.
+      description: 'The External Joint Position. '
     - id: hideMesh
       type: System.Boolean
-      description: 'Boolean that indicates if the mesh will be supressed. '
-    content.vb: Public Sub New(robotInfo As Robot, robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition, hideMesh As Boolean = False)
+      description: 'Specifies whether the mesh will be supressed. '
+    content.vb: Public Sub New(robot As Robot, robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition, hideMesh As Boolean = False)
   overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
   modifiers.csharp:
   - public
@@ -217,20 +173,20 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines a Forward Kinematic object from a Joint Target.\n"
+  summary: "\nDefines a Forward Kinematic object from a Joint Target with defined Joint Positions obtained from a Joint Target.\n"
   syntax:
-    content: public ForwardKinematics(Robot robotInfo, JointTarget jointTarget, bool hideMesh = false)
+    content: public ForwardKinematics(Robot robot, JointTarget jointTarget, bool hideMesh = false)
     parameters:
-    - id: robotInfo
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: Robot Information the FK should be calculated for.
+      description: 'The Robot. '
     - id: jointTarget
       type: RobotComponents.Actions.JointTarget
-      description: The internal and external axis values defined as a Joint Target.
+      description: 'The Joint Target. '
     - id: hideMesh
       type: System.Boolean
-      description: 'Boolean that indicates if the mesh will be supressed. '
-    content.vb: Public Sub New(robotInfo As Robot, jointTarget As JointTarget, hideMesh As Boolean = False)
+      description: 'Specifies whether the mesh will be supressed. '
+    content.vb: Public Sub New(robot As Robot, jointTarget As JointTarget, hideMesh As Boolean = False)
   overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
   modifiers.csharp:
   - public
@@ -253,13 +209,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCreates a new forward kinematics by duplicating an existing forward kinematics.\nThis creates a deep copy of the existing forward kinematics.\n"
+  summary: "\nInitializes a new instance of the Forward Kinematics class by duplicating an existing Forward Kinematics instance. \n"
   syntax:
     content: public ForwardKinematics(ForwardKinematics forwardKinematics)
     parameters:
     - id: forwardKinematics
       type: RobotComponents.Kinematics.ForwardKinematics
-      description: 'The forward kinematics that should be duplicated. '
+      description: 'The Forward Kinematics instance to duplicate. '
     content.vb: Public Sub New(forwardKinematics As ForwardKinematics)
   overload: RobotComponents.Kinematics.ForwardKinematics.#ctor*
   modifiers.csharp:
@@ -283,12 +239,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA method to duplicate the Forward Kinematics object.\n"
+  summary: "\nReturns an exact duplicate of this Forward Kinematics instance.\n"
   syntax:
     content: public ForwardKinematics Duplicate()
     return:
       type: RobotComponents.Kinematics.ForwardKinematics
-      description: 'Returns a deep copy of the Forward Kinematics object. '
+      description: 'A deep copy of the Forward Kinematics instance. '
     content.vb: Public Function Duplicate As ForwardKinematics
   overload: RobotComponents.Kinematics.ForwardKinematics.Duplicate*
   modifiers.csharp:
@@ -353,42 +309,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
-  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
-  id: Calculate(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})
-  parent: RobotComponents.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: Calculate(List<Double>, List<Double>)
-  nameWithType: ForwardKinematics.Calculate(List<Double>, List<Double>)
-  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List<System.Double>, System.Collections.Generic.List<System.Double>)
-  type: Method
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Kinematics
-  summary: "\nSets new axis values and calculates the new solution.  \n"
-  syntax:
-    content: public void Calculate(List<double> internalAxisValues, List<double> externalAxisValues)
-    parameters:
-    - id: internalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: List of internal axis values in degree. The length of the list should be equal to 6.
-    - id: externalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: List of external axis values in meter. The length of the list should be (for now) equal to 1.
-    content.vb: Public Sub Calculate(internalAxisValues As List(Of Double), externalAxisValues As List(Of Double))
-  overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
-  nameWithType.vb: ForwardKinematics.Calculate(List(Of Double), List(Of Double))
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: RobotComponents.Kinematics.ForwardKinematics.Calculate(System.Collections.Generic.List(Of System.Double), System.Collections.Generic.List(Of System.Double))
-  name.vb: Calculate(List(Of Double), List(Of Double))
 - uid: RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
   commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
   id: Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
@@ -465,7 +385,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA boolean that indicates if the Forward Kinematics object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -479,16 +399,16 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
-  commentId: P:RobotComponents.Kinematics.ForwardKinematics.RobotInfo
-  id: RobotInfo
+- uid: RobotComponents.Kinematics.ForwardKinematics.Robot
+  commentId: P:RobotComponents.Kinematics.ForwardKinematics.Robot
+  id: Robot
   parent: RobotComponents.Kinematics.ForwardKinematics
   langs:
   - csharp
   - vb
-  name: RobotInfo
-  nameWithType: ForwardKinematics.RobotInfo
-  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  name: Robot
+  nameWithType: ForwardKinematics.Robot
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Robot
   type: Property
   source:
     path: RobotComponents
@@ -496,14 +416,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nRobotInformation the FK should be calculated for.\n"
+  summary: "\nGets or sets the Robot.\n"
   syntax:
-    content: public Robot RobotInfo { get; set; }
+    content: public Robot Robot { get; set; }
     parameters: []
     return:
       type: RobotComponents.Definitions.Robot
-    content.vb: Public Property RobotInfo As Robot
-  overload: RobotComponents.Kinematics.ForwardKinematics.RobotInfo*
+    content.vb: Public Property Robot As Robot
+  overload: RobotComponents.Kinematics.ForwardKinematics.Robot*
   modifiers.csharp:
   - public
   - get
@@ -527,7 +447,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalcualte robot pose meshes\n"
+  summary: "\nGets the latest calculated posed internal axis meshes.\n"
   syntax:
     content: public List<Mesh> PosedInternalAxisMeshes { get; }
     parameters: []
@@ -558,7 +478,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA List of meshes in pose for the external axis.\n"
+  summary: "\nGets the latest calculated posed external axis meshes.\n"
   syntax:
     content: public List<List<Mesh>> PosedExternalAxisMeshes { get; }
     parameters: []
@@ -589,7 +509,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculated posed TCP plane of the robot tool. \n"
+  summary: "\nGets the latest calculated posed TCP plane of the robot tool. \n"
   syntax:
     content: public Plane TCPPlane { get; }
     parameters: []
@@ -620,7 +540,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nBool that indicates if the internal and external values are within their limits\n"
+  summary: "\nGets a value indicating whether or not the internal and external values are within their limits.\n"
   syntax:
     content: public bool InLimits { get; }
     parameters: []
@@ -651,7 +571,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines the Robot Joint Position\n"
+  summary: "\nGets or sets the Robot Joint Position.\n"
   syntax:
     content: public RobotJointPosition RobotJointPosition { get; set; }
     parameters: []
@@ -682,7 +602,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines the External Joint Position\n"
+  summary: "\nGets or sets the External Joint Position.\n"
   syntax:
     content: public ExternalJointPosition ExternalJointPosition { get; set; }
     parameters: []
@@ -713,7 +633,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nArray of external axis planes.\n"
+  summary: "\nGets the latest calculated posed external axis planes.\n"
   syntax:
     content: public Plane[] PosedExternalAxisPlanes { get; }
     parameters: []
@@ -744,7 +664,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nList of strings with collected error messages. \n"
+  summary: "\nGets the collected error messages.\n"
   syntax:
     content: public List<string> ErrorText { get; }
     parameters: []
@@ -775,7 +695,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\n\nA boolean that indicates if the posed mesh is or will be calculated\n"
+  summary: "\nGets or sets a value indicating whether the posed meshed wil be calculated. \n"
   syntax:
     content: public bool HideMesh { get; set; }
     parameters: []
@@ -1083,95 +1003,6 @@ references:
   name: RobotComponents.Definitions
   nameWithType: RobotComponents.Definitions
   fullName: RobotComponents.Definitions
-- uid: System.Collections.Generic.List{System.Double}
-  commentId: T:System.Collections.Generic.List{System.Double}
-  parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Double>
-  nameWithType: List<Double>
-  fullName: System.Collections.Generic.List<System.Double>
-  nameWithType.vb: List(Of Double)
-  fullName.vb: System.Collections.Generic.List(Of System.Double)
-  name.vb: List(Of Double)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
-    isExternal: true
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
-    isExternal: true
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
-  isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
-  spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: <
-    nameWithType: <
-    fullName: <
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: '>'
-    nameWithType: '>'
-    fullName: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
-    isExternal: true
-  - name: '(Of '
-    nameWithType: '(Of '
-    fullName: '(Of '
-  - name: T
-    nameWithType: T
-    fullName: T
-  - name: )
-    nameWithType: )
-    fullName: )
-- uid: System.Collections.Generic
-  commentId: N:System.Collections.Generic
-  isExternal: true
-  name: System.Collections.Generic
-  nameWithType: System.Collections.Generic
-  fullName: System.Collections.Generic
 - uid: RobotComponents.Actions.RobotJointPosition
   commentId: T:RobotComponents.Actions.RobotJointPosition
   parent: RobotComponents.Actions
@@ -1274,12 +1105,12 @@ references:
   name: IsValid
   nameWithType: ForwardKinematics.IsValid
   fullName: RobotComponents.Kinematics.ForwardKinematics.IsValid
-- uid: RobotComponents.Kinematics.ForwardKinematics.RobotInfo*
-  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+- uid: RobotComponents.Kinematics.ForwardKinematics.Robot*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.Robot
   isExternal: true
-  name: RobotInfo
-  nameWithType: ForwardKinematics.RobotInfo
-  fullName: RobotComponents.Kinematics.ForwardKinematics.RobotInfo
+  name: Robot
+  nameWithType: ForwardKinematics.Robot
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Robot
 - uid: RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes*
   commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
   isExternal: true
@@ -1330,6 +1161,51 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
 - uid: RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes*
   commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
   isExternal: true

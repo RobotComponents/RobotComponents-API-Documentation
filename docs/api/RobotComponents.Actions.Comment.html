@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Comment
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,8 @@
   
   <h1 id="RobotComponents_Actions_Comment" data-uid="RobotComponents.Actions.Comment" class="text-break">Class Comment
   </h1>
-  <div class="markdown level0 summary"><p>Comment class, defines a Comment in RAPID Code.
-A comment is only used to make the program easier to understand.
+  <div class="markdown level0 summary"><p>Represents a comment in RAPID Code.
+This action is only used to make the program easier to understand.
 It has no effect on the execution of the program.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -83,6 +83,10 @@ It has no effect on the execution of the program.</p>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></div>
     <div class="level2"><span class="xref">Comment</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -109,7 +113,7 @@ It has no effect on the execution of the program.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_Comment_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Comment : Action</code></pre>
+    <pre><code class="lang-csharp hljs">public class Comment : Action, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -117,7 +121,7 @@ It has no effect on the execution of the program.</p>
   
   <a id="RobotComponents_Actions_Comment__ctor_" data-uid="RobotComponents.Actions.Comment.#ctor*"></a>
   <h4 id="RobotComponents_Actions_Comment__ctor" data-uid="RobotComponents.Actions.Comment.#ctor">Comment()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty Comment object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Comment class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -128,8 +132,7 @@ It has no effect on the execution of the program.</p>
   
   <a id="RobotComponents_Actions_Comment__ctor_" data-uid="RobotComponents.Actions.Comment.#ctor*"></a>
   <h4 id="RobotComponents_Actions_Comment__ctor_RobotComponents_Actions_Comment_" data-uid="RobotComponents.Actions.Comment.#ctor(RobotComponents.Actions.Comment)">Comment(Comment)</h4>
-  <div class="markdown level1 summary"><p>Creates a new comment by duplicating an existing comment.
-This creates a deep copy of the existing comment.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Comment class by duplicating an existing Comment instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -149,7 +152,42 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Comment.html">Comment</a></td>
         <td><span class="parametername">comment</span></td>
-        <td><p>The comment that should be duplicated.</p>
+        <td><p>The Comment instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_Comment__ctor_" data-uid="RobotComponents.Actions.Comment.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_Comment__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.Comment.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">Comment(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Comment(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -158,7 +196,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment__ctor_" data-uid="RobotComponents.Actions.Comment.#ctor*"></a>
   <h4 id="RobotComponents_Actions_Comment__ctor_System_String_" data-uid="RobotComponents.Actions.Comment.#ctor(System.String)">Comment(String)</h4>
-  <div class="markdown level1 summary"><p>A comment constructor inserted into the program to make it easier to understand.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Comment class with the Code Type set as instruction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -178,7 +216,7 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">comment</span></td>
-        <td><p>The comment as a text string.</p>
+        <td><p>The comment.</p>
 </td>
       </tr>
     </tbody>
@@ -187,7 +225,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment__ctor_" data-uid="RobotComponents.Actions.Comment.#ctor*"></a>
   <h4 id="RobotComponents_Actions_Comment__ctor_System_String_RobotComponents_Enumerations_CodeType_" data-uid="RobotComponents.Actions.Comment.#ctor(System.String,RobotComponents.Enumerations.CodeType)">Comment(String, CodeType)</h4>
-  <div class="markdown level1 summary"><p>A comment constructor inserted into the program to make it easier to understand.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Comment class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -207,13 +245,13 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">comment</span></td>
-        <td><p>The comment as a text string.</p>
+        <td><p>the comment.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Enumerations.CodeType.html">CodeType</a></td>
         <td><span class="parametername">type</span></td>
-        <td><p>The comment type as a CodeType.</p>
+        <td><p>The Code Type.</p>
 </td>
       </tr>
     </tbody>
@@ -224,7 +262,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_Com_" data-uid="RobotComponents.Actions.Comment.Com*"></a>
   <h4 id="RobotComponents_Actions_Comment_Com" data-uid="RobotComponents.Actions.Comment.Com">Com</h4>
-  <div class="markdown level1 summary"><p>Comment line as a string.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the comment text.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -250,7 +288,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_IsValid_" data-uid="RobotComponents.Actions.Comment.IsValid*"></a>
   <h4 id="RobotComponents_Actions_Comment_IsValid" data-uid="RobotComponents.Actions.Comment.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Comment object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -278,7 +316,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_Type_" data-uid="RobotComponents.Actions.Comment.Type*"></a>
   <h4 id="RobotComponents_Actions_Comment_Type" data-uid="RobotComponents.Actions.Comment.Type">Type</h4>
-  <div class="markdown level1 summary"><p>Comment type as a CodeType.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the comment Code Type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -306,7 +344,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_Duplicate_" data-uid="RobotComponents.Actions.Comment.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_Comment_Duplicate" data-uid="RobotComponents.Actions.Comment.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Comment object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Comment instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -324,7 +362,7 @@ This creates a deep copy of the existing comment.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Comment.html">Comment</a></td>
-        <td><p>Returns a deep copy of the Comment object.</p>
+        <td><p>A deep copy of the Comment instance.</p>
 </td>
       </tr>
     </tbody>
@@ -333,7 +371,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_DuplicateAction_" data-uid="RobotComponents.Actions.Comment.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_Comment_DuplicateAction" data-uid="RobotComponents.Actions.Comment.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Comment object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Comment instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -351,7 +389,7 @@ This creates a deep copy of the existing comment.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the Comment object as an Action object.</p>
+        <td><p>A deep copy of the Comment instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -360,9 +398,45 @@ This creates a deep copy of the existing comment.</p>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
   
   
+  <a id="RobotComponents_Actions_Comment_GetObjectData_" data-uid="RobotComponents.Actions.Comment.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_Comment_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.Comment.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_Comment_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.Comment.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_Comment_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.Comment.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -382,7 +456,7 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -393,7 +467,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.Comment.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_Comment_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.Comment.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -413,7 +487,7 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -429,7 +503,7 @@ This creates a deep copy of the existing comment.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -440,7 +514,8 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.Comment.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_Comment_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.Comment.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -460,7 +535,7 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -471,7 +546,7 @@ This creates a deep copy of the existing comment.</p>
   
   <a id="RobotComponents_Actions_Comment_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.Comment.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_Comment_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.Comment.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -491,7 +566,7 @@ This creates a deep copy of the existing comment.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -507,7 +582,7 @@ This creates a deep copy of the existing comment.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -543,6 +618,10 @@ This creates a deep copy of the existing comment.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_ToString">Action.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -553,7 +632,8 @@ This creates a deep copy of the existing comment.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

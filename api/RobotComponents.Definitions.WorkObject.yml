@@ -7,6 +7,7 @@ items:
   children:
   - RobotComponents.Definitions.WorkObject.#ctor
   - RobotComponents.Definitions.WorkObject.#ctor(RobotComponents.Definitions.WorkObject,System.Boolean)
+  - RobotComponents.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane)
   - RobotComponents.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.ExternalAxis)
   - RobotComponents.Definitions.WorkObject.Duplicate
@@ -14,6 +15,7 @@ items:
   - RobotComponents.Definitions.WorkObject.ExternalAxis
   - RobotComponents.Definitions.WorkObject.FixedFrame
   - RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
+  - RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.WorkObject.GetOrientation
   - RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
   - RobotComponents.Definitions.WorkObject.GetWorkObjData
@@ -22,6 +24,7 @@ items:
   - RobotComponents.Definitions.WorkObject.Name
   - RobotComponents.Definitions.WorkObject.Orientation
   - RobotComponents.Definitions.WorkObject.Plane
+  - RobotComponents.Definitions.WorkObject.ReferenceType
   - RobotComponents.Definitions.WorkObject.ReInitialize
   - RobotComponents.Definitions.WorkObject.RobotHold
   - RobotComponents.Definitions.WorkObject.ToString
@@ -40,12 +43,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe WorkObject class creates the work object data for the RAPID base code.\nWork object data is used to describe the work object that the robot welds, processes, moves within, etc.\nThe work object is typically combined with a robot movement to defined the global coordinate of the robot target. \n"
+  summary: "\nRepresents a Work Object.\n"
   syntax:
-    content: public class WorkObject
-    content.vb: Public Class WorkObject
+    content: 'public class WorkObject : ISerializable'
+    content.vb: >-
+      Public Class WorkObject
+          Implements ISerializable
   inheritance:
   - System.Object
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -59,6 +66,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject(SerializationInfo, StreamingContext)
+  nameWithType: WorkObject.WorkObject(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.WorkObject.WorkObject(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected WorkObject(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.WorkObject.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: WorkObject.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.WorkObject.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.WorkObject.#ctor
   commentId: M:RobotComponents.Definitions.WorkObject.#ctor
   id: '#ctor'
@@ -76,7 +151,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nAn empty constructr that creates the the work object data wobj0 in such a way \nthat the object coordinate system coincides with the world coordinate system. \nThe robot does not hold the work object. \n"
+  summary: "\nInitializes a new instance of the Work Object class with the default work object wobj0. \n"
   syntax:
     content: public WorkObject()
     content.vb: Public Sub New
@@ -102,16 +177,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe constructor to create a fixed user defined work object coordinate system. \n"
+  summary: "\nInitializes a new instance of the Work Object class with a fixed work object.\n"
   syntax:
     content: public WorkObject(string name, Plane plane)
     parameters:
     - id: name
       type: System.String
-      description: 'The work object name. '
+      description: 'The work object name, must be unique. '
     - id: plane
       type: Rhino.Geometry.Plane
-      description: 'The work object coorindate system as a Plane. '
+      description: 'The work object coordinate system. '
     content.vb: Public Sub New(name As String, plane As Plane)
   overload: RobotComponents.Definitions.WorkObject.#ctor*
   modifiers.csharp:
@@ -135,16 +210,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe constructor to create a movable usre definied work object coordinate system.\n"
+  summary: "\nInitializes a new instance of the Work Object class with a movable work object.\n"
   syntax:
     content: public WorkObject(string name, Plane plane, ExternalAxis externalAxis)
     parameters:
     - id: name
       type: System.String
-      description: 'The work object name. '
+      description: 'The work object name, must be unique. '
     - id: plane
       type: Rhino.Geometry.Plane
-      description: 'The work object coorindate system as a Plane. '
+      description: 'The work object coordinate system. '
     - id: externalAxis
       type: RobotComponents.Definitions.ExternalAxis
       description: 'The coupled external axis (mechanical unit) that moves the work object. '
@@ -171,16 +246,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCreates a new work object by duplicating an existing movement.\nThis creates a deep copy of the existing work object.\n"
+  summary: "\nInitializes a new instance of the Work Object class by duplicating an existing Work Object instance. \n"
   syntax:
     content: public WorkObject(WorkObject workObject, bool duplicateMesh = true)
     parameters:
     - id: workObject
       type: RobotComponents.Definitions.WorkObject
-      description: 'The work object that should be duplicated. '
+      description: 'The Work Object instance to duplicate. '
     - id: duplicateMesh
       type: System.Boolean
-      description: 'A boolean that indicates if the meshes should be duplicated. '
+      description: 'Specifies whether the meshes should be duplicated. '
     content.vb: Public Sub New(workObject As WorkObject, duplicateMesh As Boolean = True)
   overload: RobotComponents.Definitions.WorkObject.#ctor*
   modifiers.csharp:
@@ -204,12 +279,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the WorkObject object. \n"
+  summary: "\nReturns an exact duplicate of this Work Object instance.\n"
   syntax:
     content: public WorkObject Duplicate()
     return:
       type: RobotComponents.Definitions.WorkObject
-      description: 'Returns a deep copy of the WorkObject object. '
+      description: 'A deep copy of the Work Object instance. '
     content.vb: Public Function Duplicate As WorkObject
   overload: RobotComponents.Definitions.WorkObject.Duplicate*
   modifiers.csharp:
@@ -233,12 +308,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the WorkObject object without meshes. \n"
+  summary: "\nReturns an exact duplicate of this Work Object instance without meshes.\n"
   syntax:
     content: public WorkObject DuplicateWithoutMesh()
     return:
       type: RobotComponents.Definitions.WorkObject
-      description: 'Returns a deep copy of the WorkObject object with an external axis with empty meshes. '
+      description: 'A deep copy of the Work Object instance without meshes. '
     content.vb: Public Function DuplicateWithoutMesh As WorkObject
   overload: RobotComponents.Definitions.WorkObject.DuplicateWithoutMesh*
   modifiers.csharp:
@@ -436,7 +511,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA boolean that indicates if the WorkObject object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -450,6 +525,37 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Definitions.WorkObject.ReferenceType
+  commentId: P:RobotComponents.Definitions.WorkObject.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: WorkObject.ReferenceType
+  fullName: RobotComponents.Definitions.WorkObject.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets or sets the Reference Type. \n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Definitions.WorkObject.ReferenceType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.WorkObject.Name
   commentId: P:RobotComponents.Definitions.WorkObject.Name
   id: Name
@@ -467,7 +573,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe name of the work object.\n"
+  summary: "\nGets or sets the name of the workobject.\n"
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -498,7 +604,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines whether or not the robot in the actual program task is holding the work object. \n"
+  summary: "\nGets a value indicating whether or not the robot is holding the work object. \n"
   syntax:
     content: public bool RobotHold { get; set; }
     parameters: []
@@ -529,7 +635,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nReturns the global work object plane since the work object coordinate system and \nthe user frame coordinate system can both be unequal to the world coordinate system.\n"
+  summary: "\nGets the global work object plane.\n"
   syntax:
     content: public Plane GlobalWorkObjectPlane { get; }
     parameters: []
@@ -560,7 +666,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe user coordinate system, i.e. the position of the current work surface or fixture.\nIf the robot is holding the tool, the user coordinate system is defined in the world \ncoordinate system (in the wrist coordinate system if a stationary tool is used). For \nmovable user frame (FixedFrame = false), the user frame is continuously defined by \nthe system.\n"
+  summary: "\nGets or sets the user coordinate system, i.e. the position of the current work surface or fixture.\nIf the robot is holding the tool, the user coordinate system is defined in the world coordinate system (in the wrist coordinate system if a stationary tool is used). \nFor movable user frame (FixedFrame = false), the user frame is continuously defined by the system.\n"
   syntax:
     content: public Plane UserFrame { get; set; }
     parameters: []
@@ -591,7 +697,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe object coordinate system as a plane (e.g. the position of the current work object).\nThe object coordinate system is defined in the user coordinate system.\n"
+  summary: "\nGets or set the work object coordinate system as a plane (e.g. the position of the current work object).\nThe object coordinate system is defined in the user coordinate system.\n"
   syntax:
     content: public Plane Plane { get; set; }
     parameters: []
@@ -622,7 +728,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe external axis (mechanical unit) with which the robot movements are coordinated. \nOnly specified in the case of movable user coordinate systems\n"
+  summary: "\nGets or sets the external axis (mechanical unit) with which the robot movements are coordinated. \nOnly specified in the case of movable user coordinate systems.\n"
   syntax:
     content: public ExternalAxis ExternalAxis { get; set; }
     parameters: []
@@ -653,7 +759,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe Quaternion orientation of the work object coordinate system.\n"
+  summary: "\nGets the Quaternion orientation of the work object coordinate system.\n"
   syntax:
     content: public Quaternion Orientation { get; }
     parameters: []
@@ -684,7 +790,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe Quaternion orientation of the user frame coordinate system.\n"
+  summary: "\nGets the Quaternion orientation of the user frame coordinate system.\n"
   syntax:
     content: public Quaternion UserFrameOrientation { get; }
     parameters: []
@@ -715,7 +821,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines whether or not a fixed user coordinate system is used.\nTrue indicates that the user frame is fixed. \nFalse indicates that the user coordinate system is movable (e.g. coordinated external axes).\n"
+  summary: "\nGets a value indicating whether or not a fixed user coordinate system is used.\nTrue indicates that the user frame is fixed. \nFalse indicates that the user coordinate system is movable (e.g. coordinated external axes).\n"
   syntax:
     content: public bool FixedFrame { get; set; }
     parameters: []
@@ -743,6 +849,13 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -997,12 +1110,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Definitions.WorkObject.#ctor*
   commentId: Overload:RobotComponents.Definitions.WorkObject.#ctor
   isExternal: true
   name: WorkObject
   nameWithType: WorkObject.WorkObject
   fullName: RobotComponents.Definitions.WorkObject.WorkObject
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Definitions.WorkObject.GetObjectData*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: WorkObject.GetObjectData
+  fullName: RobotComponents.Definitions.WorkObject.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1126,6 +1322,25 @@ references:
   name: IsValid
   nameWithType: WorkObject.IsValid
   fullName: RobotComponents.Definitions.WorkObject.IsValid
+- uid: RobotComponents.Definitions.WorkObject.ReferenceType*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: WorkObject.ReferenceType
+  fullName: RobotComponents.Definitions.WorkObject.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Definitions.WorkObject.Name*
   commentId: Overload:RobotComponents.Definitions.WorkObject.Name
   isExternal: true

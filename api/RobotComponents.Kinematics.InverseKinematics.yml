@@ -20,7 +20,7 @@ items:
   - RobotComponents.Kinematics.InverseKinematics.IsValid
   - RobotComponents.Kinematics.InverseKinematics.Movement
   - RobotComponents.Kinematics.InverseKinematics.ReInitialize
-  - RobotComponents.Kinematics.InverseKinematics.RobotInfo
+  - RobotComponents.Kinematics.InverseKinematics.Robot
   - RobotComponents.Kinematics.InverseKinematics.RobotJointPosition
   - RobotComponents.Kinematics.InverseKinematics.RobotJointPositions
   - RobotComponents.Kinematics.InverseKinematics.RobotTool
@@ -38,7 +38,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nInverse Kinematics class, defines the basic properties and methods for \nthe inverse kinematics of a 6-axis robot and the attached external axes.\n"
+  summary: "\nRepresent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.\n"
   syntax:
     content: public class InverseKinematics
     content.vb: Public Class InverseKinematics
@@ -74,7 +74,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines an empty Inverse Kinematics object\n"
+  summary: "\nInitializes an empty instance of the Inverse Kinematics class.\n"
   syntax:
     content: public InverseKinematics()
     content.vb: Public Sub New
@@ -100,17 +100,17 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nInitiatize an inverse kinematics from a robot movement and robot info.\n"
+  summary: "\nInitializes a new instance of the Inverse Kinematics class from a Movement.\n"
   syntax:
-    content: public InverseKinematics(Movement movement, Robot robotInfo)
+    content: public InverseKinematics(Movement movement, Robot robot)
     parameters:
     - id: movement
       type: RobotComponents.Actions.Movement
-      description: 'The robot movement to calculated the axis values for. '
-    - id: robotInfo
+      description: 'The Movement. '
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'The robot info to calcilated the axis values for. '
-    content.vb: Public Sub New(movement As Movement, robotInfo As Robot)
+      description: 'The Robot. '
+    content.vb: Public Sub New(movement As Movement, robot As Robot)
   overload: RobotComponents.Kinematics.InverseKinematics.#ctor*
   modifiers.csharp:
   - public
@@ -133,17 +133,17 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nInitiatize an inverse kinematics from a robot target and robot info.\nThe target will be casted to robot movement with wobj0. \n"
+  summary: "\nInitializes a new instance of the Inverse Kinematics class from a Target.\nThe target will be casted to robot movement with a default work object (wobj0). \n"
   syntax:
-    content: public InverseKinematics(ITarget target, Robot robotInfo)
+    content: public InverseKinematics(ITarget target, Robot robot)
     parameters:
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target to calculated the axis values for. '
-    - id: robotInfo
+      description: 'The Target '
+    - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'The robot info to calcilated the axis values for. '
-    content.vb: Public Sub New(target As ITarget, robotInfo As Robot)
+      description: 'The Robot. '
+    content.vb: Public Sub New(target As ITarget, robot As Robot)
   overload: RobotComponents.Kinematics.InverseKinematics.#ctor*
   modifiers.csharp:
   - public
@@ -166,13 +166,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCreates a new inverse kinematics by duplicating an existing inverse kinematics.\nThis creates a deep copy of the existing inverse kinematics.\n"
+  summary: "\nInitializes a new instance of the Inverse Kinematics class by duplicating an existing Inverse Kinematics instance. \n"
   syntax:
     content: public InverseKinematics(InverseKinematics inverseKinematics)
     parameters:
     - id: inverseKinematics
       type: RobotComponents.Kinematics.InverseKinematics
-      description: 'The inverse kinematics that should be duplicated. '
+      description: 'The Inverse Kinematics instance to duplicate. '
     content.vb: Public Sub New(inverseKinematics As InverseKinematics)
   overload: RobotComponents.Kinematics.InverseKinematics.#ctor*
   modifiers.csharp:
@@ -196,12 +196,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA method to duplicate the Inverse Kinematics object.\n"
+  summary: "\nReturns an exact duplicate of this Inverse Kinematics instance.\n"
   syntax:
     content: public InverseKinematics Duplicate()
     return:
       type: RobotComponents.Kinematics.InverseKinematics
-      description: 'Returns a deep copy of the Inverse Kinematics object. '
+      description: 'A deep copy of the Inverse Kinematics instance. '
     content.vb: Public Function Duplicate As InverseKinematics
   overload: RobotComponents.Kinematics.InverseKinematics.Duplicate*
   modifiers.csharp:
@@ -337,15 +337,15 @@ items:
   namespace: RobotComponents.Kinematics
   summary: "\nGets and sets the closest Robot Joint Position to a given previous Robot Joint Position.\nThis method returns the closest axis configuration as an integer (0-7) and\nsets the closest Robot Joint Poistion insides this Inverse Kinematics object. Therefore,\nyour first have to calculate the Inverse Kinematics solutions before you call this method. \nThis methods is typically used for using the Auto Axis Config inside the Path Generator.\n"
   syntax:
-    content: public int GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)
+    content: public RobotJointPosition GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)
     parameters:
     - id: prevJointPosition
       type: RobotComponents.Actions.RobotJointPosition
       description: The previous Robot Joint Position
     return:
-      type: System.Int32
+      type: RobotComponents.Actions.RobotJointPosition
       description: Returns the closest axis configuration as an integer (0-7)
-    content.vb: Public Function GetClosestRobotJointPosition(prevJointPosition As RobotJointPosition) As Integer
+    content.vb: Public Function GetClosestRobotJointPosition(prevJointPosition As RobotJointPosition) As RobotJointPosition
   overload: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition*
   modifiers.csharp:
   - public
@@ -394,7 +394,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA boolean that indicates if the Inverse Kinematics object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -408,16 +408,16 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: RobotComponents.Kinematics.InverseKinematics.RobotInfo
-  commentId: P:RobotComponents.Kinematics.InverseKinematics.RobotInfo
-  id: RobotInfo
+- uid: RobotComponents.Kinematics.InverseKinematics.Robot
+  commentId: P:RobotComponents.Kinematics.InverseKinematics.Robot
+  id: Robot
   parent: RobotComponents.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: RobotInfo
-  nameWithType: InverseKinematics.RobotInfo
-  fullName: RobotComponents.Kinematics.InverseKinematics.RobotInfo
+  name: Robot
+  nameWithType: InverseKinematics.Robot
+  fullName: RobotComponents.Kinematics.InverseKinematics.Robot
   type: Property
   source:
     path: RobotComponents
@@ -425,14 +425,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe robot info where the axis values are calculated for.\n"
+  summary: "\nGets or sets the Robot.\n"
   syntax:
-    content: public Robot RobotInfo { get; set; }
+    content: public Robot Robot { get; set; }
     parameters: []
     return:
       type: RobotComponents.Definitions.Robot
-    content.vb: Public Property RobotInfo As Robot
-  overload: RobotComponents.Kinematics.InverseKinematics.RobotInfo*
+    content.vb: Public Property Robot As Robot
+  overload: RobotComponents.Kinematics.InverseKinematics.Robot*
   modifiers.csharp:
   - public
   - get
@@ -456,7 +456,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe robot movement where the axis values are caculated for. \n"
+  summary: "\nGets or sets the Movement.\nThe target and work object are obtained from this movement.\n"
   syntax:
     content: public Movement Movement { get; set; }
     parameters: []
@@ -487,7 +487,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nThe used robot tool for this inverse kinematics.\nBy default the tool attached to the robot info is used. \nIf a tool is set as a property of the movement, this tool will be used. \nThe Movement.RobotTool overwrites the tool attached to the robot info. \n"
+  summary: "\nGets the tool used by the this Inverse Kinematics.\nBy default the tool attached to the robot is used. \nIf a tool is set as a property of the movement, this tool will be used. \n"
   syntax:
     content: public RobotTool RobotTool { get; }
     parameters: []
@@ -518,7 +518,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines the eight calculated Robot Joint Positions\n"
+  summary: "\nGets the eight latest calculated Robot Joint Positions.\n"
   syntax:
     content: public List<RobotJointPosition> RobotJointPositions { get; }
     parameters: []
@@ -549,7 +549,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines the calculated Robot Joint Position\n"
+  summary: "\nGets the latest calculated Robot Joint Position.\n"
   syntax:
     content: public RobotJointPosition RobotJointPosition { get; }
     parameters: []
@@ -580,7 +580,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nDefines the calculated External Joint Position\n"
+  summary: "\nGets the latest calculated External Joint Position.\n"
   syntax:
     content: public ExternalJointPosition ExternalJointPosition { get; }
     parameters: []
@@ -611,7 +611,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nList of strings with collected error messages. \n"
+  summary: "\nGets the collected error messages.\n"
   syntax:
     content: public List<string> ErrorText { get; }
     parameters: []
@@ -642,7 +642,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nBool that indicates if the internal and external values are within their limits\n"
+  summary: "\nGets a value indicating whether or not the internal and external values are within their limits.\n"
   syntax:
     content: public bool InLimits { get; }
     parameters: []
@@ -1051,13 +1051,6 @@ references:
   name: RobotJointPosition
   nameWithType: RobotJointPosition
   fullName: RobotComponents.Actions.RobotJointPosition
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
 - uid: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues*
   commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
   isExternal: true
@@ -1077,12 +1070,12 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: RobotComponents.Kinematics.InverseKinematics.RobotInfo*
-  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.RobotInfo
+- uid: RobotComponents.Kinematics.InverseKinematics.Robot*
+  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.Robot
   isExternal: true
-  name: RobotInfo
-  nameWithType: InverseKinematics.RobotInfo
-  fullName: RobotComponents.Kinematics.InverseKinematics.RobotInfo
+  name: Robot
+  nameWithType: InverseKinematics.Robot
+  fullName: RobotComponents.Kinematics.InverseKinematics.Robot
 - uid: RobotComponents.Kinematics.InverseKinematics.Movement*
   commentId: Overload:RobotComponents.Kinematics.InverseKinematics.Movement
   isExternal: true

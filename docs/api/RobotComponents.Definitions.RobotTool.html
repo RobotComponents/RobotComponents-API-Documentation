@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class RobotTool
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,13 +73,17 @@
   
   <h1 id="RobotComponents_Definitions_RobotTool" data-uid="RobotComponents.Definitions.RobotTool" class="text-break">Class RobotTool
   </h1>
-  <div class="markdown level0 summary"><p>RobotTool class, defines the basic properties and methods for any Robot Tool.</p>
+  <div class="markdown level0 summary"><p>Represents a Robot Tool.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">RobotTool</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -106,7 +110,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Definitions_RobotTool_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RobotTool</code></pre>
+    <pre><code class="lang-csharp hljs">public class RobotTool : ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -114,9 +118,7 @@
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor" data-uid="RobotComponents.Definitions.RobotTool.#ctor">RobotTool()</h4>
-  <div class="markdown level1 summary"><p>An empty constuctor that create the default robot tool tool0.
-The tool tool0 defines the wrist coordinate system, with the
-origin being the center of the mounting flange.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class with the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -127,8 +129,7 @@ origin being the center of the mounting flange.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_RobotComponents_Definitions_RobotTool_System_Boolean_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)">RobotTool(RobotTool, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Creates a new robot tool by duplicating an existing robot tool.
-This creates a deep copy of the existing robot tool.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class by duplicating an existing Robot Tool instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -148,13 +149,48 @@ This creates a deep copy of the existing robot tool.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
         <td><span class="parametername">robotTool</span></td>
-        <td><p>The robot tool that should be duplicated.</p>
+        <td><p>The Robot Tool instance to duplicate.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">duplicateMesh</span></td>
-        <td><p>A boolean that indicates if the mesh should be duplicated.</p>
+        <td><p>Specifies whether the meshes should be duplicated.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">RobotTool(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected RobotTool(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -163,7 +199,8 @@ This creates a deep copy of the existing robot tool.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane)">RobotTool(String, Mesh, Plane, Plane)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from planes with load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -210,7 +247,7 @@ This creates a deep copy of the existing robot tool.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Boolean_System_Double_Rhino_Geometry_Vector3d_Rhino_Geometry_Quaternion_Rhino_Geometry_Vector3d_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Vector3d, Quaternion, Vector3d)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool with user defined load data.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -248,13 +285,13 @@ This creates a deep copy of the existing robot tool.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">toolPlane</span></td>
-        <td><p>The tool center point and tool orientation as a plane.</p>
+        <td><p>The tool center point and tool orientation.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">robotHold</span></td>
-        <td><p>Boolean that indicates if the robot is holding the tool or if the tool is stationary.</p>
+        <td><p>Specifies whether the robot is holding the tool.</p>
 </td>
       </tr>
       <tr>
@@ -288,9 +325,9 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Point3d_Rhino_Geometry_Quaternion_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">RobotTool(String, Mesh, Point3d, Quaternion)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from the TCP point and the TCP orientation defined as a quatertion.
-With load data as defined for the default tool tool0.
-The attachment plane is set to WorldXY.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from a point and a quarternion.
+Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -322,13 +359,13 @@ The attachment plane is set to WorldXY.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Point3d</span></td>
         <td><span class="parametername">point</span></td>
-        <td><p>The point of the tool center as point</p>
+        <td><p>The point of the TCP point.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
         <td><span class="parametername">quat</span></td>
-        <td><p>The orientation of the tool center point as quarternion</p>
+        <td><p>The orientation of TCP point.</p>
 </td>
       </tr>
     </tbody>
@@ -337,8 +374,9 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(String, Mesh, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from Euler data with load data as defined for the default tool tool0.
-The attachment plane is set to WorldXY.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.
+Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -409,9 +447,9 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(String, Mesh, Double, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from the x, y and z coordinate and the four quarternion values.
-With load data as defined for the default tool tool0.
-The attachment plane is set to WorldXY.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
+Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -437,7 +475,7 @@ The attachment plane is set to WorldXY.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Mesh</span></td>
         <td><span class="parametername">mesh</span></td>
-        <td><p>The tool mesh defined in the tool coordinate space.</p>
+        <td><p>The tool mesh.</p>
 </td>
       </tr>
       <tr>
@@ -488,7 +526,8 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_Rhino_Geometry_Plane_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)">RobotTool(String, List&lt;Mesh&gt;, Plane, Plane)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from planes with load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -514,7 +553,7 @@ The attachment plane is set to WorldXY.</p>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The tool mesh as a list with meshes.</p>
+        <td><p>The tool mesh as The list with robot meshes.</p>
 </td>
       </tr>
       <tr>
@@ -535,8 +574,8 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(String, List&lt;Mesh&gt;, Plane, Double, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from the x, y and z coordinate and the four quarternion values.
-With load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -562,7 +601,7 @@ With load data as defined for the default tool tool0.</p>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The tool mesh defined in the tool coordinate space as a list with meshes</p>
+        <td><p>The tool mesh.</p>
 </td>
       </tr>
       <tr>
@@ -619,8 +658,9 @@ With load data as defined for the default tool tool0.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(String, List&lt;Mesh&gt;, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from Euler data with load data as defined for the default tool tool0.
-The attachment plane is set to WorldXY.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.
+Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -646,7 +686,7 @@ The attachment plane is set to WorldXY.</p>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The tool mesh as a list with meshes.</p>
+        <td><p>The tool mesh.</p>
 </td>
       </tr>
       <tr>
@@ -691,9 +731,9 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool__ctor_" data-uid="RobotComponents.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(String, List&lt;Mesh&gt;, Double, Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Defines a robot tool from the x, y and z coordinate and the four quarternion values.
-With load data as defined for the default tool tool0.
-The attachment plane is set to WorldXY.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
+Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -719,7 +759,7 @@ The attachment plane is set to WorldXY.</p>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
         <td><span class="parametername">meshes</span></td>
-        <td><p>The tool mesh defined in the tool coordinate space as a list with meshes</p>
+        <td><p>The tool mesh.</p>
 </td>
       </tr>
       <tr>
@@ -772,7 +812,7 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool_AttachmentPlane_" data-uid="RobotComponents.Definitions.RobotTool.AttachmentPlane*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_AttachmentPlane" data-uid="RobotComponents.Definitions.RobotTool.AttachmentPlane">AttachmentPlane</h4>
-  <div class="markdown level1 summary"><p>The robot tool attachment plane</p>
+  <div class="markdown level1 summary"><p>Gets or sets the tool attachment plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -798,7 +838,7 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool_CenterOfGravity_" data-uid="RobotComponents.Definitions.RobotTool.CenterOfGravity*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_CenterOfGravity" data-uid="RobotComponents.Definitions.RobotTool.CenterOfGravity">CenterOfGravity</h4>
-  <div class="markdown level1 summary"><p>The center of gravity of the tool load.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the center of gravity of the tool load.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -824,8 +864,8 @@ The attachment plane is set to WorldXY.</p>
   
   <a id="RobotComponents_Definitions_RobotTool_CenterOfGravityOrientation_" data-uid="RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_CenterOfGravityOrientation" data-uid="RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation">CenterOfGravityOrientation</h4>
-  <div class="markdown level1 summary"><p>The orientation of the tool load coordinate system defined by the principal inertial axes of the
-tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
+  <div class="markdown level1 summary"><p>Gets or sets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load.
+Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -851,7 +891,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Inertia_" data-uid="RobotComponents.Definitions.RobotTool.Inertia*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Inertia" data-uid="RobotComponents.Definitions.RobotTool.Inertia">Inertia</h4>
-  <div class="markdown level1 summary"><p>The moment of inertia of the load in kgm2.</p>
+  <div class="markdown level1 summary"><p>Gets or set the moment of inertia of the load in kgm2.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -875,87 +915,9 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   </table>
   
   
-  <a id="RobotComponents_Definitions_RobotTool_InertiaX_" data-uid="RobotComponents.Definitions.RobotTool.InertiaX*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_InertiaX" data-uid="RobotComponents.Definitions.RobotTool.InertiaX">InertiaX</h4>
-  <div class="markdown level1 summary"><p>The moment of inertia of the load around the x-axis of the tool load or payload coordinate system in kgm2.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double InertiaX { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_RobotTool_InertiaY_" data-uid="RobotComponents.Definitions.RobotTool.InertiaY*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_InertiaY" data-uid="RobotComponents.Definitions.RobotTool.InertiaY">InertiaY</h4>
-  <div class="markdown level1 summary"><p>The moment of inertia of the load around the y-axis of the tool load or payload coordinate system in kgm2.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double InertiaY { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_RobotTool_InertiaZ_" data-uid="RobotComponents.Definitions.RobotTool.InertiaZ*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_InertiaZ" data-uid="RobotComponents.Definitions.RobotTool.InertiaZ">InertiaZ</h4>
-  <div class="markdown level1 summary"><p>The moment of inertia of the load around the z-axis of the tool load or payload coordinate system in kgm2.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double InertiaZ { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="RobotComponents_Definitions_RobotTool_IsValid_" data-uid="RobotComponents.Definitions.RobotTool.IsValid*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_IsValid" data-uid="RobotComponents.Definitions.RobotTool.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Robot Tool object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -981,7 +943,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Mass_" data-uid="RobotComponents.Definitions.RobotTool.Mass*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Mass" data-uid="RobotComponents.Definitions.RobotTool.Mass">Mass</h4>
-  <div class="markdown level1 summary"><p>The weight of the load in kg.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the weight of the load in kg.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1007,7 +969,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Mesh_" data-uid="RobotComponents.Definitions.RobotTool.Mesh*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Mesh" data-uid="RobotComponents.Definitions.RobotTool.Mesh">Mesh</h4>
-  <div class="markdown level1 summary"><p>The Robot Tool mesh</p>
+  <div class="markdown level1 summary"><p>Gets or sets the mesh.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1033,7 +995,8 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Name_" data-uid="RobotComponents.Definitions.RobotTool.Name*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Name" data-uid="RobotComponents.Definitions.RobotTool.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The tobot tool name, must be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the tool name.
+Each tool name has to be unique.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1059,7 +1022,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Orientation_" data-uid="RobotComponents.Definitions.RobotTool.Orientation*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Orientation" data-uid="RobotComponents.Definitions.RobotTool.Orientation">Orientation</h4>
-  <div class="markdown level1 summary"><p>The orientation of the tool center point as a Quaternion</p>
+  <div class="markdown level1 summary"><p>Gets the orientation of the tool center point as a Quaternion.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1085,8 +1048,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
   
   <a id="RobotComponents_Definitions_RobotTool_Position_" data-uid="RobotComponents.Definitions.RobotTool.Position*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Position" data-uid="RobotComponents.Definitions.RobotTool.Position">Position</h4>
-  <div class="markdown level1 summary"><p>The position of the the tool center point which is the offset between
-the tool center plane and the attachment plane</p>
+  <div class="markdown level1 summary"><p>Gets the position of the the tool center point which is the offset between the tool center plane and the attachment plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1110,9 +1072,35 @@ the tool center plane and the attachment plane</p>
   </table>
   
   
+  <a id="RobotComponents_Definitions_RobotTool_ReferenceType_" data-uid="RobotComponents.Definitions.RobotTool.ReferenceType*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_ReferenceType" data-uid="RobotComponents.Definitions.RobotTool.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Reference Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_RobotTool_RobotHold_" data-uid="RobotComponents.Definitions.RobotTool.RobotHold*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_RobotHold" data-uid="RobotComponents.Definitions.RobotTool.RobotHold">RobotHold</h4>
-  <div class="markdown level1 summary"><p>Defines whether or not the robot is holding the tool.
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the robot is holding the tool.
 Use true if the robot is holding the tool.
 Use false if the robot is not holding the tool (e.g. stationary tool).</p>
 </div>
@@ -1140,7 +1128,7 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   
   <a id="RobotComponents_Definitions_RobotTool_ToolPlane_" data-uid="RobotComponents.Definitions.RobotTool.ToolPlane*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_ToolPlane" data-uid="RobotComponents.Definitions.RobotTool.ToolPlane">ToolPlane</h4>
-  <div class="markdown level1 summary"><p>The robot tool center point and orientation defined as a plane</p>
+  <div class="markdown level1 summary"><p>Gets or sets the position and orientaton of the tool center point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1181,7 +1169,7 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
   
   <a id="RobotComponents_Definitions_RobotTool_Duplicate_" data-uid="RobotComponents.Definitions.RobotTool.Duplicate*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Duplicate" data-uid="RobotComponents.Definitions.RobotTool.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the RobotTool object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Tool instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1199,7 +1187,7 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><p>Returns a deep copy for the RobotTool object.</p>
+        <td><p>A deep copy of the Robot Tool instance.</p>
 </td>
       </tr>
     </tbody>
@@ -1208,7 +1196,7 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
   
   <a id="RobotComponents_Definitions_RobotTool_DuplicateWithoutMesh_" data-uid="RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_DuplicateWithoutMesh" data-uid="RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh">DuplicateWithoutMesh()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the RobotTool object without duplicating the mesh. It will set an empty mesh.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Tool instance without meshes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1226,7 +1214,42 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><p>Returns a deep copy for the RobotTool object without a mesh.</p>
+        <td><p>A deep copy of the Robot Tool instance without meshes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_RobotTool_GetObjectData_" data-uid="RobotComponents.Definitions.RobotTool.GetObjectData*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
 </td>
       </tr>
     </tbody>
@@ -1381,6 +1404,10 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -1391,7 +1418,8 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

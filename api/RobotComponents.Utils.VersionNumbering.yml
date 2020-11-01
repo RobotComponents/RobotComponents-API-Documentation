@@ -6,6 +6,7 @@ items:
   parent: RobotComponents.Utils
   children:
   - RobotComponents.Utils.VersionNumbering.CurrentVersion
+  - RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt
   langs:
   - csharp
   - vb
@@ -57,12 +58,41 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nReturns the current version of the RobotComponent Plugin. Has to be manually updated each time\n0.XX.XXX ---> mature release\nX.00.XXX ---> minor release (for example new functions, new components...etc.)\nX.XX.000 ---> bug fixes and small improvements\n"
+  summary: "\nGets the current version of the Robot Component Plugin. \nHas to be manually updated each time. \n0.XX.XXX ---> mature release\nX.00.XXX ---> minor release (for example new functions, new components...etc.)\nX.XX.000 ---> bug fixes and small improvements\n"
   syntax:
-    content: public const string CurrentVersion = "0.11.001"
+    content: public const string CurrentVersion = "0.12.000"
     return:
       type: System.String
-    content.vb: Public Const CurrentVersion As String = "0.11.001"
+    content.vb: Public Const CurrentVersion As String = "0.12.000"
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt
+  commentId: F:RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt
+  id: CurrentVersionAsInt
+  parent: RobotComponents.Utils.VersionNumbering
+  langs:
+  - csharp
+  - vb
+  name: CurrentVersionAsInt
+  nameWithType: VersionNumbering.CurrentVersionAsInt
+  fullName: RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt
+  type: Field
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nGets the current version of the Robot Components plugin as an int. \nHas to be manually updated each time. \nRemove the points and the zeros in front of the number. \nExamples:\n&quot;0.11.003&quot; ----> 11003\n&quot;1.01.000&quot; ----> 101000\n"
+  syntax:
+    content: public const int CurrentVersionAsInt = 12000
+    return:
+      type: System.Int32
+    content.vb: Public Const CurrentVersionAsInt As Integer = 12000
   modifiers.csharp:
   - public
   - const
@@ -375,3 +405,10 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

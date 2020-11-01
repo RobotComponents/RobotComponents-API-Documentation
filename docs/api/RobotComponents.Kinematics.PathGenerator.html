@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class PathGenerator
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,9 @@
   
   <h1 id="RobotComponents_Kinematics_PathGenerator" data-uid="RobotComponents.Kinematics.PathGenerator" class="text-break">Class PathGenerator
   </h1>
-  <div class="markdown level0 summary"><p>Path Generator class. This class does an approximation of the path the robot will follow.</p>
+  <div class="markdown level0 summary"><p>Represent the Path Generator.
+This class is used to approximate of the path the Robot will follow for a given set of Actions.
+Speed Datas and Zone Datas are neglected.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -114,7 +116,7 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator__ctor_" data-uid="RobotComponents.Kinematics.PathGenerator.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator__ctor" data-uid="RobotComponents.Kinematics.PathGenerator.#ctor">PathGenerator()</h4>
-  <div class="markdown level1 summary"><p>Cosntruct an empty path generator object</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Path Generator class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -125,12 +127,12 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator__ctor_" data-uid="RobotComponents.Kinematics.PathGenerator.#ctor*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator__ctor_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Kinematics.PathGenerator.#ctor(RobotComponents.Definitions.Robot)">PathGenerator(Robot)</h4>
-  <div class="markdown level1 summary"><p>Defines a path generator object</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Path Generator class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public PathGenerator(Robot robotInfo)</code></pre>
+    <pre><code class="lang-csharp hljs">public PathGenerator(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,8 +146,8 @@
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
-        <td><span class="parametername">robotInfo</span></td>
-        <td><p>The robot info to construct the path for.</p>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot to generate the path for.</p>
 </td>
       </tr>
     </tbody>
@@ -156,7 +158,7 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator_ErrorText_" data-uid="RobotComponents.Kinematics.PathGenerator.ErrorText*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_ErrorText" data-uid="RobotComponents.Kinematics.PathGenerator.ErrorText">ErrorText</h4>
-  <div class="markdown level1 summary"><p>List of strings with collected error messages.</p>
+  <div class="markdown level1 summary"><p>Gets the collected error messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -182,7 +184,7 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator_ExternalJointPositions_" data-uid="RobotComponents.Kinematics.PathGenerator.ExternalJointPositions*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_ExternalJointPositions" data-uid="RobotComponents.Kinematics.PathGenerator.ExternalJointPositions">ExternalJointPositions</h4>
-  <div class="markdown level1 summary"><p>The External Joint Positions set to follow the path.</p>
+  <div class="markdown level1 summary"><p>Gets the latest calculated External Joint Positions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -208,7 +210,7 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator_IsValid_" data-uid="RobotComponents.Kinematics.PathGenerator.IsValid*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_IsValid" data-uid="RobotComponents.Kinematics.PathGenerator.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Path Generator object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -234,8 +236,8 @@
   
   <a id="RobotComponents_Kinematics_PathGenerator_Paths_" data-uid="RobotComponents.Kinematics.PathGenerator.Paths*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_Paths" data-uid="RobotComponents.Kinematics.PathGenerator.Paths">Paths</h4>
-  <div class="markdown level1 summary"><p>An approximation of the path the TCP of the robot will follow.
-For every movement a curve is constructed.</p>
+  <div class="markdown level1 summary"><p>Gets the path curve as list with curve.
+For every move instruction a curve is constructed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -261,7 +263,7 @@ For every movement a curve is constructed.</p>
   
   <a id="RobotComponents_Kinematics_PathGenerator_Planes_" data-uid="RobotComponents.Kinematics.PathGenerator.Planes*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_Planes" data-uid="RobotComponents.Kinematics.PathGenerator.Planes">Planes</h4>
-  <div class="markdown level1 summary"><p>The list with planes the robot follows.</p>
+  <div class="markdown level1 summary"><p>Gets the list with TCP planes the path follows.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -285,14 +287,14 @@ For every movement a curve is constructed.</p>
   </table>
   
   
-  <a id="RobotComponents_Kinematics_PathGenerator_RobotInfo_" data-uid="RobotComponents.Kinematics.PathGenerator.RobotInfo*"></a>
-  <h4 id="RobotComponents_Kinematics_PathGenerator_RobotInfo" data-uid="RobotComponents.Kinematics.PathGenerator.RobotInfo">RobotInfo</h4>
-  <div class="markdown level1 summary"><p>The robot info to construct the path for.</p>
+  <a id="RobotComponents_Kinematics_PathGenerator_Robot_" data-uid="RobotComponents.Kinematics.PathGenerator.Robot*"></a>
+  <h4 id="RobotComponents_Kinematics_PathGenerator_Robot" data-uid="RobotComponents.Kinematics.PathGenerator.Robot">Robot</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Robot RobotInfo { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Robot Robot { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -313,7 +315,7 @@ For every movement a curve is constructed.</p>
   
   <a id="RobotComponents_Kinematics_PathGenerator_RobotJointPositions_" data-uid="RobotComponents.Kinematics.PathGenerator.RobotJointPositions*"></a>
   <h4 id="RobotComponents_Kinematics_PathGenerator_RobotJointPositions" data-uid="RobotComponents.Kinematics.PathGenerator.RobotJointPositions">RobotJointPositions</h4>
-  <div class="markdown level1 summary"><p>The Robot Joint Positions set to follow the path.</p>
+  <div class="markdown level1 summary"><p>Gets the latest calculated Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -411,7 +413,8 @@ For every movement a curve is constructed.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

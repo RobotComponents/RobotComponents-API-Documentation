@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class IRB6650S_90_390
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="RobotComponents_Definitions_Presets_IRB6650S_90_390" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390" class="text-break">Class IRB6650S_90_390
   </h1>
-  <div class="markdown level0 summary"><p>Defines the IRB6650S-90/3.90</p>
+  <div class="markdown level0 summary"><p>Represents a collection of methods to get the IRB6650S-90/3.90 Robot instance.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -117,7 +117,7 @@
   
   <a id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetAxisLimits_" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetAxisLimits*"></a>
   <h4 id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetAxisLimits" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetAxisLimits">GetAxisLimits()</h4>
-  <div class="markdown level1 summary"><p>Defines the axis limits.</p>
+  <div class="markdown level1 summary"><p>Returns the list with axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -135,7 +135,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Interval</span>&gt;</td>
-        <td><p>Returns a list with intervals.</p>
+        <td><p>The list with axis limits.</p>
 </td>
       </tr>
     </tbody>
@@ -144,7 +144,7 @@
   
   <a id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetAxisPlanes_" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetAxisPlanes*"></a>
   <h4 id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetAxisPlanes" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetAxisPlanes">GetAxisPlanes()</h4>
-  <div class="markdown level1 summary"><p>Defines the axis planes in robot coordinate space.</p>
+  <div class="markdown level1 summary"><p>Returns the list with the axis planes in robot coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -189,7 +189,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
-        <td><p>Returns a list with meshes.</p>
+        <td><p>The list with robot meshes.</p>
 </td>
       </tr>
     </tbody>
@@ -198,12 +198,12 @@
   
   <a id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetRobot_" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetRobot*"></a>
   <h4 id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetRobot_System_String_Rhino_Geometry_Plane_RobotComponents_Definitions_RobotTool_System_Collections_Generic_List_RobotComponents_Definitions_ExternalAxis__" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">GetRobot(String, Plane, RobotTool, List&lt;ExternalAxis&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines the IRB6650S-90/3.90 Robot</p>
+  <div class="markdown level1 summary"><p>Returns a new IRB6650S-90/3.90 Robot instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List&lt;ExternalAxis&gt; externalAxis = null)</code></pre>
+    <pre><code class="lang-csharp hljs">public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List&lt;ExternalAxis&gt; externalAxes = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -218,25 +218,25 @@
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>The Robot name as a string.</p>
+        <td><p>The name of the Robot.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">positionPlane</span></td>
-        <td><p>The position of the robot in world coordinate space as plane.</p>
+        <td><p>The position and orientation of the Robot in world coordinate space.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
         <td><span class="parametername">tool</span></td>
-        <td><p>The robot end-effector as a Robot Tool.</p>
+        <td><p>The Robot Tool.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="RobotComponents.Definitions.ExternalAxis.html">ExternalAxis</a>&gt;</td>
-        <td><span class="parametername">externalAxis</span></td>
-        <td><p>The external axes attaced to the robot as list with External Axes.</p>
+        <td><span class="parametername">externalAxes</span></td>
+        <td><p>The external axes attached to the Robot.</p>
 </td>
       </tr>
     </tbody>
@@ -252,7 +252,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
-        <td><p>Returns the Robot preset.</p>
+        <td><p>The Robot preset.</p>
 </td>
       </tr>
     </tbody>
@@ -261,7 +261,7 @@
   
   <a id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetToolMountingFrame_" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetToolMountingFrame*"></a>
   <h4 id="RobotComponents_Definitions_Presets_IRB6650S_90_390_GetToolMountingFrame" data-uid="RobotComponents.Definitions.Presets.IRB6650S_90_390.GetToolMountingFrame">GetToolMountingFrame()</h4>
-  <div class="markdown level1 summary"><p>Defines the tool mounting frame in robot coordinate space.</p>
+  <div class="markdown level1 summary"><p>Returns the tool mounting frame in robot coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -279,7 +279,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><p>Returns the mounting frame.</p>
+        <td><p>The tool mounting frame.</p>
 </td>
       </tr>
     </tbody>
@@ -294,7 +294,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

@@ -31,7 +31,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nGeneral Helper methods\n"
+  summary: "\nRepresents general helper methods\n"
   syntax:
     content: public static class HelperMethods
     content.vb: Public Module HelperMethods
@@ -69,7 +69,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nSerializes a common object to a byte array. \nTypically used for serializing robot meshes. \n"
+  summary: "\nSerializes a common object to a byte array. \nTypically used for serializing robot meshes and data inside Goo classes.\n"
   syntax:
     content: public static byte[] ObjectToByteArray(object obj)
     parameters:
@@ -78,7 +78,7 @@ items:
       description: 'The common object. '
     return:
       type: System.Byte[]
-      description: 'Returns the byte array. '
+      description: 'The byte array. '
     content.vb: Public Shared Function ObjectToByteArray(obj As Object) As Byte()
   overload: RobotComponents.Utils.HelperMethods.ObjectToByteArray*
   modifiers.csharp:
@@ -104,7 +104,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nDeserializes a byte array to a common object. \nTypically used for deserializing robot meshes. \n"
+  summary: "\nDeserializes a byte array to a common object. \nTypically used for deserializing robot meshes and data inside Goo classes.\n"
   syntax:
     content: public static object ByteArrayToObject(byte[] data)
     parameters:
@@ -113,7 +113,7 @@ items:
       description: 'The byte array. '
     return:
       type: System.Object
-      description: 'Returns the common object. '
+      description: 'The common object. '
     content.vb: Public Shared Function ByteArrayToObject(data As Byte()) As Object
   overload: RobotComponents.Utils.HelperMethods.ByteArrayToObject*
   nameWithType.vb: HelperMethods.ByteArrayToObject(Byte())
@@ -142,7 +142,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nFlips the plane to the oposite direction by setting it&apos;s x-axis negative.\n"
+  summary: "\nFlips a plane normal to the oposite direction by setting it&apos;s x-axis negative.\n"
   syntax:
     content: public static Plane FlipPlaneX(Plane plane)
     parameters:
@@ -151,7 +151,7 @@ items:
       description: 'The plane that needs to be flipped. '
     return:
       type: Rhino.Geometry.Plane
-      description: 'Returns the flipped plane. '
+      description: 'Tshe flipped plane. '
     content.vb: Public Shared Function FlipPlaneX(plane As Plane) As Plane
   overload: RobotComponents.Utils.HelperMethods.FlipPlaneX*
   modifiers.csharp:
@@ -177,7 +177,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nFlips the plane to the oposite direction by setting it&apos;s y-axis negative.\n"
+  summary: "\nFlips a plane normal to the oposite direction by setting it&apos;s y-axis negative.\n"
   syntax:
     content: public static Plane FlipPlaneY(Plane plane)
     parameters:
@@ -186,7 +186,7 @@ items:
       description: 'The plane that needs to be flipped. '
     return:
       type: Rhino.Geometry.Plane
-      description: 'Returns the flipped plane. '
+      description: 'The flipped plane. '
     content.vb: Public Shared Function FlipPlaneY(plane As Plane) As Plane
   overload: RobotComponents.Utils.HelperMethods.FlipPlaneY*
   modifiers.csharp:
@@ -221,7 +221,7 @@ items:
       description: 'The origin of the plane. '
     - id: quat
       type: Rhino.Geometry.Quaternion
-      description: 'The quarternion '
+      description: 'The quarternion. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The plane obtained with the orientation defined by the quarternion values. '
@@ -259,10 +259,10 @@ items:
       description: 'The reference plane. '
     - id: origin
       type: Rhino.Geometry.Point3d
-      description: 'The origin of the plane. '
+      description: 'The origin of the new plane. '
     - id: quat
       type: Rhino.Geometry.Quaternion
-      description: 'The quarternion '
+      description: 'The quarternion. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The plane obtained with the orientation defined by the quarternion values. '
@@ -588,7 +588,7 @@ items:
       description: 'The plane to should be transformed. '
     return:
       type: Rhino.Geometry.Quaternion
-      description: The quaternion as a Quaternion.
+      description: 'The quaternion. '
     content.vb: Public Shared Function PlaneToQuaternion(plane As Plane) As Quaternion
   overload: RobotComponents.Utils.HelperMethods.PlaneToQuaternion*
   modifiers.csharp:

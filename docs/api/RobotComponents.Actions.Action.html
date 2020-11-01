@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class Action
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="RobotComponents_Actions_Action" data-uid="RobotComponents.Actions.Action" class="text-break">Class Action
   </h1>
-  <div class="markdown level0 summary"><p>Action class, abstract main class for all actions.</p>
+  <div class="markdown level0 summary"><p>Represents a base class for all robot actions (declarations and instructions).</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -129,7 +129,7 @@
   
   <a id="RobotComponents_Actions_Action__ctor_" data-uid="RobotComponents.Actions.Action.#ctor*"></a>
   <h4 id="RobotComponents_Actions_Action__ctor" data-uid="RobotComponents.Actions.Action.#ctor">Action()</h4>
-  <div class="markdown level1 summary"><p>Empty constructor</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Action class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -142,7 +142,7 @@
   
   <a id="RobotComponents_Actions_Action_IsValid_" data-uid="RobotComponents.Actions.Action.IsValid*"></a>
   <h4 id="RobotComponents_Actions_Action_IsValid" data-uid="RobotComponents.Actions.Action.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the Action object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -170,7 +170,7 @@
   
   <a id="RobotComponents_Actions_Action_DuplicateAction_" data-uid="RobotComponents.Actions.Action.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_Action_DuplicateAction" data-uid="RobotComponents.Actions.Action.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the object as an Action type</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -188,7 +188,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the Action object.</p>
+        <td><p>The exact copy of this Action.</p>
 </td>
       </tr>
     </tbody>
@@ -197,7 +197,8 @@
   
   <a id="RobotComponents_Actions_Action_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.Action.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_Action_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -217,7 +218,7 @@
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -226,7 +227,7 @@
   
   <a id="RobotComponents_Actions_Action_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.Action.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_Action_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -246,7 +247,7 @@
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -262,7 +263,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -271,7 +272,8 @@
   
   <a id="RobotComponents_Actions_Action_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.Action.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_Action_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -291,7 +293,7 @@
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -300,7 +302,7 @@
   
   <a id="RobotComponents_Actions_Action_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.Action.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_Action_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -320,7 +322,7 @@
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -336,7 +338,7 @@
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -380,7 +382,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

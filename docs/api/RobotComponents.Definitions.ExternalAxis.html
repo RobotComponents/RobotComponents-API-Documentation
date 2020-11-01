@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class ExternalAxis
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,7 @@
   
   <h1 id="RobotComponents_Definitions_ExternalAxis" data-uid="RobotComponents.Definitions.ExternalAxis" class="text-break">Class ExternalAxis
   </h1>
-  <div class="markdown level0 summary"><p>External axis class, main Class for external axis.
-An external axis (linear and rotational) can be attached to a robot or a workobject</p>
+  <div class="markdown level0 summary"><p>Represents a base class for External Axes.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -117,11 +116,12 @@ An external axis (linear and rotational) can be attached to a robot or a workobj
   
   <a id="RobotComponents_Definitions_ExternalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalAxis.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis__ctor" data-uid="RobotComponents.Definitions.ExternalAxis.#ctor">ExternalAxis()</h4>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the External Axis class.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">protected ExternalAxis()</code></pre>
+    <pre><code class="lang-csharp hljs">public ExternalAxis()</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -129,7 +129,7 @@ An external axis (linear and rotational) can be attached to a robot or a workobj
   
   <a id="RobotComponents_Definitions_ExternalAxis_AttachmentPlane_" data-uid="RobotComponents.Definitions.ExternalAxis.AttachmentPlane*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_AttachmentPlane" data-uid="RobotComponents.Definitions.ExternalAxis.AttachmentPlane">AttachmentPlane</h4>
-  <div class="markdown level1 summary"><p>Defines the plane where the robot or the work object is attached.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the attachment plane to attach a robot or work object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -155,7 +155,7 @@ An external axis (linear and rotational) can be attached to a robot or a workobj
   
   <a id="RobotComponents_Definitions_ExternalAxis_AxisLimits_" data-uid="RobotComponents.Definitions.ExternalAxis.AxisLimits*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_AxisLimits" data-uid="RobotComponents.Definitions.ExternalAxis.AxisLimits">AxisLimits</h4>
-  <div class="markdown level1 summary"><p>Defines the axis limits as an interval</p>
+  <div class="markdown level1 summary"><p>Gets or sets the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -179,9 +179,35 @@ An external axis (linear and rotational) can be attached to a robot or a workobj
   </table>
   
   
+  <a id="RobotComponents_Definitions_ExternalAxis_AxisLogic_" data-uid="RobotComponents.Definitions.ExternalAxis.AxisLogic*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_AxisLogic" data-uid="RobotComponents.Definitions.ExternalAxis.AxisLogic">AxisLogic</h4>
+  <div class="markdown level1 summary"><p>Gets the axis logic as a char (-, A, B, C, E, E, F).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract char AxisLogic { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Char</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_ExternalAxis_AxisNumber_" data-uid="RobotComponents.Definitions.ExternalAxis.AxisNumber*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_AxisNumber" data-uid="RobotComponents.Definitions.ExternalAxis.AxisNumber">AxisNumber</h4>
-  <div class="markdown level1 summary"><p>The axis logic as number (0, 1, 2, 3, 4 or 5)</p>
+  <div class="markdown level1 summary"><p>Gets or sets the axis logic as a number (-1, 0, 1, 2, 3, 4, 5).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -207,9 +233,9 @@ An external axis (linear and rotational) can be attached to a robot or a workobj
   
   <a id="RobotComponents_Definitions_ExternalAxis_AxisPlane_" data-uid="RobotComponents.Definitions.ExternalAxis.AxisPlane*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_AxisPlane" data-uid="RobotComponents.Definitions.ExternalAxis.AxisPlane">AxisPlane</h4>
-  <div class="markdown level1 summary"><p>Defines the axis plane. In case of a rotational axis the z-axis of the plane
-defines the rotation center. In case of linear axis the z-axis of the plane defines
-the movement direction.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the axis plane.
+In case of a rotational axis the z-axis of the plane defines the rotation center.
+In case of linear axis the z-axis of the plane defines the movement direction.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -235,7 +261,7 @@ the movement direction.</p>
   
   <a id="RobotComponents_Definitions_ExternalAxis_AxisType_" data-uid="RobotComponents.Definitions.ExternalAxis.AxisType*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_AxisType" data-uid="RobotComponents.Definitions.ExternalAxis.AxisType">AxisType</h4>
-  <div class="markdown level1 summary"><p>Defines the axis type (linear or rotational)</p>
+  <div class="markdown level1 summary"><p>Gets the Axis Type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -261,7 +287,7 @@ the movement direction.</p>
   
   <a id="RobotComponents_Definitions_ExternalAxis_BaseMesh_" data-uid="RobotComponents.Definitions.ExternalAxis.BaseMesh*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_BaseMesh" data-uid="RobotComponents.Definitions.ExternalAxis.BaseMesh">BaseMesh</h4>
-  <div class="markdown level1 summary"><p>The fixed base mesh of the external axis.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the fixed base mesh of the external axis.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -287,7 +313,7 @@ the movement direction.</p>
   
   <a id="RobotComponents_Definitions_ExternalAxis_IsValid_" data-uid="RobotComponents.Definitions.ExternalAxis.IsValid*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_IsValid" data-uid="RobotComponents.Definitions.ExternalAxis.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>Boolearn that indicates if the External Axis instance is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -313,7 +339,7 @@ the movement direction.</p>
   
   <a id="RobotComponents_Definitions_ExternalAxis_LinkMesh_" data-uid="RobotComponents.Definitions.ExternalAxis.LinkMesh*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_LinkMesh" data-uid="RobotComponents.Definitions.ExternalAxis.LinkMesh">LinkMesh</h4>
-  <div class="markdown level1 summary"><p>The movable link mesh of the external axis posed for external axis value 0.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the movable link mesh of the external axis posed for external axis value set to 0.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -337,9 +363,35 @@ the movement direction.</p>
   </table>
   
   
+  <a id="RobotComponents_Definitions_ExternalAxis_MovesRobot_" data-uid="RobotComponents.Definitions.ExternalAxis.MovesRobot*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_MovesRobot" data-uid="RobotComponents.Definitions.ExternalAxis.MovesRobot">MovesRobot</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not this External Axis moves the Robot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract bool MovesRobot { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_ExternalAxis_Name_" data-uid="RobotComponents.Definitions.ExternalAxis.Name*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_Name" data-uid="RobotComponents.Definitions.ExternalAxis.Name">Name</h4>
-  <div class="markdown level1 summary"><p>The name of the external axis</p>
+  <div class="markdown level1 summary"><p>Gets or sets the external axis name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -365,7 +417,7 @@ the movement direction.</p>
   
   <a id="RobotComponents_Definitions_ExternalAxis_PosedMeshes_" data-uid="RobotComponents.Definitions.ExternalAxis.PosedMeshes*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_PosedMeshes" data-uid="RobotComponents.Definitions.ExternalAxis.PosedMeshes">PosedMeshes</h4>
-  <div class="markdown level1 summary"><p>The external axis mesh posed in a certain external axis value.</p>
+  <div class="markdown level1 summary"><p>Gets latest calculated posed axis meshes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -392,14 +444,14 @@ the movement direction.</p>
   
   
   <a id="RobotComponents_Definitions_ExternalAxis_CalculatePosition_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePosition*"></a>
-  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculatePosition_System_Double_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePosition(System.Double,System.Boolean@)">CalculatePosition(Double, out Boolean)</h4>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculatePosition_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculatePosition(ExternalJointPosition, out Boolean)</h4>
   <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
 This method does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Plane CalculatePosition(double axisValue, out bool inLimits)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -412,9 +464,9 @@ This method does not take into account the axis limits.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">axisValue</span></td>
-        <td><p>The external axis value to calculate the position of the attachment plane for.</p>
+        <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The external joint position to calculate the position of the attachment plane for.</p>
 </td>
       </tr>
       <tr>
@@ -444,7 +496,7 @@ This method does not take into account the axis limits.</p>
   
   
   <a id="RobotComponents_Definitions_ExternalAxis_CalculatePositionSave_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePositionSave*"></a>
-  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculatePositionSave_System_Double_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(System.Double)">CalculatePositionSave(Double)</h4>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculatePositionSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">CalculatePositionSave(ExternalJointPosition)</h4>
   <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
 This method takes into account the external axis limits. If the defined external
 axis value is outside its limits the closest external axis limit will be used.</p>
@@ -452,7 +504,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Plane CalculatePositionSave(double axisValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -465,9 +517,9 @@ axis value is outside its limits the closest external axis limit will be used.</
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">axisValue</span></td>
-        <td><p>The external axis value to calculate the position of the attachment plane for.</p>
+        <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The external joint position to calculate the position of the attachment plane for.</p>
 </td>
       </tr>
     </tbody>
@@ -491,14 +543,14 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   
   <a id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrix_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix*"></a>
-  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrix_System_Double_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(System.Double,System.Boolean@)">CalculateTransformationMatrix(Double, out Boolean)</h4>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrix_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculateTransformationMatrix(ExternalJointPosition, out Boolean)</h4>
   <div class="markdown level1 summary"><p>Calculates the the transformation matrix for a defined external axis value.
 This method does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Transform CalculateTransformationMatrix(double axisValue, out bool inLimits)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -511,9 +563,9 @@ This method does not take into account the axis limits.</p>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">axisValue</span></td>
-        <td><p>The external axis value to calculate the position of the attachment plane for.</p>
+        <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The external joint position to calculate the position of the attachment plane for.</p>
 </td>
       </tr>
       <tr>
@@ -543,7 +595,7 @@ This method does not take into account the axis limits.</p>
   
   
   <a id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrixSave_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave*"></a>
-  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrixSave_System_Double_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(System.Double)">CalculateTransformationMatrixSave(Double)</h4>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_CalculateTransformationMatrixSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">CalculateTransformationMatrixSave(ExternalJointPosition)</h4>
   <div class="markdown level1 summary"><p>Calculates the the transformation matrix for a defined external axis value.
 This method takes into account the external axis limits. If the defined external
 axis value is outside its limits the closest external axis limit will be used.</p>
@@ -551,7 +603,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract Transform CalculateTransformationMatrixSave(double axisValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -564,9 +616,9 @@ axis value is outside its limits the closest external axis limit will be used.</
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">axisValue</span></td>
-        <td><p>The external axis value to calculate the transformation matrix for.</p>
+        <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The external joint postition to calculate the transformation matrix for.</p>
 </td>
       </tr>
     </tbody>
@@ -591,7 +643,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalAxis_DuplicateExternalAxis_" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxis*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_DuplicateExternalAxis" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxis">DuplicateExternalAxis()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the object as an ExternalAxis type</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this External Axis.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -609,7 +661,7 @@ axis value is outside its limits the closest external axis limit will be used.</
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html">ExternalAxis</a></td>
-        <td><p>Returns a deep copy of the ExternalAxis object.</p>
+        <td><p>A deep copy of the External Axis.</p>
 </td>
       </tr>
     </tbody>
@@ -618,7 +670,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalAxis_DuplicateExternalAxisWithoutMesh_" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_DuplicateExternalAxisWithoutMesh" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh">DuplicateExternalAxisWithoutMesh()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the object as an ExternalAxis type with an empty mesh.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this External Axis without meshes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -636,7 +688,7 @@ axis value is outside its limits the closest external axis limit will be used.</
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html">ExternalAxis</a></td>
-        <td><p>Returns a deep copy of the ExternalAxis object with empty meshes.</p>
+        <td><p>A deep copy of the External Axis without meshes.</p>
 </td>
       </tr>
     </tbody>
@@ -644,13 +696,13 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   
   <a id="RobotComponents_Definitions_ExternalAxis_PoseMeshes_" data-uid="RobotComponents.Definitions.ExternalAxis.PoseMeshes*"></a>
-  <h4 id="RobotComponents_Definitions_ExternalAxis_PoseMeshes_System_Double_" data-uid="RobotComponents.Definitions.ExternalAxis.PoseMeshes(System.Double)">PoseMeshes(Double)</h4>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_PoseMeshes_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">PoseMeshes(ExternalJointPosition)</h4>
   <div class="markdown level1 summary"><p>Calculates the position of the external axis mesh for a defined external axis value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract void PoseMeshes(double axisValue)</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract List&lt;Mesh&gt; PoseMeshes(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -663,9 +715,25 @@ axis value is outside its limits the closest external axis limit will be used.</
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Double</span></td>
-        <td><span class="parametername">axisValue</span></td>
-        <td><p>The external axis value to calculate the position of the meshes for.</p>
+        <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The external joint position to calculate the position of the meshes for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
+        <td><p>The posed meshes.</p>
 </td>
       </tr>
     </tbody>
@@ -749,7 +817,8 @@ axis value is outside its limits the closest external axis limit will be used.</
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

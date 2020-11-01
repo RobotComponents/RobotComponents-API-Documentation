@@ -7,16 +7,18 @@ items:
   children:
   - RobotComponents.Definitions.Robot.#ctor
   - RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
+  - RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.BasePlane
   - RobotComponents.Definitions.Robot.Duplicate
-  - RobotComponents.Definitions.Robot.ExternalAxis
+  - RobotComponents.Definitions.Robot.ExternalAxes
   - RobotComponents.Definitions.Robot.ExternalAxisLimits
   - RobotComponents.Definitions.Robot.ExternalAxisPlanes
   - RobotComponents.Definitions.Robot.ForwardKinematics
   - RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
   - RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
+  - RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.Robot.InternalAxisLimits
   - RobotComponents.Definitions.Robot.InternalAxisPlanes
   - RobotComponents.Definitions.Robot.InverseKinematics
@@ -41,12 +43,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nRobot class, defines the basic properties and methods for any Robot.\n"
+  summary: "\nRepresents a 6-axis spherical Robot.\n"
   syntax:
-    content: public class Robot
-    content.vb: Public Class Robot
+    content: 'public class Robot : ISerializable'
+    content.vb: >-
+      Public Class Robot
+          Implements ISerializable
   inheritance:
   - System.Object
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -60,6 +66,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: Robot(SerializationInfo, StreamingContext)
+  nameWithType: Robot.Robot(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.Robot.Robot(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected Robot(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.Robot.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Robot.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Definitions.Robot.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.Robot.#ctor
   commentId: M:RobotComponents.Definitions.Robot.#ctor
   id: '#ctor'
@@ -77,7 +151,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nAn empty constuctor that creates an robot.\n"
+  summary: "\nInitializes an empty instance of the Robot class.\n"
   syntax:
     content: public Robot()
     content.vb: Public Sub New
@@ -103,31 +177,31 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot without external axes. \n"
+  summary: "\nInitializes a new instance of the Robot class without attached external axes.\n"
   syntax:
     content: public Robot(string name, List<Mesh> meshes, List<Plane> internalAxisPlanes, List<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool)
     parameters:
     - id: name
       type: System.String
-      description: 'The robot name. '
+      description: 'The name. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The robot base and links meshes as a list defined in the world coorindate space. '
+      description: 'The base and links meshes defined in the world coorindate space. '
     - id: internalAxisPlanes
       type: System.Collections.Generic.List{Rhino.Geometry.Plane}
-      description: 'The internal axes planes as a list defined in the world coorindate space. '
+      description: 'The internal axes planes defined in the world coorindate space. '
     - id: internalAxisLimits
       type: System.Collections.Generic.List{Rhino.Geometry.Interval}
-      description: 'The internal axes limit as intervals. '
+      description: 'The internal axes limit. '
     - id: basePlane
       type: Rhino.Geometry.Plane
-      description: 'The position of the robot in the world coordinate space as a plane. '
+      description: 'The position and orientation of the robot base in the world coordinate space. '
     - id: mountingFrame
       type: Rhino.Geometry.Plane
-      description: 'The tool mounting frame as plane in the world coorindate space. '
+      description: 'The tool mounting frame definied in the world coordinate space. '
     - id: tool
       type: RobotComponents.Definitions.RobotTool
-      description: 'The attached robot tool as a Robot Tool. '
+      description: 'The Robot Tool. '
     content.vb: Public Sub New(name As String, meshes As List(Of Mesh), internalAxisPlanes As List(Of Plane), internalAxisLimits As List(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool)
   overload: RobotComponents.Definitions.Robot.#ctor*
   nameWithType.vb: Robot.Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool)
@@ -154,35 +228,35 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines a robot with attached external axes.\n"
+  summary: "\nInitializes a new instance of the Robot class with attached external axes.\n"
   syntax:
-    content: public Robot(string name, List<Mesh> meshes, List<Plane> internalAxisPlanes, List<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, List<ExternalAxis> externalAxis)
+    content: public Robot(string name, List<Mesh> meshes, List<Plane> internalAxisPlanes, List<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, List<ExternalAxis> externalAxes)
     parameters:
     - id: name
       type: System.String
-      description: 'The robot name. '
+      description: 'The name. '
     - id: meshes
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'The robot base and links meshes as a list defined in the world coorindate space. '
+      description: 'The base and links meshes defined in the world coorindate space. '
     - id: internalAxisPlanes
       type: System.Collections.Generic.List{Rhino.Geometry.Plane}
-      description: 'The internal axes planes as a list defined in the world coorindate space. '
+      description: 'The internal axes planes defined in the world coorindate space. '
     - id: internalAxisLimits
       type: System.Collections.Generic.List{Rhino.Geometry.Interval}
-      description: 'The internal axes limit as intervals. '
+      description: 'The internal axes limit. '
     - id: basePlane
       type: Rhino.Geometry.Plane
-      description: 'The position of the robot in the world coordinate space as a plane. '
+      description: 'The position and orientation of the robot base in the world coordinate space. '
     - id: mountingFrame
       type: Rhino.Geometry.Plane
-      description: 'The tool mounting frame as plane in the world coorindate space. '
+      description: 'The tool mounting frame definied in the world coordinate space. '
     - id: tool
       type: RobotComponents.Definitions.RobotTool
-      description: 'The attached robot tool as a Robot Tool. '
-    - id: externalAxis
+      description: 'The Robot Tool. '
+    - id: externalAxes
       type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
-      description: 'The list with attached external axes. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), internalAxisPlanes As List(Of Plane), internalAxisLimits As List(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxis As List(Of ExternalAxis))
+      description: 'The attached external axes. '
+    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), internalAxisPlanes As List(Of Plane), internalAxisLimits As List(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis))
   overload: RobotComponents.Definitions.Robot.#ctor*
   nameWithType.vb: Robot.Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool, List(Of ExternalAxis))
   modifiers.csharp:
@@ -208,13 +282,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCreates a new robot by duplicating an existing robot.\nThis creates a deep copy of the existing robot. \nIt clears the solution of the inverse and forward kinematics. \n"
+  summary: "\nInitializes a new instance of the Robot class by duplicating an existing Robot instance. \n"
   syntax:
     content: public Robot(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'The robot that should be duplicated. '
+      description: 'The Robot instance to duplicate. '
     content.vb: Public Sub New(robot As Robot)
   overload: RobotComponents.Definitions.Robot.#ctor*
   modifiers.csharp:
@@ -238,12 +312,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method to duplicate the Robot object. \n"
+  summary: "\nReturns an exact duplicate of this Robot instance.\n"
   syntax:
     content: public Robot Duplicate()
     return:
       type: RobotComponents.Definitions.Robot
-      description: 'Returns a deep copy for the Robot object. '
+      description: 'A deep copy of the Robot instance. '
     content.vb: Public Function Duplicate As Robot
   overload: RobotComponents.Definitions.Robot.Duplicate*
   modifiers.csharp:
@@ -395,7 +469,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA boolean that indicates if the Robot object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public bool IsValid { get; }
     parameters: []
@@ -426,7 +500,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe Robot name. \n"
+  summary: "\nGets or sets the name of the Robot.\n"
   syntax:
     content: public string Name { get; set; }
     parameters: []
@@ -457,20 +531,20 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA list with all the robot meshes, including the mesh of the attached tool.\n"
+  summary: "\nGets the Robot meshes including the mesh of the attached tool.\n"
   syntax:
-    content: public List<Mesh> Meshes { get; set; }
+    content: public List<Mesh> Meshes { get; }
     parameters: []
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-    content.vb: Public Property Meshes As List(Of Mesh)
+    content.vb: Public ReadOnly Property Meshes As List(Of Mesh)
   overload: RobotComponents.Definitions.Robot.Meshes*
   modifiers.csharp:
   - public
   - get
-  - set
   modifiers.vb:
   - Public
+  - ReadOnly
 - uid: RobotComponents.Definitions.Robot.InternalAxisPlanes
   commentId: P:RobotComponents.Definitions.Robot.InternalAxisPlanes
   id: InternalAxisPlanes
@@ -488,7 +562,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the list with the internal axis planes. The Z-axis of the planes if defining the rotation centers. \n"
+  summary: "\nGets or sets the internal axis planes.\nThe Z-axes of the planes define the rotation centers. \n"
   syntax:
     content: public List<Plane> InternalAxisPlanes { get; set; }
     parameters: []
@@ -519,7 +593,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the list with internal axis limits in degrees. \n"
+  summary: "\nGets or sets the axis limits in degrees.\n"
   syntax:
     content: public List<Interval> InternalAxisLimits { get; set; }
     parameters: []
@@ -550,7 +624,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the position plane of the robot in the world coordinate space. \n"
+  summary: "\nGets or sets the position and orientation of the robot in world coordinate space. \n"
   syntax:
     content: public Plane BasePlane { get; set; }
     parameters: []
@@ -581,7 +655,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the mounting plane of the tool in the world coordinate space. \n"
+  summary: "\nGets or sets the tool mounting frame in world coordinate space.\n"
   syntax:
     content: public Plane MountingFrame { get; set; }
     parameters: []
@@ -612,7 +686,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the TCP plane of the tool in the world coordinate space. \n"
+  summary: "\nGets the TCP plane in world coordinate space.\n"
   syntax:
     content: public Plane ToolPlane { get; }
     parameters: []
@@ -643,7 +717,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the attached robot tool. \n"
+  summary: "\nGets or sets the Robot Tool.\n"
   syntax:
     content: public RobotTool Tool { get; set; }
     parameters: []
@@ -657,16 +731,16 @@ items:
   - set
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.Robot.ExternalAxis
-  commentId: P:RobotComponents.Definitions.Robot.ExternalAxis
-  id: ExternalAxis
+- uid: RobotComponents.Definitions.Robot.ExternalAxes
+  commentId: P:RobotComponents.Definitions.Robot.ExternalAxes
+  id: ExternalAxes
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: ExternalAxis
-  nameWithType: Robot.ExternalAxis
-  fullName: RobotComponents.Definitions.Robot.ExternalAxis
+  name: ExternalAxes
+  nameWithType: Robot.ExternalAxes
+  fullName: RobotComponents.Definitions.Robot.ExternalAxes
   type: Property
   source:
     path: RobotComponents
@@ -674,14 +748,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the list with attached external axes.\n"
+  summary: "\nGets or sets the attached external axes.\n"
   syntax:
-    content: public List<ExternalAxis> ExternalAxis { get; set; }
+    content: public List<ExternalAxis> ExternalAxes { get; set; }
     parameters: []
     return:
       type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
-    content.vb: Public Property ExternalAxis As List(Of ExternalAxis)
-  overload: RobotComponents.Definitions.Robot.ExternalAxis*
+    content.vb: Public Property ExternalAxes As List(Of ExternalAxis)
+  overload: RobotComponents.Definitions.Robot.ExternalAxes*
   modifiers.csharp:
   - public
   - get
@@ -705,7 +779,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe inverse kinematics of this robot. \n"
+  summary: "\nGets the Inverse Kinematics of this Robot. \n"
   syntax:
     content: public InverseKinematics InverseKinematics { get; }
     parameters: []
@@ -736,7 +810,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nThe forward kinematics of this robot. \n"
+  summary: "\nGets the Forward Kinimatics of this Robot.\n"
   syntax:
     content: public ForwardKinematics ForwardKinematics { get; }
     parameters: []
@@ -767,7 +841,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the list with external axis planes. \n"
+  summary: "\nGets the external axis planes.\n"
   syntax:
     content: public List<Plane> ExternalAxisPlanes { get; }
     parameters: []
@@ -798,7 +872,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the list with external axis limits. \n"
+  summary: "\nGets the external axis limits.\n"
   syntax:
     content: public List<Interval> ExternalAxisLimits { get; }
     parameters: []
@@ -826,6 +900,13 @@ references:
   name: Object
   nameWithType: Object
   fullName: System.Object
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1080,12 +1161,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Definitions.Robot.#ctor*
   commentId: Overload:RobotComponents.Definitions.Robot.#ctor
   isExternal: true
   name: Robot
   nameWithType: Robot.Robot
   fullName: RobotComponents.Definitions.Robot.Robot
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Definitions.Robot.GetObjectData*
+  commentId: Overload:RobotComponents.Definitions.Robot.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: Robot.GetObjectData
+  fullName: RobotComponents.Definitions.Robot.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -1465,12 +1629,12 @@ references:
   name: Tool
   nameWithType: Robot.Tool
   fullName: RobotComponents.Definitions.Robot.Tool
-- uid: RobotComponents.Definitions.Robot.ExternalAxis*
-  commentId: Overload:RobotComponents.Definitions.Robot.ExternalAxis
+- uid: RobotComponents.Definitions.Robot.ExternalAxes*
+  commentId: Overload:RobotComponents.Definitions.Robot.ExternalAxes
   isExternal: true
-  name: ExternalAxis
-  nameWithType: Robot.ExternalAxis
-  fullName: RobotComponents.Definitions.Robot.ExternalAxis
+  name: ExternalAxes
+  nameWithType: Robot.ExternalAxes
+  fullName: RobotComponents.Definitions.Robot.ExternalAxes
 - uid: RobotComponents.Definitions.Robot.InverseKinematics*
   commentId: Overload:RobotComponents.Definitions.Robot.InverseKinematics
   isExternal: true

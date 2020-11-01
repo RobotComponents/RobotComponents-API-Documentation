@@ -16,11 +16,13 @@ items:
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject)
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.RobotTool,RobotComponents.Definitions.WorkObject,RobotComponents.Actions.DigitalOutput)
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData,RobotComponents.Actions.ZoneData,RobotComponents.Definitions.WorkObject)
+  - RobotComponents.Actions.Movement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.Movement.DigitalOutput
   - RobotComponents.Actions.Movement.Duplicate
   - RobotComponents.Actions.Movement.DuplicateAction
   - RobotComponents.Actions.Movement.DuplicateWithoutMesh
   - RobotComponents.Actions.Movement.GetGlobalTargetPlane
+  - RobotComponents.Actions.Movement.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
   - RobotComponents.Actions.Movement.IsValid
   - RobotComponents.Actions.Movement.MovementType
@@ -48,15 +50,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMovement class\n"
+  summary: "\nRepresents several Move instructions (MoveAbsJ, MoveL, MoveJ, MoveLDO and MoveJDO). \n"
   syntax:
-    content: 'public class Movement : Action'
+    content: 'public class Movement : Action, ISerializable'
     content.vb: >-
       Public Class Movement
           Inherits Action
+          Implements ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
+  implements:
+  - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -70,6 +75,74 @@ items:
   modifiers.vb:
   - Public
   - Class
+- uid: RobotComponents.Actions.Movement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(SerializationInfo, StreamingContext)
+  nameWithType: Movement.Movement(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.Movement.Movement(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected Movement(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.Movement.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.Movement.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: Movement.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.Movement.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.Movement.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.Movement.#ctor
   commentId: M:RobotComponents.Actions.Movement.#ctor
   id: '#ctor'
@@ -87,7 +160,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAn empty movement constructor.\n"
+  summary: "\nInitializes an empty instance of the Movement class.\n"
   syntax:
     content: public Movement()
     content.vb: Public Sub New
@@ -113,13 +186,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs robot movement with as only argument a robot target. \nThis constructor is typically used to cast a robot target to a robot movement. \n"
+  summary: "\nInitializes a new instance of the Movement class.\nThis constructor is typically used to cast a Robot Target to a movement. \n"
   syntax:
     content: public Movement(ITarget target)
     parameters:
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     content.vb: Public Sub New(target As ITarget)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -143,19 +216,19 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and an empty digital output. \n"
+  summary: "\nInitializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output. \n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movmement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -179,22 +252,22 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and an empty digital output. \n"
+  summary: "\nInitializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output. \n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -218,22 +291,22 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty digital output, a default work object (wobj0) and a empty robot tool (no override).\n"
+  summary: "\nInitializes a new instance of the Movement class with a default Work object (wobj0) and an empty Digital Output.\n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovemenType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: robotTool
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. This will override the set default tool. '
@@ -260,25 +333,25 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty digital output, an empty robot tool (no override) and a user definied work object. \n"
+  summary: "\nInitializes a new instance of the Movement class with an empty Robot Tool (no override) and an empty Digital Output.\n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, WorkObject workObject)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: workObject
       type: RobotComponents.Definitions.WorkObject
-      description: 'The Work Object as a Work Object '
+      description: 'The Work Object. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, workObject As WorkObject)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -302,25 +375,25 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty robot tool (no override), a default work object (wobj0) and user definied digital output. \n"
+  summary: "\nInitializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)\n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, DigitalOutput digitalOutput)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: The Speed Data.
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: digitalOutput
       type: RobotComponents.Actions.DigitalOutput
-      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+      description: 'The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, digitalOutput As DigitalOutput)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -344,28 +417,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with an empty digital output.\n"
+  summary: "\nInitializes a new instance of the Movement class with an empty Digital Output.\n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Taret. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: robotTool
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. This will override the set default tool. '
     - id: workObject
       type: RobotComponents.Definitions.WorkObject
-      description: 'The Work Object as a Work Object '
+      description: 'The Work Object. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -389,28 +462,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement with a default work object (wobj0). \n"
+  summary: "\nInitializes a new instance of the Movement class with a default Work Object (wobj0). \n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, DigitalOutput digitalOutput)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: robotTool
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. This will override the set default tool. '
     - id: digitalOutput
       type: RobotComponents.Actions.DigitalOutput
-      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+      description: 'The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, digitalOutput As DigitalOutput)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -434,31 +507,31 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nConstructs a robot movement. \n"
+  summary: "\nInitializes a new instance of the Movement class.\n"
   syntax:
     content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, DigitalOutput digitalOutput)
     parameters:
     - id: movementType
       type: RobotComponents.Enumerations.MovementType
-      description: 'The movement type as a MovementType. '
+      description: 'The Movement Type. '
     - id: target
       type: RobotComponents.Actions.ITarget
-      description: 'The target as a Target. '
+      description: 'The Target. '
     - id: speedData
       type: RobotComponents.Actions.SpeedData
-      description: 'The SpeedData as a SpeedData '
+      description: 'The Speed Data. '
     - id: zoneData
       type: RobotComponents.Actions.ZoneData
-      description: 'The ZoneData as a ZoneData '
+      description: 'The Zone Data. '
     - id: robotTool
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. This will override the set default tool. '
     - id: workObject
       type: RobotComponents.Definitions.WorkObject
-      description: 'The Work Object as a Work Object '
+      description: 'The Work Object. '
     - id: digitalOutput
       type: RobotComponents.Actions.DigitalOutput
-      description: 'A Digital Output as a Digital Output. When set this will define a MoveLDO or a MoveJDO. '
+      description: 'The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. '
     content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject, digitalOutput As DigitalOutput)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -482,16 +555,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates a new movement by duplicating an existing movement. \nThis creates a deep copy of the existing movement. \n"
+  summary: "\nInitializes a new instance of the Movement class by duplicating an existing Movement instance. \n"
   syntax:
     content: public Movement(Movement movement, bool duplicateMesh = true)
     parameters:
     - id: movement
       type: RobotComponents.Actions.Movement
-      description: 'The movement that should be duplicated. '
+      description: 'The Movement instance to duplicate. '
     - id: duplicateMesh
       type: System.Boolean
-      description: 'A boolean that indicates if the mesh should be duplicated. '
+      description: 'Specifies whether the meshes should be duplicated. '
     content.vb: Public Sub New(movement As Movement, duplicateMesh As Boolean = True)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
@@ -515,12 +588,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDuplicates a robot movement.\n"
+  summary: "\nReturns an exact duplicate of this Movement instance.\n"
   syntax:
     content: public Movement Duplicate()
     return:
       type: RobotComponents.Actions.Movement
-      description: 'Returns a deep copy of the Movement object. '
+      description: 'A deep copy of the Movement instance. '
     content.vb: Public Function Duplicate As Movement
   overload: RobotComponents.Actions.Movement.Duplicate*
   modifiers.csharp:
@@ -544,12 +617,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDuplicates a robot movement without meshes that are part of the properties.\nSuch as the robot tool meshes and the meshes of the external axis that can be attached to the work object. \n"
+  summary: "\nReturns an exact duplicate of this Movement instance without meshes.\n"
   syntax:
     content: public Movement DuplicateWithoutMesh()
     return:
       type: RobotComponents.Actions.Movement
-      description: 'Returns a deep copy of the Movement object. '
+      description: 'A deep copy of the Movement instance. '
     content.vb: Public Function DuplicateWithoutMesh As Movement
   overload: RobotComponents.Actions.Movement.DuplicateWithoutMesh*
   modifiers.csharp:
@@ -573,12 +646,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the Movement object to an Action object. \n"
+  summary: "\nReturns an exact duplicate of this Movement instance as an Action. \n"
   syntax:
     content: public override Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the Movement object as an Action object. '
+      description: 'A deep copy of the Movement instance as an Action. '
     content.vb: Public Overrides Function DuplicateAction As Action
   overridden: RobotComponents.Actions.Action.DuplicateAction
   overload: RobotComponents.Actions.Movement.DuplicateAction*
@@ -705,16 +778,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
@@ -741,16 +814,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.Movement.ToRAPIDInstruction*
@@ -777,13 +850,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
@@ -810,13 +883,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.Movement.ToRAPIDInstruction*
@@ -843,7 +916,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the Movement object is valid.\n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public override bool IsValid { get; }
     parameters: []
@@ -877,7 +950,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe movement type.\n"
+  summary: "\nGets or sets the Movement Type.\n"
   syntax:
     content: public MovementType MovementType { get; set; }
     parameters: []
@@ -908,7 +981,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDefines the destination target of the robot and external axes for this movement.\n"
+  summary: "\nGets or sets the Target.\nDefines the destination target of the robot and external axes.\n"
   syntax:
     content: public ITarget Target { get; set; }
     parameters: []
@@ -939,7 +1012,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe Synchronization id for multi move programming. \nThis ID number must be defined for coordinated synchronized movements in multi move systems. \nSet this property to -1 to define normal movements (not coordinated / not synchronized).\n"
+  summary: "\nGets or sets the synchronization id for multi move programming. \nThis ID number must be defined for coordinated synchronized movements in multi move systems. \nSet this property to -1 to define normal movements (not coordinated / not synchronized).\n"
   syntax:
     content: public int SyncID { get; set; }
     parameters: []
@@ -970,7 +1043,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe speed data that applies to movements. Speed data defines the velocity \nfor the tool center point, the tool reorientation, and external axes.\n"
+  summary: "\nGets or sets the Speed Data. \n"
   syntax:
     content: public SpeedData SpeedData { get; set; }
     parameters: []
@@ -1001,7 +1074,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe zone data that applies to movements.\nIt defines the size of the generated corner path.\n"
+  summary: "\nGets or sets the Zone Data.\n"
   syntax:
     content: public ZoneData ZoneData { get; set; }
     parameters: []
@@ -1032,7 +1105,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe tool in use when the robot moves. \n"
+  summary: "\nGets or sets the Robot Tool.\nIf an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used. \n"
   syntax:
     content: public RobotTool RobotTool { get; set; }
     parameters: []
@@ -1063,7 +1136,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe work object (coordinate system) to which the robot position in the instruction is related.\n"
+  summary: "\nGets or sets the Work Object. \n"
   syntax:
     content: public WorkObject WorkObject { get; set; }
     parameters: []
@@ -1094,7 +1167,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nThe digital output. If an empty digital output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). \nIf a valid digital output is combined movement will be created (MoveLDO or MoveJDO). \nIn case an absolute joint movement is set an extra code line will be added that sets the digital output (SetDO).\n"
+  summary: "\nGets or set the Digital Output. \nIf an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). \nIf a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO). \nIf as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).\n"
   syntax:
     content: public DigitalOutput DigitalOutput { get; set; }
     parameters: []
@@ -1129,6 +1202,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1383,12 +1463,95 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
 - uid: RobotComponents.Actions.Movement.#ctor*
   commentId: Overload:RobotComponents.Actions.Movement.#ctor
   isExternal: true
   name: Movement
   nameWithType: Movement.Movement
   fullName: RobotComponents.Actions.Movement.Movement
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.Movement.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.Movement.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: Movement.GetObjectData
+  fullName: RobotComponents.Actions.Movement.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.ITarget
   commentId: T:RobotComponents.Actions.ITarget
   parent: RobotComponents.Actions

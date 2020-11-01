@@ -26,7 +26,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAction class, abstract main class for all actions.\n"
+  summary: "\nRepresents a base class for all robot actions (declarations and instructions).\n"
   syntax:
     content: public abstract class Action
     content.vb: Public MustInherit Class Action
@@ -80,7 +80,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nEmpty constructor\n"
+  summary: "\nInitializes an empty instance of the Action class. \n"
   syntax:
     content: public Action()
     content.vb: Public Sub New
@@ -106,12 +106,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA method to duplicate the object as an Action type\n"
+  summary: "\nReturns an exact duplicate of this Action.\n"
   syntax:
     content: public abstract Action DuplicateAction()
     return:
       type: RobotComponents.Actions.Action
-      description: 'Returns a deep copy of the Action object. '
+      description: 'The exact copy of this Action. '
     content.vb: Public MustOverride Function DuplicateAction As Action
   overload: RobotComponents.Actions.Action.DuplicateAction*
   modifiers.csharp:
@@ -169,16 +169,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definition code of this action. \n"
+  summary: "\nCreates the RAPID declaration code line of the this action.\n"
   syntax:
     content: public abstract string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public MustOverride Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.Actions.Action.ToRAPIDDeclaration*
   modifiers.csharp:
@@ -204,16 +204,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instruction code line. \n"
+  summary: "\nCreates the RAPID instruction code line of the this action. \n"
   syntax:
     content: public abstract string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
-      description: 'Defines the Robot were the code is generated for. '
+      description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'Returns the RAPID code line as a string. '
+      description: 'The RAPID code line. '
     content.vb: Public MustOverride Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.Actions.Action.ToRAPIDInstruction*
   modifiers.csharp:
@@ -239,13 +239,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public abstract void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public MustOverride Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overload: RobotComponents.Actions.Action.ToRAPIDDeclaration*
   modifiers.csharp:
@@ -271,13 +271,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nUsed to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.\n"
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
   syntax:
     content: public abstract void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.Actions.RAPIDGenerator
-      description: 'Defines the RAPIDGenerator. '
+      description: 'The RAPID Generator. '
     content.vb: Public MustOverride Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overload: RobotComponents.Actions.Action.ToRAPIDInstruction*
   modifiers.csharp:
@@ -303,7 +303,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nA boolean that indicates if the Action object is valid. \n"
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
   syntax:
     content: public abstract bool IsValid { get; }
     parameters: []

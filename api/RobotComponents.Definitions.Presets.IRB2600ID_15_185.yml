@@ -23,7 +23,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the IRB2600ID-15/1.85\n"
+  summary: "\nRepresents a collection of methods to get the IRB2600ID-15/1.85 Robot instance.\n"
   syntax:
     content: public static class IRB2600ID_15_185
     content.vb: Public Module IRB2600ID_15_185
@@ -61,26 +61,26 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the IRB2600ID-15/1.85 Robot\n"
+  summary: "\nReturns a new IRB2600ID-15/1.85 Robot instance.\n"
   syntax:
-    content: public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxis = null)
+    content: public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxes = null)
     parameters:
     - id: name
       type: System.String
-      description: 'The Robot name as a string. '
+      description: 'The name of the Robot. '
     - id: positionPlane
       type: Rhino.Geometry.Plane
-      description: 'The position of the robot in world coordinate space as plane. '
+      description: 'The position and orientation of the Robot in world coordinate space. '
     - id: tool
       type: RobotComponents.Definitions.RobotTool
-      description: 'The robot end-effector as a Robot Tool. '
-    - id: externalAxis
+      description: 'The Robot Tool. '
+    - id: externalAxes
       type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
-      description: 'The external axes attaced to the robot as list with External Axes. '
+      description: 'The external axes attached to the Robot. '
     return:
       type: RobotComponents.Definitions.Robot
-      description: 'Returns the Robot preset. '
-    content.vb: Public Shared Function GetRobot(name As String, positionPlane As Plane, tool As RobotTool, externalAxis As List(Of ExternalAxis) = Nothing) As Robot
+      description: 'The Robot preset. '
+    content.vb: Public Shared Function GetRobot(name As String, positionPlane As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis) = Nothing) As Robot
   overload: RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetRobot*
   nameWithType.vb: IRB2600ID_15_185.GetRobot(String, Plane, RobotTool, List(Of ExternalAxis))
   modifiers.csharp:
@@ -108,12 +108,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the base and link meshes a robot coordinate space. \n"
+  summary: "\nReturns the list with the base and link meshes of the robot in robot coordinate space.\n"
   syntax:
     content: public static List<Mesh> GetMeshes()
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-      description: 'Returns a list with meshes. '
+      description: 'The list with robot meshes. '
     content.vb: Public Shared Function GetMeshes As List(Of Mesh)
   overload: RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetMeshes*
   modifiers.csharp:
@@ -139,7 +139,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the axis planes in robot coordinate space.\n"
+  summary: "\nReturns the list with the axis planes in robot coordinate space. \n"
   syntax:
     content: public static List<Plane> GetAxisPlanes()
     return:
@@ -170,12 +170,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the axis limits. \n"
+  summary: "\nReturns the list with axis limits.  \n"
   syntax:
     content: public static List<Interval> GetAxisLimits()
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Interval}
-      description: 'Returns a list with intervals. '
+      description: 'The list with axis limits. '
     content.vb: Public Shared Function GetAxisLimits As List(Of Interval)
   overload: RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetAxisLimits*
   modifiers.csharp:
@@ -201,12 +201,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions.Presets
-  summary: "\nDefines the tool mounting frame in robot coordinate space. \n"
+  summary: "\nReturns the tool mounting frame in robot coordinate space.\n"
   syntax:
     content: public static Plane GetToolMountingFrame()
     return:
       type: Rhino.Geometry.Plane
-      description: 'Returns the mounting frame. '
+      description: 'The tool mounting frame. '
     content.vb: Public Shared Function GetToolMountingFrame As Plane
   overload: RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetToolMountingFrame*
   modifiers.csharp:

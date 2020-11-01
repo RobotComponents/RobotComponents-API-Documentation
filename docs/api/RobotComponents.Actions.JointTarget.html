@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class JointTarget
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,8 @@
   
   <h1 id="RobotComponents_Actions_JointTarget" data-uid="RobotComponents.Actions.JointTarget" class="text-break">Class JointTarget
   </h1>
-  <div class="markdown level0 summary"><p>Joint Target class, defines each individual axis position, for both the robot and the external axes.</p>
+  <div class="markdown level0 summary"><p>Represents a Joint Target declaration.
+This action is used to define each individual axis position, for both the robot and the external axes.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -85,6 +86,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></div>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,7 +113,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_JointTarget_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class JointTarget : Action, ITarget</code></pre>
+    <pre><code class="lang-csharp hljs">public class JointTarget : Action, ITarget, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -119,7 +121,7 @@
   
   <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_JointTarget__ctor" data-uid="RobotComponents.Actions.JointTarget.#ctor">JointTarget()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty Joint Target object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Joint Target class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -130,8 +132,7 @@
   
   <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_JointTarget__ctor_RobotComponents_Actions_JointTarget_" data-uid="RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.JointTarget)">JointTarget(JointTarget)</h4>
-  <div class="markdown level1 summary"><p>Creates a new joint target by duplicating an existing joint target.
-This creates a deep copy of the existing joint target.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Joint Target class by duplicating an existing Joint Target instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -151,7 +152,42 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.JointTarget.html">JointTarget</a></td>
         <td><span class="parametername">jointTarget</span></td>
-        <td><p>The joint target that should be duplicated.</p>
+        <td><p>The Joint Target instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.JointTarget.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">JointTarget(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected JointTarget(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -160,12 +196,12 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_JointTarget__ctor_System_String_RobotComponents_Actions_RobotJointPosition_" data-uid="RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)">JointTarget(String, RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Defines a joint target with an undefined external joint position</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Joint Target class with an undefined External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointTarget(string name, RobotJointPosition robJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public JointTarget(string name, RobotJointPosition robotJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -180,13 +216,13 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Joint target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><span class="parametername">robJointPosition</span></td>
-        <td><p>The rob joint position</p>
+        <td><span class="parametername">robotJointPosition</span></td>
+        <td><p>The robot joint position.</p>
 </td>
       </tr>
     </tbody>
@@ -195,12 +231,12 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
   <h4 id="RobotComponents_Actions_JointTarget__ctor_System_String_RobotComponents_Actions_RobotJointPosition_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">JointTarget(String, RobotJointPosition, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Defines a joint target</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Joint Target class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointTarget(string name, RobotJointPosition robJointPosition, ExternalJointPosition extJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public JointTarget(string name, RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -215,95 +251,19 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
-        <td><p>Joint target name, must be unique.</p>
+        <td><p>The target name, must be unique.</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><span class="parametername">robJointPosition</span></td>
-        <td><p>The robot joint position</p>
+        <td><span class="parametername">robotJointPosition</span></td>
+        <td><p>The Robot Joint Position</p>
 </td>
       </tr>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
-        <td><span class="parametername">extJointPosition</span></td>
-        <td><p>The external joint position</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_JointTarget__ctor_System_String_System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double})">JointTarget(String, List&lt;Double&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines a joint target with an undefined external joint position</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointTarget(string name, List&lt;double&gt; axisValues)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Joint target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">axisValues</span></td>
-        <td><p>The rob joint position defined as a list with axis values</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_JointTarget__ctor_" data-uid="RobotComponents.Actions.JointTarget.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_JointTarget__ctor_System_String_System_Collections_Generic_List_System_Double__System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.JointTarget.#ctor(System.String,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double})">JointTarget(String, List&lt;Double&gt;, List&lt;Double&gt;)</h4>
-  <div class="markdown level1 summary"><p>Defines a joint target</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public JointTarget(string name, List&lt;double&gt; internalAxisValues, List&lt;double&gt; externalAxisValues)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>Joint target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">internalAxisValues</span></td>
-        <td><p>The robot joint position as a list with axis values</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
-        <td><span class="parametername">externalAxisValues</span></td>
-        <td><p>The external joint position as a list wiht axis values</p>
+        <td><span class="parametername">externalJointPosition</span></td>
+        <td><p>The External Joint Position</p>
 </td>
       </tr>
     </tbody>
@@ -314,7 +274,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_ExternalJointPosition_" data-uid="RobotComponents.Actions.JointTarget.ExternalJointPosition*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_ExternalJointPosition" data-uid="RobotComponents.Actions.JointTarget.ExternalJointPosition">ExternalJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the External Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets or sets the External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -340,7 +300,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_IsValid_" data-uid="RobotComponents.Actions.JointTarget.IsValid*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_IsValid" data-uid="RobotComponents.Actions.JointTarget.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>Defines if the Joint Target object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -368,7 +328,8 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_Name_" data-uid="RobotComponents.Actions.JointTarget.Name*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_Name" data-uid="RobotComponents.Actions.JointTarget.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Defines the joint target variable name</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Joint Target variable name.
+Each Target variable name has to be unique.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -392,9 +353,35 @@ This creates a deep copy of the existing joint target.</p>
   </table>
   
   
+  <a id="RobotComponents_Actions_JointTarget_ReferenceType_" data-uid="RobotComponents.Actions.JointTarget.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget_ReferenceType" data-uid="RobotComponents.Actions.JointTarget.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Reference Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_JointTarget_RobotJointPosition_" data-uid="RobotComponents.Actions.JointTarget.RobotJointPosition*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_RobotJointPosition" data-uid="RobotComponents.Actions.JointTarget.RobotJointPosition">RobotJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the Robot Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -420,14 +407,104 @@ This creates a deep copy of the existing joint target.</p>
   </h3>
   
   
-  <a id="RobotComponents_Actions_JointTarget_CheckForAxisLimits_" data-uid="RobotComponents.Actions.JointTarget.CheckForAxisLimits*"></a>
-  <h4 id="RobotComponents_Actions_JointTarget_CheckForAxisLimits_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.CheckForAxisLimits(RobotComponents.Definitions.Robot)">CheckForAxisLimits(Robot)</h4>
-  <div class="markdown level1 summary"><p>Cheks for the axis limits and returns a list with possible errors messages.</p>
+  <a id="RobotComponents_Actions_JointTarget_CheckAxisLimits_" data-uid="RobotComponents.Actions.JointTarget.CheckAxisLimits*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget_CheckAxisLimits_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.CheckAxisLimits(RobotComponents.Definitions.Robot)">CheckAxisLimits(Robot)</h4>
+  <div class="markdown level1 summary"><p>Checks both internal and external axis limits and returns a list with possible errors messages.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CheckForAxisLimits(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CheckAxisLimits(Robot robot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The robot info to check the axis values for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns a list with error messages.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_JointTarget_CheckExternalAxisLimits_" data-uid="RobotComponents.Actions.JointTarget.CheckExternalAxisLimits*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget_CheckExternalAxisLimits_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.CheckExternalAxisLimits(RobotComponents.Definitions.Robot)">CheckExternalAxisLimits(Robot)</h4>
+  <div class="markdown level1 summary"><p>Checks the external axis limits and returns a list with possible errors messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CheckExternalAxisLimits(Robot robot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The robot info to check the axis values for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Returns a list with error messages.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_JointTarget_CheckInternalAxisLimits_" data-uid="RobotComponents.Actions.JointTarget.CheckInternalAxisLimits*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget_CheckInternalAxisLimits_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.CheckInternalAxisLimits(RobotComponents.Definitions.Robot)">CheckInternalAxisLimits(Robot)</h4>
+  <div class="markdown level1 summary"><p>Checks the internal axis limits and returns a list with possible errors messages.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CheckInternalAxisLimits(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -467,7 +544,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_Duplicate_" data-uid="RobotComponents.Actions.JointTarget.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_Duplicate" data-uid="RobotComponents.Actions.JointTarget.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>Method to duplicate the Joint Target object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Joint Target instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -485,7 +562,7 @@ This creates a deep copy of the existing joint target.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.JointTarget.html">JointTarget</a></td>
-        <td><p>Returns a deep copy of the Joint Target object.</p>
+        <td><p>A deep copy of the Joint Target instance.</p>
 </td>
       </tr>
     </tbody>
@@ -494,7 +571,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_DuplicateAction_" data-uid="RobotComponents.Actions.JointTarget.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_DuplicateAction" data-uid="RobotComponents.Actions.JointTarget.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Joint Target object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Joint Target instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -512,7 +589,7 @@ This creates a deep copy of the existing joint target.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the Joint Target object as an Action object.</p>
+        <td><p>A deep copy of the Joint Target instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -523,7 +600,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_DuplicateTarget_" data-uid="RobotComponents.Actions.JointTarget.DuplicateTarget*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_DuplicateTarget" data-uid="RobotComponents.Actions.JointTarget.DuplicateTarget">DuplicateTarget()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the Joint Target object to an ITarget object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Joint Target instance as an ITarget.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -541,7 +618,42 @@ This creates a deep copy of the existing joint target.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></td>
-        <td><p>Returns a deep copy of the Joint Target object as an ITarget object.</p>
+        <td><p>A deep copy of the Joint Target instance as an ITarget.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_JointTarget_GetObjectData_" data-uid="RobotComponents.Actions.JointTarget.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_JointTarget_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.JointTarget.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
 </td>
       </tr>
     </tbody>
@@ -550,7 +662,8 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -570,7 +683,7 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -581,7 +694,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -601,7 +714,7 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -617,7 +730,7 @@ This creates a deep copy of the existing joint target.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -628,7 +741,8 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -648,7 +762,7 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -659,7 +773,7 @@ This creates a deep copy of the existing joint target.</p>
   
   <a id="RobotComponents_Actions_JointTarget_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_JointTarget_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -679,7 +793,7 @@ This creates a deep copy of the existing joint target.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -695,7 +809,7 @@ This creates a deep copy of the existing joint target.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -735,6 +849,9 @@ This creates a deep copy of the existing joint target.</p>
   <div>
       <a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a>
   </div>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -745,7 +862,8 @@ This creates a deep copy of the existing joint target.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

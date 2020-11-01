@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ITarget
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,7 +73,7 @@
   
   <h1 id="RobotComponents_Actions_ITarget" data-uid="RobotComponents.Actions.ITarget" class="text-break">Interface ITarget
   </h1>
-  <div class="markdown level0 summary"><p>A boolean that indicates if the Target object is valid.</p>
+  <div class="markdown level0 summary"><p>Represents the interface for different target types.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="RobotComponents.Actions.html">RobotComponents.Actions</a></h6>
@@ -88,7 +88,7 @@
   
   <a id="RobotComponents_Actions_ITarget_ExternalJointPosition_" data-uid="RobotComponents.Actions.ITarget.ExternalJointPosition*"></a>
   <h4 id="RobotComponents_Actions_ITarget_ExternalJointPosition" data-uid="RobotComponents.Actions.ITarget.ExternalJointPosition">ExternalJointPosition</h4>
-  <div class="markdown level1 summary"><p>Defines the External Joint Position</p>
+  <div class="markdown level1 summary"><p>Gets or sets the External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -114,7 +114,7 @@
   
   <a id="RobotComponents_Actions_ITarget_IsValid_" data-uid="RobotComponents.Actions.ITarget.IsValid*"></a>
   <h4 id="RobotComponents_Actions_ITarget_IsValid" data-uid="RobotComponents.Actions.ITarget.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>Indicates if the Target object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -140,7 +140,8 @@
   
   <a id="RobotComponents_Actions_ITarget_Name_" data-uid="RobotComponents.Actions.ITarget.Name*"></a>
   <h4 id="RobotComponents_Actions_ITarget_Name" data-uid="RobotComponents.Actions.ITarget.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Defines the variable name of the Target</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Target variable name.
+Each Target variable name has to be unique.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -162,13 +163,39 @@
       </tr>
     </tbody>
   </table>
+  
+  
+  <a id="RobotComponents_Actions_ITarget_ReferenceType_" data-uid="RobotComponents.Actions.ITarget.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_ITarget_ReferenceType" data-uid="RobotComponents.Actions.ITarget.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Reference Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
   </h3>
   
   
   <a id="RobotComponents_Actions_ITarget_DuplicateTarget_" data-uid="RobotComponents.Actions.ITarget.DuplicateTarget*"></a>
   <h4 id="RobotComponents_Actions_ITarget_DuplicateTarget" data-uid="RobotComponents.Actions.ITarget.DuplicateTarget">DuplicateTarget()</h4>
-  <div class="markdown level1 summary"><p>Method to duplicate the Target object as an ITarget object</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -186,7 +213,7 @@
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ITarget.html">ITarget</a></td>
-        <td><p>Returns a deep copy of the ITarget object.</p>
+        <td><p>The exact copy of this Target.</p>
 </td>
       </tr>
     </tbody>
@@ -201,7 +228,8 @@
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>

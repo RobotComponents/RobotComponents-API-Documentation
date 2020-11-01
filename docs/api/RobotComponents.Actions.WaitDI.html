@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Class WaitDI
    ">
-    <meta name="generator" content="docfx 2.56.2.0">
+    <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -73,8 +73,8 @@
   
   <h1 id="RobotComponents_Actions_WaitDI" data-uid="RobotComponents.Actions.WaitDI" class="text-break">Class WaitDI
   </h1>
-  <div class="markdown level0 summary"><p>Wait for Digital Input. This class is used to make the code line comamand WaitDI which is
-is used to wait until a digital input is set.</p>
+  <div class="markdown level0 summary"><p>Represents a Wait for Digital Input instruction.
+This action is used to wait until a digital input is set.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -82,6 +82,10 @@ is used to wait until a digital input is set.</p>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></div>
     <div class="level2"><span class="xref">WaitDI</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -108,7 +112,7 @@ is used to wait until a digital input is set.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_WaitDI_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WaitDI : Action</code></pre>
+    <pre><code class="lang-csharp hljs">public class WaitDI : Action, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -116,7 +120,7 @@ is used to wait until a digital input is set.</p>
   
   <a id="RobotComponents_Actions_WaitDI__ctor_" data-uid="RobotComponents.Actions.WaitDI.#ctor*"></a>
   <h4 id="RobotComponents_Actions_WaitDI__ctor" data-uid="RobotComponents.Actions.WaitDI.#ctor">WaitDI()</h4>
-  <div class="markdown level1 summary"><p>Defines an empty WaitDI object.</p>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Wait DI class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -127,8 +131,7 @@ is used to wait until a digital input is set.</p>
   
   <a id="RobotComponents_Actions_WaitDI__ctor_" data-uid="RobotComponents.Actions.WaitDI.#ctor*"></a>
   <h4 id="RobotComponents_Actions_WaitDI__ctor_RobotComponents_Actions_WaitDI_" data-uid="RobotComponents.Actions.WaitDI.#ctor(RobotComponents.Actions.WaitDI)">WaitDI(WaitDI)</h4>
-  <div class="markdown level1 summary"><p>Creates a new WaitDI by duplicating an existing WaitDI.
-This creates a deep copy of the existing WaitDI.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Wait DI class by duplicating an existing Wait DI instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -148,7 +151,42 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.WaitDI.html">WaitDI</a></td>
         <td><span class="parametername">waitDI</span></td>
-        <td><p>The wait for digital input that should be duplicated.</p>
+        <td><p>The Wait DI instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_WaitDI__ctor_" data-uid="RobotComponents.Actions.WaitDI.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_WaitDI__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.WaitDI.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">WaitDI(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Protected constructor needed for deserialization of the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected WaitDI(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to extract the data from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The context of this deserialization.</p>
 </td>
       </tr>
     </tbody>
@@ -157,7 +195,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI__ctor_" data-uid="RobotComponents.Actions.WaitDI.#ctor*"></a>
   <h4 id="RobotComponents_Actions_WaitDI__ctor_System_String_System_Boolean_" data-uid="RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean)">WaitDI(String, Boolean)</h4>
-  <div class="markdown level1 summary"><p>Defines a WaitDI object.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Wait DI class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -183,7 +221,7 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">value</span></td>
-        <td><p>The desired state / value of the digtal input signal.</p>
+        <td><p>Specifies whether the Digital Input is enabled.</p>
 </td>
       </tr>
     </tbody>
@@ -194,7 +232,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_DIName_" data-uid="RobotComponents.Actions.WaitDI.DIName*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_DIName" data-uid="RobotComponents.Actions.WaitDI.DIName">DIName</h4>
-  <div class="markdown level1 summary"><p>The name of the digital input signal</p>
+  <div class="markdown level1 summary"><p>Gets or sets the name of the digital input signal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -220,7 +258,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_IsValid_" data-uid="RobotComponents.Actions.WaitDI.IsValid*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_IsValid" data-uid="RobotComponents.Actions.WaitDI.IsValid">IsValid</h4>
-  <div class="markdown level1 summary"><p>A boolean that indicates if the WaitDI object is valid.</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -248,7 +286,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_Value_" data-uid="RobotComponents.Actions.WaitDI.Value*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_Value" data-uid="RobotComponents.Actions.WaitDI.Value">Value</h4>
-  <div class="markdown level1 summary"><p>The desired state / value of the digtal input signal</p>
+  <div class="markdown level1 summary"><p>Gets or sets the desired state of the digtal input signal.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -276,7 +314,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_Duplicate_" data-uid="RobotComponents.Actions.WaitDI.Duplicate*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_Duplicate" data-uid="RobotComponents.Actions.WaitDI.Duplicate">Duplicate()</h4>
-  <div class="markdown level1 summary"><p>Method to duplicate the WaitDI object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Wait DI instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -294,7 +332,7 @@ This creates a deep copy of the existing WaitDI.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.WaitDI.html">WaitDI</a></td>
-        <td><p>Returns a deep copy of the WaitDI object.</p>
+        <td><p>A deep copy of the Wait DI instance.</p>
 </td>
       </tr>
     </tbody>
@@ -303,7 +341,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_DuplicateAction_" data-uid="RobotComponents.Actions.WaitDI.DuplicateAction*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_DuplicateAction" data-uid="RobotComponents.Actions.WaitDI.DuplicateAction">DuplicateAction()</h4>
-  <div class="markdown level1 summary"><p>A method to duplicate the WaitDI object to an Action object.</p>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Wait DI instance as an Action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -321,7 +359,7 @@ This creates a deep copy of the existing WaitDI.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.Action.html">Action</a></td>
-        <td><p>Returns a deep copy of the WaitDI object as an Action object.</p>
+        <td><p>A deep copy of the Wait Di instance as an Action.</p>
 </td>
       </tr>
     </tbody>
@@ -330,9 +368,45 @@ This creates a deep copy of the existing WaitDI.</p>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
   
   
+  <a id="RobotComponents_Actions_WaitDI_GetObjectData_" data-uid="RobotComponents.Actions.WaitDI.GetObjectData*"></a>
+  <h4 id="RobotComponents_Actions_WaitDI_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.WaitDI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
+  <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void GetObjectData(SerializationInfo info, StreamingContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.SerializationInfo</span></td>
+        <td><span class="parametername">info</span></td>
+        <td><p>The SerializationInfo to populate with data.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_WaitDI_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_ToRAPIDDeclaration_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definitions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -352,7 +426,7 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -363,7 +437,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_ToRAPIDDeclaration_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_ToRAPIDDeclaration_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create variable definition code of this action.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -383,7 +457,7 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -399,7 +473,7 @@ This creates a deep copy of the existing WaitDI.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -410,7 +484,8 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_ToRAPIDInstruction_RobotComponents_Actions_RAPIDGenerator_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instructions in the RAPID Code. It is typically called inside the CreateRAPIDCode() method of the RAPIDGenerator class.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
+This method is called inside the RAPID generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -430,7 +505,7 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
         <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>Defines the RAPIDGenerator.</p>
+        <td><p>The RAPID Generator.</p>
 </td>
       </tr>
     </tbody>
@@ -441,7 +516,7 @@ This creates a deep copy of the existing WaitDI.</p>
   
   <a id="RobotComponents_Actions_WaitDI_ToRAPIDInstruction_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_Actions_WaitDI_ToRAPIDInstruction_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.WaitDI.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">ToRAPIDInstruction(Robot)</h4>
-  <div class="markdown level1 summary"><p>Used to create action instruction code line.</p>
+  <div class="markdown level1 summary"><p>Creates the RAPID instruction code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -461,7 +536,7 @@ This creates a deep copy of the existing WaitDI.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
-        <td><p>Defines the Robot were the code is generated for.</p>
+        <td><p>The Robot were the code is generated for.</p>
 </td>
       </tr>
     </tbody>
@@ -477,7 +552,7 @@ This creates a deep copy of the existing WaitDI.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the RAPID code line as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
@@ -513,6 +588,10 @@ This creates a deep copy of the existing WaitDI.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_ToString">Action.ToString()</a></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
 </article>
           </div>
           
@@ -523,7 +602,8 @@ This creates a deep copy of the existing WaitDI.</p>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+                <h5>In This Article</h5>
+                <div></div>
               </nav>
             </div>
           </div>
