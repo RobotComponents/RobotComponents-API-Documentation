@@ -300,7 +300,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculates Forward Kinematics based on the internal and external axis values.\n"
+  summary: "\nCalculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.\n"
   syntax:
     content: public void Calculate()
     content.vb: Public Sub Calculate
@@ -326,16 +326,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nSets new axis values and calculates the new solution.  \n"
+  summary: "\nCalculates the forward kinematics solution with the given Joint Positions.\n"
   syntax:
     content: public void Calculate(RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition)
     parameters:
     - id: robotJointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: The internal axis values as a Robot Joint Position.
+      description: 'The  Robot Joint Position. '
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: The external axis values as an External Joint Position.
+      description: 'The External Joint Position. '
     content.vb: Public Sub Calculate(robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition)
   overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
   modifiers.csharp:
@@ -359,7 +359,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nClears the current solution\n"
+  summary: "\nClears the current solution.\n"
   syntax:
     content: public void Clear()
     content.vb: Public Sub Clear

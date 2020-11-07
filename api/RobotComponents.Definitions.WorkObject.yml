@@ -10,15 +10,14 @@ items:
   - RobotComponents.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane)
   - RobotComponents.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.ExternalAxis)
+  - RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  - RobotComponents.Definitions.WorkObject.CalculateOrientation
+  - RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation
   - RobotComponents.Definitions.WorkObject.Duplicate
   - RobotComponents.Definitions.WorkObject.DuplicateWithoutMesh
   - RobotComponents.Definitions.WorkObject.ExternalAxis
   - RobotComponents.Definitions.WorkObject.FixedFrame
-  - RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
   - RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Definitions.WorkObject.GetOrientation
-  - RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
-  - RobotComponents.Definitions.WorkObject.GetWorkObjData
   - RobotComponents.Definitions.WorkObject.GlobalWorkObjectPlane
   - RobotComponents.Definitions.WorkObject.IsValid
   - RobotComponents.Definitions.WorkObject.Name
@@ -27,6 +26,7 @@ items:
   - RobotComponents.Definitions.WorkObject.ReferenceType
   - RobotComponents.Definitions.WorkObject.ReInitialize
   - RobotComponents.Definitions.WorkObject.RobotHold
+  - RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration
   - RobotComponents.Definitions.WorkObject.ToString
   - RobotComponents.Definitions.WorkObject.UserFrame
   - RobotComponents.Definitions.WorkObject.UserFrameOrientation
@@ -352,16 +352,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Definitions.WorkObject.GetOrientation
-  commentId: M:RobotComponents.Definitions.WorkObject.GetOrientation
-  id: GetOrientation
+- uid: RobotComponents.Definitions.WorkObject.CalculateOrientation
+  commentId: M:RobotComponents.Definitions.WorkObject.CalculateOrientation
+  id: CalculateOrientation
   parent: RobotComponents.Definitions.WorkObject
   langs:
   - csharp
   - vb
-  name: GetOrientation()
-  nameWithType: WorkObject.GetOrientation()
-  fullName: RobotComponents.Definitions.WorkObject.GetOrientation()
+  name: CalculateOrientation()
+  nameWithType: WorkObject.CalculateOrientation()
+  fullName: RobotComponents.Definitions.WorkObject.CalculateOrientation()
   type: Method
   source:
     path: RobotComponents
@@ -369,28 +369,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nMethod that calculates the quaternion orientation of the work object coordinate system. \n"
+  summary: "\nCalculates and returns the quaternion orientation of the work object coordinate system. \n"
   syntax:
-    content: public Quaternion GetOrientation()
+    content: public Quaternion CalculateOrientation()
     return:
       type: Rhino.Geometry.Quaternion
-      description: 'Returns the quaternion orientation of the work object. '
-    content.vb: Public Function GetOrientation As Quaternion
-  overload: RobotComponents.Definitions.WorkObject.GetOrientation*
+      description: 'The quaternion orientation of the work object. '
+    content.vb: Public Function CalculateOrientation As Quaternion
+  overload: RobotComponents.Definitions.WorkObject.CalculateOrientation*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
-  commentId: M:RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
-  id: GetUserFrameOrientation
+- uid: RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation
+  commentId: M:RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation
+  id: CalculateUserFrameOrientation
   parent: RobotComponents.Definitions.WorkObject
   langs:
   - csharp
   - vb
-  name: GetUserFrameOrientation()
-  nameWithType: WorkObject.GetUserFrameOrientation()
-  fullName: RobotComponents.Definitions.WorkObject.GetUserFrameOrientation()
+  name: CalculateUserFrameOrientation()
+  nameWithType: WorkObject.CalculateUserFrameOrientation()
+  fullName: RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation()
   type: Method
   source:
     path: RobotComponents
@@ -398,28 +398,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nMethod that calculates the quaternion orientation of the user frame coordinate system. \n"
+  summary: "\nCalculates and returns the quaternion orientation of the user frame coordinate system. \n"
   syntax:
-    content: public Quaternion GetUserFrameOrientation()
+    content: public Quaternion CalculateUserFrameOrientation()
     return:
       type: Rhino.Geometry.Quaternion
-      description: 'Returns the quaternion orientation of the user frame. '
-    content.vb: Public Function GetUserFrameOrientation As Quaternion
-  overload: RobotComponents.Definitions.WorkObject.GetUserFrameOrientation*
+      description: 'The quaternion orientation of the user frame. '
+    content.vb: Public Function CalculateUserFrameOrientation As Quaternion
+  overload: RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
-  commentId: M:RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
-  id: GetGlobalWorkObjectPlane
+- uid: RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  commentId: M:RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  id: CalculateGlobalWorkObjectPlane
   parent: RobotComponents.Definitions.WorkObject
   langs:
   - csharp
   - vb
-  name: GetGlobalWorkObjectPlane()
-  nameWithType: WorkObject.GetGlobalWorkObjectPlane()
-  fullName: RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane()
+  name: CalculateGlobalWorkObjectPlane()
+  nameWithType: WorkObject.CalculateGlobalWorkObjectPlane()
+  fullName: RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane()
   type: Method
   source:
     path: RobotComponents
@@ -427,14 +427,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the global work object plane since the work object coordinate system and \nthe user frame coordinate system can both be un equal to the worldc coordinate system. \n"
+  summary: "\nCalculates and returns the global work object plane. \n"
   syntax:
-    content: public Plane GetGlobalWorkObjectPlane()
+    content: public Plane CalculateGlobalWorkObjectPlane()
     return:
       type: Rhino.Geometry.Plane
-      description: 'Returns the global work object plane. '
-    content.vb: Public Function GetGlobalWorkObjectPlane As Plane
-  overload: RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane*
+      description: 'The global work object plane. '
+    content.vb: Public Function CalculateGlobalWorkObjectPlane As Plane
+  overload: RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -456,7 +456,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method that can be called to reinitialize all the data that is needed to construct a valid work object. \n"
+  summary: "\nReinitializes the fields and properties to construct a valid Work Object instance.\n"
   syntax:
     content: public void ReInitialize()
     content.vb: Public Sub ReInitialize
@@ -465,16 +465,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.WorkObject.GetWorkObjData
-  commentId: M:RobotComponents.Definitions.WorkObject.GetWorkObjData
-  id: GetWorkObjData
+- uid: RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration
+  commentId: M:RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration
+  id: ToRAPIDDeclaration
   parent: RobotComponents.Definitions.WorkObject
   langs:
   - csharp
   - vb
-  name: GetWorkObjData()
-  nameWithType: WorkObject.GetWorkObjData()
-  fullName: RobotComponents.Definitions.WorkObject.GetWorkObjData()
+  name: ToRAPIDDeclaration()
+  nameWithType: WorkObject.ToRAPIDDeclaration()
+  fullName: RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration()
   type: Method
   source:
     path: RobotComponents
@@ -482,14 +482,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nMethod for creating the work object data for the system BASE code. \n"
+  summary: "\nReturns the RAPID declaration code line of the this Work Object.\n"
   syntax:
-    content: public string GetWorkObjData()
+    content: public string ToRAPIDDeclaration()
     return:
       type: System.String
-      description: 'Returns the work object BASE code as a string. '
-    content.vb: Public Function GetWorkObjData As String
-  overload: RobotComponents.Definitions.WorkObject.GetWorkObjData*
+      description: 'The RAPID code line. '
+    content.vb: Public Function ToRAPIDDeclaration As String
+  overload: RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1281,41 +1281,41 @@ references:
   name: ToString
   nameWithType: WorkObject.ToString
   fullName: RobotComponents.Definitions.WorkObject.ToString
-- uid: RobotComponents.Definitions.WorkObject.GetOrientation*
-  commentId: Overload:RobotComponents.Definitions.WorkObject.GetOrientation
+- uid: RobotComponents.Definitions.WorkObject.CalculateOrientation*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.CalculateOrientation
   isExternal: true
-  name: GetOrientation
-  nameWithType: WorkObject.GetOrientation
-  fullName: RobotComponents.Definitions.WorkObject.GetOrientation
+  name: CalculateOrientation
+  nameWithType: WorkObject.CalculateOrientation
+  fullName: RobotComponents.Definitions.WorkObject.CalculateOrientation
 - uid: Rhino.Geometry.Quaternion
   isExternal: true
   name: Quaternion
   nameWithType: Quaternion
   fullName: Rhino.Geometry.Quaternion
-- uid: RobotComponents.Definitions.WorkObject.GetUserFrameOrientation*
-  commentId: Overload:RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
+- uid: RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation
   isExternal: true
-  name: GetUserFrameOrientation
-  nameWithType: WorkObject.GetUserFrameOrientation
-  fullName: RobotComponents.Definitions.WorkObject.GetUserFrameOrientation
-- uid: RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane*
-  commentId: Overload:RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
+  name: CalculateUserFrameOrientation
+  nameWithType: WorkObject.CalculateUserFrameOrientation
+  fullName: RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation
+- uid: RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
   isExternal: true
-  name: GetGlobalWorkObjectPlane
-  nameWithType: WorkObject.GetGlobalWorkObjectPlane
-  fullName: RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane
+  name: CalculateGlobalWorkObjectPlane
+  nameWithType: WorkObject.CalculateGlobalWorkObjectPlane
+  fullName: RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
 - uid: RobotComponents.Definitions.WorkObject.ReInitialize*
   commentId: Overload:RobotComponents.Definitions.WorkObject.ReInitialize
   isExternal: true
   name: ReInitialize
   nameWithType: WorkObject.ReInitialize
   fullName: RobotComponents.Definitions.WorkObject.ReInitialize
-- uid: RobotComponents.Definitions.WorkObject.GetWorkObjData*
-  commentId: Overload:RobotComponents.Definitions.WorkObject.GetWorkObjData
+- uid: RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration
   isExternal: true
-  name: GetWorkObjData
-  nameWithType: WorkObject.GetWorkObjData
-  fullName: RobotComponents.Definitions.WorkObject.GetWorkObjData
+  name: ToRAPIDDeclaration
+  nameWithType: WorkObject.ToRAPIDDeclaration
+  fullName: RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration
 - uid: RobotComponents.Definitions.WorkObject.IsValid*
   commentId: Overload:RobotComponents.Definitions.WorkObject.IsValid
   isExternal: true

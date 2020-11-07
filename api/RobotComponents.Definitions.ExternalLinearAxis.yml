@@ -684,10 +684,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the axis curve based on the axis limits, the momvement direction and the attachment plane origin.\n"
+  summary: "\nGets the axis curve. The direction of the curve defines the movement direction and the spatial limits of the attachement plane.\n"
   syntax:
-    content: public void GetAxisCurve()
-    content.vb: Public Sub GetAxisCurve
+    content: public Curve GetAxisCurve()
+    return:
+      type: Rhino.Geometry.Curve
+      description: 'The axis curve. '
+    content.vb: Public Function GetAxisCurve As Curve
   overload: RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve*
   modifiers.csharp:
   - public
@@ -710,16 +713,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method does not take into account the axis limits. \n"
+  summary: "\nReturns the position of the attachment plane for a given External Joint Position.\nThis calculation does not take into account the axis limits. \n"
   syntax:
     content: public override Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the attachment plane for. '
+      description: 'The External Joint Position. '
     - id: inLimits
       type: System.Boolean
-      description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
+      description: 'Specifies whether the External Joint Position is inside its limits. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
@@ -752,19 +755,19 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the the transformation matrix for a defined external axis value. \nThis method does not take into account the axis limits. \n"
+  summary: "\nReturns the the transformation matrix for a given External Joint Position.\nThis calculation does not take into account the axis limits. \n"
   syntax:
     content: public override Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the attachment plane for in mm. '
+      description: 'The External Joint Position. '
     - id: inLimits
       type: System.Boolean
-      description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
+      description: 'Specifies whether the External Joint Position is inside its limits. '
     return:
       type: Rhino.Geometry.Transform
-      description: 'The transformation matrix '
+      description: 'The transformation matrix. '
     content.vb: Public Overrides Function CalculateTransformationMatrix(externalJointPosition As ExternalJointPosition, ByRef inLimits As Boolean) As Transform
   overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*
@@ -794,13 +797,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
+  summary: "\nReturns the position of the attachment plane for a given External Joint Position.\nThis calculations takes into account the external axis limits. \nIf the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.  \n"
   syntax:
     content: public override Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the attachment plane for in mm. '
+      description: 'The External Joint Position. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
@@ -830,16 +833,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the the transformation matrix for a defined external axis value. \nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
+  summary: "\nReturns the the transformation matrix for a given External Joint Position.\nThis calculations takes into account the external axis limits. \nIf the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used. \n"
   syntax:
     content: public override Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the transformation matrix for in mm. '
+      description: 'The External Joint Position. '
     return:
       type: Rhino.Geometry.Transform
-      description: 'Returns the transformation matrix. '
+      description: 'The transformation matrix. '
     content.vb: Public Overrides Function CalculateTransformationMatrixSave(externalJointPosition As ExternalJointPosition) As Transform
   overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   overload: RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave*
@@ -866,13 +869,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the external axis mesh for a defined external axis value.\n"
+  summary: "\nCalculates and returns the position of the external axis meshes for a given External Joint Position.\n"
   syntax:
     content: public override List<Mesh> PoseMeshes(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the meshes for in mm. '
+      description: 'The External Joint Position. '
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
       description: 'The posed meshes. '
@@ -902,7 +905,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method that can be called to reinitialize all the data that is needed to construct a valid external linear axis. \n"
+  summary: "\nReinitializes the fields and properties to construct a valid External Linear Axis instance. \n"
   syntax:
     content: public override void ReInitialize()
     content.vb: Public Overrides Sub ReInitialize
@@ -931,13 +934,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nTransforms the external linear axis spatial properties (planes and meshes. \n"
+  summary: "\nTransforms the external axis spatial properties (planes and meshes). \n"
   syntax:
     content: public override void Transform(Transform xform)
     parameters:
     - id: xform
       type: Rhino.Geometry.Transform
-      description: 'Spatial deform. '
+      description: 'The spatial deform. '
     content.vb: Public Overrides Sub Transform(xform As Transform)
   overridden: RobotComponents.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
   overload: RobotComponents.Definitions.ExternalLinearAxis.Transform*
@@ -2016,6 +2019,11 @@ references:
   name: GetAxisCurve
   nameWithType: ExternalLinearAxis.GetAxisCurve
   fullName: RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve
+- uid: Rhino.Geometry.Curve
+  isExternal: true
+  name: Curve
+  nameWithType: Curve
+  fullName: Rhino.Geometry.Curve
 - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2548,12 +2556,6 @@ references:
   name: AxisCurve
   nameWithType: ExternalLinearAxis.AxisCurve
   fullName: RobotComponents.Definitions.ExternalLinearAxis.AxisCurve
-- uid: Rhino.Geometry.Curve
-  commentId: '!:Rhino.Geometry.Curve'
-  isExternal: true
-  name: Curve
-  nameWithType: Curve
-  fullName: Rhino.Geometry.Curve
 - uid: RobotComponents.Definitions.ExternalAxis.PosedMeshes
   commentId: P:RobotComponents.Definitions.ExternalAxis.PosedMeshes
   parent: RobotComponents.Definitions.ExternalAxis

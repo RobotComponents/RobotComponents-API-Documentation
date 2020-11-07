@@ -696,6 +696,33 @@ The Z-axes of the planes define the rotation centers.</p>
   </h3>
   
   
+  <a id="RobotComponents_Definitions_Robot_CalculateAttachedToolPlane_" data-uid="RobotComponents.Definitions.Robot.CalculateAttachedToolPlane*"></a>
+  <h4 id="RobotComponents_Definitions_Robot_CalculateAttachedToolPlane" data-uid="RobotComponents.Definitions.Robot.CalculateAttachedToolPlane">CalculateAttachedToolPlane()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane CalculateAttachedToolPlane()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><p>The TCP plane in robot coordinate space.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_Robot_Duplicate_" data-uid="RobotComponents.Definitions.Robot.Duplicate*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Duplicate" data-uid="RobotComponents.Definitions.Robot.Duplicate">Duplicate()</h4>
   <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot instance.</p>
@@ -724,32 +751,14 @@ The Z-axes of the planes define the rotation centers.</p>
   
   
   <a id="RobotComponents_Definitions_Robot_GetAttachedToolMesh_" data-uid="RobotComponents.Definitions.Robot.GetAttachedToolMesh*"></a>
-  <h4 id="RobotComponents_Definitions_Robot_GetAttachedToolMesh_RobotComponents_Definitions_RobotTool_" data-uid="RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)">GetAttachedToolMesh(RobotTool)</h4>
-  <div class="markdown level1 summary"><p>Defines the attached tool mesh in the robot coordinate space.</p>
+  <h4 id="RobotComponents_Definitions_Robot_GetAttachedToolMesh" data-uid="RobotComponents.Definitions.Robot.GetAttachedToolMesh">GetAttachedToolMesh()</h4>
+  <div class="markdown level1 summary"><p>Returns the attached Robot Tool mesh in robot coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Mesh GetAttachedToolMesh(RobotTool tool)</code></pre>
+    <pre><code class="lang-csharp hljs">public Mesh GetAttachedToolMesh()</code></pre>
   </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><span class="parametername">tool</span></td>
-        <td><p>Ther robot tool to take the mesh from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
@@ -762,51 +771,6 @@ The Z-axes of the planes define the rotation centers.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Mesh</span></td>
         <td><p>The tool mesh in the robot coordinate space.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_Robot_GetAttachedToolPlane_" data-uid="RobotComponents.Definitions.Robot.GetAttachedToolPlane*"></a>
-  <h4 id="RobotComponents_Definitions_Robot_GetAttachedToolPlane_RobotComponents_Definitions_RobotTool_" data-uid="RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)">GetAttachedToolPlane(RobotTool)</h4>
-  <div class="markdown level1 summary"><p>Defines the TCP plane of the attached robot tool in the robot coordinate space.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Plane GetAttachedToolPlane(RobotTool tool)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><span class="parametername">tool</span></td>
-        <td><p>Ther robot tool to take the mesh from.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><p>The attached tool mesh in the robot coordinate space.</p>
 </td>
       </tr>
     </tbody>
@@ -879,8 +843,8 @@ The Z-axes of the planes define the rotation centers.</p>
   
   <a id="RobotComponents_Definitions_Robot_Transfom_" data-uid="RobotComponents.Definitions.Robot.Transfom*"></a>
   <h4 id="RobotComponents_Definitions_Robot_Transfom_Rhino_Geometry_Transform_" data-uid="RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)">Transfom(Transform)</h4>
-  <div class="markdown level1 summary"><p>Transforms the robot spatial properties (planes and meshes.
-The attached external axes will not be transformed.</p>
+  <div class="markdown level1 summary"><p>Transforms the robot spatial properties (planes and meshes).
+NOTE: The attached external axes will not be transformed.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

@@ -10,12 +10,12 @@ items:
   - RobotComponents.Kinematics.InverseKinematics.#ctor(RobotComponents.Actions.Movement,RobotComponents.Definitions.Robot)
   - RobotComponents.Kinematics.InverseKinematics.#ctor(RobotComponents.Kinematics.InverseKinematics)
   - RobotComponents.Kinematics.InverseKinematics.Calculate
-  - RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
-  - RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues
+  - RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
+  - RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition
+  - RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition
   - RobotComponents.Kinematics.InverseKinematics.Duplicate
   - RobotComponents.Kinematics.InverseKinematics.ErrorText
   - RobotComponents.Kinematics.InverseKinematics.ExternalJointPosition
-  - RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
   - RobotComponents.Kinematics.InverseKinematics.InLimits
   - RobotComponents.Kinematics.InverseKinematics.IsValid
   - RobotComponents.Kinematics.InverseKinematics.Movement
@@ -257,7 +257,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nA method that can be called to reinitialize all the data that is needed to construct a valid inverse kinematics object. \nThis method also resets the solution. Calculate() has to be called to get the new solution(s). \n"
+  summary: "\nReinitialize all the fields to construct a valid Inverse Kinematics object. \nThis method also resets the solution. Calculate() has to be called to obtain a new solution. \n"
   syntax:
     content: public void ReInitialize()
     content.vb: Public Sub ReInitialize
@@ -283,7 +283,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculates both internal and external axis values. \n"
+  summary: "\nCalculates the inverse kinematics solution.\n"
   syntax:
     content: public void Calculate()
     content.vb: Public Sub Calculate
@@ -292,16 +292,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues
-  commentId: M:RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues
-  id: CalculateInternalAxisValues
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition
+  commentId: M:RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition
+  id: CalculateRobotJointPosition
   parent: RobotComponents.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: CalculateInternalAxisValues()
-  nameWithType: InverseKinematics.CalculateInternalAxisValues()
-  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues()
+  name: CalculateRobotJointPosition()
+  nameWithType: InverseKinematics.CalculateRobotJointPosition()
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition()
   type: Method
   source:
     path: RobotComponents
@@ -309,25 +309,25 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculates the internal axis values. \nThis method does not check the internal axis limits. \n"
+  summary: "\nCalculates the Robot Joint Position of the Inverse Kinematics solution.\nThis method does not check the internal axis limits. \n"
   syntax:
-    content: public void CalculateInternalAxisValues()
-    content.vb: Public Sub CalculateInternalAxisValues
-  overload: RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues*
+    content: public void CalculateRobotJointPosition()
+    content.vb: Public Sub CalculateRobotJointPosition
+  overload: RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
-  commentId: M:RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
-  id: GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
+  commentId: M:RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
+  id: CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
   parent: RobotComponents.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: GetClosestRobotJointPosition(RobotJointPosition)
-  nameWithType: InverseKinematics.GetClosestRobotJointPosition(RobotJointPosition)
-  fullName: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
+  name: CalculateClosestRobotJointPosition(RobotJointPosition)
+  nameWithType: InverseKinematics.CalculateClosestRobotJointPosition(RobotJointPosition)
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)
   type: Method
   source:
     path: RobotComponents
@@ -335,32 +335,32 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nGets and sets the closest Robot Joint Position to a given previous Robot Joint Position.\nThis method returns the closest axis configuration as an integer (0-7) and\nsets the closest Robot Joint Poistion insides this Inverse Kinematics object. Therefore,\nyour first have to calculate the Inverse Kinematics solutions before you call this method. \nThis methods is typically used for using the Auto Axis Config inside the Path Generator.\n"
+  summary: "\nCalculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.\nThis methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object. \nYou first have to calculate the Inverse Kinematics solution before you call this method. \nThis method is typically used for using the Auto Axis Config inside the Path Generator.\n"
   syntax:
-    content: public RobotJointPosition GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)
+    content: public RobotJointPosition CalculateClosestRobotJointPosition(RobotJointPosition prevJointPosition)
     parameters:
     - id: prevJointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: The previous Robot Joint Position
+      description: 'The previous Robot Joint Position. '
     return:
       type: RobotComponents.Actions.RobotJointPosition
-      description: Returns the closest axis configuration as an integer (0-7)
-    content.vb: Public Function GetClosestRobotJointPosition(prevJointPosition As RobotJointPosition) As RobotJointPosition
-  overload: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition*
+      description: 'The closest Robot Joint Position. '
+    content.vb: Public Function CalculateClosestRobotJointPosition(prevJointPosition As RobotJointPosition) As RobotJointPosition
+  overload: RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
-  commentId: M:RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
-  id: CalculateExternalAxisValues
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition
+  commentId: M:RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition
+  id: CalculateExternalJointPosition
   parent: RobotComponents.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: CalculateExternalAxisValues()
-  nameWithType: InverseKinematics.CalculateExternalAxisValues()
-  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues()
+  name: CalculateExternalJointPosition()
+  nameWithType: InverseKinematics.CalculateExternalJointPosition()
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition()
   type: Method
   source:
     path: RobotComponents
@@ -368,11 +368,11 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculates the external axis values.\nThis method does not check the external axis limits. \n"
+  summary: "\nCalculates the External Joint Position of the Inverse Kinematics solution.\nThis method does not check the external axis limits. \n"
   syntax:
-    content: public void CalculateExternalAxisValues()
-    content.vb: Public Sub CalculateExternalAxisValues
-  overload: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues*
+    content: public void CalculateExternalJointPosition()
+    content.vb: Public Sub CalculateExternalJointPosition
+  overload: RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1032,18 +1032,18 @@ references:
   name: Calculate
   nameWithType: InverseKinematics.Calculate
   fullName: RobotComponents.Kinematics.InverseKinematics.Calculate
-- uid: RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues*
-  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition*
+  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition
   isExternal: true
-  name: CalculateInternalAxisValues
-  nameWithType: InverseKinematics.CalculateInternalAxisValues
-  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues
-- uid: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition*
-  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition
+  name: CalculateRobotJointPosition
+  nameWithType: InverseKinematics.CalculateRobotJointPosition
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*
+  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition
   isExternal: true
-  name: GetClosestRobotJointPosition
-  nameWithType: InverseKinematics.GetClosestRobotJointPosition
-  fullName: RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition
+  name: CalculateClosestRobotJointPosition
+  nameWithType: InverseKinematics.CalculateClosestRobotJointPosition
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition
 - uid: RobotComponents.Actions.RobotJointPosition
   commentId: T:RobotComponents.Actions.RobotJointPosition
   parent: RobotComponents.Actions
@@ -1051,12 +1051,12 @@ references:
   name: RobotJointPosition
   nameWithType: RobotJointPosition
   fullName: RobotComponents.Actions.RobotJointPosition
-- uid: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues*
-  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
+- uid: RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition*
+  commentId: Overload:RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition
   isExternal: true
-  name: CalculateExternalAxisValues
-  nameWithType: InverseKinematics.CalculateExternalAxisValues
-  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues
+  name: CalculateExternalJointPosition
+  nameWithType: InverseKinematics.CalculateExternalJointPosition
+  fullName: RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition
 - uid: RobotComponents.Kinematics.InverseKinematics.IsValid*
   commentId: Overload:RobotComponents.Kinematics.InverseKinematics.IsValid
   isExternal: true

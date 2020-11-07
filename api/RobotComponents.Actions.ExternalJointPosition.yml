@@ -38,6 +38,7 @@ items:
   - RobotComponents.Actions.ExternalJointPosition.Substract(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.ToArray
   - RobotComponents.Actions.ExternalJointPosition.ToList
+  - RobotComponents.Actions.ExternalJointPosition.ToRAPID
   - RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -167,7 +168,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class with undefinied external axis values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.\n"
   syntax:
     content: public ExternalJointPosition()
     content.vb: Public Sub New
@@ -202,19 +203,19 @@ items:
       description: 'The position of the external logical axis “a” expressed in degrees or mm. '
     - id: Eax_b
       type: System.Double
-      description: The position of the external logical axis “b” expressed in degrees or mm.
+      description: 'The position of the external logical axis “b” expressed in degrees or mm. '
     - id: Eax_c
       type: System.Double
-      description: The position of the external logical axis “c” expressed in degrees or mm.
+      description: 'The position of the external logical axis “c” expressed in degrees or mm. '
     - id: Eax_d
       type: System.Double
-      description: The position of the external logical axis “d” expressed in degrees or mm.
+      description: 'The position of the external logical axis “d” expressed in degrees or mm. '
     - id: Eax_e
       type: System.Double
-      description: The position of the external logical axis “3” expressed in degrees or mm.
+      description: 'The position of the external logical axis “3” expressed in degrees or mm. '
     - id: Eax_f
       type: System.Double
-      description: The position of the external logical axis “f” expressed in degrees or mm.
+      description: 'The position of the external logical axis “f” expressed in degrees or mm. '
     content.vb: Public Sub New(Eax_a As Double, Eax_b As Double = 9000000000, Eax_c As Double = 9000000000, Eax_d As Double = 9000000000, Eax_e As Double = 9000000000, Eax_f As Double = 9000000000)
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   modifiers.csharp:
@@ -244,7 +245,7 @@ items:
     parameters:
     - id: externalAxisValues
       type: System.Collections.Generic.List{System.Double}
-      description: 'The external axis values. '
+      description: 'The position of the external logical axes. '
     content.vb: Public Sub New(externalAxisValues As List(Of Double))
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   nameWithType.vb: ExternalJointPosition.ExternalJointPosition(List(Of Double))
@@ -277,7 +278,7 @@ items:
     parameters:
     - id: externalAxisValues
       type: System.Double[]
-      description: 'The external axis values. '
+      description: 'The position of the external logical axes. '
     content.vb: Public Sub New(externalAxisValues As Double())
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
   nameWithType.vb: ExternalJointPosition.ExternalJointPosition(Double())
@@ -427,12 +428,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new array\n"
+  summary: "\nReturns the External Joint Position as an array with the positions of the external logical axes.\n"
   syntax:
     content: public double[] ToArray()
     return:
       type: System.Double[]
-      description: 'An array containing the axis values of the external joint position. '
+      description: 'An array containing the positions of the external logical axes. '
     content.vb: Public Function ToArray As Double()
   overload: RobotComponents.Actions.ExternalJointPosition.ToArray*
   implements:
@@ -458,12 +459,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new list\n"
+  summary: "\nReturns the External Joint Position as a list with the positions of the external logical axes.\n"
   syntax:
     content: public List<double> ToList()
     return:
       type: System.Collections.Generic.List{System.Double}
-      description: 'A list containing the axis values of the external joint position. '
+      description: 'A list containing the positions of the external logical axes. '
     content.vb: Public Function ToList As List(Of Double)
   overload: RobotComponents.Actions.ExternalJointPosition.ToList*
   implements:
@@ -517,13 +518,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAdds a constant number to all the values inside this Joint Position\n"
+  summary: "\nAdds a constant number to all the values inside this Joint Position.\n"
   syntax:
     content: public void Add(double value)
     parameters:
     - id: value
       type: System.Double
-      description: 'The number that should be added. '
+      description: 'The number to be added. '
     content.vb: Public Sub Add(value As Double)
   overload: RobotComponents.Actions.ExternalJointPosition.Add*
   modifiers.csharp:
@@ -553,7 +554,7 @@ items:
     parameters:
     - id: jointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The External Joint Position that should be added. '
+      description: 'The External Joint Position to be added. '
     content.vb: Public Sub Add(jointPosition As ExternalJointPosition)
   overload: RobotComponents.Actions.ExternalJointPosition.Add*
   modifiers.csharp:
@@ -577,13 +578,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nSubstracts a constant number from the values inside this Joint Position\n"
+  summary: "\nSubstracts a constant number from the values inside this Joint Position.\n"
   syntax:
     content: public void Substract(double value)
     parameters:
     - id: value
       type: System.Double
-      description: 'The number that should be substracted. '
+      description: 'The number to be substracted. '
     content.vb: Public Sub Substract(value As Double)
   overload: RobotComponents.Actions.ExternalJointPosition.Substract*
   modifiers.csharp:
@@ -613,7 +614,7 @@ items:
     parameters:
     - id: jointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The External Joint Position that should be substracted. '
+      description: 'The External Joint Position to be substracted. '
     content.vb: Public Sub Substract(jointPosition As ExternalJointPosition)
   overload: RobotComponents.Actions.ExternalJointPosition.Substract*
   modifiers.csharp:
@@ -740,6 +741,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.ExternalJointPosition.ToRAPID
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: ExternalJointPosition.ToRAPID()
+  fullName: RobotComponents.Actions.ExternalJointPosition.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Joint Position in RAPID code format, e.g. &quot;[100, 9E9, 9E9, 9E9, 9E9, 9E9]&quot;.\n"
+  syntax:
+    content: public string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with the positions of the external axes. '
+    content.vb: Public Function ToRAPID As String
+  overload: RobotComponents.Actions.ExternalJointPosition.ToRAPID*
+  implements:
+  - RobotComponents.Actions.IJointPosition.ToRAPID
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -757,7 +789,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID declaration code line of the this action.\n"
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
@@ -766,7 +798,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An empty string. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration*
@@ -793,7 +825,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID instruction code line of the this action. \n"
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
@@ -802,7 +834,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An empty string. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDInstruction*
@@ -1047,7 +1079,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAddition of two External Joint Position\n"
+  summary: "\nAdds an External Joint Position with an other External Joint Position.\n"
   syntax:
     content: public static ExternalJointPosition operator +(ExternalJointPosition p1, ExternalJointPosition p2)
     parameters:
@@ -1085,7 +1117,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nSubstraction of two External Joint Position\n"
+  summary: "\nSubstracts an External Joint Position from an other External Joint Position.\n"
   syntax:
     content: public static ExternalJointPosition operator -(ExternalJointPosition p1, ExternalJointPosition p2)
     parameters:
@@ -1123,7 +1155,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMultiplication of two External Joint Positions\n"
+  summary: "\nMultiplies an External Joint Position with an other External Joint Position.\n"
   syntax:
     content: public static ExternalJointPosition operator *(ExternalJointPosition p1, ExternalJointPosition p2)
     parameters:
@@ -1161,7 +1193,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDivision of a External Joint Position by another External Joint Position\n"
+  summary: "\nDivides an External Joint Positin with by an other External Joint Position\n"
   syntax:
     content: public static ExternalJointPosition operator /(ExternalJointPosition p1, ExternalJointPosition p2)
     parameters:
@@ -1266,7 +1298,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGets or sets the axis values through the indexer. \n"
+  summary: "\nGets or sets the position of the external logical axis through the indexer. \n"
   syntax:
     content: public double this[int index] { get; set; }
     parameters:
@@ -1275,7 +1307,7 @@ items:
       description: 'The index number. '
     return:
       type: System.Double
-      description: 'The axis value located at the given index. '
+      description: 'The position of the external logical axis located at the given index. '
     content.vb: Public Property Item(index As Integer) As Double
   overload: RobotComponents.Actions.ExternalJointPosition.Item*
   implements:
@@ -1306,7 +1338,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGets or sets the axis values through the indexer.\n"
+  summary: "\nGets or sets the position of the external logical axis through the indexer. \n"
   syntax:
     content: public double this[char index] { get; set; }
     parameters:
@@ -1315,7 +1347,7 @@ items:
       description: 'The index character. '
     return:
       type: System.Double
-      description: 'The axis value located at the given index. '
+      description: 'The position of the external logical axis located at the given index. '
     content.vb: Public Property Item(index As Char) As Double
   overload: RobotComponents.Actions.ExternalJointPosition.Item*
   nameWithType.vb: ExternalJointPosition.Item(Char)
@@ -2089,6 +2121,43 @@ references:
   name: Divide
   nameWithType: ExternalJointPosition.Divide
   fullName: RobotComponents.Actions.ExternalJointPosition.Divide
+- uid: RobotComponents.Actions.ExternalJointPosition.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.ExternalJointPosition.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: ExternalJointPosition.ToRAPID
+  fullName: RobotComponents.Actions.ExternalJointPosition.ToRAPID
+- uid: RobotComponents.Actions.IJointPosition.ToRAPID
+  commentId: M:RobotComponents.Actions.IJointPosition.ToRAPID
+  parent: RobotComponents.Actions.IJointPosition
+  isExternal: true
+  name: ToRAPID()
+  nameWithType: IJointPosition.ToRAPID()
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPID()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IJointPosition.ToRAPID
+    name: ToRAPID
+    nameWithType: IJointPosition.ToRAPID
+    fullName: RobotComponents.Actions.IJointPosition.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IJointPosition.ToRAPID
+    name: ToRAPID
+    nameWithType: IJointPosition.ToRAPID
+    fullName: RobotComponents.Actions.IJointPosition.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action

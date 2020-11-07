@@ -246,12 +246,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID program code.\nThis method also overwrites or creates a file if saved to file is set eqaul to true.\n"
+  summary: "\nReturns the RAPID program code.\nThis method also overwrites or creates a file if the property &apos;SaveToFile is set equal to true.\n"
   syntax:
     content: public string CreateProgramCode()
     return:
       type: System.String
-      description: 'Returns the RAPID program code as a string. '
+      description: 'The RAPID program code as a string. '
     content.vb: Public Function CreateProgramCode As String
   overload: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode*
   modifiers.csharp:
@@ -275,7 +275,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt adds the robot tools and work objects that are collected by this RAPID generator. \nFor this you have to call the CreateProgamCode first. \nThis method also overwrites or creates a file if saved to file is set equal to true.\n"
+  summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt adds the robot tools and work objects that are collected by this RAPID generator. \nFor this you have to call the methode &apos;CreateProgamCode&apos; first. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
     content: public string CreateSystemCode(List<string> customCode)
     parameters:
@@ -284,7 +284,7 @@ items:
       description: 'Custom user definied base code as list with strings. '
     return:
       type: System.String
-      description: 'Returns the RAPID system code as a string. '
+      description: 'The RAPID system code as a string. '
     content.vb: Public Function CreateSystemCode(customCode As List(Of String)) As String
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*
   nameWithType.vb: RAPIDGenerator.CreateSystemCode(List(Of String))
@@ -311,22 +311,22 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt is adds the robot tools, work objects and custom code lines from the given lists. \nThis method also overwrites or creates a file if saved to file is set equal to true.\n"
+  summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt is adds the robot tools, work objects and custom code lines from the given lists. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
     content: public string CreateSystemCode(List<RobotTool> robotTools, List<WorkObject> workObjects, List<string> customCode)
     parameters:
     - id: robotTools
       type: System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
-      description: 'The robot tools that should be added to the BASE code as a list. '
+      description: 'The robot tools that should be added to the system code as a list. '
     - id: workObjects
       type: System.Collections.Generic.List{RobotComponents.Definitions.WorkObject}
-      description: 'The work objects that should be added to the BASE code as a list. '
+      description: 'The work objects that should be added to the system code as a list. '
     - id: customCode
       type: System.Collections.Generic.List{System.String}
       description: 'Custom user definied base code as list with strings. '
     return:
       type: System.String
-      description: 'Returns the RAPID system code as a string. '
+      description: 'The RAPID system code as a string. '
     content.vb: Public Function CreateSystemCode(robotTools As List(Of RobotTool), workObjects As List(Of WorkObject), customCode As List(Of String)) As String
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*
   nameWithType.vb: RAPIDGenerator.CreateSystemCode(List(Of RobotTool), List(Of WorkObject), List(Of String))
@@ -353,7 +353,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nWrites the RAPID program code to a file if a file path is set\n"
+  summary: "\nWrites the RAPID program code to a file if a file path is set.\n"
   syntax:
     content: public void WriteProgramCodeToFile()
     content.vb: Public Sub WriteProgramCodeToFile
@@ -379,7 +379,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nWrites the RAPID system code to a file if a file path is set\n"
+  summary: "\nWrites the RAPID system code to a file if a file path is set.\n"
   syntax:
     content: public void WriteSystemCodeToFile()
     content.vb: Public Sub WriteSystemCodeToFile

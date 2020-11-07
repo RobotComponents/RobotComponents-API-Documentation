@@ -130,7 +130,8 @@
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Interval_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)">ExternalRotationalAxis(Plane, Interval)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class with empty meshes.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class with empty meshes.
+Sets the attachment plane equal to the axis plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -165,7 +166,8 @@
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Interval_Rhino_Geometry_Mesh_Rhino_Geometry_Mesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">ExternalRotationalAxis(Plane, Interval, Mesh, Mesh)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.
+Sets the attachment plane equal to the axis plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -182,6 +184,100 @@
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">axisPlane</span></td>
+        <td><p>The axis plane. The z-axis of the plane defines the rotation center.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Interval</span></td>
+        <td><span class="parametername">axisLimits</span></td>
+        <td><p>The motion limits.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Mesh</span></td>
+        <td><span class="parametername">baseMesh</span></td>
+        <td><p>The base mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Mesh</span></td>
+        <td><span class="parametername">linkMesh</span></td>
+        <td><p>The link mesh posed for an external axis value set to 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_Rhino_Geometry_Interval_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)">ExternalRotationalAxis(Plane, Plane, Interval)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class with empty meshes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExternalRotationalAxis(Plane attachmentPlane, Plane axisPlane, Interval axisLimits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachment plane posed at the location for axis value 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">axisPlane</span></td>
+        <td><p>The axis plane. The z-axis of the plane defines the rotation center.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Interval</span></td>
+        <td><span class="parametername">axisLimits</span></td>
+        <td><p>The motion limits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_Rhino_Geometry_Interval_Rhino_Geometry_Mesh_Rhino_Geometry_Mesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">ExternalRotationalAxis(Plane, Plane, Interval, Mesh, Mesh)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExternalRotationalAxis(Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachment plane posed at the location for axis value 0.</p>
+</td>
+      </tr>
       <tr>
         <td><span class="xref">Rhino.Geometry.Plane</span></td>
         <td><span class="parametername">axisPlane</span></td>
@@ -282,7 +378,8 @@
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Interval_Rhino_Geometry_Mesh_Rhino_Geometry_Mesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">ExternalRotationalAxis(String, Plane, Interval, Mesh, Mesh)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.
+Sets the attachment plane equal to the axis plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -335,7 +432,8 @@
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Interval_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Collections_Generic_List_Rhino_Geometry_Mesh__" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">ExternalRotationalAxis(String, Plane, Interval, List&lt;Mesh&gt;, List&lt;Mesh&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.
+Sets the attachment plane equal to the axis plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -356,6 +454,124 @@
         <td><span class="xref">System.String</span></td>
         <td><span class="parametername">name</span></td>
         <td><p>The axis name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">axisPlane</span></td>
+        <td><p>The axis plane. The z-axis of the plane defines the rotation vector.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Interval</span></td>
+        <td><span class="parametername">axisLimits</span></td>
+        <td><p>The motion limits.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
+        <td><span class="parametername">baseMeshes</span></td>
+        <td><p>The base mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
+        <td><span class="parametername">linkMeshes</span></td>
+        <td><p>The link mesh posed for an external axis value set to 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_Rhino_Geometry_Interval_Rhino_Geometry_Mesh_Rhino_Geometry_Mesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">ExternalRotationalAxis(String, Plane, Plane, Interval, Mesh, Mesh)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExternalRotationalAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The axis name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachment plane posed at the location for axis value 0.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">axisPlane</span></td>
+        <td><p>The axis plane. The z-axis of the plane defines the rotation center.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Interval</span></td>
+        <td><span class="parametername">axisLimits</span></td>
+        <td><p>The motion limits.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Mesh</span></td>
+        <td><span class="parametername">baseMesh</span></td>
+        <td><p>The base mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Mesh</span></td>
+        <td><span class="parametername">linkMesh</span></td>
+        <td><p>The link mesh posed for an external axis value set to 0.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_Rhino_Geometry_Interval_System_Collections_Generic_List_Rhino_Geometry_Mesh__System_Collections_Generic_List_Rhino_Geometry_Mesh__" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">ExternalRotationalAxis(String, Plane, Plane, Interval, List&lt;Mesh&gt;, List&lt;Mesh&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the External Rotational Axis class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ExternalRotationalAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, List&lt;Mesh&gt; baseMeshes, List&lt;Mesh&gt; linkMeshes)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The axis name.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachment plane posed at the location for axis value 0.</p>
 </td>
       </tr>
       <tr>
@@ -728,8 +944,8 @@
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_CalculatePosition_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculatePosition*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_CalculatePosition_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculatePosition(ExternalJointPosition, out Boolean)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
-This method does not take into account the axis limits.</p>
+  <div class="markdown level1 summary"><p>Returns the position of the attachment plane for a given External Joint Position.
+This calculation does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -749,13 +965,13 @@ This method does not take into account the axis limits.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the attachment plane for in degrees.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">inLimits</span></td>
-        <td><p>A boolean that indicates if the defined exernal axis value is inside its limits.</p>
+        <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
     </tbody>
@@ -782,9 +998,9 @@ This method does not take into account the axis limits.</p>
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_CalculatePositionSave_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculatePositionSave*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_CalculatePositionSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">CalculatePositionSave(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
-This method takes into account the external axis limits. If the defined external
-axis value is outside its limits the closest external axis limit will be used.</p>
+  <div class="markdown level1 summary"><p>Returns the position of the attachment plane for a given External Joint Position.
+This calculations takes into account the external axis limits.
+If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -804,7 +1020,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the attachment plane for in degrees.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -831,8 +1047,8 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_CalculateTransformationMatrix_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_CalculateTransformationMatrix_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculateTransformationMatrix(ExternalJointPosition, out Boolean)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
-This method does not take into account the axis limits.</p>
+  <div class="markdown level1 summary"><p>Returns the the transformation matrix for a given External Joint Position.
+This calculation does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -852,13 +1068,13 @@ This method does not take into account the axis limits.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the transformation matrix for in degrees.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">inLimits</span></td>
-        <td><p>A boolean that indicates if the defined exernal axis value is inside its limits.</p>
+        <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
     </tbody>
@@ -874,7 +1090,7 @@ This method does not take into account the axis limits.</p>
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
-        <td><p>The transformation matrix</p>
+        <td><p>The transformation matrix.</p>
 </td>
       </tr>
     </tbody>
@@ -885,9 +1101,9 @@ This method does not take into account the axis limits.</p>
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_CalculateTransformationMatrixSave_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_CalculateTransformationMatrixSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">CalculateTransformationMatrixSave(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the transformation matrix for a defined external axis value.
-This method takes into account the external axis limits. If the defined external
-axis value is outside its limits the closest external axis limit will be used.</p>
+  <div class="markdown level1 summary"><p>Returns the the transformation matrix for a given External Joint Position.
+This calculations takes into account the external axis limits.
+If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -907,7 +1123,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the transformation matrix for in degrees.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -923,7 +1139,7 @@ axis value is outside its limits the closest external axis limit will be used.</
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
-        <td><p>The transformation matrix</p>
+        <td><p>The transformation matrix.</p>
 </td>
       </tr>
     </tbody>
@@ -1081,7 +1297,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_PoseMeshes_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_PoseMeshes_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">PoseMeshes(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the external axis mesh for a defined external axis value.</p>
+  <div class="markdown level1 summary"><p>Calculates and returns the position of the external axis meshes for a given External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1101,7 +1317,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the meshes for in degrees.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -1128,7 +1344,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_ReInitialize_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_ReInitialize" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>A method that can be called to reinitialize all the data that is needed to construct a valid external rotational axis.</p>
+  <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid External Rotational Axis instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

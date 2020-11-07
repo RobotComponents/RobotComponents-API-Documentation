@@ -522,7 +522,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID declaration code line of the this action.\n"
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
@@ -558,7 +558,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID instruction code line of the this action. \n"
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
@@ -567,7 +567,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An emptry string. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.RobotTarget.ToRAPIDInstruction*

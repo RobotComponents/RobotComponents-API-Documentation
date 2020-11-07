@@ -569,6 +569,87 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </h3>
   
   
+  <a id="RobotComponents_Definitions_WorkObject_CalculateGlobalWorkObjectPlane_" data-uid="RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*"></a>
+  <h4 id="RobotComponents_Definitions_WorkObject_CalculateGlobalWorkObjectPlane" data-uid="RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane">CalculateGlobalWorkObjectPlane()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the global work object plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Plane CalculateGlobalWorkObjectPlane()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Plane</span></td>
+        <td><p>The global work object plane.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_WorkObject_CalculateOrientation_" data-uid="RobotComponents.Definitions.WorkObject.CalculateOrientation*"></a>
+  <h4 id="RobotComponents_Definitions_WorkObject_CalculateOrientation" data-uid="RobotComponents.Definitions.WorkObject.CalculateOrientation">CalculateOrientation()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the quaternion orientation of the work object coordinate system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion CalculateOrientation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
+        <td><p>The quaternion orientation of the work object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_WorkObject_CalculateUserFrameOrientation_" data-uid="RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation*"></a>
+  <h4 id="RobotComponents_Definitions_WorkObject_CalculateUserFrameOrientation" data-uid="RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation">CalculateUserFrameOrientation()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the quaternion orientation of the user frame coordinate system.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion CalculateUserFrameOrientation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
+        <td><p>The quaternion orientation of the user frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_WorkObject_Duplicate_" data-uid="RobotComponents.Definitions.WorkObject.Duplicate*"></a>
   <h4 id="RobotComponents_Definitions_WorkObject_Duplicate" data-uid="RobotComponents.Definitions.WorkObject.Duplicate">Duplicate()</h4>
   <div class="markdown level1 summary"><p>Returns an exact duplicate of this Work Object instance.</p>
@@ -623,34 +704,6 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </table>
   
   
-  <a id="RobotComponents_Definitions_WorkObject_GetGlobalWorkObjectPlane_" data-uid="RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane*"></a>
-  <h4 id="RobotComponents_Definitions_WorkObject_GetGlobalWorkObjectPlane" data-uid="RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane">GetGlobalWorkObjectPlane()</h4>
-  <div class="markdown level1 summary"><p>Calculates the global work object plane since the work object coordinate system and
-the user frame coordinate system can both be un equal to the worldc coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Plane GetGlobalWorkObjectPlane()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Plane</span></td>
-        <td><p>Returns the global work object plane.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="RobotComponents_Definitions_WorkObject_GetObjectData_" data-uid="RobotComponents.Definitions.WorkObject.GetObjectData*"></a>
   <h4 id="RobotComponents_Definitions_WorkObject_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
   <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
@@ -686,68 +739,25 @@ the user frame coordinate system can both be un equal to the worldc coordinate s
   </table>
   
   
-  <a id="RobotComponents_Definitions_WorkObject_GetOrientation_" data-uid="RobotComponents.Definitions.WorkObject.GetOrientation*"></a>
-  <h4 id="RobotComponents_Definitions_WorkObject_GetOrientation" data-uid="RobotComponents.Definitions.WorkObject.GetOrientation">GetOrientation()</h4>
-  <div class="markdown level1 summary"><p>Method that calculates the quaternion orientation of the work object coordinate system.</p>
+  <a id="RobotComponents_Definitions_WorkObject_ReInitialize_" data-uid="RobotComponents.Definitions.WorkObject.ReInitialize*"></a>
+  <h4 id="RobotComponents_Definitions_WorkObject_ReInitialize" data-uid="RobotComponents.Definitions.WorkObject.ReInitialize">ReInitialize()</h4>
+  <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid Work Object instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion GetOrientation()</code></pre>
+    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
   </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
-        <td><p>Returns the quaternion orientation of the work object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   
   
-  <a id="RobotComponents_Definitions_WorkObject_GetUserFrameOrientation_" data-uid="RobotComponents.Definitions.WorkObject.GetUserFrameOrientation*"></a>
-  <h4 id="RobotComponents_Definitions_WorkObject_GetUserFrameOrientation" data-uid="RobotComponents.Definitions.WorkObject.GetUserFrameOrientation">GetUserFrameOrientation()</h4>
-  <div class="markdown level1 summary"><p>Method that calculates the quaternion orientation of the user frame coordinate system.</p>
+  <a id="RobotComponents_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_Definitions_WorkObject_ToRAPIDDeclaration" data-uid="RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration">ToRAPIDDeclaration()</h4>
+  <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this Work Object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion GetUserFrameOrientation()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
-        <td><p>Returns the quaternion orientation of the user frame.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_WorkObject_GetWorkObjData_" data-uid="RobotComponents.Definitions.WorkObject.GetWorkObjData*"></a>
-  <h4 id="RobotComponents_Definitions_WorkObject_GetWorkObjData" data-uid="RobotComponents.Definitions.WorkObject.GetWorkObjData">GetWorkObjData()</h4>
-  <div class="markdown level1 summary"><p>Method for creating the work object data for the system BASE code.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetWorkObjData()</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -760,22 +770,11 @@ the user frame coordinate system can both be un equal to the worldc coordinate s
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the work object BASE code as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="RobotComponents_Definitions_WorkObject_ReInitialize_" data-uid="RobotComponents.Definitions.WorkObject.ReInitialize*"></a>
-  <h4 id="RobotComponents_Definitions_WorkObject_ReInitialize" data-uid="RobotComponents.Definitions.WorkObject.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>A method that can be called to reinitialize all the data that is needed to construct a valid work object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
-  </div>
   
   
   <a id="RobotComponents_Definitions_WorkObject_ToString_" data-uid="RobotComponents.Definitions.WorkObject.ToString*"></a>

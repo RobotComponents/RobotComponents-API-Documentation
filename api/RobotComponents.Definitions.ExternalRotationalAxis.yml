@@ -8,10 +8,14 @@ items:
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)
+  - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(RobotComponents.Definitions.ExternalRotationalAxis,System.Boolean)
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
   - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})
+  - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  - RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})
   - RobotComponents.Definitions.ExternalRotationalAxis.AttachmentPlane
   - RobotComponents.Definitions.ExternalRotationalAxis.AxisLimits
   - RobotComponents.Definitions.ExternalRotationalAxis.AxisLogic
@@ -169,6 +173,177 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)
+  id: '#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)'
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: ExternalRotationalAxis(Plane, Plane, Interval)
+  nameWithType: ExternalRotationalAxis.ExternalRotationalAxis(Plane, Plane, Interval)
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.ExternalRotationalAxis(Rhino.Geometry.Plane, Rhino.Geometry.Plane, Rhino.Geometry.Interval)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the External Rotational Axis class with empty meshes.\n"
+  syntax:
+    content: public ExternalRotationalAxis(Plane attachmentPlane, Plane axisPlane, Interval axisLimits)
+    parameters:
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachment plane posed at the location for axis value 0. '
+    - id: axisPlane
+      type: Rhino.Geometry.Plane
+      description: 'The axis plane. The z-axis of the plane defines the rotation center. '
+    - id: axisLimits
+      type: Rhino.Geometry.Interval
+      description: 'The motion limits. '
+    content.vb: Public Sub New(attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval)
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  id: '#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)'
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: ExternalRotationalAxis(Plane, Plane, Interval, Mesh, Mesh)
+  nameWithType: ExternalRotationalAxis.ExternalRotationalAxis(Plane, Plane, Interval, Mesh, Mesh)
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.ExternalRotationalAxis(Rhino.Geometry.Plane, Rhino.Geometry.Plane, Rhino.Geometry.Interval, Rhino.Geometry.Mesh, Rhino.Geometry.Mesh)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the External Rotational Axis class.\n"
+  syntax:
+    content: public ExternalRotationalAxis(Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
+    parameters:
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachment plane posed at the location for axis value 0. '
+    - id: axisPlane
+      type: Rhino.Geometry.Plane
+      description: 'The axis plane. The z-axis of the plane defines the rotation center. '
+    - id: axisLimits
+      type: Rhino.Geometry.Interval
+      description: 'The motion limits. '
+    - id: baseMesh
+      type: Rhino.Geometry.Mesh
+      description: 'The base mesh. '
+    - id: linkMesh
+      type: Rhino.Geometry.Mesh
+      description: 'The link mesh posed for an external axis value set to 0. '
+    content.vb: Public Sub New(attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)
+  id: '#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)'
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: ExternalRotationalAxis(String, Plane, Plane, Interval, Mesh, Mesh)
+  nameWithType: ExternalRotationalAxis.ExternalRotationalAxis(String, Plane, Plane, Interval, Mesh, Mesh)
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.ExternalRotationalAxis(System.String, Rhino.Geometry.Plane, Rhino.Geometry.Plane, Rhino.Geometry.Interval, Rhino.Geometry.Mesh, Rhino.Geometry.Mesh)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the External Rotational Axis class.\n"
+  syntax:
+    content: public ExternalRotationalAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The axis name. '
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachment plane posed at the location for axis value 0. '
+    - id: axisPlane
+      type: Rhino.Geometry.Plane
+      description: 'The axis plane. The z-axis of the plane defines the rotation center. '
+    - id: axisLimits
+      type: Rhino.Geometry.Interval
+      description: 'The motion limits. '
+    - id: baseMesh
+      type: Rhino.Geometry.Mesh
+      description: 'The base mesh. '
+    - id: linkMesh
+      type: Rhino.Geometry.Mesh
+      description: 'The link mesh posed for an external axis value set to 0. '
+    content.vb: Public Sub New(name As String, attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMesh As Mesh, linkMesh As Mesh)
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})
+  id: '#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})'
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: ExternalRotationalAxis(String, Plane, Plane, Interval, List<Mesh>, List<Mesh>)
+  nameWithType: ExternalRotationalAxis.ExternalRotationalAxis(String, Plane, Plane, Interval, List<Mesh>, List<Mesh>)
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.ExternalRotationalAxis(System.String, Rhino.Geometry.Plane, Rhino.Geometry.Plane, Rhino.Geometry.Interval, System.Collections.Generic.List<Rhino.Geometry.Mesh>, System.Collections.Generic.List<Rhino.Geometry.Mesh>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the External Rotational Axis class. \n"
+  syntax:
+    content: public ExternalRotationalAxis(string name, Plane attachmentPlane, Plane axisPlane, Interval axisLimits, List<Mesh> baseMeshes, List<Mesh> linkMeshes)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The axis name. '
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachment plane posed at the location for axis value 0. '
+    - id: axisPlane
+      type: Rhino.Geometry.Plane
+      description: 'The axis plane. The z-axis of the plane defines the rotation vector. '
+    - id: axisLimits
+      type: Rhino.Geometry.Interval
+      description: 'The motion limits. '
+    - id: baseMeshes
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The base mesh. '
+    - id: linkMeshes
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The link mesh posed for an external axis value set to 0. '
+    content.vb: Public Sub New(name As String, attachmentPlane As Plane, axisPlane As Plane, axisLimits As Interval, baseMeshes As List(Of Mesh), linkMeshes As List(Of Mesh))
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.#ctor*
+  nameWithType.vb: ExternalRotationalAxis.ExternalRotationalAxis(String, Plane, Plane, Interval, List(Of Mesh), List(Of Mesh))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Definitions.ExternalRotationalAxis.ExternalRotationalAxis(System.String, Rhino.Geometry.Plane, Rhino.Geometry.Plane, Rhino.Geometry.Interval, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), System.Collections.Generic.List(Of Rhino.Geometry.Mesh))
+  name.vb: ExternalRotationalAxis(String, Plane, Plane, Interval, List(Of Mesh), List(Of Mesh))
 - uid: RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)
   commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)
   id: '#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)'
@@ -186,7 +361,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nInitializes a new instance of the External Rotational Axis class with empty meshes.\n"
+  summary: "\nInitializes a new instance of the External Rotational Axis class with empty meshes.\nSets the attachment plane equal to the axis plane.\n"
   syntax:
     content: public ExternalRotationalAxis(Plane axisPlane, Interval axisLimits)
     parameters:
@@ -219,7 +394,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nInitializes a new instance of the External Rotational Axis class.\n"
+  summary: "\nInitializes a new instance of the External Rotational Axis class.\nSets the attachment plane equal to the axis plane.\n"
   syntax:
     content: public ExternalRotationalAxis(Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
@@ -258,7 +433,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nInitializes a new instance of the External Rotational Axis class.\n"
+  summary: "\nInitializes a new instance of the External Rotational Axis class.\nSets the attachment plane equal to the axis plane.\n"
   syntax:
     content: public ExternalRotationalAxis(string name, Plane axisPlane, Interval axisLimits, Mesh baseMesh, Mesh linkMesh)
     parameters:
@@ -300,7 +475,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nInitializes a new instance of the External Rotational Axis class. \n"
+  summary: "\nInitializes a new instance of the External Rotational Axis class. \nSets the attachment plane equal to the axis plane.\n"
   syntax:
     content: public ExternalRotationalAxis(string name, Plane axisPlane, Interval axisLimits, List<Mesh> baseMeshes, List<Mesh> linkMeshes)
     parameters:
@@ -532,16 +707,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method does not take into account the axis limits. \n"
+  summary: "\nReturns the position of the attachment plane for a given External Joint Position.\nThis calculation does not take into account the axis limits. \n"
   syntax:
     content: public override Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the attachment plane for in degrees. '
+      description: 'The External Joint Position. '
     - id: inLimits
       type: System.Boolean
-      description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
+      description: 'Specifies whether the External Joint Position is inside its limits. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
@@ -574,19 +749,19 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method does not take into account the axis limits. \n"
+  summary: "\nReturns the the transformation matrix for a given External Joint Position.\nThis calculation does not take into account the axis limits. \n"
   syntax:
     content: public override Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the transformation matrix for in degrees. '
+      description: 'The External Joint Position. '
     - id: inLimits
       type: System.Boolean
-      description: 'A boolean that indicates if the defined exernal axis value is inside its limits. '
+      description: 'Specifies whether the External Joint Position is inside its limits. '
     return:
       type: Rhino.Geometry.Transform
-      description: 'The transformation matrix '
+      description: 'The transformation matrix. '
     content.vb: Public Overrides Function CalculateTransformationMatrix(externalJointPosition As ExternalJointPosition, ByRef inLimits As Boolean) As Transform
   overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   overload: RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix*
@@ -616,13 +791,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the attachment plane for a defined external axis value.\nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
+  summary: "\nReturns the position of the attachment plane for a given External Joint Position.\nThis calculations takes into account the external axis limits. \nIf the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.  \n"
   syntax:
     content: public override Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the attachment plane for in degrees. '
+      description: 'The External Joint Position. '
     return:
       type: Rhino.Geometry.Plane
       description: 'The posed attachement plane. '
@@ -652,16 +827,16 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the transformation matrix for a defined external axis value.\nThis method takes into account the external axis limits. If the defined external\naxis value is outside its limits the closest external axis limit will be used. \n"
+  summary: "\nReturns the the transformation matrix for a given External Joint Position.\nThis calculations takes into account the external axis limits. \nIf the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used. \n"
   syntax:
     content: public override Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the transformation matrix for in degrees. '
+      description: 'The External Joint Position. '
     return:
       type: Rhino.Geometry.Transform
-      description: 'The transformation matrix '
+      description: 'The transformation matrix. '
     content.vb: Public Overrides Function CalculateTransformationMatrixSave(externalJointPosition As ExternalJointPosition) As Transform
   overridden: RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   overload: RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave*
@@ -688,13 +863,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nCalculates the position of the external axis mesh for a defined external axis value.\n"
+  summary: "\nCalculates and returns the position of the external axis meshes for a given External Joint Position.\n"
   syntax:
     content: public override List<Mesh> PoseMeshes(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.Actions.ExternalJointPosition
-      description: 'The external joint position to calculate the position of the meshes for in degrees. '
+      description: 'The External Joint Position. '
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
       description: 'The posed meshes. '
@@ -724,7 +899,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nA method that can be called to reinitialize all the data that is needed to construct a valid external rotational axis. \n"
+  summary: "\nReinitializes the fields and properties to construct a valid External Rotational Axis instance. \n"
   syntax:
     content: public override void ReInitialize()
     content.vb: Public Overrides Sub ReInitialize

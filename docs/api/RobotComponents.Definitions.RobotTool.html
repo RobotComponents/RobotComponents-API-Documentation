@@ -1154,11 +1154,65 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   </h3>
   
   
+  <a id="RobotComponents_Definitions_RobotTool_CalculateToolOrientation_" data-uid="RobotComponents.Definitions.RobotTool.CalculateToolOrientation*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_CalculateToolOrientation" data-uid="RobotComponents.Definitions.RobotTool.CalculateToolOrientation">CalculateToolOrientation()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the tool center orientation relative to the defined attachment plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Quaternion CalculateToolOrientation()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
+        <td><p>The quaternion orientation of the tool center plane.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_RobotTool_CalculateToolPosition_" data-uid="RobotComponents.Definitions.RobotTool.CalculateToolPosition*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_CalculateToolPosition" data-uid="RobotComponents.Definitions.RobotTool.CalculateToolPosition">CalculateToolPosition()</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the tool center point relative to the defined attachment plane.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point3d CalculateToolPosition()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Point3d</span></td>
+        <td><p>The tool center point.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_RobotTool_Clear_" data-uid="RobotComponents.Definitions.RobotTool.Clear*"></a>
   <h4 id="RobotComponents_Definitions_RobotTool_Clear" data-uid="RobotComponents.Definitions.RobotTool.Clear">Clear()</h4>
-  <div class="markdown level1 summary"><p>Clear / unset all the fields and properties of the object.
-Used for constructing an empty Robot Tool object.
-Since the empty constructor creates the default Robot Tool tool0.</p>
+  <div class="markdown level1 summary"><p>Clears all the fields and properties of the current instance.
+Typically used for defining an empty Robot Tool instance
+(since the empty constructor creates the default Robot Tool tool0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1256,14 +1310,25 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
   </table>
   
   
-  <a id="RobotComponents_Definitions_RobotTool_GetRSToolData_" data-uid="RobotComponents.Definitions.RobotTool.GetRSToolData*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_GetRSToolData" data-uid="RobotComponents.Definitions.RobotTool.GetRSToolData">GetRSToolData()</h4>
-  <div class="markdown level1 summary"><p>Method for creating the robot tool data for the system BASE code.</p>
+  <a id="RobotComponents_Definitions_RobotTool_ReInitialize_" data-uid="RobotComponents.Definitions.RobotTool.ReInitialize*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_ReInitialize" data-uid="RobotComponents.Definitions.RobotTool.ReInitialize">ReInitialize()</h4>
+  <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid Robot Tool instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string GetRSToolData()</code></pre>
+    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
+  </div>
+  
+  
+  <a id="RobotComponents_Definitions_RobotTool_ToRAPIDDeclaration_" data-uid="RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_Definitions_RobotTool_ToRAPIDDeclaration" data-uid="RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration">ToRAPIDDeclaration()</h4>
+  <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this Robot Tool.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -1276,76 +1341,11 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.String</span></td>
-        <td><p>Returns the robot tool BASE code as a string.</p>
+        <td><p>The RAPID code line.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  
-  
-  <a id="RobotComponents_Definitions_RobotTool_GetToolOrientation_" data-uid="RobotComponents.Definitions.RobotTool.GetToolOrientation*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_GetToolOrientation" data-uid="RobotComponents.Definitions.RobotTool.GetToolOrientation">GetToolOrientation()</h4>
-  <div class="markdown level1 summary"><p>Calculates the tool center orientatin relative to the defined attachment plane.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion GetToolOrientation()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Quaternion</span></td>
-        <td><p>Returns the quaternion orientation of the tool center plane.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_RobotTool_GetToolPosition_" data-uid="RobotComponents.Definitions.RobotTool.GetToolPosition*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_GetToolPosition" data-uid="RobotComponents.Definitions.RobotTool.GetToolPosition">GetToolPosition()</h4>
-  <div class="markdown level1 summary"><p>Calculates the local tool center point relative to the defined attachment plane.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point3d GetToolPosition()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Rhino.Geometry.Point3d</span></td>
-        <td><p>Returns the local tool center point coordinates.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Definitions_RobotTool_ReInitialize_" data-uid="RobotComponents.Definitions.RobotTool.ReInitialize*"></a>
-  <h4 id="RobotComponents_Definitions_RobotTool_ReInitialize" data-uid="RobotComponents.Definitions.RobotTool.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>A method that can be called to reinitialize all the data that is needed to construct a valid robot tool object.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
-  </div>
   
   
   <a id="RobotComponents_Definitions_RobotTool_ToString_" data-uid="RobotComponents.Definitions.RobotTool.ToString*"></a>
@@ -1399,7 +1399,7 @@ Since the empty constructor creates the default Robot Tool tool0.</p>
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
         <td><span class="parametername">xform</span></td>
-        <td><p>Spatial deform.</p>
+        <td><p>The spatial deform.</p>
 </td>
       </tr>
     </tbody>

@@ -40,6 +40,7 @@ items:
   - RobotComponents.Actions.RobotJointPosition.Sum
   - RobotComponents.Actions.RobotJointPosition.ToArray
   - RobotComponents.Actions.RobotJointPosition.ToList
+  - RobotComponents.Actions.RobotJointPosition.ToRAPID
   - RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.RobotJointPosition.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -429,12 +430,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new array\n"
+  summary: "\nReturns the Robot Joint Position as an array with axis values.\n"
   syntax:
     content: public double[] ToArray()
     return:
       type: System.Double[]
-      description: 'An array containing the axis values of the robot joint position. '
+      description: 'The array containing the axis values of the robot joint position. '
     content.vb: Public Function ToArray As Double()
   overload: RobotComponents.Actions.RobotJointPosition.ToArray*
   implements:
@@ -460,12 +461,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new list\n"
+  summary: "\nReturns the Robot Joint Position as an array with axis values.\n"
   syntax:
     content: public List<double> ToList()
     return:
       type: System.Collections.Generic.List{System.Double}
-      description: 'A list containing the axis values of the robot joint position. '
+      description: 'The list containing the axis values of the robot joint position. '
     content.vb: Public Function ToList As List(Of Double)
   overload: RobotComponents.Actions.RobotJointPosition.ToList*
   implements:
@@ -606,13 +607,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAdds a constant number to all the values inside this Joint Position\n"
+  summary: "\nAdds a constant number to all the values inside this Joint Position.\n"
   syntax:
     content: public void Add(double value)
     parameters:
     - id: value
       type: System.Double
-      description: 'The number that should be added. '
+      description: 'The number to be added. '
     content.vb: Public Sub Add(value As Double)
   overload: RobotComponents.Actions.RobotJointPosition.Add*
   modifiers.csharp:
@@ -642,7 +643,7 @@ items:
     parameters:
     - id: jointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: 'The Robot Joint Position that should be added. '
+      description: 'The Robot Joint Position to be added. '
     content.vb: Public Sub Add(jointPosition As RobotJointPosition)
   overload: RobotComponents.Actions.RobotJointPosition.Add*
   modifiers.csharp:
@@ -666,13 +667,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nSubstracts a constant number from the values inside this Joint Position\n"
+  summary: "\nSubstracts a constant number from the values inside this Joint Position.\n"
   syntax:
     content: public void Substract(double value)
     parameters:
     - id: value
       type: System.Double
-      description: 'The number that should be substracted. '
+      description: 'The number to be substracted. '
     content.vb: Public Sub Substract(value As Double)
   overload: RobotComponents.Actions.RobotJointPosition.Substract*
   modifiers.csharp:
@@ -702,7 +703,7 @@ items:
     parameters:
     - id: jointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: 'The Robot Joint Position that should be substracted. '
+      description: 'The Robot Joint Position to be substracted. '
     content.vb: Public Sub Substract(jointPosition As RobotJointPosition)
   overload: RobotComponents.Actions.RobotJointPosition.Substract*
   modifiers.csharp:
@@ -762,7 +763,7 @@ items:
     parameters:
     - id: jointPosition
       type: RobotComponents.Actions.RobotJointPosition
-      description: 'The multiplier as an Robot Joint Position. '
+      description: 'The multiplier as a Robot Joint Position. '
     content.vb: Public Sub Multiply(jointPosition As RobotJointPosition)
   overload: RobotComponents.Actions.RobotJointPosition.Multiply*
   modifiers.csharp:
@@ -829,6 +830,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.RobotJointPosition.ToRAPID
+  commentId: M:RobotComponents.Actions.RobotJointPosition.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.RobotJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: RobotJointPosition.ToRAPID()
+  fullName: RobotComponents.Actions.RobotJointPosition.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Joint Position in RAPID code format, e.g. &quot;[0, 0, 0, 0, 45, 0]&quot;.\n"
+  syntax:
+    content: public string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with axis values. '
+    content.vb: Public Function ToRAPID As String
+  overload: RobotComponents.Actions.RobotJointPosition.ToRAPID*
+  implements:
+  - RobotComponents.Actions.IJointPosition.ToRAPID
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -846,7 +878,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID declaration code line of the this action.\n"
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
@@ -855,7 +887,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An empty string. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration*
@@ -882,7 +914,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID instruction code line of the this action. \n"
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
@@ -891,7 +923,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An empty string. '
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.RobotJointPosition.ToRAPIDInstruction*
@@ -1136,7 +1168,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nAddition of two Robot Joint Position\n"
+  summary: "\nAdds a Robot Joint Position to an other Robot Joint Position.\n"
   syntax:
     content: public static RobotJointPosition operator +(RobotJointPosition p1, RobotJointPosition p2)
     parameters:
@@ -1174,7 +1206,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nSubstraction of two Robot Joint Position\n"
+  summary: "\nSubstracts a Robot Joint Position from an other Robot Joint Position.\n"
   syntax:
     content: public static RobotJointPosition operator -(RobotJointPosition p1, RobotJointPosition p2)
     parameters:
@@ -1212,7 +1244,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nMultiplication of two Robot Joint Positions\n"
+  summary: "\nMultiplies a Robot Joint Position woth an other Robot Joint Position.\n"
   syntax:
     content: public static RobotJointPosition operator *(RobotJointPosition p1, RobotJointPosition p2)
     parameters:
@@ -1250,7 +1282,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nDivision of a Robot Joint Position by another Robot Joint Position\n"
+  summary: "\nDivides a Robot Joint Position with an other Robot Joint Position.\n"
   syntax:
     content: public static RobotJointPosition operator /(RobotJointPosition p1, RobotJointPosition p2)
     parameters:
@@ -2158,6 +2190,43 @@ references:
   name: Divide
   nameWithType: RobotJointPosition.Divide
   fullName: RobotComponents.Actions.RobotJointPosition.Divide
+- uid: RobotComponents.Actions.RobotJointPosition.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.RobotJointPosition.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: RobotJointPosition.ToRAPID
+  fullName: RobotComponents.Actions.RobotJointPosition.ToRAPID
+- uid: RobotComponents.Actions.IJointPosition.ToRAPID
+  commentId: M:RobotComponents.Actions.IJointPosition.ToRAPID
+  parent: RobotComponents.Actions.IJointPosition
+  isExternal: true
+  name: ToRAPID()
+  nameWithType: IJointPosition.ToRAPID()
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPID()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IJointPosition.ToRAPID
+    name: ToRAPID
+    nameWithType: IJointPosition.ToRAPID
+    fullName: RobotComponents.Actions.IJointPosition.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IJointPosition.ToRAPID
+    name: ToRAPID
+    nameWithType: IJointPosition.ToRAPID
+    fullName: RobotComponents.Actions.IJointPosition.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action

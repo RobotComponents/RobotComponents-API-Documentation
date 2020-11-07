@@ -466,7 +466,7 @@ If a tool is set as a property of the movement, this tool will be used.</p>
   
   <a id="RobotComponents_Kinematics_InverseKinematics_Calculate_" data-uid="RobotComponents.Kinematics.InverseKinematics.Calculate*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_Calculate" data-uid="RobotComponents.Kinematics.InverseKinematics.Calculate">Calculate()</h4>
-  <div class="markdown level1 summary"><p>Calculates both internal and external axis values.</p>
+  <div class="markdown level1 summary"><p>Calculates the inverse kinematics solution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -475,27 +475,75 @@ If a tool is set as a property of the movement, this tool will be used.</p>
   </div>
   
   
-  <a id="RobotComponents_Kinematics_InverseKinematics_CalculateExternalAxisValues_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues*"></a>
-  <h4 id="RobotComponents_Kinematics_InverseKinematics_CalculateExternalAxisValues" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues">CalculateExternalAxisValues()</h4>
-  <div class="markdown level1 summary"><p>Calculates the external axis values.
+  <a id="RobotComponents_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*"></a>
+  <h4 id="RobotComponents_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_RobotComponents_Actions_RobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)">CalculateClosestRobotJointPosition(RobotJointPosition)</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
+This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object.
+You first have to calculate the Inverse Kinematics solution before you call this method.
+This method is typically used for using the Auto Axis Config inside the Path Generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotJointPosition CalculateClosestRobotJointPosition(RobotJointPosition prevJointPosition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
+        <td><span class="parametername">prevJointPosition</span></td>
+        <td><p>The previous Robot Joint Position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
+        <td><p>The closest Robot Joint Position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Kinematics_InverseKinematics_CalculateExternalJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition*"></a>
+  <h4 id="RobotComponents_Kinematics_InverseKinematics_CalculateExternalJointPosition" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition">CalculateExternalJointPosition()</h4>
+  <div class="markdown level1 summary"><p>Calculates the External Joint Position of the Inverse Kinematics solution.
 This method does not check the external axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CalculateExternalAxisValues()</code></pre>
+    <pre><code class="lang-csharp hljs">public void CalculateExternalJointPosition()</code></pre>
   </div>
   
   
-  <a id="RobotComponents_Kinematics_InverseKinematics_CalculateInternalAxisValues_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues*"></a>
-  <h4 id="RobotComponents_Kinematics_InverseKinematics_CalculateInternalAxisValues" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues">CalculateInternalAxisValues()</h4>
-  <div class="markdown level1 summary"><p>Calculates the internal axis values.
+  <a id="RobotComponents_Kinematics_InverseKinematics_CalculateRobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition*"></a>
+  <h4 id="RobotComponents_Kinematics_InverseKinematics_CalculateRobotJointPosition" data-uid="RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition">CalculateRobotJointPosition()</h4>
+  <div class="markdown level1 summary"><p>Calculates the Robot Joint Position of the Inverse Kinematics solution.
 This method does not check the internal axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CalculateInternalAxisValues()</code></pre>
+    <pre><code class="lang-csharp hljs">public void CalculateRobotJointPosition()</code></pre>
   </div>
   
   
@@ -526,59 +574,10 @@ This method does not check the internal axis limits.</p>
   </table>
   
   
-  <a id="RobotComponents_Kinematics_InverseKinematics_GetClosestRobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition*"></a>
-  <h4 id="RobotComponents_Kinematics_InverseKinematics_GetClosestRobotJointPosition_RobotComponents_Actions_RobotJointPosition_" data-uid="RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)">GetClosestRobotJointPosition(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Gets and sets the closest Robot Joint Position to a given previous Robot Joint Position.
-This method returns the closest axis configuration as an integer (0-7) and
-sets the closest Robot Joint Poistion insides this Inverse Kinematics object. Therefore,
-your first have to calculate the Inverse Kinematics solutions before you call this method.
-This methods is typically used for using the Auto Axis Config inside the Path Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotJointPosition GetClosestRobotJointPosition(RobotJointPosition prevJointPosition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><span class="parametername">prevJointPosition</span></td>
-        <td><p>The previous Robot Joint Position</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><p>Returns the closest axis configuration as an integer (0-7)</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
   <a id="RobotComponents_Kinematics_InverseKinematics_ReInitialize_" data-uid="RobotComponents.Kinematics.InverseKinematics.ReInitialize*"></a>
   <h4 id="RobotComponents_Kinematics_InverseKinematics_ReInitialize" data-uid="RobotComponents.Kinematics.InverseKinematics.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>A method that can be called to reinitialize all the data that is needed to construct a valid inverse kinematics object.
-This method also resets the solution. Calculate() has to be called to get the new solution(s).</p>
+  <div class="markdown level1 summary"><p>Reinitialize all the fields to construct a valid Inverse Kinematics object.
+This method also resets the solution. Calculate() has to be called to obtain a new solution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>

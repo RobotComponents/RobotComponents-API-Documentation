@@ -10,6 +10,7 @@ items:
   - RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)
   - RobotComponents.Kinematics.PathGenerator.ErrorText
   - RobotComponents.Kinematics.PathGenerator.ExternalJointPositions
+  - RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.Kinematics.PathGenerator.IsValid
   - RobotComponents.Kinematics.PathGenerator.Paths
   - RobotComponents.Kinematics.PathGenerator.Planes
@@ -153,13 +154,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nCalculates the path from a list with Actions\n"
+  summary: "\nCalculates the path from a list with Actions.\n"
   syntax:
     content: public void Calculate(List<Action> actions, int interpolations)
     parameters:
     - id: actions
       type: System.Collections.Generic.List{RobotComponents.Actions.Action}
-      description: 'The list with Actions to calculate the path. '
+      description: 'The list with Actions. '
     - id: interpolations
       type: System.Int32
       description: 'The amount of interpolatins between two targets. '
@@ -383,6 +384,37 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property ErrorText As List(Of String)
   overload: RobotComponents.Kinematics.PathGenerator.ErrorText*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
+  commentId: P:RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
+  id: FirstMovementIsMoveAbsJ
+  parent: RobotComponents.Kinematics.PathGenerator
+  langs:
+  - csharp
+  - vb
+  name: FirstMovementIsMoveAbsJ
+  nameWithType: PathGenerator.FirstMovementIsMoveAbsJ
+  fullName: RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nGets a value indicating whether or not the first movement is an Absolute Joint Movement.\n"
+  syntax:
+    content: public bool FirstMovementIsMoveAbsJ { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property FirstMovementIsMoveAbsJ As Boolean
+  overload: RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ*
   modifiers.csharp:
   - public
   - get
@@ -1091,3 +1123,9 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ*
+  commentId: Overload:RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
+  isExternal: true
+  name: FirstMovementIsMoveAbsJ
+  nameWithType: PathGenerator.FirstMovementIsMoveAbsJ
+  fullName: RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ

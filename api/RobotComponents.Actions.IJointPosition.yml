@@ -11,6 +11,7 @@ items:
   - RobotComponents.Actions.IJointPosition.Reset
   - RobotComponents.Actions.IJointPosition.ToArray
   - RobotComponents.Actions.IJointPosition.ToList
+  - RobotComponents.Actions.IJointPosition.ToRAPID
   langs:
   - csharp
   - vb
@@ -51,12 +52,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new array.\n"
+  summary: "\nReturns the Joint Position as an array with axis values.\n"
   syntax:
     content: double[] ToArray()
     return:
       type: System.Double[]
-      description: 'An array containing the axis values of the joint position. '
+      description: 'The array containing the axis values of the joint position. '
     content.vb: Function ToArray As Double()
   overload: RobotComponents.Actions.IJointPosition.ToArray*
 - uid: RobotComponents.Actions.IJointPosition.ToList
@@ -76,14 +77,39 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCopies the axis values of the joint position to a new list.\n"
+  summary: "\nReturns the Joint Position as a list with axis values.\n"
   syntax:
     content: List<double> ToList()
     return:
       type: System.Collections.Generic.List{System.Double}
-      description: 'A list containing the axis values of the joint position. '
+      description: 'The list containing the axis values of the joint position. '
     content.vb: Function ToList As List(Of Double)
   overload: RobotComponents.Actions.IJointPosition.ToList*
+- uid: RobotComponents.Actions.IJointPosition.ToRAPID
+  commentId: M:RobotComponents.Actions.IJointPosition.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.IJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: IJointPosition.ToRAPID()
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Joint Position in RAPID code format, e.g. &quot;[0, 0, 0, 0, 45, 0]&quot;.\n"
+  syntax:
+    content: string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with axis values. '
+    content.vb: Function ToRAPID As String
+  overload: RobotComponents.Actions.IJointPosition.ToRAPID*
 - uid: RobotComponents.Actions.IJointPosition.Reset
   commentId: M:RobotComponents.Actions.IJointPosition.Reset
   id: Reset
@@ -333,6 +359,25 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
+- uid: RobotComponents.Actions.IJointPosition.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.IJointPosition.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: IJointPosition.ToRAPID
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: RobotComponents.Actions.IJointPosition.Reset*
   commentId: Overload:RobotComponents.Actions.IJointPosition.Reset
   isExternal: true
@@ -352,12 +397,6 @@ references:
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: RobotComponents.Actions.IJointPosition.Item*
   commentId: Overload:RobotComponents.Actions.IJointPosition.Item
   isExternal: true

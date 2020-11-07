@@ -23,7 +23,7 @@ items:
   - RobotComponents.Actions.Movement.DuplicateWithoutMesh
   - RobotComponents.Actions.Movement.GetGlobalTargetPlane
   - RobotComponents.Actions.Movement.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+  - RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
   - RobotComponents.Actions.Movement.IsValid
   - RobotComponents.Actions.Movement.MovementType
   - RobotComponents.Actions.Movement.RobotTool
@@ -710,28 +710,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCalculates the position and the orientation of the target in the world coordinate system. \nIf an external axis is attached to the work object this returns the pose of the \ntarget plane in the world coorinate space for axis values equal to zero.\n"
+  summary: "\nCalculates the position and the orientation of the target in world coordinate space. \nIf an external axis is attached to the work object this method returns the pose of the \ntarget plane in the world coorinate space for axis values equal to zero.\n"
   syntax:
     content: public Plane GetGlobalTargetPlane()
     return:
       type: Rhino.Geometry.Plane
-      description: 'The the target plane in the world coordinate system. '
+      description: 'The the target plane in world coordinate space. '
     content.vb: Public Function GetGlobalTargetPlane As Plane
   overload: RobotComponents.Actions.Movement.GetGlobalTargetPlane*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
-  commentId: M:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
-  id: GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)
+- uid: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
+  commentId: M:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
+  id: GetPosedGlobalTargetPlane
   parent: RobotComponents.Actions.Movement
   langs:
   - csharp
   - vb
-  name: GetPosedGlobalTargetPlane(Robot, out Int32)
-  nameWithType: Movement.GetPosedGlobalTargetPlane(Robot, out Int32)
-  fullName: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot, out System.Int32)
+  name: GetPosedGlobalTargetPlane()
+  nameWithType: Movement.GetPosedGlobalTargetPlane()
+  fullName: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane()
   type: Method
   source:
     path: RobotComponents
@@ -739,28 +739,18 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCalculates the posed target plane for the defined Robot with attached external axes in world coorindate space.\n"
+  summary: "\nCalculates the posed target plane for the defined Robot with attached external axes in world coordinate space.\n"
   syntax:
-    content: public Plane GetPosedGlobalTargetPlane(Robot robot, out int logic)
-    parameters:
-    - id: robot
-      type: RobotComponents.Definitions.Robot
-      description: 'The robot info with the external axes that defined the axis logic. '
-    - id: logic
-      type: System.Int32
-      description: 'Retuns the axis logic number as an int. '
+    content: public Plane GetPosedGlobalTargetPlane()
     return:
       type: Rhino.Geometry.Plane
-      description: 'The posed target plane in the word coordinate system. '
-    content.vb: Public Function GetPosedGlobalTargetPlane(robot As Robot, ByRef logic As Integer) As Plane
+      description: 'The posed target plane in world coordinate space. '
+    content.vb: Public Function GetPosedGlobalTargetPlane As Plane
   overload: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane*
-  nameWithType.vb: Movement.GetPosedGlobalTargetPlane(Robot, ByRef Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot, ByRef System.Int32)
-  name.vb: GetPosedGlobalTargetPlane(Robot, ByRef Int32)
 - uid: RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -778,7 +768,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID declaration code line of the this action.\n"
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
   syntax:
     content: public override string ToRAPIDDeclaration(Robot robot)
     parameters:
@@ -787,7 +777,7 @@ items:
       description: 'The Robot were the code is generated for. '
     return:
       type: System.String
-      description: 'The RAPID code line. '
+      description: 'An empty string. '
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.Movement.ToRAPIDDeclaration*
@@ -814,7 +804,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nCreates the RAPID instruction code line of the this action. \n"
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
   syntax:
     content: public override string ToRAPIDInstruction(Robot robot)
     parameters:
@@ -1737,20 +1727,6 @@ references:
   name: GetPosedGlobalTargetPlane
   nameWithType: Movement.GetPosedGlobalTargetPlane
   fullName: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
-- uid: RobotComponents.Definitions.Robot
-  commentId: T:RobotComponents.Definitions.Robot
-  parent: RobotComponents.Definitions
-  isExternal: true
-  name: Robot
-  nameWithType: Robot
-  fullName: RobotComponents.Definitions.Robot
-- uid: System.Int32
-  commentId: T:System.Int32
-  parent: System
-  isExternal: true
-  name: Int32
-  nameWithType: Int32
-  fullName: System.Int32
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action
@@ -1798,6 +1774,13 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: Movement.ToRAPIDDeclaration
   fullName: RobotComponents.Actions.Movement.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
 - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action
@@ -1965,6 +1948,13 @@ references:
   name: SyncID
   nameWithType: Movement.SyncID
   fullName: RobotComponents.Actions.Movement.SyncID
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
 - uid: RobotComponents.Actions.Movement.SpeedData*
   commentId: Overload:RobotComponents.Actions.Movement.SpeedData
   isExternal: true

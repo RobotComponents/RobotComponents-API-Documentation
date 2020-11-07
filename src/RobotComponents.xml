@@ -327,36 +327,36 @@
             <summary>
             Checks both internal and external axis limits and returns a list with possible errors messages. 
             </summary>
-            <param name="robot"> The robot info to check the axis values for. </param>
-            <returns> Returns a list with error messages. </returns>
+            <param name="robot"> The robot to check the axis values for. </param>
+            <returns> The list with error messages. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.CheckInternalAxisLimits(RobotComponents.Definitions.Robot)">
             <summary>
             Checks the internal axis limits and returns a list with possible errors messages. 
             </summary>
-            <param name="robot"> The robot info to check the axis values for. </param>
-            <returns> Returns a list with error messages. </returns>
+            <param name="robot"> The robot to check the axis values for. </param>
+            <returns> The list with error messages. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.CheckExternalAxisLimits(RobotComponents.Definitions.Robot)">
             <summary>
             Checks the external axis limits and returns a list with possible errors messages. 
             </summary>
-            <param name="robot"> The robot info to check the axis values for. </param>
-            <returns> Returns a list with error messages. </returns>
+            <param name="robot"> The robot to check the axis values for. </param>
+            <returns> The list with error messages. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -472,15 +472,15 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToArray">
             <summary>
-            Copies the axis values of the joint position to a new array
+            Returns the Robot Joint Position as an array with axis values.
             </summary>
-            <returns> An array containing the axis values of the robot joint position. </returns>
+            <returns> The array containing the axis values of the robot joint position. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToList">
             <summary>
-            Copies the axis values of the joint position to a new list
+            Returns the Robot Joint Position as an array with axis values.
             </summary>
-            <returns> A list containing the axis values of the robot joint position. </returns>
+            <returns> The list containing the axis values of the robot joint position. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Sum">
             <summary>
@@ -507,29 +507,29 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Add(System.Double)">
             <summary>
-            Adds a constant number to all the values inside this Joint Position
+            Adds a constant number to all the values inside this Joint Position.
             </summary>
-            <param name="value"> The number that should be added. </param>
+            <param name="value"> The number to be added. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Add(RobotComponents.Actions.RobotJointPosition)">
             <summary>
             Adds the values of an Robot Joint Position to the values inside this Joint Position. 
             Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.
             </summary>
-            <param name="jointPosition"> The Robot Joint Position that should be added. </param>
+            <param name="jointPosition"> The Robot Joint Position to be added. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Substract(System.Double)">
             <summary>
-            Substracts a constant number from the values inside this Joint Position
+            Substracts a constant number from the values inside this Joint Position.
             </summary>
-            <param name="value"> The number that should be substracted. </param>
+            <param name="value"> The number to be substracted. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Substract(RobotComponents.Actions.RobotJointPosition)">
             <summary>
             Substracts the values of an Robot Joint Position from the values inside this Joint Position. 
             Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.
             </summary>
-            <param name="jointPosition"> The Robot Joint Position that should be substracted. </param>
+            <param name="jointPosition"> The Robot Joint Position to be substracted. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Multiply(System.Double)">
             <summary>
@@ -542,7 +542,7 @@
             Multiplies the values inside this Joint Position with the values from another Robot Joint Position.
             Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.
             </summary>
-            <param name="jointPosition"> The multiplier as an Robot Joint Position. </param>
+            <param name="jointPosition"> The multiplier as a Robot Joint Position. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.Divide(System.Double)">
             <summary>
@@ -559,25 +559,31 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.CheckAxisValues(System.Double[])">
             <summary></summary>
-            Method that checks the array with internal axis values. 
+            Cecks the array with internal axis values. 
             Always returns a list with 6 internal axis values. 
-            For missing values 0.0 will be used. 
-            <param name="axisValues">A list with the internal axis values.</param>
-            <returns> Returns an array with 6 Robot axis values.</returns>
+            For missing values 0.0 is used. 
+            <param name="axisValues"> The list with the internal axis values. </param>
+            <returns> The array with 6 axis values. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.ToRAPID">
+            <summary>
+            Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
+            </summary>
+            <returns> The string with axis values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -649,7 +655,7 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.op_Addition(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.RobotJointPosition)">
             <summary>
-            Addition of two Robot Joint Position
+            Adds a Robot Joint Position to an other Robot Joint Position.
             </summary>
             <param name="p1"> The first Robot Joint Position. </param>
             <param name="p2"> The second Robot Joint Position. </param>
@@ -657,7 +663,7 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.op_Subtraction(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.RobotJointPosition)">
             <summary>
-            Substraction of two Robot Joint Position
+            Substracts a Robot Joint Position from an other Robot Joint Position.
             </summary>
             <param name="p1"> The first Robot Joint Position. </param>
             <param name="p2"> The second Robot Joint Position. </param>
@@ -665,7 +671,7 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.op_Multiply(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.RobotJointPosition)">
             <summary>
-            Multiplication of two Robot Joint Positions
+            Multiplies a Robot Joint Position woth an other Robot Joint Position.
             </summary>
             <param name="p1"> The first Robot Joint Position. </param>
             <param name="p2"> The second Robot Joint Position. </param>
@@ -673,7 +679,7 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.op_Division(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.RobotJointPosition)">
             <summary>
-            Division of a Robot Joint Position by another Robot Joint Position
+            Divides a Robot Joint Position with an other Robot Joint Position.
             </summary>
             <param name="p1"> The first Robot Joint Position. </param>
             <param name="p2"> The second Robot Joint Position. </param>
@@ -686,15 +692,21 @@
         </member>
         <member name="M:RobotComponents.Actions.IJointPosition.ToArray">
             <summary>
-            Copies the axis values of the joint position to a new array.
+            Returns the Joint Position as an array with axis values.
             </summary>
-            <returns> An array containing the axis values of the joint position. </returns>
+            <returns> The array containing the axis values of the joint position. </returns>
         </member>
         <member name="M:RobotComponents.Actions.IJointPosition.ToList">
             <summary>
-            Copies the axis values of the joint position to a new list.
+            Returns the Joint Position as a list with axis values.
             </summary>
-            <returns> A list containing the axis values of the joint position. </returns>
+            <returns> The list containing the axis values of the joint position. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IJointPosition.ToRAPID">
+            <summary>
+            Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
+            </summary>
+            <returns> The string with axis values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.IJointPosition.Reset">
             <summary>
@@ -740,7 +752,7 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor">
             <summary>
-            Initializes a new instance of the External Joint Position class with undefinied external axis values.
+            Initializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
@@ -748,23 +760,23 @@
             Initializes a new instance of the External Joint Position class.
             </summary>
             <param name="Eax_a"> The position of the external logical axis “a” expressed in degrees or mm. </param>
-            <param name="Eax_b"> The position of the external logical axis “b” expressed in degrees or mm.</param>
-            <param name="Eax_c"> The position of the external logical axis “c” expressed in degrees or mm.</param>
-            <param name="Eax_d"> The position of the external logical axis “d” expressed in degrees or mm.</param>
-            <param name="Eax_e"> The position of the external logical axis “3” expressed in degrees or mm.</param>
-            <param name="Eax_f"> The position of the external logical axis “f” expressed in degrees or mm.</param>
+            <param name="Eax_b"> The position of the external logical axis “b” expressed in degrees or mm. </param>
+            <param name="Eax_c"> The position of the external logical axis “c” expressed in degrees or mm. </param>
+            <param name="Eax_d"> The position of the external logical axis “d” expressed in degrees or mm. </param>
+            <param name="Eax_e"> The position of the external logical axis “3” expressed in degrees or mm. </param>
+            <param name="Eax_f"> The position of the external logical axis “f” expressed in degrees or mm. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})">
             <summary>
             Initializes a new instance of the External Joint Position class from a list with values.
             </summary>
-            <param name="externalAxisValues"> The external axis values. </param>
+            <param name="externalAxisValues"> The position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])">
             <summary>
             Initializes a new instance of the External Joint Position class from an array with values.
             </summary>
-            <param name="externalAxisValues"> The external axis values. </param>
+            <param name="externalAxisValues"> The position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -792,15 +804,15 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToArray">
             <summary>
-            Copies the axis values of the joint position to a new array
+            Returns the External Joint Position as an array with the positions of the external logical axes.
             </summary>
-            <returns> An array containing the axis values of the external joint position. </returns>
+            <returns> An array containing the positions of the external logical axes. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToList">
             <summary>
-            Copies the axis values of the joint position to a new list
+            Returns the External Joint Position as a list with the positions of the external logical axes.
             </summary>
-            <returns> A list containing the axis values of the external joint position. </returns>
+            <returns> A list containing the positions of the external logical axes. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Reset">
             <summary>
@@ -809,29 +821,29 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Add(System.Double)">
             <summary>
-            Adds a constant number to all the values inside this Joint Position
+            Adds a constant number to all the values inside this Joint Position.
             </summary>
-            <param name="value"> The number that should be added. </param>
+            <param name="value"> The number to be added. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Add(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
             Adds the values of an External Joint Position to the values inside this Joint Position. 
             Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.
             </summary>
-            <param name="jointPosition"> The External Joint Position that should be added. </param>
+            <param name="jointPosition"> The External Joint Position to be added. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Substract(System.Double)">
             <summary>
-            Substracts a constant number from the values inside this Joint Position
+            Substracts a constant number from the values inside this Joint Position.
             </summary>
-            <param name="value"> The number that should be substracted. </param>
+            <param name="value"> The number to be substracted. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Substract(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
             Substracts the values of an External Joint Position from the values inside this Joint Position. 
             Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.
             </summary>
-            <param name="jointPosition"> The External Joint Position that should be substracted. </param>
+            <param name="jointPosition"> The External Joint Position to be substracted. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.Multiply(System.Double)">
             <summary>
@@ -861,25 +873,31 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.CheckAxisValues(System.Double[])">
             <summary></summary>
-            Method that checks the array with external axis values. 
-            Always returns a list with 6 external axis values. 
+            Checks the array the positions of the external logical axes. 
+            Always returns an array with 6 joint positions. 
             For missing values 9E9 (not connected) will be used. 
-            <param name="axisValues">A list with the external axis values.</param>
-            <returns> Returns an array with 6 external axis values.</returns>
+            <param name="axisValues"> The array with the positions of the external logical axes. </param>
+            <returns> The array with the 6 positions of the external axes. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.ToRAPID">
+            <summary>
+            Returns the Joint Position in RAPID code format, e.g. "[100, 9E9, 9E9, 9E9, 9E9, 9E9]".
+            </summary>
+            <returns> The string with the positions of the external axes. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -907,17 +925,17 @@
         </member>
         <member name="P:RobotComponents.Actions.ExternalJointPosition.Item(System.Int32)">
             <summary>
-            Gets or sets the axis values through the indexer. 
+            Gets or sets the position of the external logical axis through the indexer. 
             </summary>
             <param name="index"> The index number. </param>
-            <returns> The axis value located at the given index. </returns>
+            <returns> The position of the external logical axis located at the given index. </returns>
         </member>
         <member name="P:RobotComponents.Actions.ExternalJointPosition.Item(System.Char)">
             <summary>
-            Gets or sets the axis values through the indexer.
+            Gets or sets the position of the external logical axis through the indexer. 
             </summary>
             <param name="index"> The index character. </param>
-            <returns> The axis value located at the given index. </returns>
+            <returns> The position of the external logical axis located at the given index. </returns>
         </member>
         <member name="P:RobotComponents.Actions.ExternalJointPosition.IsFixedSize">
             <summary>
@@ -958,7 +976,7 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.op_Addition(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Addition of two External Joint Position
+            Adds an External Joint Position with an other External Joint Position.
             </summary>
             <param name="p1"> The first External Joint Position. </param>
             <param name="p2"> The second External Joint Position. </param>
@@ -966,7 +984,7 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.op_Subtraction(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Substraction of two External Joint Position
+            Substracts an External Joint Position from an other External Joint Position.
             </summary>
             <param name="p1"> The first External Joint Position. </param>
             <param name="p2"> The second External Joint Position. </param>
@@ -974,7 +992,7 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.op_Multiply(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Multiplication of two External Joint Positions
+            Multiplies an External Joint Position with an other External Joint Position.
             </summary>
             <param name="p1"> The first External Joint Position. </param>
             <param name="p2"> The second External Joint Position. </param>
@@ -982,7 +1000,7 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.op_Division(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Division of a External Joint Position by another External Joint Position
+            Divides an External Joint Positin with by an other External Joint Position
             </summary>
             <param name="p1"> The first External Joint Position. </param>
             <param name="p2"> The second External Joint Position. </param>
@@ -1066,17 +1084,17 @@
         </member>
         <member name="M:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ZoneData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An emptry string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -1195,14 +1213,14 @@
         </member>
         <member name="M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -1283,14 +1301,14 @@
         </member>
         <member name="M:RobotComponents.Actions.AutoAxisConfig.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.AutoAxisConfig.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -1321,7 +1339,7 @@
         </member>
         <member name="T:RobotComponents.Actions.CodeLine">
             <summary>
-            Represent a custom (user definied) RAPID Code Line.
+            Represents a custom (user definied) RAPID Code Line.
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.CodeLine.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
@@ -1382,14 +1400,14 @@
         </member>
         <member name="M:RobotComponents.Actions.CodeLine.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.CodeLine.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -1488,14 +1506,14 @@
         </member>
         <member name="M:RobotComponents.Actions.Comment.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Comment.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -1680,30 +1698,28 @@
         </member>
         <member name="M:RobotComponents.Actions.Movement.GetGlobalTargetPlane">
             <summary>
-            Calculates the position and the orientation of the target in the world coordinate system. 
-            If an external axis is attached to the work object this returns the pose of the 
+            Calculates the position and the orientation of the target in world coordinate space. 
+            If an external axis is attached to the work object this method returns the pose of the 
             target plane in the world coorinate space for axis values equal to zero.
             </summary>
-            <returns> The the target plane in the world coordinate system. </returns>
+            <returns> The the target plane in world coordinate space. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane(RobotComponents.Definitions.Robot,System.Int32@)">
+        <member name="M:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane">
             <summary>
-            Calculates the posed target plane for the defined Robot with attached external axes in world coorindate space.
+            Calculates the posed target plane for the defined Robot with attached external axes in world coordinate space.
             </summary>
-            <param name="robot"> The robot info with the external axes that defined the axis logic. </param>
-            <param name="logic"> Retuns the axis logic number as an int. </param>
-            <returns> The posed target plane in the word coordinate system. </returns>
+            <returns> The posed target plane in world coordinate space. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -1816,61 +1832,61 @@
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateProgramCode">
             <summary>
-            Creates the RAPID program code.
-            This method also overwrites or creates a file if saved to file is set eqaul to true.
+            Returns the RAPID program code.
+            This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.
             </summary>
-            <returns> Returns the RAPID program code as a string. </returns>
+            <returns> The RAPID program code as a string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})">
             <summary>
-            Creates the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
+            Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It adds the robot tools and work objects that are collected by this RAPID generator. 
-            For this you have to call the CreateProgamCode first. 
-            This method also overwrites or creates a file if saved to file is set equal to true.
+            For this you have to call the methode 'CreateProgamCode' first. 
+            This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
             </summary>
             <param name="customCode"> Custom user definied base code as list with strings. </param>
-            <returns> Returns the RAPID system code as a string. </returns>
+            <returns> The RAPID system code as a string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">
             <summary>
-            Creates the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
+            Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It is adds the robot tools, work objects and custom code lines from the given lists. 
-            This method also overwrites or creates a file if saved to file is set equal to true.
+            This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
             </summary>
-            <param name="robotTools"> The robot tools that should be added to the BASE code as a list. </param>
-            <param name="workObjects"> The work objects that should be added to the BASE code as a list. </param>
+            <param name="robotTools"> The robot tools that should be added to the system code as a list. </param>
+            <param name="workObjects"> The work objects that should be added to the system code as a list. </param>
             <param name="customCode"> Custom user definied base code as list with strings. </param>
-            <returns> Returns the RAPID system code as a string. </returns>
+            <returns> The RAPID system code as a string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateToolSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool})">
             <summary>
-            Gets the System Code for all Robot Tools in the list.
+            Returns the System Code for the given Robot Tools.
             </summary>
-            <param name="robotTools"> The list with Robot Tools. </param>
-            <returns> Returns the robot tool system code as a string. </returns>
+            <param name="robotTools"> The Robot Tools. </param>
+            <returns> The robot tool system code as a string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateWorkObjectSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.WorkObject})">
             <summary>
-            Gets the System Code for all Robot Tools in the list.
+            Returns the System Code for all given Work Objects.
             </summary>
-            <param name="workObjects"> The list with Robot Tools. </param>
-            <returns> Returns the robot tool system code as a string. </returns>
+            <param name="workObjects"> The Work Objects. </param>
+            <returns> The Work Object system code as a string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile">
             <summary>
-            Writes the RAPID program code to a file if a file path is set
+            Writes the RAPID program code to a file if a file path is set.
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.WriteSystemCodeToFile">
             <summary>
-            Writes the RAPID system code to a file if a file path is set
+            Writes the RAPID system code to a file if a file path is set.
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CheckFirstMovement">
             <summary>
-            Checks whether the first movement type is an Absolute Joint Movement
+            Checks whether the first movement type is an absolute joint movement.
             </summary>
-            <returns> Returns a boolean that indicates if the first movement type is an Absolute Joint Movement. </returns>
+            <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
         </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.IsValid">
             <summary>
@@ -2030,17 +2046,17 @@
         </member>
         <member name="M:RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -2177,14 +2193,14 @@
         </member>
         <member name="M:RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.WaitDI.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -2276,14 +2292,14 @@
         </member>
         <member name="M:RobotComponents.Actions.DigitalOutput.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.DigitalOutput.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -2419,17 +2435,17 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An emptry string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -2539,14 +2555,14 @@
         </member>
         <member name="M:RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.WaitTime.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -2633,14 +2649,14 @@
         </member>
         <member name="M:RobotComponents.Actions.OverrideRobotTool.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID declaration code line of the this action.
+            Returns the RAPID declaration code line of the this action.
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
+            <returns> An empty string. </returns>
         </member>
         <member name="M:RobotComponents.Actions.OverrideRobotTool.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
             <summary>
-            Creates the RAPID instruction code line of the this action. 
+            Returns the RAPID instruction code line of the this action. 
             </summary>
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
@@ -2659,12 +2675,6 @@
             </summary>
             <param name="RAPIDGenerator"> The RAPID Generator. </param>
         </member>
-        <member name="M:RobotComponents.Actions.OverrideRobotTool.GetToolName">
-            <summary>
-            Get the name of the set Robot Tool.
-            </summary>
-            <returns> The name of the set Robot Tool. </returns>
-        </member>
         <member name="P:RobotComponents.Actions.OverrideRobotTool.IsValid">
             <summary>
             Gets a value indicating whether or not the object is valid.
@@ -2682,7 +2692,7 @@
         </member>
         <member name="T:RobotComponents.Definitions.ExternalAxis">
             <summary>
-            Represents a base class for External Axes. 
+            Represents an abstract class for External Axes. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.#ctor">
@@ -2710,57 +2720,57 @@
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method does not take into account the axis limits. 
+            Calculates the position of the attachment plane for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the the transformation matrix for a defined external axis value. 
-            This method does not take into account the axis limits. 
+            Calculates the the transformation matrix for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
-            <returns> The transformation matrix </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Calculates the position of the attachment plane for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.  
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the the transformation matrix for a defined external axis value. 
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Calculates the the transformation matrix for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used. 
             </summary>
-            <param name="externalJointPosition"> The external joint postition to calculate the transformation matrix for. </param>
-            <returns> Returns the transformation matrix. </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid external axis. 
+            Reinitializes the fields and properties to construct valid External Axis instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the external axis mesh for a defined external axis value.
+            Calculates the position of the external axis meshes for a given External Joint Position.
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the meshes for. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)">
             <summary>
-            Transforms the linear axis spatial properties (planes and meshes). 
+            Transforms the external axis spatial properties (planes and meshes). 
             </summary>
-            <param name="xform"> Spatial deform. </param>
+            <param name="xform"> The spatial deform. </param>
         </member>
         <member name="P:RobotComponents.Definitions.ExternalAxis.IsValid">
             <summary>
@@ -4442,50 +4452,44 @@
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.Initialize">
             <summary>
-            A method that calls all the other methods that are needed to initialize the data that is needed to construct a valid robot tool object. 
+            Initializes the fields and properties to construct a valid Robot Tool istance.
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid robot tool object. 
+            Reinitializes the fields and properties to construct a valid Robot Tool instance. 
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.GetToolPosition">
+        <member name="M:RobotComponents.Definitions.RobotTool.CalculateToolPosition">
             <summary>
-            Calculates the local tool center point relative to the defined attachment plane. 
+            Calculates and returns the tool center point relative to the defined attachment plane. 
             </summary>
-            <returns> Returns the local tool center point coordinates. </returns>
+            <returns> The tool center point. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.GetToolOrientation">
+        <member name="M:RobotComponents.Definitions.RobotTool.CalculateToolOrientation">
             <summary>
-            Calculates the tool center orientatin relative to the defined attachment plane. 
+            Calculates and returns the tool center orientation relative to the defined attachment plane. 
             </summary>
-            <returns> Returns the quaternion orientation of the tool center plane. </returns>
+            <returns> The quaternion orientation of the tool center plane. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.GetRSToolData">
+        <member name="M:RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration">
             <summary>
-            Method for creating the robot tool data for the system BASE code. 
+            Returns the RAPID declaration code line of the this Robot Tool.
             </summary>
-            <returns> Returns the robot tool BASE code as a string. </returns>
-        </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.CreateToolDataString">
-            <summary>
-            Private method for creating the robot tool data for the system BASE code. 
-            </summary>
-            <returns> Returns the robot tool BASE code as a string. </returns>
+            <returns> The RAPID code line. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.Clear">
             <summary>
-            Clear / unset all the fields and properties of the object.
-            Used for constructing an empty Robot Tool object. 
-            Since the empty constructor creates the default Robot Tool tool0.
+            Clears all the fields and properties of the current instance.
+            Typically used for defining an empty Robot Tool instance 
+            (since the empty constructor creates the default Robot Tool tool0).
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.Transform(Rhino.Geometry.Transform)">
             <summary>
             Transforms the Robot Tool spatial properties (planes and meshes). 
             </summary>
-            <param name="xform"> Spatial deform. </param>
+            <param name="xform"> The spatial deform. </param>
         </member>
         <member name="P:RobotComponents.Definitions.RobotTool.IsValid">
             <summary>
@@ -4620,46 +4624,39 @@
             </summary>
             <returns> A string that represents the current object. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.WorkObject.GetOrientation">
+        <member name="M:RobotComponents.Definitions.WorkObject.CalculateOrientation">
             <summary>
-            Method that calculates the quaternion orientation of the work object coordinate system. 
+            Calculates and returns the quaternion orientation of the work object coordinate system. 
             </summary>
-            <returns> Returns the quaternion orientation of the work object. </returns>
+            <returns> The quaternion orientation of the work object. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.WorkObject.GetUserFrameOrientation">
+        <member name="M:RobotComponents.Definitions.WorkObject.CalculateUserFrameOrientation">
             <summary>
-            Method that calculates the quaternion orientation of the user frame coordinate system. 
+            Calculates and returns the quaternion orientation of the user frame coordinate system. 
             </summary>
-            <returns> Returns the quaternion orientation of the user frame. </returns>
+            <returns> The quaternion orientation of the user frame. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.WorkObject.GetGlobalWorkObjectPlane">
+        <member name="M:RobotComponents.Definitions.WorkObject.CalculateGlobalWorkObjectPlane">
             <summary>
-            Calculates the global work object plane since the work object coordinate system and 
-            the user frame coordinate system can both be un equal to the worldc coordinate system. 
+            Calculates and returns the global work object plane. 
             </summary>
-            <returns> Returns the global work object plane. </returns>
+            <returns> The global work object plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.WorkObject.Initialize">
             <summary>
-            A method that calls all the other methods that are needed to initialize the data that is needed to construct a valid work object. 
+            Initializes the fields and properties to construct a valid Work Object instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.WorkObject.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid work object. 
+            Reinitializes the fields and properties to construct a valid Work Object instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.WorkObject.GetWorkObjData">
+        <member name="M:RobotComponents.Definitions.WorkObject.ToRAPIDDeclaration">
             <summary>
-            Method for creating the work object data for the system BASE code. 
+            Returns the RAPID declaration code line of the this Work Object.
             </summary>
-            <returns> Returns the work object BASE code as a string. </returns>
-        </member>
-        <member name="M:RobotComponents.Definitions.WorkObject.CreateWorkObjString">
-            <summary>
-            Private method for creating the work object data for the system BASE code. 
-            </summary>
-            <returns> Returns the work object BASE code as a string. </returns>
+            <returns> The RAPID code line. </returns>
         </member>
         <member name="P:RobotComponents.Definitions.WorkObject.IsValid">
             <summary>
@@ -4857,67 +4854,68 @@
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve">
             <summary>
-            Defines the axis curve based on the axis limits, the momvement direction and the attachment plane origin.
+            Gets the axis curve. The direction of the curve defines the movement direction and the spatial limits of the attachement plane.
             </summary>
+            <returns> The axis curve. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method does not take into account the axis limits. 
+            Returns the position of the attachment plane for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the the transformation matrix for a defined external axis value. 
-            This method does not take into account the axis limits. 
+            Returns the the transformation matrix for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for in mm. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
-            <returns> The transformation matrix </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Returns the position of the attachment plane for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.  
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for in mm. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the the transformation matrix for a defined external axis value. 
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Returns the the transformation matrix for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the transformation matrix for in mm. </param>
-            <returns> Returns the transformation matrix. </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the external axis mesh for a defined external axis value.
+            Calculates and returns the position of the external axis meshes for a given External Joint Position.
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the meshes for in mm. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.Initialize">
             <summary>
-            A method that calls all the other methods that are needed to initialize the data that is needed to construct a valid external linear axis object. 
+            Initializes the fields and properties to construct a valid External Linear Axis instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid external linear axis. 
+            Reinitializes the fields and properties to construct a valid External Linear Axis instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)">
             <summary>
-            Transforms the external linear axis spatial properties (planes and meshes. 
+            Transforms the external axis spatial properties (planes and meshes). 
             </summary>
-            <param name="xform"> Spatial deform. </param>
+            <param name="xform"> The spatial deform. </param>
         </member>
         <member name="P:RobotComponents.Definitions.ExternalLinearAxis.IsValid">
             <summary>
@@ -5010,9 +5008,50 @@
             Initializes an empty instance of the External Rotational Axis class.
             </summary>
         </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval)">
+            <summary>
+            Initializes a new instance of the External Rotational Axis class with empty meshes.
+            </summary>
+            <param name="attachmentPlane" > The attachment plane posed at the location for axis value 0. </param>
+            <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
+            <param name="axisLimits"> The motion limits. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">
+            <summary>
+            Initializes a new instance of the External Rotational Axis class.
+            </summary>
+            <param name="attachmentPlane" > The attachment plane posed at the location for axis value 0. </param>
+            <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
+            <param name="axisLimits"> The motion limits. </param>
+            <param name="baseMesh"> The base mesh. </param>
+            <param name="linkMesh"> The link mesh posed for an external axis value set to 0. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">
+            <summary>
+            Initializes a new instance of the External Rotational Axis class.
+            </summary>
+            <param name="name"> The axis name. </param>
+            <param name="attachmentPlane" > The attachment plane posed at the location for axis value 0. </param>
+            <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
+            <param name="axisLimits"> The motion limits. </param>
+            <param name="baseMesh"> The base mesh. </param>
+            <param name="linkMesh"> The link mesh posed for an external axis value set to 0. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">
+            <summary>
+            Initializes a new instance of the External Rotational Axis class. 
+            </summary>
+            <param name="name"> The axis name. </param>
+            <param name="attachmentPlane" > The attachment plane posed at the location for axis value 0. </param>
+            <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation vector. </param>
+            <param name="axisLimits"> The motion limits. </param>
+            <param name="baseMeshes"> The base mesh. </param>
+            <param name="linkMeshes"> The link mesh posed for an external axis value set to 0. </param>
+        </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval)">
             <summary>
             Initializes a new instance of the External Rotational Axis class with empty meshes.
+            Sets the attachment plane equal to the axis plane.
             </summary>
             <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
             <param name="axisLimits"> The motion limits. </param>
@@ -5020,6 +5059,7 @@
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">
             <summary>
             Initializes a new instance of the External Rotational Axis class.
+            Sets the attachment plane equal to the axis plane.
             </summary>
             <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
             <param name="axisLimits"> The motion limits. </param>
@@ -5029,6 +5069,7 @@
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,Rhino.Geometry.Mesh,Rhino.Geometry.Mesh)">
             <summary>
             Initializes a new instance of the External Rotational Axis class.
+            Sets the attachment plane equal to the axis plane.
             </summary>
             <param name="name"> The axis name. </param>
             <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation center. </param>
@@ -5039,6 +5080,7 @@
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">
             <summary>
             Initializes a new instance of the External Rotational Axis class. 
+            Sets the attachment plane equal to the axis plane.
             </summary>
             <param name="name"> The axis name. </param>
             <param name="axisPlane"> The axis plane. The z-axis of the plane defines the rotation vector. </param>
@@ -5085,55 +5127,55 @@
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method does not take into account the axis limits. 
+            Returns the position of the attachment plane for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for in degrees. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method does not take into account the axis limits. 
+            Returns the the transformation matrix for a given External Joint Position.
+            This calculation does not take into account the axis limits. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the transformation matrix for in degrees. </param>
-            <param name="inLimits"> A boolean that indicates if the defined exernal axis value is inside its limits. </param>
-            <returns> The transformation matrix </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the attachment plane for a defined external axis value.
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Returns the position of the attachment plane for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.  
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the attachment plane for in degrees. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the transformation matrix for a defined external axis value.
-            This method takes into account the external axis limits. If the defined external
-            axis value is outside its limits the closest external axis limit will be used. 
+            Returns the the transformation matrix for a given External Joint Position.
+            This calculations takes into account the external axis limits. 
+            If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used. 
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the transformation matrix for in degrees. </param>
-            <returns> The transformation matrix </returns>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Calculates the position of the external axis mesh for a defined external axis value.
+            Calculates and returns the position of the external axis meshes for a given External Joint Position.
             </summary>
-            <param name="externalJointPosition"> The external joint position to calculate the position of the meshes for in degrees. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.Initialize">
             <summary>
-            A method that calls all the other methods that are needed to initialize the data that is needed to construct a valid external rotational axis object. 
+            Initializes the fields and properties to construct a valid External Rotational Axis instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid external rotational axis. 
+            Reinitializes the fields and properties to construct a valid External Rotational Axis instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.Transform(Rhino.Geometry.Transform)">
@@ -5271,27 +5313,25 @@
         </member>
         <member name="M:RobotComponents.Definitions.Robot.UpdateExternalAxisFields">
             <summary>
-            Re-initializes the fields related to the list with external axes.
+            Reinitializes the fields that are related to the attached external axes.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)">
+        <member name="M:RobotComponents.Definitions.Robot.GetAttachedToolMesh">
             <summary>
-            Defines the attached tool mesh in the robot coordinate space.
+            Returns the attached Robot Tool mesh in robot coordinate space.
             </summary>
-            <param name="tool"> Ther robot tool to take the mesh from. </param>
             <returns> The tool mesh in the robot coordinate space. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)">
+        <member name="M:RobotComponents.Definitions.Robot.CalculateAttachedToolPlane">
             <summary>
-            Defines the TCP plane of the attached robot tool in the robot coordinate space.
+            Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.
             </summary>
-            <param name="tool"> Ther robot tool to take the mesh from. </param>
-            <returns> The attached tool mesh in the robot coordinate space. </returns>
+            <returns> The TCP plane in robot coordinate space. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)">
             <summary>
-            Transforms the robot spatial properties (planes and meshes.
-            The attached external axes will not be transformed. 
+            Transforms the robot spatial properties (planes and meshes).
+            NOTE: The attached external axes will not be transformed. 
             </summary>
             <param name="xform"> Spatial deform. </param>
         </member>
@@ -5420,29 +5460,29 @@
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.Calculate">
             <summary>
-            Calculates Forward Kinematics based on the internal and external axis values.
+            Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
-            Sets new axis values and calculates the new solution.  
+            Calculates the forward kinematics solution with the given Joint Positions.
             </summary>
-            <param name="robotJointPosition">The internal axis values as a Robot Joint Position.</param>
-            <param name="externalJointPosition">The external axis values as an External Joint Position.</param>
+            <param name="robotJointPosition"> The  Robot Joint Position. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.Clear">
             <summary>
-            Clears the current solution
+            Clears the current solution.
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.CheckInternalAxisLimits">
             <summary>
-            Checks if the interal axis values are outside its limits.
+            Checks if the positions of the robot axes are inside its limits.
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.CheckExternalAxisLimits">
             <summary>
-            Checks if the external axis values are outside its limits.
+            Checks if the positions of the external logical axes are inside its limits.
             </summary>
         </member>
         <member name="P:RobotComponents.Kinematics.ForwardKinematics.IsValid">
@@ -5545,40 +5585,39 @@
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.Initialize">
             <summary>
-            A method that calls all the other methods that are needed to initialize the data that is needed to construct a valid inverse kinematics object. 
+            Initialize the fields to construct a valid Inverse Kinematics instance. 
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.ReInitialize">
             <summary>
-            A method that can be called to reinitialize all the data that is needed to construct a valid inverse kinematics object. 
-            This method also resets the solution. Calculate() has to be called to get the new solution(s). 
+            Reinitialize all the fields to construct a valid Inverse Kinematics object. 
+            This method also resets the solution. Calculate() has to be called to obtain a new solution. 
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.Calculate">
             <summary>
-            Calculates both internal and external axis values. 
+            Calculates the inverse kinematics solution.
             </summary>
         </member>
-        <member name="M:RobotComponents.Kinematics.InverseKinematics.CalculateInternalAxisValues">
+        <member name="M:RobotComponents.Kinematics.InverseKinematics.CalculateRobotJointPosition">
             <summary>
-            Calculates the internal axis values. 
+            Calculates the Robot Joint Position of the Inverse Kinematics solution.
             This method does not check the internal axis limits. 
             </summary>
         </member>
-        <member name="M:RobotComponents.Kinematics.InverseKinematics.GetClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)">
+        <member name="M:RobotComponents.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.Actions.RobotJointPosition)">
             <summary>
-            Gets and sets the closest Robot Joint Position to a given previous Robot Joint Position.
-            This method returns the closest axis configuration as an integer (0-7) and
-            sets the closest Robot Joint Poistion insides this Inverse Kinematics object. Therefore,
-            your first have to calculate the Inverse Kinematics solutions before you call this method. 
-            This methods is typically used for using the Auto Axis Config inside the Path Generator.
+            Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
+            This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object. 
+            You first have to calculate the Inverse Kinematics solution before you call this method. 
+            This method is typically used for using the Auto Axis Config inside the Path Generator.
             </summary>
-            <param name="prevJointPosition">The previous Robot Joint Position</param>
-            <returns>Returns the closest axis configuration as an integer (0-7)</returns>
+            <param name="prevJointPosition"> The previous Robot Joint Position. </param>
+            <returns> The closest Robot Joint Position. </returns>
         </member>
-        <member name="M:RobotComponents.Kinematics.InverseKinematics.CalculateExternalAxisValues">
+        <member name="M:RobotComponents.Kinematics.InverseKinematics.CalculateExternalJointPosition">
             <summary>
-            Calculates the external axis values.
+            Calculates the External Joint Position of the Inverse Kinematics solution.
             This method does not check the external axis limits. 
             </summary>
         </member>
@@ -5589,7 +5628,7 @@
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.ResetRobotJointPositions">
             <summary>
-            Resets the Robo Joint Position solutions
+            Resets the Robot Joint Position solutions
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.ResetExternalJointPosition">
@@ -5597,31 +5636,29 @@
             Resest the the External Joint Position solution
             </summary>
         </member>
-        <member name="M:RobotComponents.Kinematics.InverseKinematics.ToolTransformation(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
+        <member name="M:RobotComponents.Kinematics.InverseKinematics.TransformToolPlane(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
             <summary>
-            Transforms the tool plane to calculate the inverse kinematics. 
+            Returns the transformed tool plane. 
             </summary>
-            <param name="targetPlane"> The global target plane defined in the world coordinate system as a plane.</param>
-            <param name="attachmentPlane"> The attachement plane of the robot defined the robot coordinate system as plane. </param>
-            <param name="toolPlane"> The TCP plane as a plane. </param>
+            <param name="targetPlane"> The global target plane defined in the world coordinate space. </param>
+            <param name="attachmentPlane"> The attachement plane of the robot defined in the robot coordinate space. </param>
+            <param name="toolPlane"> The TCP plane. </param>
             <returns> The transfomed tool plane. </returns>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.GetPositionPlane">
             <summary>
-            Gets the position of the robot in world coordinate space.
-            This is closest plane to target plane along the external axis if no external axis value is set. 
-            If no external axis is used it will return the fixed position (base plane) of the robot. 
+            Returns the base position of the robot in world coordinate space if it is moved by an external axis.
             </summary>
             <returns> The position of the robot as a plane. </returns>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.CheckInternalAxisLimits">
             <summary>
-            Checks if the interal axis values are outside its limits.
+            Checks if the positions of the robot axes are inside its limits.
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.InverseKinematics.CheckExternalAxisLimits">
             <summary>
-            Checks if the external axis values are outside its limits.
+            Checks if the positions of the external axes are inside its limits.
             </summary>
         </member>
         <member name="P:RobotComponents.Kinematics.InverseKinematics.IsValid">
@@ -5698,21 +5735,21 @@
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.Reset">
             <summary>
-            Resets / clears all lists with values (planes and axis values)
+            Resets / clears the current solution.
             </summary>
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)">
             <summary>
-            Calculates the path from a list with Actions
+            Calculates the path from a list with Actions.
             </summary>
-            <param name="actions"> The list with Actions to calculate the path. </param>
+            <param name="actions"> The list with Actions. </param>
             <param name="interpolations"> The amount of interpolatins between two targets. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.SetRobotTool(RobotComponents.Actions.Movement)">
             <summary>
             Sets the correct Robot Tool for the defined movement.
             </summary>
-            <param name="movement"> The movemen to set the Robot Tool for. </param>
+            <param name="movement"> The Movement to set the Robot Tool for. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.JointMovementFromJointTarget(RobotComponents.Actions.Movement)">
             <summary>
@@ -5728,7 +5765,7 @@
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.LinearMovementFromRobotTarget(RobotComponents.Actions.Movement)">
             <summary>
-            Calculates the interpolated path for a linear movement. 
+            Calculates the interpolated path for a linear movement.
             </summary>
             <param name="movement"> The movement as a linear movement type. </param>
         </member>
@@ -5738,6 +5775,12 @@
             </summary>
             <param name="towardsRobotJointPosition"> The final Robot Joint Position of the joint movement. </param>
             <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
+        </member>
+        <member name="M:RobotComponents.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.List{RobotComponents.Actions.Action})">
+            <summary>
+            Checks whether the first movement type is an absolute joint movement.
+            </summary>
+            <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
         </member>
         <member name="P:RobotComponents.Kinematics.PathGenerator.IsValid">
             <summary>
@@ -5773,6 +5816,11 @@
         <member name="P:RobotComponents.Kinematics.PathGenerator.ErrorText">
             <summary>
             Gets the collected error messages.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ">
+            <summary>
+            Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
             </summary>
         </member>
         <member name="T:RobotComponents.Properties.Resources">

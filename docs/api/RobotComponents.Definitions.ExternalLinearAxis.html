@@ -951,8 +951,8 @@ The z-axis of the place defines the positive movement direction of the external 
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_CalculatePosition_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_CalculatePosition_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculatePosition(ExternalJointPosition, out Boolean)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
-This method does not take into account the axis limits.</p>
+  <div class="markdown level1 summary"><p>Returns the position of the attachment plane for a given External Joint Position.
+This calculation does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -972,13 +972,13 @@ This method does not take into account the axis limits.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the attachment plane for.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">inLimits</span></td>
-        <td><p>A boolean that indicates if the defined exernal axis value is inside its limits.</p>
+        <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
     </tbody>
@@ -1005,9 +1005,9 @@ This method does not take into account the axis limits.</p>
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_CalculatePositionSave_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_CalculatePositionSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.Actions.ExternalJointPosition)">CalculatePositionSave(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the attachment plane for a defined external axis value.
-This method takes into account the external axis limits. If the defined external
-axis value is outside its limits the closest external axis limit will be used.</p>
+  <div class="markdown level1 summary"><p>Returns the position of the attachment plane for a given External Joint Position.
+This calculations takes into account the external axis limits.
+If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1027,7 +1027,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the attachment plane for in mm.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -1054,8 +1054,8 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_CalculateTransformationMatrix_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_CalculateTransformationMatrix_RobotComponents_Actions_ExternalJointPosition_System_Boolean__" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)">CalculateTransformationMatrix(ExternalJointPosition, out Boolean)</h4>
-  <div class="markdown level1 summary"><p>Calculates the the transformation matrix for a defined external axis value.
-This method does not take into account the axis limits.</p>
+  <div class="markdown level1 summary"><p>Returns the the transformation matrix for a given External Joint Position.
+This calculation does not take into account the axis limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1075,13 +1075,13 @@ This method does not take into account the axis limits.</p>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the attachment plane for in mm.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
       <tr>
         <td><span class="xref">System.Boolean</span></td>
         <td><span class="parametername">inLimits</span></td>
-        <td><p>A boolean that indicates if the defined exernal axis value is inside its limits.</p>
+        <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
     </tbody>
@@ -1097,7 +1097,7 @@ This method does not take into account the axis limits.</p>
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
-        <td><p>The transformation matrix</p>
+        <td><p>The transformation matrix.</p>
 </td>
       </tr>
     </tbody>
@@ -1108,9 +1108,9 @@ This method does not take into account the axis limits.</p>
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_CalculateTransformationMatrixSave_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_CalculateTransformationMatrixSave_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)">CalculateTransformationMatrixSave(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the the transformation matrix for a defined external axis value.
-This method takes into account the external axis limits. If the defined external
-axis value is outside its limits the closest external axis limit will be used.</p>
+  <div class="markdown level1 summary"><p>Returns the the transformation matrix for a given External Joint Position.
+This calculations takes into account the external axis limits.
+If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1130,7 +1130,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the transformation matrix for in mm.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -1146,7 +1146,7 @@ axis value is outside its limits the closest external axis limit will be used.</
     <tbody>
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
-        <td><p>Returns the transformation matrix.</p>
+        <td><p>The transformation matrix.</p>
 </td>
       </tr>
     </tbody>
@@ -1269,13 +1269,29 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_GetAxisCurve_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_GetAxisCurve" data-uid="RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve">GetAxisCurve()</h4>
-  <div class="markdown level1 summary"><p>Defines the axis curve based on the axis limits, the momvement direction and the attachment plane origin.</p>
+  <div class="markdown level1 summary"><p>Gets the axis curve. The direction of the curve defines the movement direction and the spatial limits of the attachement plane.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void GetAxisCurve()</code></pre>
+    <pre><code class="lang-csharp hljs">public Curve GetAxisCurve()</code></pre>
   </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Rhino.Geometry.Curve</span></td>
+        <td><p>The axis curve.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_GetObjectData_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.GetObjectData*"></a>
@@ -1315,7 +1331,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_PoseMeshes_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_PoseMeshes_RobotComponents_Actions_ExternalJointPosition_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">PoseMeshes(ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates the position of the external axis mesh for a defined external axis value.</p>
+  <div class="markdown level1 summary"><p>Calculates and returns the position of the external axis meshes for a given External Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1335,7 +1351,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.ExternalJointPosition.html">ExternalJointPosition</a></td>
         <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The external joint position to calculate the position of the meshes for in mm.</p>
+        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -1362,7 +1378,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_ReInitialize_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.ReInitialize*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_ReInitialize" data-uid="RobotComponents.Definitions.ExternalLinearAxis.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>A method that can be called to reinitialize all the data that is needed to construct a valid external linear axis.</p>
+  <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid External Linear Axis instance.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1404,7 +1420,7 @@ axis value is outside its limits the closest external axis limit will be used.</
   
   <a id="RobotComponents_Definitions_ExternalLinearAxis_Transform_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.Transform*"></a>
   <h4 id="RobotComponents_Definitions_ExternalLinearAxis_Transform_Rhino_Geometry_Transform_" data-uid="RobotComponents.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)">Transform(Transform)</h4>
-  <div class="markdown level1 summary"><p>Transforms the external linear axis spatial properties (planes and meshes.</p>
+  <div class="markdown level1 summary"><p>Transforms the external axis spatial properties (planes and meshes).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -1424,7 +1440,7 @@ axis value is outside its limits the closest external axis limit will be used.</
       <tr>
         <td><span class="xref">Rhino.Geometry.Transform</span></td>
         <td><span class="parametername">xform</span></td>
-        <td><p>Spatial deform.</p>
+        <td><p>The spatial deform.</p>
 </td>
       </tr>
     </tbody>

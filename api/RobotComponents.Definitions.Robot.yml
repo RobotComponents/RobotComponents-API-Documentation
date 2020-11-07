@@ -11,13 +11,13 @@ items:
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.BasePlane
+  - RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
   - RobotComponents.Definitions.Robot.Duplicate
   - RobotComponents.Definitions.Robot.ExternalAxes
   - RobotComponents.Definitions.Robot.ExternalAxisLimits
   - RobotComponents.Definitions.Robot.ExternalAxisPlanes
   - RobotComponents.Definitions.Robot.ForwardKinematics
-  - RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
-  - RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
+  - RobotComponents.Definitions.Robot.GetAttachedToolMesh
   - RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.Robot.InternalAxisLimits
   - RobotComponents.Definitions.Robot.InternalAxisPlanes
@@ -356,16 +356,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
-  commentId: M:RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
-  id: GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
+- uid: RobotComponents.Definitions.Robot.GetAttachedToolMesh
+  commentId: M:RobotComponents.Definitions.Robot.GetAttachedToolMesh
+  id: GetAttachedToolMesh
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: GetAttachedToolMesh(RobotTool)
-  nameWithType: Robot.GetAttachedToolMesh(RobotTool)
-  fullName: RobotComponents.Definitions.Robot.GetAttachedToolMesh(RobotComponents.Definitions.RobotTool)
+  name: GetAttachedToolMesh()
+  nameWithType: Robot.GetAttachedToolMesh()
+  fullName: RobotComponents.Definitions.Robot.GetAttachedToolMesh()
   type: Method
   source:
     path: RobotComponents
@@ -373,32 +373,28 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the attached tool mesh in the robot coordinate space.\n"
+  summary: "\nReturns the attached Robot Tool mesh in robot coordinate space.\n"
   syntax:
-    content: public Mesh GetAttachedToolMesh(RobotTool tool)
-    parameters:
-    - id: tool
-      type: RobotComponents.Definitions.RobotTool
-      description: 'Ther robot tool to take the mesh from. '
+    content: public Mesh GetAttachedToolMesh()
     return:
       type: Rhino.Geometry.Mesh
       description: 'The tool mesh in the robot coordinate space. '
-    content.vb: Public Function GetAttachedToolMesh(tool As RobotTool) As Mesh
+    content.vb: Public Function GetAttachedToolMesh As Mesh
   overload: RobotComponents.Definitions.Robot.GetAttachedToolMesh*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
-  commentId: M:RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
-  id: GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
+- uid: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
+  commentId: M:RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
+  id: CalculateAttachedToolPlane
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: GetAttachedToolPlane(RobotTool)
-  nameWithType: Robot.GetAttachedToolPlane(RobotTool)
-  fullName: RobotComponents.Definitions.Robot.GetAttachedToolPlane(RobotComponents.Definitions.RobotTool)
+  name: CalculateAttachedToolPlane()
+  nameWithType: Robot.CalculateAttachedToolPlane()
+  fullName: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane()
   type: Method
   source:
     path: RobotComponents
@@ -406,18 +402,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nDefines the TCP plane of the attached robot tool in the robot coordinate space.\n"
+  summary: "\nCalculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.\n"
   syntax:
-    content: public Plane GetAttachedToolPlane(RobotTool tool)
-    parameters:
-    - id: tool
-      type: RobotComponents.Definitions.RobotTool
-      description: 'Ther robot tool to take the mesh from. '
+    content: public Plane CalculateAttachedToolPlane()
     return:
       type: Rhino.Geometry.Plane
-      description: 'The attached tool mesh in the robot coordinate space. '
-    content.vb: Public Function GetAttachedToolPlane(tool As RobotTool) As Plane
-  overload: RobotComponents.Definitions.Robot.GetAttachedToolPlane*
+      description: 'The TCP plane in robot coordinate space. '
+    content.vb: Public Function CalculateAttachedToolPlane As Plane
+  overload: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -439,7 +431,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nTransforms the robot spatial properties (planes and meshes.\nThe attached external axes will not be transformed. \n"
+  summary: "\nTransforms the robot spatial properties (planes and meshes).\nNOTE: The attached external axes will not be transformed. \n"
   syntax:
     content: public void Transfom(Transform xform)
     parameters:
@@ -1551,12 +1543,12 @@ references:
   name: Mesh
   nameWithType: Mesh
   fullName: Rhino.Geometry.Mesh
-- uid: RobotComponents.Definitions.Robot.GetAttachedToolPlane*
-  commentId: Overload:RobotComponents.Definitions.Robot.GetAttachedToolPlane
+- uid: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane*
+  commentId: Overload:RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
   isExternal: true
-  name: GetAttachedToolPlane
-  nameWithType: Robot.GetAttachedToolPlane
-  fullName: RobotComponents.Definitions.Robot.GetAttachedToolPlane
+  name: CalculateAttachedToolPlane
+  nameWithType: Robot.CalculateAttachedToolPlane
+  fullName: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
 - uid: RobotComponents.Definitions.Robot.Transfom*
   commentId: Overload:RobotComponents.Definitions.Robot.Transfom
   isExternal: true
