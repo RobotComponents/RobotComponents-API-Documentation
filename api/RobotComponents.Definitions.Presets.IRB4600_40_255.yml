@@ -8,7 +8,7 @@ items:
   - RobotComponents.Definitions.Presets.IRB4600_40_255.GetAxisLimits
   - RobotComponents.Definitions.Presets.IRB4600_40_255.GetAxisPlanes
   - RobotComponents.Definitions.Presets.IRB4600_40_255.GetMeshes
-  - RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  - RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Presets.IRB4600_40_255.GetToolMountingFrame
   langs:
   - csharp
@@ -44,16 +44,16 @@ items:
   modifiers.vb:
   - Public
   - Module
-- uid: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  commentId: M:RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  id: GetRobot(System.String,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+- uid: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  commentId: M:RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  id: GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   parent: RobotComponents.Definitions.Presets.IRB4600_40_255
   langs:
   - csharp
   - vb
-  name: GetRobot(String, Plane, RobotTool, List<ExternalAxis>)
-  nameWithType: IRB4600_40_255.GetRobot(String, Plane, RobotTool, List<ExternalAxis>)
-  fullName: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(System.String, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
+  name: GetRobot(Plane, RobotTool, List<ExternalAxis>)
+  nameWithType: IRB4600_40_255.GetRobot(Plane, RobotTool, List<ExternalAxis>)
+  fullName: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
   type: Method
   source:
     path: RobotComponents
@@ -63,11 +63,8 @@ items:
   namespace: RobotComponents.Definitions.Presets
   summary: "\nReturns a new IRB4600-40/2.55 Robot instance.\n"
   syntax:
-    content: public static Robot GetRobot(string name, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxes = null)
+    content: public static Robot GetRobot(Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxes = null)
     parameters:
-    - id: name
-      type: System.String
-      description: 'The name of the Robot. '
     - id: positionPlane
       type: Rhino.Geometry.Plane
       description: 'The position and orientation of the Robot in world coordinate space. '
@@ -80,17 +77,17 @@ items:
     return:
       type: RobotComponents.Definitions.Robot
       description: 'The Robot preset. '
-    content.vb: Public Shared Function GetRobot(name As String, positionPlane As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis) = Nothing) As Robot
+    content.vb: Public Shared Function GetRobot(positionPlane As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis) = Nothing) As Robot
   overload: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot*
-  nameWithType.vb: IRB4600_40_255.GetRobot(String, Plane, RobotTool, List(Of ExternalAxis))
+  nameWithType.vb: IRB4600_40_255.GetRobot(Plane, RobotTool, List(Of ExternalAxis))
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(System.String, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
-  name.vb: GetRobot(String, Plane, RobotTool, List(Of ExternalAxis))
+  fullName.vb: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
+  name.vb: GetRobot(Plane, RobotTool, List(Of ExternalAxis))
 - uid: RobotComponents.Definitions.Presets.IRB4600_40_255.GetMeshes
   commentId: M:RobotComponents.Definitions.Presets.IRB4600_40_255.GetMeshes
   id: GetMeshes
@@ -520,13 +517,6 @@ references:
   name: GetRobot
   nameWithType: IRB4600_40_255.GetRobot
   fullName: RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
 - uid: Rhino.Geometry.Plane
   isExternal: true
   name: Plane

@@ -19,6 +19,7 @@ items:
   - RobotComponents.Definitions.Robot.ForwardKinematics
   - RobotComponents.Definitions.Robot.GetAttachedToolMesh
   - RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.InternalAxisLimits
   - RobotComponents.Definitions.Robot.InternalAxisPlanes
   - RobotComponents.Definitions.Robot.InverseKinematics
@@ -324,6 +325,52 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  commentId: M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  id: GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: GetRobotPreset(RobotPreset, Plane, RobotTool, List<ExternalAxis>)
+  nameWithType: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, List<ExternalAxis>)
+  fullName: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns a predefined ABB Robot preset. \n"
+  syntax:
+    content: public static Robot GetRobotPreset(RobotPreset preset, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxes = null)
+    parameters:
+    - id: preset
+      type: RobotComponents.Enumerations.RobotPreset
+      description: 'The Robot preset type. '
+    - id: positionPlane
+      type: Rhino.Geometry.Plane
+      description: 'The position and orientation of the Robot in world coordinate space. '
+    - id: tool
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The Robot Tool. '
+    - id: externalAxes
+      type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+      description: 'The external axes attached to the Robot. '
+    return:
+      type: RobotComponents.Definitions.Robot
+    content.vb: Public Shared Function GetRobotPreset(preset As RobotPreset, positionPlane As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis) = Nothing) As Robot
+  overload: RobotComponents.Definitions.Robot.GetRobotPreset*
+  nameWithType.vb: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, List(Of ExternalAxis))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
+  name.vb: GetRobotPreset(RobotPreset, Plane, RobotTool, List(Of ExternalAxis))
 - uid: RobotComponents.Definitions.Robot.ToString
   commentId: M:RobotComponents.Definitions.Robot.ToString
   id: ToString
@@ -1495,6 +1542,25 @@ references:
   name: Duplicate
   nameWithType: Robot.Duplicate
   fullName: RobotComponents.Definitions.Robot.Duplicate
+- uid: RobotComponents.Definitions.Robot.GetRobotPreset*
+  commentId: Overload:RobotComponents.Definitions.Robot.GetRobotPreset
+  isExternal: true
+  name: GetRobotPreset
+  nameWithType: Robot.GetRobotPreset
+  fullName: RobotComponents.Definitions.Robot.GetRobotPreset
+- uid: RobotComponents.Enumerations.RobotPreset
+  commentId: T:RobotComponents.Enumerations.RobotPreset
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: RobotPreset
+  nameWithType: RobotPreset
+  fullName: RobotComponents.Enumerations.RobotPreset
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: System.Object.ToString
   commentId: M:System.Object.ToString
   parent: System.Object

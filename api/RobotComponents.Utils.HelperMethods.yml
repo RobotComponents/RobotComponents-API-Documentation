@@ -18,6 +18,7 @@ items:
   - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
   - RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
   langs:
   - csharp
   - vb
@@ -597,6 +598,51 @@ items:
   modifiers.vb:
   - Public
   - Shared
+- uid: RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
+  commentId: M:RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
+  id: ReplaceFirst(System.String,System.String,System.String)
+  isExtensionMethod: true
+  parent: RobotComponents.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: ReplaceFirst(String, String, String)
+  nameWithType: HelperMethods.ReplaceFirst(String, String, String)
+  fullName: RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String, System.String, System.String)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Utils
+  summary: "\nReplaces the first occurence in a string with a new text. \n"
+  syntax:
+    content: public static string ReplaceFirst(this string text, string search, string replace)
+    parameters:
+    - id: text
+      type: System.String
+      description: 'The text the search and replace in. '
+    - id: search
+      type: System.String
+      description: 'The text to search for. '
+    - id: replace
+      type: System.String
+      description: 'The new text. '
+    return:
+      type: System.String
+      description: 'Returns a new string with replaced text. '
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ReplaceFirst(text As String, search As String, replace As String) As String
+  overload: RobotComponents.Utils.HelperMethods.ReplaceFirst*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 references:
 - uid: RobotComponents.Utils
   commentId: N:RobotComponents.Utils
@@ -980,3 +1026,16 @@ references:
   name: PlaneToQuaternion
   nameWithType: HelperMethods.PlaneToQuaternion
   fullName: RobotComponents.Utils.HelperMethods.PlaneToQuaternion
+- uid: RobotComponents.Utils.HelperMethods.ReplaceFirst*
+  commentId: Overload:RobotComponents.Utils.HelperMethods.ReplaceFirst
+  isExternal: true
+  name: ReplaceFirst
+  nameWithType: HelperMethods.ReplaceFirst
+  fullName: RobotComponents.Utils.HelperMethods.ReplaceFirst
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

@@ -682,20 +682,20 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nGets the axis logic as a char (-, A, B, C, E, E, F).\n"
   syntax:
-    content: public abstract char AxisLogic { get; }
+    content: public abstract char AxisLogic { get; set; }
     parameters: []
     return:
       type: System.Char
-    content.vb: Public MustOverride ReadOnly Property AxisLogic As Char
+    content.vb: Public MustOverride Property AxisLogic As Char
   overload: RobotComponents.Definitions.ExternalAxis.AxisLogic*
   modifiers.csharp:
   - public
   - abstract
   - get
+  - set
   modifiers.vb:
   - Public
   - MustOverride
-  - ReadOnly
 - uid: RobotComponents.Definitions.ExternalAxis.BaseMesh
   commentId: P:RobotComponents.Definitions.ExternalAxis.BaseMesh
   id: BaseMesh
