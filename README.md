@@ -1,12 +1,34 @@
 # Robot Components API Documentation
 
-# !!! Work in progress !!! 
-API Documentation of the Grasshopper plugin Robot Components
+[![License](https://img.shields.io/github/license/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
+[![Closed Issues](https://img.shields.io/github/issues-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
+[![Open Issues](https://img.shields.io/github/issues-closed-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
+
+This repository contains the content of [https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html](https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html). The API documentation page is built with [DocFX](https://dotnet.github.io/docfx/). 
+
+Pull requests are welcome. If you want to build the site yourself, to test your changes before opening a pull request, then please check out the getting started guide below. 
+
+## Work in progress !!!
+
+TODO: 
+
+- [ ] Installation manual
+- [ ] Introduction page
+- [ ] C# example
+- [ ] Python example
+- [ ] Remove obsolete components and methods from API references
+- [ ] Automate built process on GitHub
+
+## Getting started
+
+### Installation
+
+TODO..
 
 ## License
 Robot Components
 
-Copyright (c) 2018-2020 [The Robot Components authors and / or their affiliations](https://github.com/RobotComponents/RobotComponents/blob/master/AUTHORS.md)
+Copyright (c) 2018-2021 [The Robot Components authors and / or their affiliations](https://github.com/RobotComponents/RobotComponents/blob/master/AUTHORS.md)
 
 Robot Components is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation. 
 
