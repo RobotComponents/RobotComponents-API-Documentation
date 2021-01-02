@@ -1,3 +1,3 @@
-# Python examples
+# **Python examples**
 
 Coming soon...
