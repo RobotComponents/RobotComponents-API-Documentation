@@ -11,6 +11,7 @@ items:
   - RobotComponents.Actions.DigitalOutput.#ctor(System.String,System.Boolean)
   - RobotComponents.Actions.DigitalOutput.Duplicate
   - RobotComponents.Actions.DigitalOutput.DuplicateAction
+  - RobotComponents.Actions.DigitalOutput.DuplicateInstruction
   - RobotComponents.Actions.DigitalOutput.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.DigitalOutput.IsActive
   - RobotComponents.Actions.DigitalOutput.IsValid
@@ -35,15 +36,16 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nRepresents a Set Digital Output instruction. \nThis action is used to set the value (state) of a digital output signal.\n"
   syntax:
-    content: 'public class DigitalOutput : Action, ISerializable'
+    content: 'public class DigitalOutput : Action, IInstruction, ISerializable'
     content.vb: >-
       Public Class DigitalOutput
           Inherits Action
-          Implements ISerializable
+          Implements IInstruction, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
+  - RobotComponents.Actions.IInstruction
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -244,6 +246,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.DigitalOutput.DuplicateInstruction
+  commentId: M:RobotComponents.Actions.DigitalOutput.DuplicateInstruction
+  id: DuplicateInstruction
+  parent: RobotComponents.Actions.DigitalOutput
+  langs:
+  - csharp
+  - vb
+  name: DuplicateInstruction()
+  nameWithType: DigitalOutput.DuplicateInstruction()
+  fullName: RobotComponents.Actions.DigitalOutput.DuplicateInstruction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Digital Output instance as IInstruction.\n"
+  syntax:
+    content: public IInstruction DuplicateInstruction()
+    return:
+      type: RobotComponents.Actions.IInstruction
+      description: 'A deep copy of the Digital Output instance as an IInstruction. '
+    content.vb: Public Function DuplicateInstruction As IInstruction
+  overload: RobotComponents.Actions.DigitalOutput.DuplicateInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.DuplicateInstruction
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.DigitalOutput.DuplicateAction
   commentId: M:RobotComponents.Actions.DigitalOutput.DuplicateAction
   id: DuplicateAction
@@ -374,6 +407,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.DigitalOutput.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -440,6 +475,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.DigitalOutput.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -472,6 +509,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Actions.Action.IsValid
   overload: RobotComponents.Actions.DigitalOutput.IsValid*
+  implements:
+  - RobotComponents.Actions.IInstruction.IsValid
   modifiers.csharp:
   - public
   - override
@@ -563,6 +602,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IInstruction
+  commentId: T:RobotComponents.Actions.IInstruction
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IInstruction
+  nameWithType: IInstruction
+  fullName: RobotComponents.Actions.IInstruction
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -940,6 +986,43 @@ references:
   name: Duplicate
   nameWithType: DigitalOutput.Duplicate
   fullName: RobotComponents.Actions.DigitalOutput.Duplicate
+- uid: RobotComponents.Actions.DigitalOutput.DuplicateInstruction*
+  commentId: Overload:RobotComponents.Actions.DigitalOutput.DuplicateInstruction
+  isExternal: true
+  name: DuplicateInstruction
+  nameWithType: DigitalOutput.DuplicateInstruction
+  fullName: RobotComponents.Actions.DigitalOutput.DuplicateInstruction
+- uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+  commentId: M:RobotComponents.Actions.IInstruction.DuplicateInstruction
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: DuplicateInstruction()
+  nameWithType: IInstruction.DuplicateInstruction()
+  fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    name: DuplicateInstruction
+    nameWithType: IInstruction.DuplicateInstruction
+    fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    name: DuplicateInstruction
+    nameWithType: IInstruction.DuplicateInstruction
+    fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.DuplicateAction
   commentId: M:RobotComponents.Actions.Action.DuplicateAction
   parent: RobotComponents.Actions.Action
@@ -1121,6 +1204,47 @@ references:
   name: ToRAPIDInstruction
   nameWithType: DigitalOutput.ToRAPIDInstruction
   fullName: RobotComponents.Actions.DigitalOutput.ToRAPIDInstruction
+- uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IInstruction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   parent: RobotComponents.Actions.Action
@@ -1210,6 +1334,47 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: IInstruction.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.IsValid
   commentId: P:RobotComponents.Actions.Action.IsValid
   parent: RobotComponents.Actions.Action
@@ -1223,6 +1388,13 @@ references:
   name: IsValid
   nameWithType: DigitalOutput.IsValid
   fullName: RobotComponents.Actions.DigitalOutput.IsValid
+- uid: RobotComponents.Actions.IInstruction.IsValid
+  commentId: P:RobotComponents.Actions.IInstruction.IsValid
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: IsValid
+  nameWithType: IInstruction.IsValid
+  fullName: RobotComponents.Actions.IInstruction.IsValid
 - uid: RobotComponents.Actions.DigitalOutput.Name*
   commentId: Overload:RobotComponents.Actions.DigitalOutput.Name
   isExternal: true

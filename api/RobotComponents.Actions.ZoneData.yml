@@ -13,6 +13,7 @@ items:
   - RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.ZoneData.Duplicate
   - RobotComponents.Actions.ZoneData.DuplicateAction
+  - RobotComponents.Actions.ZoneData.DuplicateDeclaration
   - RobotComponents.Actions.ZoneData.ExactPredefinedValue
   - RobotComponents.Actions.ZoneData.FinePoint
   - RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -49,15 +50,16 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nRepresents a predefined or user definied Zone Data declaration.\nThis action is used to specify how a position is to be terminated.\n"
   syntax:
-    content: 'public class ZoneData : Action, ISerializable'
+    content: 'public class ZoneData : Action, IDeclaration, ISerializable'
     content.vb: >-
       Public Class ZoneData
           Inherits Action
-          Implements ISerializable
+          Implements IDeclaration, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
+  - RobotComponents.Actions.IDeclaration
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -336,6 +338,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.ZoneData.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.ZoneData.DuplicateDeclaration
+  id: DuplicateDeclaration
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDeclaration()
+  nameWithType: ZoneData.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.ZoneData.DuplicateDeclaration()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Zone Data instance as an IDeclaration.\n"
+  syntax:
+    content: public IDeclaration DuplicateDeclaration()
+    return:
+      type: RobotComponents.Actions.IDeclaration
+      description: 'A deep copy of the Zone Data instance as an IDeclaration. '
+    content.vb: Public Function DuplicateDeclaration As IDeclaration
+  overload: RobotComponents.Actions.ZoneData.DuplicateDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ZoneData.DuplicateAction
   commentId: M:RobotComponents.Actions.ZoneData.DuplicateAction
   id: DuplicateAction
@@ -430,6 +463,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -499,6 +534,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -564,6 +601,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Actions.Action.IsValid
   overload: RobotComponents.Actions.ZoneData.IsValid*
+  implements:
+  - RobotComponents.Actions.IDeclaration.IsValid
   modifiers.csharp:
   - public
   - override
@@ -597,6 +636,8 @@ items:
       type: RobotComponents.Enumerations.ReferenceType
     content.vb: Public Property ReferenceType As ReferenceType
   overload: RobotComponents.Actions.ZoneData.ReferenceType*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ReferenceType
   modifiers.csharp:
   - public
   - get
@@ -628,6 +669,8 @@ items:
       type: System.String
     content.vb: Public Property Name As String
   overload: RobotComponents.Actions.ZoneData.Name*
+  implements:
+  - RobotComponents.Actions.IDeclaration.Name
   modifiers.csharp:
   - public
   - get
@@ -1031,6 +1074,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IDeclaration
+  commentId: T:RobotComponents.Actions.IDeclaration
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.Actions.IDeclaration
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -1422,6 +1472,43 @@ references:
   name: Duplicate
   nameWithType: ZoneData.Duplicate
   fullName: RobotComponents.Actions.ZoneData.Duplicate
+- uid: RobotComponents.Actions.ZoneData.DuplicateDeclaration*
+  commentId: Overload:RobotComponents.Actions.ZoneData.DuplicateDeclaration
+  isExternal: true
+  name: DuplicateDeclaration
+  nameWithType: ZoneData.DuplicateDeclaration
+  fullName: RobotComponents.Actions.ZoneData.DuplicateDeclaration
+- uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: DuplicateDeclaration()
+  nameWithType: IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.DuplicateAction
   commentId: M:RobotComponents.Actions.Action.DuplicateAction
   parent: RobotComponents.Actions.Action
@@ -1543,6 +1630,47 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: ZoneData.ToRAPIDDeclaration
   fullName: RobotComponents.Actions.ZoneData.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot
   commentId: T:RobotComponents.Definitions.Robot
   parent: RobotComponents.Definitions
@@ -1644,6 +1772,47 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator
   commentId: T:RobotComponents.Actions.RAPIDGenerator
   parent: RobotComponents.Actions
@@ -1705,12 +1874,26 @@ references:
   name: IsValid
   nameWithType: ZoneData.IsValid
   fullName: RobotComponents.Actions.ZoneData.IsValid
+- uid: RobotComponents.Actions.IDeclaration.IsValid
+  commentId: P:RobotComponents.Actions.IDeclaration.IsValid
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: IsValid
+  nameWithType: IDeclaration.IsValid
+  fullName: RobotComponents.Actions.IDeclaration.IsValid
 - uid: RobotComponents.Actions.ZoneData.ReferenceType*
   commentId: Overload:RobotComponents.Actions.ZoneData.ReferenceType
   isExternal: true
   name: ReferenceType
   nameWithType: ZoneData.ReferenceType
   fullName: RobotComponents.Actions.ZoneData.ReferenceType
+- uid: RobotComponents.Actions.IDeclaration.ReferenceType
+  commentId: P:RobotComponents.Actions.IDeclaration.ReferenceType
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ReferenceType
+  nameWithType: IDeclaration.ReferenceType
+  fullName: RobotComponents.Actions.IDeclaration.ReferenceType
 - uid: RobotComponents.Enumerations.ReferenceType
   commentId: T:RobotComponents.Enumerations.ReferenceType
   parent: RobotComponents.Enumerations
@@ -1730,6 +1913,13 @@ references:
   name: Name
   nameWithType: ZoneData.Name
   fullName: RobotComponents.Actions.ZoneData.Name
+- uid: RobotComponents.Actions.IDeclaration.Name
+  commentId: P:RobotComponents.Actions.IDeclaration.Name
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: Name
+  nameWithType: IDeclaration.Name
+  fullName: RobotComponents.Actions.IDeclaration.Name
 - uid: RobotComponents.Actions.ZoneData.FinePoint*
   commentId: Overload:RobotComponents.Actions.ZoneData.FinePoint
   isExternal: true

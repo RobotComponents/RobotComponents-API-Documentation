@@ -1,0 +1,298 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.IDeclaration
+  commentId: T:RobotComponents.Actions.IDeclaration
+  id: IDeclaration
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  - RobotComponents.Actions.IDeclaration.IsValid
+  - RobotComponents.Actions.IDeclaration.Name
+  - RobotComponents.Actions.IDeclaration.ReferenceType
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  langs:
+  - csharp
+  - vb
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.Actions.IDeclaration
+  type: Interface
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nRepresents the interface for different declaration action types.\n"
+  syntax:
+    content: public interface IDeclaration
+    content.vb: Public Interface IDeclaration
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  id: DuplicateDeclaration
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDeclaration()
+  nameWithType: IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Declaration.\n"
+  syntax:
+    content: IDeclaration DuplicateDeclaration()
+    return:
+      type: RobotComponents.Actions.IDeclaration
+      description: 'The exact copy of this Declaration. '
+    content.vb: Function DuplicateDeclaration As IDeclaration
+  overload: RobotComponents.Actions.IDeclaration.DuplicateDeclaration*
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
+  syntax:
+    content: string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'The RAPID code line. '
+    content.vb: Function ToRAPIDDeclaration(robot As Robot) As String
+  overload: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration*
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration*
+- uid: RobotComponents.Actions.IDeclaration.IsValid
+  commentId: P:RobotComponents.Actions.IDeclaration.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: IDeclaration.IsValid
+  fullName: RobotComponents.Actions.IDeclaration.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
+  syntax:
+    content: bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.Actions.IDeclaration.IsValid*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: RobotComponents.Actions.IDeclaration.ReferenceType
+  commentId: P:RobotComponents.Actions.IDeclaration.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: IDeclaration.ReferenceType
+  fullName: RobotComponents.Actions.IDeclaration.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the Reference Type. \n"
+  syntax:
+    content: ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.IDeclaration.ReferenceType*
+  modifiers.csharp:
+  - get
+  - set
+- uid: RobotComponents.Actions.IDeclaration.Name
+  commentId: P:RobotComponents.Actions.IDeclaration.Name
+  id: Name
+  parent: RobotComponents.Actions.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IDeclaration.Name
+  fullName: RobotComponents.Actions.IDeclaration.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the variable name of the declaration.\n"
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: RobotComponents.Actions.IDeclaration.Name*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration*
+  commentId: Overload:RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  isExternal: true
+  name: DuplicateDeclaration
+  nameWithType: IDeclaration.DuplicateDeclaration
+  fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+- uid: RobotComponents.Actions.IDeclaration
+  commentId: T:RobotComponents.Actions.IDeclaration
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.Actions.IDeclaration
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: IDeclaration.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.IDeclaration.IsValid*
+  commentId: Overload:RobotComponents.Actions.IDeclaration.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: IDeclaration.IsValid
+  fullName: RobotComponents.Actions.IDeclaration.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.IDeclaration.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.IDeclaration.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: IDeclaration.ReferenceType
+  fullName: RobotComponents.Actions.IDeclaration.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
+- uid: RobotComponents.Actions.IDeclaration.Name*
+  commentId: Overload:RobotComponents.Actions.IDeclaration.Name
+  isExternal: true
+  name: Name
+  nameWithType: IDeclaration.Name
+  fullName: RobotComponents.Actions.IDeclaration.Name

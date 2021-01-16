@@ -12,6 +12,7 @@ items:
   - RobotComponents.Actions.WaitDI.DIName
   - RobotComponents.Actions.WaitDI.Duplicate
   - RobotComponents.Actions.WaitDI.DuplicateAction
+  - RobotComponents.Actions.WaitDI.DuplicateInstruction
   - RobotComponents.Actions.WaitDI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitDI.IsValid
   - RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
@@ -35,15 +36,16 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nRepresents a Wait for Digital Input instruction.\nThis action is used to wait until a digital input is set.\n"
   syntax:
-    content: 'public class WaitDI : Action, ISerializable'
+    content: 'public class WaitDI : Action, IInstruction, ISerializable'
     content.vb: >-
       Public Class WaitDI
           Inherits Action
-          Implements ISerializable
+          Implements IInstruction, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
+  - RobotComponents.Actions.IInstruction
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -244,6 +246,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.WaitDI.DuplicateInstruction
+  commentId: M:RobotComponents.Actions.WaitDI.DuplicateInstruction
+  id: DuplicateInstruction
+  parent: RobotComponents.Actions.WaitDI
+  langs:
+  - csharp
+  - vb
+  name: DuplicateInstruction()
+  nameWithType: WaitDI.DuplicateInstruction()
+  fullName: RobotComponents.Actions.WaitDI.DuplicateInstruction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Wait DI instance as IInstruction.\n"
+  syntax:
+    content: public IInstruction DuplicateInstruction()
+    return:
+      type: RobotComponents.Actions.IInstruction
+      description: 'A deep copy of the Wait DI instance as an IInstruction. '
+    content.vb: Public Function DuplicateInstruction As IInstruction
+  overload: RobotComponents.Actions.WaitDI.DuplicateInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.DuplicateInstruction
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.WaitDI.DuplicateAction
   commentId: M:RobotComponents.Actions.WaitDI.DuplicateAction
   id: DuplicateAction
@@ -374,6 +407,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.WaitDI.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -440,6 +475,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.WaitDI.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -472,6 +509,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Actions.Action.IsValid
   overload: RobotComponents.Actions.WaitDI.IsValid*
+  implements:
+  - RobotComponents.Actions.IInstruction.IsValid
   modifiers.csharp:
   - public
   - override
@@ -563,6 +602,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IInstruction
+  commentId: T:RobotComponents.Actions.IInstruction
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IInstruction
+  nameWithType: IInstruction
+  fullName: RobotComponents.Actions.IInstruction
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -940,6 +986,43 @@ references:
   name: Duplicate
   nameWithType: WaitDI.Duplicate
   fullName: RobotComponents.Actions.WaitDI.Duplicate
+- uid: RobotComponents.Actions.WaitDI.DuplicateInstruction*
+  commentId: Overload:RobotComponents.Actions.WaitDI.DuplicateInstruction
+  isExternal: true
+  name: DuplicateInstruction
+  nameWithType: WaitDI.DuplicateInstruction
+  fullName: RobotComponents.Actions.WaitDI.DuplicateInstruction
+- uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+  commentId: M:RobotComponents.Actions.IInstruction.DuplicateInstruction
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: DuplicateInstruction()
+  nameWithType: IInstruction.DuplicateInstruction()
+  fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    name: DuplicateInstruction
+    nameWithType: IInstruction.DuplicateInstruction
+    fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    name: DuplicateInstruction
+    nameWithType: IInstruction.DuplicateInstruction
+    fullName: RobotComponents.Actions.IInstruction.DuplicateInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.DuplicateAction
   commentId: M:RobotComponents.Actions.Action.DuplicateAction
   parent: RobotComponents.Actions.Action
@@ -1121,6 +1204,47 @@ references:
   name: ToRAPIDInstruction
   nameWithType: WaitDI.ToRAPIDInstruction
   fullName: RobotComponents.Actions.WaitDI.ToRAPIDInstruction
+- uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IInstruction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   parent: RobotComponents.Actions.Action
@@ -1210,6 +1334,47 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: IInstruction.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IInstruction.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IInstruction.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.IsValid
   commentId: P:RobotComponents.Actions.Action.IsValid
   parent: RobotComponents.Actions.Action
@@ -1223,6 +1388,13 @@ references:
   name: IsValid
   nameWithType: WaitDI.IsValid
   fullName: RobotComponents.Actions.WaitDI.IsValid
+- uid: RobotComponents.Actions.IInstruction.IsValid
+  commentId: P:RobotComponents.Actions.IInstruction.IsValid
+  parent: RobotComponents.Actions.IInstruction
+  isExternal: true
+  name: IsValid
+  nameWithType: IInstruction.IsValid
+  fullName: RobotComponents.Actions.IInstruction.IsValid
 - uid: RobotComponents.Actions.WaitDI.Value*
   commentId: Overload:RobotComponents.Actions.WaitDI.Value
   isExternal: true

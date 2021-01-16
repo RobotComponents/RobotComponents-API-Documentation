@@ -265,6 +265,12 @@
             </summary>
             <returns> A deep copy of the Analog Output instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.AnalogOutput.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Analog Output instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Analog Output instance as an IInstruction. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.AnalogOutput.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Analog Output instance as an Action. 
@@ -318,6 +324,323 @@
         <member name="P:RobotComponents.Actions.AnalogOutput.Value">
             <summary>
             Gets or sets the value of the signal.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Actions.LinearConfigurationControl">
+            <summary>
+            Represents the Configuration Linear instruction. 
+            This action is used to switch on or off the monitoring of linear movements.  
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Protected constructor needed for deserialization of the object. 
+            </summary>
+            <param name="info"> The SerializationInfo to extract the data from. </param>
+            <param name="context"> The context of this deserialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the object.
+            </summary>
+            <param name="info"> The SerializationInfo to populate with data. </param>
+            <param name="context"> The destination for this serialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.#ctor">
+            <summary>
+            Initializes an empty instance of the Linear Configuration Control class. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the Linear Configuration Control class. 
+            </summary>
+            <param name="isActive"> Specifies whether the Linear Configuration Control is enabled. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.#ctor(RobotComponents.Actions.LinearConfigurationControl)">
+            <summary>
+            Initializes a new instance of the Linear Configuration Control class by duplicating an existing Linear Configuration Control instance. 
+            </summary>
+            <param name="config"> The Linear Configuration Control instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Linear Configuration Control instance.
+            </summary>
+            <returns> A deep copy of the Linear Configuration Control instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Linear Configuration Control instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Linear Configuration Control instance as an IInstruction. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.DuplicateAction">
+            <summary>
+            Returns an exact duplicate of this Linear Configuration Control instance as an Action. 
+            </summary>
+            <returns> A deep copy of the Linear Configuration Control instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> An empty string. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.LinearConfigurationControl.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.LinearConfigurationControl.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.LinearConfigurationControl.IsActive">
+            <summary>
+            Gets or set a value indicating whether Linear Configuration Control is enabled. 
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Actions.JointConfigurationControl">
+            <summary>
+            Represents the Configuration Joint instruction. 
+            This action is used to switch on or off the monitoring of joint movements.  
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Protected constructor needed for deserialization of the object. 
+            </summary>
+            <param name="info"> The SerializationInfo to extract the data from. </param>
+            <param name="context"> The context of this deserialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the object.
+            </summary>
+            <param name="info"> The SerializationInfo to populate with data. </param>
+            <param name="context"> The destination for this serialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.#ctor">
+            <summary>
+            Initializes an empty instance of the Joint Configuration Control class. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the Joint Configuration Control class. 
+            </summary>
+            <param name="isActive"> Specifies whether the Joint Configuration Control is enabled. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.#ctor(RobotComponents.Actions.JointConfigurationControl)">
+            <summary>
+            Initializes a new instance of the Joint Configuration Control class by duplicating an existing Joint Configuration Control instance. 
+            </summary>
+            <param name="config"> The Joint Configuration Control instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Joint Configuration Control instance.
+            </summary>
+            <returns> A deep copy of the Joint Configuration Control instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Joint Configuration Control instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Joint Configuration Control instance as an IInstruction. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.DuplicateAction">
+            <summary>
+            Returns an exact duplicate of this Joint Configuration Control instance as an Action. 
+            </summary>
+            <returns> A deep copy of the Joint Configuration Control instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> An empty string. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointConfigurationControl.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.JointConfigurationControl.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.JointConfigurationControl.IsActive">
+            <summary>
+            Gets or set a value indicating whether Joint Configuration Control is enabled. 
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Actions.IInstruction">
+            <summary>
+            Represents the interface for different instruction action types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.IInstruction.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Instruction.
+            </summary>
+            <returns> The exact copy of this Instruction. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IInstruction.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.IInstruction.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Actions.IDeclaration">
+            <summary>
+            Represents the interface for different declaration action types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.IDeclaration.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Declaration.
+            </summary>
+            <returns> The exact copy of this Declaration. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.IDeclaration.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.IDeclaration.ReferenceType">
+            <summary>
+            Gets or sets the Reference Type. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.IDeclaration.Name">
+            <summary>
+            Gets or sets the variable name of the declaration.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Actions.IDynamic">
+            <summary>
+            Represents the interface for different dynamic action types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.IDynamic.DuplicateDynamic">
+            <summary>
+            Returns an exact duplicate of this dynamic action.
+            </summary>
+            <returns> The exact copy of this dynamic action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.IDynamic.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.IDynamic.Type">
+            <summary>
+            Gets or sets the Reference Type.
             </summary>
         </member>
         <member name="T:RobotComponents.Actions.ITarget">
@@ -409,6 +732,12 @@
             Returns an exact duplicate of this Joint Target instance as an ITarget. 
             </summary>
             <returns> A deep copy of the Joint Target instance as an ITarget. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointTarget.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Joint Target instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the Joint Target instance as an IDeclaration. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.DuplicateAction">
             <summary>
@@ -1169,6 +1498,12 @@
             </summary>
             <returns> A deep copy of the Zone Data instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.ZoneData.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Zone Data instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the Zone Data instance as an IDeclaration. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.ZoneData.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Zone Data instance as an Action. 
@@ -1386,6 +1721,12 @@
             </summary>
             <returns> A deep copy of the Auto Axis Configuration instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.AutoAxisConfig.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Auto Axis Configuration instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Auto Axis Configuration instance as an IInstruction. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.AutoAxisConfig.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Auto Axis Configuration instance as an Action. 
@@ -1484,6 +1825,12 @@
             Returns an exact duplicate of this Code Line instance.
             </summary>
             <returns> A deep copy of the Code Line instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.CodeLine.DuplicateDynamic">
+            <summary>
+            Returns an exact duplicate of this Code Line instance as IDynamic. 
+            </summary>
+            <returns> A deep copy of the Code Line instance as an IDynamic. </returns>
         </member>
         <member name="M:RobotComponents.Actions.CodeLine.DuplicateAction">
             <summary>
@@ -1590,6 +1937,12 @@
             Returns an exact duplicate of this Comment instance.
             </summary>
             <returns> A deep copy of the Comment instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.Comment.DuplicateDynamic">
+            <summary>
+            Returns an exact duplicate of this Comment instance as IDynamic. 
+            </summary>
+            <returns> A deep copy of the Comment instance as an IDynamic. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Comment.DuplicateAction">
             <summary>
@@ -1770,6 +2123,12 @@
             Returns an exact duplicate of this Movement instance.
             </summary>
             <returns> A deep copy of the Movement instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.Movement.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Movement instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Movement instance as an IInstruction. </returns>
         </member>
         <member name="M:RobotComponents.Actions.Movement.DuplicateWithoutMesh">
             <summary>
@@ -2131,6 +2490,12 @@
             </summary>
             <returns> A deep copy of the Speed Data instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.SpeedData.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Speed Data instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the SpeedData instance as an IDeclaration. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.SpeedData.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Spee Data instance as an Action. 
@@ -2278,6 +2643,12 @@
             </summary>
             <returns> A deep copy of the Wait DI instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.WaitDI.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Wait DI instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Wait DI instance as an IInstruction. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.WaitDI.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Wait DI instance as an Action. 
@@ -2376,6 +2747,12 @@
             Returns an exact duplicate of this Digital Output instance.
             </summary>
             <returns> A deep copy of the Digital Output instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.DigitalOutput.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Digital Output instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Digital Output instance as an IInstruction. </returns>
         </member>
         <member name="M:RobotComponents.Actions.DigitalOutput.DuplicateAction">
             <summary>
@@ -2520,6 +2897,12 @@
             </summary>
             <returns> A deep copy of the Robot Target instance as an ITarget. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Robot Target instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the Robot Target instance as an IDeclaration. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.RobotTarget.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Robot Target instance as an Action. 
@@ -2640,6 +3023,12 @@
             </summary>
             <returns> A deep copy of the Wait Time instance. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.WaitTime.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Wait Time instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Wait Time instance as an IInstruction. </returns>
+        </member>
         <member name="M:RobotComponents.Actions.WaitTime.DuplicateAction">
             <summary>
             Returns an exact duplicate of this Wait Time instance as an Action. 
@@ -2733,6 +3122,12 @@
             Returns an exact duplicate of this Override Robot Tool instance.
             </summary>
             <returns> A deep copy of the Override Robot Tool instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.OverrideRobotTool.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Override Robot Tool instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Override Robot Tool instance as an IInstruction. </returns>
         </member>
         <member name="M:RobotComponents.Actions.OverrideRobotTool.DuplicateAction">
             <summary>

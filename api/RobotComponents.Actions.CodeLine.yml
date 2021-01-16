@@ -13,6 +13,7 @@ items:
   - RobotComponents.Actions.CodeLine.Code
   - RobotComponents.Actions.CodeLine.Duplicate
   - RobotComponents.Actions.CodeLine.DuplicateAction
+  - RobotComponents.Actions.CodeLine.DuplicateDynamic
   - RobotComponents.Actions.CodeLine.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.CodeLine.IsValid
   - RobotComponents.Actions.CodeLine.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
@@ -36,15 +37,16 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nRepresents a custom (user definied) RAPID Code Line.\n"
   syntax:
-    content: 'public class CodeLine : Action, ISerializable'
+    content: 'public class CodeLine : Action, IDynamic, ISerializable'
     content.vb: >-
       Public Class CodeLine
           Inherits Action
-          Implements ISerializable
+          Implements IDynamic, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
+  - RobotComponents.Actions.IDynamic
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -275,6 +277,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.CodeLine.DuplicateDynamic
+  commentId: M:RobotComponents.Actions.CodeLine.DuplicateDynamic
+  id: DuplicateDynamic
+  parent: RobotComponents.Actions.CodeLine
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDynamic()
+  nameWithType: CodeLine.DuplicateDynamic()
+  fullName: RobotComponents.Actions.CodeLine.DuplicateDynamic()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Code Line instance as IDynamic. \n"
+  syntax:
+    content: public IDynamic DuplicateDynamic()
+    return:
+      type: RobotComponents.Actions.IDynamic
+      description: 'A deep copy of the Code Line instance as an IDynamic. '
+    content.vb: Public Function DuplicateDynamic As IDynamic
+  overload: RobotComponents.Actions.CodeLine.DuplicateDynamic*
+  implements:
+  - RobotComponents.Actions.IDynamic.DuplicateDynamic
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.CodeLine.DuplicateAction
   commentId: M:RobotComponents.Actions.CodeLine.DuplicateAction
   id: DuplicateAction
@@ -369,6 +402,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.CodeLine.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -405,6 +440,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.CodeLine.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -438,6 +475,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.CodeLine.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -471,6 +510,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.CodeLine.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -503,6 +544,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Actions.Action.IsValid
   overload: RobotComponents.Actions.CodeLine.IsValid*
+  implements:
+  - RobotComponents.Actions.IDynamic.IsValid
   modifiers.csharp:
   - public
   - override
@@ -567,6 +610,8 @@ items:
       type: RobotComponents.Enumerations.CodeType
     content.vb: Public Property Type As CodeType
   overload: RobotComponents.Actions.CodeLine.Type*
+  implements:
+  - RobotComponents.Actions.IDynamic.Type
   modifiers.csharp:
   - public
   - get
@@ -594,6 +639,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IDynamic
+  commentId: T:RobotComponents.Actions.IDynamic
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IDynamic
+  nameWithType: IDynamic
+  fullName: RobotComponents.Actions.IDynamic
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -977,6 +1029,43 @@ references:
   name: Duplicate
   nameWithType: CodeLine.Duplicate
   fullName: RobotComponents.Actions.CodeLine.Duplicate
+- uid: RobotComponents.Actions.CodeLine.DuplicateDynamic*
+  commentId: Overload:RobotComponents.Actions.CodeLine.DuplicateDynamic
+  isExternal: true
+  name: DuplicateDynamic
+  nameWithType: CodeLine.DuplicateDynamic
+  fullName: RobotComponents.Actions.CodeLine.DuplicateDynamic
+- uid: RobotComponents.Actions.IDynamic.DuplicateDynamic
+  commentId: M:RobotComponents.Actions.IDynamic.DuplicateDynamic
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: DuplicateDynamic()
+  nameWithType: IDynamic.DuplicateDynamic()
+  fullName: RobotComponents.Actions.IDynamic.DuplicateDynamic()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDynamic.DuplicateDynamic
+    name: DuplicateDynamic
+    nameWithType: IDynamic.DuplicateDynamic
+    fullName: RobotComponents.Actions.IDynamic.DuplicateDynamic
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDynamic.DuplicateDynamic
+    name: DuplicateDynamic
+    nameWithType: IDynamic.DuplicateDynamic
+    fullName: RobotComponents.Actions.IDynamic.DuplicateDynamic
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.DuplicateAction
   commentId: M:RobotComponents.Actions.Action.DuplicateAction
   parent: RobotComponents.Actions.Action
@@ -1098,6 +1187,47 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: CodeLine.ToRAPIDDeclaration
   fullName: RobotComponents.Actions.CodeLine.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDynamic.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDynamic.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDynamic.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot
   commentId: T:RobotComponents.Definitions.Robot
   parent: RobotComponents.Definitions
@@ -1158,6 +1288,47 @@ references:
   name: ToRAPIDInstruction
   nameWithType: CodeLine.ToRAPIDInstruction
   fullName: RobotComponents.Actions.CodeLine.ToRAPIDInstruction
+- uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IDynamic.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IDynamic.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: IDynamic.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   parent: RobotComponents.Actions.Action
@@ -1187,6 +1358,47 @@ references:
     name: ToRAPIDDeclaration
     nameWithType: Action.ToRAPIDDeclaration
     fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IDynamic.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDynamic.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDynamic.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDDeclaration
     isExternal: true
   - name: (
     nameWithType: (
@@ -1247,6 +1459,47 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: IDynamic.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IDynamic.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDynamic.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: IDynamic.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.IDynamic.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.IsValid
   commentId: P:RobotComponents.Actions.Action.IsValid
   parent: RobotComponents.Actions.Action
@@ -1260,6 +1513,13 @@ references:
   name: IsValid
   nameWithType: CodeLine.IsValid
   fullName: RobotComponents.Actions.CodeLine.IsValid
+- uid: RobotComponents.Actions.IDynamic.IsValid
+  commentId: P:RobotComponents.Actions.IDynamic.IsValid
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: IsValid
+  nameWithType: IDynamic.IsValid
+  fullName: RobotComponents.Actions.IDynamic.IsValid
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1279,3 +1539,10 @@ references:
   name: Type
   nameWithType: CodeLine.Type
   fullName: RobotComponents.Actions.CodeLine.Type
+- uid: RobotComponents.Actions.IDynamic.Type
+  commentId: P:RobotComponents.Actions.IDynamic.Type
+  parent: RobotComponents.Actions.IDynamic
+  isExternal: true
+  name: Type
+  nameWithType: IDynamic.Type
+  fullName: RobotComponents.Actions.IDynamic.Type

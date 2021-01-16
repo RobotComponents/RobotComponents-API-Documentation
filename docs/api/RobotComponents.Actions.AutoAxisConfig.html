@@ -85,6 +85,7 @@ This action is used to switch on or off the monitoring of movements.</p>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="RobotComponents.Actions.IInstruction.html">IInstruction</a></div>
     <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
@@ -112,7 +113,8 @@ This action is used to switch on or off the monitoring of movements.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_AutoAxisConfig_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AutoAxisConfig : Action, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;The Auto Axis Config class will be removed in the future. Instead, use the Joint Configuration Control and / or the Set Linear Configuration Control class.&quot;, false)]
+public class AutoAxisConfig : Action, IInstruction, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -336,6 +338,33 @@ This action is used to switch on or off the monitoring of movements.</p>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
   
   
+  <a id="RobotComponents_Actions_AutoAxisConfig_DuplicateInstruction_" data-uid="RobotComponents.Actions.AutoAxisConfig.DuplicateInstruction*"></a>
+  <h4 id="RobotComponents_Actions_AutoAxisConfig_DuplicateInstruction" data-uid="RobotComponents.Actions.AutoAxisConfig.DuplicateInstruction">DuplicateInstruction()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Auto Axis Configuration instance as IInstruction.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IInstruction DuplicateInstruction()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.IInstruction.html">IInstruction</a></td>
+        <td><p>A deep copy of the Auto Axis Configuration instance as an IInstruction.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Actions_AutoAxisConfig_GetObjectData_" data-uid="RobotComponents.Actions.AutoAxisConfig.GetObjectData*"></a>
   <h4 id="RobotComponents_Actions_AutoAxisConfig_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.Actions.AutoAxisConfig.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
   <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
@@ -557,6 +586,9 @@ This method is called inside the RAPID generator.</p>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_ToString">Action.ToString()</a></div>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="RobotComponents.Actions.IInstruction.html">IInstruction</a>
+  </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
   </div>
