@@ -5057,7 +5057,7 @@
             <param name="point"> The point of the TCP point. </param>
             <param name="quat"> The orientation of TCP point. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
             <summary>
             Initializes a new instance of the Robot Tool class.
             </summary>
@@ -5067,9 +5067,50 @@
             <param name="toolPlane"> The tool center point and tool orientation. </param>
             <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
             <param name="mass"> The weight of the tool in kg. </param>
-            <param name="centerOfGravity"> The center of gravity of the tool load. </param>
+            <param name="centerOfGravityPosition"> The position of the  center of gravity of the tool load. </param>
             <param name="centerOfGravityOrientation"> The orientation of the tool load coordinate system defined by the principal inertial axes of the 
             tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). </param>
+            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
+            <summary>
+            Initializes a new instance of the Robot Tool class.
+            </summary>
+            <param name="name"> The tool name, must be unique. </param>
+            <param name="meshes"> The tool mesh. </param>
+            <param name="attachmentPlane"> The attachement plane. </param>
+            <param name="toolPlane"> The tool center point and tool orientation. </param>
+            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
+            <param name="mass"> The weight of the tool in kg. </param>
+            <param name="centerOfGravityPosition"> The position of the center of gravity of the tool load. </param>
+            <param name="centerOfGravityOrientation"> The orientation of the tool load coordinate system defined by the principal inertial axes of the 
+            tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). </param>
+            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
+            <summary>
+            Initializes a new instance of the Robot Tool class.
+            </summary>
+            <param name="name"> The tool name, must be unique. </param>
+            <param name="mesh"> The tool mesh. </param>
+            <param name="attachmentPlane"> The attachement plane. </param>
+            <param name="toolPlane"> The tool center point and tool orientation. </param>
+            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
+            <param name="mass"> The weight of the tool in kg. </param>
+            <param name="centerOfGravity"> The position and orientation of the center of gravity of the tool load. </param>
+            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
+            <summary>
+            Initializes a new instance of the Robot Tool class.
+            </summary>
+            <param name="name"> The tool name, must be unique. </param>
+            <param name="meshes"> The tool mesh. </param>
+            <param name="attachmentPlane"> The attachement plane. </param>
+            <param name="toolPlane"> The tool center point and tool orientation. </param>
+            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
+            <param name="mass"> The weight of the tool in kg. </param>
+            <param name="centerOfGravity"> The position and orientation of the center of gravity of the tool load. </param>
             <param name="inertia"> The moment of inertia of the load in kgm2. </param>
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)">
@@ -5118,6 +5159,18 @@
             Calculates and returns the tool center orientation relative to the defined attachment plane. 
             </summary>
             <returns> The quaternion orientation of the tool center plane. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition">
+            <summary>
+            Calculates and returns the tool center of gravity relative to the defined attachment plane. 
+            </summary>
+            <returns> The center of gravity point. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation">
+            <summary>
+            Calculates and returns the tool center of gravity orientation relative to the defined attachment plane. 
+            </summary>
+            <returns> The quaternion orientation of the tool center of gravity. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration">
             <summary>
@@ -5193,12 +5246,17 @@
         </member>
         <member name="P:RobotComponents.Definitions.RobotTool.CenterOfGravity">
             <summary>
-            Gets or sets the center of gravity of the tool load.
+            Gets or sets the position and orientation of the center of gravity of the tool load as a plane.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Definitions.RobotTool.CenterOfGravityPosition">
+            <summary>
+            Gets the position of the center of gravity of the tool load.
             </summary>
         </member>
         <member name="P:RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation">
             <summary>
-            Gets or sets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. 
+            Gets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. 
             Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).
             </summary>
         </member>
@@ -6281,6 +6339,340 @@
             Gets the external axis limits.
             </summary>
         </member>
+        <member name="T:RobotComponents.Utils.RobotToolCalibration">
+            <summary>
+            Represents the Robot Tool Calibration class.
+            This class uses Newton's method and numerical differentiation to calculate the TCP from given Joint Positions. 
+            If desired, the parameters for this optimization can be changed via the properties of this class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor">
+            <summary>
+            Initializes an empty instance of the Robot Tool Calibration class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})">
+            <summary>
+            Initializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions.
+            The External Joint Positions are set with default values (9e9).
+            </summary>
+            <param name="robot"> The Robot the Joint Positions are given for. </param>
+            <param name="robotJointPositions"> The Robot Joint Positions as a list. </param>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})">
+            <summary>
+            Initializes a new instance of the Robot Tool Calibration class.
+            </summary>
+            <param name="robot"> The Robot the Joint Positions are given for. </param>
+            <param name="robotJointPositions"> The Robot Joint Positions as a list. </param>
+            <param name="externalJointPositions"> The External Joint Positions as a list. </param>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Utils.RobotToolCalibration)">
+            <summary>
+            Initializes a new instance of the Robot Tool Calibration class by duplicating an existing Robot Tool Calibration instance.
+            </summary>
+            <param name="calibration"> The Robot Tool Calibration instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Robot Tool Calibration instance.
+            </summary>
+            <returns> A deep copy of the Robot Tool Calibration instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.Initialize">
+            <summary>
+            Initializes the fields and properties to construct a valid Robot Tool Calibration instance. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.ReInitialize">
+            <summary>
+            Reinitializes the fields and properties to construct a valid Robot Tool Calibration instance. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.CheckJointPositionsAxisLimits">
+            <summary>
+            Checks if the given Joint Positions are within the axis limits of the robot.
+            </summary>
+            <returns> A list with erros messages. When the list is empty, all the joint positions are within the limits. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.Calculate">
+            <summary>
+            Calculates the Tool Center Point.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.CreateFrames">
+            <summary>
+            Creates the reference frames (the end planes of the 6th axis for the different positions).
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.CalculateFunctionValues(System.Double,System.Double,System.Double)">
+            <summary>
+            Calculates the fuctions values (the errors) for the optimization.
+            </summary>
+            <param name="x"> The x-coordinate of the TCP point. </param>
+            <param name="y"> The y-coordinate of the TCP point. </param>
+            <param name="z"> The z-coordinate of the TCP point.</param>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Robot">
+            <summary>
+            Gets or sets the Robot that is used for the tool calibration.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.RobotJointPositions">
+            <summary>
+            Gets or sets the Robot Joint Positions to calculate the TCP from.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.ExternalJointPositions">
+            <summary>
+            Gets or sets the External Joint Positions to calculate the tool center point from.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.XInitial">
+            <summary>
+            Gets or sets the initial x-coordinate of the tool center point to start the optimization with.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.YInitial">
+            <summary>
+            Gets or sets the initial y-coordinate of the tool center point to start the optimization with.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.ZInitial">
+            <summary>
+            Gets or sets the initial z-coordinate of the tool center point to start the optimization with.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Iterations">
+            <summary>
+            Gets or sets the maximum number of iterations of the tool calibation optimization.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Precision">
+            <summary>
+            Gets or sets the desired precision of the tool calibraton optimization.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Damping">
+            <summary>
+            Gets or sets the damping factor of the tool calibraton optimization.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Delta">
+            <summary>
+            Gets or sets the delta of the tool calibraton optimization.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.X">
+            <summary>
+            Gets the x-coordindate of the tool center point.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Y">
+            <summary>
+            Gets the y-coordindate of the tool center point.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.Z">
+            <summary>
+            Gets the z-coordindate of the tool center point.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.TcpPoint">
+            <summary>
+            Gets the tool center point.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.TargetPoint">
+            <summary>
+            Gets the target point in world coordinate space. 
+            This is the average point that is obtained from the given Robot Joint Positions and the calculated TCP.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.ErrorsX">
+            <summary>
+            Gets the resulting errors in x-direction for each given Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.ErrorsY">
+            <summary>
+            Gets the resulting errors in y-direction for each given Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.ErrorsZ">
+            <summary>
+            Gets the resulting errors in z-direction for each given Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Utils.RobotToolCalibration.MaximumError">
+            <summary>
+            Gets the maximum errors in the x, y and z direction as a vector. 
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Utils.HelperMethods">
+            <summary>
+            Represents general helper methods
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)">
+            <summary>
+            Serializes a common object to a byte array. 
+            Typically used for serializing robot meshes and data inside Goo classes.
+            </summary>
+            <param name="obj"> The common object. </param>
+            <returns> The byte array. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])">
+            <summary>
+            Deserializes a byte array to a common object. 
+            Typically used for deserializing robot meshes and data inside Goo classes.
+            </summary>
+            <param name="data"> The byte array. </param>
+            <returns> The common object. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)">
+            <summary>
+            Flips a plane normal to the oposite direction by setting it's x-axis negative.
+            </summary>
+            <param name="plane"> The plane that needs to be flipped. </param>
+            <returns> Tshe flipped plane. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)">
+            <summary>
+            Flips a plane normal to the oposite direction by setting it's y-axis negative.
+            </summary>
+            <param name="plane"> The plane that needs to be flipped. </param>
+            <returns> The flipped plane. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="origin"> The origin of the plane. </param>
+            <param name="quat"> The quarternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="refPlane"> The reference plane. </param>
+            <param name="origin"> The origin of the new plane. </param>
+            <param name="quat"> The quarternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="origin"> The origin of the plane. </param>
+            <param name="A"> The real part of the quaternion. </param>
+            <param name="B"> The first imaginary coefficient of the quaternion. </param>
+            <param name="C"> The second imaginary coefficient of the quaternion. </param>
+            <param name="D"> The third imaginary coefficient of the quaternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="refPlane"> The reference plane. </param>
+            <param name="origin"> The origin of the plane. </param>
+            <param name="A"> The real part of the quaternion. </param>
+            <param name="B"> The first imaginary coefficient of the quaternion. </param>
+            <param name="C"> The second imaginary coefficient of the quaternion. </param>
+            <param name="D"> The third imaginary coefficient of the quaternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="x"> The x coordinate of the plane origin. </param>
+            <param name="y"> The y coordinate of the plane origin. </param>
+            <param name="z"> The z coordinate of the plane origin.</param>
+            <param name="A"> The real part of the quaternion. </param>
+            <param name="B"> The first imaginary coefficient of the quaternion. </param>
+            <param name="C"> The second imaginary coefficient of the quaternion. </param>
+            <param name="D"> The third imaginary coefficient of the quaternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Transforms a Quarternion to a Plane.
+            </summary>
+            <param name="refPlane"> The reference plane. </param>
+            <param name="x"> The x coordinate of the plane origin. </param>
+            <param name="y"> The y coordinate of the plane origin. </param>
+            <param name="z"> The z coordinate of the plane origin.</param>
+            <param name="A"> The real part of the quaternion. </param>
+            <param name="B"> The first imaginary coefficient of the quaternion. </param>
+            <param name="C"> The second imaginary coefficient of the quaternion. </param>
+            <param name="D"> The third imaginary coefficient of the quaternion. </param>
+            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
+            <summary>
+            Transforms a plane to a quarternion.
+            </summary>
+            <param name="refPlane"> The reference plane. </param>
+            <param name="plane"> The plane that should be transformed. </param>
+            <returns> The quaternion as a Quaternion. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)">
+            <summary>
+            Transforms a plane to a quarternion.
+            </summary>
+            <param name="refPlane"> The reference plane. </param>
+            <param name="plane"> The plane that should be transformed. </param>
+            <param name="origin"> The origin of the plane oriented based on the reference plane. </param>
+            <returns> The quaternion as a Quaternion. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)">
+            <summary>
+            Transforms a plane to a quarternion with as reference plane WorldXY.
+            </summary>
+            <param name="plane"> The plane to should be transformed. </param>
+            <returns> The quaternion. </returns>
+        </member>
+        <member name="M:RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)">
+            <summary>
+            Replaces the first occurence in a string with a new text. 
+            </summary>
+            <param name="text"> The text the search and replace in. </param>
+            <param name="search"> The text to search for. </param>
+            <param name="replace"> The new text. </param>
+            <returns> Returns a new string with replaced text. </returns>
+        </member>
+        <member name="T:RobotComponents.Utils.VersionNumbering">
+            <summary>
+            Stores the current version number of Robot Components
+            </summary>
+        </member>
+        <member name="F:RobotComponents.Utils.VersionNumbering.CurrentVersion">
+            <summary>
+            Gets the current version of the Robot Component Plugin. 
+            Has to be manually updated each time. 
+            0.XX.XXX ---> mature release
+            X.00.XXX ---> minor release (for example new functions, new components...etc.)
+            X.XX.000 ---> bug fixes and small improvements
+            </summary>
+        </member>
+        <member name="F:RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt">
+            <summary>
+            Gets the current version of the Robot Components plugin as an int. 
+            Has to be manually updated each time. 
+            Remove the points and the zeros in front of the number. 
+            Examples:
+            "0.11.003" ----> 11003
+            "1.01.000" ----> 101000
+            </summary>
+        </member>
         <member name="T:RobotComponents.Kinematics.ForwardKinematics">
             <summary>
             Represent the Forward Kinematics for a 6-axis spherical Robot and its attached external axes. 
@@ -6337,6 +6729,12 @@
             <summary>
             Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
             </summary>
+        </member>
+        <member name="M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition)">
+            <summary>
+            Calculates the forward kinematics solution with the given Robot Joint Positions and a default External Joint Position (9e9).
+            </summary>
+            <param name="robotJointPosition"> The  Robot Joint Position. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -8467,165 +8865,6 @@
         <member name="F:RobotComponents.Enumerations.RobotPreset.IRB7600_500_255">
             <summary>
             IRB7600-500/2.55
-            </summary>
-        </member>
-        <member name="T:RobotComponents.Utils.HelperMethods">
-            <summary>
-            Represents general helper methods
-            </summary>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.ObjectToByteArray(System.Object)">
-            <summary>
-            Serializes a common object to a byte array. 
-            Typically used for serializing robot meshes and data inside Goo classes.
-            </summary>
-            <param name="obj"> The common object. </param>
-            <returns> The byte array. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.ByteArrayToObject(System.Byte[])">
-            <summary>
-            Deserializes a byte array to a common object. 
-            Typically used for deserializing robot meshes and data inside Goo classes.
-            </summary>
-            <param name="data"> The byte array. </param>
-            <returns> The common object. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)">
-            <summary>
-            Flips a plane normal to the oposite direction by setting it's x-axis negative.
-            </summary>
-            <param name="plane"> The plane that needs to be flipped. </param>
-            <returns> Tshe flipped plane. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)">
-            <summary>
-            Flips a plane normal to the oposite direction by setting it's y-axis negative.
-            </summary>
-            <param name="plane"> The plane that needs to be flipped. </param>
-            <returns> The flipped plane. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="origin"> The origin of the plane. </param>
-            <param name="quat"> The quarternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="refPlane"> The reference plane. </param>
-            <param name="origin"> The origin of the new plane. </param>
-            <param name="quat"> The quarternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="origin"> The origin of the plane. </param>
-            <param name="A"> The real part of the quaternion. </param>
-            <param name="B"> The first imaginary coefficient of the quaternion. </param>
-            <param name="C"> The second imaginary coefficient of the quaternion. </param>
-            <param name="D"> The third imaginary coefficient of the quaternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="refPlane"> The reference plane. </param>
-            <param name="origin"> The origin of the plane. </param>
-            <param name="A"> The real part of the quaternion. </param>
-            <param name="B"> The first imaginary coefficient of the quaternion. </param>
-            <param name="C"> The second imaginary coefficient of the quaternion. </param>
-            <param name="D"> The third imaginary coefficient of the quaternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="x"> The x coordinate of the plane origin. </param>
-            <param name="y"> The y coordinate of the plane origin. </param>
-            <param name="z"> The z coordinate of the plane origin.</param>
-            <param name="A"> The real part of the quaternion. </param>
-            <param name="B"> The first imaginary coefficient of the quaternion. </param>
-            <param name="C"> The second imaginary coefficient of the quaternion. </param>
-            <param name="D"> The third imaginary coefficient of the quaternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Transforms a Quarternion to a Plane.
-            </summary>
-            <param name="refPlane"> The reference plane. </param>
-            <param name="x"> The x coordinate of the plane origin. </param>
-            <param name="y"> The y coordinate of the plane origin. </param>
-            <param name="z"> The z coordinate of the plane origin.</param>
-            <param name="A"> The real part of the quaternion. </param>
-            <param name="B"> The first imaginary coefficient of the quaternion. </param>
-            <param name="C"> The second imaginary coefficient of the quaternion. </param>
-            <param name="D"> The third imaginary coefficient of the quaternion. </param>
-            <returns> The plane obtained with the orientation defined by the quarternion values. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
-            <summary>
-            Transforms a plane to a quarternion.
-            </summary>
-            <param name="refPlane"> The reference plane. </param>
-            <param name="plane"> The plane that should be transformed. </param>
-            <returns> The quaternion as a Quaternion. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)">
-            <summary>
-            Transforms a plane to a quarternion.
-            </summary>
-            <param name="refPlane"> The reference plane. </param>
-            <param name="plane"> The plane that should be transformed. </param>
-            <param name="origin"> The origin of the plane oriented based on the reference plane. </param>
-            <returns> The quaternion as a Quaternion. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)">
-            <summary>
-            Transforms a plane to a quarternion with as reference plane WorldXY.
-            </summary>
-            <param name="plane"> The plane to should be transformed. </param>
-            <returns> The quaternion. </returns>
-        </member>
-        <member name="M:RobotComponents.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)">
-            <summary>
-            Replaces the first occurence in a string with a new text. 
-            </summary>
-            <param name="text"> The text the search and replace in. </param>
-            <param name="search"> The text to search for. </param>
-            <param name="replace"> The new text. </param>
-            <returns> Returns a new string with replaced text. </returns>
-        </member>
-        <member name="T:RobotComponents.Utils.VersionNumbering">
-            <summary>
-            Stores the current version number of Robot Components
-            </summary>
-        </member>
-        <member name="F:RobotComponents.Utils.VersionNumbering.CurrentVersion">
-            <summary>
-            Gets the current version of the Robot Component Plugin. 
-            Has to be manually updated each time. 
-            0.XX.XXX ---> mature release
-            X.00.XXX ---> minor release (for example new functions, new components...etc.)
-            X.XX.000 ---> bug fixes and small improvements
-            </summary>
-        </member>
-        <member name="F:RobotComponents.Utils.VersionNumbering.CurrentVersionAsInt">
-            <summary>
-            Gets the current version of the Robot Components plugin as an int. 
-            Has to be manually updated each time. 
-            Remove the points and the zeros in front of the number. 
-            Examples:
-            "0.11.003" ----> 11003
-            "1.01.000" ----> 101000
             </summary>
         </member>
     </members>

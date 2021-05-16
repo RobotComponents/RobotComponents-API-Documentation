@@ -9,19 +9,25 @@ items:
   - RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
   - RobotComponents.Definitions.RobotTool.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.AttachmentPlane
+  - RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
+  - RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
   - RobotComponents.Definitions.RobotTool.CalculateToolOrientation
   - RobotComponents.Definitions.RobotTool.CalculateToolPosition
   - RobotComponents.Definitions.RobotTool.CenterOfGravity
   - RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation
+  - RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
   - RobotComponents.Definitions.RobotTool.Clear
   - RobotComponents.Definitions.RobotTool.Duplicate
   - RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh
@@ -566,16 +572,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
-  id: '#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Vector3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Vector3d, Quaternion, Vector3d)
-  nameWithType: RobotTool.RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Vector3d, Quaternion, Vector3d)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, Rhino.Geometry.Mesh, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Vector3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
+  name: RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, Rhino.Geometry.Mesh, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
   type: Constructor
   source:
     path: RobotComponents
@@ -585,7 +591,118 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class.\n"
   syntax:
-    content: public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Vector3d centerOfGravity, Quaternion centerOfGravityOrientation, Vector3d inertia)
+    content: public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The tool name, must be unique. '
+    - id: mesh
+      type: Rhino.Geometry.Mesh
+      description: 'The tool mesh. '
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachement plane. '
+    - id: toolPlane
+      type: Rhino.Geometry.Plane
+      description: 'The tool center point and tool orientation. '
+    - id: robotHold
+      type: System.Boolean
+      description: 'Specifies whether the robot is holding the tool. '
+    - id: mass
+      type: System.Double
+      description: 'The weight of the tool in kg. '
+    - id: centerOfGravityPosition
+      type: Rhino.Geometry.Point3d
+      description: 'The position of the  center of gravity of the tool load. '
+    - id: centerOfGravityOrientation
+      type: Rhino.Geometry.Quaternion
+      description: "The orientation of the tool load coordinate system defined by the principal inertial axes of the \ntool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). "
+    - id: inertia
+      type: Rhino.Geometry.Vector3d
+      description: 'The moment of inertia of the load in kgm2. '
+    content.vb: Public Sub New(name As String, mesh As Mesh, attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravityPosition As Point3d, centerOfGravityOrientation As Quaternion, inertia As Vector3d)
+  overload: RobotComponents.Definitions.RobotTool.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)'
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the Robot Tool class.\n"
+  syntax:
+    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The tool name, must be unique. '
+    - id: meshes
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The tool mesh. '
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachement plane. '
+    - id: toolPlane
+      type: Rhino.Geometry.Plane
+      description: 'The tool center point and tool orientation. '
+    - id: robotHold
+      type: System.Boolean
+      description: 'Specifies whether the robot is holding the tool. '
+    - id: mass
+      type: System.Double
+      description: 'The weight of the tool in kg. '
+    - id: centerOfGravityPosition
+      type: Rhino.Geometry.Point3d
+      description: 'The position of the center of gravity of the tool load. '
+    - id: centerOfGravityOrientation
+      type: Rhino.Geometry.Quaternion
+      description: "The orientation of the tool load coordinate system defined by the principal inertial axes of the \ntool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). "
+    - id: inertia
+      type: Rhino.Geometry.Vector3d
+      description: 'The moment of inertia of the load in kgm2. '
+    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravityPosition As Point3d, centerOfGravityOrientation As Quaternion, inertia As Vector3d)
+  overload: RobotComponents.Definitions.RobotTool.#ctor*
+  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
+  name.vb: RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)'
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, Mesh, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, Rhino.Geometry.Mesh, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the Robot Tool class.\n"
+  syntax:
+    content: public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)
     parameters:
     - id: name
       type: System.String
@@ -606,20 +723,71 @@ items:
       type: System.Double
       description: 'The weight of the tool in kg. '
     - id: centerOfGravity
-      type: Rhino.Geometry.Vector3d
-      description: 'The center of gravity of the tool load. '
-    - id: centerOfGravityOrientation
-      type: Rhino.Geometry.Quaternion
-      description: "The orientation of the tool load coordinate system defined by the principal inertial axes of the \ntool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). "
+      type: Rhino.Geometry.Plane
+      description: 'The position and orientation of the center of gravity of the tool load. '
     - id: inertia
       type: Rhino.Geometry.Vector3d
       description: 'The moment of inertia of the load in kgm2. '
-    content.vb: Public Sub New(name As String, mesh As Mesh, attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravity As Vector3d, centerOfGravityOrientation As Quaternion, inertia As Vector3d)
+    content.vb: Public Sub New(name As String, mesh As Mesh, attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravity As Plane, inertia As Vector3d)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)'
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nInitializes a new instance of the Robot Tool class.\n"
+  syntax:
+    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The tool name, must be unique. '
+    - id: meshes
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The tool mesh. '
+    - id: attachmentPlane
+      type: Rhino.Geometry.Plane
+      description: 'The attachement plane. '
+    - id: toolPlane
+      type: Rhino.Geometry.Plane
+      description: 'The tool center point and tool orientation. '
+    - id: robotHold
+      type: System.Boolean
+      description: 'Specifies whether the robot is holding the tool. '
+    - id: mass
+      type: System.Double
+      description: 'The weight of the tool in kg. '
+    - id: centerOfGravity
+      type: Rhino.Geometry.Plane
+      description: 'The position and orientation of the center of gravity of the tool load. '
+    - id: inertia
+      type: Rhino.Geometry.Vector3d
+      description: 'The moment of inertia of the load in kgm2. '
+    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravity As Plane, inertia As Vector3d)
+  overload: RobotComponents.Definitions.RobotTool.#ctor*
+  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
+  name.vb: RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
   id: '#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)'
@@ -823,6 +991,64 @@ items:
       description: 'The quaternion orientation of the tool center plane. '
     content.vb: Public Function CalculateToolOrientation As Quaternion
   overload: RobotComponents.Definitions.RobotTool.CalculateToolOrientation*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
+  commentId: M:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
+  id: CalculateCenterOfGravityPosition
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: CalculateCenterOfGravityPosition()
+  nameWithType: RobotTool.CalculateCenterOfGravityPosition()
+  fullName: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nCalculates and returns the tool center of gravity relative to the defined attachment plane. \n"
+  syntax:
+    content: public Point3d CalculateCenterOfGravityPosition()
+    return:
+      type: Rhino.Geometry.Point3d
+      description: 'The center of gravity point. '
+    content.vb: Public Function CalculateCenterOfGravityPosition As Point3d
+  overload: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
+  commentId: M:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
+  id: CalculateCenterOfGravityOrientation
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: CalculateCenterOfGravityOrientation()
+  nameWithType: RobotTool.CalculateCenterOfGravityOrientation()
+  fullName: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nCalculates and returns the tool center of gravity orientation relative to the defined attachment plane. \n"
+  syntax:
+    content: public Quaternion CalculateCenterOfGravityOrientation()
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: 'The quaternion orientation of the tool center of gravity. '
+    content.vb: Public Function CalculateCenterOfGravityOrientation As Quaternion
+  overload: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1239,13 +1465,13 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nGets or sets the center of gravity of the tool load.\n"
+  summary: "\nGets or sets the position and orientation of the center of gravity of the tool load as a plane.\n"
   syntax:
-    content: public Vector3d CenterOfGravity { get; set; }
+    content: public Plane CenterOfGravity { get; set; }
     parameters: []
     return:
-      type: Rhino.Geometry.Vector3d
-    content.vb: Public Property CenterOfGravity As Vector3d
+      type: Rhino.Geometry.Plane
+    content.vb: Public Property CenterOfGravity As Plane
   overload: RobotComponents.Definitions.RobotTool.CenterOfGravity*
   modifiers.csharp:
   - public
@@ -1253,6 +1479,37 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
+  commentId: P:RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
+  id: CenterOfGravityPosition
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: CenterOfGravityPosition
+  nameWithType: RobotTool.CenterOfGravityPosition
+  fullName: RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets the position of the center of gravity of the tool load.\n"
+  syntax:
+    content: public Point3d CenterOfGravityPosition { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Point3d
+    content.vb: Public ReadOnly Property CenterOfGravityPosition As Point3d
+  overload: RobotComponents.Definitions.RobotTool.CenterOfGravityPosition*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation
   commentId: P:RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation
   id: CenterOfGravityOrientation
@@ -1270,20 +1527,20 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Definitions
-  summary: "\nGets or sets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. \nExpressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).\n"
+  summary: "\nGets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. \nExpressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).\n"
   syntax:
-    content: public Quaternion CenterOfGravityOrientation { get; set; }
+    content: public Quaternion CenterOfGravityOrientation { get; }
     parameters: []
     return:
       type: Rhino.Geometry.Quaternion
-    content.vb: Public Property CenterOfGravityOrientation As Quaternion
+    content.vb: Public ReadOnly Property CenterOfGravityOrientation As Quaternion
   overload: RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation*
   modifiers.csharp:
   - public
   - get
-  - set
   modifiers.vb:
   - Public
+  - ReadOnly
 - uid: RobotComponents.Definitions.RobotTool.Inertia
   commentId: P:RobotComponents.Definitions.RobotTool.Inertia
   id: Inertia
@@ -1888,6 +2145,18 @@ references:
   name: CalculateToolOrientation
   nameWithType: RobotTool.CalculateToolOrientation
   fullName: RobotComponents.Definitions.RobotTool.CalculateToolOrientation
+- uid: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
+  isExternal: true
+  name: CalculateCenterOfGravityPosition
+  nameWithType: RobotTool.CalculateCenterOfGravityPosition
+  fullName: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
+- uid: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
+  isExternal: true
+  name: CalculateCenterOfGravityOrientation
+  nameWithType: RobotTool.CalculateCenterOfGravityOrientation
+  fullName: RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
 - uid: RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration
   isExternal: true
@@ -1990,6 +2259,12 @@ references:
   name: CenterOfGravity
   nameWithType: RobotTool.CenterOfGravity
   fullName: RobotComponents.Definitions.RobotTool.CenterOfGravity
+- uid: RobotComponents.Definitions.RobotTool.CenterOfGravityPosition*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
+  isExternal: true
+  name: CenterOfGravityPosition
+  nameWithType: RobotTool.CenterOfGravityPosition
+  fullName: RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
 - uid: RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation*
   commentId: Overload:RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation
   isExternal: true

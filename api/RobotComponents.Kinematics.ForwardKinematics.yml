@@ -11,6 +11,7 @@ items:
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
   - RobotComponents.Kinematics.ForwardKinematics.#ctor(RobotComponents.Kinematics.ForwardKinematics)
   - RobotComponents.Kinematics.ForwardKinematics.Calculate
+  - RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition)
   - RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Kinematics.ForwardKinematics.Clear
   - RobotComponents.Kinematics.ForwardKinematics.Duplicate
@@ -304,6 +305,36 @@ items:
   syntax:
     content: public void Calculate()
     content.vb: Public Sub Calculate
+  overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition)
+  id: Calculate(RobotComponents.Actions.RobotJointPosition)
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Calculate(RobotJointPosition)
+  nameWithType: ForwardKinematics.Calculate(RobotJointPosition)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate(RobotComponents.Actions.RobotJointPosition)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nCalculates the forward kinematics solution with the given Robot Joint Positions and a default External Joint Position (9e9).\n"
+  syntax:
+    content: public void Calculate(RobotJointPosition robotJointPosition)
+    parameters:
+    - id: robotJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: 'The  Robot Joint Position. '
+    content.vb: Public Sub Calculate(robotJointPosition As RobotJointPosition)
   overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
   modifiers.csharp:
   - public
