@@ -221,6 +221,128 @@
             The tool in use when the robot moves. 
             </summary>
         </member>
+        <member name="T:RobotComponents.Actions.ActionGroup">
+            <summary>
+            Represents a group of Actions.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Protected constructor needed for deserialization of the object.  
+            </summary>
+            <param name="info"> The SerializationInfo to extract the data from. </param>
+            <param name="context"> The context of this deserialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the object.
+            </summary>
+            <param name="info"> The SerializationInfo to populate with data. </param>
+            <param name="context"> The destination for this serialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor">
+            <summary>
+            Initializes an empty instance of the Action Group class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})">
+            <summary>
+            Initializes a new instance of the Action Group class.
+            </summary>
+            <param name="name"> The name of the Action Group. </param>
+            <param name="actions"> The list with actions. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(RobotComponents.Actions.ActionGroup)">
+            <summary>
+            Initializes a new instance of the Action Group class by duplicating an existing Action Group instance. 
+            </summary>
+            <param name="group"> The Action Group instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Action Group instance.
+            </summary>
+            <returns> A deep copy of the Action Group instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.DuplicateAction">
+            <summary>
+            Returns an exact duplicate of this Action Group instance as an Action. 
+            </summary>
+            <returns> A deep copy of the Action Group instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.DuplicateToList">
+            <summary>
+            Returns a duplicate of the list with Actions as a list.
+            </summary>
+            <returns> The duplicate of the list with actions. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.DuplicateToArray">
+            <summary>
+            Returns a duplicate of the list with Actions as an array.
+            </summary>
+            <returns> The duplicate of the list with actions as an array. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> An empty string. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.Name">
+            <summary>
+            Gets or sets the name of the Action Group.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.Actions">
+            <summary>
+            Gets or sets the collection with Actions.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.Count">
+            <summary>
+            Gets the number of Actions that are grouped. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.Item(System.Int32)">
+            <summary>
+            Gets or sets the Actions through the indexer. 
+            </summary>
+            <param name="index"> The index number. </param>
+            <returns> The Action located at the given index. </returns>
+        </member>
         <member name="T:RobotComponents.Actions.AnalogOutput">
             <summary>
             Represents a Set Analog Output instruction. 
@@ -7016,7 +7138,7 @@
             Calculates the path from a list with Actions.
             </summary>
             <param name="actions"> The list with Actions. </param>
-            <param name="interpolations"> The amount of interpolatins between two targets. </param>
+            <param name="interpolations"> The amount of interpolations between two targets. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.SetRobotTool(RobotComponents.Actions.Movement)">
             <summary>
