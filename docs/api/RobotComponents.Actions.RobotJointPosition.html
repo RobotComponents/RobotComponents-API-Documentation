@@ -85,6 +85,7 @@ This action is used to define the robot axis positions in degrees.</p>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="RobotComponents.Actions.IDeclaration.html">IDeclaration</a></div>
     <div><a class="xref" href="RobotComponents.Actions.IJointPosition.html">IJointPosition</a></div>
     <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
   </div>
@@ -113,7 +114,7 @@ This action is used to define the robot axis positions in degrees.</p>
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Actions_RobotJointPosition_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RobotJointPosition : Action, IJointPosition, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class RobotJointPosition : Action, IDeclaration, IJointPosition, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -121,7 +122,7 @@ This action is used to define the robot axis positions in degrees.</p>
   
   <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotJointPosition__ctor" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor">RobotJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with all axis values set to zero.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name an all axis values set to zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -161,7 +162,7 @@ This action is used to define the robot axis positions in degrees.</p>
   
   <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.Collections.Generic.List{System.Double})">RobotJointPosition(List&lt;Double&gt;)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class from a list with values.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name from a list with values</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -190,7 +191,7 @@ This action is used to define the robot axis positions in degrees.</p>
   
   <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotJointPosition(Double, Double, Double, Double, Double, Double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -249,7 +250,7 @@ This action is used to define the robot axis positions in degrees.</p>
   
   <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
   <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_Double___" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.Double[])">RobotJointPosition(Double[])</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class from an array.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name from an array.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
@@ -305,6 +306,170 @@ This action is used to define the robot axis positions in degrees.</p>
         <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The context of this deserialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_String_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.String)">RobotJointPosition(String)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with all axis values set to zero.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The robot joint position name, must be unique.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_String_System_Collections_Generic_List_System_Double__" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})">RobotJointPosition(String, List&lt;Double&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class from a list with values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name, List&lt;double&gt; internalAxisValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The robot joint position name, must be unique.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">internalAxisValues</span></td>
+        <td><p>The user defined internal axis values as a list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_String_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotJointPosition(String, Double, Double, Double, Double, Double, Double)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name, double rax_1, double rax_2 = 0, double rax_3 = 0, double rax_4 = 0, double rax_5 = 0, double rax_6 = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The robot joint position name, must be unique.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_1</span></td>
+        <td><p>The position of robot axis 1 in degrees from the calibration position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_2</span></td>
+        <td><p>The position of robot axis 2 in degrees from the calibration position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_3</span></td>
+        <td><p>The position of robot axis 3 in degrees from the calibration position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_4</span></td>
+        <td><p>The position of robot axis 4 in degrees from the calibration position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_5</span></td>
+        <td><p>The position of robot axis 5 in degrees from the calibration position.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">rax_6</span></td>
+        <td><p>The position of robot axis 6 in degrees from the calibration position.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition__ctor_" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition__ctor_System_String_System_Double___" data-uid="RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Double[])">RobotJointPosition(String, Double[])</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class from an array.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name, double[] internalAxisValues)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The robot joint position name, must be unique.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span>[]</td>
+        <td><span class="parametername">internalAxisValues</span></td>
+        <td><p>The user defined internal axis values as an array.</p>
 </td>
       </tr>
     </tbody>
@@ -432,6 +597,59 @@ This action is used to define the robot axis positions in degrees.</p>
     <tbody>
       <tr>
         <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition_Name_" data-uid="RobotComponents.Actions.RobotJointPosition.Name*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition_Name" data-uid="RobotComponents.Actions.RobotJointPosition.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Joint Position variable name.
+Each Robot Joint Position variable name has to be unique.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition_ReferenceType_" data-uid="RobotComponents.Actions.RobotJointPosition.ReferenceType*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition_ReferenceType" data-uid="RobotComponents.Actions.RobotJointPosition.ReferenceType">ReferenceType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Reference Type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ReferenceType ReferenceType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Enumerations.ReferenceType.html">ReferenceType</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -612,6 +830,33 @@ Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.Actions.Action.html#RobotComponents_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
+  
+  
+  <a id="RobotComponents_Actions_RobotJointPosition_DuplicateDeclaration_" data-uid="RobotComponents.Actions.RobotJointPosition.DuplicateDeclaration*"></a>
+  <h4 id="RobotComponents_Actions_RobotJointPosition_DuplicateDeclaration" data-uid="RobotComponents.Actions.RobotJointPosition.DuplicateDeclaration">DuplicateDeclaration()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Joint Position instance as an IDeclaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDeclaration DuplicateDeclaration()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.IDeclaration.html">IDeclaration</a></td>
+        <td><p>A deep copy of the Robot Joint Position instance as an IDeclaration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   
   
   <a id="RobotComponents_Actions_RobotJointPosition_GetObjectData_" data-uid="RobotComponents.Actions.RobotJointPosition.GetObjectData*"></a>
@@ -1428,7 +1673,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.Actions.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><p>The Robot Joint Position with multuplied values.</p>
+        <td><p>The Robot Joint Position with multiplied values.</p>
 </td>
       </tr>
     </tbody>
@@ -1536,6 +1781,9 @@ This method is called inside the RAPID generator.</p>
     </tbody>
   </table>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="RobotComponents.Actions.IDeclaration.html">IDeclaration</a>
+  </div>
   <div>
       <a class="xref" href="RobotComponents.Actions.IJointPosition.html">IJointPosition</a>
   </div>

@@ -245,6 +245,12 @@
             Initializes an empty instance of the Action Group class.
             </summary>
         </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})">
+            <summary>
+            Initializes a new instance of the Action Group class with an empty name.
+            </summary>
+            <param name="actions"> The list with actions. </param>
+        </member>
         <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})">
             <summary>
             Initializes a new instance of the Action Group class.
@@ -776,6 +782,40 @@
             </summary>
             <returns> The exact copy of this Target. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.ITarget.ToRAPID">
+            <summary>
+            Returns the Target in RAPID code format.
+            </summary>
+            <returns> The string with target values. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
         <member name="P:RobotComponents.Actions.ITarget.IsValid">
             <summary>
             Gets a value indicating whether or not the object is valid.
@@ -822,12 +862,25 @@
             Initializes an empty instance of the Joint Target class.
             </summary>
         </member>
+        <member name="M:RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition)">
+            <summary>
+            Initializes a new instance of the Joint Target class with an undefined External Joint Position.
+            </summary>
+            <param name="robotJointPosition"> The robot joint position. </param>
+        </member>
         <member name="M:RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)">
             <summary>
             Initializes a new instance of the Joint Target class with an undefined External Joint Position.
             </summary>
             <param name="name"> The target name, must be unique. </param>
             <param name="robotJointPosition"> The robot joint position. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">
+            <summary>
+            Initializes a new instance of the Joint Target class.
+            </summary>
+            <param name="robotJointPosition"> The Robot Joint Position</param>
+            <param name="externalJointPosition"> The External Joint Position</param>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -893,6 +946,12 @@
             </summary>
             <param name="robot"> The robot to check the axis values for. </param>
             <returns> The list with error messages. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.JointTarget.ToRAPID">
+            <summary>
+            Returns the Joint Target in RAPID code format, e.g. "[[0, 0, 0, 0, 45, 0], [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]".
+            </summary>
+            <returns> The string with joint target values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
@@ -970,12 +1029,12 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor">
             <summary>
-            Initializes a new instance of the Robot Joint Position class with all axis values set to zero.
+            Initializes a new instance of the Robot Joint Position class with an empty name an all axis values set to zero. 
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Initializes a new instance of the Robot Joint Position class.
+            Initializes a new instance of the Robot Joint Position class with an empty name.
             </summary>
             <param name="rax_1"> The position of robot axis 1 in degrees from the calibration position. </param>
             <param name="rax_2"> The position of robot axis 2 in degrees from the calibration position.</param>
@@ -986,14 +1045,46 @@
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Collections.Generic.List{System.Double})">
             <summary>
-            Initializes a new instance of the Robot Joint Position class from a list with values.
+            Initializes a new instance of the Robot Joint Position class with an empty name from a list with values 
             </summary>
             <param name="internalAxisValues"> The user defined internal axis values as a list.</param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Double[])">
             <summary>
+            Initializes a new instance of the Robot Joint Position class with an empty name from an array. 
+            </summary>
+            <param name="internalAxisValues">The user defined internal axis values as an array.</param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the Robot Joint Position class with all axis values set to zero.
+            </summary>
+            <param name="name"> The robot joint position name, must be unique. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the Robot Joint Position class.
+            </summary>
+            <param name="name"> The robot joint position name, must be unique. </param>
+            <param name="rax_1"> The position of robot axis 1 in degrees from the calibration position. </param>
+            <param name="rax_2"> The position of robot axis 2 in degrees from the calibration position.</param>
+            <param name="rax_3"> The position of robot axis 3 in degrees from the calibration position.</param>
+            <param name="rax_4"> The position of robot axis 4 in degrees from the calibration position.</param>
+            <param name="rax_5"> The position of robot axis 5 in degrees from the calibration position.</param>
+            <param name="rax_6"> The position of robot axis 6 in degrees from the calibration position.</param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})">
+            <summary>
+            Initializes a new instance of the Robot Joint Position class from a list with values.
+            </summary>
+            <param name="name"> The robot joint position name, must be unique. </param>
+            <param name="internalAxisValues"> The user defined internal axis values as a list.</param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Double[])">
+            <summary>
             Initializes a new instance of the Robot Joint Position class from an array.
             </summary>
+            <param name="name"> The robot joint position name, must be unique. </param>
             <param name="internalAxisValues">The user defined internal axis values as an array.</param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(RobotComponents.Actions.RobotJointPosition)">
@@ -1013,6 +1104,12 @@
             Returns an exact duplicate of this Robot Joint Position instance as an Action. 
             </summary>
             <returns> A deep copy of the Robot Joint Position instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotJointPosition.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Robot Joint Position instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the Robot Joint Position instance as an IDeclaration. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.ToString">
             <summary>
@@ -1154,6 +1251,17 @@
             Gets a value indicating whether or not the object is valid.
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.RobotJointPosition.Name">
+            <summary>
+            Gets or sets the Robot Joint Position variable name.
+            Each Robot Joint Position variable name has to be unique.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.RobotJointPosition.ReferenceType">
+            <summary>
+            Gets or sets the Reference Type. 
+            </summary>
+        </member>
         <member name="P:RobotComponents.Actions.RobotJointPosition.Length">
             <summary>
             Gets the number of elements in the Robot Joint Position.
@@ -1193,7 +1301,7 @@
             </summary>
             <param name="p"> The Robot Joint Position. </param>
             <param name="num"> The value to multiply by. </param>
-            <returns> The Robot Joint Position with multuplied values. </returns>
+            <returns> The Robot Joint Position with multiplied values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.op_Division(RobotComponents.Actions.RobotJointPosition,System.Double)">
             <summary>
@@ -1263,6 +1371,17 @@
             Sets all the elements in the joint position back to its default value.
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.IJointPosition.Name">
+            <summary>
+            Gets or sets the Joint Position variable name.
+            Each Joint Position variable name has to be unique.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.IJointPosition.ReferenceType">
+            <summary>
+            Gets or sets the Reference Type. 
+            </summary>
+        </member>
         <member name="P:RobotComponents.Actions.IJointPosition.Length">
             <summary>
             Gets the number of elements in the joint position.
@@ -1302,12 +1421,12 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor">
             <summary>
-            Initializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.
+            Initializes a new instance of the External Joint Position class with an empty name and undefinied positions of the external logical axes.
             </summary>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
-            Initializes a new instance of the External Joint Position class.
+            Initializes a new instance of the External Joint Position class with an empty name.
             </summary>
             <param name="Eax_a"> The position of the external logical axis “a” expressed in degrees or mm. </param>
             <param name="Eax_b"> The position of the external logical axis “b” expressed in degrees or mm. </param>
@@ -1318,14 +1437,46 @@
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})">
             <summary>
-            Initializes a new instance of the External Joint Position class from a list with values.
+            Initializes a new instance of the External Joint Position class with an empty name from a list with values.
             </summary>
             <param name="externalAxisValues"> The position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])">
             <summary>
+            Initializes a new instance of the External Joint Position class with an empty name from an array with values.
+            </summary>
+            <param name="externalAxisValues"> The position of the external logical axes. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.
+            </summary>
+            <param name="name"> The external joint position name, must be unique. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the External Joint Position class.
+            </summary>
+            <param name="name"> The external joint position name, must be unique. </param>
+            <param name="Eax_a"> The position of the external logical axis “a” expressed in degrees or mm. </param>
+            <param name="Eax_b"> The position of the external logical axis “b” expressed in degrees or mm. </param>
+            <param name="Eax_c"> The position of the external logical axis “c” expressed in degrees or mm. </param>
+            <param name="Eax_d"> The position of the external logical axis “d” expressed in degrees or mm. </param>
+            <param name="Eax_e"> The position of the external logical axis “3” expressed in degrees or mm. </param>
+            <param name="Eax_f"> The position of the external logical axis “f” expressed in degrees or mm. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})">
+            <summary>
+            Initializes a new instance of the External Joint Position class from a list with values.
+            </summary>
+            <param name="name"> The external joint position name, must be unique. </param>
+            <param name="externalAxisValues"> The position of the external logical axes. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])">
+            <summary>
             Initializes a new instance of the External Joint Position class from an array with values.
             </summary>
+            <param name="name"> The external joint position name, must be unique. </param>
             <param name="externalAxisValues"> The position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)">
@@ -1345,6 +1496,12 @@
             Returns an exact duplicate of this External Joint Position instance as an Action. 
             </summary>
             <returns> A deep copy of the External Joint Position instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this External Joint Position instance as an IDeclaration.
+            </summary>
+            <returns> A deep copy of the External Joint Position instance as an IDeclaration. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.ToString">
             <summary>
@@ -1466,6 +1623,17 @@
         <member name="P:RobotComponents.Actions.ExternalJointPosition.IsValid">
             <summary>
             Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ExternalJointPosition.Name">
+            <summary>
+            Gets or sets the External Joint Position variable name.
+            Each External Joint Position variable name has to be unique.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ExternalJointPosition.ReferenceType">
+            <summary>
+            Gets or sets the Reference Type. 
             </summary>
         </member>
         <member name="P:RobotComponents.Actions.ExternalJointPosition.Length">
@@ -1595,6 +1763,18 @@
             </summary>
             <param name="zone"> The size (the radius) of the TCP zone in mm. </param>
         </member>
+        <member name="M:RobotComponents.Actions.ZoneData.#ctor(System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the Zone Data class with with custom values. 
+            </summary>
+            <param name="finep"> Defines whether the movement is to terminate as a stop point (fine point) or as a fly-by point. </param>
+            <param name="pzone_tcp"> The size (the radius) of the TCP zone in mm. </param>
+            <param name="pzone_ori"> The zone size (the radius) for the tool reorientation. </param>
+            <param name="pzone_eax"> The zone size (the radius) for external axes. </param>
+            <param name="zone_ori"> The zone size for the tool reorientation in degrees. </param>
+            <param name="zone_leax"> The zone size for linear external axes in mm. </param>
+            <param name="zone_reax"> he zone size for rotating external axes in degrees. </param>
+        </member>
         <member name="M:RobotComponents.Actions.ZoneData.#ctor(System.String,System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Initializes a new instance of the Zone Data class with custom values.
@@ -1637,6 +1817,12 @@
             Returns a string that represents the current object.
             </summary>
             <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ZoneData.ToRAPID">
+            <summary>
+            Returns the Zone Data in RAPID code format, e.g. "[FALSE, 0, 0.3, 0.3, 0.3, 0.3, 0.03]".
+            </summary>
+            <returns> The string with zone data values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ZoneData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
@@ -2290,6 +2476,12 @@
             </summary>
             <returns> The posed target plane in world coordinate space. </returns>
         </member>
+        <member name="M:RobotComponents.Actions.Movement.ConvertTarget(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Converts the target for the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
         <member name="M:RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
             Returns the RAPID declaration code line of the this action.
@@ -2410,14 +2602,14 @@
             </summary>
             <returns> A string that represents the current object. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateProgramCode">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateProgramModule">
             <summary>
             Returns the RAPID program code.
             This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.
             </summary>
-            <returns> The RAPID program code as a string. </returns>
+            <returns> The RAPID program code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})">
             <summary>
             Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It adds the robot tools and work objects that are collected by this RAPID generator. 
@@ -2425,9 +2617,9 @@
             This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
             </summary>
             <param name="customCode"> Custom user definied base code as list with strings. </param>
-            <returns> The RAPID system code as a string. </returns>
+            <returns> The RAPID system code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">
             <summary>
             Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It is adds the robot tools, work objects and custom code lines from the given lists. 
@@ -2436,21 +2628,21 @@
             <param name="robotTools"> The robot tools that should be added to the system code as a list. </param>
             <param name="workObjects"> The work objects that should be added to the system code as a list. </param>
             <param name="customCode"> Custom user definied base code as list with strings. </param>
-            <returns> The RAPID system code as a string. </returns>
+            <returns> The RAPID system code as a list with code lines. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateToolSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool})">
             <summary>
             Returns the System Code for the given Robot Tools.
             </summary>
             <param name="robotTools"> The Robot Tools. </param>
-            <returns> The robot tool system code as a string. </returns>
+            <returns> The robot tool system code as a list with code lines. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateWorkObjectSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.WorkObject})">
             <summary>
             Returns the System Code for all given Work Objects.
             </summary>
             <param name="workObjects"> The Work Objects. </param>
-            <returns> The Work Object system code as a string. </returns>
+            <returns> The Work Object system code as a list with code lines. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile">
             <summary>
@@ -2488,14 +2680,14 @@
             Gets or sets a value indicating whether the program and system module should be saved to a file.
             </summary>
         </member>
-        <member name="P:RobotComponents.Actions.RAPIDGenerator.ProgramCode">
+        <member name="P:RobotComponents.Actions.RAPIDGenerator.ProgramModule">
             <summary>
-            Gest he RAPID code of the program module.
+            Gest he RAPID code of the program module as a list with code lines.
             </summary>
         </member>
-        <member name="P:RobotComponents.Actions.RAPIDGenerator.SystemCode">
+        <member name="P:RobotComponents.Actions.RAPIDGenerator.SystemModule">
             <summary>
-            Gets the RAPID code of the system module.
+            Gets the RAPID code of the system module as a list with code lines.
             </summary>
         </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.Robot">
@@ -2528,6 +2720,11 @@
             Gets the collection with unique Zone Datas used to create the RAPID program module. 
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.RAPIDGenerator.JointPositions">
+            <summary>
+            Gets the collection with unique Joint Positions used to create the RAPID program module. 
+            </summary>
+        </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.Targets">
             <summary>
             Gets the collection with unique Targets used to create the RAPID program module. 
@@ -2541,11 +2738,6 @@
         <member name="P:RobotComponents.Actions.RAPIDGenerator.WorkObjects">
             <summary>
             Gets the collection with unique Work Objects used to create the RAPID program module. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.Actions.RAPIDGenerator.StringBuilder">
-            <summary>
-            Gets the mutable Stringbuilder used to generate to the RAPID program module. 
             </summary>
         </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.ErrorText">
@@ -2590,6 +2782,15 @@
             </summary>
             <param name="v_tcp"> The velocity of the tool center point (TCP) in mm/s. </param>
         </member>
+        <member name="M:RobotComponents.Actions.SpeedData.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            Initializes a new instance of the Speed Data class with custom values.
+            </summary>
+            <param name="v_tcp"> The velocity of the tool center point (TCP) in mm/s. </param>
+            <param name="v_ori"> The reorientation velocity of the TCP expressed in degrees/s. </param>
+            <param name="v_leax"> The velocity of linear external axes in mm/s. </param>
+            <param name="v_reax"> The velocity of rotating external axes in degrees/s. </param>
+        </member>
         <member name="M:RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Initializes a new instance of the Speed Data class with custom values.
@@ -2629,6 +2830,12 @@
             Returns a string that represents the current object.
             </summary>
             <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.SpeedData.ToRAPID">
+            <summary>
+            Returns the Speed Data in RAPID code format, e.g. "[200, 500, 5000, 1000]".
+            </summary>
+            <returns> The string with speed data values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
@@ -2956,6 +3163,12 @@
             Initializes an empty instance of the Robot Target class.
             </summary>
         </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.#ctor(Rhino.Geometry.Plane)">
+            <summary>
+            Initializes a new instance of the Robot Target class with an axis conguration set to zero and an undefined External Joint Position.
+            </summary>
+            <param name="plane"> The target plane. </param>
+        </member>
         <member name="M:RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane)">
             <summary>
             Initializes a new instance of the Robot Target class with an axis conguration set to zero and an undefined External Joint Position.
@@ -2963,12 +3176,28 @@
             <param name="name"> The target name, must be unique. </param>
             <param name="plane"> The target plane. </param>
         </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32)">
+            <summary>
+            Initializes a new instance of the Robot Target class with an undefined External Joint Position.
+            </summary>
+            <param name="plane"> Thr target plane. </param>
+            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
+        </member>
         <member name="M:RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32)">
             <summary>
             Initializes a new instance of the Robot Target class with an undefined External Joint Position.
             </summary>
             <param name="name"> The target name, must be unique. </param>
             <param name="plane"> Thr target plane. </param>
+            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">
+            <summary>
+            Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position.
+            The target planes will be reoriented from the reference plane to the world xy-plane.
+            </summary>
+            <param name="plane"> The target plane. </param>
+            <param name="referencePlane"> The reference plane. </param>
             <param name="axisConfig"> The axis configuration as a number (0-7). </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">
@@ -2981,6 +3210,14 @@
             <param name="referencePlane"> The reference plane. </param>
             <param name="axisConfig"> The axis configuration as a number (0-7). </param>
         </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">
+            <summary>
+            Initializes a new instance of the Robot Target class.
+            </summary>
+            <param name="plane"> The target plane.</param>
+            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+        </member>
         <member name="M:RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">
             <summary>
             Initializes a new instance of the Robot Target class.
@@ -2988,6 +3225,16 @@
             <param name="name"> The target name, must be unique. </param>
             <param name="plane"> The target plane.</param>
             <param name="axisConfig"> The axis configuration as a number (0-7). </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">
+            <summary>
+            Initializes a new instance of the Robot Target class.
+            The target planes will be reoriented from the reference plane to the world xy-plane.
+            </summary>
+            <param name="plane"> The target plane.</param>
+            <param name="referencePlane"> The Reference plane. </param>
+            <param name="axisConfig"> The axis configuration as a number (0-7).</param>
             <param name="externalJointPosition"> The External Joint Position. </param>
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.Actions.ExternalJointPosition)">
@@ -3036,6 +3283,12 @@
             Returns a string that represents the current object.
             </summary>
             <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.RobotTarget.ToRAPID">
+            <summary>
+            Returns the Robot Target in RAPID code format, e.g. "[[300, 600, 250], [1, 0, 0, 0], [0, 0, 0, 1] [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]".
+            </summary>
+            <returns> The string with robot target values. </returns>
         </member>
         <member name="M:RobotComponents.Actions.RobotTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>

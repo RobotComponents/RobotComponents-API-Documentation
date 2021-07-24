@@ -10,6 +10,11 @@ items:
   - RobotComponents.Actions.ITarget.IsValid
   - RobotComponents.Actions.ITarget.Name
   - RobotComponents.Actions.ITarget.ReferenceType
+  - RobotComponents.Actions.ITarget.ToRAPID
+  - RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   langs:
   - csharp
   - vb
@@ -58,6 +63,141 @@ items:
       description: 'The exact copy of this Target. '
     content.vb: Function DuplicateTarget As ITarget
   overload: RobotComponents.Actions.ITarget.DuplicateTarget*
+- uid: RobotComponents.Actions.ITarget.ToRAPID
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: ITarget.ToRAPID()
+  fullName: RobotComponents.Actions.ITarget.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Target in RAPID code format.\n"
+  syntax:
+    content: string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with target values. '
+    content.vb: Function ToRAPID As String
+  overload: RobotComponents.Actions.ITarget.ToRAPID*
+- uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: ITarget.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
+  syntax:
+    content: string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'The RAPID code line. '
+    content.vb: Function ToRAPIDDeclaration(robot As Robot) As String
+  overload: RobotComponents.Actions.ITarget.ToRAPIDDeclaration*
+- uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: ITarget.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
+  syntax:
+    content: string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'The RAPID code line. '
+    content.vb: Function ToRAPIDInstruction(robot As Robot) As String
+  overload: RobotComponents.Actions.ITarget.ToRAPIDInstruction*
+- uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: ITarget.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.Actions.ITarget.ToRAPIDDeclaration*
+- uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ITarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: ITarget.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.Actions.ITarget.ToRAPIDInstruction*
 - uid: RobotComponents.Actions.ITarget.IsValid
   commentId: P:RobotComponents.Actions.ITarget.IsValid
   id: IsValid
@@ -191,6 +331,57 @@ references:
   name: ITarget
   nameWithType: ITarget
   fullName: RobotComponents.Actions.ITarget
+- uid: RobotComponents.Actions.ITarget.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.ITarget.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: ITarget.ToRAPID
+  fullName: RobotComponents.Actions.ITarget.ToRAPID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.ITarget.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: ITarget.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.ITarget.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: ITarget.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
 - uid: RobotComponents.Actions.ITarget.IsValid*
   commentId: Overload:RobotComponents.Actions.ITarget.IsValid
   isExternal: true
@@ -204,12 +395,6 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
-- uid: System
-  commentId: N:System
-  isExternal: true
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: RobotComponents.Actions.ITarget.ReferenceType*
   commentId: Overload:RobotComponents.Actions.ITarget.ReferenceType
   isExternal: true
@@ -235,13 +420,6 @@ references:
   name: Name
   nameWithType: ITarget.Name
   fullName: RobotComponents.Actions.ITarget.Name
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
 - uid: RobotComponents.Actions.ITarget.ExternalJointPosition*
   commentId: Overload:RobotComponents.Actions.ITarget.ExternalJointPosition
   isExternal: true

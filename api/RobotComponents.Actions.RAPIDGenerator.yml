@@ -9,22 +9,22 @@ items:
   - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.RAPIDGenerator.Actions
-  - RobotComponents.Actions.RAPIDGenerator.CreateProgramCode
-  - RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  - RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})
+  - RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
+  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
+  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
   - RobotComponents.Actions.RAPIDGenerator.Duplicate
   - RobotComponents.Actions.RAPIDGenerator.ErrorText
   - RobotComponents.Actions.RAPIDGenerator.FilePath
   - RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.Actions.RAPIDGenerator.IsValid
-  - RobotComponents.Actions.RAPIDGenerator.ProgramCode
+  - RobotComponents.Actions.RAPIDGenerator.JointPositions
+  - RobotComponents.Actions.RAPIDGenerator.ProgramModule
   - RobotComponents.Actions.RAPIDGenerator.ProgramModuleName
   - RobotComponents.Actions.RAPIDGenerator.Robot
   - RobotComponents.Actions.RAPIDGenerator.RobotTools
   - RobotComponents.Actions.RAPIDGenerator.SaveToFile
   - RobotComponents.Actions.RAPIDGenerator.SpeedDatas
-  - RobotComponents.Actions.RAPIDGenerator.StringBuilder
-  - RobotComponents.Actions.RAPIDGenerator.SystemCode
+  - RobotComponents.Actions.RAPIDGenerator.SystemModule
   - RobotComponents.Actions.RAPIDGenerator.SystemModuleName
   - RobotComponents.Actions.RAPIDGenerator.Targets
   - RobotComponents.Actions.RAPIDGenerator.ToString
@@ -229,16 +229,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateProgramCode
-  id: CreateProgramCode
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
+  id: CreateProgramModule
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateProgramCode()
-  nameWithType: RAPIDGenerator.CreateProgramCode()
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode()
+  name: CreateProgramModule()
+  nameWithType: RAPIDGenerator.CreateProgramModule()
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateProgramModule()
   type: Method
   source:
     path: RobotComponents
@@ -248,26 +248,26 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID program code.\nThis method also overwrites or creates a file if the property &apos;SaveToFile is set equal to true.\n"
   syntax:
-    content: public string CreateProgramCode()
+    content: public List<string> CreateProgramModule()
     return:
-      type: System.String
-      description: 'The RAPID program code as a string. '
-    content.vb: Public Function CreateProgramCode As String
-  overload: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode*
+      type: System.Collections.Generic.List{System.String}
+      description: 'The RAPID program code as a list with code lines. '
+    content.vb: Public Function CreateProgramModule As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.CreateProgramModule*
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})
-  id: CreateSystemCode(System.Collections.Generic.List{System.String})
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
+  id: CreateSystemModule(System.Collections.Generic.List{System.String})
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateSystemCode(List<String>)
-  nameWithType: RAPIDGenerator.CreateSystemCode(List<String>)
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List<System.String>)
+  name: CreateSystemModule(List<String>)
+  nameWithType: RAPIDGenerator.CreateSystemModule(List<String>)
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List<System.String>)
   type: Method
   source:
     path: RobotComponents
@@ -277,33 +277,33 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt adds the robot tools and work objects that are collected by this RAPID generator. \nFor this you have to call the methode &apos;CreateProgamCode&apos; first. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public string CreateSystemCode(List<string> customCode)
+    content: public List<string> CreateSystemModule(List<string> customCode)
     parameters:
     - id: customCode
       type: System.Collections.Generic.List{System.String}
       description: 'Custom user definied base code as list with strings. '
     return:
-      type: System.String
-      description: 'The RAPID system code as a string. '
-    content.vb: Public Function CreateSystemCode(customCode As List(Of String)) As String
-  overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*
-  nameWithType.vb: RAPIDGenerator.CreateSystemCode(List(Of String))
+      type: System.Collections.Generic.List{System.String}
+      description: 'The RAPID system code as a list with code lines. '
+    content.vb: Public Function CreateSystemModule(customCode As List(Of String)) As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
+  nameWithType.vb: RAPIDGenerator.CreateSystemModule(List(Of String))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List(Of System.String))
-  name.vb: CreateSystemCode(List(Of String))
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  id: CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List(Of System.String))
+  name.vb: CreateSystemModule(List(Of String))
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
+  id: CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateSystemCode(List<RobotTool>, List<WorkObject>, List<String>)
-  nameWithType: RAPIDGenerator.CreateSystemCode(List<RobotTool>, List<WorkObject>, List<String>)
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List<RobotComponents.Definitions.RobotTool>, System.Collections.Generic.List<RobotComponents.Definitions.WorkObject>, System.Collections.Generic.List<System.String>)
+  name: CreateSystemModule(List<RobotTool>, List<WorkObject>, List<String>)
+  nameWithType: RAPIDGenerator.CreateSystemModule(List<RobotTool>, List<WorkObject>, List<String>)
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List<RobotComponents.Definitions.RobotTool>, System.Collections.Generic.List<RobotComponents.Definitions.WorkObject>, System.Collections.Generic.List<System.String>)
   type: Method
   source:
     path: RobotComponents
@@ -313,7 +313,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt is adds the robot tools, work objects and custom code lines from the given lists. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public string CreateSystemCode(List<RobotTool> robotTools, List<WorkObject> workObjects, List<string> customCode)
+    content: public List<string> CreateSystemModule(List<RobotTool> robotTools, List<WorkObject> workObjects, List<string> customCode)
     parameters:
     - id: robotTools
       type: System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
@@ -325,17 +325,17 @@ items:
       type: System.Collections.Generic.List{System.String}
       description: 'Custom user definied base code as list with strings. '
     return:
-      type: System.String
-      description: 'The RAPID system code as a string. '
-    content.vb: Public Function CreateSystemCode(robotTools As List(Of RobotTool), workObjects As List(Of WorkObject), customCode As List(Of String)) As String
-  overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*
-  nameWithType.vb: RAPIDGenerator.CreateSystemCode(List(Of RobotTool), List(Of WorkObject), List(Of String))
+      type: System.Collections.Generic.List{System.String}
+      description: 'The RAPID system code as a list with code lines. '
+    content.vb: Public Function CreateSystemModule(robotTools As List(Of RobotTool), workObjects As List(Of WorkObject), customCode As List(Of String)) As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
+  nameWithType.vb: RAPIDGenerator.CreateSystemModule(List(Of RobotTool), List(Of WorkObject), List(Of String))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List(Of RobotComponents.Definitions.RobotTool), System.Collections.Generic.List(Of RobotComponents.Definitions.WorkObject), System.Collections.Generic.List(Of System.String))
-  name.vb: CreateSystemCode(List(Of RobotTool), List(Of WorkObject), List(Of String))
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List(Of RobotComponents.Definitions.RobotTool), System.Collections.Generic.List(Of RobotComponents.Definitions.WorkObject), System.Collections.Generic.List(Of System.String))
+  name.vb: CreateSystemModule(List(Of RobotTool), List(Of WorkObject), List(Of String))
 - uid: RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile
   commentId: M:RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile
   id: WriteProgramCodeToFile
@@ -512,16 +512,16 @@ items:
   - set
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.RAPIDGenerator.ProgramCode
-  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramCode
-  id: ProgramCode
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramModule
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramModule
+  id: ProgramModule
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: ProgramCode
-  nameWithType: RAPIDGenerator.ProgramCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramCode
+  name: ProgramModule
+  nameWithType: RAPIDGenerator.ProgramModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramModule
   type: Property
   source:
     path: RobotComponents
@@ -529,30 +529,30 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGest he RAPID code of the program module.\n"
+  summary: "\nGest he RAPID code of the program module as a list with code lines.\n"
   syntax:
-    content: public string ProgramCode { get; }
+    content: public List<string> ProgramModule { get; }
     parameters: []
     return:
-      type: System.String
-    content.vb: Public ReadOnly Property ProgramCode As String
-  overload: RobotComponents.Actions.RAPIDGenerator.ProgramCode*
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramModule As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramModule*
   modifiers.csharp:
   - public
   - get
   modifiers.vb:
   - Public
   - ReadOnly
-- uid: RobotComponents.Actions.RAPIDGenerator.SystemCode
-  commentId: P:RobotComponents.Actions.RAPIDGenerator.SystemCode
-  id: SystemCode
+- uid: RobotComponents.Actions.RAPIDGenerator.SystemModule
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.SystemModule
+  id: SystemModule
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: SystemCode
-  nameWithType: RAPIDGenerator.SystemCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.SystemCode
+  name: SystemModule
+  nameWithType: RAPIDGenerator.SystemModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.SystemModule
   type: Property
   source:
     path: RobotComponents
@@ -560,14 +560,14 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGets the RAPID code of the system module.\n"
+  summary: "\nGets the RAPID code of the system module as a list with code lines.\n"
   syntax:
-    content: public string SystemCode { get; }
+    content: public List<string> SystemModule { get; }
     parameters: []
     return:
-      type: System.String
-    content.vb: Public ReadOnly Property SystemCode As String
-  overload: RobotComponents.Actions.RAPIDGenerator.SystemCode*
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property SystemModule As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.SystemModule*
   modifiers.csharp:
   - public
   - get
@@ -760,6 +760,37 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.JointPositions
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.JointPositions
+  id: JointPositions
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: JointPositions
+  nameWithType: RAPIDGenerator.JointPositions
+  fullName: RobotComponents.Actions.RAPIDGenerator.JointPositions
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the collection with unique Joint Positions used to create the RAPID program module. \n"
+  syntax:
+    content: public Dictionary<string, IJointPosition> JointPositions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.IJointPosition}
+    content.vb: Public ReadOnly Property JointPositions As Dictionary(Of String, IJointPosition)
+  overload: RobotComponents.Actions.RAPIDGenerator.JointPositions*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: RobotComponents.Actions.RAPIDGenerator.Targets
   commentId: P:RobotComponents.Actions.RAPIDGenerator.Targets
   id: Targets
@@ -847,37 +878,6 @@ items:
       type: System.Collections.Generic.Dictionary{System.String,RobotComponents.Definitions.WorkObject}
     content.vb: Public ReadOnly Property WorkObjects As Dictionary(Of String, WorkObject)
   overload: RobotComponents.Actions.RAPIDGenerator.WorkObjects*
-  modifiers.csharp:
-  - public
-  - get
-  modifiers.vb:
-  - Public
-  - ReadOnly
-- uid: RobotComponents.Actions.RAPIDGenerator.StringBuilder
-  commentId: P:RobotComponents.Actions.RAPIDGenerator.StringBuilder
-  id: StringBuilder
-  parent: RobotComponents.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: StringBuilder
-  nameWithType: RAPIDGenerator.StringBuilder
-  fullName: RobotComponents.Actions.RAPIDGenerator.StringBuilder
-  type: Property
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Actions
-  summary: "\nGets the mutable Stringbuilder used to generate to the RAPID program module. \n"
-  syntax:
-    content: public StringBuilder StringBuilder { get; }
-    parameters: []
-    return:
-      type: System.Text.StringBuilder
-    content.vb: Public ReadOnly Property StringBuilder As StringBuilder
-  overload: RobotComponents.Actions.RAPIDGenerator.StringBuilder*
   modifiers.csharp:
   - public
   - get
@@ -1355,18 +1355,12 @@ references:
   name: ToString
   nameWithType: RAPIDGenerator.ToString
   fullName: RobotComponents.Actions.RAPIDGenerator.ToString
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode*
-  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.CreateProgramCode
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateProgramModule*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
   isExternal: true
-  name: CreateProgramCode
-  nameWithType: RAPIDGenerator.CreateProgramCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateProgramCode
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*
-  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.CreateSystemCode
-  isExternal: true
-  name: CreateSystemCode
-  nameWithType: RAPIDGenerator.CreateSystemCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemCode
+  name: CreateProgramModule
+  nameWithType: RAPIDGenerator.CreateProgramModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
 - uid: System.Collections.Generic.List{System.String}
   commentId: T:System.Collections.Generic.List{System.String}
   parent: System.Collections.Generic
@@ -1411,6 +1405,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule
+  isExternal: true
+  name: CreateSystemModule
+  nameWithType: RAPIDGenerator.CreateSystemModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule
 - uid: System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
   commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
   parent: System.Collections.Generic
@@ -1535,18 +1535,18 @@ references:
   name: SaveToFile
   nameWithType: RAPIDGenerator.SaveToFile
   fullName: RobotComponents.Actions.RAPIDGenerator.SaveToFile
-- uid: RobotComponents.Actions.RAPIDGenerator.ProgramCode*
-  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramCode
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramModule*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramModule
   isExternal: true
-  name: ProgramCode
-  nameWithType: RAPIDGenerator.ProgramCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramCode
-- uid: RobotComponents.Actions.RAPIDGenerator.SystemCode*
-  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.SystemCode
+  name: ProgramModule
+  nameWithType: RAPIDGenerator.ProgramModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramModule
+- uid: RobotComponents.Actions.RAPIDGenerator.SystemModule*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.SystemModule
   isExternal: true
-  name: SystemCode
-  nameWithType: RAPIDGenerator.SystemCode
-  fullName: RobotComponents.Actions.RAPIDGenerator.SystemCode
+  name: SystemModule
+  nameWithType: RAPIDGenerator.SystemModule
+  fullName: RobotComponents.Actions.RAPIDGenerator.SystemModule
 - uid: RobotComponents.Actions.RAPIDGenerator.Robot*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.Robot
   isExternal: true
@@ -1754,6 +1754,72 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator.JointPositions*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.JointPositions
+  isExternal: true
+  name: JointPositions
+  nameWithType: RAPIDGenerator.JointPositions
+  fullName: RobotComponents.Actions.RAPIDGenerator.JointPositions
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.IJointPosition}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.IJointPosition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, IJointPosition>
+  nameWithType: Dictionary<String, IJointPosition>
+  fullName: System.Collections.Generic.Dictionary<System.String, RobotComponents.Actions.IJointPosition>
+  nameWithType.vb: Dictionary(Of String, IJointPosition)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, RobotComponents.Actions.IJointPosition)
+  name.vb: Dictionary(Of String, IJointPosition)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.IJointPosition
+    name: IJointPosition
+    nameWithType: IJointPosition
+    fullName: RobotComponents.Actions.IJointPosition
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.IJointPosition
+    name: IJointPosition
+    nameWithType: IJointPosition
+    fullName: RobotComponents.Actions.IJointPosition
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator.Targets*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.Targets
   isExternal: true
@@ -1952,25 +2018,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: RobotComponents.Actions.RAPIDGenerator.StringBuilder*
-  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.StringBuilder
-  isExternal: true
-  name: StringBuilder
-  nameWithType: RAPIDGenerator.StringBuilder
-  fullName: RobotComponents.Actions.RAPIDGenerator.StringBuilder
-- uid: System.Text.StringBuilder
-  commentId: T:System.Text.StringBuilder
-  parent: System.Text
-  isExternal: true
-  name: StringBuilder
-  nameWithType: StringBuilder
-  fullName: System.Text.StringBuilder
-- uid: System.Text
-  commentId: N:System.Text
-  isExternal: true
-  name: System.Text
-  nameWithType: System.Text
-  fullName: System.Text
 - uid: RobotComponents.Actions.RAPIDGenerator.ErrorText*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ErrorText
   isExternal: true

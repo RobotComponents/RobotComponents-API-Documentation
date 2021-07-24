@@ -344,14 +344,14 @@ This is class is used to generate the RAPID program and system module from a giv
   </table>
   
   
-  <a id="RobotComponents_Actions_RAPIDGenerator_ProgramCode_" data-uid="RobotComponents.Actions.RAPIDGenerator.ProgramCode*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_ProgramCode" data-uid="RobotComponents.Actions.RAPIDGenerator.ProgramCode">ProgramCode</h4>
-  <div class="markdown level1 summary"><p>Gest he RAPID code of the program module.</p>
+  <a id="RobotComponents_Actions_RAPIDGenerator_JointPositions_" data-uid="RobotComponents.Actions.RAPIDGenerator.JointPositions*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_JointPositions" data-uid="RobotComponents.Actions.RAPIDGenerator.JointPositions">JointPositions</h4>
+  <div class="markdown level1 summary"><p>Gets the collection with unique Joint Positions used to create the RAPID program module.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ProgramCode { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, IJointPosition&gt; JointPositions { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -363,7 +363,33 @@ This is class is used to generate the RAPID program and system module from a giv
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<span class="xref">System.String</span>, <a class="xref" href="RobotComponents.Actions.IJointPosition.html">IJointPosition</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_RAPIDGenerator_ProgramModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.ProgramModule*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_ProgramModule" data-uid="RobotComponents.Actions.RAPIDGenerator.ProgramModule">ProgramModule</h4>
+  <div class="markdown level1 summary"><p>Gest he RAPID code of the program module as a list with code lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; ProgramModule { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -500,14 +526,14 @@ This is class is used to generate the RAPID program and system module from a giv
   </table>
   
   
-  <a id="RobotComponents_Actions_RAPIDGenerator_StringBuilder_" data-uid="RobotComponents.Actions.RAPIDGenerator.StringBuilder*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_StringBuilder" data-uid="RobotComponents.Actions.RAPIDGenerator.StringBuilder">StringBuilder</h4>
-  <div class="markdown level1 summary"><p>Gets the mutable Stringbuilder used to generate to the RAPID program module.</p>
+  <a id="RobotComponents_Actions_RAPIDGenerator_SystemModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.SystemModule*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_SystemModule" data-uid="RobotComponents.Actions.RAPIDGenerator.SystemModule">SystemModule</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID code of the system module as a list with code lines.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public StringBuilder StringBuilder { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; SystemModule { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -519,33 +545,7 @@ This is class is used to generate the RAPID program and system module from a giv
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Text.StringBuilder</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  
-  
-  <a id="RobotComponents_Actions_RAPIDGenerator_SystemCode_" data-uid="RobotComponents.Actions.RAPIDGenerator.SystemCode*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_SystemCode" data-uid="RobotComponents.Actions.RAPIDGenerator.SystemCode">SystemCode</h4>
-  <div class="markdown level1 summary"><p>Gets the RAPID code of the system module.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string SystemCode { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -658,15 +658,15 @@ This is class is used to generate the RAPID program and system module from a giv
   </h3>
   
   
-  <a id="RobotComponents_Actions_RAPIDGenerator_CreateProgramCode_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateProgramCode*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateProgramCode" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateProgramCode">CreateProgramCode()</h4>
+  <a id="RobotComponents_Actions_RAPIDGenerator_CreateProgramModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateProgramModule*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateProgramModule" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateProgramModule">CreateProgramModule()</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID program code.
 This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateProgramCode()</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateProgramModule()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -678,16 +678,16 @@ This method also overwrites or creates a file if the property 'SaveToFile is set
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The RAPID program code as a string.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The RAPID program code as a list with code lines.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemCode_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemCode_System_Collections_Generic_List_RobotComponents_Definitions_RobotTool__System_Collections_Generic_List_RobotComponents_Definitions_WorkObject__System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">CreateSystemCode(List&lt;RobotTool&gt;, List&lt;WorkObject&gt;, List&lt;String&gt;)</h4>
+  <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_List_RobotComponents_Definitions_RobotTool__System_Collections_Generic_List_RobotComponents_Definitions_WorkObject__System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">CreateSystemModule(List&lt;RobotTool&gt;, List&lt;WorkObject&gt;, List&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
 It is adds the robot tools, work objects and custom code lines from the given lists.
 This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
@@ -695,7 +695,7 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateSystemCode(List&lt;RobotTool&gt; robotTools, List&lt;WorkObject&gt; workObjects, List&lt;string&gt; customCode)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(List&lt;RobotTool&gt; robotTools, List&lt;WorkObject&gt; workObjects, List&lt;string&gt; customCode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -737,16 +737,16 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The RAPID system code as a string.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The RAPID system code as a list with code lines.</p>
 </td>
       </tr>
     </tbody>
   </table>
   
   
-  <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemCode_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemCode*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemCode_System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemCode(System.Collections.Generic.List{System.String})">CreateSystemCode(List&lt;String&gt;)</h4>
+  <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*"></a>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})">CreateSystemModule(List&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
 It adds the robot tools and work objects that are collected by this RAPID generator.
 For this you have to call the methode 'CreateProgamCode' first.
@@ -755,7 +755,7 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string CreateSystemCode(List&lt;string&gt; customCode)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(List&lt;string&gt; customCode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -785,8 +785,8 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
-        <td><p>The RAPID system code as a string.</p>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>The RAPID system code as a list with code lines.</p>
 </td>
       </tr>
     </tbody>

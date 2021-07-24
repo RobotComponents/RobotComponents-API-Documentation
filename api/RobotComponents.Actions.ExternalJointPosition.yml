@@ -11,12 +11,17 @@ items:
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
   - RobotComponents.Actions.ExternalJointPosition.Add(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Add(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.Divide(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Divide(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.Duplicate
   - RobotComponents.Actions.ExternalJointPosition.DuplicateAction
+  - RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration
   - RobotComponents.Actions.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ExternalJointPosition.IsFixedSize
   - RobotComponents.Actions.ExternalJointPosition.IsValid
@@ -25,6 +30,7 @@ items:
   - RobotComponents.Actions.ExternalJointPosition.Length
   - RobotComponents.Actions.ExternalJointPosition.Multiply(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Multiply(System.Double)
+  - RobotComponents.Actions.ExternalJointPosition.Name
   - RobotComponents.Actions.ExternalJointPosition.op_Addition(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.op_Addition(RobotComponents.Actions.ExternalJointPosition,System.Double)
   - RobotComponents.Actions.ExternalJointPosition.op_Division(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)
@@ -33,6 +39,7 @@ items:
   - RobotComponents.Actions.ExternalJointPosition.op_Multiply(RobotComponents.Actions.ExternalJointPosition,System.Double)
   - RobotComponents.Actions.ExternalJointPosition.op_Subtraction(RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.op_Subtraction(RobotComponents.Actions.ExternalJointPosition,System.Double)
+  - RobotComponents.Actions.ExternalJointPosition.ReferenceType
   - RobotComponents.Actions.ExternalJointPosition.Reset
   - RobotComponents.Actions.ExternalJointPosition.Substract(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Substract(System.Double)
@@ -59,15 +66,16 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nRepresents an External Joint Position declaration.\nThis action is used to defined define the axis positions of external axes, positioners and workpiece manipulators. \n"
   syntax:
-    content: 'public class ExternalJointPosition : Action, IJointPosition, ISerializable'
+    content: 'public class ExternalJointPosition : Action, IDeclaration, IJointPosition, ISerializable'
     content.vb: >-
       Public Class ExternalJointPosition
           Inherits Action
-          Implements IJointPosition, ISerializable
+          Implements IDeclaration, IJointPosition, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.Actions.Action
   implements:
+  - RobotComponents.Actions.IDeclaration
   - RobotComponents.Actions.IJointPosition
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
@@ -168,7 +176,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with an empty name and undefinied positions of the external logical axes.\n"
   syntax:
     content: public ExternalJointPosition()
     content.vb: Public Sub New
@@ -194,7 +202,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with an empty name.\n"
   syntax:
     content: public ExternalJointPosition(double Eax_a, double Eax_b = 9000000000, double Eax_c = 9000000000, double Eax_d = 9000000000, double Eax_e = 9000000000, double Eax_f = 9000000000)
     parameters:
@@ -239,7 +247,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class from a list with values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with an empty name from a list with values.\n"
   syntax:
     content: public ExternalJointPosition(List<double> externalAxisValues)
     parameters:
@@ -272,7 +280,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class from an array with values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class with an empty name from an array with values.\n"
   syntax:
     content: public ExternalJointPosition(double[] externalAxisValues)
     parameters:
@@ -288,6 +296,156 @@ items:
   - Public
   fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Double())
   name.vb: ExternalJointPosition(Double())
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition(String)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(String)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the External Joint Position class with undefinied positions of the external logical axes.\n"
+  syntax:
+    content: public ExternalJointPosition(string name)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The external joint position name, must be unique. '
+    content.vb: Public Sub New(name As String)
+  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition(String, Double, Double, Double, Double, Double, Double)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(String, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the External Joint Position class.\n"
+  syntax:
+    content: public ExternalJointPosition(string name, double Eax_a, double Eax_b = 9000000000, double Eax_c = 9000000000, double Eax_d = 9000000000, double Eax_e = 9000000000, double Eax_f = 9000000000)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The external joint position name, must be unique. '
+    - id: Eax_a
+      type: System.Double
+      description: 'The position of the external logical axis “a” expressed in degrees or mm. '
+    - id: Eax_b
+      type: System.Double
+      description: 'The position of the external logical axis “b” expressed in degrees or mm. '
+    - id: Eax_c
+      type: System.Double
+      description: 'The position of the external logical axis “c” expressed in degrees or mm. '
+    - id: Eax_d
+      type: System.Double
+      description: 'The position of the external logical axis “d” expressed in degrees or mm. '
+    - id: Eax_e
+      type: System.Double
+      description: 'The position of the external logical axis “3” expressed in degrees or mm. '
+    - id: Eax_f
+      type: System.Double
+      description: 'The position of the external logical axis “f” expressed in degrees or mm. '
+    content.vb: Public Sub New(name As String, Eax_a As Double, Eax_b As Double = 9000000000, Eax_c As Double = 9000000000, Eax_d As Double = 9000000000, Eax_e As Double = 9000000000, Eax_f As Double = 9000000000)
+  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  id: '#ctor(System.String,System.Collections.Generic.List{System.Double})'
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition(String, List<Double>)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(String, List<Double>)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.List<System.Double>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the External Joint Position class from a list with values.\n"
+  syntax:
+    content: public ExternalJointPosition(string name, List<double> externalAxisValues)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The external joint position name, must be unique. '
+    - id: externalAxisValues
+      type: System.Collections.Generic.List{System.Double}
+      description: 'The position of the external logical axes. '
+    content.vb: Public Sub New(name As String, externalAxisValues As List(Of Double))
+  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
+  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(String, List(Of Double))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.List(Of System.Double))
+  name.vb: ExternalJointPosition(String, List(Of Double))
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
+  id: '#ctor(System.String,System.Double[])'
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ExternalJointPosition(String, Double[])
+  nameWithType: ExternalJointPosition.ExternalJointPosition(String, Double[])
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Double[])
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the External Joint Position class from an array with values.\n"
+  syntax:
+    content: public ExternalJointPosition(string name, double[] externalAxisValues)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The external joint position name, must be unique. '
+    - id: externalAxisValues
+      type: System.Double[]
+      description: 'The position of the external logical axes. '
+    content.vb: Public Sub New(name As String, externalAxisValues As Double())
+  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
+  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(String, Double())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Double())
+  name.vb: ExternalJointPosition(String, Double())
 - uid: RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)
   commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)
   id: '#ctor(RobotComponents.Actions.ExternalJointPosition)'
@@ -379,6 +537,37 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration
+  id: DuplicateDeclaration
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDeclaration()
+  nameWithType: ExternalJointPosition.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this External Joint Position instance as an IDeclaration.\n"
+  syntax:
+    content: public IDeclaration DuplicateDeclaration()
+    return:
+      type: RobotComponents.Actions.IDeclaration
+      description: 'A deep copy of the External Joint Position instance as an IDeclaration. '
+    content.vb: Public Function DuplicateDeclaration As IDeclaration
+  overload: RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ExternalJointPosition.ToString
   commentId: M:RobotComponents.Actions.ExternalJointPosition.ToString
   id: ToString
@@ -802,6 +991,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -871,6 +1062,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -1240,6 +1433,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Actions.Action.IsValid
   overload: RobotComponents.Actions.ExternalJointPosition.IsValid*
+  implements:
+  - RobotComponents.Actions.IDeclaration.IsValid
   modifiers.csharp:
   - public
   - override
@@ -1248,6 +1443,74 @@ items:
   - Public
   - Overrides
   - ReadOnly
+- uid: RobotComponents.Actions.ExternalJointPosition.Name
+  commentId: P:RobotComponents.Actions.ExternalJointPosition.Name
+  id: Name
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ExternalJointPosition.Name
+  fullName: RobotComponents.Actions.ExternalJointPosition.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the External Joint Position variable name.\nEach External Joint Position variable name has to be unique.\n"
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.Actions.ExternalJointPosition.Name*
+  implements:
+  - RobotComponents.Actions.IDeclaration.Name
+  - RobotComponents.Actions.IJointPosition.Name
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.ExternalJointPosition.ReferenceType
+  commentId: P:RobotComponents.Actions.ExternalJointPosition.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.ExternalJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: ExternalJointPosition.ReferenceType
+  fullName: RobotComponents.Actions.ExternalJointPosition.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the Reference Type. \n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.ExternalJointPosition.ReferenceType*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ReferenceType
+  - RobotComponents.Actions.IJointPosition.ReferenceType
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.ExternalJointPosition.Length
   commentId: P:RobotComponents.Actions.ExternalJointPosition.Length
   id: Length
@@ -1413,6 +1676,13 @@ references:
   name: Action
   nameWithType: Action
   fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IDeclaration
+  commentId: T:RobotComponents.Actions.IDeclaration
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.Actions.IDeclaration
 - uid: RobotComponents.Actions.IJointPosition
   commentId: T:RobotComponents.Actions.IJointPosition
   parent: RobotComponents.Actions
@@ -1892,6 +2162,13 @@ references:
   - name: ()
     nameWithType: ()
     fullName: ()
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
 - uid: RobotComponents.Actions.ExternalJointPosition
   commentId: T:RobotComponents.Actions.ExternalJointPosition
   parent: RobotComponents.Actions
@@ -1942,6 +2219,43 @@ references:
   name: DuplicateAction
   nameWithType: ExternalJointPosition.DuplicateAction
   fullName: RobotComponents.Actions.ExternalJointPosition.DuplicateAction
+- uid: RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration*
+  commentId: Overload:RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration
+  isExternal: true
+  name: DuplicateDeclaration
+  nameWithType: ExternalJointPosition.DuplicateDeclaration
+  fullName: RobotComponents.Actions.ExternalJointPosition.DuplicateDeclaration
+- uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: DuplicateDeclaration()
+  nameWithType: IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToString
   commentId: M:RobotComponents.Actions.Action.ToString
   parent: RobotComponents.Actions.Action
@@ -1979,13 +2293,6 @@ references:
   name: ToString
   nameWithType: ExternalJointPosition.ToString
   fullName: RobotComponents.Actions.ExternalJointPosition.ToString
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
 - uid: RobotComponents.Actions.ExternalJointPosition.ToArray*
   commentId: Overload:RobotComponents.Actions.ExternalJointPosition.ToArray
   isExternal: true
@@ -2205,6 +2512,47 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: ExternalJointPosition.ToRAPIDDeclaration
   fullName: RobotComponents.Actions.ExternalJointPosition.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot
   commentId: T:RobotComponents.Definitions.Robot
   parent: RobotComponents.Definitions
@@ -2306,6 +2654,47 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator
   commentId: T:RobotComponents.Actions.RAPIDGenerator
   parent: RobotComponents.Actions
@@ -2391,6 +2780,13 @@ references:
   name: IsValid
   nameWithType: ExternalJointPosition.IsValid
   fullName: RobotComponents.Actions.ExternalJointPosition.IsValid
+- uid: RobotComponents.Actions.IDeclaration.IsValid
+  commentId: P:RobotComponents.Actions.IDeclaration.IsValid
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: IsValid
+  nameWithType: IDeclaration.IsValid
+  fullName: RobotComponents.Actions.IDeclaration.IsValid
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -2398,6 +2794,59 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
+- uid: RobotComponents.Actions.ExternalJointPosition.Name*
+  commentId: Overload:RobotComponents.Actions.ExternalJointPosition.Name
+  isExternal: true
+  name: Name
+  nameWithType: ExternalJointPosition.Name
+  fullName: RobotComponents.Actions.ExternalJointPosition.Name
+- uid: RobotComponents.Actions.IDeclaration.Name
+  commentId: P:RobotComponents.Actions.IDeclaration.Name
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: Name
+  nameWithType: IDeclaration.Name
+  fullName: RobotComponents.Actions.IDeclaration.Name
+- uid: RobotComponents.Actions.IJointPosition.Name
+  commentId: P:RobotComponents.Actions.IJointPosition.Name
+  parent: RobotComponents.Actions.IJointPosition
+  isExternal: true
+  name: Name
+  nameWithType: IJointPosition.Name
+  fullName: RobotComponents.Actions.IJointPosition.Name
+- uid: RobotComponents.Actions.ExternalJointPosition.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.ExternalJointPosition.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ExternalJointPosition.ReferenceType
+  fullName: RobotComponents.Actions.ExternalJointPosition.ReferenceType
+- uid: RobotComponents.Actions.IDeclaration.ReferenceType
+  commentId: P:RobotComponents.Actions.IDeclaration.ReferenceType
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ReferenceType
+  nameWithType: IDeclaration.ReferenceType
+  fullName: RobotComponents.Actions.IDeclaration.ReferenceType
+- uid: RobotComponents.Actions.IJointPosition.ReferenceType
+  commentId: P:RobotComponents.Actions.IJointPosition.ReferenceType
+  parent: RobotComponents.Actions.IJointPosition
+  isExternal: true
+  name: ReferenceType
+  nameWithType: IJointPosition.ReferenceType
+  fullName: RobotComponents.Actions.IJointPosition.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.ExternalJointPosition.Length*
   commentId: Overload:RobotComponents.Actions.ExternalJointPosition.Length
   isExternal: true

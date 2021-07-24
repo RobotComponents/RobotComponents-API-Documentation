@@ -7,6 +7,7 @@ items:
   children:
   - RobotComponents.Actions.ActionGroup.#ctor
   - RobotComponents.Actions.ActionGroup.#ctor(RobotComponents.Actions.ActionGroup)
+  - RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})
   - RobotComponents.Actions.ActionGroup.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})
   - RobotComponents.Actions.ActionGroup.Actions
@@ -156,6 +157,39 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})
+  commentId: M:RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})
+  id: '#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})'
+  parent: RobotComponents.Actions.ActionGroup
+  langs:
+  - csharp
+  - vb
+  name: ActionGroup(List<Action>)
+  nameWithType: ActionGroup.ActionGroup(List<Action>)
+  fullName: RobotComponents.Actions.ActionGroup.ActionGroup(System.Collections.Generic.List<RobotComponents.Actions.Action>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Action Group class with an empty name.\n"
+  syntax:
+    content: public ActionGroup(List<Action> actions)
+    parameters:
+    - id: actions
+      type: System.Collections.Generic.List{RobotComponents.Actions.Action}
+      description: 'The list with actions. '
+    content.vb: Public Sub New(actions As List(Of Action))
+  overload: RobotComponents.Actions.ActionGroup.#ctor*
+  nameWithType.vb: ActionGroup.ActionGroup(List(Of Action))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.ActionGroup.ActionGroup(System.Collections.Generic.List(Of RobotComponents.Actions.Action))
+  name.vb: ActionGroup(List(Of Action))
 - uid: RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})
   commentId: M:RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})
   id: '#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})'
@@ -1047,13 +1081,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
 - uid: System.Collections.Generic.List{RobotComponents.Actions.Action}
   commentId: T:System.Collections.Generic.List{RobotComponents.Actions.Action}
   parent: System.Collections.Generic
@@ -1143,6 +1170,13 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
 - uid: RobotComponents.Actions.ActionGroup
   commentId: T:RobotComponents.Actions.ActionGroup
   parent: RobotComponents.Actions

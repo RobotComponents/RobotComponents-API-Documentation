@@ -7,6 +7,8 @@ items:
   children:
   - RobotComponents.Actions.JointTarget.#ctor
   - RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.JointTarget)
+  - RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition)
+  - RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.JointTarget.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
   - RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
@@ -23,6 +25,7 @@ items:
   - RobotComponents.Actions.JointTarget.Name
   - RobotComponents.Actions.JointTarget.ReferenceType
   - RobotComponents.Actions.JointTarget.RobotJointPosition
+  - RobotComponents.Actions.JointTarget.ToRAPID
   - RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.JointTarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -162,6 +165,36 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition)
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition)
+  id: '#ctor(RobotComponents.Actions.RobotJointPosition)'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(RobotJointPosition)
+  nameWithType: JointTarget.JointTarget(RobotJointPosition)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(RobotComponents.Actions.RobotJointPosition)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Joint Target class with an undefined External Joint Position.\n"
+  syntax:
+    content: public JointTarget(RobotJointPosition robotJointPosition)
+    parameters:
+    - id: robotJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: 'The robot joint position. '
+    content.vb: Public Sub New(robotJointPosition As RobotJointPosition)
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
   commentId: M:RobotComponents.Actions.JointTarget.#ctor(System.String,RobotComponents.Actions.RobotJointPosition)
   id: '#ctor(System.String,RobotComponents.Actions.RobotJointPosition)'
@@ -190,6 +223,39 @@ items:
       type: RobotComponents.Actions.RobotJointPosition
       description: 'The robot joint position. '
     content.vb: Public Sub New(name As String, robotJointPosition As RobotJointPosition)
+  overload: RobotComponents.Actions.JointTarget.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Actions.JointTarget.#ctor(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)
+  id: '#ctor(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)'
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: JointTarget(RobotJointPosition, ExternalJointPosition)
+  nameWithType: JointTarget.JointTarget(RobotJointPosition, ExternalJointPosition)
+  fullName: RobotComponents.Actions.JointTarget.JointTarget(RobotComponents.Actions.RobotJointPosition, RobotComponents.Actions.ExternalJointPosition)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Joint Target class.\n"
+  syntax:
+    content: public JointTarget(RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition)
+    parameters:
+    - id: robotJointPosition
+      type: RobotComponents.Actions.RobotJointPosition
+      description: The Robot Joint Position
+    - id: externalJointPosition
+      type: RobotComponents.Actions.ExternalJointPosition
+      description: The External Joint Position
+    content.vb: Public Sub New(robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition)
   overload: RobotComponents.Actions.JointTarget.#ctor*
   modifiers.csharp:
   - public
@@ -515,6 +581,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.JointTarget.ToRAPID
+  commentId: M:RobotComponents.Actions.JointTarget.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.JointTarget
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: JointTarget.ToRAPID()
+  fullName: RobotComponents.Actions.JointTarget.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Joint Target in RAPID code format, e.g. &quot;[[0, 0, 0, 0, 45, 0], [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]&quot;.\n"
+  syntax:
+    content: public string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with joint target values. '
+    content.vb: Public Function ToRAPID As String
+  overload: RobotComponents.Actions.JointTarget.ToRAPID*
+  implements:
+  - RobotComponents.Actions.ITarget.ToRAPID
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.JointTarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -546,6 +643,7 @@ items:
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*
   implements:
+  - RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
@@ -583,6 +681,8 @@ items:
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   overload: RobotComponents.Actions.JointTarget.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
   modifiers.csharp:
   - public
   - override
@@ -617,6 +717,7 @@ items:
   overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration*
   implements:
+  - RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
@@ -651,6 +752,8 @@ items:
     content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
   overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   overload: RobotComponents.Actions.JointTarget.ToRAPIDInstruction*
+  implements:
+  - RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
   modifiers.csharp:
   - public
   - override
@@ -1211,13 +1314,6 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
 - uid: RobotComponents.Actions.RobotJointPosition
   commentId: T:RobotComponents.Actions.RobotJointPosition
   parent: RobotComponents.Actions
@@ -1225,6 +1321,13 @@ references:
   name: RobotJointPosition
   nameWithType: RobotJointPosition
   fullName: RobotComponents.Actions.RobotJointPosition
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
 - uid: RobotComponents.Actions.ExternalJointPosition
   commentId: T:RobotComponents.Actions.ExternalJointPosition
   parent: RobotComponents.Actions
@@ -1513,6 +1616,43 @@ references:
   name: CheckExternalAxisLimits
   nameWithType: JointTarget.CheckExternalAxisLimits
   fullName: RobotComponents.Actions.JointTarget.CheckExternalAxisLimits
+- uid: RobotComponents.Actions.JointTarget.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.JointTarget.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: JointTarget.ToRAPID
+  fullName: RobotComponents.Actions.JointTarget.ToRAPID
+- uid: RobotComponents.Actions.ITarget.ToRAPID
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPID
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ToRAPID()
+  nameWithType: ITarget.ToRAPID()
+  fullName: RobotComponents.Actions.ITarget.ToRAPID()
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.ToRAPID
+    name: ToRAPID
+    nameWithType: ITarget.ToRAPID
+    fullName: RobotComponents.Actions.ITarget.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.ToRAPID
+    name: ToRAPID
+    nameWithType: ITarget.ToRAPID
+    fullName: RobotComponents.Actions.ITarget.ToRAPID
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action
@@ -1560,6 +1700,47 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: JointTarget.ToRAPIDDeclaration
   fullName: RobotComponents.Actions.JointTarget.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: ITarget.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: ITarget.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: ITarget.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.IDeclaration
@@ -1648,6 +1829,47 @@ references:
   name: ToRAPIDInstruction
   nameWithType: JointTarget.ToRAPIDInstruction
   fullName: RobotComponents.Actions.JointTarget.ToRAPIDInstruction
+- uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: ITarget.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: ITarget.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: ITarget.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   parent: RobotComponents.Actions.Action
@@ -1677,6 +1899,47 @@ references:
     name: ToRAPIDDeclaration
     nameWithType: Action.ToRAPIDDeclaration
     fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: ITarget.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: ITarget.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: ITarget.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDDeclaration
     isExternal: true
   - name: (
     nameWithType: (
@@ -1766,6 +2029,47 @@ references:
     name: ToRAPIDInstruction
     nameWithType: Action.ToRAPIDInstruction
     fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.ITarget
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: ITarget.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: ITarget.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: ITarget.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.ITarget.ToRAPIDInstruction
     isExternal: true
   - name: (
     nameWithType: (

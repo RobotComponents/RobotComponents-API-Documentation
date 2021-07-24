@@ -160,6 +160,71 @@ This action is used to specify how a position is to be terminated.</p>
   
   
   <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData__ctor_System_Boolean_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.Boolean,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">ZoneData(Boolean, Double, Double, Double, Double, Double, Double)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with with custom values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ZoneData(bool finep, double pzone_tcp = 0, double pzone_ori = 0, double pzone_eax = 0, double zone_ori = 0, double zone_leax = 0, double zone_reax = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">finep</span></td>
+        <td><p>Defines whether the movement is to terminate as a stop point (fine point) or as a fly-by point.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">pzone_tcp</span></td>
+        <td><p>The size (the radius) of the TCP zone in mm.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">pzone_ori</span></td>
+        <td><p>The zone size (the radius) for the tool reorientation.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">pzone_eax</span></td>
+        <td><p>The zone size (the radius) for external axes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">zone_ori</span></td>
+        <td><p>The zone size for the tool reorientation in degrees.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">zone_leax</span></td>
+        <td><p>The zone size for linear external axes in mm.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">zone_reax</span></td>
+        <td><p>he zone size for rotating external axes in degrees.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_ZoneData__ctor_" data-uid="RobotComponents.Actions.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_Actions_ZoneData__ctor_System_Double_" data-uid="RobotComponents.Actions.ZoneData.#ctor(System.Double)">ZoneData(Double)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.
 Use -1 to define a fine point.</p>
@@ -837,6 +902,33 @@ If the robot is holding the work object, this means an angle of rotation for the
         <td><span class="xref">System.Runtime.Serialization.StreamingContext</span></td>
         <td><span class="parametername">context</span></td>
         <td><p>The destination for this serialization.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Actions_ZoneData_ToRAPID_" data-uid="RobotComponents.Actions.ZoneData.ToRAPID*"></a>
+  <h4 id="RobotComponents_Actions_ZoneData_ToRAPID" data-uid="RobotComponents.Actions.ZoneData.ToRAPID">ToRAPID()</h4>
+  <div class="markdown level1 summary"><p>Returns the Zone Data in RAPID code format, e.g. &quot;[FALSE, 0, 0.3, 0.3, 0.3, 0.3, 0.03]&quot;.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPID()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The string with zone data values.</p>
 </td>
       </tr>
     </tbody>

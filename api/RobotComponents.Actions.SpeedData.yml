@@ -8,6 +8,7 @@ items:
   - RobotComponents.Actions.SpeedData.#ctor
   - RobotComponents.Actions.SpeedData.#ctor(RobotComponents.Actions.SpeedData)
   - RobotComponents.Actions.SpeedData.#ctor(System.Double)
+  - RobotComponents.Actions.SpeedData.#ctor(System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Actions.SpeedData.#ctor(System.Int32)
   - RobotComponents.Actions.SpeedData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)
@@ -20,6 +21,7 @@ items:
   - RobotComponents.Actions.SpeedData.Name
   - RobotComponents.Actions.SpeedData.PreDefinied
   - RobotComponents.Actions.SpeedData.ReferenceType
+  - RobotComponents.Actions.SpeedData.ToRAPID
   - RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.SpeedData.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -225,6 +227,45 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.SpeedData.#ctor(System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Actions.SpeedData.#ctor(System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.Double,System.Double,System.Double,System.Double)'
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: SpeedData(Double, Double, Double, Double)
+  nameWithType: SpeedData.SpeedData(Double, Double, Double, Double)
+  fullName: RobotComponents.Actions.SpeedData.SpeedData(System.Double, System.Double, System.Double, System.Double)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Speed Data class with custom values.\n"
+  syntax:
+    content: public SpeedData(double v_tcp, double v_ori = 500, double v_leax = 5000, double v_reax = 1000)
+    parameters:
+    - id: v_tcp
+      type: System.Double
+      description: 'The velocity of the tool center point (TCP) in mm/s. '
+    - id: v_ori
+      type: System.Double
+      description: 'The reorientation velocity of the TCP expressed in degrees/s. '
+    - id: v_leax
+      type: System.Double
+      description: 'The velocity of linear external axes in mm/s. '
+    - id: v_reax
+      type: System.Double
+      description: 'The velocity of rotating external axes in degrees/s. '
+    content.vb: Public Sub New(v_tcp As Double, v_ori As Double = 500, v_leax As Double = 5000, v_reax As Double = 1000)
+  overload: RobotComponents.Actions.SpeedData.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)
   commentId: M:RobotComponents.Actions.SpeedData.#ctor(System.String,System.Double,System.Double,System.Double,System.Double)
   id: '#ctor(System.String,System.Double,System.Double,System.Double,System.Double)'
@@ -421,6 +462,35 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Actions.SpeedData.ToRAPID
+  commentId: M:RobotComponents.Actions.SpeedData.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: SpeedData.ToRAPID()
+  fullName: RobotComponents.Actions.SpeedData.ToRAPID()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Speed Data in RAPID code format, e.g. &quot;[200, 500, 5000, 1000]&quot;.\n"
+  syntax:
+    content: public string ToRAPID()
+    return:
+      type: System.String
+      description: 'The string with speed data values. '
+    content.vb: Public Function ToRAPID As String
+  overload: RobotComponents.Actions.SpeedData.ToRAPID*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.SpeedData.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -1471,6 +1541,12 @@ references:
   name: ToString
   nameWithType: SpeedData.ToString
   fullName: RobotComponents.Actions.SpeedData.ToString
+- uid: RobotComponents.Actions.SpeedData.ToRAPID*
+  commentId: Overload:RobotComponents.Actions.SpeedData.ToRAPID
+  isExternal: true
+  name: ToRAPID
+  nameWithType: SpeedData.ToRAPID
+  fullName: RobotComponents.Actions.SpeedData.ToRAPID
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action
