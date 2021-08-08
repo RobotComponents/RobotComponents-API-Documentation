@@ -795,23 +795,9 @@
             <param name="robot"> The Robot were the code is generated for. </param>
             <returns> The RAPID code line. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
-        </member>
         <member name="M:RobotComponents.Actions.ITarget.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
             Creates declarations in the RAPID program module inside the RAPID Generator. 
-            This method is called inside the RAPID generator.
-            </summary>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.Actions.ITarget.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
             This method is called inside the RAPID generator.
             </summary>
             <param name="RAPIDGenerator"> The RAPID Generator. </param>
@@ -1365,6 +1351,20 @@
             Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
             </summary>
             <returns> The string with axis values. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
         </member>
         <member name="M:RobotComponents.Actions.IJointPosition.Reset">
             <summary>
@@ -2330,6 +2330,13 @@
             <summary>
             Initializes an empty instance of the Movement class.
             </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.Movement.#ctor(Rhino.Geometry.Plane)">
+            <summary>
+            Initializes a new instance of the Movement class.
+            This constructor is typically used to cast a Plane to a movement. 
+            </summary>
+            <param name="plane"> The target plan. </param>
         </member>
         <member name="M:RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.ITarget)">
             <summary>

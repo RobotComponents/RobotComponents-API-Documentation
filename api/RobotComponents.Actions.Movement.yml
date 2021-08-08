@@ -6,6 +6,7 @@ items:
   parent: RobotComponents.Actions
   children:
   - RobotComponents.Actions.Movement.#ctor
+  - RobotComponents.Actions.Movement.#ctor(Rhino.Geometry.Plane)
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.ITarget)
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Actions.Movement,System.Boolean)
   - RobotComponents.Actions.Movement.#ctor(RobotComponents.Enumerations.MovementType,RobotComponents.Actions.ITarget,RobotComponents.Actions.SpeedData)
@@ -166,6 +167,36 @@ items:
   syntax:
     content: public Movement()
     content.vb: Public Sub New
+  overload: RobotComponents.Actions.Movement.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.Movement.#ctor(Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Actions.Movement.#ctor(Rhino.Geometry.Plane)
+  id: '#ctor(Rhino.Geometry.Plane)'
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(Plane)
+  nameWithType: Movement.Movement(Plane)
+  fullName: RobotComponents.Actions.Movement.Movement(Rhino.Geometry.Plane)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Movement class.\nThis constructor is typically used to cast a Plane to a movement. \n"
+  syntax:
+    content: public Movement(Plane plane)
+    parameters:
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: 'The target plan. '
+    content.vb: Public Sub New(plane As Plane)
   overload: RobotComponents.Actions.Movement.#ctor*
   modifiers.csharp:
   - public
@@ -1588,6 +1619,11 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
 - uid: RobotComponents.Actions.ITarget
   commentId: T:RobotComponents.Actions.ITarget
   parent: RobotComponents.Actions
@@ -1799,11 +1835,6 @@ references:
   name: GetGlobalTargetPlane
   nameWithType: Movement.GetGlobalTargetPlane
   fullName: RobotComponents.Actions.Movement.GetGlobalTargetPlane
-- uid: Rhino.Geometry.Plane
-  isExternal: true
-  name: Plane
-  nameWithType: Plane
-  fullName: Rhino.Geometry.Plane
 - uid: RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane*
   commentId: Overload:RobotComponents.Actions.Movement.GetPosedGlobalTargetPlane
   isExternal: true

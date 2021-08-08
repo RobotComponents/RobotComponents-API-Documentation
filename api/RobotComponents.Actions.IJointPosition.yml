@@ -14,6 +14,8 @@ items:
   - RobotComponents.Actions.IJointPosition.ToArray
   - RobotComponents.Actions.IJointPosition.ToList
   - RobotComponents.Actions.IJointPosition.ToRAPID
+  - RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   langs:
   - csharp
   - vb
@@ -112,6 +114,61 @@ items:
       description: 'The string with axis values. '
     content.vb: Function ToRAPID As String
   overload: RobotComponents.Actions.IJointPosition.ToRAPID*
+- uid: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IJointPosition.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
+  syntax:
+    content: string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'The RAPID code line. '
+    content.vb: Function ToRAPIDDeclaration(robot As Robot) As String
+  overload: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration*
+- uid: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IJointPosition
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IJointPosition.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration*
 - uid: RobotComponents.Actions.IJointPosition.Reset
   commentId: M:RobotComponents.Actions.IJointPosition.Reset
   id: Reset
@@ -436,6 +493,32 @@ references:
   name: System
   nameWithType: System
   fullName: System
+- uid: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: IJointPosition.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.IJointPosition.ToRAPIDDeclaration
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
 - uid: RobotComponents.Actions.IJointPosition.Reset*
   commentId: Overload:RobotComponents.Actions.IJointPosition.Reset
   isExternal: true
