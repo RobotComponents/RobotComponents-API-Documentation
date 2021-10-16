@@ -45,6 +45,7 @@ items:
   - RobotComponents.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   - RobotComponents.Definitions.ExternalLinearAxis.DuplicateWithoutMesh
   - RobotComponents.Definitions.ExternalLinearAxis.GetAxisCurve
+  - RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
   - RobotComponents.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.ExternalLinearAxis.IsValid
   - RobotComponents.Definitions.ExternalLinearAxis.LinkMesh
@@ -1611,6 +1612,42 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.ExternalLinearAxis
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(Boolean)
+  nameWithType: ExternalLinearAxis.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns the Bounding Box of the object.\n"
+  syntax:
+    content: public override BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: 'If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. '
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: 'The Bounding Box. '
+    content.vb: Public Overrides Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overridden: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  overload: RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
 - uid: RobotComponents.Definitions.ExternalLinearAxis.IsValid
   commentId: P:RobotComponents.Definitions.ExternalLinearAxis.IsValid
   id: IsValid
@@ -3061,6 +3098,58 @@ references:
   name: Transform
   nameWithType: ExternalLinearAxis.Transform
   fullName: RobotComponents.Definitions.ExternalLinearAxis.Transform
+- uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: GetBoundingBox(Boolean)
+  nameWithType: ExternalAxis.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: ExternalAxis.GetBoundingBox
+    fullName: RobotComponents.Definitions.ExternalAxis.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: ExternalAxis.GetBoundingBox
+    fullName: RobotComponents.Definitions.ExternalAxis.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox*
+  commentId: Overload:RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox
+  isExternal: true
+  name: GetBoundingBox
+  nameWithType: ExternalLinearAxis.GetBoundingBox
+  fullName: RobotComponents.Definitions.ExternalLinearAxis.GetBoundingBox
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
 - uid: RobotComponents.Definitions.ExternalAxis.IsValid
   commentId: P:RobotComponents.Definitions.ExternalAxis.IsValid
   parent: RobotComponents.Definitions.ExternalAxis

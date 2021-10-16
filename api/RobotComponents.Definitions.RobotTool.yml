@@ -28,9 +28,10 @@ items:
   - RobotComponents.Definitions.RobotTool.CenterOfGravity
   - RobotComponents.Definitions.RobotTool.CenterOfGravityOrientation
   - RobotComponents.Definitions.RobotTool.CenterOfGravityPosition
-  - RobotComponents.Definitions.RobotTool.Clear
   - RobotComponents.Definitions.RobotTool.Duplicate
   - RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh
+  - RobotComponents.Definitions.RobotTool.GetBoundingBox(System.Boolean)
+  - RobotComponents.Definitions.RobotTool.GetEmptyRobotTool
   - RobotComponents.Definitions.RobotTool.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.RobotTool.Inertia
   - RobotComponents.Definitions.RobotTool.IsValid
@@ -879,6 +880,37 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.RobotTool.GetEmptyRobotTool
+  commentId: M:RobotComponents.Definitions.RobotTool.GetEmptyRobotTool
+  id: GetEmptyRobotTool
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: GetEmptyRobotTool()
+  nameWithType: RobotTool.GetEmptyRobotTool()
+  fullName: RobotComponents.Definitions.RobotTool.GetEmptyRobotTool()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns an empty Robot Tool instance.\n"
+  syntax:
+    content: public static RobotTool GetEmptyRobotTool()
+    return:
+      type: RobotComponents.Definitions.RobotTool
+      description: 'The empty Robot Tool. '
+    content.vb: Public Shared Function GetEmptyRobotTool As RobotTool
+  overload: RobotComponents.Definitions.RobotTool.GetEmptyRobotTool*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 - uid: RobotComponents.Definitions.RobotTool.ToString
   commentId: M:RobotComponents.Definitions.RobotTool.ToString
   id: ToString
@@ -1082,32 +1114,6 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.Clear
-  commentId: M:RobotComponents.Definitions.RobotTool.Clear
-  id: Clear
-  parent: RobotComponents.Definitions.RobotTool
-  langs:
-  - csharp
-  - vb
-  name: Clear()
-  nameWithType: RobotTool.Clear()
-  fullName: RobotComponents.Definitions.RobotTool.Clear()
-  type: Method
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Definitions
-  summary: "\nClears all the fields and properties of the current instance.\nTypically used for defining an empty Robot Tool instance \n(since the empty constructor creates the default Robot Tool tool0).\n"
-  syntax:
-    content: public void Clear()
-    content.vb: Public Sub Clear
-  overload: RobotComponents.Definitions.RobotTool.Clear*
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
 - uid: RobotComponents.Definitions.RobotTool.Transform(Rhino.Geometry.Transform)
   commentId: M:RobotComponents.Definitions.RobotTool.Transform(Rhino.Geometry.Transform)
   id: Transform(Rhino.Geometry.Transform)
@@ -1134,6 +1140,39 @@ items:
       description: 'The spatial deform. '
     content.vb: Public Sub Transform(xform As Transform)
   overload: RobotComponents.Definitions.RobotTool.Transform*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.RobotTool.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.RobotTool.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.RobotTool
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(Boolean)
+  nameWithType: RobotTool.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.RobotTool.GetBoundingBox(System.Boolean)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns the Bounding Box of the object.\n"
+  syntax:
+    content: public BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: 'If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. '
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: 'The Bounding Box. '
+    content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overload: RobotComponents.Definitions.RobotTool.GetBoundingBox*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -2090,6 +2129,12 @@ references:
   name: DuplicateWithoutMesh
   nameWithType: RobotTool.DuplicateWithoutMesh
   fullName: RobotComponents.Definitions.RobotTool.DuplicateWithoutMesh
+- uid: RobotComponents.Definitions.RobotTool.GetEmptyRobotTool*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.GetEmptyRobotTool
+  isExternal: true
+  name: GetEmptyRobotTool
+  nameWithType: RobotTool.GetEmptyRobotTool
+  fullName: RobotComponents.Definitions.RobotTool.GetEmptyRobotTool
 - uid: System.Object.ToString
   commentId: M:System.Object.ToString
   parent: System.Object
@@ -2163,12 +2208,6 @@ references:
   name: ToRAPIDDeclaration
   nameWithType: RobotTool.ToRAPIDDeclaration
   fullName: RobotComponents.Definitions.RobotTool.ToRAPIDDeclaration
-- uid: RobotComponents.Definitions.RobotTool.Clear*
-  commentId: Overload:RobotComponents.Definitions.RobotTool.Clear
-  isExternal: true
-  name: Clear
-  nameWithType: RobotTool.Clear
-  fullName: RobotComponents.Definitions.RobotTool.Clear
 - uid: RobotComponents.Definitions.RobotTool.Transform*
   commentId: Overload:RobotComponents.Definitions.RobotTool.Transform
   isExternal: true
@@ -2180,6 +2219,17 @@ references:
   name: Transform
   nameWithType: Transform
   fullName: Rhino.Geometry.Transform
+- uid: RobotComponents.Definitions.RobotTool.GetBoundingBox*
+  commentId: Overload:RobotComponents.Definitions.RobotTool.GetBoundingBox
+  isExternal: true
+  name: GetBoundingBox
+  nameWithType: RobotTool.GetBoundingBox
+  fullName: RobotComponents.Definitions.RobotTool.GetBoundingBox
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
 - uid: RobotComponents.Definitions.RobotTool.IsValid*
   commentId: Overload:RobotComponents.Definitions.RobotTool.IsValid
   isExternal: true

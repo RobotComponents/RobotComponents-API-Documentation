@@ -19,6 +19,7 @@ items:
   - RobotComponents.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxis
   - RobotComponents.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
+  - RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
   - RobotComponents.Definitions.ExternalAxis.IsValid
   - RobotComponents.Definitions.ExternalAxis.LinkMesh
   - RobotComponents.Definitions.ExternalAxis.MovesRobot
@@ -426,6 +427,41 @@ items:
       description: 'The spatial deform. '
     content.vb: Public MustOverride Sub Transform(xform As Transform)
   overload: RobotComponents.Definitions.ExternalAxis.Transform*
+  modifiers.csharp:
+  - public
+  - abstract
+  modifiers.vb:
+  - Public
+  - MustOverride
+- uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.ExternalAxis
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(Boolean)
+  nameWithType: ExternalAxis.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns the Bounding Box of the object.\n"
+  syntax:
+    content: public abstract BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: 'If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. '
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: 'The Bounding Box. '
+    content.vb: Public MustOverride Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overload: RobotComponents.Definitions.ExternalAxis.GetBoundingBox*
   modifiers.csharp:
   - public
   - abstract
@@ -1326,6 +1362,17 @@ references:
   name: Transform
   nameWithType: ExternalAxis.Transform
   fullName: RobotComponents.Definitions.ExternalAxis.Transform
+- uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox*
+  commentId: Overload:RobotComponents.Definitions.ExternalAxis.GetBoundingBox
+  isExternal: true
+  name: GetBoundingBox
+  nameWithType: ExternalAxis.GetBoundingBox
+  fullName: RobotComponents.Definitions.ExternalAxis.GetBoundingBox
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
 - uid: RobotComponents.Definitions.ExternalAxis.IsValid*
   commentId: Overload:RobotComponents.Definitions.ExternalAxis.IsValid
   isExternal: true

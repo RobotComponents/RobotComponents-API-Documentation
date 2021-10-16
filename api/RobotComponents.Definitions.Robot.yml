@@ -18,6 +18,7 @@ items:
   - RobotComponents.Definitions.Robot.ExternalAxisPlanes
   - RobotComponents.Definitions.Robot.ForwardKinematics
   - RobotComponents.Definitions.Robot.GetAttachedToolMesh
+  - RobotComponents.Definitions.Robot.GetBoundingBox(System.Boolean)
   - RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.InternalAxisLimits
@@ -487,6 +488,39 @@ items:
       description: 'Spatial deform. '
     content.vb: Public Sub Transfom(xform As Transform)
   overload: RobotComponents.Definitions.Robot.Transfom*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.Robot.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.Robot.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(Boolean)
+  nameWithType: Robot.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.Robot.GetBoundingBox(System.Boolean)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns the Bounding Box of the object.\n"
+  syntax:
+    content: public BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: 'If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. '
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: 'The Bounding Box. '
+    content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overload: RobotComponents.Definitions.Robot.GetBoundingBox*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1626,12 +1660,12 @@ references:
   name: Transform
   nameWithType: Transform
   fullName: Rhino.Geometry.Transform
-- uid: RobotComponents.Definitions.Robot.IsValid*
-  commentId: Overload:RobotComponents.Definitions.Robot.IsValid
+- uid: RobotComponents.Definitions.Robot.GetBoundingBox*
+  commentId: Overload:RobotComponents.Definitions.Robot.GetBoundingBox
   isExternal: true
-  name: IsValid
-  nameWithType: Robot.IsValid
-  fullName: RobotComponents.Definitions.Robot.IsValid
+  name: GetBoundingBox
+  nameWithType: Robot.GetBoundingBox
+  fullName: RobotComponents.Definitions.Robot.GetBoundingBox
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1639,6 +1673,17 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
+- uid: RobotComponents.Definitions.Robot.IsValid*
+  commentId: Overload:RobotComponents.Definitions.Robot.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: Robot.IsValid
+  fullName: RobotComponents.Definitions.Robot.IsValid
 - uid: RobotComponents.Definitions.Robot.Name*
   commentId: Overload:RobotComponents.Definitions.Robot.Name
   isExternal: true
