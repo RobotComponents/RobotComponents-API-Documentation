@@ -58,12 +58,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nGets the current version of the Robot Component Plugin. \nHas to be manually updated each time. \n0.XX.XXX ---> mature release\nX.00.XXX ---> minor release (for example new functions, new components...etc.)\nX.XX.000 ---> bug fixes and small improvements\n"
+  summary: "\nGets the current version of the Robot Component Plugin. \nHas to be manually updated each time. \n0.x.x ---> MAJOR version when you make incompatible API changes\nx.0.x ---> MINOR version when you add functionality in a backwards compatible manner,\nx.x.0 ---> PATCH version when you make backwards compatible bug fixes\n"
   syntax:
-    content: public const string CurrentVersion = "1.00.000"
+    content: public const string CurrentVersion = "1.0.1"
     return:
       type: System.String
-    content.vb: Public Const CurrentVersion As String = "1.00.000"
+    content.vb: Public Const CurrentVersion As String = "1.0.1"
   modifiers.csharp:
   - public
   - const
@@ -87,12 +87,12 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Utils
-  summary: "\nGets the current version of the Robot Components plugin as an int. \nHas to be manually updated each time. \nRemove the points and the zeros in front of the number. \nExamples:\n&quot;0.11.003&quot; ----> 11003\n&quot;1.01.000&quot; ----> 101000\n"
+  summary: "\nGets the current version of the Robot Components plugin as an int. \nTypically used to check the version number inside the code.\nFor internal use only. Not recommended to use. \nUsed logic: major*10^6 + minor*10^3 + patch.\n"
   syntax:
-    content: public const int CurrentVersionAsInt = 100000
+    content: public const int CurrentVersionAsInt = 1000001
     return:
       type: System.Int32
-    content.vb: Public Const CurrentVersionAsInt As Integer = 100000
+    content.vb: Public Const CurrentVersionAsInt As Integer = 1000001
   modifiers.csharp:
   - public
   - const
