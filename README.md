@@ -8,20 +8,7 @@ This repository contains the content of [https://robotcomponents.github.io/Robot
 
 Pull requests are welcome. If you want to build the site yourself, to test your changes before opening a pull request, then please check out the getting started guide below. 
 
-## Work in progress !!!
-
-TODO: 
-
-- [ ] Installation manual
-- [ ] Introduction page
-- [ ] C# example
-- [ ] Python example
-- [ ] Remove obsolete components and methods from API references
-- [ ] Automate built process on GitHub
-
 ## Getting started
-
-### Installation
 
 TODO..
 
