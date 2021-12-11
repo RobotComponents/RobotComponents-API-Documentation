@@ -1,27 +1,15 @@
 # Robot Components API Documentation
 
-[![License](https://img.shields.io/github/license/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
-[![Closed Issues](https://img.shields.io/github/issues-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
-[![Open Issues](https://img.shields.io/github/issues-closed-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
+[![License](https://img.shields.io/github/license/RobotComponents/RobotComponents-API-Documentation)]()
+[![Closed Issues](https://img.shields.io/github/issues-raw/RobotComponents/RobotComponents-API-Documentation)]()
+[![Open Issues](https://img.shields.io/github/issues-closed-raw/RobotComponents/RobotComponents-API-Documentation)]()
+[![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.5773815.svg)]()
 
 This repository contains the content of [https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html](https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html). The API documentation page is built with [DocFX](https://dotnet.github.io/docfx/). 
 
 Pull requests are welcome. If you want to build the site yourself, to test your changes before opening a pull request, then please check out the getting started guide below. 
 
-## Work in progress !!!
-
-TODO: 
-
-- [ ] Installation manual
-- [ ] Introduction page
-- [ ] C# example
-- [ ] Python example
-- [ ] Remove obsolete components and methods from API references
-- [ ] Automate built process on GitHub
-
 ## Getting started
-
-### Installation
 
 TODO..
 
