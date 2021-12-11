@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/github/license/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
 [![Closed Issues](https://img.shields.io/github/issues-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
 [![Open Issues](https://img.shields.io/github/issues-closed-raw/RobotComponents/RobotComponents-API-Documentation?style=flat-square)]()
+[![Zenodo](https://zenodo.org/badge/DOI/10.5281/zenodo.5773815.svg?style=flat-square)]()
 
 This repository contains the content of [https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html](https://robotcomponents.github.io/RobotComponents-API-Documentation/index.html). The API documentation page is built with [DocFX](https://dotnet.github.io/docfx/). 
 
