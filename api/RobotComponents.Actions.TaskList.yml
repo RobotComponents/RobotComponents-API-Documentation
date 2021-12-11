@@ -1,0 +1,1795 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.Actions.TaskList
+  commentId: T:RobotComponents.Actions.TaskList
+  id: TaskList
+  parent: RobotComponents.Actions
+  children:
+  - RobotComponents.Actions.TaskList.#ctor
+  - RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
+  - RobotComponents.Actions.TaskList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
+  - RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
+  - RobotComponents.Actions.TaskList.Count
+  - RobotComponents.Actions.TaskList.Duplicate
+  - RobotComponents.Actions.TaskList.DuplicateAction
+  - RobotComponents.Actions.TaskList.DuplicateDeclaration
+  - RobotComponents.Actions.TaskList.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.TaskList.IsFixedSize
+  - RobotComponents.Actions.TaskList.IsValid
+  - RobotComponents.Actions.TaskList.Item(System.Int32)
+  - RobotComponents.Actions.TaskList.Name
+  - RobotComponents.Actions.TaskList.ReferenceType
+  - RobotComponents.Actions.TaskList.ToArray
+  - RobotComponents.Actions.TaskList.ToList
+  - RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.TaskList.ToString
+  langs:
+  - csharp
+  - vb
+  name: TaskList
+  nameWithType: TaskList
+  fullName: RobotComponents.Actions.TaskList
+  type: Class
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nRepresents a collection that specifies several RAPID program tasks.\n"
+  syntax:
+    content: 'public class TaskList : Action, IDeclaration, ISerializable'
+    content.vb: >-
+      Public Class TaskList
+          Inherits Action
+          Implements IDeclaration, ISerializable
+  inheritance:
+  - System.Object
+  - RobotComponents.Actions.Action
+  implements:
+  - RobotComponents.Actions.IDeclaration
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: RobotComponents.Actions.TaskList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: TaskList(SerializationInfo, StreamingContext)
+  nameWithType: TaskList.TaskList(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.TaskList.TaskList(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nProtected constructor needed for deserialization of the object.  \n"
+  syntax:
+    content: protected TaskList(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to extract the data from. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The context of this deserialization. '
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.TaskList.#ctor*
+  modifiers.csharp:
+  - protected
+  modifiers.vb:
+  - Protected
+- uid: RobotComponents.Actions.TaskList.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.Actions.TaskList.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: TaskList.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.Actions.TaskList.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nPopulates a SerializationInfo with the data needed to serialize the object.\n"
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: 'The SerializationInfo to populate with data. '
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: 'The destination for this serialization. '
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.Actions.TaskList.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.#ctor
+  commentId: M:RobotComponents.Actions.TaskList.#ctor
+  id: '#ctor'
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: TaskList()
+  nameWithType: TaskList.TaskList()
+  fullName: RobotComponents.Actions.TaskList.TaskList()
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes an empty instance of the Tasks class.\n"
+  syntax:
+    content: public TaskList()
+    content.vb: Public Sub New
+  overload: RobotComponents.Actions.TaskList.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
+  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
+  id: '#ctor(System.String,System.Collections.Generic.List{System.String})'
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: TaskList(String, List<String>)
+  nameWithType: TaskList.TaskList(String, List<String>)
+  fullName: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.List<System.String>)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Tasks class.\n"
+  syntax:
+    content: public TaskList(string name, List<string> tasks)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The name of the set with tasks. '
+    - id: tasks
+      type: System.Collections.Generic.List{System.String}
+      description: 'The tasks names as a list with strings. '
+    content.vb: Public Sub New(name As String, tasks As List(Of String))
+  overload: RobotComponents.Actions.TaskList.#ctor*
+  nameWithType.vb: TaskList.TaskList(String, List(Of String))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.List(Of System.String))
+  name.vb: TaskList(String, List(Of String))
+- uid: RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
+  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
+  id: '#ctor(System.String,System.String[])'
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: TaskList(String, String[])
+  nameWithType: TaskList.TaskList(String, String[])
+  fullName: RobotComponents.Actions.TaskList.TaskList(System.String, System.String[])
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Tasks class.\n"
+  syntax:
+    content: public TaskList(string name, string[] tasks)
+    parameters:
+    - id: name
+      type: System.String
+      description: 'The name of the collection with tasks. '
+    - id: tasks
+      type: System.String[]
+      description: 'The tasks names as an array with strings. '
+    content.vb: Public Sub New(name As String, tasks As String())
+  overload: RobotComponents.Actions.TaskList.#ctor*
+  nameWithType.vb: TaskList.TaskList(String, String())
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.TaskList.TaskList(System.String, System.String())
+  name.vb: TaskList(String, String())
+- uid: RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
+  commentId: M:RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
+  id: '#ctor(RobotComponents.Actions.TaskList)'
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: TaskList(TaskList)
+  nameWithType: TaskList.TaskList(TaskList)
+  fullName: RobotComponents.Actions.TaskList.TaskList(RobotComponents.Actions.TaskList)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Tasks class by duplicating an existing Tasks instance. \n"
+  syntax:
+    content: public TaskList(TaskList tasks)
+    parameters:
+    - id: tasks
+      type: RobotComponents.Actions.TaskList
+      description: 'The Tasks instance to duplicate. '
+    content.vb: Public Sub New(tasks As TaskList)
+  overload: RobotComponents.Actions.TaskList.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.Duplicate
+  commentId: M:RobotComponents.Actions.TaskList.Duplicate
+  id: Duplicate
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: TaskList.Duplicate()
+  fullName: RobotComponents.Actions.TaskList.Duplicate()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Tasks instance.\n"
+  syntax:
+    content: public TaskList Duplicate()
+    return:
+      type: RobotComponents.Actions.TaskList
+      description: 'A deep copy of the Tasks instance. '
+    content.vb: Public Function Duplicate As TaskList
+  overload: RobotComponents.Actions.TaskList.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.TaskList.DuplicateDeclaration
+  id: DuplicateDeclaration
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDeclaration()
+  nameWithType: TaskList.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.TaskList.DuplicateDeclaration()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Tasks instance as IDeclaration.\n"
+  syntax:
+    content: public IDeclaration DuplicateDeclaration()
+    return:
+      type: RobotComponents.Actions.IDeclaration
+      description: 'A deep copy of the Tasks instance as an IDelcaration. '
+    content.vb: Public Function DuplicateDeclaration As IDeclaration
+  overload: RobotComponents.Actions.TaskList.DuplicateDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.DuplicateAction
+  commentId: M:RobotComponents.Actions.TaskList.DuplicateAction
+  id: DuplicateAction
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: DuplicateAction()
+  nameWithType: TaskList.DuplicateAction()
+  fullName: RobotComponents.Actions.TaskList.DuplicateAction()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Tasks instance as an Action. \n"
+  syntax:
+    content: public override Action DuplicateAction()
+    return:
+      type: RobotComponents.Actions.Action
+      description: 'A deep copy of the Tasks instance as an Action. '
+    content.vb: Public Overrides Function DuplicateAction As Action
+  overridden: RobotComponents.Actions.Action.DuplicateAction
+  overload: RobotComponents.Actions.TaskList.DuplicateAction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.ToString
+  commentId: M:RobotComponents.Actions.TaskList.ToString
+  id: ToString
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: TaskList.ToString()
+  fullName: RobotComponents.Actions.TaskList.ToString()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns a string that represents the current object.\n"
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: 'A string that represents the current object. '
+    content.vb: Public Overrides Function ToString As String
+  overridden: RobotComponents.Actions.Action.ToString
+  overload: RobotComponents.Actions.TaskList.ToString*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.ToArray
+  commentId: M:RobotComponents.Actions.TaskList.ToArray
+  id: ToArray
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToArray()
+  nameWithType: TaskList.ToArray()
+  fullName: RobotComponents.Actions.TaskList.ToArray()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Tasks as an array with task names.\n"
+  syntax:
+    content: public string[] ToArray()
+    return:
+      type: System.String[]
+      description: 'The array containing the task names. '
+    content.vb: Public Function ToArray As String()
+  overload: RobotComponents.Actions.TaskList.ToArray*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.ToList
+  commentId: M:RobotComponents.Actions.TaskList.ToList
+  id: ToList
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToList()
+  nameWithType: TaskList.ToList()
+  fullName: RobotComponents.Actions.TaskList.ToList()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the Tasks as an array with task names.\n"
+  syntax:
+    content: public List<string> ToList()
+    return:
+      type: System.Collections.Generic.List{System.String}
+      description: 'The array containing the task names. '
+    content.vb: Public Function ToList As List(Of String)
+  overload: RobotComponents.Actions.TaskList.ToList*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: TaskList.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID declaration code line of the this action.\n"
+  syntax:
+    content: public override string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'An empty string. '
+    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.TaskList.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: TaskList.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns the RAPID instruction code line of the this action. \n"
+  syntax:
+    content: public override string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The Robot were the code is generated for. '
+    return:
+      type: System.String
+      description: 'The RAPID code line. '
+    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  overload: RobotComponents.Actions.TaskList.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: TaskList.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates declarations in the RAPID program module inside the RAPID Generator. \nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.TaskList.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  id: ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: TaskList.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nCreates instructions in the RAPID program module inside the RAPID Generator.\nThis method is called inside the RAPID generator.\n"
+  syntax:
+    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.Actions.RAPIDGenerator
+      description: 'The RAPID Generator. '
+    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
+  overridden: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  overload: RobotComponents.Actions.TaskList.ToRAPIDInstruction*
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Actions.TaskList.IsValid
+  commentId: P:RobotComponents.Actions.TaskList.IsValid
+  id: IsValid
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: TaskList.IsValid
+  fullName: RobotComponents.Actions.TaskList.IsValid
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets a value indicating whether or not the object is valid.\n"
+  syntax:
+    content: public override bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
+  overridden: RobotComponents.Actions.Action.IsValid
+  overload: RobotComponents.Actions.TaskList.IsValid*
+  implements:
+  - RobotComponents.Actions.IDeclaration.IsValid
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
+- uid: RobotComponents.Actions.TaskList.ReferenceType
+  commentId: P:RobotComponents.Actions.TaskList.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: TaskList.ReferenceType
+  fullName: RobotComponents.Actions.TaskList.ReferenceType
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the reference type.\n"
+  syntax:
+    content: public ReferenceType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.Enumerations.ReferenceType
+    content.vb: Public Property ReferenceType As ReferenceType
+  overload: RobotComponents.Actions.TaskList.ReferenceType*
+  implements:
+  - RobotComponents.Actions.IDeclaration.ReferenceType
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.Name
+  commentId: P:RobotComponents.Actions.TaskList.Name
+  id: Name
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: TaskList.Name
+  fullName: RobotComponents.Actions.TaskList.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the name of the set with tasks.\n"
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.Actions.TaskList.Name*
+  implements:
+  - RobotComponents.Actions.IDeclaration.Name
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.TaskList.Count
+  commentId: P:RobotComponents.Actions.TaskList.Count
+  id: Count
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: Count
+  nameWithType: TaskList.Count
+  fullName: RobotComponents.Actions.TaskList.Count
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the number of elements in this Tasks collection.\n"
+  syntax:
+    content: public int Count { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property Count As Integer
+  overload: RobotComponents.Actions.TaskList.Count*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.TaskList.Item(System.Int32)
+  commentId: P:RobotComponents.Actions.TaskList.Item(System.Int32)
+  id: Item(System.Int32)
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: Item[Int32]
+  nameWithType: TaskList.Item[Int32]
+  fullName: RobotComponents.Actions.TaskList.Item[System.Int32]
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the task names through the indexer. \n"
+  syntax:
+    content: public string this[int index] { get; set; }
+    parameters:
+    - id: index
+      type: System.Int32
+      description: 'The index number. '
+    return:
+      type: System.String
+      description: 'The task name located at the given index. '
+    content.vb: Public Property Item(index As Integer) As String
+  overload: RobotComponents.Actions.TaskList.Item*
+  nameWithType.vb: TaskList.Item(Int32)
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.TaskList.Item(System.Int32)
+  name.vb: Item(Int32)
+- uid: RobotComponents.Actions.TaskList.IsFixedSize
+  commentId: P:RobotComponents.Actions.TaskList.IsFixedSize
+  id: IsFixedSize
+  parent: RobotComponents.Actions.TaskList
+  langs:
+  - csharp
+  - vb
+  name: IsFixedSize
+  nameWithType: TaskList.IsFixedSize
+  fullName: RobotComponents.Actions.TaskList.IsFixedSize
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets a value indicating whether or not the task collection has a fixed size.\n"
+  syntax:
+    content: public bool IsFixedSize { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFixedSize As Boolean
+  overload: RobotComponents.Actions.TaskList.IsFixedSize*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: RobotComponents.Actions.Action
+  commentId: T:RobotComponents.Actions.Action
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: Action
+  nameWithType: Action
+  fullName: RobotComponents.Actions.Action
+- uid: RobotComponents.Actions.IDeclaration
+  commentId: T:RobotComponents.Actions.IDeclaration
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.Actions.IDeclaration
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+- uid: RobotComponents.Actions.TaskList.#ctor*
+  commentId: Overload:RobotComponents.Actions.TaskList.#ctor
+  isExternal: true
+  name: TaskList
+  nameWithType: TaskList.TaskList
+  fullName: RobotComponents.Actions.TaskList.TaskList
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.Actions.TaskList.GetObjectData*
+  commentId: Overload:RobotComponents.Actions.TaskList.GetObjectData
+  isExternal: true
+  name: GetObjectData
+  nameWithType: TaskList.GetObjectData
+  fullName: RobotComponents.Actions.TaskList.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    nameWithType: ISerializable.GetObjectData
+    fullName: System.Runtime.Serialization.ISerializable.GetObjectData
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    nameWithType: SerializationInfo
+    fullName: System.Runtime.Serialization.SerializationInfo
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    nameWithType: StreamingContext
+    fullName: System.Runtime.Serialization.StreamingContext
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
+- uid: RobotComponents.Actions.TaskList
+  commentId: T:RobotComponents.Actions.TaskList
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: TaskList
+  nameWithType: TaskList
+  fullName: RobotComponents.Actions.TaskList
+- uid: RobotComponents.Actions.TaskList.Duplicate*
+  commentId: Overload:RobotComponents.Actions.TaskList.Duplicate
+  isExternal: true
+  name: Duplicate
+  nameWithType: TaskList.Duplicate
+  fullName: RobotComponents.Actions.TaskList.Duplicate
+- uid: RobotComponents.Actions.TaskList.DuplicateDeclaration*
+  commentId: Overload:RobotComponents.Actions.TaskList.DuplicateDeclaration
+  isExternal: true
+  name: DuplicateDeclaration
+  nameWithType: TaskList.DuplicateDeclaration
+  fullName: RobotComponents.Actions.TaskList.DuplicateDeclaration
+- uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: DuplicateDeclaration()
+  nameWithType: IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration()
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    nameWithType: IDeclaration.DuplicateDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.DuplicateDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.DuplicateAction
+  commentId: M:RobotComponents.Actions.Action.DuplicateAction
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: DuplicateAction()
+  nameWithType: Action.DuplicateAction()
+  fullName: RobotComponents.Actions.Action.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.DuplicateAction
+    name: DuplicateAction
+    nameWithType: Action.DuplicateAction
+    fullName: RobotComponents.Actions.Action.DuplicateAction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.TaskList.DuplicateAction*
+  commentId: Overload:RobotComponents.Actions.TaskList.DuplicateAction
+  isExternal: true
+  name: DuplicateAction
+  nameWithType: TaskList.DuplicateAction
+  fullName: RobotComponents.Actions.TaskList.DuplicateAction
+- uid: RobotComponents.Actions.Action.ToString
+  commentId: M:RobotComponents.Actions.Action.ToString
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToString()
+  nameWithType: Action.ToString()
+  fullName: RobotComponents.Actions.Action.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToString
+    name: ToString
+    nameWithType: Action.ToString
+    fullName: RobotComponents.Actions.Action.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.TaskList.ToString*
+  commentId: Overload:RobotComponents.Actions.TaskList.ToString
+  isExternal: true
+  name: ToString
+  nameWithType: TaskList.ToString
+  fullName: RobotComponents.Actions.TaskList.ToString
+- uid: RobotComponents.Actions.TaskList.ToArray*
+  commentId: Overload:RobotComponents.Actions.TaskList.ToArray
+  isExternal: true
+  name: ToArray
+  nameWithType: TaskList.ToArray
+  fullName: RobotComponents.Actions.TaskList.ToArray
+- uid: RobotComponents.Actions.TaskList.ToList*
+  commentId: Overload:RobotComponents.Actions.TaskList.ToList
+  isExternal: true
+  name: ToList
+  nameWithType: TaskList.ToList
+  fullName: RobotComponents.Actions.TaskList.ToList
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: Action.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.TaskList.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.Actions.TaskList.ToRAPIDDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration
+  nameWithType: TaskList.ToRAPIDDeclaration
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDDeclaration
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
+  isExternal: true
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: Action.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Definitions.Robot)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Definitions.Robot
+    name: Robot
+    nameWithType: Robot
+    fullName: RobotComponents.Definitions.Robot
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.TaskList.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.Actions.TaskList.ToRAPIDInstruction
+  isExternal: true
+  name: ToRAPIDInstruction
+  nameWithType: TaskList.ToRAPIDInstruction
+  fullName: RobotComponents.Actions.TaskList.ToRAPIDInstruction
+- uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: Action.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.Action.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ToRAPIDDeclaration(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
+  fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDDeclaration
+    nameWithType: IDeclaration.ToRAPIDDeclaration
+    fullName: RobotComponents.Actions.IDeclaration.ToRAPIDDeclaration
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.Actions.RAPIDGenerator
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.Actions.RAPIDGenerator
+- uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: ToRAPIDInstruction(RAPIDGenerator)
+  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
+  fullName: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Actions.Action.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
+    name: ToRAPIDInstruction
+    nameWithType: Action.ToRAPIDInstruction
+    fullName: RobotComponents.Actions.Action.ToRAPIDInstruction
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    nameWithType: RAPIDGenerator
+    fullName: RobotComponents.Actions.RAPIDGenerator
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.Action.IsValid
+  commentId: P:RobotComponents.Actions.Action.IsValid
+  parent: RobotComponents.Actions.Action
+  isExternal: true
+  name: IsValid
+  nameWithType: Action.IsValid
+  fullName: RobotComponents.Actions.Action.IsValid
+- uid: RobotComponents.Actions.TaskList.IsValid*
+  commentId: Overload:RobotComponents.Actions.TaskList.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: TaskList.IsValid
+  fullName: RobotComponents.Actions.TaskList.IsValid
+- uid: RobotComponents.Actions.IDeclaration.IsValid
+  commentId: P:RobotComponents.Actions.IDeclaration.IsValid
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: IsValid
+  nameWithType: IDeclaration.IsValid
+  fullName: RobotComponents.Actions.IDeclaration.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: RobotComponents.Actions.TaskList.ReferenceType*
+  commentId: Overload:RobotComponents.Actions.TaskList.ReferenceType
+  isExternal: true
+  name: ReferenceType
+  nameWithType: TaskList.ReferenceType
+  fullName: RobotComponents.Actions.TaskList.ReferenceType
+- uid: RobotComponents.Actions.IDeclaration.ReferenceType
+  commentId: P:RobotComponents.Actions.IDeclaration.ReferenceType
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: ReferenceType
+  nameWithType: IDeclaration.ReferenceType
+  fullName: RobotComponents.Actions.IDeclaration.ReferenceType
+- uid: RobotComponents.Enumerations.ReferenceType
+  commentId: T:RobotComponents.Enumerations.ReferenceType
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: ReferenceType
+  nameWithType: ReferenceType
+  fullName: RobotComponents.Enumerations.ReferenceType
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
+- uid: RobotComponents.Actions.TaskList.Name*
+  commentId: Overload:RobotComponents.Actions.TaskList.Name
+  isExternal: true
+  name: Name
+  nameWithType: TaskList.Name
+  fullName: RobotComponents.Actions.TaskList.Name
+- uid: RobotComponents.Actions.IDeclaration.Name
+  commentId: P:RobotComponents.Actions.IDeclaration.Name
+  parent: RobotComponents.Actions.IDeclaration
+  isExternal: true
+  name: Name
+  nameWithType: IDeclaration.Name
+  fullName: RobotComponents.Actions.IDeclaration.Name
+- uid: RobotComponents.Actions.TaskList.Count*
+  commentId: Overload:RobotComponents.Actions.TaskList.Count
+  isExternal: true
+  name: Count
+  nameWithType: TaskList.Count
+  fullName: RobotComponents.Actions.TaskList.Count
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: RobotComponents.Actions.TaskList.Item*
+  commentId: Overload:RobotComponents.Actions.TaskList.Item
+  isExternal: true
+  name: Item
+  nameWithType: TaskList.Item
+  fullName: RobotComponents.Actions.TaskList.Item
+- uid: RobotComponents.Actions.TaskList.IsFixedSize*
+  commentId: Overload:RobotComponents.Actions.TaskList.IsFixedSize
+  isExternal: true
+  name: IsFixedSize
+  nameWithType: TaskList.IsFixedSize
+  fullName: RobotComponents.Actions.TaskList.IsFixedSize

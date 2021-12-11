@@ -18,15 +18,23 @@ items:
   - RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.Actions.RAPIDGenerator.IsValid
   - RobotComponents.Actions.RAPIDGenerator.JointPositions
+  - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+  - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+  - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  - RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
   - RobotComponents.Actions.RAPIDGenerator.ProgramModule
   - RobotComponents.Actions.RAPIDGenerator.ProgramModuleName
   - RobotComponents.Actions.RAPIDGenerator.Robot
   - RobotComponents.Actions.RAPIDGenerator.RobotTools
   - RobotComponents.Actions.RAPIDGenerator.SaveToFile
   - RobotComponents.Actions.RAPIDGenerator.SpeedDatas
+  - RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
+  - RobotComponents.Actions.RAPIDGenerator.Syncidents
   - RobotComponents.Actions.RAPIDGenerator.SystemModule
   - RobotComponents.Actions.RAPIDGenerator.SystemModuleName
   - RobotComponents.Actions.RAPIDGenerator.Targets
+  - RobotComponents.Actions.RAPIDGenerator.TaskLists
   - RobotComponents.Actions.RAPIDGenerator.ToString
   - RobotComponents.Actions.RAPIDGenerator.WorkObjects
   - RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile
@@ -884,6 +892,68 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.TaskLists
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.TaskLists
+  id: TaskLists
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: TaskLists
+  nameWithType: RAPIDGenerator.TaskLists
+  fullName: RobotComponents.Actions.RAPIDGenerator.TaskLists
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the collection with unique Task Lists used to create the RAPID program module. \n"
+  syntax:
+    content: public Dictionary<string, TaskList> TaskLists { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.TaskList}
+    content.vb: Public ReadOnly Property TaskLists As Dictionary(Of String, TaskList)
+  overload: RobotComponents.Actions.RAPIDGenerator.TaskLists*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.Syncidents
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.Syncidents
+  id: Syncidents
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: Syncidents
+  nameWithType: RAPIDGenerator.Syncidents
+  fullName: RobotComponents.Actions.RAPIDGenerator.Syncidents
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the collection with unique syncidents used to create the RAPID program module. \n"
+  syntax:
+    content: public Dictionary<string, ISyncident> Syncidents { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.ISyncident}
+    content.vb: Public ReadOnly Property Syncidents As Dictionary(Of String, ISyncident)
+  overload: RobotComponents.Actions.RAPIDGenerator.Syncidents*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: RobotComponents.Actions.RAPIDGenerator.ErrorText
   commentId: P:RobotComponents.Actions.RAPIDGenerator.ErrorText
   id: ErrorText
@@ -915,6 +985,192 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+  id: ProgramDeclarations
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarations
+  nameWithType: RAPIDGenerator.ProgramDeclarations
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the program declarations as list with RAPID code lines.\n"
+  syntax:
+    content: public List<string> ProgramDeclarations { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarations As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+  id: ProgramDeclarationComments
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationComments
+  nameWithType: RAPIDGenerator.ProgramDeclarationComments
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the program declarations commments as list with RAPID code lines.\n"
+  syntax:
+    content: public List<string> ProgramDeclarationComments { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationComments As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  id: ProgramDeclarationCustomCodeLines
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationCustomCodeLines
+  nameWithType: RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the program declarations custom code lines as list with RAPID code lines.\n"
+  syntax:
+    content: public List<string> ProgramDeclarationCustomCodeLines { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationCustomCodeLines As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  id: ProgramDeclarationsMultiMove
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationsMultiMove
+  nameWithType: RAPIDGenerator.ProgramDeclarationsMultiMove
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the program declarations for multi move programming as a list with RAPID code lines.\n"
+  syntax:
+    content: public List<string> ProgramDeclarationsMultiMove { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationsMultiMove As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
+  id: ProgramInstructions
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramInstructions
+  nameWithType: RAPIDGenerator.ProgramInstructions
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the program instructions as a list with RAPID code lines.\n"
+  syntax:
+    content: public List<string> ProgramInstructions { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramInstructions As List(Of String)
+  overload: RobotComponents.Actions.RAPIDGenerator.ProgramInstructions*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
+  id: SynchronizedMovements
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: SynchronizedMovements
+  nameWithType: RAPIDGenerator.SynchronizedMovements
+  fullName: RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether or not the movements are synchronized. \n"
+  syntax:
+    content: public bool SynchronizedMovements { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property SynchronizedMovements As Boolean
+  overload: RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 references:
 - uid: RobotComponents.Actions
   commentId: N:RobotComponents.Actions
@@ -2018,9 +2274,177 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator.TaskLists*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.TaskLists
+  isExternal: true
+  name: TaskLists
+  nameWithType: RAPIDGenerator.TaskLists
+  fullName: RobotComponents.Actions.RAPIDGenerator.TaskLists
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.TaskList}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.TaskList}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, TaskList>
+  nameWithType: Dictionary<String, TaskList>
+  fullName: System.Collections.Generic.Dictionary<System.String, RobotComponents.Actions.TaskList>
+  nameWithType.vb: Dictionary(Of String, TaskList)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, RobotComponents.Actions.TaskList)
+  name.vb: Dictionary(Of String, TaskList)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.TaskList
+    name: TaskList
+    nameWithType: TaskList
+    fullName: RobotComponents.Actions.TaskList
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.TaskList
+    name: TaskList
+    nameWithType: TaskList
+    fullName: RobotComponents.Actions.TaskList
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.RAPIDGenerator.Syncidents*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.Syncidents
+  isExternal: true
+  name: Syncidents
+  nameWithType: RAPIDGenerator.Syncidents
+  fullName: RobotComponents.Actions.RAPIDGenerator.Syncidents
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.ISyncident}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.Actions.ISyncident}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  name: Dictionary<String, ISyncident>
+  nameWithType: Dictionary<String, ISyncident>
+  fullName: System.Collections.Generic.Dictionary<System.String, RobotComponents.Actions.ISyncident>
+  nameWithType.vb: Dictionary(Of String, ISyncident)
+  fullName.vb: System.Collections.Generic.Dictionary(Of System.String, RobotComponents.Actions.ISyncident)
+  name.vb: Dictionary(Of String, ISyncident)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.ISyncident
+    name: ISyncident
+    nameWithType: ISyncident
+    fullName: RobotComponents.Actions.ISyncident
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: System.Collections.Generic.Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: RobotComponents.Actions.ISyncident
+    name: ISyncident
+    nameWithType: ISyncident
+    fullName: RobotComponents.Actions.ISyncident
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator.ErrorText*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ErrorText
   isExternal: true
   name: ErrorText
   nameWithType: RAPIDGenerator.ErrorText
   fullName: RobotComponents.Actions.RAPIDGenerator.ErrorText
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+  isExternal: true
+  name: ProgramDeclarations
+  nameWithType: RAPIDGenerator.ProgramDeclarations
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+  isExternal: true
+  name: ProgramDeclarationComments
+  nameWithType: RAPIDGenerator.ProgramDeclarationComments
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  isExternal: true
+  name: ProgramDeclarationCustomCodeLines
+  nameWithType: RAPIDGenerator.ProgramDeclarationCustomCodeLines
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  isExternal: true
+  name: ProgramDeclarationsMultiMove
+  nameWithType: RAPIDGenerator.ProgramDeclarationsMultiMove
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+- uid: RobotComponents.Actions.RAPIDGenerator.ProgramInstructions*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
+  isExternal: true
+  name: ProgramInstructions
+  nameWithType: RAPIDGenerator.ProgramInstructions
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProgramInstructions
+- uid: RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
+  isExternal: true
+  name: SynchronizedMovements
+  nameWithType: RAPIDGenerator.SynchronizedMovements
+  fullName: RobotComponents.Actions.RAPIDGenerator.SynchronizedMovements
