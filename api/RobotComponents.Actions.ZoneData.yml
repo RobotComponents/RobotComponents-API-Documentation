@@ -18,11 +18,13 @@ items:
   - RobotComponents.Actions.ZoneData.ExactPredefinedValue
   - RobotComponents.Actions.ZoneData.FinePoint
   - RobotComponents.Actions.ZoneData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.ZoneData.GetPredefinedZoneData(RobotComponents.Enumerations.PredefinedZoneData)
   - RobotComponents.Actions.ZoneData.IsValid
   - RobotComponents.Actions.ZoneData.Name
   - RobotComponents.Actions.ZoneData.PathZoneExternalAxes
   - RobotComponents.Actions.ZoneData.PathZoneOrientation
   - RobotComponents.Actions.ZoneData.PathZoneTCP
+  - RobotComponents.Actions.ZoneData.PreDefined
   - RobotComponents.Actions.ZoneData.PreDefinied
   - RobotComponents.Actions.ZoneData.ReferenceType
   - RobotComponents.Actions.ZoneData.ToRAPID
@@ -360,6 +362,40 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.ZoneData.GetPredefinedZoneData(RobotComponents.Enumerations.PredefinedZoneData)
+  commentId: M:RobotComponents.Actions.ZoneData.GetPredefinedZoneData(RobotComponents.Enumerations.PredefinedZoneData)
+  id: GetPredefinedZoneData(RobotComponents.Enumerations.PredefinedZoneData)
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: GetPredefinedZoneData(PredefinedZoneData)
+  nameWithType: ZoneData.GetPredefinedZoneData(PredefinedZoneData)
+  fullName: RobotComponents.Actions.ZoneData.GetPredefinedZoneData(RobotComponents.Enumerations.PredefinedZoneData)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Zone Data clas from an enumeration.\n"
+  syntax:
+    content: public static ZoneData GetPredefinedZoneData(PredefinedZoneData predefinedZoneData)
+    parameters:
+    - id: predefinedZoneData
+      type: RobotComponents.Enumerations.PredefinedZoneData
+      description: 'Predefined zonedata as an enumeration '
+    return:
+      type: RobotComponents.Actions.ZoneData
+    content.vb: Public Shared Function GetPredefinedZoneData(predefinedZoneData As PredefinedZoneData) As ZoneData
+  overload: RobotComponents.Actions.ZoneData.GetPredefinedZoneData*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 - uid: RobotComponents.Actions.ZoneData.Duplicate
   commentId: M:RobotComponents.Actions.ZoneData.Duplicate
   id: Duplicate
@@ -974,16 +1010,16 @@ items:
   - set
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.ZoneData.PreDefinied
-  commentId: P:RobotComponents.Actions.ZoneData.PreDefinied
-  id: PreDefinied
+- uid: RobotComponents.Actions.ZoneData.PreDefined
+  commentId: P:RobotComponents.Actions.ZoneData.PreDefined
+  id: PreDefined
   parent: RobotComponents.Actions.ZoneData
   langs:
   - csharp
   - vb
-  name: PreDefinied
-  nameWithType: ZoneData.PreDefinied
-  fullName: RobotComponents.Actions.ZoneData.PreDefinied
+  name: PreDefined
+  nameWithType: ZoneData.PreDefined
+  fullName: RobotComponents.Actions.ZoneData.PreDefined
   type: Property
   source:
     path: RobotComponents
@@ -993,12 +1029,12 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nGets or sets a value indicating whether this zonedata is a predefined zonedata. \n"
   syntax:
-    content: public bool PreDefinied { get; set; }
+    content: public bool PreDefined { get; set; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property PreDefinied As Boolean
-  overload: RobotComponents.Actions.ZoneData.PreDefinied*
+    content.vb: Public Property PreDefined As Boolean
+  overload: RobotComponents.Actions.ZoneData.PreDefined*
   modifiers.csharp:
   - public
   - get
@@ -1166,6 +1202,51 @@ items:
   - Public
   - Shared
   - ReadOnly
+- uid: RobotComponents.Actions.ZoneData.PreDefinied
+  commentId: P:RobotComponents.Actions.ZoneData.PreDefinied
+  id: PreDefinied
+  parent: RobotComponents.Actions.ZoneData
+  langs:
+  - csharp
+  - vb
+  name: PreDefinied
+  nameWithType: ZoneData.PreDefinied
+  fullName: RobotComponents.Actions.ZoneData.PreDefinied
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether this zonedata is a predefined zonedata. \n"
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in version 2.", false)]
+
+      public bool PreDefinied { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in version 2.", False)>
+
+      Public Property PreDefinied As Boolean
+  overload: RobotComponents.Actions.ZoneData.PreDefinied*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in version 2.
+    - type: System.Boolean
+      value: false
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 references:
 - uid: RobotComponents.Actions
   commentId: N:RobotComponents.Actions
@@ -1579,6 +1660,25 @@ references:
   name: ZoneData
   nameWithType: ZoneData
   fullName: RobotComponents.Actions.ZoneData
+- uid: RobotComponents.Actions.ZoneData.GetPredefinedZoneData*
+  commentId: Overload:RobotComponents.Actions.ZoneData.GetPredefinedZoneData
+  isExternal: true
+  name: GetPredefinedZoneData
+  nameWithType: ZoneData.GetPredefinedZoneData
+  fullName: RobotComponents.Actions.ZoneData.GetPredefinedZoneData
+- uid: RobotComponents.Enumerations.PredefinedZoneData
+  commentId: T:RobotComponents.Enumerations.PredefinedZoneData
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: PredefinedZoneData
+  nameWithType: PredefinedZoneData
+  fullName: RobotComponents.Enumerations.PredefinedZoneData
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.ZoneData.Duplicate*
   commentId: Overload:RobotComponents.Actions.ZoneData.Duplicate
   isExternal: true
@@ -2020,12 +2120,6 @@ references:
   name: ReferenceType
   nameWithType: ReferenceType
   fullName: RobotComponents.Enumerations.ReferenceType
-- uid: RobotComponents.Enumerations
-  commentId: N:RobotComponents.Enumerations
-  isExternal: true
-  name: RobotComponents.Enumerations
-  nameWithType: RobotComponents.Enumerations
-  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.ZoneData.Name*
   commentId: Overload:RobotComponents.Actions.ZoneData.Name
   isExternal: true
@@ -2081,12 +2175,12 @@ references:
   name: ZoneExternalRotationalAxes
   nameWithType: ZoneData.ZoneExternalRotationalAxes
   fullName: RobotComponents.Actions.ZoneData.ZoneExternalRotationalAxes
-- uid: RobotComponents.Actions.ZoneData.PreDefinied*
-  commentId: Overload:RobotComponents.Actions.ZoneData.PreDefinied
+- uid: RobotComponents.Actions.ZoneData.PreDefined*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PreDefined
   isExternal: true
-  name: PreDefinied
-  nameWithType: ZoneData.PreDefinied
-  fullName: RobotComponents.Actions.ZoneData.PreDefinied
+  name: PreDefined
+  nameWithType: ZoneData.PreDefined
+  fullName: RobotComponents.Actions.ZoneData.PreDefined
 - uid: RobotComponents.Actions.ZoneData.UserDefinied*
   commentId: Overload:RobotComponents.Actions.ZoneData.UserDefinied
   isExternal: true
@@ -2286,3 +2380,9 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
+- uid: RobotComponents.Actions.ZoneData.PreDefinied*
+  commentId: Overload:RobotComponents.Actions.ZoneData.PreDefinied
+  isExternal: true
+  name: PreDefinied
+  nameWithType: ZoneData.PreDefinied
+  fullName: RobotComponents.Actions.ZoneData.PreDefinied

@@ -17,8 +17,10 @@ items:
   - RobotComponents.Actions.SpeedData.DuplicateDeclaration
   - RobotComponents.Actions.SpeedData.ExactPredefinedValue
   - RobotComponents.Actions.SpeedData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.SpeedData.GetPredefinedSpeedData(RobotComponents.Enumerations.PredefinedSpeedData)
   - RobotComponents.Actions.SpeedData.IsValid
   - RobotComponents.Actions.SpeedData.Name
+  - RobotComponents.Actions.SpeedData.PreDefined
   - RobotComponents.Actions.SpeedData.PreDefinied
   - RobotComponents.Actions.SpeedData.ReferenceType
   - RobotComponents.Actions.SpeedData.ToRAPID
@@ -339,6 +341,40 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.SpeedData.GetPredefinedSpeedData(RobotComponents.Enumerations.PredefinedSpeedData)
+  commentId: M:RobotComponents.Actions.SpeedData.GetPredefinedSpeedData(RobotComponents.Enumerations.PredefinedSpeedData)
+  id: GetPredefinedSpeedData(RobotComponents.Enumerations.PredefinedSpeedData)
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: GetPredefinedSpeedData(PredefinedSpeedData)
+  nameWithType: SpeedData.GetPredefinedSpeedData(PredefinedSpeedData)
+  fullName: RobotComponents.Actions.SpeedData.GetPredefinedSpeedData(RobotComponents.Enumerations.PredefinedSpeedData)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the Speed Data clas from an enumeration.\n"
+  syntax:
+    content: public static SpeedData GetPredefinedSpeedData(PredefinedSpeedData predefinedSpeedData)
+    parameters:
+    - id: predefinedSpeedData
+      type: RobotComponents.Enumerations.PredefinedSpeedData
+      description: 'Predefined speeddata as an enumeration '
+    return:
+      type: RobotComponents.Actions.SpeedData
+    content.vb: Public Shared Function GetPredefinedSpeedData(predefinedSpeedData As PredefinedSpeedData) As SpeedData
+  overload: RobotComponents.Actions.SpeedData.GetPredefinedSpeedData*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
 - uid: RobotComponents.Actions.SpeedData.Duplicate
   commentId: M:RobotComponents.Actions.SpeedData.Duplicate
   id: Duplicate
@@ -860,16 +896,16 @@ items:
   - set
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.SpeedData.PreDefinied
-  commentId: P:RobotComponents.Actions.SpeedData.PreDefinied
-  id: PreDefinied
+- uid: RobotComponents.Actions.SpeedData.PreDefined
+  commentId: P:RobotComponents.Actions.SpeedData.PreDefined
+  id: PreDefined
   parent: RobotComponents.Actions.SpeedData
   langs:
   - csharp
   - vb
-  name: PreDefinied
-  nameWithType: SpeedData.PreDefinied
-  fullName: RobotComponents.Actions.SpeedData.PreDefinied
+  name: PreDefined
+  nameWithType: SpeedData.PreDefined
+  fullName: RobotComponents.Actions.SpeedData.PreDefined
   type: Property
   source:
     path: RobotComponents
@@ -879,12 +915,12 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nGets or sets a value indicating whether this speeddata is a predefined speeddata. \n"
   syntax:
-    content: public bool PreDefinied { get; set; }
+    content: public bool PreDefined { get; set; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Property PreDefinied As Boolean
-  overload: RobotComponents.Actions.SpeedData.PreDefinied*
+    content.vb: Public Property PreDefined As Boolean
+  overload: RobotComponents.Actions.SpeedData.PreDefined*
   modifiers.csharp:
   - public
   - get
@@ -1052,6 +1088,51 @@ items:
   - Public
   - Shared
   - ReadOnly
+- uid: RobotComponents.Actions.SpeedData.PreDefinied
+  commentId: P:RobotComponents.Actions.SpeedData.PreDefinied
+  id: PreDefinied
+  parent: RobotComponents.Actions.SpeedData
+  langs:
+  - csharp
+  - vb
+  name: PreDefinied
+  nameWithType: SpeedData.PreDefinied
+  fullName: RobotComponents.Actions.SpeedData.PreDefinied
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether this speeddata is a predefined speeddata. \n"
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in version 2.", false)]
+
+      public bool PreDefinied { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in version 2.", False)>
+
+      Public Property PreDefinied As Boolean
+  overload: RobotComponents.Actions.SpeedData.PreDefinied*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in version 2.
+    - type: System.Boolean
+      value: false
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 references:
 - uid: RobotComponents.Actions
   commentId: N:RobotComponents.Actions
@@ -1458,6 +1539,25 @@ references:
   name: SpeedData
   nameWithType: SpeedData
   fullName: RobotComponents.Actions.SpeedData
+- uid: RobotComponents.Actions.SpeedData.GetPredefinedSpeedData*
+  commentId: Overload:RobotComponents.Actions.SpeedData.GetPredefinedSpeedData
+  isExternal: true
+  name: GetPredefinedSpeedData
+  nameWithType: SpeedData.GetPredefinedSpeedData
+  fullName: RobotComponents.Actions.SpeedData.GetPredefinedSpeedData
+- uid: RobotComponents.Enumerations.PredefinedSpeedData
+  commentId: T:RobotComponents.Enumerations.PredefinedSpeedData
+  parent: RobotComponents.Enumerations
+  isExternal: true
+  name: PredefinedSpeedData
+  nameWithType: PredefinedSpeedData
+  fullName: RobotComponents.Enumerations.PredefinedSpeedData
+- uid: RobotComponents.Enumerations
+  commentId: N:RobotComponents.Enumerations
+  isExternal: true
+  name: RobotComponents.Enumerations
+  nameWithType: RobotComponents.Enumerations
+  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.SpeedData.Duplicate*
   commentId: Overload:RobotComponents.Actions.SpeedData.Duplicate
   isExternal: true
@@ -1906,12 +2006,6 @@ references:
   name: ReferenceType
   nameWithType: ReferenceType
   fullName: RobotComponents.Enumerations.ReferenceType
-- uid: RobotComponents.Enumerations
-  commentId: N:RobotComponents.Enumerations
-  isExternal: true
-  name: RobotComponents.Enumerations
-  nameWithType: RobotComponents.Enumerations
-  fullName: RobotComponents.Enumerations
 - uid: RobotComponents.Actions.SpeedData.Name*
   commentId: Overload:RobotComponents.Actions.SpeedData.Name
   isExternal: true
@@ -1949,12 +2043,12 @@ references:
   name: V_REAX
   nameWithType: SpeedData.V_REAX
   fullName: RobotComponents.Actions.SpeedData.V_REAX
-- uid: RobotComponents.Actions.SpeedData.PreDefinied*
-  commentId: Overload:RobotComponents.Actions.SpeedData.PreDefinied
+- uid: RobotComponents.Actions.SpeedData.PreDefined*
+  commentId: Overload:RobotComponents.Actions.SpeedData.PreDefined
   isExternal: true
-  name: PreDefinied
-  nameWithType: SpeedData.PreDefinied
-  fullName: RobotComponents.Actions.SpeedData.PreDefinied
+  name: PreDefined
+  nameWithType: SpeedData.PreDefined
+  fullName: RobotComponents.Actions.SpeedData.PreDefined
 - uid: RobotComponents.Actions.SpeedData.UserDefinied*
   commentId: Overload:RobotComponents.Actions.SpeedData.UserDefinied
   isExternal: true
@@ -2154,3 +2248,9 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
+- uid: RobotComponents.Actions.SpeedData.PreDefinied*
+  commentId: Overload:RobotComponents.Actions.SpeedData.PreDefinied
+  isExternal: true
+  name: PreDefinied
+  nameWithType: SpeedData.PreDefinied
+  fullName: RobotComponents.Actions.SpeedData.PreDefinied

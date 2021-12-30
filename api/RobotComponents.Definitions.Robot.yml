@@ -32,6 +32,7 @@ items:
   - RobotComponents.Definitions.Robot.ToolPlane
   - RobotComponents.Definitions.Robot.ToString
   - RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
+  - RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
   langs:
   - csharp
   - vb
@@ -462,16 +463,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
-  commentId: M:RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
-  id: Transfom(Rhino.Geometry.Transform)
+- uid: RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
+  id: Transform(Rhino.Geometry.Transform)
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: Transfom(Transform)
-  nameWithType: Robot.Transfom(Transform)
-  fullName: RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
+  name: Transform(Transform)
+  nameWithType: Robot.Transform(Transform)
+  fullName: RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
   type: Method
   source:
     path: RobotComponents
@@ -481,13 +482,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nTransforms the robot spatial properties (planes and meshes).\nNOTE: The attached external axes will not be transformed. \n"
   syntax:
-    content: public void Transfom(Transform xform)
+    content: public void Transform(Transform xform)
     parameters:
     - id: xform
       type: Rhino.Geometry.Transform
       description: 'Spatial deform. '
-    content.vb: Public Sub Transfom(xform As Transform)
-  overload: RobotComponents.Definitions.Robot.Transfom*
+    content.vb: Public Sub Transform(xform As Transform)
+  overload: RobotComponents.Definitions.Robot.Transform*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -521,6 +522,50 @@ items:
       description: 'The Bounding Box. '
     content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
   overload: RobotComponents.Definitions.Robot.GetBoundingBox*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
+  id: Transfom(Rhino.Geometry.Transform)
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: Transfom(Transform)
+  nameWithType: Robot.Transfom(Transform)
+  fullName: RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nTransforms the robot spatial properties (planes and meshes).\nNOTE: The attached external axes will not be transformed. \n"
+  syntax:
+    content: >-
+      [Obsolete("This method is OBSOLETE and will be removed in version 2.", false)]
+
+      public void Transfom(Transform xform)
+    parameters:
+    - id: xform
+      type: Rhino.Geometry.Transform
+      description: 'Spatial deform. '
+    content.vb: >-
+      <Obsolete("This method is OBSOLETE and will be removed in version 2.", False)>
+
+      Public Sub Transfom(xform As Transform)
+  overload: RobotComponents.Definitions.Robot.Transfom*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This method is OBSOLETE and will be removed in version 2.
+    - type: System.Boolean
+      value: false
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1649,12 +1694,12 @@ references:
   name: CalculateAttachedToolPlane
   nameWithType: Robot.CalculateAttachedToolPlane
   fullName: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
-- uid: RobotComponents.Definitions.Robot.Transfom*
-  commentId: Overload:RobotComponents.Definitions.Robot.Transfom
+- uid: RobotComponents.Definitions.Robot.Transform*
+  commentId: Overload:RobotComponents.Definitions.Robot.Transform
   isExternal: true
-  name: Transfom
-  nameWithType: Robot.Transfom
-  fullName: RobotComponents.Definitions.Robot.Transfom
+  name: Transform
+  nameWithType: Robot.Transform
+  fullName: RobotComponents.Definitions.Robot.Transform
 - uid: Rhino.Geometry.Transform
   isExternal: true
   name: Transform
@@ -1678,6 +1723,12 @@ references:
   name: BoundingBox
   nameWithType: BoundingBox
   fullName: Rhino.Geometry.BoundingBox
+- uid: RobotComponents.Definitions.Robot.Transfom*
+  commentId: Overload:RobotComponents.Definitions.Robot.Transfom
+  isExternal: true
+  name: Transfom
+  nameWithType: Robot.Transfom
+  fullName: RobotComponents.Definitions.Robot.Transfom
 - uid: RobotComponents.Definitions.Robot.IsValid*
   commentId: Overload:RobotComponents.Definitions.Robot.IsValid
   isExternal: true
