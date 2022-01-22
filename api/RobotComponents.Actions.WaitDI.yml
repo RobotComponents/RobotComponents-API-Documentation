@@ -15,6 +15,7 @@ items:
   - RobotComponents.Actions.WaitDI.DuplicateInstruction
   - RobotComponents.Actions.WaitDI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitDI.IsValid
+  - RobotComponents.Actions.WaitDI.Name
   - RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.WaitDI.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -173,15 +174,15 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the Wait DI class.\n"
   syntax:
-    content: public WaitDI(string DIName, bool value)
+    content: public WaitDI(string name, bool value)
     parameters:
-    - id: DIName
+    - id: name
       type: System.String
       description: 'The name of the signal. '
     - id: value
       type: System.Boolean
       description: Specifies whether the Digital Input is enabled.
-    content.vb: Public Sub New(DIName As String, value As Boolean)
+    content.vb: Public Sub New(name As String, value As Boolean)
   overload: RobotComponents.Actions.WaitDI.#ctor*
   modifiers.csharp:
   - public
@@ -536,7 +537,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nGets or sets the desired state of the digtal input signal.\n"
+  summary: "\nGets or sets the desired state of the digital input signal.\n"
   syntax:
     content: public bool Value { get; set; }
     parameters: []
@@ -544,6 +545,37 @@ items:
       type: System.Boolean
     content.vb: Public Property Value As Boolean
   overload: RobotComponents.Actions.WaitDI.Value*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitDI.Name
+  commentId: P:RobotComponents.Actions.WaitDI.Name
+  id: Name
+  parent: RobotComponents.Actions.WaitDI
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: WaitDI.Name
+  fullName: RobotComponents.Actions.WaitDI.Name
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the name of the digital input signal.\n"
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.Actions.WaitDI.Name*
   modifiers.csharp:
   - public
   - get
@@ -569,12 +601,26 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nGets or sets the name of the digital input signal.\n"
   syntax:
-    content: public string DIName { get; set; }
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in version 2. Use the property Name instead.", false)]
+
+      public string DIName { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Property DIName As String
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in version 2. Use the property Name instead.", False)>
+
+      Public Property DIName As String
   overload: RobotComponents.Actions.WaitDI.DIName*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in version 2. Use the property Name instead.
+    - type: System.Boolean
+      value: false
   modifiers.csharp:
   - public
   - get
@@ -1401,6 +1447,12 @@ references:
   name: Value
   nameWithType: WaitDI.Value
   fullName: RobotComponents.Actions.WaitDI.Value
+- uid: RobotComponents.Actions.WaitDI.Name*
+  commentId: Overload:RobotComponents.Actions.WaitDI.Name
+  isExternal: true
+  name: Name
+  nameWithType: WaitDI.Name
+  fullName: RobotComponents.Actions.WaitDI.Name
 - uid: RobotComponents.Actions.WaitDI.DIName*
   commentId: Overload:RobotComponents.Actions.WaitDI.DIName
   isExternal: true

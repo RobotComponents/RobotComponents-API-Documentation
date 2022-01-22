@@ -7,14 +7,12 @@ items:
   children:
   - RobotComponents.Actions.ExternalJointPosition.#ctor
   - RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)
-  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.IList{System.Double})
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
-  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
+  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.IList{System.Double})
   - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  - RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
   - RobotComponents.Actions.ExternalJointPosition.Add(RobotComponents.Actions.ExternalJointPosition)
   - RobotComponents.Actions.ExternalJointPosition.Add(System.Double)
   - RobotComponents.Actions.ExternalJointPosition.Divide(RobotComponents.Actions.ExternalJointPosition)
@@ -230,16 +228,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})
-  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})
-  id: '#ctor(System.Collections.Generic.List{System.Double})'
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.IList{System.Double})
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.IList{System.Double})
+  id: '#ctor(System.Collections.Generic.IList{System.Double})'
   parent: RobotComponents.Actions.ExternalJointPosition
   langs:
   - csharp
   - vb
-  name: ExternalJointPosition(List<Double>)
-  nameWithType: ExternalJointPosition.ExternalJointPosition(List<Double>)
-  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Collections.Generic.List<System.Double>)
+  name: ExternalJointPosition(IList<Double>)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(IList<Double>)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Collections.Generic.IList<System.Double>)
   type: Constructor
   source:
     path: RobotComponents
@@ -249,53 +247,20 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the External Joint Position class with an empty name from a list with values.\n"
   syntax:
-    content: public ExternalJointPosition(List<double> externalAxisValues)
+    content: public ExternalJointPosition(IList<double> externalAxisValues)
     parameters:
     - id: externalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: 'The position of the external logical axes. '
-    content.vb: Public Sub New(externalAxisValues As List(Of Double))
+      type: System.Collections.Generic.IList{System.Double}
+      description: 'The list with the position of the external logical axes. '
+    content.vb: Public Sub New(externalAxisValues As IList(Of Double))
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
-  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(List(Of Double))
+  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(IList(Of Double))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Collections.Generic.List(Of System.Double))
-  name.vb: ExternalJointPosition(List(Of Double))
-- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])
-  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])
-  id: '#ctor(System.Double[])'
-  parent: RobotComponents.Actions.ExternalJointPosition
-  langs:
-  - csharp
-  - vb
-  name: ExternalJointPosition(Double[])
-  nameWithType: ExternalJointPosition.ExternalJointPosition(Double[])
-  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Double[])
-  type: Constructor
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class with an empty name from an array with values.\n"
-  syntax:
-    content: public ExternalJointPosition(double[] externalAxisValues)
-    parameters:
-    - id: externalAxisValues
-      type: System.Double[]
-      description: 'The position of the external logical axes. '
-    content.vb: Public Sub New(externalAxisValues As Double())
-  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
-  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(Double())
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Double())
-  name.vb: ExternalJointPosition(Double())
+  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.Collections.Generic.IList(Of System.Double))
+  name.vb: ExternalJointPosition(IList(Of Double))
 - uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
   commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)
   id: '#ctor(System.String)'
@@ -374,16 +339,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
-  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})
-  id: '#ctor(System.String,System.Collections.Generic.List{System.Double})'
+- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.IList{System.Double})
+  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.IList{System.Double})
+  id: '#ctor(System.String,System.Collections.Generic.IList{System.Double})'
   parent: RobotComponents.Actions.ExternalJointPosition
   langs:
   - csharp
   - vb
-  name: ExternalJointPosition(String, List<Double>)
-  nameWithType: ExternalJointPosition.ExternalJointPosition(String, List<Double>)
-  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.List<System.Double>)
+  name: ExternalJointPosition(String, IList<Double>)
+  nameWithType: ExternalJointPosition.ExternalJointPosition(String, IList<Double>)
+  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.IList<System.Double>)
   type: Constructor
   source:
     path: RobotComponents
@@ -391,61 +356,25 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class from a list with values.\n"
+  summary: "\nInitializes a new instance of the External Joint Position class from a collection with values.\n"
   syntax:
-    content: public ExternalJointPosition(string name, List<double> externalAxisValues)
+    content: public ExternalJointPosition(string name, IList<double> externalAxisValues)
     parameters:
     - id: name
       type: System.String
       description: 'The external joint position name, must be unique. '
     - id: externalAxisValues
-      type: System.Collections.Generic.List{System.Double}
-      description: 'The position of the external logical axes. '
-    content.vb: Public Sub New(name As String, externalAxisValues As List(Of Double))
+      type: System.Collections.Generic.IList{System.Double}
+      description: 'The collection with the position of the external logical axes. '
+    content.vb: Public Sub New(name As String, externalAxisValues As IList(Of Double))
   overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
-  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(String, List(Of Double))
+  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(String, IList(Of Double))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.List(Of System.Double))
-  name.vb: ExternalJointPosition(String, List(Of Double))
-- uid: RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
-  commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])
-  id: '#ctor(System.String,System.Double[])'
-  parent: RobotComponents.Actions.ExternalJointPosition
-  langs:
-  - csharp
-  - vb
-  name: ExternalJointPosition(String, Double[])
-  nameWithType: ExternalJointPosition.ExternalJointPosition(String, Double[])
-  fullName: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Double[])
-  type: Constructor
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the External Joint Position class from an array with values.\n"
-  syntax:
-    content: public ExternalJointPosition(string name, double[] externalAxisValues)
-    parameters:
-    - id: name
-      type: System.String
-      description: 'The external joint position name, must be unique. '
-    - id: externalAxisValues
-      type: System.Double[]
-      description: 'The position of the external logical axes. '
-    content.vb: Public Sub New(name As String, externalAxisValues As Double())
-  overload: RobotComponents.Actions.ExternalJointPosition.#ctor*
-  nameWithType.vb: ExternalJointPosition.ExternalJointPosition(String, Double())
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Double())
-  name.vb: ExternalJointPosition(String, Double())
+  fullName.vb: RobotComponents.Actions.ExternalJointPosition.ExternalJointPosition(System.String, System.Collections.Generic.IList(Of System.Double))
+  name.vb: ExternalJointPosition(String, IList(Of Double))
 - uid: RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)
   commentId: M:RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)
   id: '#ctor(RobotComponents.Actions.ExternalJointPosition)'
@@ -2049,21 +1978,21 @@ references:
   name: Double
   nameWithType: Double
   fullName: System.Double
-- uid: System.Collections.Generic.List{System.Double}
-  commentId: T:System.Collections.Generic.List{System.Double}
+- uid: System.Collections.Generic.IList{System.Double}
+  commentId: T:System.Collections.Generic.IList{System.Double}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Double>
-  nameWithType: List<Double>
-  fullName: System.Collections.Generic.List<System.Double>
-  nameWithType.vb: List(Of Double)
-  fullName.vb: System.Collections.Generic.List(Of System.Double)
-  name.vb: List(Of Double)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Double>
+  nameWithType: IList<Double>
+  fullName: System.Collections.Generic.IList<System.Double>
+  nameWithType.vb: IList(Of Double)
+  fullName.vb: System.Collections.Generic.IList(Of System.Double)
+  name.vb: IList(Of Double)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -2077,10 +2006,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2093,20 +2022,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -2118,10 +2047,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2138,32 +2067,6 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: System.Double[]
-  isExternal: true
-  name: Double[]
-  nameWithType: Double[]
-  fullName: System.Double[]
-  nameWithType.vb: Double()
-  fullName.vb: System.Double()
-  name.vb: Double()
-  spec.csharp:
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  spec.vb:
-  - uid: System.Double
-    name: Double
-    nameWithType: Double
-    fullName: System.Double
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
 - uid: System.String
   commentId: T:System.String
   parent: System
@@ -2332,6 +2235,32 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Double[]
+  isExternal: true
+  name: Double[]
+  nameWithType: Double[]
+  fullName: System.Double[]
+  nameWithType.vb: Double()
+  fullName.vb: System.Double()
+  name.vb: Double()
+  spec.csharp:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
 - uid: RobotComponents.Actions.ExternalJointPosition.ToList*
   commentId: Overload:RobotComponents.Actions.ExternalJointPosition.ToList
   isExternal: true
@@ -2366,6 +2295,89 @@ references:
   - name: (
     nameWithType: (
     fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List{System.Double}
+  commentId: T:System.Collections.Generic.List{System.Double}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Double>
+  nameWithType: List<Double>
+  fullName: System.Collections.Generic.List<System.Double>
+  nameWithType.vb: List(Of Double)
+  fullName.vb: System.Collections.Generic.List(Of System.Double)
+  name.vb: List(Of Double)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )

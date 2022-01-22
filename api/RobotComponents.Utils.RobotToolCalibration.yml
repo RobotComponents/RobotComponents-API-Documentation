@@ -6,8 +6,8 @@ items:
   parent: RobotComponents.Utils
   children:
   - RobotComponents.Utils.RobotToolCalibration.#ctor
-  - RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})
-  - RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})
+  - RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition})
+  - RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition})
   - RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Utils.RobotToolCalibration)
   - RobotComponents.Utils.RobotToolCalibration.Calculate
   - RobotComponents.Utils.RobotToolCalibration.CheckJointPositionsAxisLimits
@@ -92,16 +92,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})
-  commentId: M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})
-  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})'
+- uid: RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition})
+  commentId: M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition})
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition})'
   parent: RobotComponents.Utils.RobotToolCalibration
   langs:
   - csharp
   - vb
-  name: RobotToolCalibration(Robot, List<RobotJointPosition>)
-  nameWithType: RobotToolCalibration.RobotToolCalibration(Robot, List<RobotJointPosition>)
-  fullName: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.List<RobotComponents.Actions.RobotJointPosition>)
+  name: RobotToolCalibration(Robot, IList<RobotJointPosition>)
+  nameWithType: RobotToolCalibration.RobotToolCalibration(Robot, IList<RobotJointPosition>)
+  fullName: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.IList<RobotComponents.Actions.RobotJointPosition>)
   type: Constructor
   source:
     path: RobotComponents
@@ -111,33 +111,33 @@ items:
   namespace: RobotComponents.Utils
   summary: "\nInitializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions.\nThe External Joint Positions are set with default values (9e9).\n"
   syntax:
-    content: public RobotToolCalibration(Robot robot, List<RobotJointPosition> robotJointPositions)
+    content: public RobotToolCalibration(Robot robot, IList<RobotJointPosition> robotJointPositions)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
       description: 'The Robot the Joint Positions are given for. '
     - id: robotJointPositions
-      type: System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
+      type: System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition}
       description: 'The Robot Joint Positions as a list. '
-    content.vb: Public Sub New(robot As Robot, robotJointPositions As List(Of RobotJointPosition))
+    content.vb: Public Sub New(robot As Robot, robotJointPositions As IList(Of RobotJointPosition))
   overload: RobotComponents.Utils.RobotToolCalibration.#ctor*
-  nameWithType.vb: RobotToolCalibration.RobotToolCalibration(Robot, List(Of RobotJointPosition))
+  nameWithType.vb: RobotToolCalibration.RobotToolCalibration(Robot, IList(Of RobotJointPosition))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.List(Of RobotComponents.Actions.RobotJointPosition))
-  name.vb: RobotToolCalibration(Robot, List(Of RobotJointPosition))
-- uid: RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})
-  commentId: M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})
-  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})'
+  fullName.vb: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.IList(Of RobotComponents.Actions.RobotJointPosition))
+  name.vb: RobotToolCalibration(Robot, IList(Of RobotJointPosition))
+- uid: RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition})
+  commentId: M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition})
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition})'
   parent: RobotComponents.Utils.RobotToolCalibration
   langs:
   - csharp
   - vb
-  name: RobotToolCalibration(Robot, List<RobotJointPosition>, List<ExternalJointPosition>)
-  nameWithType: RobotToolCalibration.RobotToolCalibration(Robot, List<RobotJointPosition>, List<ExternalJointPosition>)
-  fullName: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.List<RobotComponents.Actions.RobotJointPosition>, System.Collections.Generic.List<RobotComponents.Actions.ExternalJointPosition>)
+  name: RobotToolCalibration(Robot, IList<RobotJointPosition>, IList<ExternalJointPosition>)
+  nameWithType: RobotToolCalibration.RobotToolCalibration(Robot, IList<RobotJointPosition>, IList<ExternalJointPosition>)
+  fullName: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.IList<RobotComponents.Actions.RobotJointPosition>, System.Collections.Generic.IList<RobotComponents.Actions.ExternalJointPosition>)
   type: Constructor
   source:
     path: RobotComponents
@@ -147,26 +147,26 @@ items:
   namespace: RobotComponents.Utils
   summary: "\nInitializes a new instance of the Robot Tool Calibration class.\n"
   syntax:
-    content: public RobotToolCalibration(Robot robot, List<RobotJointPosition> robotJointPositions, List<ExternalJointPosition> externalJointPositions)
+    content: public RobotToolCalibration(Robot robot, IList<RobotJointPosition> robotJointPositions, IList<ExternalJointPosition> externalJointPositions)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
       description: 'The Robot the Joint Positions are given for. '
     - id: robotJointPositions
-      type: System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
+      type: System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition}
       description: 'The Robot Joint Positions as a list. '
     - id: externalJointPositions
-      type: System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition}
+      type: System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition}
       description: 'The External Joint Positions as a list. '
-    content.vb: Public Sub New(robot As Robot, robotJointPositions As List(Of RobotJointPosition), externalJointPositions As List(Of ExternalJointPosition))
+    content.vb: Public Sub New(robot As Robot, robotJointPositions As IList(Of RobotJointPosition), externalJointPositions As IList(Of ExternalJointPosition))
   overload: RobotComponents.Utils.RobotToolCalibration.#ctor*
-  nameWithType.vb: RobotToolCalibration.RobotToolCalibration(Robot, List(Of RobotJointPosition), List(Of ExternalJointPosition))
+  nameWithType.vb: RobotToolCalibration.RobotToolCalibration(Robot, IList(Of RobotJointPosition), IList(Of ExternalJointPosition))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.List(Of RobotComponents.Actions.RobotJointPosition), System.Collections.Generic.List(Of RobotComponents.Actions.ExternalJointPosition))
-  name.vb: RobotToolCalibration(Robot, List(Of RobotJointPosition), List(Of ExternalJointPosition))
+  fullName.vb: RobotComponents.Utils.RobotToolCalibration.RobotToolCalibration(RobotComponents.Definitions.Robot, System.Collections.Generic.IList(Of RobotComponents.Actions.RobotJointPosition), System.Collections.Generic.IList(Of RobotComponents.Actions.ExternalJointPosition))
+  name.vb: RobotToolCalibration(Robot, IList(Of RobotJointPosition), IList(Of ExternalJointPosition))
 - uid: RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Utils.RobotToolCalibration)
   commentId: M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Utils.RobotToolCalibration)
   id: '#ctor(RobotComponents.Utils.RobotToolCalibration)'
@@ -1239,21 +1239,21 @@ references:
   name: Robot
   nameWithType: Robot
   fullName: RobotComponents.Definitions.Robot
-- uid: System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
+- uid: System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<RobotJointPosition>
-  nameWithType: List<RobotJointPosition>
-  fullName: System.Collections.Generic.List<RobotComponents.Actions.RobotJointPosition>
-  nameWithType.vb: List(Of RobotJointPosition)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.RobotJointPosition)
-  name.vb: List(Of RobotJointPosition)
+  definition: System.Collections.Generic.IList`1
+  name: IList<RobotJointPosition>
+  nameWithType: IList<RobotJointPosition>
+  fullName: System.Collections.Generic.IList<RobotComponents.Actions.RobotJointPosition>
+  nameWithType.vb: IList(Of RobotJointPosition)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Actions.RobotJointPosition)
+  name.vb: IList(Of RobotJointPosition)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1267,10 +1267,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1289,20 +1289,20 @@ references:
   name: RobotComponents.Definitions
   nameWithType: RobotComponents.Definitions
   fullName: RobotComponents.Definitions
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1314,10 +1314,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1334,21 +1334,21 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition}
+- uid: System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<ExternalJointPosition>
-  nameWithType: List<ExternalJointPosition>
-  fullName: System.Collections.Generic.List<RobotComponents.Actions.ExternalJointPosition>
-  nameWithType.vb: List(Of ExternalJointPosition)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.ExternalJointPosition)
-  name.vb: List(Of ExternalJointPosition)
+  definition: System.Collections.Generic.IList`1
+  name: IList<ExternalJointPosition>
+  nameWithType: IList<ExternalJointPosition>
+  fullName: System.Collections.Generic.IList<RobotComponents.Actions.ExternalJointPosition>
+  nameWithType.vb: IList(Of ExternalJointPosition)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Actions.ExternalJointPosition)
+  name.vb: IList(Of ExternalJointPosition)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1362,10 +1362,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1447,6 +1447,45 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Utils.RobotToolCalibration.Calculate*
   commentId: Overload:RobotComponents.Utils.RobotToolCalibration.Calculate
   isExternal: true
@@ -1478,12 +1517,100 @@ references:
   name: RobotJointPositions
   nameWithType: RobotToolCalibration.RobotJointPositions
   fullName: RobotComponents.Utils.RobotToolCalibration.RobotJointPositions
+- uid: System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<RobotJointPosition>
+  nameWithType: List<RobotJointPosition>
+  fullName: System.Collections.Generic.List<RobotComponents.Actions.RobotJointPosition>
+  nameWithType.vb: List(Of RobotJointPosition)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.RobotJointPosition)
+  name.vb: List(Of RobotJointPosition)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Actions.RobotJointPosition
+    name: RobotJointPosition
+    nameWithType: RobotJointPosition
+    fullName: RobotComponents.Actions.RobotJointPosition
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Actions.RobotJointPosition
+    name: RobotJointPosition
+    nameWithType: RobotJointPosition
+    fullName: RobotComponents.Actions.RobotJointPosition
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Utils.RobotToolCalibration.ExternalJointPositions*
   commentId: Overload:RobotComponents.Utils.RobotToolCalibration.ExternalJointPositions
   isExternal: true
   name: ExternalJointPositions
   nameWithType: RobotToolCalibration.ExternalJointPositions
   fullName: RobotComponents.Utils.RobotToolCalibration.ExternalJointPositions
+- uid: System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<ExternalJointPosition>
+  nameWithType: List<ExternalJointPosition>
+  fullName: System.Collections.Generic.List<RobotComponents.Actions.ExternalJointPosition>
+  nameWithType.vb: List(Of ExternalJointPosition)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.ExternalJointPosition)
+  name.vb: List(Of ExternalJointPosition)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Utils.RobotToolCalibration.XInitial*
   commentId: Overload:RobotComponents.Utils.RobotToolCalibration.XInitial
   isExternal: true

@@ -28,13 +28,13 @@
             Initializes an empty instance of the Action Group class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.List{RobotComponents.Actions.Action})">
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.Actions.Action})">
             <summary>
             Initializes a new instance of the Action Group class with an empty name.
             </summary>
             <param name="actions"> The list with actions. </param>
         </member>
-        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.List{RobotComponents.Actions.Action})">
+        <member name="M:RobotComponents.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action})">
             <summary>
             Initializes a new instance of the Action Group class.
             </summary>
@@ -76,6 +76,69 @@
             Returns a duplicate of the list with Actions as an array.
             </summary>
             <returns> The duplicate of the list with actions as an array. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Add(RobotComponents.Actions.Action)">
+            <summary>
+            Adds and action to the end of this action group.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.Actions.Action})">
+            <summary>
+            Adds the elements of the specified collection with actions to the end of this action group.
+            </summary>
+            <param name="collection"> The colleciton with actions. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Clear">
+            <summary>
+            Removes all elements from the action group.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.IndexOf(RobotComponents.Actions.Action)">
+            <summary>
+            Determines the index of a specific item in the list.
+            </summary>
+            <param name="action"> The object to locate in the list. </param>
+            <returns> The index of value if found in the list; otherwise, -1. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Insert(System.Int32,RobotComponents.Actions.Action)">
+            <summary>
+            Inserts an item to the list at the specified index.
+            </summary>
+            <param name="index"> The zero-based index at which value should be inserted. </param>
+            <param name="action"> The object to insert into the list. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Contains(RobotComponents.Actions.Action)">
+            <summary>
+            Determines whether the list contains a specific value.
+            </summary>
+            <param name="action"> The object to locate in the List. </param>
+            <returns> True if the Action is found in the list; otherwise, false. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Remove(RobotComponents.Actions.Action)">
+            <summary>
+            Removes the first occurrence of a specific object from the List.
+            </summary>
+            <param name="action"> The object to remove from the IList. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.RemoveAt(System.Int32)">
+            <summary>
+            Removes the list item at the specified index.
+            </summary>
+            <param name="index"> The zero-based index of the item to remove. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.CopyTo(RobotComponents.Actions.Action[],System.Int32)">
+            <summary>
+            Copies the elements of the ICollection to an Array, starting at a particular Array index.
+            </summary>
+            <param name="array"> The one-dimensional Array that is the destination of the elements copied from ICollection. The Array must have zero-based indexing. </param>
+            <param name="index"> The zero-based index in array at which copying begins. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.ActionGroup.Ungroup">
+            <summary>
+            Returns the actions inside this group including the actions of the groups that are inside this group.
+            </summary>
+            <returns> List with Actions. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
@@ -131,6 +194,16 @@
             </summary>
             <param name="index"> The index number. </param>
             <returns> The Action located at the given index. </returns>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.IsFixedSize">
+            <summary>
+            Gets a value indicating whether or not the action collection has a fixed size.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.ActionGroup.IsReadOnly">
+            <summary>
+            Gets a value indicating whether the list is read-only.
+            </summary>
         </member>
         <member name="T:RobotComponents.Actions.AnalogOutput">
             <summary>
@@ -241,6 +314,12 @@
             <summary>
             Represents the interface for actions that contain a synchronization identity.
             </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.ISyncident.DuplicateSyncident">
+            <summary>
+            Returns an exact duplicate of this Syncident.
+            </summary>
+            <returns> The exact copy of this Syncident. </returns>
         </member>
         <member name="M:RobotComponents.Actions.ISyncident.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
             <summary>
@@ -509,6 +588,117 @@
             Gets or sets the program tasks that should meet in the synchronization point.
             </summary>
         </member>
+        <member name="T:RobotComponents.Actions.WaitAI">
+            <summary>
+            Represents a Wait for Analo Input instruction.
+            This action is used to wait until a value of a analog input is set.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Protected constructor needed for deserialization of the object.  
+            </summary>
+            <param name="info"> The SerializationInfo to extract the data from. </param>
+            <param name="context"> The context of this deserialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Populates a SerializationInfo with the data needed to serialize the object.
+            </summary>
+            <param name="info"> The SerializationInfo to populate with data. </param>
+            <param name="context"> The destination for this serialization. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.#ctor">
+            <summary>
+            Initializes an empty instance of the Wait AI class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)">
+            <summary>
+            Initializes a new instance of the Wait AI class.
+            </summary>
+            <param name="name"> The name of the signal. </param>
+            <param name="value"> The desired value. </param>
+            <param name="inequalitySymbol"> The inequality symbol (less than, greater than) </param>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.#ctor(RobotComponents.Actions.WaitAI)">
+            <summary>
+            Initializes a new instance of the Wait AI class by duplicating an existing Wait AI instance. 
+            </summary>
+            <param name="WaitAI"> The Wait AI instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Wait AI instance.
+            </summary>
+            <returns> A deep copy of the Wait AI instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Wait AI instance as IInstruction.
+            </summary>
+            <returns> A deep copy of the Wait AI instance as an IInstruction. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.DuplicateAction">
+            <summary>
+            Returns an exact duplicate of this Wait AI instance as an Action. 
+            </summary>
+            <returns> A deep copy of the Wait AI instance as an Action. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> An empty string. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.ToRAPIDInstruction(RobotComponents.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.WaitAI.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)">
+            <summary>
+            Creates instructions in the RAPID program module inside the RAPID Generator.
+            This method is called inside the RAPID generator.
+            </summary>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitAI.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitAI.Value">
+            <summary>
+            Gets or sets the desired state of the analog input signal.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitAI.Name">
+            <summary>
+            Gets or sets the name of the analog input signal.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitAI.InequalitySymbol">
+            <summary>
+            Gets or sets the inequality symbol.
+            </summary>
+        </member>
         <member name="T:RobotComponents.Actions.WaitSyncTask">
             <summary>
             Represents the WaitSyncTask instruction to synchronize several program tasks at a special point in each program.
@@ -655,19 +845,12 @@
             Initializes an empty instance of the Tasks class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})">
+        <member name="M:RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.IList{System.String})">
             <summary>
             Initializes a new instance of the Tasks class.
             </summary>
             <param name="name"> The name of the set with tasks. </param>
-            <param name="tasks"> The tasks names as a list with strings. </param>
-        </member>
-        <member name="M:RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])">
-            <summary>
-            Initializes a new instance of the Tasks class.
-            </summary>
-            <param name="name"> The name of the collection with tasks. </param>
-            <param name="tasks"> The tasks names as an array with strings. </param>
+            <param name="tasks"> The tasks names as a collection with strings. </param>
         </member>
         <member name="M:RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)">
             <summary>
@@ -1346,17 +1529,11 @@
             <param name="rax_5"> The position of robot axis 5 in degrees from the calibration position.</param>
             <param name="rax_6"> The position of robot axis 6 in degrees from the calibration position.</param>
         </member>
-        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Collections.Generic.List{System.Double})">
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Collections.Generic.IList{System.Double})">
             <summary>
-            Initializes a new instance of the Robot Joint Position class with an empty name from a list with values 
+            Initializes a new instance of the Robot Joint Position class with an empty name from a collection with values 
             </summary>
-            <param name="internalAxisValues"> The user defined internal axis values as a list.</param>
-        </member>
-        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.Double[])">
-            <summary>
-            Initializes a new instance of the Robot Joint Position class with an empty name from an array. 
-            </summary>
-            <param name="internalAxisValues">The user defined internal axis values as an array.</param>
+            <param name="internalAxisValues"> The user defined internal axis values as a collection.</param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String)">
             <summary>
@@ -1376,19 +1553,12 @@
             <param name="rax_5"> The position of robot axis 5 in degrees from the calibration position.</param>
             <param name="rax_6"> The position of robot axis 6 in degrees from the calibration position.</param>
         </member>
-        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})">
+        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Collections.Generic.IList{System.Double})">
             <summary>
-            Initializes a new instance of the Robot Joint Position class from a list with values.
+            Initializes a new instance of the Robot Joint Position class from a collection with values.
             </summary>
             <param name="name"> The robot joint position name, must be unique. </param>
-            <param name="internalAxisValues"> The user defined internal axis values as a list.</param>
-        </member>
-        <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(System.String,System.Double[])">
-            <summary>
-            Initializes a new instance of the Robot Joint Position class from an array.
-            </summary>
-            <param name="name"> The robot joint position name, must be unique. </param>
-            <param name="internalAxisValues">The user defined internal axis values as an array.</param>
+            <param name="internalAxisValues"> The user defined internal axis values as a colection.</param>
         </member>
         <member name="M:RobotComponents.Actions.RobotJointPosition.#ctor(RobotComponents.Actions.RobotJointPosition)">
             <summary>
@@ -1507,7 +1677,7 @@
             </summary>
             <param name="jointPosition"> The divider as an Robot Joint Position. </param>
         </member>
-        <member name="M:RobotComponents.Actions.RobotJointPosition.CheckAxisValues(System.Double[])">
+        <member name="M:RobotComponents.Actions.RobotJointPosition.CheckAxisValues(System.Collections.Generic.IList{System.Double})">
             <summary></summary>
             Cecks the array with internal axis values. 
             Always returns a list with 6 internal axis values. 
@@ -1752,17 +1922,11 @@
             <param name="Eax_e"> The position of the external logical axis “3” expressed in degrees or mm. </param>
             <param name="Eax_f"> The position of the external logical axis “f” expressed in degrees or mm. </param>
         </member>
-        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.List{System.Double})">
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Collections.Generic.IList{System.Double})">
             <summary>
             Initializes a new instance of the External Joint Position class with an empty name from a list with values.
             </summary>
-            <param name="externalAxisValues"> The position of the external logical axes. </param>
-        </member>
-        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.Double[])">
-            <summary>
-            Initializes a new instance of the External Joint Position class with an empty name from an array with values.
-            </summary>
-            <param name="externalAxisValues"> The position of the external logical axes. </param>
+            <param name="externalAxisValues"> The list with the position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String)">
             <summary>
@@ -1782,19 +1946,12 @@
             <param name="Eax_e"> The position of the external logical axis “3” expressed in degrees or mm. </param>
             <param name="Eax_f"> The position of the external logical axis “f” expressed in degrees or mm. </param>
         </member>
-        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.List{System.Double})">
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Collections.Generic.IList{System.Double})">
             <summary>
-            Initializes a new instance of the External Joint Position class from a list with values.
+            Initializes a new instance of the External Joint Position class from a collection with values.
             </summary>
             <param name="name"> The external joint position name, must be unique. </param>
-            <param name="externalAxisValues"> The position of the external logical axes. </param>
-        </member>
-        <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(System.String,System.Double[])">
-            <summary>
-            Initializes a new instance of the External Joint Position class from an array with values.
-            </summary>
-            <param name="name"> The external joint position name, must be unique. </param>
-            <param name="externalAxisValues"> The position of the external logical axes. </param>
+            <param name="externalAxisValues"> The collection with the position of the external logical axes. </param>
         </member>
         <member name="M:RobotComponents.Actions.ExternalJointPosition.#ctor(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -1895,7 +2052,7 @@
             </summary>
             <param name="jointPosition"> The divider as an External Joint Position. </param>
         </member>
-        <member name="M:RobotComponents.Actions.ExternalJointPosition.CheckAxisValues(System.Double[])">
+        <member name="M:RobotComponents.Actions.ExternalJointPosition.CheckAxisValues(System.Collections.Generic.IList{System.Double})">
             <summary></summary>
             Checks the array the positions of the external logical axes. 
             Always returns an array with 6 joint positions. 
@@ -2913,7 +3070,7 @@
             Initializes an empty instance of the RAPID Generator class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">
             <summary>
             Initializes a new instance of the RAPID Generator class.
             </summary>
@@ -2949,17 +3106,17 @@
             </summary>
             <returns> The RAPID program code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})">
             <summary>
             Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It adds the robot tools and work objects that are collected by this RAPID generator. 
             For this you have to call the methode 'CreateProgamCode' first. 
             This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
             </summary>
-            <param name="customCode"> Custom user definied base code as list with strings. </param>
+            <param name="customCode"> Custom user definied base code as a list with strings. </param>
             <returns> The RAPID system code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})">
             <summary>
             Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
             It is adds the robot tools, work objects and custom code lines from the given lists. 
@@ -2970,14 +3127,14 @@
             <param name="customCode"> Custom user definied base code as list with strings. </param>
             <returns> The RAPID system code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateToolSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateToolSystemCode(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool})">
             <summary>
             Returns the System Code for the given Robot Tools.
             </summary>
             <param name="robotTools"> The Robot Tools. </param>
             <returns> The robot tool system code as a list with code lines. </returns>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateWorkObjectSystemCode(System.Collections.Generic.List{RobotComponents.Definitions.WorkObject})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CreateWorkObjectSystemCode(System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject})">
             <summary>
             Returns the System Code for all given Work Objects.
             </summary>
@@ -2994,19 +3151,11 @@
             Writes the RAPID system code to a file if a file path is set.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CheckFirstMovement(System.Collections.Generic.List{RobotComponents.Actions.Action})">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.Actions.Action})">
             <summary>
             Checks whether the first movement type is an absolute joint movement.
             </summary>
             <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
-        </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.CheckActionGroup(RobotComponents.Actions.ActionGroup,System.Boolean@)">
-            <summary>
-            Checks whether the first movement type is an absolute joint movement inside an action group.
-            </summary>
-            <param name="group"> The group with actions. </param>
-            <param name="movements"> Specifies whether a movement was stored inside the action group. </param>
-            <returns></returns>
         </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.IsValid">
             <summary>
@@ -3361,7 +3510,7 @@
             <summary>
             Initializes a new instance of the Wait DI class.
             </summary>
-            <param name="DIName"> The name of the signal. </param>
+            <param name="name"> The name of the signal. </param>
             <param name="value"> Specifies whether the Digital Input is enabled.</param>
         </member>
         <member name="M:RobotComponents.Actions.WaitDI.#ctor(RobotComponents.Actions.WaitDI)">
@@ -3429,7 +3578,12 @@
         </member>
         <member name="P:RobotComponents.Actions.WaitDI.Value">
             <summary>
-            Gets or sets the desired state of the digtal input signal.
+            Gets or sets the desired state of the digital input signal.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitDI.Name">
+            <summary>
+            Gets or sets the name of the digital input signal.
             </summary>
         </member>
         <member name="P:RobotComponents.Actions.WaitDI.DIName">
@@ -4119,7 +4273,7 @@
             Represents a collection of methods to get the CRB15000-5/0.95 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.CRB15000_5_095.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.CRB15000_5_095.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new CRB15000-5/0.95 Robot instance. 
             </summary>
@@ -4157,7 +4311,7 @@
             Represents a collection of methods to get the IRB1100-4/0.475 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1100_4_0475.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1100_4_0475.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1100-4/0.475 Robot instance. 
             </summary>
@@ -4195,7 +4349,7 @@
             Represents a collection of methods to get the IRB1100-4/0.58 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1100_4_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1100_4_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1100-4/0.58 Robot instance. 
             </summary>
@@ -4233,7 +4387,7 @@
             Represents a collection of methods to get the IRB1300-11/0.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1300_11_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1300_11_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1300-11/0.90 Robot instance. 
             </summary>
@@ -4271,7 +4425,7 @@
             Represents a collection of methods to get the IRB1300-7/1.40 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1300_7_140.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1300_7_140.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1300-7/1.40 Robot instance. 
             </summary>
@@ -4309,7 +4463,7 @@
             Represents a collection of methods to get the IRB1300-10/1.15 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1300_10_115.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1300_10_115.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1300-10/1.15 Robot instance. 
             </summary>
@@ -4347,7 +4501,7 @@
             Represents a collection of methods to get the IRB1520ID-4/1.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1520ID_4_150.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1520ID_4_150.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1520ID-4/1.5 Robot instance.
             </summary>
@@ -4385,7 +4539,7 @@
             Represents a collection of methods to get the IRB4600-X/2.05 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB4600_X_205.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB4600_X_205.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB4600-X/2.05 Robot instance.
             </summary>
@@ -4423,7 +4577,7 @@
             Represents a collection of methods to get the IRB4600-40/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB4600-40/2.55 Robot instance.
             </summary>
@@ -4461,7 +4615,7 @@
             Represents a collection of methods to get the IRB4600-20/2.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB4600_20_250.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB4600_20_250.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB4600-20/2.5 Robot instance.
             </summary>
@@ -4499,7 +4653,7 @@
             Represents a collection of methods to get the IRB6650S-125/3.50 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_125_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_125_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6650S-125/3.50 Robot instance.
             </summary>
@@ -4537,7 +4691,7 @@
             Represents a collection of methods to get the IRB6650S-200/3.00 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_200_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_200_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6650S-200/3.00 Robot instance.
             </summary>
@@ -4575,7 +4729,7 @@
             Represents a collection of methods to get the IRB6700-300/2.7 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_300_270.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_300_270.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-300/2.7 Robot instance.
             </summary>
@@ -4613,7 +4767,7 @@
             Represents a collection of methods to get the IRB6700-245/3.0 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_245_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_245_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-245/3.0 Robot instance.
             </summary>
@@ -4651,7 +4805,7 @@
             Represents a collection of methods to get the IRB6700-235/2.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-235/2.65 Robot instance.
             </summary>
@@ -4689,7 +4843,7 @@
             Represents a collection of methods to get the IRB6700-205/2.80 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-205/2.8 Robot instance.
             </summary>
@@ -4727,7 +4881,7 @@
             Represents a collection of methods to get the IRB6700-200/2.6 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_200_260.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_200_260.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-200/2.6 Robot instance.
             </summary>
@@ -4765,7 +4919,7 @@
             Represents a collection of methods to get the IRB6700-175/3.05 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_175_305.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_175_305.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-175/3.05 Robot instance.
             </summary>
@@ -4803,7 +4957,7 @@
             Represents a collection of methods to get the IRB6700-155/2.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_155_285.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_155_285.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-155/2.85 Robot instance.
             </summary>
@@ -4841,7 +4995,7 @@
             Represents a collection of methods to get the IRB6700-150/3.2 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6700_150_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6700_150_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6700-150/3.2 Robot instance.
             </summary>
@@ -4879,7 +5033,7 @@
             Represents a collection of methods to get the IRB6790-235/2.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6790_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6790-235/2.65 Robot instance.
             </summary>
@@ -4917,7 +5071,7 @@
             Represents a collection of methods to get the IRB7600-150/3.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB7600_150_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB7600_150_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB7600-150/3.5 Robot instance.
             </summary>
@@ -4955,7 +5109,7 @@
             Represents a collection of methods to get the IRB7600-400/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB7600_400_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB7600_400_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB7600-400/2.55 Robot instance.
             </summary>
@@ -4993,7 +5147,7 @@
             Represents a collection of methods to get the IRB7600-340/2.8 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB7600_340_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB7600_340_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB7600-340/2.8 Robot instance.
             </summary>
@@ -5031,7 +5185,7 @@
             Represents a collection of methods to get the IRB7600-325/3.1 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB7600_325_310.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB7600_325_310.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB7600-325/3.1 Robot instance.
             </summary>
@@ -5069,7 +5223,7 @@
             Represents a collection of methods to get the IRB7600-500/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB7600_500_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB7600_500_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB7600-500/2.55 Robot instance.
             </summary>
@@ -5107,7 +5261,7 @@
             Represents a collection of methods to get the IRB6790-205/2.8 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6790_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6790_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6790-205/2.8 Robot instance.
             </summary>
@@ -5145,7 +5299,7 @@
             Represents a collection of methods to get the IRB6650S-90/3.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_90_390.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6650S_90_390.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6650S-90/3.90 Robot instance.
             </summary>
@@ -5183,7 +5337,7 @@
             Represents a collection of methods to get the IRB6640-185/2.80 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6640_185_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6640_185_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6640-185/2.80 Robot instance.
             </summary>
@@ -5221,7 +5375,7 @@
             Represents a collection of methods to get the IRB6640-235/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6640_235_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6640_235_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6640-135/2.55 Robot instance.
             </summary>
@@ -5259,7 +5413,7 @@
             Represents a collection of methods to get the IRB6620-150/2.20 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6620_150_220.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6620_150_220.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6620-150/2.20 Robot instance.
             </summary>
@@ -5297,7 +5451,7 @@
             Represents a collection of methods to get the IRB6650-200/2.75 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6650_200_275.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6650_200_275.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6650-200/2.75 Robot instance.
             </summary>
@@ -5335,7 +5489,7 @@
             Represents a collection of methods to get the IRB6650-125/3.2 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB6650_125_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB6650_125_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB6650-125/3.2 Robot instance.
             </summary>
@@ -5373,7 +5527,7 @@
             Represents a collection of methods to get the IRB2600ID-8/2.00 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB2600ID_8_200.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB2600ID_8_200.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB2600ID-8/2.00 Robot instance.
             </summary>
@@ -5411,7 +5565,7 @@
             Represents a collection of methods to get the IRB2600ID-15/1.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB2600ID_15_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB2600ID-15/1.85 Robot instance.
             </summary>
@@ -5449,7 +5603,7 @@
             Represents a collection of methods to get the IRB2600-X/1.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB2600_X_165.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB2600_X_165.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB2600-X/1.65 Robot instance.
             </summary>
@@ -5487,7 +5641,7 @@
             Represents a collection of methods to get the IRB2600-12/1.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB2600_12_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB2600_12_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB2600-12/1.85 Robot instance.
             </summary>
@@ -5525,7 +5679,7 @@
             Represents a collection of methods to get the IRB1660ID-X/1.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1660ID_X_155.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1660ID_X_155.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1660ID-X/1.55 Robot instance.
             </summary>
@@ -5563,7 +5717,7 @@
             Represents a collection of methods to get the IRB1600-X/1.45 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1600_X_145.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1600_X_145.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1600-X/1.45 Robot instance.
             </summary>
@@ -5601,7 +5755,7 @@
             Represents a collection of methods to get the IRB1600-X/1.20 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1600_X_120.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1600_X_120.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1600-X/1.20 Robot instance.
             </summary>
@@ -5639,7 +5793,7 @@
             Represents a collection of methods to get the IRB140-6/0.81 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB140_6_081.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB140_6_081.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB140-6/0.81 Robot instance.
             </summary>
@@ -5677,7 +5831,7 @@
             Represents a collection of methods to get the IRB120-3/0.58 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB120-3/0.58 Robot instance. 
             </summary>
@@ -5715,7 +5869,7 @@
             Represents a collection of methods to get the IRB1200-7/0.70 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1200_7_070.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1200_7_070.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1200-7/0.70 Robot instance.
             </summary>
@@ -5753,7 +5907,7 @@
             Represents a collection of methods to get the IRB1200-5/0.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Presets.IRB1200_5_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Presets.IRB1200_5_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a new IRB1200-5/0.90 Robot instance.
             </summary>
@@ -5820,7 +5974,7 @@
             <param name="attachmentPlane"> The attachement plane. </param>
             <param name="toolPlane"> The tool center point and tool orientation as a plane. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
             <summary>
             Initializes a new instance of the Robot Tool class from planes.
             Sets the load data as defined for the default tool tool0.
@@ -5845,7 +5999,7 @@
             <param name="toolRotY"> The orientation around the y-axis in radians. </param>
             <param name="toolRotZ"> The orientation around the y-axis in radians. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Initializes a new instance of the Robot Tool class from Euler data.
             Sets the attachtment plane equal to the world xy-plane. 
@@ -5876,7 +6030,7 @@
             <param name="q3"> The second imaginary coefficient of the quaternion. </param>
             <param name="q4"> The third imaginary coefficient of the quaternion. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. 
             Sets the attachtment plane equal to the world xy-plane. 
@@ -5892,7 +6046,7 @@
             <param name="q3"> The second imaginary coefficient of the quaternion. </param>
             <param name="q4"> The third imaginary coefficient of the quaternion. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
             <summary>
             Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. 
             Sets the load data as defined for the default tool tool0.
@@ -5934,7 +6088,7 @@
             tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). </param>
             <param name="inertia"> The moment of inertia of the load in kgm2. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
             <summary>
             Initializes a new instance of the Robot Tool class.
             </summary>
@@ -5962,7 +6116,7 @@
             <param name="centerOfGravity"> The position and orientation of the center of gravity of the tool load. </param>
             <param name="inertia"> The moment of inertia of the load in kgm2. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
+        <member name="M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
             <summary>
             Initializes a new instance of the Robot Tool class.
             </summary>
@@ -6362,7 +6516,7 @@
             <param name="baseMesh"> The base mesh. </param>
             <param name="linkMesh"> The link mesh posed for an external axis value set to 0. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh})">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6384,7 +6538,7 @@
             <param name="baseMesh"> The base mesh. </param>
             <param name="linkMesh"> The link mesh posed for an external axis value set to 0. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh})">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6442,7 +6596,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.String,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.String,System.Boolean)">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6468,7 +6622,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.String,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.String,System.Boolean)">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6516,7 +6670,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6542,7 +6696,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
             <summary>
             Initializes a new instance of the External Linear Axis class.
             </summary>
@@ -6788,7 +6942,7 @@
             <param name="baseMesh"> The base mesh. </param>
             <param name="linkMesh"> The link mesh posed for an external axis value set to 0. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh})">
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh})">
             <summary>
             Initializes a new instance of the External Rotational Axis class. 
             </summary>
@@ -6830,7 +6984,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.String,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.String,System.Boolean)">
             <summary>
             Initializes a new instance of the External Rotational Axis class. 
             </summary>
@@ -6874,7 +7028,7 @@
             <param name="axisLogic"> The axis logic number. </param>
             <param name="movesRobot"> Specifies whether the external axis moves a robot. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Interval,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Int32,System.Boolean)">
             <summary>
             Initializes a new instance of the External Rotational Axis class. 
             </summary>
@@ -7080,7 +7234,7 @@
             Initializes an empty instance of the Robot class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)">
+        <member name="M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)">
             <summary>
             Initializes a new instance of the Robot class without attached external axes.
             </summary>
@@ -7092,7 +7246,7 @@
             <param name="mountingFrame"> The tool mounting frame definied in the world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Initializes a new instance of the Robot class with attached external axes.
             </summary>
@@ -7117,7 +7271,7 @@
             </summary>
             <returns> A deep copy of the Robot instance. </returns>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
             Returns a predefined ABB Robot preset. 
             </summary>
@@ -8810,7 +8964,7 @@
             Initializes an empty instance of the Robot Tool Calibration class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition})">
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition})">
             <summary>
             Initializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions.
             The External Joint Positions are set with default values (9e9).
@@ -8818,7 +8972,7 @@
             <param name="robot"> The Robot the Joint Positions are given for. </param>
             <param name="robotJointPositions"> The Robot Joint Positions as a list. </param>
         </member>
-        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.List{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.List{RobotComponents.Actions.ExternalJointPosition})">
+        <member name="M:RobotComponents.Utils.RobotToolCalibration.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.Actions.ExternalJointPosition})">
             <summary>
             Initializes a new instance of the Robot Tool Calibration class.
             </summary>
@@ -9499,26 +9653,20 @@
             </summary>
             <param name="movement"> The movement as a linear movement type. </param>
         </member>
-        <member name="M:RobotComponents.Kinematics.PathGenerator.InterpolateJointMovement(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition)">
+        <member name="M:RobotComponents.Kinematics.PathGenerator.InterpolateJointMovement(RobotComponents.Actions.RobotJointPosition,RobotComponents.Actions.ExternalJointPosition,RobotComponents.Actions.Movement)">
             <summary>
             Calculates the interpolated path for a joint movement.
             </summary>
             <param name="towardsRobotJointPosition"> The final Robot Joint Position of the joint movement. </param>
             <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
+            <param name="movement"> The movement that belongs to the given joint positions. </param>
         </member>
         <member name="M:RobotComponents.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.List{RobotComponents.Actions.Action})">
             <summary>
             Checks whether the first movement type is an absolute joint movement.
+            Returns true if no movements were defined. 
             </summary>
             <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
-        </member>
-        <member name="M:RobotComponents.Kinematics.PathGenerator.CheckActionGroup(RobotComponents.Actions.ActionGroup,System.Boolean@)">
-            <summary>
-            Checks whether the first movement type is an absolute joint movement inside an action group.
-            </summary>
-            <param name="group"> The group with actions. </param>
-            <param name="movements"> Specifies whether a movement was stored inside the action group. </param>
-            <returns></returns>
         </member>
         <member name="P:RobotComponents.Kinematics.PathGenerator.IsValid">
             <summary>
@@ -9541,14 +9689,19 @@
             For every move instruction a curve is constructed. 
             </summary>
         </member>
+        <member name="P:RobotComponents.Kinematics.PathGenerator.Movements">
+            <summary>
+            Gets the calculated Movements.
+            </summary>
+        </member>
         <member name="P:RobotComponents.Kinematics.PathGenerator.RobotJointPositions">
             <summary>
-            Gets the latest calculated Robot Joint Position.
+            Gets the calculated Robot Joint Position.
             </summary>
         </member>
         <member name="P:RobotComponents.Kinematics.PathGenerator.ExternalJointPositions">
             <summary>
-            Gets the latest calculated External Joint Positions. 
+            Gets the calculated External Joint Positions. 
             </summary>
         </member>
         <member name="P:RobotComponents.Kinematics.PathGenerator.ErrorText">
@@ -9629,6 +9782,21 @@
         <member name="F:RobotComponents.Enumerations.ReferenceType.CONST">
             <summary>
             Constant data type
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Enumerations.InequalitySymbol">
+            <summary>
+            Defines inequalities (less than, greater than)
+            </summary>
+        </member>
+        <member name="F:RobotComponents.Enumerations.InequalitySymbol.LT">
+            <summary>
+            Less than
+            </summary>
+        </member>
+        <member name="F:RobotComponents.Enumerations.InequalitySymbol.GT">
+            <summary>
+            Greater than
             </summary>
         </member>
         <member name="T:RobotComponents.Enumerations.RobotPreset">

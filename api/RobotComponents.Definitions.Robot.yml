@@ -8,8 +8,8 @@ items:
   - RobotComponents.Definitions.Robot.#ctor
   - RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
   - RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
-  - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
+  - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.BasePlane
   - RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
   - RobotComponents.Definitions.Robot.Duplicate
@@ -20,7 +20,7 @@ items:
   - RobotComponents.Definitions.Robot.GetAttachedToolMesh
   - RobotComponents.Definitions.Robot.GetBoundingBox(System.Boolean)
   - RobotComponents.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+  - RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.InternalAxisLimits
   - RobotComponents.Definitions.Robot.InternalAxisPlanes
   - RobotComponents.Definitions.Robot.InverseKinematics
@@ -163,16 +163,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
-  commentId: M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)'
+- uid: RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
+  commentId: M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)'
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: Robot(String, List<Mesh>, List<Plane>, List<Interval>, Plane, Plane, RobotTool)
-  nameWithType: Robot.Robot(String, List<Mesh>, List<Plane>, List<Interval>, Plane, Plane, RobotTool)
-  fullName: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, System.Collections.Generic.List<Rhino.Geometry.Plane>, System.Collections.Generic.List<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool)
+  name: Robot(String, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool)
+  nameWithType: Robot.Robot(String, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool)
+  fullName: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Collections.Generic.IList<Rhino.Geometry.Plane>, System.Collections.Generic.IList<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool)
   type: Constructor
   source:
     path: RobotComponents
@@ -182,19 +182,19 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot class without attached external axes.\n"
   syntax:
-    content: public Robot(string name, List<Mesh> meshes, List<Plane> internalAxisPlanes, List<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool)
+    content: public Robot(string name, IList<Mesh> meshes, IList<Plane> internalAxisPlanes, IList<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool)
     parameters:
     - id: name
       type: System.String
       description: 'The name. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The base and links meshes defined in the world coorindate space. '
     - id: internalAxisPlanes
-      type: System.Collections.Generic.List{Rhino.Geometry.Plane}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Plane}
       description: 'The internal axes planes defined in the world coorindate space. '
     - id: internalAxisLimits
-      type: System.Collections.Generic.List{Rhino.Geometry.Interval}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Interval}
       description: 'The internal axes limit. '
     - id: basePlane
       type: Rhino.Geometry.Plane
@@ -205,25 +205,25 @@ items:
     - id: tool
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), internalAxisPlanes As List(Of Plane), internalAxisLimits As List(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), internalAxisPlanes As IList(Of Plane), internalAxisLimits As IList(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool)
   overload: RobotComponents.Definitions.Robot.#ctor*
-  nameWithType.vb: Robot.Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool)
+  nameWithType.vb: Robot.Robot(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), System.Collections.Generic.List(Of Rhino.Geometry.Plane), System.Collections.Generic.List(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool)
-  name.vb: Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool)
-- uid: RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  commentId: M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Collections.Generic.List{Rhino.Geometry.Plane},System.Collections.Generic.List{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})'
+  fullName.vb: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool)
+  name.vb: Robot(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool)
+- uid: RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
+  commentId: M:RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})'
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: Robot(String, List<Mesh>, List<Plane>, List<Interval>, Plane, Plane, RobotTool, List<ExternalAxis>)
-  nameWithType: Robot.Robot(String, List<Mesh>, List<Plane>, List<Interval>, Plane, Plane, RobotTool, List<ExternalAxis>)
-  fullName: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, System.Collections.Generic.List<Rhino.Geometry.Plane>, System.Collections.Generic.List<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
+  name: Robot(String, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<ExternalAxis>)
+  nameWithType: Robot.Robot(String, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<ExternalAxis>)
+  fullName: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Collections.Generic.IList<Rhino.Geometry.Plane>, System.Collections.Generic.IList<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.Definitions.ExternalAxis>)
   type: Constructor
   source:
     path: RobotComponents
@@ -233,19 +233,19 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot class with attached external axes.\n"
   syntax:
-    content: public Robot(string name, List<Mesh> meshes, List<Plane> internalAxisPlanes, List<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, List<ExternalAxis> externalAxes)
+    content: public Robot(string name, IList<Mesh> meshes, IList<Plane> internalAxisPlanes, IList<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, IList<ExternalAxis> externalAxes)
     parameters:
     - id: name
       type: System.String
       description: 'The name. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The base and links meshes defined in the world coorindate space. '
     - id: internalAxisPlanes
-      type: System.Collections.Generic.List{Rhino.Geometry.Plane}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Plane}
       description: 'The internal axes planes defined in the world coorindate space. '
     - id: internalAxisLimits
-      type: System.Collections.Generic.List{Rhino.Geometry.Interval}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Interval}
       description: 'The internal axes limit. '
     - id: basePlane
       type: Rhino.Geometry.Plane
@@ -257,17 +257,17 @@ items:
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. '
     - id: externalAxes
-      type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+      type: System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis}
       description: 'The attached external axes. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), internalAxisPlanes As List(Of Plane), internalAxisLimits As List(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis))
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), internalAxisPlanes As IList(Of Plane), internalAxisLimits As IList(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxes As IList(Of ExternalAxis))
   overload: RobotComponents.Definitions.Robot.#ctor*
-  nameWithType.vb: Robot.Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool, List(Of ExternalAxis))
+  nameWithType.vb: Robot.Robot(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of ExternalAxis))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), System.Collections.Generic.List(Of Rhino.Geometry.Plane), System.Collections.Generic.List(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
-  name.vb: Robot(String, List(Of Mesh), List(Of Plane), List(Of Interval), Plane, Plane, RobotTool, List(Of ExternalAxis))
+  fullName.vb: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.Definitions.ExternalAxis))
+  name.vb: Robot(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of ExternalAxis))
 - uid: RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
   id: '#ctor(RobotComponents.Definitions.Robot)'
@@ -327,16 +327,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  commentId: M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
-  id: GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis})
+- uid: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
+  commentId: M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
+  id: GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: GetRobotPreset(RobotPreset, Plane, RobotTool, List<ExternalAxis>)
-  nameWithType: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, List<ExternalAxis>)
-  fullName: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>)
+  name: GetRobotPreset(RobotPreset, Plane, RobotTool, IList<ExternalAxis>)
+  nameWithType: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, IList<ExternalAxis>)
+  fullName: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.Definitions.ExternalAxis>)
   type: Method
   source:
     path: RobotComponents
@@ -346,7 +346,7 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nReturns a predefined ABB Robot preset. \n"
   syntax:
-    content: public static Robot GetRobotPreset(RobotPreset preset, Plane positionPlane, RobotTool tool, List<ExternalAxis> externalAxes = null)
+    content: public static Robot GetRobotPreset(RobotPreset preset, Plane positionPlane, RobotTool tool, IList<ExternalAxis> externalAxes = null)
     parameters:
     - id: preset
       type: RobotComponents.Enumerations.RobotPreset
@@ -358,21 +358,21 @@ items:
       type: RobotComponents.Definitions.RobotTool
       description: 'The Robot Tool. '
     - id: externalAxes
-      type: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+      type: System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis}
       description: 'The external axes attached to the Robot. '
     return:
       type: RobotComponents.Definitions.Robot
-    content.vb: Public Shared Function GetRobotPreset(preset As RobotPreset, positionPlane As Plane, tool As RobotTool, externalAxes As List(Of ExternalAxis) = Nothing) As Robot
+    content.vb: Public Shared Function GetRobotPreset(preset As RobotPreset, positionPlane As Plane, tool As RobotTool, externalAxes As IList(Of ExternalAxis) = Nothing) As Robot
   overload: RobotComponents.Definitions.Robot.GetRobotPreset*
-  nameWithType.vb: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, List(Of ExternalAxis))
+  nameWithType.vb: Robot.GetRobotPreset(RobotPreset, Plane, RobotTool, IList(Of ExternalAxis))
   modifiers.csharp:
   - public
   - static
   modifiers.vb:
   - Public
   - Shared
-  fullName.vb: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis))
-  name.vb: GetRobotPreset(RobotPreset, Plane, RobotTool, List(Of ExternalAxis))
+  fullName.vb: RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.Definitions.ExternalAxis))
+  name.vb: GetRobotPreset(RobotPreset, Plane, RobotTool, IList(Of ExternalAxis))
 - uid: RobotComponents.Definitions.Robot.ToString
   commentId: M:RobotComponents.Definitions.Robot.ToString
   id: ToString
@@ -1375,21 +1375,21 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+- uid: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.IList{Rhino.Geometry.Mesh}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Mesh>
-  nameWithType: List<Mesh>
-  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
-  nameWithType.vb: List(Of Mesh)
-  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
-  name.vb: List(Of Mesh)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Mesh>
+  nameWithType: IList<Mesh>
+  fullName: System.Collections.Generic.IList<Rhino.Geometry.Mesh>
+  nameWithType.vb: IList(Of Mesh)
+  fullName.vb: System.Collections.Generic.IList(Of Rhino.Geometry.Mesh)
+  name.vb: IList(Of Mesh)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1403,10 +1403,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1419,21 +1419,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List{Rhino.Geometry.Plane}
-  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Plane}
+- uid: System.Collections.Generic.IList{Rhino.Geometry.Plane}
+  commentId: T:System.Collections.Generic.IList{Rhino.Geometry.Plane}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Plane>
-  nameWithType: List<Plane>
-  fullName: System.Collections.Generic.List<Rhino.Geometry.Plane>
-  nameWithType.vb: List(Of Plane)
-  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Plane)
-  name.vb: List(Of Plane)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Plane>
+  nameWithType: IList<Plane>
+  fullName: System.Collections.Generic.IList<Rhino.Geometry.Plane>
+  nameWithType.vb: IList(Of Plane)
+  fullName.vb: System.Collections.Generic.IList(Of Rhino.Geometry.Plane)
+  name.vb: IList(Of Plane)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1447,10 +1447,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1463,21 +1463,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List{Rhino.Geometry.Interval}
-  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Interval}
+- uid: System.Collections.Generic.IList{Rhino.Geometry.Interval}
+  commentId: T:System.Collections.Generic.IList{Rhino.Geometry.Interval}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Interval>
-  nameWithType: List<Interval>
-  fullName: System.Collections.Generic.List<Rhino.Geometry.Interval>
-  nameWithType.vb: List(Of Interval)
-  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Interval)
-  name.vb: List(Of Interval)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Interval>
+  nameWithType: IList<Interval>
+  fullName: System.Collections.Generic.IList<Rhino.Geometry.Interval>
+  nameWithType.vb: IList(Of Interval)
+  fullName.vb: System.Collections.Generic.IList(Of Rhino.Geometry.Interval)
+  name.vb: IList(Of Interval)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1491,10 +1491,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1519,20 +1519,20 @@ references:
   name: RobotTool
   nameWithType: RobotTool
   fullName: RobotComponents.Definitions.RobotTool
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1544,10 +1544,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1564,21 +1564,21 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+- uid: System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<ExternalAxis>
-  nameWithType: List<ExternalAxis>
-  fullName: System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>
-  nameWithType.vb: List(Of ExternalAxis)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis)
-  name.vb: List(Of ExternalAxis)
+  definition: System.Collections.Generic.IList`1
+  name: IList<ExternalAxis>
+  nameWithType: IList<ExternalAxis>
+  fullName: System.Collections.Generic.IList<RobotComponents.Definitions.ExternalAxis>
+  nameWithType.vb: IList(Of ExternalAxis)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Definitions.ExternalAxis)
+  name.vb: IList(Of ExternalAxis)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1592,10 +1592,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1747,18 +1747,189 @@ references:
   name: Meshes
   nameWithType: Robot.Meshes
   fullName: RobotComponents.Definitions.Robot.Meshes
+- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Mesh>
+  nameWithType: List<Mesh>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
+  nameWithType.vb: List(Of Mesh)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
+  name.vb: List(Of Mesh)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    nameWithType: Mesh
+    fullName: Rhino.Geometry.Mesh
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.InternalAxisPlanes*
   commentId: Overload:RobotComponents.Definitions.Robot.InternalAxisPlanes
   isExternal: true
   name: InternalAxisPlanes
   nameWithType: Robot.InternalAxisPlanes
   fullName: RobotComponents.Definitions.Robot.InternalAxisPlanes
+- uid: System.Collections.Generic.List{Rhino.Geometry.Plane}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Plane}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Plane>
+  nameWithType: List<Plane>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Plane>
+  nameWithType.vb: List(Of Plane)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Plane)
+  name.vb: List(Of Plane)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    nameWithType: Plane
+    fullName: Rhino.Geometry.Plane
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.InternalAxisLimits*
   commentId: Overload:RobotComponents.Definitions.Robot.InternalAxisLimits
   isExternal: true
   name: InternalAxisLimits
   nameWithType: Robot.InternalAxisLimits
   fullName: RobotComponents.Definitions.Robot.InternalAxisLimits
+- uid: System.Collections.Generic.List{Rhino.Geometry.Interval}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Interval}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Interval>
+  nameWithType: List<Interval>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Interval>
+  nameWithType.vb: List(Of Interval)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Interval)
+  name.vb: List(Of Interval)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Rhino.Geometry.Interval
+    name: Interval
+    nameWithType: Interval
+    fullName: Rhino.Geometry.Interval
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Rhino.Geometry.Interval
+    name: Interval
+    nameWithType: Interval
+    fullName: Rhino.Geometry.Interval
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.BasePlane*
   commentId: Overload:RobotComponents.Definitions.Robot.BasePlane
   isExternal: true
@@ -1789,6 +1960,50 @@ references:
   name: ExternalAxes
   nameWithType: Robot.ExternalAxes
   fullName: RobotComponents.Definitions.Robot.ExternalAxes
+- uid: System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.ExternalAxis}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<ExternalAxis>
+  nameWithType: List<ExternalAxis>
+  fullName: System.Collections.Generic.List<RobotComponents.Definitions.ExternalAxis>
+  nameWithType.vb: List(Of ExternalAxis)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Definitions.ExternalAxis)
+  name.vb: List(Of ExternalAxis)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Definitions.ExternalAxis
+    name: ExternalAxis
+    nameWithType: ExternalAxis
+    fullName: RobotComponents.Definitions.ExternalAxis
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Definitions.ExternalAxis
+    name: ExternalAxis
+    nameWithType: ExternalAxis
+    fullName: RobotComponents.Definitions.ExternalAxis
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.InverseKinematics*
   commentId: Overload:RobotComponents.Definitions.Robot.InverseKinematics
   isExternal: true

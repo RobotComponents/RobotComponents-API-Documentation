@@ -5,6 +5,7 @@ items:
   id: ISyncident
   parent: RobotComponents.Actions
   children:
+  - RobotComponents.Actions.ISyncident.DuplicateSyncident
   - RobotComponents.Actions.ISyncident.IsValid
   - RobotComponents.Actions.ISyncident.ReferenceType
   - RobotComponents.Actions.ISyncident.SyncID
@@ -35,6 +36,31 @@ items:
   modifiers.vb:
   - Public
   - Interface
+- uid: RobotComponents.Actions.ISyncident.DuplicateSyncident
+  commentId: M:RobotComponents.Actions.ISyncident.DuplicateSyncident
+  id: DuplicateSyncident
+  parent: RobotComponents.Actions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: DuplicateSyncident()
+  nameWithType: ISyncident.DuplicateSyncident()
+  fullName: RobotComponents.Actions.ISyncident.DuplicateSyncident()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nReturns an exact duplicate of this Syncident.\n"
+  syntax:
+    content: ISyncident DuplicateSyncident()
+    return:
+      type: RobotComponents.Actions.ISyncident
+      description: 'The exact copy of this Syncident. '
+    content.vb: Function DuplicateSyncident As ISyncident
+  overload: RobotComponents.Actions.ISyncident.DuplicateSyncident*
 - uid: RobotComponents.Actions.ISyncident.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.ISyncident.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -237,6 +263,19 @@ references:
   name: RobotComponents.Actions
   nameWithType: RobotComponents.Actions
   fullName: RobotComponents.Actions
+- uid: RobotComponents.Actions.ISyncident.DuplicateSyncident*
+  commentId: Overload:RobotComponents.Actions.ISyncident.DuplicateSyncident
+  isExternal: true
+  name: DuplicateSyncident
+  nameWithType: ISyncident.DuplicateSyncident
+  fullName: RobotComponents.Actions.ISyncident.DuplicateSyncident
+- uid: RobotComponents.Actions.ISyncident
+  commentId: T:RobotComponents.Actions.ISyncident
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: ISyncident
+  nameWithType: ISyncident
+  fullName: RobotComponents.Actions.ISyncident
 - uid: RobotComponents.Actions.ISyncident.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.Actions.ISyncident.ToRAPIDDeclaration
   isExternal: true

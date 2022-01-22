@@ -14,12 +14,12 @@ items:
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  - RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.Definitions.RobotTool.AttachmentPlane
   - RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityOrientation
   - RobotComponents.Definitions.RobotTool.CalculateCenterOfGravityPosition
@@ -216,16 +216,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Plane, Plane)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Plane)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane)
+  name: RobotTool(String, IList<Mesh>, Plane, Plane)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Plane, Plane)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane)
   type: Constructor
   source:
     path: RobotComponents
@@ -235,13 +235,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class from planes.\nSets the load data as defined for the default tool tool0.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane)
+    content: public RobotTool(string name, IList<Mesh> meshes, Plane attachmentPlane, Plane toolPlane)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh as The list with robot meshes. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
@@ -249,15 +249,15 @@ items:
     - id: toolPlane
       type: Rhino.Geometry.Plane
       description: 'The tool center point and tool orientation as a plane. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, toolPlane As Plane)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), attachmentPlane As Plane, toolPlane As Plane)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Plane)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Plane, Plane)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane)
-  name.vb: RobotTool(String, List(Of Mesh), Plane, Plane)
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane)
+  name.vb: RobotTool(String, IList(Of Mesh), Plane, Plane)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   id: '#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
@@ -309,16 +309,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Double, Double, Double, Double, Double, Double)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Double, Double, Double, Double, Double, Double)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name: RobotTool(String, IList<Mesh>, Double, Double, Double, Double, Double, Double)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -328,13 +328,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class from Euler data.\nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)
+    content: public RobotTool(string name, IList<Mesh> meshes, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh. '
     - id: toolTransX
       type: System.Double
@@ -354,15 +354,15 @@ items:
     - id: toolRotZ
       type: System.Double
       description: 'The orientation around the y-axis in radians. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), toolTransX As Double, toolTransY As Double, toolTransZ As Double, toolRotX As Double, toolRotY As Double, toolRotZ As Double)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), toolTransX As Double, toolTransY As Double, toolTransZ As Double, toolRotX As Double, toolRotY As Double, toolRotZ As Double)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Double, Double, Double, Double, Double, Double)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Double, Double, Double, Double, Double, Double)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
-  name.vb: RobotTool(String, List(Of Mesh), Double, Double, Double, Double, Double, Double)
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name.vb: RobotTool(String, IList(Of Mesh), Double, Double, Double, Double, Double, Double)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   id: '#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
@@ -417,16 +417,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Double, Double, Double, Double, Double, Double, Double)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Double, Double, Double, Double, Double, Double, Double)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name: RobotTool(String, IList<Mesh>, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Double, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -436,13 +436,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. \nSets the attachtment plane equal to the world xy-plane. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, double x, double y, double z, double q1, double q2, double q3, double q4)
+    content: public RobotTool(string name, IList<Mesh> meshes, double x, double y, double z, double q1, double q2, double q3, double q4)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh. '
     - id: x
       type: System.Double
@@ -465,25 +465,25 @@ items:
     - id: q4
       type: System.Double
       description: 'The third imaginary coefficient of the quaternion. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), x As Double, y As Double, z As Double, q1 As Double, q2 As Double, q3 As Double, q4 As Double)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), x As Double, y As Double, z As Double, q1 As Double, q2 As Double, q3 As Double, q4 As Double)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Double, Double, Double, Double, Double, Double, Double)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Double, Double, Double, Double, Double, Double, Double)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
-  name.vb: RobotTool(String, List(Of Mesh), Double, Double, Double, Double, Double, Double, Double)
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name.vb: RobotTool(String, IList(Of Mesh), Double, Double, Double, Double, Double, Double, Double)
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Plane, Double, Double, Double, Double, Double, Double, Double)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Double, Double, Double, Double, Double, Double, Double)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name: RobotTool(String, IList<Mesh>, Plane, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Plane, Double, Double, Double, Double, Double, Double, Double)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -493,13 +493,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. \nSets the load data as defined for the default tool tool0.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, double x, double y, double z, double q1, double q2, double q3, double q4)
+    content: public RobotTool(string name, IList<Mesh> meshes, Plane attachmentPlane, double x, double y, double z, double q1, double q2, double q3, double q4)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
@@ -525,15 +525,15 @@ items:
     - id: q4
       type: System.Double
       description: 'The third imaginary coefficient of the quaternion. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, x As Double, y As Double, z As Double, q1 As Double, q2 As Double, q3 As Double, q4 As Double)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), attachmentPlane As Plane, x As Double, y As Double, z As Double, q1 As Double, q2 As Double, q3 As Double, q4 As Double)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Double, Double, Double, Double, Double, Double, Double)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Plane, Double, Double, Double, Double, Double, Double, Double)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
-  name.vb: RobotTool(String, List(Of Mesh), Plane, Double, Double, Double, Double, Double, Double, Double)
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double, System.Double)
+  name.vb: RobotTool(String, IList(Of Mesh), Plane, Double, Double, Double, Double, Double, Double, Double)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)
   id: '#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)'
@@ -627,16 +627,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
+  name: RobotTool(String, IList<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
   type: Constructor
   source:
     path: RobotComponents
@@ -646,13 +646,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)
+    content: public RobotTool(string name, IList<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
@@ -675,15 +675,15 @@ items:
     - id: inertia
       type: Rhino.Geometry.Vector3d
       description: 'The moment of inertia of the load in kgm2. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravityPosition As Point3d, centerOfGravityOrientation As Quaternion, inertia As Vector3d)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravityPosition As Point3d, centerOfGravityOrientation As Quaternion, inertia As Vector3d)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
-  name.vb: RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Point3d, Rhino.Geometry.Quaternion, Rhino.Geometry.Vector3d)
+  name.vb: RobotTool(String, IList(Of Mesh), Plane, Plane, Boolean, Double, Point3d, Quaternion, Vector3d)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
   id: '#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)'
@@ -735,16 +735,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
-  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
-  id: '#ctor(System.String,System.Collections.Generic.List{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)'
+- uid: RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  commentId: M:RobotComponents.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)'
   parent: RobotComponents.Definitions.RobotTool
   langs:
   - csharp
   - vb
-  name: RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
-  nameWithType: RobotTool.RobotTool(String, List<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
-  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
+  name: RobotTool(String, IList<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  nameWithType: RobotTool.RobotTool(String, IList<Mesh>, Plane, Plane, Boolean, Double, Plane, Vector3d)
+  fullName: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
   type: Constructor
   source:
     path: RobotComponents
@@ -754,13 +754,13 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot Tool class.\n"
   syntax:
-    content: public RobotTool(string name, List<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)
+    content: public RobotTool(string name, IList<Mesh> meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)
     parameters:
     - id: name
       type: System.String
       description: 'The tool name, must be unique. '
     - id: meshes
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      type: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
       description: 'The tool mesh. '
     - id: attachmentPlane
       type: Rhino.Geometry.Plane
@@ -780,15 +780,15 @@ items:
     - id: inertia
       type: Rhino.Geometry.Vector3d
       description: 'The moment of inertia of the load in kgm2. '
-    content.vb: Public Sub New(name As String, meshes As List(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravity As Plane, inertia As Vector3d)
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), attachmentPlane As Plane, toolPlane As Plane, robotHold As Boolean, mass As Double, centerOfGravity As Plane, inertia As Vector3d)
   overload: RobotComponents.Definitions.RobotTool.#ctor*
-  nameWithType.vb: RobotTool.RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
+  nameWithType.vb: RobotTool.RobotTool(String, IList(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.List(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
-  name.vb: RobotTool(String, List(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
+  fullName.vb: RobotComponents.Definitions.RobotTool.RobotTool(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), Rhino.Geometry.Plane, Rhino.Geometry.Plane, System.Boolean, System.Double, Rhino.Geometry.Plane, Rhino.Geometry.Vector3d)
+  name.vb: RobotTool(String, IList(Of Mesh), Plane, Plane, Boolean, Double, Plane, Vector3d)
 - uid: RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
   commentId: M:RobotComponents.Definitions.RobotTool.#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)
   id: '#ctor(RobotComponents.Definitions.RobotTool,System.Boolean)'
@@ -1992,21 +1992,21 @@ references:
   name: Plane
   nameWithType: Plane
   fullName: Rhino.Geometry.Plane
-- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+- uid: System.Collections.Generic.IList{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.IList{Rhino.Geometry.Mesh}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Mesh>
-  nameWithType: List<Mesh>
-  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
-  nameWithType.vb: List(Of Mesh)
-  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
-  name.vb: List(Of Mesh)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Mesh>
+  nameWithType: IList<Mesh>
+  fullName: System.Collections.Generic.IList<Rhino.Geometry.Mesh>
+  nameWithType.vb: IList(Of Mesh)
+  fullName.vb: System.Collections.Generic.IList(Of Rhino.Geometry.Mesh)
+  name.vb: IList(Of Mesh)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -2020,10 +2020,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -2036,20 +2036,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -2061,10 +2061,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '

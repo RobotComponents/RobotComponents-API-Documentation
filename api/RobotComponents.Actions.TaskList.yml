@@ -8,8 +8,7 @@ items:
   - RobotComponents.Actions.TaskList.#ctor
   - RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
   - RobotComponents.Actions.TaskList.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
-  - RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
+  - RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.IList{System.String})
   - RobotComponents.Actions.TaskList.Count
   - RobotComponents.Actions.TaskList.Duplicate
   - RobotComponents.Actions.TaskList.DuplicateAction
@@ -160,16 +159,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
-  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.List{System.String})
-  id: '#ctor(System.String,System.Collections.Generic.List{System.String})'
+- uid: RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.IList{System.String})
+  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.String,System.Collections.Generic.IList{System.String})
+  id: '#ctor(System.String,System.Collections.Generic.IList{System.String})'
   parent: RobotComponents.Actions.TaskList
   langs:
   - csharp
   - vb
-  name: TaskList(String, List<String>)
-  nameWithType: TaskList.TaskList(String, List<String>)
-  fullName: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.List<System.String>)
+  name: TaskList(String, IList<String>)
+  nameWithType: TaskList.TaskList(String, IList<String>)
+  fullName: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.IList<System.String>)
   type: Constructor
   source:
     path: RobotComponents
@@ -179,59 +178,23 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the Tasks class.\n"
   syntax:
-    content: public TaskList(string name, List<string> tasks)
+    content: public TaskList(string name, IList<string> tasks)
     parameters:
     - id: name
       type: System.String
       description: 'The name of the set with tasks. '
     - id: tasks
-      type: System.Collections.Generic.List{System.String}
-      description: 'The tasks names as a list with strings. '
-    content.vb: Public Sub New(name As String, tasks As List(Of String))
+      type: System.Collections.Generic.IList{System.String}
+      description: 'The tasks names as a collection with strings. '
+    content.vb: Public Sub New(name As String, tasks As IList(Of String))
   overload: RobotComponents.Actions.TaskList.#ctor*
-  nameWithType.vb: TaskList.TaskList(String, List(Of String))
+  nameWithType.vb: TaskList.TaskList(String, IList(Of String))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.List(Of System.String))
-  name.vb: TaskList(String, List(Of String))
-- uid: RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
-  commentId: M:RobotComponents.Actions.TaskList.#ctor(System.String,System.String[])
-  id: '#ctor(System.String,System.String[])'
-  parent: RobotComponents.Actions.TaskList
-  langs:
-  - csharp
-  - vb
-  name: TaskList(String, String[])
-  nameWithType: TaskList.TaskList(String, String[])
-  fullName: RobotComponents.Actions.TaskList.TaskList(System.String, System.String[])
-  type: Constructor
-  source:
-    path: RobotComponents
-    isExternal: true
-  assemblies:
-  - RobotComponents
-  namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the Tasks class.\n"
-  syntax:
-    content: public TaskList(string name, string[] tasks)
-    parameters:
-    - id: name
-      type: System.String
-      description: 'The name of the collection with tasks. '
-    - id: tasks
-      type: System.String[]
-      description: 'The tasks names as an array with strings. '
-    content.vb: Public Sub New(name As String, tasks As String())
-  overload: RobotComponents.Actions.TaskList.#ctor*
-  nameWithType.vb: TaskList.TaskList(String, String())
-  modifiers.csharp:
-  - public
-  modifiers.vb:
-  - Public
-  fullName.vb: RobotComponents.Actions.TaskList.TaskList(System.String, System.String())
-  name.vb: TaskList(String, String())
+  fullName.vb: RobotComponents.Actions.TaskList.TaskList(System.String, System.Collections.Generic.IList(Of System.String))
+  name.vb: TaskList(String, IList(Of String))
 - uid: RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
   commentId: M:RobotComponents.Actions.TaskList.#ctor(RobotComponents.Actions.TaskList)
   id: '#ctor(RobotComponents.Actions.TaskList)'
@@ -1173,21 +1136,21 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System.Collections.Generic.List{System.String}
-  commentId: T:System.Collections.Generic.List{System.String}
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<String>
-  nameWithType: List<String>
-  fullName: System.Collections.Generic.List<System.String>
-  nameWithType.vb: List(Of String)
-  fullName.vb: System.Collections.Generic.List(Of System.String)
-  name.vb: List(Of String)
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1201,10 +1164,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1217,20 +1180,20 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1242,10 +1205,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1262,32 +1225,6 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: System.String[]
-  isExternal: true
-  name: String[]
-  nameWithType: String[]
-  fullName: System.String[]
-  nameWithType.vb: String()
-  fullName.vb: System.String()
-  name.vb: String()
-  spec.csharp:
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: '[]'
-    nameWithType: '[]'
-    fullName: '[]'
-  spec.vb:
-  - uid: System.String
-    name: String
-    nameWithType: String
-    fullName: System.String
-    isExternal: true
-  - name: ()
-    nameWithType: ()
-    fullName: ()
 - uid: RobotComponents.Actions.TaskList
   commentId: T:RobotComponents.Actions.TaskList
   parent: RobotComponents.Actions
@@ -1418,12 +1355,121 @@ references:
   name: ToArray
   nameWithType: TaskList.ToArray
   fullName: RobotComponents.Actions.TaskList.ToArray
+- uid: System.String[]
+  isExternal: true
+  name: String[]
+  nameWithType: String[]
+  fullName: System.String[]
+  nameWithType.vb: String()
+  fullName.vb: System.String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '[]'
+    nameWithType: '[]'
+    fullName: '[]'
+  spec.vb:
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ()
+    nameWithType: ()
+    fullName: ()
 - uid: RobotComponents.Actions.TaskList.ToList*
   commentId: Overload:RobotComponents.Actions.TaskList.ToList
   isExternal: true
   name: ToList
   nameWithType: TaskList.ToList
   fullName: RobotComponents.Actions.TaskList.ToList
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   commentId: M:RobotComponents.Actions.Action.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   parent: RobotComponents.Actions.Action

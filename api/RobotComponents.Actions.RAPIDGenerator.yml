@@ -7,11 +7,11 @@ items:
   children:
   - RobotComponents.Actions.RAPIDGenerator.#ctor
   - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
-  - RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
+  - RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.RAPIDGenerator.Actions
   - RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
-  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
+  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})
+  - RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})
   - RobotComponents.Actions.RAPIDGenerator.Duplicate
   - RobotComponents.Actions.RAPIDGenerator.ErrorText
   - RobotComponents.Actions.RAPIDGenerator.FilePath
@@ -98,16 +98,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
-  id: '#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)'
+- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
+  id: '#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)'
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: RAPIDGenerator(String, String, List<Action>, String, Boolean, Robot)
-  nameWithType: RAPIDGenerator.RAPIDGenerator(String, String, List<Action>, String, Boolean, Robot)
-  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.List<RobotComponents.Actions.Action>, System.String, System.Boolean, RobotComponents.Definitions.Robot)
+  name: RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
+  nameWithType: RAPIDGenerator.RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
+  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.String, System.Boolean, RobotComponents.Definitions.Robot)
   type: Constructor
   source:
     path: RobotComponents
@@ -117,7 +117,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the RAPID Generator class.\n"
   syntax:
-    content: public RAPIDGenerator(string programModuleName, string systemModuleName, List<Action> actions, string filePath, bool saveToFile, Robot robot)
+    content: public RAPIDGenerator(string programModuleName, string systemModuleName, IList<Action> actions, string filePath, bool saveToFile, Robot robot)
     parameters:
     - id: programModuleName
       type: System.String
@@ -126,7 +126,7 @@ items:
       type: System.String
       description: 'The name of the system module '
     - id: actions
-      type: System.Collections.Generic.List{RobotComponents.Actions.Action}
+      type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
       description: 'The list with robot actions wherefore the code should be created. '
     - id: filePath
       type: System.String
@@ -137,15 +137,15 @@ items:
     - id: robot
       type: RobotComponents.Definitions.Robot
       description: 'The robot info wherefore the code should be created. '
-    content.vb: Public Sub New(programModuleName As String, systemModuleName As String, actions As List(Of Action), filePath As String, saveToFile As Boolean, robot As Robot)
+    content.vb: Public Sub New(programModuleName As String, systemModuleName As String, actions As IList(Of Action), filePath As String, saveToFile As Boolean, robot As Robot)
   overload: RobotComponents.Actions.RAPIDGenerator.#ctor*
-  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(String, String, List(Of Action), String, Boolean, Robot)
+  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.List(Of RobotComponents.Actions.Action), System.String, System.Boolean, RobotComponents.Definitions.Robot)
-  name.vb: RAPIDGenerator(String, String, List(Of Action), String, Boolean, Robot)
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.String, System.Boolean, RobotComponents.Definitions.Robot)
+  name.vb: RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
 - uid: RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
   id: '#ctor(RobotComponents.Actions.RAPIDGenerator)'
@@ -266,16 +266,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})
-  id: CreateSystemModule(System.Collections.Generic.List{System.String})
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})
+  id: CreateSystemModule(System.Collections.Generic.IList{System.String})
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateSystemModule(List<String>)
-  nameWithType: RAPIDGenerator.CreateSystemModule(List<String>)
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List<System.String>)
+  name: CreateSystemModule(IList<String>)
+  nameWithType: RAPIDGenerator.CreateSystemModule(IList<String>)
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList<System.String>)
   type: Method
   source:
     path: RobotComponents
@@ -285,33 +285,33 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt adds the robot tools and work objects that are collected by this RAPID generator. \nFor this you have to call the methode &apos;CreateProgamCode&apos; first. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public List<string> CreateSystemModule(List<string> customCode)
+    content: public List<string> CreateSystemModule(IList<string> customCode)
     parameters:
     - id: customCode
-      type: System.Collections.Generic.List{System.String}
-      description: 'Custom user definied base code as list with strings. '
+      type: System.Collections.Generic.IList{System.String}
+      description: 'Custom user definied base code as a list with strings. '
     return:
       type: System.Collections.Generic.List{System.String}
       description: 'The RAPID system code as a list with code lines. '
-    content.vb: Public Function CreateSystemModule(customCode As List(Of String)) As List(Of String)
+    content.vb: Public Function CreateSystemModule(customCode As IList(Of String)) As List(Of String)
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
-  nameWithType.vb: RAPIDGenerator.CreateSystemModule(List(Of String))
+  nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of String))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List(Of System.String))
-  name.vb: CreateSystemModule(List(Of String))
-- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
-  id: CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList(Of System.String))
+  name.vb: CreateSystemModule(IList(Of String))
+- uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})
+  id: CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateSystemModule(List<RobotTool>, List<WorkObject>, List<String>)
-  nameWithType: RAPIDGenerator.CreateSystemModule(List<RobotTool>, List<WorkObject>, List<String>)
-  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List<RobotComponents.Definitions.RobotTool>, System.Collections.Generic.List<RobotComponents.Definitions.WorkObject>, System.Collections.Generic.List<System.String>)
+  name: CreateSystemModule(IList<RobotTool>, IList<WorkObject>, IList<String>)
+  nameWithType: RAPIDGenerator.CreateSystemModule(IList<RobotTool>, IList<WorkObject>, IList<String>)
+  fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList<RobotComponents.Definitions.RobotTool>, System.Collections.Generic.IList<RobotComponents.Definitions.WorkObject>, System.Collections.Generic.IList<System.String>)
   type: Method
   source:
     path: RobotComponents
@@ -321,29 +321,29 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt is adds the robot tools, work objects and custom code lines from the given lists. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public List<string> CreateSystemModule(List<RobotTool> robotTools, List<WorkObject> workObjects, List<string> customCode)
+    content: public List<string> CreateSystemModule(IList<RobotTool> robotTools, IList<WorkObject> workObjects, IList<string> customCode)
     parameters:
     - id: robotTools
-      type: System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
+      type: System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool}
       description: 'The robot tools that should be added to the system code as a list. '
     - id: workObjects
-      type: System.Collections.Generic.List{RobotComponents.Definitions.WorkObject}
+      type: System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject}
       description: 'The work objects that should be added to the system code as a list. '
     - id: customCode
-      type: System.Collections.Generic.List{System.String}
+      type: System.Collections.Generic.IList{System.String}
       description: 'Custom user definied base code as list with strings. '
     return:
       type: System.Collections.Generic.List{System.String}
       description: 'The RAPID system code as a list with code lines. '
-    content.vb: Public Function CreateSystemModule(robotTools As List(Of RobotTool), workObjects As List(Of WorkObject), customCode As List(Of String)) As List(Of String)
+    content.vb: Public Function CreateSystemModule(robotTools As IList(Of RobotTool), workObjects As IList(Of WorkObject), customCode As IList(Of String)) As List(Of String)
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
-  nameWithType.vb: RAPIDGenerator.CreateSystemModule(List(Of RobotTool), List(Of WorkObject), List(Of String))
+  nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of RobotTool), IList(Of WorkObject), IList(Of String))
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List(Of RobotComponents.Definitions.RobotTool), System.Collections.Generic.List(Of RobotComponents.Definitions.WorkObject), System.Collections.Generic.List(Of System.String))
-  name.vb: CreateSystemModule(List(Of RobotTool), List(Of WorkObject), List(Of String))
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList(Of RobotComponents.Definitions.RobotTool), System.Collections.Generic.IList(Of RobotComponents.Definitions.WorkObject), System.Collections.Generic.IList(Of System.String))
+  name.vb: CreateSystemModule(IList(Of RobotTool), IList(Of WorkObject), IList(Of String))
 - uid: RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile
   commentId: M:RobotComponents.Actions.RAPIDGenerator.WriteProgramCodeToFile
   id: WriteProgramCodeToFile
@@ -1452,21 +1452,21 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
-- uid: System.Collections.Generic.List{RobotComponents.Actions.Action}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.Action}
+- uid: System.Collections.Generic.IList{RobotComponents.Actions.Action}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Actions.Action}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Action>
-  nameWithType: List<Action>
-  fullName: System.Collections.Generic.List<RobotComponents.Actions.Action>
-  nameWithType.vb: List(Of Action)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.Action)
-  name.vb: List(Of Action)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Action>
+  nameWithType: IList<Action>
+  fullName: System.Collections.Generic.IList<RobotComponents.Actions.Action>
+  nameWithType.vb: IList(Of Action)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Actions.Action)
+  name.vb: IList(Of Action)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1480,10 +1480,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1510,20 +1510,20 @@ references:
   name: Robot
   nameWithType: Robot
   fullName: RobotComponents.Definitions.Robot
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1535,10 +1535,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1661,27 +1661,110 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.CreateSystemModule
   isExternal: true
   name: CreateSystemModule
   nameWithType: RAPIDGenerator.CreateSystemModule
   fullName: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule
-- uid: System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.RobotTool}
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<RobotTool>
-  nameWithType: List<RobotTool>
-  fullName: System.Collections.Generic.List<RobotComponents.Definitions.RobotTool>
-  nameWithType.vb: List(Of RobotTool)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Definitions.RobotTool)
-  name.vb: List(Of RobotTool)
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<RobotTool>
+  nameWithType: IList<RobotTool>
+  fullName: System.Collections.Generic.IList<RobotComponents.Definitions.RobotTool>
+  nameWithType.vb: IList(Of RobotTool)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Definitions.RobotTool)
+  name.vb: IList(Of RobotTool)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1695,10 +1778,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1711,21 +1794,21 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Collections.Generic.List{RobotComponents.Definitions.WorkObject}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Definitions.WorkObject}
+- uid: System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<WorkObject>
-  nameWithType: List<WorkObject>
-  fullName: System.Collections.Generic.List<RobotComponents.Definitions.WorkObject>
-  nameWithType.vb: List(Of WorkObject)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Definitions.WorkObject)
-  name.vb: List(Of WorkObject)
+  definition: System.Collections.Generic.IList`1
+  name: IList<WorkObject>
+  nameWithType: IList<WorkObject>
+  fullName: System.Collections.Generic.IList<RobotComponents.Definitions.WorkObject>
+  nameWithType.vb: IList(Of WorkObject)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Definitions.WorkObject)
+  name.vb: IList(Of WorkObject)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -1739,10 +1822,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -1779,6 +1862,50 @@ references:
   name: Actions
   nameWithType: RAPIDGenerator.Actions
   fullName: RobotComponents.Actions.RAPIDGenerator.Actions
+- uid: System.Collections.Generic.List{RobotComponents.Actions.Action}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.Action}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Action>
+  nameWithType: List<Action>
+  fullName: System.Collections.Generic.List<RobotComponents.Actions.Action>
+  nameWithType.vb: List(Of Action)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.Action)
+  name.vb: List(Of Action)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Actions.Action
+    name: Action
+    nameWithType: Action
+    fullName: RobotComponents.Actions.Action
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Actions.Action
+    name: Action
+    nameWithType: Action
+    fullName: RobotComponents.Actions.Action
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Actions.RAPIDGenerator.FilePath*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.FilePath
   isExternal: true

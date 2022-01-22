@@ -154,13 +154,13 @@ This is class is used to generate the RAPID program and system module from a giv
   
   
   <a id="RobotComponents_Actions_RAPIDGenerator__ctor_" data-uid="RobotComponents.Actions.RAPIDGenerator.#ctor*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator__ctor_System_String_System_String_System_Collections_Generic_List_RobotComponents_Actions_Action__System_String_System_Boolean_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.List{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">RAPIDGenerator(String, String, List&lt;Action&gt;, String, Boolean, Robot)</h4>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator__ctor_System_String_System_String_System_Collections_Generic_IList_RobotComponents_Actions_Action__System_String_System_Boolean_RobotComponents_Definitions_Robot_" data-uid="RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">RAPIDGenerator(String, String, IList&lt;Action&gt;, String, Boolean, Robot)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the RAPID Generator class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RAPIDGenerator(string programModuleName, string systemModuleName, List&lt;Action&gt; actions, string filePath, bool saveToFile, Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public RAPIDGenerator(string programModuleName, string systemModuleName, IList&lt;Action&gt; actions, string filePath, bool saveToFile, Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -185,7 +185,7 @@ This is class is used to generate the RAPID program and system module from a giv
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="RobotComponents.Actions.Action.html">Action</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="RobotComponents.Actions.Action.html">Action</a>&gt;</td>
         <td><span class="parametername">actions</span></td>
         <td><p>The list with robot actions wherefore the code should be created.</p>
 </td>
@@ -895,7 +895,7 @@ This method also overwrites or creates a file if the property 'SaveToFile is set
   
   
   <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_List_RobotComponents_Definitions_RobotTool__System_Collections_Generic_List_RobotComponents_Definitions_WorkObject__System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{RobotComponents.Definitions.RobotTool},System.Collections.Generic.List{RobotComponents.Definitions.WorkObject},System.Collections.Generic.List{System.String})">CreateSystemModule(List&lt;RobotTool&gt;, List&lt;WorkObject&gt;, List&lt;String&gt;)</h4>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_RobotComponents_Definitions_RobotTool__System_Collections_Generic_IList_RobotComponents_Definitions_WorkObject__System_Collections_Generic_IList_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.Definitions.WorkObject},System.Collections.Generic.IList{System.String})">CreateSystemModule(IList&lt;RobotTool&gt;, IList&lt;WorkObject&gt;, IList&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
 It is adds the robot tools, work objects and custom code lines from the given lists.
 This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
@@ -903,7 +903,7 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(List&lt;RobotTool&gt; robotTools, List&lt;WorkObject&gt; workObjects, List&lt;string&gt; customCode)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(IList&lt;RobotTool&gt; robotTools, IList&lt;WorkObject&gt; workObjects, IList&lt;string&gt; customCode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -916,19 +916,19 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="RobotComponents.Definitions.RobotTool.html">RobotTool</a>&gt;</td>
         <td><span class="parametername">robotTools</span></td>
         <td><p>The robot tools that should be added to the system code as a list.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="RobotComponents.Definitions.WorkObject.html">WorkObject</a>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="RobotComponents.Definitions.WorkObject.html">WorkObject</a>&gt;</td>
         <td><span class="parametername">workObjects</span></td>
         <td><p>The work objects that should be added to the system code as a list.</p>
 </td>
       </tr>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">customCode</span></td>
         <td><p>Custom user definied base code as list with strings.</p>
 </td>
@@ -954,7 +954,7 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
   
   
   <a id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*"></a>
-  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_List_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.List{System.String})">CreateSystemModule(List&lt;String&gt;)</h4>
+  <h4 id="RobotComponents_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_System_String__" data-uid="RobotComponents.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})">CreateSystemModule(IList&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
 It adds the robot tools and work objects that are collected by this RAPID generator.
 For this you have to call the methode 'CreateProgamCode' first.
@@ -963,7 +963,7 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(List&lt;string&gt; customCode)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateSystemModule(IList&lt;string&gt; customCode)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -976,9 +976,9 @@ This method also overwrites or creates a file if the property 'SaveToFile' is se
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">customCode</span></td>
-        <td><p>Custom user definied base code as list with strings.</p>
+        <td><p>Custom user definied base code as a list with strings.</p>
 </td>
       </tr>
     </tbody>

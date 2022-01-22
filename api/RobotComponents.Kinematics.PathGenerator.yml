@@ -12,6 +12,7 @@ items:
   - RobotComponents.Kinematics.PathGenerator.ExternalJointPositions
   - RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.Kinematics.PathGenerator.IsValid
+  - RobotComponents.Kinematics.PathGenerator.Movements
   - RobotComponents.Kinematics.PathGenerator.Paths
   - RobotComponents.Kinematics.PathGenerator.Planes
   - RobotComponents.Kinematics.PathGenerator.Robot
@@ -297,6 +298,37 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Kinematics.PathGenerator.Movements
+  commentId: P:RobotComponents.Kinematics.PathGenerator.Movements
+  id: Movements
+  parent: RobotComponents.Kinematics.PathGenerator
+  langs:
+  - csharp
+  - vb
+  name: Movements
+  nameWithType: PathGenerator.Movements
+  fullName: RobotComponents.Kinematics.PathGenerator.Movements
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nGets the calculated Movements.\n"
+  syntax:
+    content: public List<Movement> Movements { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.Actions.Movement}
+    content.vb: Public ReadOnly Property Movements As List(Of Movement)
+  overload: RobotComponents.Kinematics.PathGenerator.Movements*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 - uid: RobotComponents.Kinematics.PathGenerator.RobotJointPositions
   commentId: P:RobotComponents.Kinematics.PathGenerator.RobotJointPositions
   id: RobotJointPositions
@@ -314,7 +346,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nGets the latest calculated Robot Joint Position.\n"
+  summary: "\nGets the calculated Robot Joint Position.\n"
   syntax:
     content: public List<RobotJointPosition> RobotJointPositions { get; }
     parameters: []
@@ -345,7 +377,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Kinematics
-  summary: "\nGets the latest calculated External Joint Positions. \n"
+  summary: "\nGets the calculated External Joint Positions. \n"
   syntax:
     content: public List<ExternalJointPosition> ExternalJointPositions { get; }
     parameters: []
@@ -969,6 +1001,56 @@ references:
     name: Curve
     nameWithType: Curve
     fullName: Rhino.Geometry.Curve
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Kinematics.PathGenerator.Movements*
+  commentId: Overload:RobotComponents.Kinematics.PathGenerator.Movements
+  isExternal: true
+  name: Movements
+  nameWithType: PathGenerator.Movements
+  fullName: RobotComponents.Kinematics.PathGenerator.Movements
+- uid: System.Collections.Generic.List{RobotComponents.Actions.Movement}
+  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.Movement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<Movement>
+  nameWithType: List<Movement>
+  fullName: System.Collections.Generic.List<RobotComponents.Actions.Movement>
+  nameWithType.vb: List(Of Movement)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.Movement)
+  name.vb: List(Of Movement)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: RobotComponents.Actions.Movement
+    name: Movement
+    nameWithType: Movement
+    fullName: RobotComponents.Actions.Movement
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: RobotComponents.Actions.Movement
+    name: Movement
+    nameWithType: Movement
+    fullName: RobotComponents.Actions.Movement
     isExternal: true
   - name: )
     nameWithType: )
