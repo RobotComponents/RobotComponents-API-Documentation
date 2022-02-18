@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>C# examples </title>
+    <title>C# example </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="C# examples ">
+    <meta name="title" content="C# example ">
     <meta name="generator" content="docfx 2.56.4.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,9 +67,132 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="c-examples"><strong>C# examples</strong></h1>
+<h1 id="c-example"><strong>C# example</strong></h1>
 
-<p>Coming soon...</p>
+<pre><code class="lang-csharp">// System Libs
+using System;
+using System.Collections;
+using System.Collections.Generic;
+// Rhino Libs
+using Rhino.Geometry;
+// Robot Components Libs
+using RobotComponents;
+using RobotComponents.Actions;
+using RobotComponents.Definitions;
+using RobotComponents.Enumerations;
+
+// Construct a tool
+Plane tcp = new Plane(new Point3d(0, 0, 250), new Vector3d(0, 0, 1));
+Cone cone = new Cone(tcp, -tcp.Origin.Z, 55);
+Mesh coneMesh = Mesh.CreateFromCone(cone, 100, 100);
+RobotTool tool = new RobotTool(&quot;tool1&quot;, coneMesh, Plane.WorldXY, tcp);
+
+// Construct a robot preset
+Robot robot = Robot.GetRobotPreset(RobotPreset.IRB4600_40_255, Plane.WorldXY, tool);
+
+// Fabrication settings
+SpeedData speedLow = new SpeedData(&quot;speed_low&quot;, 20);
+SpeedData speedHigh = new SpeedData(&quot;speed_high&quot;, 250);
+ZoneData zonePrecise = ZoneData.GetPredefinedZoneData(PredefinedZoneData.fine);
+ZoneData zoneFlyover = ZoneData.GetPredefinedZoneData(PredefinedZoneData.z10);
+double offset = 100;
+string digitalOutputName = &quot;DO_01&quot;;
+
+// Create actions
+List&lt;RobotComponents.Actions.Action&gt; actions = new List&lt;RobotComponents.Actions.Action&gt;();
+
+// Configuration control
+actions.Add(new JointConfigurationControl(true));
+actions.Add(new LinearConfigurationControl(false));
+
+// Home position
+RobotJointPosition robotJointPosition = new RobotJointPosition(0, 0, 0, 0, 45, 0);
+JointTarget homeTarget = new JointTarget(robotJointPosition);
+Movement goHome = new Movement(MovementType.MoveAbsJ, homeTarget, speedHigh, zoneFlyover);
+actions.Add(goHome);
+
+// Declare variables
+Vector3d vector = new Vector3d(0, 0, 0);
+
+// Follow curves
+for (int i = 0; i != curves.Count; i++)
+{
+    // Reverse one another
+    if (i % 2 == 0)
+    {
+    curves[i].Reverse();
+    }
+
+    // Curve parameters
+    double[] t = curves[i].DivideByCount(10, true);
+
+    // Comments
+    actions.Add(new CodeLine(&quot; &quot;, CodeType.Instruction));
+    actions.Add(new Comment(&quot;New curve&quot;, CodeType.Instruction));
+
+    // Follow curves with precise linear movements
+    for (int j = 0; j != t.Length; j++)
+    {
+        double u;
+        double v;
+        Point3d point = curves[i].PointAt(t[j]);
+        surface.ClosestPoint(point, out u, out v);
+
+        Vector3d xAxis = curves[i].TangentAt(t[j]);
+        Vector3d zAxis = surface.NormalAt(u, v);
+        Vector3d yAxis = Vector3d.CrossProduct(xAxis, zAxis);
+        Plane plane = new Plane(point, xAxis, yAxis);
+
+        // Above start
+        if (j == 0)
+        {
+            vector = -plane.ZAxis;
+            vector.Unitize();
+            Plane planeStart = new Plane(plane.Origin, plane.XAxis, plane.YAxis);
+            planeStart.Translate(vector * offset);
+
+            RobotTarget targetStart = new RobotTarget(String.Format(&quot;curve_{0}_start&quot;, i), planeStart);
+            Movement movementStart = new Movement(MovementType.MoveJ, targetStart, speedHigh, zoneFlyover);
+            actions.Add(movementStart);
+        }
+
+        RobotTarget target = new RobotTarget(String.Format(&quot;curve_{0}_{1}&quot;, i, j), plane);
+        Movement movement = new Movement(MovementType.MoveL, target, speedLow, zonePrecise);
+        actions.Add(movement);
+
+        // Enable digital output after start
+        if (j == 0)
+        {
+            actions.Add(new DigitalOutput(digitalOutputName, true));
+        }
+
+        // Disable digital output after last target and offset above end
+        else if (j == t.Length - 1)
+        {
+            // Disable digital output
+            actions.Add(new DigitalOutput(digitalOutputName, false));
+
+            // Above end
+            vector = -plane.ZAxis;
+            vector.Unitize();
+            Plane planeEnd = new Plane(plane.Origin, plane.XAxis, plane.YAxis);
+            planeEnd.Translate(vector * offset);
+
+            RobotTarget targetEnd = new RobotTarget(String.Format(&quot;curve_{0}_end&quot;, i), planeEnd);
+            Movement movementEnd = new Movement(MovementType.MoveL, targetEnd, speedLow, zonePrecise);
+            actions.Add(movementEnd);
+        }
+    }
+}
+
+// Home position
+actions.Add(goHome);
+
+// Create the RAPID program
+RAPIDGenerator rapidGenerator = new RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;BASE&quot;, &quot;main&quot;);
+List&lt;string&gt; program = rapidGenerator.CreateProgramModule();
+List&lt;string&gt; system = rapidGenerator.CreateSystemModule();
+</code></pre>
 </article>
           </div>
           
