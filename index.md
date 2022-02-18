@@ -22,7 +22,7 @@ The Robot Components API consist out of the following main name spaces:
 
 **Actions:** This namespace contains all the classes to generate the RAPID program code. These are the different declarations and instructions to create a RAPID program. In the visual interface of the Grasshopper pluging these classes and the objects that are generated from these classes are categorized as code generation. This namespace also includes the RAPID generator class. 
 
-**Defitions:** This namespace contains all the classes to define robots and robot tools which are needed for simulation and code generation.
+**Definitions:** This namespace contains all the classes to define robots and robot tools which are needed for simulation and code generation.
 
 **Kinematics:** This namespace constains the inverse and forward kinematics class, and the path generator class. 
 
