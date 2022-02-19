@@ -83,8 +83,10 @@ for (int i = 0; i != curves.Count; i++)
             Plane planeStart = new Plane(plane.Origin, plane.XAxis, plane.YAxis);
             planeStart.Translate(vector * offset);
 
-            RobotTarget targetStart = new RobotTarget(String.Format("curve_{0}_start", i), planeStart);
-            Movement movementStart = new Movement(MovementType.MoveJ, targetStart, speedHigh, zoneFlyover);
+            RobotTarget targetStart = 
+                new RobotTarget(String.Format("curve_{0}_start", i), planeStart);
+            Movement movementStart = 
+                new Movement(MovementType.MoveJ, targetStart, speedHigh, zoneFlyover);
             actions.Add(movementStart);
         }
 
@@ -110,8 +112,10 @@ for (int i = 0; i != curves.Count; i++)
             Plane planeEnd = new Plane(plane.Origin, plane.XAxis, plane.YAxis);
             planeEnd.Translate(vector * offset);
 
-            RobotTarget targetEnd = new RobotTarget(String.Format("curve_{0}_end", i), planeEnd);
-            Movement movementEnd = new Movement(MovementType.MoveL, targetEnd, speedLow, zonePrecise);
+            RobotTarget targetEnd = 
+                new RobotTarget(String.Format("curve_{0}_end", i), planeEnd);
+            Movement movementEnd = 
+                new Movement(MovementType.MoveL, targetEnd, speedLow, zonePrecise);
             actions.Add(movementEnd);
         }
     }

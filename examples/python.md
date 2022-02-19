@@ -72,12 +72,12 @@ for i in range(len(curves)):
             plane_start.Translate(vector * offset)
             
             target = rc.Actions.RobotTarget("curve_{}_start".format(i), plane_start)
-            movement = rc.Actions.Movement(MovementType.MoveJ, target, speed_high, zone_flyover)
-            actions.append(movement)
+            move = rc.Actions.Movement(MovementType.MoveJ, target, speed_high, zone_flyover)
+            actions.append(move)
         
         target = rc.Actions.RobotTarget("curve_{}_{}".format(i, j), plane)
-        movement = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
-        actions.append(movement)
+        move = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
+        actions.append(move)
         
         ## Enable digital output
         if (j == 0):
@@ -93,8 +93,8 @@ for i in range(len(curves)):
     plane_end.Translate(vector * offset)
             
     target = rc.Actions.RobotTarget("curve_{}_end".format(i), plane_end)
-    movement = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
-    actions.append(movement)
+    move = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
+    actions.append(move)
     
 # Home position
 actions.append(go_home)
