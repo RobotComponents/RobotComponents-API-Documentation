@@ -24,9 +24,9 @@ The Robot Components API consist out of the following main name spaces:
 
 **Definitions:** This namespace contains all the classes to define robots and robot tools which are needed for simulation and code generation.
 
-**Kinematics:** This namespace constains the inverse and forward kinematics class, and the path generator class. 
+**Kinematics:** This namespace contains the inverse and forward kinematics class, and the path generator class. 
 
-**Utils:** This namespace mainly constains helper methods that are used in te all other namespaces. Most of these methods are also used in the utility components in the visual interface of the Grasshopper plugin. 
+**Utils:** This namespace mainly contains helper methods that are used in te all other namespaces. Most of these methods are also used in the utility components in the visual interface of the Grasshopper plugin. 
 
 ## **Credits**
 
