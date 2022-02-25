@@ -388,11 +388,12 @@
             Initializes an empty instance of the SyncMoveOff class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.SyncMoveOff.#ctor(System.String)">
+        <member name="M:RobotComponents.Actions.SyncMoveOff.#ctor(System.String,System.Double)">
             <summary>
             Initializes a new instance of the SyncMoveOff class.
             </summary>
             <param name="name"> The name of the synchronization point. </param>
+            <param name="timeOut"> The max. time to wait for the other program tasks to reach the synchronization point. </param>
         </member>
         <member name="M:RobotComponents.Actions.SyncMoveOff.#ctor(RobotComponents.Actions.SyncMoveOff)">
             <summary>
@@ -473,6 +474,12 @@
             Gets or sets the name of the synchronization (meeting) point (syncident).
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.SyncMoveOff.TimeOut">
+            <summary>
+            Gets or sets te max. time to wait for the other program tasks to reach the synchronization point.
+            Set a negative value to wait for ever (default is -1).
+            </summary>
+        </member>
         <member name="T:RobotComponents.Actions.SyncMoveOn">
             <summary>
             Represents the SyncMoveOn instruction that starts a sequence of synchronized movements.
@@ -497,18 +504,19 @@
             Initializes an empty instance of the SyncMoveOn class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.SyncMoveOn.#ctor(System.String,RobotComponents.Actions.TaskList)">
+        <member name="M:RobotComponents.Actions.SyncMoveOn.#ctor(System.String,RobotComponents.Actions.TaskList,System.Double)">
             <summary>
             Initializes a new instance of the SyncMoveOn class.
             </summary>
             <param name="name"> The name of the synchronization point. </param>
             <param name="tasks"> The program tasks that should meet in the synchronization point. </param>
+            <param name="timeOut"> The max. time to wait for the other program tasks to reach the synchronization point. </param>
         </member>
         <member name="M:RobotComponents.Actions.SyncMoveOn.#ctor(RobotComponents.Actions.SyncMoveOn)">
             <summary>
             Initializes a new instance of the SyncMoveOn class by duplicating an existing SyncMoveOn instance. 
             </summary>
-            <param name="SyncMoveOn"> The SyncMoveOn instance to duplicate. </param>
+            <param name="syncMoveOn"> The SyncMoveOn instance to duplicate. </param>
         </member>
         <member name="M:RobotComponents.Actions.SyncMoveOn.Duplicate">
             <summary>
@@ -588,6 +596,12 @@
             Gets or sets the program tasks that should meet in the synchronization point.
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.SyncMoveOn.TimeOut">
+            <summary>
+            Gets or sets te max. time to wait for the other program tasks to reach the synchronization point.
+            Set a negative value to wait for ever (default is -1).
+            </summary>
+        </member>
         <member name="T:RobotComponents.Actions.WaitAI">
             <summary>
             Represents a Wait for Analo Input instruction.
@@ -613,13 +627,14 @@
             Initializes an empty instance of the Wait AI class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)">
+        <member name="M:RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol,System.Double)">
             <summary>
             Initializes a new instance of the Wait AI class.
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="value"> The desired value. </param>
             <param name="inequalitySymbol"> The inequality symbol (less than, greater than) </param>
+            <param name="maxTime"> The maximum time to wait in seconds. </param>
         </member>
         <member name="M:RobotComponents.Actions.WaitAI.#ctor(RobotComponents.Actions.WaitAI)">
             <summary>
@@ -699,6 +714,11 @@
             Gets or sets the inequality symbol.
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.WaitAI.MaxTime">
+            <summary>
+            Gets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).
+            </summary>
+        </member>
         <member name="T:RobotComponents.Actions.WaitSyncTask">
             <summary>
             Represents the WaitSyncTask instruction to synchronize several program tasks at a special point in each program.
@@ -723,13 +743,14 @@
             Initializes an empty instance of the WaitSyncTask class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean)">
+        <member name="M:RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean,System.Double)">
             <summary>
             Initializes a new instance of the WaitSyncTask class.
             </summary>
             <param name="name"> The name of the synchronization point. </param>
             <param name="tasks"> The program tasks that should meet in the synchronization point. </param>
             <param name="inPosition"> Specifies whether or not the robot and external axes must have come to a standstill in its meeting point. </param>
+            <param name="timeOut"> The max. time to wait for the other program tasks to reach the synchronization point. </param>
         </member>
         <member name="M:RobotComponents.Actions.WaitSyncTask.#ctor(RobotComponents.Actions.WaitSyncTask)">
             <summary>
@@ -819,6 +840,12 @@
             <summary>
             Gets or sets a value indicating whether or not the robot and external axes must have come to a standstill 
             before this program task starts waiting for other program tasks to reach its meeting point.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitSyncTask.TimeOut">
+            <summary>
+            Gets te max. time to wait for the other program tasks to reach the synchronization point.
+            Set a negative value to wait for ever (default is -1).
             </summary>
         </member>
         <member name="T:RobotComponents.Actions.TaskList">
@@ -3035,6 +3062,13 @@
             Gets or sets the Speed Data. 
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.Movement.Time">
+            <summary>
+            Gets the the total time which the robot will move in seconds. 
+            This overwrites the defined speeddata value.
+            Set this property to a negative value to not overwrite the speeddata value. 
+            </summary>
+        </member>
         <member name="P:RobotComponents.Actions.Movement.ZoneData">
             <summary>
             Gets or sets the Zone Data.
@@ -3070,16 +3104,34 @@
             Initializes an empty instance of the RAPID Generator class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action})">
             <summary>
-            Initializes a new instance of the RAPID Generator class.
+            Initializes a new instance of the RAPID Generator class with a main procedure.
             </summary>
+            <param name="robot"> The robot info wherefore the code should be created. </param>
+            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
+        </member>
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the RAPID Generator class with a main procedure.
+            </summary>
+            <param name="robot"> The robot info wherefore the code should be created. </param>
+            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
             <param name="programModuleName"> The name of the program module </param>
             <param name="systemModuleName"> The name of the system module </param>
+            <param name="procedureName"> The name of the RAPID procedure </param>
+        </member>
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+            Initializes a new instance of the RAPID Generator class with a main procedure.
+            </summary>
+            <param name="robot"> The robot info wherefore the code should be created. </param>
             <param name="actions"> The list with robot actions wherefore the code should be created. </param>
+            <param name="programModuleName"> The name of the program module </param>
+            <param name="systemModuleName"> The name of the system module </param>
+            <param name="procedureName"> The name of the RAPID procedure </param>
             <param name="filePath"> The path where the code files should be saved. </param>
             <param name="saveToFile"> A boolean that indicates if the file should be saved. </param>
-            <param name="robot"> The robot info wherefore the code should be created. </param>
         </member>
         <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)">
             <summary>
@@ -3202,6 +3254,11 @@
             Gets or sets the name of the RAPID system module.
             </summary>
         </member>
+        <member name="P:RobotComponents.Actions.RAPIDGenerator.ProcedureName">
+            <summary>
+            Gets or sets the name of the RAPID procedure.
+            </summary>
+        </member>
         <member name="P:RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ">
             <summary>
             Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
@@ -3281,6 +3338,17 @@
             <summary>
             Gets or sets a value indicating whether or not the movements are synchronized. 
             </summary>
+        </member>
+        <member name="M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)">
+            <summary>
+            Initializes a new instance of the RAPID Generator class with a main procedure.
+            </summary>
+            <param name="programModuleName"> The name of the program module </param>
+            <param name="systemModuleName"> The name of the system module </param>
+            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
+            <param name="filePath"> The path where the code files should be saved. </param>
+            <param name="saveToFile"> A boolean that indicates if the file should be saved. </param>
+            <param name="robot"> The robot info wherefore the code should be created. </param>
         </member>
         <member name="T:RobotComponents.Actions.SpeedData">
             <summary>
@@ -3506,12 +3574,13 @@
             Initializes an empty instance of the Wait DI class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean)">
+        <member name="M:RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean,System.Double)">
             <summary>
             Initializes a new instance of the Wait DI class.
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="value"> Specifies whether the Digital Input is enabled.</param>
+            <param name="maxTime"> The maximum time to wait in seconds. </param>
         </member>
         <member name="M:RobotComponents.Actions.WaitDI.#ctor(RobotComponents.Actions.WaitDI)">
             <summary>
@@ -3584,6 +3653,11 @@
         <member name="P:RobotComponents.Actions.WaitDI.Name">
             <summary>
             Gets or sets the name of the digital input signal.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitDI.MaxTime">
+            <summary>
+            Gets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).
             </summary>
         </member>
         <member name="P:RobotComponents.Actions.WaitDI.DIName">
@@ -3938,11 +4012,12 @@
             Initializes an empty instance of the Override Robot Tool class.
             </summary>
         </member>
-        <member name="M:RobotComponents.Actions.WaitTime.#ctor(System.Double)">
+        <member name="M:RobotComponents.Actions.WaitTime.#ctor(System.Double,System.Boolean)">
             <summary>
             Initializes an empty instance of the Wait Time class.
             </summary>
             <param name="duration"> The time, expressed in seconds, that program execution is to wait. </param>
+            <param name="inPosition"> Specifies whether or not the mechanial units must have come to a standstill before the wait time starts. </param>
         </member>
         <member name="M:RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)">
             <summary>
@@ -4011,6 +4086,12 @@
             <summary>
             Gets or sets the time, expressed in seconds, that program execution is to wait. 
             Min. value 0 seconds. Max. value no limit. Resolution 0.001 seconds.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Actions.WaitTime.InPosition">
+            <summary>
+            Gets or sets a value indicating whether or not the robot and external axes must have come to a standstill 
+            before this program task starts waiting for other program tasks to reach its meeting point.
             </summary>
         </member>
         <member name="T:RobotComponents.Actions.OverrideRobotTool">
@@ -9353,6 +9434,13 @@
             </summary>
             <param name="robotJointPosition"> The  Robot Joint Position. </param>
             <param name="externalJointPosition"> The External Joint Position. </param>
+        </member>
+        <member name="M:RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)">
+            <summary>
+            Returns the Bounding Box of the posed meshes.
+            </summary>
+            <param name="accurate"> If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. </param>
+            <returns> The Bounding Box. </returns>
         </member>
         <member name="M:RobotComponents.Kinematics.ForwardKinematics.Clear">
             <summary>

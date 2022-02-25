@@ -17,6 +17,7 @@ items:
   - RobotComponents.Kinematics.ForwardKinematics.Duplicate
   - RobotComponents.Kinematics.ForwardKinematics.ErrorText
   - RobotComponents.Kinematics.ForwardKinematics.ExternalJointPosition
+  - RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
   - RobotComponents.Kinematics.ForwardKinematics.HideMesh
   - RobotComponents.Kinematics.ForwardKinematics.InLimits
   - RobotComponents.Kinematics.ForwardKinematics.IsValid
@@ -369,6 +370,39 @@ items:
       description: 'The External Joint Position. '
     content.vb: Public Sub Calculate(robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition)
   overload: RobotComponents.Kinematics.ForwardKinematics.Calculate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(Boolean)
+  nameWithType: ForwardKinematics.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Kinematics
+  summary: "\nReturns the Bounding Box of the posed meshes.\n"
+  syntax:
+    content: public BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: 'If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. '
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: 'The Bounding Box. '
+    content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overload: RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox*
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -1124,6 +1158,17 @@ references:
   name: Calculate
   nameWithType: ForwardKinematics.Calculate
   fullName: RobotComponents.Kinematics.ForwardKinematics.Calculate
+- uid: RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox*
+  commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox
+  isExternal: true
+  name: GetBoundingBox
+  nameWithType: ForwardKinematics.GetBoundingBox
+  fullName: RobotComponents.Kinematics.ForwardKinematics.GetBoundingBox
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
 - uid: RobotComponents.Kinematics.ForwardKinematics.Clear*
   commentId: Overload:RobotComponents.Kinematics.ForwardKinematics.Clear
   isExternal: true

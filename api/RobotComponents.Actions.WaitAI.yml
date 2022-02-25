@@ -8,13 +8,14 @@ items:
   - RobotComponents.Actions.WaitAI.#ctor
   - RobotComponents.Actions.WaitAI.#ctor(RobotComponents.Actions.WaitAI)
   - RobotComponents.Actions.WaitAI.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)
+  - RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol,System.Double)
   - RobotComponents.Actions.WaitAI.Duplicate
   - RobotComponents.Actions.WaitAI.DuplicateAction
   - RobotComponents.Actions.WaitAI.DuplicateInstruction
   - RobotComponents.Actions.WaitAI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitAI.InequalitySymbol
   - RobotComponents.Actions.WaitAI.IsValid
+  - RobotComponents.Actions.WaitAI.MaxTime
   - RobotComponents.Actions.WaitAI.Name
   - RobotComponents.Actions.WaitAI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitAI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -155,16 +156,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)
-  commentId: M:RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)
-  id: '#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol)'
+- uid: RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol,System.Double)
+  commentId: M:RobotComponents.Actions.WaitAI.#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol,System.Double)
+  id: '#ctor(System.String,System.Double,RobotComponents.Enumerations.InequalitySymbol,System.Double)'
   parent: RobotComponents.Actions.WaitAI
   langs:
   - csharp
   - vb
-  name: WaitAI(String, Double, InequalitySymbol)
-  nameWithType: WaitAI.WaitAI(String, Double, InequalitySymbol)
-  fullName: RobotComponents.Actions.WaitAI.WaitAI(System.String, System.Double, RobotComponents.Enumerations.InequalitySymbol)
+  name: WaitAI(String, Double, InequalitySymbol, Double)
+  nameWithType: WaitAI.WaitAI(String, Double, InequalitySymbol, Double)
+  fullName: RobotComponents.Actions.WaitAI.WaitAI(System.String, System.Double, RobotComponents.Enumerations.InequalitySymbol, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -174,7 +175,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the Wait AI class.\n"
   syntax:
-    content: public WaitAI(string name, double value, InequalitySymbol inequalitySymbol)
+    content: public WaitAI(string name, double value, InequalitySymbol inequalitySymbol, double maxTime = -1)
     parameters:
     - id: name
       type: System.String
@@ -185,7 +186,10 @@ items:
     - id: inequalitySymbol
       type: RobotComponents.Enumerations.InequalitySymbol
       description: 'The inequality symbol (less than, greater than) '
-    content.vb: Public Sub New(name As String, value As Double, inequalitySymbol As InequalitySymbol)
+    - id: maxTime
+      type: System.Double
+      description: 'The maximum time to wait in seconds. '
+    content.vb: Public Sub New(name As String, value As Double, inequalitySymbol As InequalitySymbol, maxTime As Double = -1)
   overload: RobotComponents.Actions.WaitAI.#ctor*
   modifiers.csharp:
   - public
@@ -610,6 +614,37 @@ items:
       type: RobotComponents.Enumerations.InequalitySymbol
     content.vb: Public Property InequalitySymbol As InequalitySymbol
   overload: RobotComponents.Actions.WaitAI.InequalitySymbol*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitAI.MaxTime
+  commentId: P:RobotComponents.Actions.WaitAI.MaxTime
+  id: MaxTime
+  parent: RobotComponents.Actions.WaitAI
+  langs:
+  - csharp
+  - vb
+  name: MaxTime
+  nameWithType: WaitAI.MaxTime
+  fullName: RobotComponents.Actions.WaitAI.MaxTime
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).\n"
+  syntax:
+    content: public double MaxTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MaxTime As Double
+  overload: RobotComponents.Actions.WaitAI.MaxTime*
   modifiers.csharp:
   - public
   - get
@@ -1468,3 +1503,9 @@ references:
   name: InequalitySymbol
   nameWithType: WaitAI.InequalitySymbol
   fullName: RobotComponents.Actions.WaitAI.InequalitySymbol
+- uid: RobotComponents.Actions.WaitAI.MaxTime*
+  commentId: Overload:RobotComponents.Actions.WaitAI.MaxTime
+  isExternal: true
+  name: MaxTime
+  nameWithType: WaitAI.MaxTime
+  fullName: RobotComponents.Actions.WaitAI.MaxTime

@@ -7,13 +7,14 @@ items:
   children:
   - RobotComponents.Actions.WaitTime.#ctor
   - RobotComponents.Actions.WaitTime.#ctor(RobotComponents.Actions.WaitTime)
-  - RobotComponents.Actions.WaitTime.#ctor(System.Double)
+  - RobotComponents.Actions.WaitTime.#ctor(System.Double,System.Boolean)
   - RobotComponents.Actions.WaitTime.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitTime.Duplicate
   - RobotComponents.Actions.WaitTime.DuplicateAction
   - RobotComponents.Actions.WaitTime.DuplicateInstruction
   - RobotComponents.Actions.WaitTime.Duration
   - RobotComponents.Actions.WaitTime.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.Actions.WaitTime.InPosition
   - RobotComponents.Actions.WaitTime.IsValid
   - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitTime.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -153,16 +154,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.WaitTime.#ctor(System.Double)
-  commentId: M:RobotComponents.Actions.WaitTime.#ctor(System.Double)
-  id: '#ctor(System.Double)'
+- uid: RobotComponents.Actions.WaitTime.#ctor(System.Double,System.Boolean)
+  commentId: M:RobotComponents.Actions.WaitTime.#ctor(System.Double,System.Boolean)
+  id: '#ctor(System.Double,System.Boolean)'
   parent: RobotComponents.Actions.WaitTime
   langs:
   - csharp
   - vb
-  name: WaitTime(Double)
-  nameWithType: WaitTime.WaitTime(Double)
-  fullName: RobotComponents.Actions.WaitTime.WaitTime(System.Double)
+  name: WaitTime(Double, Boolean)
+  nameWithType: WaitTime.WaitTime(Double, Boolean)
+  fullName: RobotComponents.Actions.WaitTime.WaitTime(System.Double, System.Boolean)
   type: Constructor
   source:
     path: RobotComponents
@@ -172,12 +173,15 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes an empty instance of the Wait Time class.\n"
   syntax:
-    content: public WaitTime(double duration)
+    content: public WaitTime(double duration, bool inPosition = false)
     parameters:
     - id: duration
       type: System.Double
       description: 'The time, expressed in seconds, that program execution is to wait. '
-    content.vb: Public Sub New(duration As Double)
+    - id: inPosition
+      type: System.Boolean
+      description: 'Specifies whether or not the mechanial units must have come to a standstill before the wait time starts. '
+    content.vb: Public Sub New(duration As Double, inPosition As Boolean = False)
   overload: RobotComponents.Actions.WaitTime.#ctor*
   modifiers.csharp:
   - public
@@ -540,6 +544,37 @@ items:
       type: System.Double
     content.vb: Public Property Duration As Double
   overload: RobotComponents.Actions.WaitTime.Duration*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitTime.InPosition
+  commentId: P:RobotComponents.Actions.WaitTime.InPosition
+  id: InPosition
+  parent: RobotComponents.Actions.WaitTime
+  langs:
+  - csharp
+  - vb
+  name: InPosition
+  nameWithType: WaitTime.InPosition
+  fullName: RobotComponents.Actions.WaitTime.InPosition
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets a value indicating whether or not the robot and external axes must have come to a standstill \nbefore this program task starts waiting for other program tasks to reach its meeting point.\n"
+  syntax:
+    content: public bool InPosition { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property InPosition As Boolean
+  overload: RobotComponents.Actions.WaitTime.InPosition*
   modifiers.csharp:
   - public
   - get
@@ -931,6 +966,13 @@ references:
   name: Double
   nameWithType: Double
   fullName: System.Double
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
 - uid: RobotComponents.Actions.WaitTime
   commentId: T:RobotComponents.Actions.WaitTime
   parent: RobotComponents.Actions
@@ -1360,16 +1402,15 @@ references:
   name: IsValid
   nameWithType: IInstruction.IsValid
   fullName: RobotComponents.Actions.IInstruction.IsValid
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  name: Boolean
-  nameWithType: Boolean
-  fullName: System.Boolean
 - uid: RobotComponents.Actions.WaitTime.Duration*
   commentId: Overload:RobotComponents.Actions.WaitTime.Duration
   isExternal: true
   name: Duration
   nameWithType: WaitTime.Duration
   fullName: RobotComponents.Actions.WaitTime.Duration
+- uid: RobotComponents.Actions.WaitTime.InPosition*
+  commentId: Overload:RobotComponents.Actions.WaitTime.InPosition
+  isExternal: true
+  name: InPosition
+  nameWithType: WaitTime.InPosition
+  fullName: RobotComponents.Actions.WaitTime.InPosition

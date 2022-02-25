@@ -8,7 +8,7 @@ items:
   - RobotComponents.Actions.WaitSyncTask.#ctor
   - RobotComponents.Actions.WaitSyncTask.#ctor(RobotComponents.Actions.WaitSyncTask)
   - RobotComponents.Actions.WaitSyncTask.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean)
+  - RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean,System.Double)
   - RobotComponents.Actions.WaitSyncTask.Duplicate
   - RobotComponents.Actions.WaitSyncTask.DuplicateAction
   - RobotComponents.Actions.WaitSyncTask.DuplicateInstruction
@@ -19,6 +19,7 @@ items:
   - RobotComponents.Actions.WaitSyncTask.ReferenceType
   - RobotComponents.Actions.WaitSyncTask.SyncID
   - RobotComponents.Actions.WaitSyncTask.TaskList
+  - RobotComponents.Actions.WaitSyncTask.TimeOut
   - RobotComponents.Actions.WaitSyncTask.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitSyncTask.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.WaitSyncTask.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -158,16 +159,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean)
-  commentId: M:RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean)
-  id: '#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean)'
+- uid: RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean,System.Double)
+  commentId: M:RobotComponents.Actions.WaitSyncTask.#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean,System.Double)
+  id: '#ctor(System.String,RobotComponents.Actions.TaskList,System.Boolean,System.Double)'
   parent: RobotComponents.Actions.WaitSyncTask
   langs:
   - csharp
   - vb
-  name: WaitSyncTask(String, TaskList, Boolean)
-  nameWithType: WaitSyncTask.WaitSyncTask(String, TaskList, Boolean)
-  fullName: RobotComponents.Actions.WaitSyncTask.WaitSyncTask(System.String, RobotComponents.Actions.TaskList, System.Boolean)
+  name: WaitSyncTask(String, TaskList, Boolean, Double)
+  nameWithType: WaitSyncTask.WaitSyncTask(String, TaskList, Boolean, Double)
+  fullName: RobotComponents.Actions.WaitSyncTask.WaitSyncTask(System.String, RobotComponents.Actions.TaskList, System.Boolean, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -177,7 +178,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the WaitSyncTask class.\n"
   syntax:
-    content: public WaitSyncTask(string name, TaskList tasks, bool inPosition = false)
+    content: public WaitSyncTask(string name, TaskList tasks, bool inPosition = false, double timeOut = -1)
     parameters:
     - id: name
       type: System.String
@@ -188,7 +189,10 @@ items:
     - id: inPosition
       type: System.Boolean
       description: 'Specifies whether or not the robot and external axes must have come to a standstill in its meeting point. '
-    content.vb: Public Sub New(name As String, tasks As TaskList, inPosition As Boolean = False)
+    - id: timeOut
+      type: System.Double
+      description: 'The max. time to wait for the other program tasks to reach the synchronization point. '
+    content.vb: Public Sub New(name As String, tasks As TaskList, inPosition As Boolean = False, timeOut As Double = -1)
   overload: RobotComponents.Actions.WaitSyncTask.#ctor*
   modifiers.csharp:
   - public
@@ -692,6 +696,37 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.WaitSyncTask.TimeOut
+  commentId: P:RobotComponents.Actions.WaitSyncTask.TimeOut
+  id: TimeOut
+  parent: RobotComponents.Actions.WaitSyncTask
+  langs:
+  - csharp
+  - vb
+  name: TimeOut
+  nameWithType: WaitSyncTask.TimeOut
+  fullName: RobotComponents.Actions.WaitSyncTask.TimeOut
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets te max. time to wait for the other program tasks to reach the synchronization point.\nSet a negative value to wait for ever (default is -1).\n"
+  syntax:
+    content: public double TimeOut { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property TimeOut As Double
+  overload: RobotComponents.Actions.WaitSyncTask.TimeOut*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 references:
 - uid: RobotComponents.Actions
   commentId: N:RobotComponents.Actions
@@ -1098,6 +1133,13 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
 - uid: RobotComponents.Actions.WaitSyncTask
   commentId: T:RobotComponents.Actions.WaitSyncTask
   parent: RobotComponents.Actions
@@ -1779,3 +1821,9 @@ references:
   name: InPosition
   nameWithType: WaitSyncTask.InPosition
   fullName: RobotComponents.Actions.WaitSyncTask.InPosition
+- uid: RobotComponents.Actions.WaitSyncTask.TimeOut*
+  commentId: Overload:RobotComponents.Actions.WaitSyncTask.TimeOut
+  isExternal: true
+  name: TimeOut
+  nameWithType: WaitSyncTask.TimeOut
+  fullName: RobotComponents.Actions.WaitSyncTask.TimeOut

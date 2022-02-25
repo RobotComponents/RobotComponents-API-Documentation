@@ -8,13 +8,14 @@ items:
   - RobotComponents.Actions.WaitDI.#ctor
   - RobotComponents.Actions.WaitDI.#ctor(RobotComponents.Actions.WaitDI)
   - RobotComponents.Actions.WaitDI.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean)
+  - RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
   - RobotComponents.Actions.WaitDI.DIName
   - RobotComponents.Actions.WaitDI.Duplicate
   - RobotComponents.Actions.WaitDI.DuplicateAction
   - RobotComponents.Actions.WaitDI.DuplicateInstruction
   - RobotComponents.Actions.WaitDI.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Actions.WaitDI.IsValid
+  - RobotComponents.Actions.WaitDI.MaxTime
   - RobotComponents.Actions.WaitDI.Name
   - RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.WaitDI.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
@@ -155,16 +156,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean)
-  commentId: M:RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean)
-  id: '#ctor(System.String,System.Boolean)'
+- uid: RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
+  commentId: M:RobotComponents.Actions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
+  id: '#ctor(System.String,System.Boolean,System.Double)'
   parent: RobotComponents.Actions.WaitDI
   langs:
   - csharp
   - vb
-  name: WaitDI(String, Boolean)
-  nameWithType: WaitDI.WaitDI(String, Boolean)
-  fullName: RobotComponents.Actions.WaitDI.WaitDI(System.String, System.Boolean)
+  name: WaitDI(String, Boolean, Double)
+  nameWithType: WaitDI.WaitDI(String, Boolean, Double)
+  fullName: RobotComponents.Actions.WaitDI.WaitDI(System.String, System.Boolean, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -174,7 +175,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the Wait DI class.\n"
   syntax:
-    content: public WaitDI(string name, bool value)
+    content: public WaitDI(string name, bool value, double maxTime = -1)
     parameters:
     - id: name
       type: System.String
@@ -182,7 +183,10 @@ items:
     - id: value
       type: System.Boolean
       description: Specifies whether the Digital Input is enabled.
-    content.vb: Public Sub New(name As String, value As Boolean)
+    - id: maxTime
+      type: System.Double
+      description: 'The maximum time to wait in seconds. '
+    content.vb: Public Sub New(name As String, value As Boolean, maxTime As Double = -1)
   overload: RobotComponents.Actions.WaitDI.#ctor*
   modifiers.csharp:
   - public
@@ -576,6 +580,37 @@ items:
       type: System.String
     content.vb: Public Property Name As String
   overload: RobotComponents.Actions.WaitDI.Name*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.WaitDI.MaxTime
+  commentId: P:RobotComponents.Actions.WaitDI.MaxTime
+  id: MaxTime
+  parent: RobotComponents.Actions.WaitDI
+  langs:
+  - csharp
+  - vb
+  name: MaxTime
+  nameWithType: WaitDI.MaxTime
+  fullName: RobotComponents.Actions.WaitDI.MaxTime
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).\n"
+  syntax:
+    content: public double MaxTime { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property MaxTime As Double
+  overload: RobotComponents.Actions.WaitDI.MaxTime*
   modifiers.csharp:
   - public
   - get
@@ -1019,6 +1054,13 @@ references:
   name: Boolean
   nameWithType: Boolean
   fullName: System.Boolean
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
 - uid: RobotComponents.Actions.WaitDI
   commentId: T:RobotComponents.Actions.WaitDI
   parent: RobotComponents.Actions
@@ -1453,6 +1495,12 @@ references:
   name: Name
   nameWithType: WaitDI.Name
   fullName: RobotComponents.Actions.WaitDI.Name
+- uid: RobotComponents.Actions.WaitDI.MaxTime*
+  commentId: Overload:RobotComponents.Actions.WaitDI.MaxTime
+  isExternal: true
+  name: MaxTime
+  nameWithType: WaitDI.MaxTime
+  fullName: RobotComponents.Actions.WaitDI.MaxTime
 - uid: RobotComponents.Actions.WaitDI.DIName*
   commentId: Overload:RobotComponents.Actions.WaitDI.DIName
   isExternal: true

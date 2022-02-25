@@ -193,7 +193,8 @@ for (int i = 0; i != curves.Count; i++)
 actions.Add(goHome);
 
 // Create the RAPID program
-RAPIDGenerator rapidGenerator = new RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;BASE&quot;, &quot;main&quot;);
+RAPIDGenerator rapidGenerator = 
+    new RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;BASE&quot;, &quot;main&quot;);
 List&lt;string&gt; program = rapidGenerator.CreateProgramModule();
 List&lt;string&gt; system = rapidGenerator.CreateSystemModule();
 </code></pre>

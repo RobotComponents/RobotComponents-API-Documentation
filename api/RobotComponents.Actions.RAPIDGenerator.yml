@@ -7,6 +7,9 @@ items:
   children:
   - RobotComponents.Actions.RAPIDGenerator.#ctor
   - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
+  - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action})
+  - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String)
+  - RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)
   - RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.RAPIDGenerator.Actions
   - RobotComponents.Actions.RAPIDGenerator.CreateProgramModule
@@ -18,6 +21,7 @@ items:
   - RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.Actions.RAPIDGenerator.IsValid
   - RobotComponents.Actions.RAPIDGenerator.JointPositions
+  - RobotComponents.Actions.RAPIDGenerator.ProcedureName
   - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationComments
   - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
   - RobotComponents.Actions.RAPIDGenerator.ProgramDeclarations
@@ -98,16 +102,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
-  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
-  id: '#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)'
+- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action})
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action})
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action})'
   parent: RobotComponents.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
-  nameWithType: RAPIDGenerator.RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
-  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.String, System.Boolean, RobotComponents.Definitions.Robot)
+  name: RAPIDGenerator(Robot, IList<Action>)
+  nameWithType: RAPIDGenerator.RAPIDGenerator(Robot, IList<Action>)
+  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList<RobotComponents.Actions.Action>)
   type: Constructor
   source:
     path: RobotComponents
@@ -115,37 +119,121 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Actions
-  summary: "\nInitializes a new instance of the RAPID Generator class.\n"
+  summary: "\nInitializes a new instance of the RAPID Generator class with a main procedure.\n"
   syntax:
-    content: public RAPIDGenerator(string programModuleName, string systemModuleName, IList<Action> actions, string filePath, bool saveToFile, Robot robot)
+    content: public RAPIDGenerator(Robot robot, IList<Action> actions)
     parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info wherefore the code should be created. '
+    - id: actions
+      type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
+      description: 'The list with robot actions wherefore the code should be created. '
+    content.vb: Public Sub New(robot As Robot, actions As IList(Of Action))
+  overload: RobotComponents.Actions.RAPIDGenerator.#ctor*
+  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(Robot, IList(Of Action))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList(Of RobotComponents.Actions.Action))
+  name.vb: RAPIDGenerator(Robot, IList(Of Action))
+- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String)
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String)
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String)'
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: RAPIDGenerator(Robot, IList<Action>, String, String, String)
+  nameWithType: RAPIDGenerator.RAPIDGenerator(Robot, IList<Action>, String, String, String)
+  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.String, System.String, System.String)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the RAPID Generator class with a main procedure.\n"
+  syntax:
+    content: public RAPIDGenerator(Robot robot, IList<Action> actions, string programModuleName, string systemModuleName, string procedureName)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info wherefore the code should be created. '
+    - id: actions
+      type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
+      description: 'The list with robot actions wherefore the code should be created. '
     - id: programModuleName
       type: System.String
       description: 'The name of the program module '
     - id: systemModuleName
       type: System.String
       description: 'The name of the system module '
+    - id: procedureName
+      type: System.String
+      description: 'The name of the RAPID procedure '
+    content.vb: Public Sub New(robot As Robot, actions As IList(Of Action), programModuleName As String, systemModuleName As String, procedureName As String)
+  overload: RobotComponents.Actions.RAPIDGenerator.#ctor*
+  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(Robot, IList(Of Action), String, String, String)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.String, System.String, System.String)
+  name.vb: RAPIDGenerator(Robot, IList(Of Action), String, String, String)
+- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)'
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: RAPIDGenerator(Robot, IList<Action>, String, String, String, String, Boolean)
+  nameWithType: RAPIDGenerator.RAPIDGenerator(Robot, IList<Action>, String, String, String, String, Boolean)
+  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.String, System.String, System.String, System.String, System.Boolean)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the RAPID Generator class with a main procedure.\n"
+  syntax:
+    content: public RAPIDGenerator(Robot robot, IList<Action> actions, string programModuleName, string systemModuleName, string procedureName, string filePath, bool saveToFile)
+    parameters:
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info wherefore the code should be created. '
     - id: actions
       type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
       description: 'The list with robot actions wherefore the code should be created. '
+    - id: programModuleName
+      type: System.String
+      description: 'The name of the program module '
+    - id: systemModuleName
+      type: System.String
+      description: 'The name of the system module '
+    - id: procedureName
+      type: System.String
+      description: 'The name of the RAPID procedure '
     - id: filePath
       type: System.String
       description: 'The path where the code files should be saved. '
     - id: saveToFile
       type: System.Boolean
       description: 'A boolean that indicates if the file should be saved. '
-    - id: robot
-      type: RobotComponents.Definitions.Robot
-      description: 'The robot info wherefore the code should be created. '
-    content.vb: Public Sub New(programModuleName As String, systemModuleName As String, actions As IList(Of Action), filePath As String, saveToFile As Boolean, robot As Robot)
+    content.vb: Public Sub New(robot As Robot, actions As IList(Of Action), programModuleName As String, systemModuleName As String, procedureName As String, filePath As String, saveToFile As Boolean)
   overload: RobotComponents.Actions.RAPIDGenerator.#ctor*
-  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
+  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(Robot, IList(Of Action), String, String, String, String, Boolean)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.String, System.Boolean, RobotComponents.Definitions.Robot)
-  name.vb: RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(RobotComponents.Definitions.Robot, System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.String, System.String, System.String, System.String, System.Boolean)
+  name.vb: RAPIDGenerator(Robot, IList(Of Action), String, String, String, String, Boolean)
 - uid: RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
   commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(RobotComponents.Actions.RAPIDGenerator)
   id: '#ctor(RobotComponents.Actions.RAPIDGenerator)'
@@ -285,7 +373,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt adds the robot tools and work objects that are collected by this RAPID generator. \nFor this you have to call the methode &apos;CreateProgamCode&apos; first. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public List<string> CreateSystemModule(IList<string> customCode)
+    content: public List<string> CreateSystemModule(IList<string> customCode = null)
     parameters:
     - id: customCode
       type: System.Collections.Generic.IList{System.String}
@@ -293,7 +381,7 @@ items:
     return:
       type: System.Collections.Generic.List{System.String}
       description: 'The RAPID system code as a list with code lines. '
-    content.vb: Public Function CreateSystemModule(customCode As IList(Of String)) As List(Of String)
+    content.vb: Public Function CreateSystemModule(customCode As IList(Of String) = Nothing) As List(Of String)
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
   nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of String))
   modifiers.csharp:
@@ -321,7 +409,7 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nReturns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.\nIt is adds the robot tools, work objects and custom code lines from the given lists. \nThis method also overwrites or creates a file if the property &apos;SaveToFile&apos; is set equal to true.\n"
   syntax:
-    content: public List<string> CreateSystemModule(IList<RobotTool> robotTools, IList<WorkObject> workObjects, IList<string> customCode)
+    content: public List<string> CreateSystemModule(IList<RobotTool> robotTools, IList<WorkObject> workObjects, IList<string> customCode = null)
     parameters:
     - id: robotTools
       type: System.Collections.Generic.IList{RobotComponents.Definitions.RobotTool}
@@ -335,7 +423,7 @@ items:
     return:
       type: System.Collections.Generic.List{System.String}
       description: 'The RAPID system code as a list with code lines. '
-    content.vb: Public Function CreateSystemModule(robotTools As IList(Of RobotTool), workObjects As IList(Of WorkObject), customCode As IList(Of String)) As List(Of String)
+    content.vb: Public Function CreateSystemModule(robotTools As IList(Of RobotTool), workObjects As IList(Of WorkObject), customCode As IList(Of String) = Nothing) As List(Of String)
   overload: RobotComponents.Actions.RAPIDGenerator.CreateSystemModule*
   nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of RobotTool), IList(Of WorkObject), IList(Of String))
   modifiers.csharp:
@@ -396,6 +484,68 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
+  commentId: M:RobotComponents.Actions.RAPIDGenerator.#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)
+  id: '#ctor(System.String,System.String,System.Collections.Generic.IList{RobotComponents.Actions.Action},System.String,System.Boolean,RobotComponents.Definitions.Robot)'
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
+  nameWithType: RAPIDGenerator.RAPIDGenerator(String, String, IList<Action>, String, Boolean, Robot)
+  fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.String, System.Boolean, RobotComponents.Definitions.Robot)
+  type: Constructor
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nInitializes a new instance of the RAPID Generator class with a main procedure.\n"
+  syntax:
+    content: >-
+      [Obsolete("This constructor is OBSOLETE and will be removed in version 2.", false)]
+
+      public RAPIDGenerator(string programModuleName, string systemModuleName, IList<Action> actions, string filePath, bool saveToFile, Robot robot)
+    parameters:
+    - id: programModuleName
+      type: System.String
+      description: 'The name of the program module '
+    - id: systemModuleName
+      type: System.String
+      description: 'The name of the system module '
+    - id: actions
+      type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
+      description: 'The list with robot actions wherefore the code should be created. '
+    - id: filePath
+      type: System.String
+      description: 'The path where the code files should be saved. '
+    - id: saveToFile
+      type: System.Boolean
+      description: 'A boolean that indicates if the file should be saved. '
+    - id: robot
+      type: RobotComponents.Definitions.Robot
+      description: 'The robot info wherefore the code should be created. '
+    content.vb: >-
+      <Obsolete("This constructor is OBSOLETE and will be removed in version 2.", False)>
+
+      Public Sub New(programModuleName As String, systemModuleName As String, actions As IList(Of Action), filePath As String, saveToFile As Boolean, robot As Robot)
+  overload: RobotComponents.Actions.RAPIDGenerator.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This constructor is OBSOLETE and will be removed in version 2.
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: RAPIDGenerator.RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator(System.String, System.String, System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.String, System.Boolean, RobotComponents.Definitions.Robot)
+  name.vb: RAPIDGenerator(String, String, IList(Of Action), String, Boolean, Robot)
 - uid: RobotComponents.Actions.RAPIDGenerator.IsValid
   commentId: P:RobotComponents.Actions.RAPIDGenerator.IsValid
   id: IsValid
@@ -669,6 +819,37 @@ items:
       type: System.String
     content.vb: Public Property SystemModuleName As String
   overload: RobotComponents.Actions.RAPIDGenerator.SystemModuleName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Actions.RAPIDGenerator.ProcedureName
+  commentId: P:RobotComponents.Actions.RAPIDGenerator.ProcedureName
+  id: ProcedureName
+  parent: RobotComponents.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProcedureName
+  nameWithType: RAPIDGenerator.ProcedureName
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProcedureName
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets the name of the RAPID procedure.\n"
+  syntax:
+    content: public string ProcedureName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProcedureName As String
+  overload: RobotComponents.Actions.RAPIDGenerator.ProcedureName*
   modifiers.csharp:
   - public
   - get
@@ -1445,13 +1626,13 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator.RAPIDGenerator
   fullName: RobotComponents.Actions.RAPIDGenerator.RAPIDGenerator
-- uid: System.String
-  commentId: T:System.String
-  parent: System
+- uid: RobotComponents.Definitions.Robot
+  commentId: T:RobotComponents.Definitions.Robot
+  parent: RobotComponents.Definitions
   isExternal: true
-  name: String
-  nameWithType: String
-  fullName: System.String
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.Definitions.Robot
 - uid: System.Collections.Generic.IList{RobotComponents.Actions.Action}
   commentId: T:System.Collections.Generic.IList{RobotComponents.Actions.Action}
   parent: System.Collections.Generic
@@ -1496,20 +1677,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
+- uid: RobotComponents.Definitions
+  commentId: N:RobotComponents.Definitions
   isExternal: true
-  name: Boolean
-  nameWithType: Boolean
-  fullName: System.Boolean
-- uid: RobotComponents.Definitions.Robot
-  commentId: T:RobotComponents.Definitions.Robot
-  parent: RobotComponents.Definitions
-  isExternal: true
-  name: Robot
-  nameWithType: Robot
-  fullName: RobotComponents.Definitions.Robot
+  name: RobotComponents.Definitions
+  nameWithType: RobotComponents.Definitions
+  fullName: RobotComponents.Definitions
 - uid: System.Collections.Generic.IList`1
   commentId: T:System.Collections.Generic.IList`1
   isExternal: true
@@ -1555,12 +1728,20 @@ references:
   name: System.Collections.Generic
   nameWithType: System.Collections.Generic
   fullName: System.Collections.Generic
-- uid: RobotComponents.Definitions
-  commentId: N:RobotComponents.Definitions
+- uid: System.String
+  commentId: T:System.String
+  parent: System
   isExternal: true
-  name: RobotComponents.Definitions
-  nameWithType: RobotComponents.Definitions
-  fullName: RobotComponents.Definitions
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
 - uid: RobotComponents.Actions.RAPIDGenerator
   commentId: T:RobotComponents.Actions.RAPIDGenerator
   parent: RobotComponents.Actions
@@ -1948,6 +2129,12 @@ references:
   name: SystemModuleName
   nameWithType: RAPIDGenerator.SystemModuleName
   fullName: RobotComponents.Actions.RAPIDGenerator.SystemModuleName
+- uid: RobotComponents.Actions.RAPIDGenerator.ProcedureName*
+  commentId: Overload:RobotComponents.Actions.RAPIDGenerator.ProcedureName
+  isExternal: true
+  name: ProcedureName
+  nameWithType: RAPIDGenerator.ProcedureName
+  fullName: RobotComponents.Actions.RAPIDGenerator.ProcedureName
 - uid: RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ*
   commentId: Overload:RobotComponents.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
   isExternal: true

@@ -32,6 +32,7 @@ items:
   - RobotComponents.Actions.Movement.SpeedData
   - RobotComponents.Actions.Movement.SyncID
   - RobotComponents.Actions.Movement.Target
+  - RobotComponents.Actions.Movement.Time
   - RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.Movement.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.Movement.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -1117,6 +1118,37 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.Movement.Time
+  commentId: P:RobotComponents.Actions.Movement.Time
+  id: Time
+  parent: RobotComponents.Actions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Time
+  nameWithType: Movement.Time
+  fullName: RobotComponents.Actions.Movement.Time
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets the the total time which the robot will move in seconds. \nThis overwrites the defined speeddata value.\nSet this property to a negative value to not overwrite the speeddata value. \n"
+  syntax:
+    content: public double Time { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property Time As Double
+  overload: RobotComponents.Actions.Movement.Time*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Actions.Movement.ZoneData
   commentId: P:RobotComponents.Actions.Movement.ZoneData
   id: ZoneData
@@ -2164,6 +2196,19 @@ references:
   name: SpeedData
   nameWithType: Movement.SpeedData
   fullName: RobotComponents.Actions.Movement.SpeedData
+- uid: RobotComponents.Actions.Movement.Time*
+  commentId: Overload:RobotComponents.Actions.Movement.Time
+  isExternal: true
+  name: Time
+  nameWithType: Movement.Time
+  fullName: RobotComponents.Actions.Movement.Time
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
 - uid: RobotComponents.Actions.Movement.ZoneData*
   commentId: Overload:RobotComponents.Actions.Movement.ZoneData
   isExternal: true

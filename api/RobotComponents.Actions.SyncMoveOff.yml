@@ -8,7 +8,7 @@ items:
   - RobotComponents.Actions.SyncMoveOff.#ctor
   - RobotComponents.Actions.SyncMoveOff.#ctor(RobotComponents.Actions.SyncMoveOff)
   - RobotComponents.Actions.SyncMoveOff.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.Actions.SyncMoveOff.#ctor(System.String)
+  - RobotComponents.Actions.SyncMoveOff.#ctor(System.String,System.Double)
   - RobotComponents.Actions.SyncMoveOff.Duplicate
   - RobotComponents.Actions.SyncMoveOff.DuplicateAction
   - RobotComponents.Actions.SyncMoveOff.DuplicateInstruction
@@ -17,6 +17,7 @@ items:
   - RobotComponents.Actions.SyncMoveOff.IsValid
   - RobotComponents.Actions.SyncMoveOff.ReferenceType
   - RobotComponents.Actions.SyncMoveOff.SyncID
+  - RobotComponents.Actions.SyncMoveOff.TimeOut
   - RobotComponents.Actions.SyncMoveOff.ToRAPIDDeclaration(RobotComponents.Actions.RAPIDGenerator)
   - RobotComponents.Actions.SyncMoveOff.ToRAPIDDeclaration(RobotComponents.Definitions.Robot)
   - RobotComponents.Actions.SyncMoveOff.ToRAPIDInstruction(RobotComponents.Actions.RAPIDGenerator)
@@ -156,16 +157,16 @@ items:
   - public
   modifiers.vb:
   - Public
-- uid: RobotComponents.Actions.SyncMoveOff.#ctor(System.String)
-  commentId: M:RobotComponents.Actions.SyncMoveOff.#ctor(System.String)
-  id: '#ctor(System.String)'
+- uid: RobotComponents.Actions.SyncMoveOff.#ctor(System.String,System.Double)
+  commentId: M:RobotComponents.Actions.SyncMoveOff.#ctor(System.String,System.Double)
+  id: '#ctor(System.String,System.Double)'
   parent: RobotComponents.Actions.SyncMoveOff
   langs:
   - csharp
   - vb
-  name: SyncMoveOff(String)
-  nameWithType: SyncMoveOff.SyncMoveOff(String)
-  fullName: RobotComponents.Actions.SyncMoveOff.SyncMoveOff(System.String)
+  name: SyncMoveOff(String, Double)
+  nameWithType: SyncMoveOff.SyncMoveOff(String, Double)
+  fullName: RobotComponents.Actions.SyncMoveOff.SyncMoveOff(System.String, System.Double)
   type: Constructor
   source:
     path: RobotComponents
@@ -175,12 +176,15 @@ items:
   namespace: RobotComponents.Actions
   summary: "\nInitializes a new instance of the SyncMoveOff class.\n"
   syntax:
-    content: public SyncMoveOff(string name)
+    content: public SyncMoveOff(string name, double timeOut = -1)
     parameters:
     - id: name
       type: System.String
       description: 'The name of the synchronization point. '
-    content.vb: Public Sub New(name As String)
+    - id: timeOut
+      type: System.Double
+      description: 'The max. time to wait for the other program tasks to reach the synchronization point. '
+    content.vb: Public Sub New(name As String, timeOut As Double = -1)
   overload: RobotComponents.Actions.SyncMoveOff.#ctor*
   modifiers.csharp:
   - public
@@ -622,6 +626,37 @@ items:
   - set
   modifiers.vb:
   - Public
+- uid: RobotComponents.Actions.SyncMoveOff.TimeOut
+  commentId: P:RobotComponents.Actions.SyncMoveOff.TimeOut
+  id: TimeOut
+  parent: RobotComponents.Actions.SyncMoveOff
+  langs:
+  - csharp
+  - vb
+  name: TimeOut
+  nameWithType: SyncMoveOff.TimeOut
+  fullName: RobotComponents.Actions.SyncMoveOff.TimeOut
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Actions
+  summary: "\nGets or sets te max. time to wait for the other program tasks to reach the synchronization point.\nSet a negative value to wait for ever (default is -1).\n"
+  syntax:
+    content: public double TimeOut { get; set; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public Property TimeOut As Double
+  overload: RobotComponents.Actions.SyncMoveOff.TimeOut*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
 references:
 - uid: RobotComponents.Actions
   commentId: N:RobotComponents.Actions
@@ -1014,6 +1049,13 @@ references:
   name: String
   nameWithType: String
   fullName: System.String
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
 - uid: RobotComponents.Actions.SyncMoveOff
   commentId: T:RobotComponents.Actions.SyncMoveOff
   parent: RobotComponents.Actions
@@ -1690,3 +1732,9 @@ references:
   name: SyncID
   nameWithType: ISyncident.SyncID
   fullName: RobotComponents.Actions.ISyncident.SyncID
+- uid: RobotComponents.Actions.SyncMoveOff.TimeOut*
+  commentId: Overload:RobotComponents.Actions.SyncMoveOff.TimeOut
+  isExternal: true
+  name: TimeOut
+  nameWithType: SyncMoveOff.TimeOut
+  fullName: RobotComponents.Actions.SyncMoveOff.TimeOut
