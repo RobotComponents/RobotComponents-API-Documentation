@@ -85,6 +85,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
+    <div><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -111,7 +112,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Definitions_ExternalRotationalAxis_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ExternalRotationalAxis : ExternalAxis, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class ExternalRotationalAxis : ExternalAxis, ISerializable, IMechanicalUnit</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -1168,6 +1169,34 @@
   <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_Name">ExternalAxis.Name</a></div>
   
   
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis_NumberOfAxes_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_NumberOfAxes" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes">NumberOfAxes</h4>
+  <div class="markdown level1 summary"><p>Gets the number of axes for the mechanical unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int NumberOfAxes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_NumberOfAxes">ExternalAxis.NumberOfAxes</a></div>
+  
+  
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_PosedMeshes_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PosedMeshes*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_PosedMeshes" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PosedMeshes">PosedMeshes</h4>
   <div class="markdown level1 summary"><p>Gets latest calculated posed axis meshes.</p>
@@ -1489,6 +1518,64 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_DuplicateExternalAxisWithoutMesh">ExternalAxis.DuplicateExternalAxisWithoutMesh()</a></div>
   
   
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnit_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnit" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit">DuplicateMechanicalUnit()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this External Rotational Axis as a Mechanical Unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IMechanicalUnit DuplicateMechanicalUnit()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></td>
+        <td><p>A deep copy of the Mechanical Unit.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnit">ExternalAxis.DuplicateMechanicalUnit()</a></div>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnitWithoutMesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnitWithoutMesh" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh">DuplicateMechanicalUnitWithoutMesh()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this External Rotational Axis as Mechanical Unit without meshes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></td>
+        <td><p>A deep copy of the Mechanical Unit without meshes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnitWithoutMesh">ExternalAxis.DuplicateMechanicalUnitWithoutMesh()</a></div>
+  
+  
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateWithoutMesh_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateWithoutMesh*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_DuplicateWithoutMesh" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.DuplicateWithoutMesh">DuplicateWithoutMesh()</h4>
   <div class="markdown level1 summary"><p>Returns an exact duplicate of this External Rotational Axis instance without meshes.</p>
@@ -1645,6 +1732,53 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_PoseMeshes_RobotComponents_Actions_ExternalJointPosition_">ExternalAxis.PoseMeshes(ExternalJointPosition)</a></div>
   
   
+  <a id="RobotComponents_Definitions_ExternalRotationalAxis_PoseMeshes_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_PoseMeshes_RobotComponents_Actions_JointTarget_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)">PoseMeshes(JointTarget)</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the position of the meshes for a given Joint Target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override List&lt;Mesh&gt; PoseMeshes(JointTarget jointTarget)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.JointTarget.html">JointTarget</a></td>
+        <td><span class="parametername">jointTarget</span></td>
+        <td><p>The Joint Target.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
+        <td><p>The posed meshes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="RobotComponents.Definitions.ExternalAxis.html#RobotComponents_Definitions_ExternalAxis_PoseMeshes_RobotComponents_Actions_JointTarget_">ExternalAxis.PoseMeshes(JointTarget)</a></div>
+  
+  
   <a id="RobotComponents_Definitions_ExternalRotationalAxis_ReInitialize_" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize*"></a>
   <h4 id="RobotComponents_Definitions_ExternalRotationalAxis_ReInitialize" data-uid="RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize">ReInitialize()</h4>
   <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid External Rotational Axis instance.</p>
@@ -1719,6 +1853,9 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a>
   </div>
 </article>
           </div>

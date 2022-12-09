@@ -83,6 +83,10 @@
       <div class="level2"><a class="xref" href="RobotComponents.Definitions.ExternalLinearAxis.html">ExternalLinearAxis</a></div>
       <div class="level2"><a class="xref" href="RobotComponents.Definitions.ExternalRotationalAxis.html">ExternalRotationalAxis</a></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -108,7 +112,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.dll</h6>
   <h5 id="RobotComponents_Definitions_ExternalAxis_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ExternalAxis</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class ExternalAxis : IMechanicalUnit</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -415,6 +419,32 @@ In case of linear axis the z-axis of the plane defines the movement direction.</
   </table>
   
   
+  <a id="RobotComponents_Definitions_ExternalAxis_NumberOfAxes_" data-uid="RobotComponents.Definitions.ExternalAxis.NumberOfAxes*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_NumberOfAxes" data-uid="RobotComponents.Definitions.ExternalAxis.NumberOfAxes">NumberOfAxes</h4>
+  <div class="markdown level1 summary"><p>Gets the number of axes for the mechanical unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract int NumberOfAxes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_ExternalAxis_PosedMeshes_" data-uid="RobotComponents.Definitions.ExternalAxis.PosedMeshes*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_PosedMeshes" data-uid="RobotComponents.Definitions.ExternalAxis.PosedMeshes">PosedMeshes</h4>
   <div class="markdown level1 summary"><p>Gets latest calculated posed axis meshes.</p>
@@ -695,6 +725,60 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   </table>
   
   
+  <a id="RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnit_" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnit" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit">DuplicateMechanicalUnit()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Mechanical Unit.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IMechanicalUnit DuplicateMechanicalUnit()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></td>
+        <td><p>A deep copy of the Mechanical Unit.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnitWithoutMesh_" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_DuplicateMechanicalUnitWithoutMesh" data-uid="RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh">DuplicateMechanicalUnitWithoutMesh()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Mechanical Unit without meshes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></td>
+        <td><p>A deep copy of the Mechanical Unit without meshes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_ExternalAxis_GetBoundingBox_" data-uid="RobotComponents.Definitions.ExternalAxis.GetBoundingBox*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_GetBoundingBox_System_Boolean_" data-uid="RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)">GetBoundingBox(Boolean)</h4>
   <div class="markdown level1 summary"><p>Returns the Bounding Box of the object.</p>
@@ -785,6 +869,51 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   </table>
   
   
+  <a id="RobotComponents_Definitions_ExternalAxis_PoseMeshes_" data-uid="RobotComponents.Definitions.ExternalAxis.PoseMeshes*"></a>
+  <h4 id="RobotComponents_Definitions_ExternalAxis_PoseMeshes_RobotComponents_Actions_JointTarget_" data-uid="RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)">PoseMeshes(JointTarget)</h4>
+  <div class="markdown level1 summary"><p>Calculates and returns the position of the meshes for a given Joint Target.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract List&lt;Mesh&gt; PoseMeshes(JointTarget jointTarget)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.Actions.JointTarget.html">JointTarget</a></td>
+        <td><span class="parametername">jointTarget</span></td>
+        <td><p>The Joint Target.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">Rhino.Geometry.Mesh</span>&gt;</td>
+        <td><p>The posed meshes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
   <a id="RobotComponents_Definitions_ExternalAxis_ReInitialize_" data-uid="RobotComponents.Definitions.ExternalAxis.ReInitialize*"></a>
   <h4 id="RobotComponents_Definitions_ExternalAxis_ReInitialize" data-uid="RobotComponents.Definitions.ExternalAxis.ReInitialize">ReInitialize()</h4>
   <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct valid External Axis instance.</p>
@@ -852,6 +981,10 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="RobotComponents.Definitions.IMechanicalUnit.html">IMechanicalUnit</a>
+  </div>
 </article>
           </div>
           

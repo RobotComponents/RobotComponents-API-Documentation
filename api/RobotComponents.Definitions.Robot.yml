@@ -6,13 +6,15 @@ items:
   parent: RobotComponents.Definitions
   children:
   - RobotComponents.Definitions.Robot.#ctor
-  - RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
+  - RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
   - RobotComponents.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool)
   - RobotComponents.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})
   - RobotComponents.Definitions.Robot.BasePlane
   - RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
   - RobotComponents.Definitions.Robot.Duplicate
+  - RobotComponents.Definitions.Robot.DuplicateMechanicalUnit
+  - RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
   - RobotComponents.Definitions.Robot.ExternalAxes
   - RobotComponents.Definitions.Robot.ExternalAxisLimits
   - RobotComponents.Definitions.Robot.ExternalAxisPlanes
@@ -28,6 +30,8 @@ items:
   - RobotComponents.Definitions.Robot.Meshes
   - RobotComponents.Definitions.Robot.MountingFrame
   - RobotComponents.Definitions.Robot.Name
+  - RobotComponents.Definitions.Robot.NumberOfAxes
+  - RobotComponents.Definitions.Robot.PoseMeshes(RobotComponents.Actions.JointTarget)
   - RobotComponents.Definitions.Robot.Tool
   - RobotComponents.Definitions.Robot.ToolPlane
   - RobotComponents.Definitions.Robot.ToString
@@ -48,14 +52,15 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nRepresents a 6-axis spherical Robot.\n"
   syntax:
-    content: 'public class Robot : ISerializable'
+    content: 'public class Robot : ISerializable, IMechanicalUnit'
     content.vb: >-
       Public Class Robot
-          Implements ISerializable
+          Implements ISerializable, IMechanicalUnit
   inheritance:
   - System.Object
   implements:
   - System.Runtime.Serialization.ISerializable
+  - RobotComponents.Definitions.IMechanicalUnit
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -268,16 +273,16 @@ items:
   - Public
   fullName.vb: RobotComponents.Definitions.Robot.Robot(System.String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.Definitions.ExternalAxis))
   name.vb: Robot(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of ExternalAxis))
-- uid: RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
-  commentId: M:RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)
-  id: '#ctor(RobotComponents.Definitions.Robot)'
+- uid: RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
+  commentId: M:RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot,System.Boolean)
+  id: '#ctor(RobotComponents.Definitions.Robot,System.Boolean)'
   parent: RobotComponents.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: Robot(Robot)
-  nameWithType: Robot.Robot(Robot)
-  fullName: RobotComponents.Definitions.Robot.Robot(RobotComponents.Definitions.Robot)
+  name: Robot(Robot, Boolean)
+  nameWithType: Robot.Robot(Robot, Boolean)
+  fullName: RobotComponents.Definitions.Robot.Robot(RobotComponents.Definitions.Robot, System.Boolean)
   type: Constructor
   source:
     path: RobotComponents
@@ -287,12 +292,15 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nInitializes a new instance of the Robot class by duplicating an existing Robot instance. \n"
   syntax:
-    content: public Robot(Robot robot)
+    content: public Robot(Robot robot, bool duplicateMesh = true)
     parameters:
     - id: robot
       type: RobotComponents.Definitions.Robot
       description: 'The Robot instance to duplicate. '
-    content.vb: Public Sub New(robot As Robot)
+    - id: duplicateMesh
+      type: System.Boolean
+      description: 'Specifies whether the meshes should be duplicated. '
+    content.vb: Public Sub New(robot As Robot, duplicateMesh As Boolean = True)
   overload: RobotComponents.Definitions.Robot.#ctor*
   modifiers.csharp:
   - public
@@ -323,6 +331,68 @@ items:
       description: 'A deep copy of the Robot instance. '
     content.vb: Public Function Duplicate As Robot
   overload: RobotComponents.Definitions.Robot.Duplicate*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.Robot.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.Definitions.Robot.DuplicateMechanicalUnit
+  id: DuplicateMechanicalUnit
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnit()
+  nameWithType: Robot.DuplicateMechanicalUnit()
+  fullName: RobotComponents.Definitions.Robot.DuplicateMechanicalUnit()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns an exact duplicate of this Robot as a Mechanical Unit.\n"
+  syntax:
+    content: public IMechanicalUnit DuplicateMechanicalUnit()
+    return:
+      type: RobotComponents.Definitions.IMechanicalUnit
+      description: 'A deep copy of the Mechanical Unit. '
+    content.vb: Public Function DuplicateMechanicalUnit As IMechanicalUnit
+  overload: RobotComponents.Definitions.Robot.DuplicateMechanicalUnit*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+  id: DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: Robot.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns an exact duplicate of this Robot as Mechanical Unit without meshes.\n"
+  syntax:
+    content: public IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()
+    return:
+      type: RobotComponents.Definitions.IMechanicalUnit
+      description: 'A deep copy of the Mechanical Unit without meshes. '
+    content.vb: Public Function DuplicateMechanicalUnitWithoutMesh As IMechanicalUnit
+  overload: RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -399,6 +469,8 @@ items:
     content.vb: Public Overrides Function ToString As String
   overridden: System.Object.ToString
   overload: RobotComponents.Definitions.Robot.ToString*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.ToString
   modifiers.csharp:
   - public
   - override
@@ -463,6 +535,41 @@ items:
   - public
   modifiers.vb:
   - Public
+- uid: RobotComponents.Definitions.Robot.PoseMeshes(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Definitions.Robot.PoseMeshes(RobotComponents.Actions.JointTarget)
+  id: PoseMeshes(RobotComponents.Actions.JointTarget)
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: PoseMeshes(JointTarget)
+  nameWithType: Robot.PoseMeshes(JointTarget)
+  fullName: RobotComponents.Definitions.Robot.PoseMeshes(RobotComponents.Actions.JointTarget)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nCalculates and returns the position of the meshes for a given Joint Target.\n"
+  syntax:
+    content: public List<Mesh> PoseMeshes(JointTarget jointTarget)
+    parameters:
+    - id: jointTarget
+      type: RobotComponents.Actions.JointTarget
+      description: 'The Joint Target. '
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The posed meshes. '
+    content.vb: Public Function PoseMeshes(jointTarget As JointTarget) As List(Of Mesh)
+  overload: RobotComponents.Definitions.Robot.PoseMeshes*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
 - uid: RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
   commentId: M:RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)
   id: Transform(Rhino.Geometry.Transform)
@@ -489,6 +596,8 @@ items:
       description: 'Spatial deform. '
     content.vb: Public Sub Transform(xform As Transform)
   overload: RobotComponents.Definitions.Robot.Transform*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -522,6 +631,8 @@ items:
       description: 'The Bounding Box. '
     content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
   overload: RobotComponents.Definitions.Robot.GetBoundingBox*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   modifiers.csharp:
   - public
   modifiers.vb:
@@ -595,6 +706,8 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.Definitions.Robot.IsValid*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.IsValid
   modifiers.csharp:
   - public
   - get
@@ -626,6 +739,8 @@ items:
       type: System.String
     content.vb: Public Property Name As String
   overload: RobotComponents.Definitions.Robot.Name*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.Name
   modifiers.csharp:
   - public
   - get
@@ -1004,6 +1119,39 @@ items:
   modifiers.vb:
   - Public
   - ReadOnly
+- uid: RobotComponents.Definitions.Robot.NumberOfAxes
+  commentId: P:RobotComponents.Definitions.Robot.NumberOfAxes
+  id: NumberOfAxes
+  parent: RobotComponents.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: NumberOfAxes
+  nameWithType: Robot.NumberOfAxes
+  fullName: RobotComponents.Definitions.Robot.NumberOfAxes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets the number of axes for the mechanical unit.\n"
+  syntax:
+    content: public int NumberOfAxes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public ReadOnly Property NumberOfAxes As Integer
+  overload: RobotComponents.Definitions.Robot.NumberOfAxes*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
 references:
 - uid: RobotComponents.Definitions
   commentId: N:RobotComponents.Definitions
@@ -1025,6 +1173,13 @@ references:
   name: ISerializable
   nameWithType: ISerializable
   fullName: System.Runtime.Serialization.ISerializable
+- uid: RobotComponents.Definitions.IMechanicalUnit
+  commentId: T:RobotComponents.Definitions.IMechanicalUnit
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: IMechanicalUnit
+  nameWithType: IMechanicalUnit
+  fullName: RobotComponents.Definitions.IMechanicalUnit
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -1615,12 +1770,93 @@ references:
   name: Robot
   nameWithType: Robot
   fullName: RobotComponents.Definitions.Robot
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
 - uid: RobotComponents.Definitions.Robot.Duplicate*
   commentId: Overload:RobotComponents.Definitions.Robot.Duplicate
   isExternal: true
   name: Duplicate
   nameWithType: Robot.Duplicate
   fullName: RobotComponents.Definitions.Robot.Duplicate
+- uid: RobotComponents.Definitions.Robot.DuplicateMechanicalUnit*
+  commentId: Overload:RobotComponents.Definitions.Robot.DuplicateMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnit
+  nameWithType: Robot.DuplicateMechanicalUnit
+  fullName: RobotComponents.Definitions.Robot.DuplicateMechanicalUnit
+- uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnit()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnit()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh*
+  commentId: Overload:RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+  isExternal: true
+  name: DuplicateMechanicalUnitWithoutMesh
+  nameWithType: Robot.DuplicateMechanicalUnitWithoutMesh
+  fullName: RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+- uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.GetRobotPreset*
   commentId: Overload:RobotComponents.Definitions.Robot.GetRobotPreset
   isExternal: true
@@ -1677,6 +1913,37 @@ references:
   name: ToString
   nameWithType: Robot.ToString
   fullName: RobotComponents.Definitions.Robot.ToString
+- uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.ToString
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: ToString()
+  nameWithType: IMechanicalUnit.ToString()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+    name: ToString
+    nameWithType: IMechanicalUnit.ToString
+    fullName: RobotComponents.Definitions.IMechanicalUnit.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+    name: ToString
+    nameWithType: IMechanicalUnit.ToString
+    fullName: RobotComponents.Definitions.IMechanicalUnit.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.Robot.GetAttachedToolMesh*
   commentId: Overload:RobotComponents.Definitions.Robot.GetAttachedToolMesh
   isExternal: true
@@ -1694,59 +1961,60 @@ references:
   name: CalculateAttachedToolPlane
   nameWithType: Robot.CalculateAttachedToolPlane
   fullName: RobotComponents.Definitions.Robot.CalculateAttachedToolPlane
-- uid: RobotComponents.Definitions.Robot.Transform*
-  commentId: Overload:RobotComponents.Definitions.Robot.Transform
+- uid: RobotComponents.Definitions.Robot.PoseMeshes*
+  commentId: Overload:RobotComponents.Definitions.Robot.PoseMeshes
   isExternal: true
-  name: Transform
-  nameWithType: Robot.Transform
-  fullName: RobotComponents.Definitions.Robot.Transform
-- uid: Rhino.Geometry.Transform
+  name: PoseMeshes
+  nameWithType: Robot.PoseMeshes
+  fullName: RobotComponents.Definitions.Robot.PoseMeshes
+- uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  parent: RobotComponents.Definitions.IMechanicalUnit
   isExternal: true
-  name: Transform
-  nameWithType: Transform
-  fullName: Rhino.Geometry.Transform
-- uid: RobotComponents.Definitions.Robot.GetBoundingBox*
-  commentId: Overload:RobotComponents.Definitions.Robot.GetBoundingBox
+  name: PoseMeshes(JointTarget)
+  nameWithType: IMechanicalUnit.PoseMeshes(JointTarget)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+    name: PoseMeshes
+    nameWithType: IMechanicalUnit.PoseMeshes
+    fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+    name: PoseMeshes
+    nameWithType: IMechanicalUnit.PoseMeshes
+    fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget
+  commentId: T:RobotComponents.Actions.JointTarget
+  parent: RobotComponents.Actions
   isExternal: true
-  name: GetBoundingBox
-  nameWithType: Robot.GetBoundingBox
-  fullName: RobotComponents.Definitions.Robot.GetBoundingBox
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  name: Boolean
-  nameWithType: Boolean
-  fullName: System.Boolean
-- uid: Rhino.Geometry.BoundingBox
-  isExternal: true
-  name: BoundingBox
-  nameWithType: BoundingBox
-  fullName: Rhino.Geometry.BoundingBox
-- uid: RobotComponents.Definitions.Robot.Transfom*
-  commentId: Overload:RobotComponents.Definitions.Robot.Transfom
-  isExternal: true
-  name: Transfom
-  nameWithType: Robot.Transfom
-  fullName: RobotComponents.Definitions.Robot.Transfom
-- uid: RobotComponents.Definitions.Robot.IsValid*
-  commentId: Overload:RobotComponents.Definitions.Robot.IsValid
-  isExternal: true
-  name: IsValid
-  nameWithType: Robot.IsValid
-  fullName: RobotComponents.Definitions.Robot.IsValid
-- uid: RobotComponents.Definitions.Robot.Name*
-  commentId: Overload:RobotComponents.Definitions.Robot.Name
-  isExternal: true
-  name: Name
-  nameWithType: Robot.Name
-  fullName: RobotComponents.Definitions.Robot.Name
-- uid: RobotComponents.Definitions.Robot.Meshes*
-  commentId: Overload:RobotComponents.Definitions.Robot.Meshes
-  isExternal: true
-  name: Meshes
-  nameWithType: Robot.Meshes
-  fullName: RobotComponents.Definitions.Robot.Meshes
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.Actions.JointTarget
 - uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
   commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
   parent: System.Collections.Generic
@@ -1791,6 +2059,12 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Actions
+  commentId: N:RobotComponents.Actions
+  isExternal: true
+  name: RobotComponents.Actions
+  nameWithType: RobotComponents.Actions
+  fullName: RobotComponents.Actions
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
   isExternal: true
@@ -1830,6 +2104,148 @@ references:
   - name: )
     nameWithType: )
     fullName: )
+- uid: RobotComponents.Definitions.Robot.Transform*
+  commentId: Overload:RobotComponents.Definitions.Robot.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Robot.Transform
+  fullName: RobotComponents.Definitions.Robot.Transform
+- uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: Transform(Transform)
+  nameWithType: IMechanicalUnit.Transform(Transform)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    name: Transform
+    nameWithType: IMechanicalUnit.Transform
+    fullName: RobotComponents.Definitions.IMechanicalUnit.Transform
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Rhino.Geometry.Transform
+    name: Transform
+    nameWithType: Transform
+    fullName: Rhino.Geometry.Transform
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    name: Transform
+    nameWithType: IMechanicalUnit.Transform
+    fullName: RobotComponents.Definitions.IMechanicalUnit.Transform
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Rhino.Geometry.Transform
+    name: Transform
+    nameWithType: Transform
+    fullName: Rhino.Geometry.Transform
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Rhino.Geometry.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Rhino.Geometry.Transform
+- uid: RobotComponents.Definitions.Robot.GetBoundingBox*
+  commentId: Overload:RobotComponents.Definitions.Robot.GetBoundingBox
+  isExternal: true
+  name: GetBoundingBox
+  nameWithType: Robot.GetBoundingBox
+  fullName: RobotComponents.Definitions.Robot.GetBoundingBox
+- uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: GetBoundingBox(Boolean)
+  nameWithType: IMechanicalUnit.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: IMechanicalUnit.GetBoundingBox
+    fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: IMechanicalUnit.GetBoundingBox
+    fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
+- uid: RobotComponents.Definitions.Robot.Transfom*
+  commentId: Overload:RobotComponents.Definitions.Robot.Transfom
+  isExternal: true
+  name: Transfom
+  nameWithType: Robot.Transfom
+  fullName: RobotComponents.Definitions.Robot.Transfom
+- uid: RobotComponents.Definitions.Robot.IsValid*
+  commentId: Overload:RobotComponents.Definitions.Robot.IsValid
+  isExternal: true
+  name: IsValid
+  nameWithType: Robot.IsValid
+  fullName: RobotComponents.Definitions.Robot.IsValid
+- uid: RobotComponents.Definitions.IMechanicalUnit.IsValid
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.IsValid
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: IsValid
+  nameWithType: IMechanicalUnit.IsValid
+  fullName: RobotComponents.Definitions.IMechanicalUnit.IsValid
+- uid: RobotComponents.Definitions.Robot.Name*
+  commentId: Overload:RobotComponents.Definitions.Robot.Name
+  isExternal: true
+  name: Name
+  nameWithType: Robot.Name
+  fullName: RobotComponents.Definitions.Robot.Name
+- uid: RobotComponents.Definitions.IMechanicalUnit.Name
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.Name
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: Name
+  nameWithType: IMechanicalUnit.Name
+  fullName: RobotComponents.Definitions.IMechanicalUnit.Name
+- uid: RobotComponents.Definitions.Robot.Meshes*
+  commentId: Overload:RobotComponents.Definitions.Robot.Meshes
+  isExternal: true
+  name: Meshes
+  nameWithType: Robot.Meshes
+  fullName: RobotComponents.Definitions.Robot.Meshes
 - uid: RobotComponents.Definitions.Robot.InternalAxisPlanes*
   commentId: Overload:RobotComponents.Definitions.Robot.InternalAxisPlanes
   isExternal: true
@@ -2048,3 +2464,23 @@ references:
   name: ExternalAxisLimits
   nameWithType: Robot.ExternalAxisLimits
   fullName: RobotComponents.Definitions.Robot.ExternalAxisLimits
+- uid: RobotComponents.Definitions.Robot.NumberOfAxes*
+  commentId: Overload:RobotComponents.Definitions.Robot.NumberOfAxes
+  isExternal: true
+  name: NumberOfAxes
+  nameWithType: Robot.NumberOfAxes
+  fullName: RobotComponents.Definitions.Robot.NumberOfAxes
+- uid: RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: NumberOfAxes
+  nameWithType: IMechanicalUnit.NumberOfAxes
+  fullName: RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

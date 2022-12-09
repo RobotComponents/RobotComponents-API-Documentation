@@ -34,6 +34,8 @@ items:
   - RobotComponents.Definitions.ExternalRotationalAxis.Duplicate
   - RobotComponents.Definitions.ExternalRotationalAxis.DuplicateExternalAxis
   - RobotComponents.Definitions.ExternalRotationalAxis.DuplicateExternalAxisWithoutMesh
+  - RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit
+  - RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
   - RobotComponents.Definitions.ExternalRotationalAxis.DuplicateWithoutMesh
   - RobotComponents.Definitions.ExternalRotationalAxis.GetBoundingBox(System.Boolean)
   - RobotComponents.Definitions.ExternalRotationalAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
@@ -41,8 +43,10 @@ items:
   - RobotComponents.Definitions.ExternalRotationalAxis.LinkMesh
   - RobotComponents.Definitions.ExternalRotationalAxis.MovesRobot
   - RobotComponents.Definitions.ExternalRotationalAxis.Name
+  - RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
   - RobotComponents.Definitions.ExternalRotationalAxis.PosedMeshes
   - RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  - RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
   - RobotComponents.Definitions.ExternalRotationalAxis.ReInitialize
   - RobotComponents.Definitions.ExternalRotationalAxis.ToString
   - RobotComponents.Definitions.ExternalRotationalAxis.Transform(Rhino.Geometry.Transform)
@@ -61,16 +65,17 @@ items:
   namespace: RobotComponents.Definitions
   summary: "\nRepresents an External Rotational Axis.\n"
   syntax:
-    content: 'public class ExternalRotationalAxis : ExternalAxis, ISerializable'
+    content: 'public class ExternalRotationalAxis : ExternalAxis, ISerializable, IMechanicalUnit'
     content.vb: >-
       Public Class ExternalRotationalAxis
           Inherits ExternalAxis
-          Implements ISerializable
+          Implements ISerializable, IMechanicalUnit
   inheritance:
   - System.Object
   - RobotComponents.Definitions.ExternalAxis
   implements:
   - System.Runtime.Serialization.ISerializable
+  - RobotComponents.Definitions.IMechanicalUnit
   inheritedMembers:
   - System.Object.Equals(System.Object)
   - System.Object.Equals(System.Object,System.Object)
@@ -858,6 +863,74 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit
+  id: DuplicateMechanicalUnit
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnit()
+  nameWithType: ExternalRotationalAxis.DuplicateMechanicalUnit()
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns an exact duplicate of this External Rotational Axis as a Mechanical Unit.\n"
+  syntax:
+    content: public override IMechanicalUnit DuplicateMechanicalUnit()
+    return:
+      type: RobotComponents.Definitions.IMechanicalUnit
+      description: 'A deep copy of the Mechanical Unit. '
+    content.vb: Public Overrides Function DuplicateMechanicalUnit As IMechanicalUnit
+  overridden: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
+  id: DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh()
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nReturns an exact duplicate of this External Rotational Axis as Mechanical Unit without meshes.\n"
+  syntax:
+    content: public override IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()
+    return:
+      type: RobotComponents.Definitions.IMechanicalUnit
+      description: 'A deep copy of the Mechanical Unit without meshes. '
+    content.vb: Public Overrides Function DuplicateMechanicalUnitWithoutMesh As IMechanicalUnit
+  overridden: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
 - uid: RobotComponents.Definitions.ExternalRotationalAxis.ToString
   commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.ToString
   id: ToString
@@ -884,6 +957,8 @@ items:
     content.vb: Public Overrides Function ToString As String
   overridden: RobotComponents.Definitions.ExternalAxis.ToString
   overload: RobotComponents.Definitions.ExternalRotationalAxis.ToString*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.ToString
   modifiers.csharp:
   - public
   - override
@@ -1046,6 +1121,44 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
+  id: PoseMeshes(RobotComponents.Actions.JointTarget)
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: PoseMeshes(JointTarget)
+  nameWithType: ExternalRotationalAxis.PoseMeshes(JointTarget)
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
+  type: Method
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nCalculates and returns the position of the meshes for a given Joint Target.\n"
+  syntax:
+    content: public override List<Mesh> PoseMeshes(JointTarget jointTarget)
+    parameters:
+    - id: jointTarget
+      type: RobotComponents.Actions.JointTarget
+      description: 'The Joint Target. '
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: 'The posed meshes. '
+    content.vb: Public Overrides Function PoseMeshes(jointTarget As JointTarget) As List(Of Mesh)
+  overridden: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  modifiers.csharp:
+  - public
+  - override
+  modifiers.vb:
+  - Public
+  - Overrides
 - uid: RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   commentId: M:RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
   id: PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
@@ -1138,6 +1251,8 @@ items:
     content.vb: Public Overrides Sub Transform(xform As Transform)
   overridden: RobotComponents.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
   overload: RobotComponents.Definitions.ExternalRotationalAxis.Transform*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
   modifiers.csharp:
   - public
   - override
@@ -1174,6 +1289,8 @@ items:
     content.vb: Public Overrides Function GetBoundingBox(accurate As Boolean) As BoundingBox
   overridden: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
   overload: RobotComponents.Definitions.ExternalRotationalAxis.GetBoundingBox*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   modifiers.csharp:
   - public
   - override
@@ -1206,6 +1323,8 @@ items:
     content.vb: Public Overrides ReadOnly Property IsValid As Boolean
   overridden: RobotComponents.Definitions.ExternalAxis.IsValid
   overload: RobotComponents.Definitions.ExternalRotationalAxis.IsValid*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.IsValid
   modifiers.csharp:
   - public
   - override
@@ -1240,6 +1359,8 @@ items:
     content.vb: Public Overrides Property Name As String
   overridden: RobotComponents.Definitions.ExternalAxis.Name
   overload: RobotComponents.Definitions.ExternalRotationalAxis.Name*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.Name
   modifiers.csharp:
   - public
   - override
@@ -1588,6 +1709,42 @@ items:
   modifiers.vb:
   - Public
   - Overrides
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
+  commentId: P:RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
+  id: NumberOfAxes
+  parent: RobotComponents.Definitions.ExternalRotationalAxis
+  langs:
+  - csharp
+  - vb
+  name: NumberOfAxes
+  nameWithType: ExternalRotationalAxis.NumberOfAxes
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
+  type: Property
+  source:
+    path: RobotComponents
+    isExternal: true
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Definitions
+  summary: "\nGets the number of axes for the mechanical unit.\n"
+  syntax:
+    content: public override int NumberOfAxes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: Public Overrides ReadOnly Property NumberOfAxes As Integer
+  overridden: RobotComponents.Definitions.ExternalAxis.NumberOfAxes
+  overload: RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes*
+  implements:
+  - RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  modifiers.csharp:
+  - public
+  - override
+  - get
+  modifiers.vb:
+  - Public
+  - Overrides
+  - ReadOnly
 references:
 - uid: RobotComponents.Definitions
   commentId: N:RobotComponents.Definitions
@@ -1616,6 +1773,13 @@ references:
   name: ISerializable
   nameWithType: ISerializable
   fullName: System.Runtime.Serialization.ISerializable
+- uid: RobotComponents.Definitions.IMechanicalUnit
+  commentId: T:RobotComponents.Definitions.IMechanicalUnit
+  parent: RobotComponents.Definitions
+  isExternal: true
+  name: IMechanicalUnit
+  nameWithType: IMechanicalUnit
+  fullName: RobotComponents.Definitions.IMechanicalUnit
 - uid: System.Object.Equals(System.Object)
   commentId: M:System.Object.Equals(System.Object)
   parent: System.Object
@@ -2177,6 +2341,142 @@ references:
   name: DuplicateExternalAxisWithoutMesh
   nameWithType: ExternalRotationalAxis.DuplicateExternalAxisWithoutMesh
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateExternalAxisWithoutMesh
+- uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: DuplicateMechanicalUnit()
+  nameWithType: ExternalAxis.DuplicateMechanicalUnit()
+  fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: ExternalAxis.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: ExternalAxis.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit*
+  commentId: Overload:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnit
+  nameWithType: ExternalRotationalAxis.DuplicateMechanicalUnit
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit
+- uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnit()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnit()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnit
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: ExternalAxis.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh*
+  commentId: Overload:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
+  isExternal: true
+  name: DuplicateMechanicalUnitWithoutMesh
+  nameWithType: ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh
+- uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    fullName: RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.ExternalAxis.ToString
   commentId: M:RobotComponents.Definitions.ExternalAxis.ToString
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2214,6 +2514,37 @@ references:
   name: ToString
   nameWithType: ExternalRotationalAxis.ToString
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.ToString
+- uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.ToString
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: ToString()
+  nameWithType: IMechanicalUnit.ToString()
+  fullName: RobotComponents.Definitions.IMechanicalUnit.ToString()
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+    name: ToString
+    nameWithType: IMechanicalUnit.ToString
+    fullName: RobotComponents.Definitions.IMechanicalUnit.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.ToString
+    name: ToString
+    nameWithType: IMechanicalUnit.ToString
+    fullName: RobotComponents.Definitions.IMechanicalUnit.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   commentId: M:RobotComponents.Definitions.ExternalAxis.CalculatePosition(RobotComponents.Actions.ExternalJointPosition,System.Boolean@)
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2452,15 +2783,15 @@ references:
   name: CalculateTransformationMatrixSave
   nameWithType: ExternalRotationalAxis.CalculateTransformationMatrixSave
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave
-- uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
-  commentId: M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+- uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
   parent: RobotComponents.Definitions.ExternalAxis
   isExternal: true
-  name: PoseMeshes(ExternalJointPosition)
-  nameWithType: ExternalAxis.PoseMeshes(ExternalJointPosition)
-  fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  name: PoseMeshes(JointTarget)
+  nameWithType: ExternalAxis.PoseMeshes(JointTarget)
+  fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
   spec.csharp:
-  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
     name: PoseMeshes
     nameWithType: ExternalAxis.PoseMeshes
     fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
@@ -2468,16 +2799,16 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: RobotComponents.Actions.ExternalJointPosition
-    name: ExternalJointPosition
-    nameWithType: ExternalJointPosition
-    fullName: RobotComponents.Actions.ExternalJointPosition
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
     isExternal: true
   - name: )
     nameWithType: )
     fullName: )
   spec.vb:
-  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)
     name: PoseMeshes
     nameWithType: ExternalAxis.PoseMeshes
     fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
@@ -2485,10 +2816,10 @@ references:
   - name: (
     nameWithType: (
     fullName: (
-  - uid: RobotComponents.Actions.ExternalJointPosition
-    name: ExternalJointPosition
-    nameWithType: ExternalJointPosition
-    fullName: RobotComponents.Actions.ExternalJointPosition
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
     isExternal: true
   - name: )
     nameWithType: )
@@ -2499,6 +2830,54 @@ references:
   name: PoseMeshes
   nameWithType: ExternalRotationalAxis.PoseMeshes
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes
+- uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: PoseMeshes(JointTarget)
+  nameWithType: IMechanicalUnit.PoseMeshes(JointTarget)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+    name: PoseMeshes
+    nameWithType: IMechanicalUnit.PoseMeshes
+    fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)
+    name: PoseMeshes
+    nameWithType: IMechanicalUnit.PoseMeshes
+    fullName: RobotComponents.Definitions.IMechanicalUnit.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.JointTarget
+    name: JointTarget
+    nameWithType: JointTarget
+    fullName: RobotComponents.Actions.JointTarget
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Actions.JointTarget
+  commentId: T:RobotComponents.Actions.JointTarget
+  parent: RobotComponents.Actions
+  isExternal: true
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.Actions.JointTarget
 - uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
   commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
   parent: System.Collections.Generic
@@ -2579,6 +2958,47 @@ references:
   - name: T
     nameWithType: T
     fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  commentId: M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: PoseMeshes(ExternalJointPosition)
+  nameWithType: ExternalAxis.PoseMeshes(ExternalJointPosition)
+  fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+    name: PoseMeshes
+    nameWithType: ExternalAxis.PoseMeshes
+    fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)
+    name: PoseMeshes
+    nameWithType: ExternalAxis.PoseMeshes
+    fullName: RobotComponents.Definitions.ExternalAxis.PoseMeshes
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: RobotComponents.Actions.ExternalJointPosition
+    name: ExternalJointPosition
+    nameWithType: ExternalJointPosition
+    fullName: RobotComponents.Actions.ExternalJointPosition
+    isExternal: true
   - name: )
     nameWithType: )
     fullName: )
@@ -2666,6 +3086,47 @@ references:
   name: Transform
   nameWithType: ExternalRotationalAxis.Transform
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.Transform
+- uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: Transform(Transform)
+  nameWithType: IMechanicalUnit.Transform(Transform)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    name: Transform
+    nameWithType: IMechanicalUnit.Transform
+    fullName: RobotComponents.Definitions.IMechanicalUnit.Transform
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Rhino.Geometry.Transform
+    name: Transform
+    nameWithType: Transform
+    fullName: Rhino.Geometry.Transform
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    name: Transform
+    nameWithType: IMechanicalUnit.Transform
+    fullName: RobotComponents.Definitions.IMechanicalUnit.Transform
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Rhino.Geometry.Transform
+    name: Transform
+    nameWithType: Transform
+    fullName: Rhino.Geometry.Transform
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
   commentId: M:RobotComponents.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2713,6 +3174,47 @@ references:
   name: GetBoundingBox
   nameWithType: ExternalRotationalAxis.GetBoundingBox
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.GetBoundingBox
+- uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: GetBoundingBox(Boolean)
+  nameWithType: IMechanicalUnit.GetBoundingBox(Boolean)
+  fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  spec.csharp:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: IMechanicalUnit.GetBoundingBox
+    fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    name: GetBoundingBox
+    nameWithType: IMechanicalUnit.GetBoundingBox
+    fullName: RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
 - uid: Rhino.Geometry.BoundingBox
   isExternal: true
   name: BoundingBox
@@ -2731,6 +3233,13 @@ references:
   name: IsValid
   nameWithType: ExternalRotationalAxis.IsValid
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.IsValid
+- uid: RobotComponents.Definitions.IMechanicalUnit.IsValid
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.IsValid
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: IsValid
+  nameWithType: IMechanicalUnit.IsValid
+  fullName: RobotComponents.Definitions.IMechanicalUnit.IsValid
 - uid: RobotComponents.Definitions.ExternalAxis.Name
   commentId: P:RobotComponents.Definitions.ExternalAxis.Name
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2744,6 +3253,13 @@ references:
   name: Name
   nameWithType: ExternalRotationalAxis.Name
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.Name
+- uid: RobotComponents.Definitions.IMechanicalUnit.Name
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.Name
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: Name
+  nameWithType: IMechanicalUnit.Name
+  fullName: RobotComponents.Definitions.IMechanicalUnit.Name
 - uid: RobotComponents.Definitions.ExternalAxis.AttachmentPlane
   commentId: P:RobotComponents.Definitions.ExternalAxis.AttachmentPlane
   parent: RobotComponents.Definitions.ExternalAxis
@@ -2894,3 +3410,23 @@ references:
   name: MovesRobot
   nameWithType: ExternalRotationalAxis.MovesRobot
   fullName: RobotComponents.Definitions.ExternalRotationalAxis.MovesRobot
+- uid: RobotComponents.Definitions.ExternalAxis.NumberOfAxes
+  commentId: P:RobotComponents.Definitions.ExternalAxis.NumberOfAxes
+  parent: RobotComponents.Definitions.ExternalAxis
+  isExternal: true
+  name: NumberOfAxes
+  nameWithType: ExternalAxis.NumberOfAxes
+  fullName: RobotComponents.Definitions.ExternalAxis.NumberOfAxes
+- uid: RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes*
+  commentId: Overload:RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
+  isExternal: true
+  name: NumberOfAxes
+  nameWithType: ExternalRotationalAxis.NumberOfAxes
+  fullName: RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes
+- uid: RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  commentId: P:RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes
+  parent: RobotComponents.Definitions.IMechanicalUnit
+  isExternal: true
+  name: NumberOfAxes
+  nameWithType: IMechanicalUnit.NumberOfAxes
+  fullName: RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes

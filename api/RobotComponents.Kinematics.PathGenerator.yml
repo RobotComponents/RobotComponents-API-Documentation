@@ -7,7 +7,7 @@ items:
   children:
   - RobotComponents.Kinematics.PathGenerator.#ctor
   - RobotComponents.Kinematics.PathGenerator.#ctor(RobotComponents.Definitions.Robot)
-  - RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)
+  - RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.Actions.Action},System.Int32)
   - RobotComponents.Kinematics.PathGenerator.ErrorText
   - RobotComponents.Kinematics.PathGenerator.ExternalJointPositions
   - RobotComponents.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
@@ -138,16 +138,16 @@ items:
   modifiers.vb:
   - Public
   - Overrides
-- uid: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)
-  commentId: M:RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)
-  id: Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)
+- uid: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.Actions.Action},System.Int32)
+  commentId: M:RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.Actions.Action},System.Int32)
+  id: Calculate(System.Collections.Generic.IList{RobotComponents.Actions.Action},System.Int32)
   parent: RobotComponents.Kinematics.PathGenerator
   langs:
   - csharp
   - vb
-  name: Calculate(List<Action>, Int32)
-  nameWithType: PathGenerator.Calculate(List<Action>, Int32)
-  fullName: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List<RobotComponents.Actions.Action>, System.Int32)
+  name: Calculate(IList<Action>, Int32)
+  nameWithType: PathGenerator.Calculate(IList<Action>, Int32)
+  fullName: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList<RobotComponents.Actions.Action>, System.Int32)
   type: Method
   source:
     path: RobotComponents
@@ -157,23 +157,23 @@ items:
   namespace: RobotComponents.Kinematics
   summary: "\nCalculates the path from a list with Actions.\n"
   syntax:
-    content: public void Calculate(List<Action> actions, int interpolations)
+    content: public void Calculate(IList<Action> actions, int interpolations)
     parameters:
     - id: actions
-      type: System.Collections.Generic.List{RobotComponents.Actions.Action}
+      type: System.Collections.Generic.IList{RobotComponents.Actions.Action}
       description: 'The list with Actions. '
     - id: interpolations
       type: System.Int32
       description: 'The amount of interpolations between two targets. '
-    content.vb: Public Sub Calculate(actions As List(Of Action), interpolations As Integer)
+    content.vb: Public Sub Calculate(actions As IList(Of Action), interpolations As Integer)
   overload: RobotComponents.Kinematics.PathGenerator.Calculate*
-  nameWithType.vb: PathGenerator.Calculate(List(Of Action), Int32)
+  nameWithType.vb: PathGenerator.Calculate(IList(Of Action), Int32)
   modifiers.csharp:
   - public
   modifiers.vb:
   - Public
-  fullName.vb: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List(Of RobotComponents.Actions.Action), System.Int32)
-  name.vb: Calculate(List(Of Action), Int32)
+  fullName.vb: RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList(Of RobotComponents.Actions.Action), System.Int32)
+  name.vb: Calculate(IList(Of Action), Int32)
 - uid: RobotComponents.Kinematics.PathGenerator.IsValid
   commentId: P:RobotComponents.Kinematics.PathGenerator.IsValid
   id: IsValid
@@ -790,21 +790,21 @@ references:
   name: Calculate
   nameWithType: PathGenerator.Calculate
   fullName: RobotComponents.Kinematics.PathGenerator.Calculate
-- uid: System.Collections.Generic.List{RobotComponents.Actions.Action}
-  commentId: T:System.Collections.Generic.List{RobotComponents.Actions.Action}
+- uid: System.Collections.Generic.IList{RobotComponents.Actions.Action}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.Actions.Action}
   parent: System.Collections.Generic
-  definition: System.Collections.Generic.List`1
-  name: List<Action>
-  nameWithType: List<Action>
-  fullName: System.Collections.Generic.List<RobotComponents.Actions.Action>
-  nameWithType.vb: List(Of Action)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.Actions.Action)
-  name.vb: List(Of Action)
+  definition: System.Collections.Generic.IList`1
+  name: IList<Action>
+  nameWithType: IList<Action>
+  fullName: System.Collections.Generic.IList<RobotComponents.Actions.Action>
+  nameWithType.vb: IList(Of Action)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.Actions.Action)
+  name.vb: IList(Of Action)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -818,10 +818,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -841,20 +841,20 @@ references:
   name: Int32
   nameWithType: Int32
   fullName: System.Int32
-- uid: System.Collections.Generic.List`1
-  commentId: T:System.Collections.Generic.List`1
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
   isExternal: true
-  name: List<T>
-  nameWithType: List<T>
-  fullName: System.Collections.Generic.List<T>
-  nameWithType.vb: List(Of T)
-  fullName.vb: System.Collections.Generic.List(Of T)
-  name.vb: List(Of T)
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
   spec.csharp:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: <
     nameWithType: <
@@ -866,10 +866,10 @@ references:
     nameWithType: '>'
     fullName: '>'
   spec.vb:
-  - uid: System.Collections.Generic.List`1
-    name: List
-    nameWithType: List
-    fullName: System.Collections.Generic.List
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
     isExternal: true
   - name: '(Of '
     nameWithType: '(Of '
@@ -952,6 +952,45 @@ references:
     nameWithType: Plane
     fullName: Rhino.Geometry.Plane
     isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
   - name: )
     nameWithType: )
     fullName: )

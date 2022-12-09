@@ -4220,6 +4220,18 @@
             </summary>
             <returns> A deep copy of the External Axis without meshes. </returns>
         </member>
+        <member name="M:RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnit">
+            <summary>
+            Returns an exact duplicate of this Mechanical Unit.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh">
+            <summary>
+            Returns an exact duplicate of this Mechanical Unit without meshes.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit without meshes. </returns>
+        </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.ToString">
             <summary>
             Returns a string that represents the current object.
@@ -4266,6 +4278,13 @@
             <summary>
             Reinitializes the fields and properties to construct valid External Axis instance. 
             </summary>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)">
+            <summary>
+            Calculates and returns the position of the meshes for a given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
+            <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -4349,6 +4368,69 @@
             Gets a value indicating whether or not this External Axis moves the Robot.
             </summary>
         </member>
+        <member name="P:RobotComponents.Definitions.ExternalAxis.NumberOfAxes">
+            <summary>
+            Gets the number of axes for the mechanical unit.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.Definitions.IMechanicalUnit">
+            <summary>
+            Represent the interface of mechanical units
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnit">
+            <summary>
+            Returns an exact duplicate of this Mechanical Unit.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh">
+            <summary>
+            Returns an exact duplicate of this Mechanical Unit without meshes.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit without meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.Actions.JointTarget)">
+            <summary>
+            Calculates and returns the position of the meshes for a given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
+            <returns> The posed meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)">
+            <summary>
+            Transforms the external axis spatial properties (planes and meshes). 
+            </summary>
+            <param name="xform"> The spatial deform. </param>
+        </member>
+        <member name="M:RobotComponents.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)">
+            <summary>
+            Returns the Bounding Box of the object.
+            </summary>
+            <param name="accurate"> If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. </param>
+            <returns> The Bounding Box. </returns>
+        </member>
+        <member name="P:RobotComponents.Definitions.IMechanicalUnit.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Definitions.IMechanicalUnit.Name">
+            <summary>
+            Gets or sets the external axis name. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Definitions.IMechanicalUnit.NumberOfAxes">
+            <summary>
+            Gets the number of axes for the mechanical unit.
+            </summary>
+        </member>
         <member name="T:RobotComponents.Definitions.Presets.CRB15000_5_095">
             <summary>
             Represents a collection of methods to get the CRB15000-5/0.95 Robot instance.
@@ -4382,6 +4464,44 @@
             <returns> The list with axis limits. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.Presets.CRB15000_5_095.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.Definitions.Presets.IRB1010_15_037">
+            <summary>
+            Represents a collection of methods to get the IRB1010-1.5/0.37 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Definitions.Presets.IRB1010_15_037.GetRobot(Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
+            <summary>
+            Returns a new IRB1010-1.5/0.37 Robot instance. 
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Presets.IRB1010_15_037.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Presets.IRB1010_15_037.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> The list with axis planes. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Presets.IRB1010_15_037.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Presets.IRB1010_15_037.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
@@ -6821,6 +6941,18 @@
             </summary>
             <returns> A deep copy of the External Linear Axis instance as an External Axis without meshes. </returns>
         </member>
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit">
+            <summary>
+            Returns an exact duplicate of this External Linear Axis as a Mechanical Unit.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh">
+            <summary>
+            Returns an exact duplicate of this External Linear Axis as Mechanical Unit without meshes.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit without meshes. </returns>
+        </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.ToString">
             <summary>
             Returns a string that represents the current object.
@@ -6875,6 +7007,13 @@
             </summary>
             <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The transformation matrix. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.JointTarget)">
+            <summary>
+            Calculates and returns the position of the meshes for a given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
+            <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -6971,6 +7110,11 @@
         <member name="P:RobotComponents.Definitions.ExternalLinearAxis.MovesRobot">
             <summary>
             Gets or sets a value indicating whether or not this External Linear Axis moves the Robot.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Definitions.ExternalLinearAxis.NumberOfAxes">
+            <summary>
+            Gets the number of axes for the mechanical unit.
             </summary>
         </member>
         <member name="T:RobotComponents.Definitions.ExternalRotationalAxis">
@@ -7152,6 +7296,18 @@
             </summary>
             <returns> A deep copy of the External Rotational Axis instance as an External Axis without meshes. </returns>
         </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit">
+            <summary>
+            Returns an exact duplicate of this External Rotational Axis as a Mechanical Unit.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh">
+            <summary>
+            Returns an exact duplicate of this External Rotational Axis as Mechanical Unit without meshes.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit without meshes. </returns>
+        </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.ToString">
             <summary>
             Returns a string that represents the current object.
@@ -7200,6 +7356,13 @@
             </summary>
             <param name="externalJointPosition"> The External Joint Position. </param>
             <returns> The transformation matrix. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.JointTarget)">
+            <summary>
+            Calculates and returns the position of the meshes for a given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
+            <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.ExternalRotationalAxis.PoseMeshes(RobotComponents.Actions.ExternalJointPosition)">
             <summary>
@@ -7291,6 +7454,11 @@
             Gets or sets a value indicating whether or not this External Rotational Axis moves the Robot.
             </summary>
         </member>
+        <member name="P:RobotComponents.Definitions.ExternalRotationalAxis.NumberOfAxes">
+            <summary>
+            Gets the number of axes for the mechanical unit.
+            </summary>
+        </member>
         <member name="T:RobotComponents.Definitions.Robot">
             <summary>
             Represents a 6-axis spherical Robot.
@@ -7340,17 +7508,30 @@
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The attached external axes. </param>
         </member>
-        <member name="M:RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot)">
+        <member name="M:RobotComponents.Definitions.Robot.#ctor(RobotComponents.Definitions.Robot,System.Boolean)">
             <summary>
             Initializes a new instance of the Robot class by duplicating an existing Robot instance. 
             </summary>
             <param name="robot"> The Robot instance to duplicate. </param>
+            <param name="duplicateMesh"> Specifies whether the meshes should be duplicated. </param>
         </member>
         <member name="M:RobotComponents.Definitions.Robot.Duplicate">
             <summary>
             Returns an exact duplicate of this Robot instance.
             </summary>
             <returns> A deep copy of the Robot instance. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Robot.DuplicateMechanicalUnit">
+            <summary>
+            Returns an exact duplicate of this Robot as a Mechanical Unit.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh">
+            <summary>
+            Returns an exact duplicate of this Robot as Mechanical Unit without meshes.
+            </summary>
+            <returns> A deep copy of the Mechanical Unit without meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.Robot.GetRobotPreset(RobotComponents.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.Definitions.ExternalAxis})">
             <summary>
@@ -7384,6 +7565,13 @@
             Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.
             </summary>
             <returns> The TCP plane in robot coordinate space. </returns>
+        </member>
+        <member name="M:RobotComponents.Definitions.Robot.PoseMeshes(RobotComponents.Actions.JointTarget)">
+            <summary>
+            Calculates and returns the position of the meshes for a given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
+            <returns> The posed meshes. </returns>
         </member>
         <member name="M:RobotComponents.Definitions.Robot.Transform(Rhino.Geometry.Transform)">
             <summary>
@@ -7470,6 +7658,11 @@
             Gets the external axis limits.
             </summary>
         </member>
+        <member name="P:RobotComponents.Definitions.Robot.NumberOfAxes">
+            <summary>
+            Gets the number of axes for the mechanical unit.
+            </summary>
+        </member>
         <member name="M:RobotComponents.Definitions.Robot.Transfom(Rhino.Geometry.Transform)">
             <summary>
             Transforms the robot spatial properties (planes and meshes).
@@ -7526,6 +7719,41 @@
         <member name="P:RobotComponents.Properties.Resources.CRB15000_5_0_95_link_6">
             <summary>
               Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAYe4CAAL6fwIAVe4CAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgAd7gIAAAAAADgmEwAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/kPqMhC9FSsBYfBPiDQ1zQMdlYT39wFvAeVMOHoRcn0AAAAAAAAAAAAAAAAAAAAAAmZkGRJvqUcJnnVNEDMAORIwqUkKZ4m1EAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_0">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA1Q8LAAL6fwIAyQ8LAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCRDwsAAAAAADilQgAAmDoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/R7X1DW7WYMAyAiSex4RzQIkP0icXhR7Bh3oSFjbrk0AAAAAAAAAAAAAAAAAAAAAAXIBBw1MAh8JP1oO6AQCFQk0Ah0LYmf9CAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_1">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAYkIJAAL6fwIAVkIJAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgAeQgkAAAAAADiiNgAAmDoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/8dJNYhDAXcCdtx0D1w99QNhKd4nLPVPAykOQ1ynxo0AAAAAAAAAAAAAAAAAAAAAAn+yHwuv9icLA//NCAQCgQnkBikJp53BDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_2">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA7w4KAAL6fwIA4w4KAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCrDgoAAAAAADjsNwAAmDoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/7nykO6OJXsBwh9wB3HGaQCFAJlAq3VLAPXvJN+PwikAAAAAAAAAAAAAAAAAAAAAAaWaWwi8AuMLJcwhDrAROQq4BuEIBAM9DAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_3">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAtNUHAAL6fwIAqNUHAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgBw1QcAAAAAADjyLwAAlzoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/2OZguycQU8CEQLXNh5R2QASDZYEytVXANx3H+1pDpUAAAAAAAAAAAAAAAAAAAAAAxB2jwjQzb8JRhqJDNDNtQucAckJsftRDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_4">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAxvIJAAL6fwIAuvIJAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCC8gkAAAAAADiQOwAAmDoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/6nUPwLJYYMB0xk2MEsCQQAUAAAAAoGHAX5V25prIlUAAAAAAAAAAAAAAAAAAAAAAMjNdQoAAcsL/f6JDAYBdQ3oAbkJKet1DAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_5">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAATM0IAAL6fwIAQM0IAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgAIzQgAAAAAADiWNgAAmDoAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/6N06q9CbYMBJtJTVWOpyQAMLPz/aaHLA2VJYXE/YnUAAAAAAAAAAAAAAAAAAAAAACNXfQjQzH8LsiqZD28xjQ0sBJEIOddBDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Properties.Resources.IRB1010_1_5_0_37_link_6">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAGjkBAAL6fwIADjkBAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgDWOAEAAAAAADjSDQAADBAAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/ZYT9u5l2RcDY5L+G0nNdQNByf+jw/kDAmJmZmZmZRkAAAAAAAAAAAAAAAAAAAAAAmZlSQwEAyMHtCq9DAQBmQwEAyEEBgMxDAACA [rest of string was truncated]&quot;;.
             </summary>
         </member>
         <member name="P:RobotComponents.Properties.Resources.IRB1100_4_0_475_link_0">
@@ -9710,7 +9938,7 @@
             Resets / clears the current solution.
             </summary>
         </member>
-        <member name="M:RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.List{RobotComponents.Actions.Action},System.Int32)">
+        <member name="M:RobotComponents.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.Actions.Action},System.Int32)">
             <summary>
             Calculates the path from a list with Actions.
             </summary>
@@ -9749,7 +9977,7 @@
             <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
             <param name="movement"> The movement that belongs to the given joint positions. </param>
         </member>
-        <member name="M:RobotComponents.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.List{RobotComponents.Actions.Action})">
+        <member name="M:RobotComponents.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.Actions.Action})">
             <summary>
             Checks whether the first movement type is an absolute joint movement.
             Returns true if no movements were defined. 
@@ -10105,6 +10333,11 @@
         <member name="F:RobotComponents.Enumerations.RobotPreset.IRB1520ID_4_150">
             <summary>
             IRB1520ID-4/1.5
+            </summary>
+        </member>
+        <member name="F:RobotComponents.Enumerations.RobotPreset.IRB1010_1_5_037">
+            <summary>
+            IRB1010ID-1.5/0.37
             </summary>
         </member>
         <member name="T:RobotComponents.Enumerations.PredefinedSpeedData">
