@@ -1,0 +1,2333 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.ABB.Controllers.Controller
+  commentId: T:RobotComponents.ABB.Controllers.Controller
+  id: Controller
+  parent: RobotComponents.ABB.Controllers
+  children:
+  - RobotComponents.ABB.Controllers.Controller.#ctor
+  - RobotComponents.ABB.Controllers.Controller.#ctor(ABB.Robotics.Controllers.ControllerInfo)
+  - RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  - RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  - RobotComponents.ABB.Controllers.Controller.Clear
+  - RobotComponents.ABB.Controllers.Controller.ControllerABB
+  - RobotComponents.ABB.Controllers.Controller.Controllers
+  - RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  - RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  - RobotComponents.ABB.Controllers.Controller.Dispose
+  - RobotComponents.ABB.Controllers.Controller.GetAnalogInput(System.String,System.Int32@)
+  - RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(System.String,System.Int32@)
+  - RobotComponents.ABB.Controllers.Controller.GetControllers
+  - RobotComponents.ABB.Controllers.Controller.GetDigitalInput(System.String,System.Int32@)
+  - RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(System.String,System.Int32@)
+  - RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(System.Int32)
+  - RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+  - RobotComponents.ABB.Controllers.Controller.GetJointTargets
+  - RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+  - RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+  - RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+  - RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(System.Int32)
+  - RobotComponents.ABB.Controllers.Controller.Initiliaze
+  - RobotComponents.ABB.Controllers.Controller.IsEmpty
+  - RobotComponents.ABB.Controllers.Controller.IsInitialized
+  - RobotComponents.ABB.Controllers.Controller.IsValid
+  - RobotComponents.ABB.Controllers.Controller.Logger
+  - RobotComponents.ABB.Controllers.Controller.Logoff
+  - RobotComponents.ABB.Controllers.Controller.Logon
+  - RobotComponents.ABB.Controllers.Controller.Name
+  - RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(System.String,System.String,System.String,System.String)
+  - RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(System.String,System.String,System.String)
+  - RobotComponents.ABB.Controllers.Controller.ResetLogger
+  - RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(System.String,System.String@)
+  - RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
+  - RobotComponents.ABB.Controllers.Controller.RunProgram(System.String@)
+  - RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+  - RobotComponents.ABB.Controllers.Controller.SetUserInfo(System.String,System.String)
+  - RobotComponents.ABB.Controllers.Controller.StopProgram(System.String@)
+  - RobotComponents.ABB.Controllers.Controller.TaskNames
+  - RobotComponents.ABB.Controllers.Controller.TasksABB
+  - RobotComponents.ABB.Controllers.Controller.ToString
+  - RobotComponents.ABB.Controllers.Controller.UploadModule(System.String,System.Collections.Generic.List{System.String},System.String@)
+  - RobotComponents.ABB.Controllers.Controller.UserName
+  langs:
+  - csharp
+  - vb
+  name: Controller
+  nameWithType: Controller
+  fullName: RobotComponents.ABB.Controllers.Controller
+  type: Class
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: >-
+    Represents the Controller class. 
+
+    This class is a wrapper around the ABB Controller class.
+  example: []
+  syntax:
+    content: public class Controller
+    content.vb: Public Class Controller
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: RobotComponents.ABB.Controllers.Controller.#ctor
+  commentId: M:RobotComponents.ABB.Controllers.Controller.#ctor
+  id: '#ctor'
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Controller()
+  nameWithType: Controller.Controller()
+  fullName: RobotComponents.ABB.Controllers.Controller.Controller()
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Empty constructor.
+  example: []
+  syntax:
+    content: public Controller()
+    content.vb: Public Sub New()
+  overload: RobotComponents.ABB.Controllers.Controller.#ctor*
+  nameWithType.vb: Controller.New()
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.New()
+  name.vb: New()
+- uid: RobotComponents.ABB.Controllers.Controller.#ctor(ABB.Robotics.Controllers.ControllerInfo)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.#ctor(ABB.Robotics.Controllers.ControllerInfo)
+  id: '#ctor(ABB.Robotics.Controllers.ControllerInfo)'
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Controller(ControllerInfo)
+  nameWithType: Controller.Controller(ControllerInfo)
+  fullName: RobotComponents.ABB.Controllers.Controller.Controller(ABB.Robotics.Controllers.ControllerInfo)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Constructs a Controller instance from an ABB Controller Info instance.
+  example: []
+  syntax:
+    content: public Controller(ControllerInfo controllerInfo)
+    parameters:
+    - id: controllerInfo
+      type: ABB.Robotics.Controllers.ControllerInfo
+      description: The ABB Controller Info instance.
+    content.vb: Public Sub New(controllerInfo As ControllerInfo)
+  overload: RobotComponents.ABB.Controllers.Controller.#ctor*
+  nameWithType.vb: Controller.New(ControllerInfo)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.New(ABB.Robotics.Controllers.ControllerInfo)
+  name.vb: New(ControllerInfo)
+- uid: RobotComponents.ABB.Controllers.Controller.GetControllers
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetControllers
+  id: GetControllers
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetControllers()
+  nameWithType: Controller.GetControllers()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetControllers()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: >-
+    Returns a list with ABB Controllers that are found in the network. 
+
+    <remarks> 
+
+    These controllers are not initialized. Call Initialize first if you want to use these controllers. 
+
+    </remarks>
+  example: []
+  syntax:
+    content: public static List<Controller> GetControllers()
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Controller}
+      description: A list with controlers.
+    content.vb: Public Shared Function GetControllers() As List(Of Controller)
+  overload: RobotComponents.ABB.Controllers.Controller.GetControllers*
+- uid: RobotComponents.ABB.Controllers.Controller.ToString
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ToString
+  id: ToString
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: Controller.ToString()
+  fullName: RobotComponents.ABB.Controllers.Controller.ToString()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RobotComponents.ABB.Controllers.Controller.ToString*
+- uid: RobotComponents.ABB.Controllers.Controller.Initiliaze
+  commentId: M:RobotComponents.ABB.Controllers.Controller.Initiliaze
+  id: Initiliaze
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Initiliaze()
+  nameWithType: Controller.Initiliaze()
+  fullName: RobotComponents.ABB.Controllers.Controller.Initiliaze()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Initializes the fields of this Controller instance.
+  example: []
+  syntax:
+    content: public void Initiliaze()
+    content.vb: Public Sub Initiliaze()
+  overload: RobotComponents.ABB.Controllers.Controller.Initiliaze*
+- uid: RobotComponents.ABB.Controllers.Controller.Clear
+  commentId: M:RobotComponents.ABB.Controllers.Controller.Clear
+  id: Clear
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Clear()
+  nameWithType: Controller.Clear()
+  fullName: RobotComponents.ABB.Controllers.Controller.Clear()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Clears all fields except the log.
+  example: []
+  syntax:
+    content: public void Clear()
+    content.vb: Public Sub Clear()
+  overload: RobotComponents.ABB.Controllers.Controller.Clear*
+- uid: RobotComponents.ABB.Controllers.Controller.ResetLogger
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ResetLogger
+  id: ResetLogger
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ResetLogger()
+  nameWithType: Controller.ResetLogger()
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetLogger()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Resets the logger.
+  example: []
+  syntax:
+    content: public void ResetLogger()
+    content.vb: Public Sub ResetLogger()
+  overload: RobotComponents.ABB.Controllers.Controller.ResetLogger*
+- uid: RobotComponents.ABB.Controllers.Controller.Logon
+  commentId: M:RobotComponents.ABB.Controllers.Controller.Logon
+  id: Logon
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Logon()
+  nameWithType: Controller.Logon()
+  fullName: RobotComponents.ABB.Controllers.Controller.Logon()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Logon to the set user.
+  example: []
+  syntax:
+    content: public bool Logon()
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function Logon() As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.Logon*
+- uid: RobotComponents.ABB.Controllers.Controller.Logoff
+  commentId: M:RobotComponents.ABB.Controllers.Controller.Logoff
+  id: Logoff
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Logoff()
+  nameWithType: Controller.Logoff()
+  fullName: RobotComponents.ABB.Controllers.Controller.Logoff()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Logs off the current user.
+  example: []
+  syntax:
+    content: public bool Logoff()
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function Logoff() As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.Logoff*
+- uid: RobotComponents.ABB.Controllers.Controller.Dispose
+  commentId: M:RobotComponents.ABB.Controllers.Controller.Dispose
+  id: Dispose
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Dispose()
+  nameWithType: Controller.Dispose()
+  fullName: RobotComponents.ABB.Controllers.Controller.Dispose()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Disposes the current controller object inside this instance.
+  example: []
+  syntax:
+    content: public bool Dispose()
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function Dispose() As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.Dispose*
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+  id: GetRobotBaseFrames
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetRobotBaseFrames()
+  nameWithType: Controller.GetRobotBaseFrames()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the robot base frames.
+  example: []
+  syntax:
+    content: public Dictionary<string, Plane> GetRobotBaseFrames()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,Rhino.Geometry.Plane}
+      description: A dictionary with as key the name of the robot and as value the base frame.
+    content.vb: Public Function GetRobotBaseFrames() As Dictionary(Of String, Plane)
+  overload: RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames*
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(System.Int32)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(System.Int32)
+  id: GetRobotToolPlanes(System.Int32)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetRobotToolPlanes(int)
+  nameWithType: Controller.GetRobotToolPlanes(int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current robot tool planes.
+  example: []
+  syntax:
+    content: public Dictionary<string, Plane> GetRobotToolPlanes(int system)
+    parameters:
+    - id: system
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,Rhino.Geometry.Plane}
+      description: A dictionary with as key the name of the robot and as value the current tool planes.
+    content.vb: Public Function GetRobotToolPlanes(system As Integer) As Dictionary(Of String, Plane)
+  overload: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes*
+  nameWithType.vb: Controller.GetRobotToolPlanes(Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(Integer)
+  name.vb: GetRobotToolPlanes(Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(System.Int32)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(System.Int32)
+  id: GetExternalAxisPlanes(System.Int32)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetExternalAxisPlanes(int)
+  nameWithType: Controller.GetExternalAxisPlanes(int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current external axis planes.
+  example: []
+  syntax:
+    content: public Dictionary<string, Plane> GetExternalAxisPlanes(int system)
+    parameters:
+    - id: system
+      type: System.Int32
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,Rhino.Geometry.Plane}
+      description: A dictionary with as key the name of the external axis and as value the current plane.
+    content.vb: Public Function GetExternalAxisPlanes(system As Integer) As Dictionary(Of String, Plane)
+  overload: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes*
+  nameWithType.vb: Controller.GetExternalAxisPlanes(Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(Integer)
+  name.vb: GetExternalAxisPlanes(Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+  id: GetRobotJointPositions
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetRobotJointPositions()
+  nameWithType: Controller.GetRobotJointPositions()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current robot joint positions.
+  example: []
+  syntax:
+    content: public Dictionary<string, RobotJointPosition> GetRobotJointPositions()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition}
+      description: A dictionary with as key the name of the robot and as value the current robot joint position.
+    content.vb: Public Function GetRobotJointPositions() As Dictionary(Of String, RobotJointPosition)
+  overload: RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions*
+- uid: RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+  id: GetExternalJointPositions
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetExternalJointPositions()
+  nameWithType: Controller.GetExternalJointPositions()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current external joint positions.
+  example: []
+  syntax:
+    content: public Dictionary<string, double[]> GetExternalJointPositions()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,System.Double[]}
+      description: A dictionary with as key the name of the external axis and as value the current external joint position.
+    content.vb: Public Function GetExternalJointPositions() As Dictionary(Of String, Double())
+  overload: RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions*
+- uid: RobotComponents.ABB.Controllers.Controller.GetJointTargets
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetJointTargets
+  id: GetJointTargets
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetJointTargets()
+  nameWithType: Controller.GetJointTargets()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetJointTargets()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current joint targets.
+  example: []
+  syntax:
+    content: public Dictionary<string, JointTarget> GetJointTargets()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.JointTarget}
+      description: A dictionary with as key the name of the task and as value the current joint target.
+    content.vb: Public Function GetJointTargets() As Dictionary(Of String, JointTarget)
+  overload: RobotComponents.ABB.Controllers.Controller.GetJointTargets*
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+  id: GetRobotTargets
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetRobotTargets()
+  nameWithType: Controller.GetRobotTargets()
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotTargets()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the current robot targets.
+  example: []
+  syntax:
+    content: public Dictionary<string, RobotTarget> GetRobotTargets()
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotTarget}
+      description: A dictionary with as key the name of the task and as value the current robot target.
+    content.vb: Public Function GetRobotTargets() As Dictionary(Of String, RobotTarget)
+  overload: RobotComponents.ABB.Controllers.Controller.GetRobotTargets*
+- uid: RobotComponents.ABB.Controllers.Controller.SetUserInfo(System.String,System.String)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.SetUserInfo(System.String,System.String)
+  id: SetUserInfo(System.String,System.String)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: SetUserInfo(string, string)
+  nameWithType: Controller.SetUserInfo(string, string)
+  fullName: RobotComponents.ABB.Controllers.Controller.SetUserInfo(string, string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Sets the uner name and password.
+  example: []
+  syntax:
+    content: public void SetUserInfo(string name, string password = "")
+    parameters:
+    - id: name
+      type: System.String
+      description: The user name.
+    - id: password
+      type: System.String
+      description: The password.
+    content.vb: Public Sub SetUserInfo(name As String, password As String = "")
+  overload: RobotComponents.ABB.Controllers.Controller.SetUserInfo*
+  nameWithType.vb: Controller.SetUserInfo(String, String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.SetUserInfo(String, String)
+  name.vb: SetUserInfo(String, String)
+- uid: RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+  commentId: M:RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+  id: SetDefaultUser
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: SetDefaultUser()
+  nameWithType: Controller.SetDefaultUser()
+  fullName: RobotComponents.ABB.Controllers.Controller.SetDefaultUser()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Sets the default user info.
+  example: []
+  syntax:
+    content: public void SetDefaultUser()
+    content.vb: Public Sub SetDefaultUser()
+  overload: RobotComponents.ABB.Controllers.Controller.SetDefaultUser*
+- uid: RobotComponents.ABB.Controllers.Controller.GetAnalogInput(System.String,System.Int32@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetAnalogInput(System.String,System.Int32@)
+  id: GetAnalogInput(System.String,System.Int32@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogInput(string, out int)
+  nameWithType: Controller.GetAnalogInput(string, out int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetAnalogInput(string, out int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the analog input signal from the controller.
+  example: []
+  syntax:
+    content: public Signal GetAnalogInput(string name, out int index)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the signal.
+    - id: index
+      type: System.Int32
+      description: The index number of the signal. The index is -1 if no signal was found.
+    return:
+      type: RobotComponents.ABB.Controllers.Signal
+      description: The analog input signal. Returns an empty signal if no signal was found.
+    content.vb: Public Function GetAnalogInput(name As String, index As Integer) As Signal
+  overload: RobotComponents.ABB.Controllers.Controller.GetAnalogInput*
+  nameWithType.vb: Controller.GetAnalogInput(String, Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetAnalogInput(String, Integer)
+  name.vb: GetAnalogInput(String, Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(System.String,System.Int32@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(System.String,System.Int32@)
+  id: GetAnalogOutput(System.String,System.Int32@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetAnalogOutput(string, out int)
+  nameWithType: Controller.GetAnalogOutput(string, out int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(string, out int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the analog output signal from the controller.
+  example: []
+  syntax:
+    content: public Signal GetAnalogOutput(string name, out int index)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the signal.
+    - id: index
+      type: System.Int32
+      description: The index number of the signal. The index is -1 if no signal was found.
+    return:
+      type: RobotComponents.ABB.Controllers.Signal
+      description: The analog output signal. Returns an empty signal if no signal was found.
+    content.vb: Public Function GetAnalogOutput(name As String, index As Integer) As Signal
+  overload: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput*
+  nameWithType.vb: Controller.GetAnalogOutput(String, Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(String, Integer)
+  name.vb: GetAnalogOutput(String, Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.GetDigitalInput(System.String,System.Int32@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetDigitalInput(System.String,System.Int32@)
+  id: GetDigitalInput(System.String,System.Int32@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetDigitalInput(string, out int)
+  nameWithType: Controller.GetDigitalInput(string, out int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetDigitalInput(string, out int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the digital input signal from the controller.
+  example: []
+  syntax:
+    content: public Signal GetDigitalInput(string name, out int index)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the signal.
+    - id: index
+      type: System.Int32
+      description: The index number of the signal. The index is -1 if no signal was found.
+    return:
+      type: RobotComponents.ABB.Controllers.Signal
+      description: The digital input signal. Returns an empty signal if no signal was found.
+    content.vb: Public Function GetDigitalInput(name As String, index As Integer) As Signal
+  overload: RobotComponents.ABB.Controllers.Controller.GetDigitalInput*
+  nameWithType.vb: Controller.GetDigitalInput(String, Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetDigitalInput(String, Integer)
+  name.vb: GetDigitalInput(String, Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(System.String,System.Int32@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(System.String,System.Int32@)
+  id: GetDigitalOutput(System.String,System.Int32@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: GetDigitalOutput(string, out int)
+  nameWithType: Controller.GetDigitalOutput(string, out int)
+  fullName: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(string, out int)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the digital output signal from the controller.
+  example: []
+  syntax:
+    content: public Signal GetDigitalOutput(string name, out int index)
+    parameters:
+    - id: name
+      type: System.String
+      description: The name of the signal.
+    - id: index
+      type: System.Int32
+      description: The index number of the signal. The index is -1 if no signal was found.
+    return:
+      type: RobotComponents.ABB.Controllers.Signal
+      description: The digital output signal. Returns an empty signal if no signal was found.
+    content.vb: Public Function GetDigitalOutput(name As String, index As Integer) As Signal
+  overload: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput*
+  nameWithType.vb: Controller.GetDigitalOutput(String, Integer)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(String, Integer)
+  name.vb: GetDigitalOutput(String, Integer)
+- uid: RobotComponents.ABB.Controllers.Controller.UploadModule(System.String,System.Collections.Generic.List{System.String},System.String@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.UploadModule(System.String,System.Collections.Generic.List{System.String},System.String@)
+  id: UploadModule(System.String,System.Collections.Generic.List{System.String},System.String@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: UploadModule(string, List<string>, out string)
+  nameWithType: Controller.UploadModule(string, List<string>, out string)
+  fullName: RobotComponents.ABB.Controllers.Controller.UploadModule(string, System.Collections.Generic.List<string>, out string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Uploads a module to the controller.
+  example: []
+  syntax:
+    content: public bool UploadModule(string taskName, List<string> module, out string status)
+    parameters:
+    - id: taskName
+      type: System.String
+      description: The task to upload to.
+    - id: module
+      type: System.Collections.Generic.List{System.String}
+      description: The module to upload.
+    - id: status
+      type: System.String
+      description: The status message.
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function UploadModule(taskName As String, [module] As List(Of String), status As String) As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.UploadModule*
+  nameWithType.vb: Controller.UploadModule(String, List(Of String), String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.UploadModule(String, System.Collections.Generic.List(Of String), String)
+  name.vb: UploadModule(String, List(Of String), String)
+- uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
+  id: ResetProgramPointers(System.String@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ResetProgramPointers(out string)
+  nameWithType: Controller.ResetProgramPointers(out string)
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(out string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Resets all the program pointers to the main routine.
+  example: []
+  syntax:
+    content: public bool ResetProgramPointers(out string status)
+    parameters:
+    - id: status
+      type: System.String
+      description: The status message,
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function ResetProgramPointers(status As String) As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers*
+  nameWithType.vb: Controller.ResetProgramPointers(String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(String)
+  name.vb: ResetProgramPointers(String)
+- uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(System.String,System.String@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(System.String,System.String@)
+  id: ResetProgramPointer(System.String,System.String@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ResetProgramPointer(string, out string)
+  nameWithType: Controller.ResetProgramPointer(string, out string)
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(string, out string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Resets the program pointer of a given task.
+  example: []
+  syntax:
+    content: public bool ResetProgramPointer(string taskName, out string status)
+    parameters:
+    - id: taskName
+      type: System.String
+      description: The task name.
+    - id: status
+      type: System.String
+      description: The status message.
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function ResetProgramPointer(taskName As String, status As String) As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer*
+  nameWithType.vb: Controller.ResetProgramPointer(String, String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(String, String)
+  name.vb: ResetProgramPointer(String, String)
+- uid: RobotComponents.ABB.Controllers.Controller.RunProgram(System.String@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.RunProgram(System.String@)
+  id: RunProgram(System.String@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: RunProgram(out string)
+  nameWithType: Controller.RunProgram(out string)
+  fullName: RobotComponents.ABB.Controllers.Controller.RunProgram(out string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Makes a call to run the program.
+  example: []
+  syntax:
+    content: public bool RunProgram(out string status)
+    parameters:
+    - id: status
+      type: System.String
+      description: The status message.
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function RunProgram(status As String) As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.RunProgram*
+  nameWithType.vb: Controller.RunProgram(String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.RunProgram(String)
+  name.vb: RunProgram(String)
+- uid: RobotComponents.ABB.Controllers.Controller.StopProgram(System.String@)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.StopProgram(System.String@)
+  id: StopProgram(System.String@)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: StopProgram(out string)
+  nameWithType: Controller.StopProgram(out string)
+  fullName: RobotComponents.ABB.Controllers.Controller.StopProgram(out string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Makes a call to stop the program.
+  example: []
+  syntax:
+    content: public bool StopProgram(out string status)
+    parameters:
+    - id: status
+      type: System.String
+      description: The status message.
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function StopProgram(status As String) As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.StopProgram*
+  nameWithType.vb: Controller.StopProgram(String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.StopProgram(String)
+  name.vb: StopProgram(String)
+- uid: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(System.String,System.String,System.String,System.String)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(System.String,System.String,System.String,System.String)
+  id: ReadConfigurationDomain(System.String,System.String,System.String,System.String)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ReadConfigurationDomain(string, string, string, string)
+  nameWithType: Controller.ReadConfigurationDomain(string, string, string, string)
+  fullName: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(string, string, string, string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the value from the configuration database for a given path.
+  example: []
+  syntax:
+    content: public string ReadConfigurationDomain(string domain, string type, string instance, string attribute)
+    parameters:
+    - id: domain
+      type: System.String
+      description: The domain name.
+    - id: type
+      type: System.String
+      description: The type name.
+    - id: instance
+      type: System.String
+      description: The instance name.
+    - id: attribute
+      type: System.String
+      description: TThe attribute name.
+    return:
+      type: System.String
+      description: A value from the configuration database.
+    content.vb: Public Function ReadConfigurationDomain(domain As String, type As String, instance As String, attribute As String) As String
+  overload: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain*
+  nameWithType.vb: Controller.ReadConfigurationDomain(String, String, String, String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(String, String, String, String)
+  name.vb: ReadConfigurationDomain(String, String, String, String)
+- uid: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(System.String,System.String,System.String)
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(System.String,System.String,System.String)
+  id: ReadRapidDomain(System.String,System.String,System.String)
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ReadRapidDomain(string, string, string)
+  nameWithType: Controller.ReadRapidDomain(string, string, string)
+  fullName: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(string, string, string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Returns the rapid value of a specified path.
+  example: []
+  syntax:
+    content: public string ReadRapidDomain(string task, string module, string variable)
+    parameters:
+    - id: task
+      type: System.String
+      description: The task name.
+    - id: module
+      type: System.String
+      description: The module name.
+    - id: variable
+      type: System.String
+      description: The variable name.
+    return:
+      type: System.String
+      description: The rapid value.
+    content.vb: Public Function ReadRapidDomain(task As String, [module] As String, variable As String) As String
+  overload: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain*
+  nameWithType.vb: Controller.ReadRapidDomain(String, String, String)
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(String, String, String)
+  name.vb: ReadRapidDomain(String, String, String)
+- uid: RobotComponents.ABB.Controllers.Controller.Controllers
+  commentId: P:RobotComponents.ABB.Controllers.Controller.Controllers
+  id: Controllers
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Controllers
+  nameWithType: Controller.Controllers
+  fullName: RobotComponents.ABB.Controllers.Controller.Controllers
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: >-
+    Gets the controllers found in the network. 
+
+    <remarks> 
+
+    Call the static method GetControllers first to scan the network. 
+
+    Call Initialize before using one of the controllers. 
+
+    </remarks>
+  example: []
+  syntax:
+    content: public static List<Controller> Controllers { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Controller}
+    content.vb: Public Shared ReadOnly Property Controllers As List(Of Controller)
+  overload: RobotComponents.ABB.Controllers.Controller.Controllers*
+- uid: RobotComponents.ABB.Controllers.Controller.IsValid
+  commentId: P:RobotComponents.ABB.Controllers.Controller.IsValid
+  id: IsValid
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: Controller.IsValid
+  fullName: RobotComponents.ABB.Controllers.Controller.IsValid
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets a value indicating whether or not the object is valid.
+  example: []
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.IsValid*
+- uid: RobotComponents.ABB.Controllers.Controller.ControllerABB
+  commentId: P:RobotComponents.ABB.Controllers.Controller.ControllerABB
+  id: ControllerABB
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ControllerABB
+  nameWithType: Controller.ControllerABB
+  fullName: RobotComponents.ABB.Controllers.Controller.ControllerABB
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the controller instance.
+  example: []
+  syntax:
+    content: public Controller ControllerABB { get; }
+    parameters: []
+    return:
+      type: ABB.Robotics.Controllers.Controller
+    content.vb: Public ReadOnly Property ControllerABB As Controller
+  overload: RobotComponents.ABB.Controllers.Controller.ControllerABB*
+- uid: RobotComponents.ABB.Controllers.Controller.TasksABB
+  commentId: P:RobotComponents.ABB.Controllers.Controller.TasksABB
+  id: TasksABB
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: TasksABB
+  nameWithType: Controller.TasksABB
+  fullName: RobotComponents.ABB.Controllers.Controller.TasksABB
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the list with controller tasks.
+  example: []
+  syntax:
+    content: public List<Task> TasksABB { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{ABB.Robotics.Controllers.RapidDomain.Task}
+    content.vb: Public ReadOnly Property TasksABB As List(Of Task)
+  overload: RobotComponents.ABB.Controllers.Controller.TasksABB*
+- uid: RobotComponents.ABB.Controllers.Controller.TaskNames
+  commentId: P:RobotComponents.ABB.Controllers.Controller.TaskNames
+  id: TaskNames
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: TaskNames
+  nameWithType: Controller.TaskNames
+  fullName: RobotComponents.ABB.Controllers.Controller.TaskNames
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the task names.
+  example: []
+  syntax:
+    content: public List<string> TaskNames { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property TaskNames As List(Of String)
+  overload: RobotComponents.ABB.Controllers.Controller.TaskNames*
+- uid: RobotComponents.ABB.Controllers.Controller.Name
+  commentId: P:RobotComponents.ABB.Controllers.Controller.Name
+  id: Name
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: Controller.Name
+  fullName: RobotComponents.ABB.Controllers.Controller.Name
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the name of the controller.
+  example: []
+  syntax:
+    content: public string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Name As String
+  overload: RobotComponents.ABB.Controllers.Controller.Name*
+- uid: RobotComponents.ABB.Controllers.Controller.UserName
+  commentId: P:RobotComponents.ABB.Controllers.Controller.UserName
+  id: UserName
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: UserName
+  nameWithType: Controller.UserName
+  fullName: RobotComponents.ABB.Controllers.Controller.UserName
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the set username.
+  example: []
+  syntax:
+    content: public string UserName { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property UserName As String
+  overload: RobotComponents.ABB.Controllers.Controller.UserName*
+- uid: RobotComponents.ABB.Controllers.Controller.Logger
+  commentId: P:RobotComponents.ABB.Controllers.Controller.Logger
+  id: Logger
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: Logger
+  nameWithType: Controller.Logger
+  fullName: RobotComponents.ABB.Controllers.Controller.Logger
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the logger.
+  example: []
+  syntax:
+    content: public List<string> Logger { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property Logger As List(Of String)
+  overload: RobotComponents.ABB.Controllers.Controller.Logger*
+- uid: RobotComponents.ABB.Controllers.Controller.IsEmpty
+  commentId: P:RobotComponents.ABB.Controllers.Controller.IsEmpty
+  id: IsEmpty
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty
+  nameWithType: Controller.IsEmpty
+  fullName: RobotComponents.ABB.Controllers.Controller.IsEmpty
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: >-
+    Gets a value indicating whether or not the controller instance is empty.
+
+    If empty, there is no ABB controller instance defined inside this instance.
+  example: []
+  syntax:
+    content: public bool IsEmpty { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsEmpty As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.IsEmpty*
+- uid: RobotComponents.ABB.Controllers.Controller.IsInitialized
+  commentId: P:RobotComponents.ABB.Controllers.Controller.IsInitialized
+  id: IsInitialized
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: IsInitialized
+  nameWithType: Controller.IsInitialized
+  fullName: RobotComponents.ABB.Controllers.Controller.IsInitialized
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets a value indicating whether or not the controller instance is initialized.
+  example: []
+  syntax:
+    content: public bool IsInitialized { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsInitialized As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.IsInitialized*
+- uid: RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  commentId: P:RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  id: AnalogInputs
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: AnalogInputs
+  nameWithType: Controller.AnalogInputs
+  fullName: RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the analog inputs.
+  example: []
+  syntax:
+    content: public List<Signal> AnalogInputs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+    content.vb: Public ReadOnly Property AnalogInputs As List(Of Signal)
+  overload: RobotComponents.ABB.Controllers.Controller.AnalogInputs*
+- uid: RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  commentId: P:RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  id: AnalogOutputs
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: AnalogOutputs
+  nameWithType: Controller.AnalogOutputs
+  fullName: RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the analog outputs.
+  example: []
+  syntax:
+    content: public List<Signal> AnalogOutputs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+    content.vb: Public ReadOnly Property AnalogOutputs As List(Of Signal)
+  overload: RobotComponents.ABB.Controllers.Controller.AnalogOutputs*
+- uid: RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  commentId: P:RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  id: DigitalInputs
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: DigitalInputs
+  nameWithType: Controller.DigitalInputs
+  fullName: RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the digital inputs.
+  example: []
+  syntax:
+    content: public List<Signal> DigitalInputs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+    content.vb: Public ReadOnly Property DigitalInputs As List(Of Signal)
+  overload: RobotComponents.ABB.Controllers.Controller.DigitalInputs*
+- uid: RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  commentId: P:RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  id: DigitalOutputs
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: DigitalOutputs
+  nameWithType: Controller.DigitalOutputs
+  fullName: RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  type: Property
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Gets the analog outputs.
+  example: []
+  syntax:
+    content: public List<Signal> DigitalOutputs { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+    content.vb: Public ReadOnly Property DigitalOutputs As List(Of Signal)
+  overload: RobotComponents.ABB.Controllers.Controller.DigitalOutputs*
+references:
+- uid: RobotComponents.ABB.Controllers
+  commentId: N:RobotComponents.ABB.Controllers
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Controllers
+  nameWithType: RobotComponents.ABB.Controllers
+  fullName: RobotComponents.ABB.Controllers
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Controllers
+    name: Controllers
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Controllers
+    name: Controllers
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.ABB.Controllers.Controller.#ctor*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.#ctor
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.#ctor
+  name: Controller
+  nameWithType: Controller.Controller
+  fullName: RobotComponents.ABB.Controllers.Controller.Controller
+  nameWithType.vb: Controller.New
+  fullName.vb: RobotComponents.ABB.Controllers.Controller.New
+  name.vb: New
+- uid: ABB.Robotics.Controllers.ControllerInfo
+  commentId: '!:ABB.Robotics.Controllers.ControllerInfo'
+  isExternal: true
+  name: ControllerInfo
+  nameWithType: ControllerInfo
+  fullName: ABB.Robotics.Controllers.ControllerInfo
+- uid: RobotComponents.ABB.Controllers.Controller.GetControllers*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetControllers
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetControllers
+  name: GetControllers
+  nameWithType: Controller.GetControllers
+  fullName: RobotComponents.ABB.Controllers.Controller.GetControllers
+- uid: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Controller}
+  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Controllers.Controller}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Controller>
+  nameWithType: List<Controller>
+  fullName: System.Collections.Generic.List<RobotComponents.ABB.Controllers.Controller>
+  nameWithType.vb: List(Of Controller)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Controllers.Controller)
+  name.vb: List(Of Controller)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: RobotComponents.ABB.Controllers.Controller
+    name: Controller
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.Controller.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RobotComponents.ABB.Controllers.Controller
+    name: Controller
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.Controller.html
+  - name: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.ToString*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ToString
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ToString
+  name: ToString
+  nameWithType: Controller.ToString
+  fullName: RobotComponents.ABB.Controllers.Controller.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RobotComponents.ABB.Controllers.Controller.Initiliaze*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Initiliaze
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Initiliaze
+  name: Initiliaze
+  nameWithType: Controller.Initiliaze
+  fullName: RobotComponents.ABB.Controllers.Controller.Initiliaze
+- uid: RobotComponents.ABB.Controllers.Controller.Clear*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Clear
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Clear
+  name: Clear
+  nameWithType: Controller.Clear
+  fullName: RobotComponents.ABB.Controllers.Controller.Clear
+- uid: RobotComponents.ABB.Controllers.Controller.ResetLogger*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ResetLogger
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ResetLogger
+  name: ResetLogger
+  nameWithType: Controller.ResetLogger
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetLogger
+- uid: RobotComponents.ABB.Controllers.Controller.Logon*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Logon
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Logon
+  name: Logon
+  nameWithType: Controller.Logon
+  fullName: RobotComponents.ABB.Controllers.Controller.Logon
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RobotComponents.ABB.Controllers.Controller.Logoff*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Logoff
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Logoff
+  name: Logoff
+  nameWithType: Controller.Logoff
+  fullName: RobotComponents.ABB.Controllers.Controller.Logoff
+- uid: RobotComponents.ABB.Controllers.Controller.Dispose*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Dispose
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Dispose
+  name: Dispose
+  nameWithType: Controller.Dispose
+  fullName: RobotComponents.ABB.Controllers.Controller.Dispose
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+  name: GetRobotBaseFrames
+  nameWithType: Controller.GetRobotBaseFrames
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames
+- uid: System.Collections.Generic.Dictionary{System.String,Rhino.Geometry.Plane}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,Rhino.Geometry.Plane}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, Plane>
+  nameWithType: Dictionary<string, Plane>
+  fullName: System.Collections.Generic.Dictionary<string, Rhino.Geometry.Plane>
+  nameWithType.vb: Dictionary(Of String, Plane)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Rhino.Geometry.Plane)
+  name.vb: Dictionary(Of String, Plane)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    isExternal: true
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(System.Int32)
+  name: GetRobotToolPlanes
+  nameWithType: Controller.GetRobotToolPlanes
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
+- uid: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(System.Int32)
+  name: GetExternalAxisPlanes
+  nameWithType: Controller.GetExternalAxisPlanes
+  fullName: RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+  name: GetRobotJointPositions
+  nameWithType: Controller.GetRobotJointPositions
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, RobotJointPosition>
+  nameWithType: Dictionary<string, RobotJointPosition>
+  fullName: System.Collections.Generic.Dictionary<string, RobotComponents.ABB.Actions.Declarations.RobotJointPosition>
+  nameWithType.vb: Dictionary(Of String, RobotJointPosition)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
+  name.vb: Dictionary(Of String, RobotJointPosition)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+    name: RobotJointPosition
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+    name: RobotJointPosition
+    isExternal: true
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+  name: GetExternalJointPositions
+  nameWithType: Controller.GetExternalJointPositions
+  fullName: RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions
+- uid: System.Collections.Generic.Dictionary{System.String,System.Double[]}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,System.Double[]}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, double[]>
+  nameWithType: Dictionary<string, double[]>
+  fullName: System.Collections.Generic.Dictionary<string, double[]>
+  nameWithType.vb: Dictionary(Of String, Double())
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, Double())
+  name.vb: Dictionary(Of String, Double())
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: '['
+  - name: ']'
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.Double
+    name: Double
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.double
+  - name: (
+  - name: )
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.GetJointTargets*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetJointTargets
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetJointTargets
+  name: GetJointTargets
+  nameWithType: Controller.GetJointTargets
+  fullName: RobotComponents.ABB.Controllers.Controller.GetJointTargets
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.JointTarget}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.JointTarget}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, JointTarget>
+  nameWithType: Dictionary<string, JointTarget>
+  fullName: System.Collections.Generic.Dictionary<string, RobotComponents.ABB.Actions.Declarations.JointTarget>
+  nameWithType.vb: Dictionary(Of String, JointTarget)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, RobotComponents.ABB.Actions.Declarations.JointTarget)
+  name.vb: Dictionary(Of String, JointTarget)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
+    name: JointTarget
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
+    name: JointTarget
+    isExternal: true
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.GetRobotTargets*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+  name: GetRobotTargets
+  nameWithType: Controller.GetRobotTargets
+  fullName: RobotComponents.ABB.Controllers.Controller.GetRobotTargets
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotTarget}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.RobotTarget}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, RobotTarget>
+  nameWithType: Dictionary<string, RobotTarget>
+  fullName: System.Collections.Generic.Dictionary<string, RobotComponents.ABB.Actions.Declarations.RobotTarget>
+  nameWithType.vb: Dictionary(Of String, RobotTarget)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, RobotComponents.ABB.Actions.Declarations.RobotTarget)
+  name.vb: Dictionary(Of String, RobotTarget)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.RobotTarget
+    name: RobotTarget
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.RobotTarget
+    name: RobotTarget
+    isExternal: true
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.SetUserInfo*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.SetUserInfo
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.SetUserInfo(System.String,System.String)
+  name: SetUserInfo
+  nameWithType: Controller.SetUserInfo
+  fullName: RobotComponents.ABB.Controllers.Controller.SetUserInfo
+- uid: RobotComponents.ABB.Controllers.Controller.SetDefaultUser*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+  name: SetDefaultUser
+  nameWithType: Controller.SetDefaultUser
+  fullName: RobotComponents.ABB.Controllers.Controller.SetDefaultUser
+- uid: RobotComponents.ABB.Controllers.Controller.GetAnalogInput*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetAnalogInput
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetAnalogInput(System.String,System.Int32@)
+  name: GetAnalogInput
+  nameWithType: Controller.GetAnalogInput
+  fullName: RobotComponents.ABB.Controllers.Controller.GetAnalogInput
+- uid: RobotComponents.ABB.Controllers.Signal
+  commentId: T:RobotComponents.ABB.Controllers.Signal
+  parent: RobotComponents.ABB.Controllers
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Signal.html
+  name: Signal
+  nameWithType: Signal
+  fullName: RobotComponents.ABB.Controllers.Signal
+- uid: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetAnalogOutput
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(System.String,System.Int32@)
+  name: GetAnalogOutput
+  nameWithType: Controller.GetAnalogOutput
+  fullName: RobotComponents.ABB.Controllers.Controller.GetAnalogOutput
+- uid: RobotComponents.ABB.Controllers.Controller.GetDigitalInput*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetDigitalInput
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetDigitalInput(System.String,System.Int32@)
+  name: GetDigitalInput
+  nameWithType: Controller.GetDigitalInput
+  fullName: RobotComponents.ABB.Controllers.Controller.GetDigitalInput
+- uid: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.GetDigitalOutput
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(System.String,System.Int32@)
+  name: GetDigitalOutput
+  nameWithType: Controller.GetDigitalOutput
+  fullName: RobotComponents.ABB.Controllers.Controller.GetDigitalOutput
+- uid: RobotComponents.ABB.Controllers.Controller.UploadModule*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.UploadModule
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.UploadModule(System.String,System.Collections.Generic.List{System.String},System.String@)
+  name: UploadModule
+  nameWithType: Controller.UploadModule
+  fullName: RobotComponents.ABB.Controllers.Controller.UploadModule
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<string>
+  nameWithType: List<string>
+  fullName: System.Collections.Generic.List<string>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ResetProgramPointers
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
+  name: ResetProgramPointers
+  nameWithType: Controller.ResetProgramPointers
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers
+- uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ResetProgramPointer
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(System.String,System.String@)
+  name: ResetProgramPointer
+  nameWithType: Controller.ResetProgramPointer
+  fullName: RobotComponents.ABB.Controllers.Controller.ResetProgramPointer
+- uid: RobotComponents.ABB.Controllers.Controller.RunProgram*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.RunProgram
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.RunProgram(System.String@)
+  name: RunProgram
+  nameWithType: Controller.RunProgram
+  fullName: RobotComponents.ABB.Controllers.Controller.RunProgram
+- uid: RobotComponents.ABB.Controllers.Controller.StopProgram*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.StopProgram
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.StopProgram(System.String@)
+  name: StopProgram
+  nameWithType: Controller.StopProgram
+  fullName: RobotComponents.ABB.Controllers.Controller.StopProgram
+- uid: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(System.String,System.String,System.String,System.String)
+  name: ReadConfigurationDomain
+  nameWithType: Controller.ReadConfigurationDomain
+  fullName: RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain
+- uid: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ReadRapidDomain
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(System.String,System.String,System.String)
+  name: ReadRapidDomain
+  nameWithType: Controller.ReadRapidDomain
+  fullName: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain
+- uid: RobotComponents.ABB.Controllers.Controller.Controllers*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Controllers
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Controllers
+  name: Controllers
+  nameWithType: Controller.Controllers
+  fullName: RobotComponents.ABB.Controllers.Controller.Controllers
+- uid: RobotComponents.ABB.Controllers.Controller.IsValid*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.IsValid
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.IsValid
+  name: IsValid
+  nameWithType: Controller.IsValid
+  fullName: RobotComponents.ABB.Controllers.Controller.IsValid
+- uid: RobotComponents.ABB.Controllers.Controller.ControllerABB*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ControllerABB
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ControllerABB
+  name: ControllerABB
+  nameWithType: Controller.ControllerABB
+  fullName: RobotComponents.ABB.Controllers.Controller.ControllerABB
+- uid: ABB.Robotics.Controllers.Controller
+  isExternal: true
+  name: Controller
+  nameWithType: Controller
+  fullName: ABB.Robotics.Controllers.Controller
+- uid: RobotComponents.ABB.Controllers.Controller.TasksABB*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.TasksABB
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.TasksABB
+  name: TasksABB
+  nameWithType: Controller.TasksABB
+  fullName: RobotComponents.ABB.Controllers.Controller.TasksABB
+- uid: System.Collections.Generic.List{ABB.Robotics.Controllers.RapidDomain.Task}
+  commentId: T:System.Collections.Generic.List{ABB.Robotics.Controllers.RapidDomain.Task}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Task>
+  nameWithType: List<Task>
+  fullName: System.Collections.Generic.List<ABB.Robotics.Controllers.RapidDomain.Task>
+  nameWithType.vb: List(Of Task)
+  fullName.vb: System.Collections.Generic.List(Of ABB.Robotics.Controllers.RapidDomain.Task)
+  name.vb: List(Of Task)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: ABB.Robotics.Controllers.RapidDomain.Task
+    name: Task
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: ABB.Robotics.Controllers.RapidDomain.Task
+    name: Task
+    isExternal: true
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.TaskNames*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.TaskNames
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.TaskNames
+  name: TaskNames
+  nameWithType: Controller.TaskNames
+  fullName: RobotComponents.ABB.Controllers.Controller.TaskNames
+- uid: RobotComponents.ABB.Controllers.Controller.Name*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Name
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Name
+  name: Name
+  nameWithType: Controller.Name
+  fullName: RobotComponents.ABB.Controllers.Controller.Name
+- uid: RobotComponents.ABB.Controllers.Controller.UserName*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.UserName
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.UserName
+  name: UserName
+  nameWithType: Controller.UserName
+  fullName: RobotComponents.ABB.Controllers.Controller.UserName
+- uid: RobotComponents.ABB.Controllers.Controller.Logger*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.Logger
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.Logger
+  name: Logger
+  nameWithType: Controller.Logger
+  fullName: RobotComponents.ABB.Controllers.Controller.Logger
+- uid: RobotComponents.ABB.Controllers.Controller.IsEmpty*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.IsEmpty
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.IsEmpty
+  name: IsEmpty
+  nameWithType: Controller.IsEmpty
+  fullName: RobotComponents.ABB.Controllers.Controller.IsEmpty
+- uid: RobotComponents.ABB.Controllers.Controller.IsInitialized*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.IsInitialized
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.IsInitialized
+  name: IsInitialized
+  nameWithType: Controller.IsInitialized
+  fullName: RobotComponents.ABB.Controllers.Controller.IsInitialized
+- uid: RobotComponents.ABB.Controllers.Controller.AnalogInputs*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.AnalogInputs
+  name: AnalogInputs
+  nameWithType: Controller.AnalogInputs
+  fullName: RobotComponents.ABB.Controllers.Controller.AnalogInputs
+- uid: System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Controllers.Signal}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Signal>
+  nameWithType: List<Signal>
+  fullName: System.Collections.Generic.List<RobotComponents.ABB.Controllers.Signal>
+  nameWithType.vb: List(Of Signal)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Controllers.Signal)
+  name.vb: List(Of Signal)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: RobotComponents.ABB.Controllers.Signal
+    name: Signal
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.Signal.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: RobotComponents.ABB.Controllers.Signal
+    name: Signal
+    isExternal: true
+    href: RobotComponents.ABB.Controllers.Signal.html
+  - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.AnalogOutputs*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+  name: AnalogOutputs
+  nameWithType: Controller.AnalogOutputs
+  fullName: RobotComponents.ABB.Controllers.Controller.AnalogOutputs
+- uid: RobotComponents.ABB.Controllers.Controller.DigitalInputs*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.DigitalInputs
+  name: DigitalInputs
+  nameWithType: Controller.DigitalInputs
+  fullName: RobotComponents.ABB.Controllers.Controller.DigitalInputs
+- uid: RobotComponents.ABB.Controllers.Controller.DigitalOutputs*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.DigitalOutputs
+  name: DigitalOutputs
+  nameWithType: Controller.DigitalOutputs
+  fullName: RobotComponents.ABB.Controllers.Controller.DigitalOutputs

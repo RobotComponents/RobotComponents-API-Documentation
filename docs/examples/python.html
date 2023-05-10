@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Python example </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Python example ">
-    <meta name="generator" content="docfx 2.59.0.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Python example </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Python example ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -74,9 +73,14 @@ import Rhino.Geometry as rg
 
 # Import Robot Components
 import clr
-clr.AddReference(&quot;RobotComponents.dll&quot;)
-import RobotComponents as rc
-from RobotComponents.Enumerations import *
+## Import Robot Components
+clr.AddReference(&quot;RobotComponents.ABB.dll&quot;)
+import RobotComponents.ABB as rc
+from RobotComponents.ABB.Enumerations import *
+## Import presets
+clr.AddReference(&quot;RobotComponents.ABB.Presets.dll&quot;)
+import RobotComponents.ABB.Presets as pr
+from RobotComponents.ABB.Presets.Enumerations import *
 
 # Construct a tool
 tcp = rg.Plane(rg.Point3d(0, 0, 250), rg.Vector3d(0, 0, 1))
@@ -85,13 +89,13 @@ cone_mesh = rg.Mesh.CreateFromCone(cone, 100, 100)
 tool = rc.Definitions.RobotTool(&quot;tool1&quot;, cone_mesh, rg.Plane.WorldXY, tcp)
 
 # Construct a robot preset
-robot = rc.Definitions.Robot.GetRobotPreset(RobotPreset.IRB4600_40_255, rg.Plane.WorldXY, tool)
+robot = pr.Factory.GetRobotPreset(RobotPreset.IRB4600_40_255, rg.Plane.WorldXY, tool)
 
 # Fabricatoin settings
-speed_low = rc.Actions.SpeedData(&quot;speed_low&quot;, 20)
-speed_high = rc.Actions.SpeedData(&quot;speed_high&quot;, 250)
-zone_precise = rc.Actions.ZoneData.GetPredefinedZoneData(PredefinedZoneData.fine)
-zone_flyover = rc.Actions.ZoneData.GetPredefinedZoneData(PredefinedZoneData.z10)
+speed_low = rc.Actions.Declarations.SpeedData(&quot;speed_low&quot;, 20)
+speed_high = rc.Actions.Declarations.SpeedData(&quot;speed_high&quot;, 250)
+zone_precise = rc.Actions.Declarations.ZoneData.GetPredefinedZoneData(PredefinedZoneData.fine)
+zone_flyover = rc.Actions.Declarations.ZoneData.GetPredefinedZoneData(PredefinedZoneData.z10)
 offset = 100
 do_name = &quot;DO_01&quot;
 
@@ -99,13 +103,13 @@ do_name = &quot;DO_01&quot;
 actions = []
 
 # Configuration control
-actions.append(rc.Actions.JointConfigurationControl(True))
-actions.append(rc.Actions.LinearConfigurationControl(False))
+actions.append(rc.Actions.Instructions.JointConfigurationControl(True))
+actions.append(rc.Actions.Instructions.LinearConfigurationControl(False))
 
 # Home position
-rob_joint = rc.Actions.RobotJointPosition(0, 0, 0, 0, 45, 0)
-home_target = rc.Actions.JointTarget(rob_joint)
-go_home = rc.Actions.Movement(MovementType.MoveAbsJ, home_target, speed_high, zone_flyover)
+rob_joint = rc.Actions.Declarations.RobotJointPosition(0, 0, 0, 0, 45, 0)
+home_target = rc.Actions.Declarations.JointTarget(rob_joint)
+go_home = rc.Actions.Instructions.Movement(MovementType.MoveAbsJ, home_target, speed_high, zone_flyover)
 actions.append(go_home)
 
 # Follow curves
@@ -119,8 +123,8 @@ for i in range(len(curves)):
     t = curves[i].DivideByCount(10, True)
     
     ## Comments
-    actions.append(rc.Actions.CodeLine(&quot; &quot;, CodeType.Instruction))
-    actions.append(rc.Actions.Comment(&quot;New curve&quot;, CodeType.Instruction))
+    actions.append(rc.Actions.Dynamic.CodeLine(&quot; &quot;, CodeType.Instruction))
+    actions.append(rc.Actions.Dynamic.Comment(&quot;New curve&quot;, CodeType.Instruction))
     
     ## Follow curves with precise linear movements
     for j in range(len(t)):
@@ -139,20 +143,20 @@ for i in range(len(curves)):
             plane_start = rg.Plane(plane.Origin, plane.XAxis, plane.YAxis)
             plane_start.Translate(vector * offset)
             
-            target = rc.Actions.RobotTarget(&quot;curve_{}_start&quot;.format(i), plane_start)
-            move = rc.Actions.Movement(MovementType.MoveJ, target, speed_high, zone_flyover)
-            actions.append(move)
+            target = rc.Actions.Declarations.RobotTarget(&quot;curve_{}_start&quot;.format(i), plane_start)
+            movement = rc.Actions.Instructions.Movement(MovementType.MoveJ, target, speed_high, zone_flyover)
+            actions.append(movement)
         
-        target = rc.Actions.RobotTarget(&quot;curve_{}_{}&quot;.format(i, j), plane)
-        move = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
-        actions.append(move)
+        target = rc.Actions.Declarations.RobotTarget(&quot;curve_{}_{}&quot;.format(i, j), plane)
+        movement = rc.Actions.Instructions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
+        actions.append(movement)
         
         ## Enable digital output
         if (j == 0):
-            actions.append(rc.Actions.DigitalOutput(do_name, True))
+            actions.append(rc.Actions.Instructions.DigitalOutput(do_name, True))
     
     # Disable digital output
-    actions.append(rc.Actions.DigitalOutput(do_name, False))
+    actions.append(rc.Actions.Instructions.DigitalOutput(do_name, False))
     
     ## Above end
     vector = -plane.ZAxis
@@ -160,22 +164,20 @@ for i in range(len(curves)):
     plane_end = rg.Plane(plane.Origin, plane.XAxis, plane.YAxis)
     plane_end.Translate(vector * offset)
             
-    target = rc.Actions.RobotTarget(&quot;curve_{}_end&quot;.format(i), plane_end)
-    move = rc.Actions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
-    actions.append(move)
+    target = rc.Actions.Declarations.RobotTarget(&quot;curve_{}_end&quot;.format(i), plane_end)
+    movement = rc.Actions.Instructions.Movement(MovementType.MoveL, target, speed_low, zone_precise)
+    actions.append(movement)
     
 # Home position
 actions.append(go_home)
 
 # Create the RAPID program
-rapid_generator = rc.Actions.RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;BASE&quot;, &quot;main&quot;)
-program = rapid_generator.CreateProgramModule()
-system = rapid_generator.CreateSystemModule()
-
+rapid_generator = rc.Actions.RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;main&quot;)
+program = rapid_generator.CreateModule()
 </code></pre>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -193,7 +195,7 @@ system = rapid_generator.CreateSystemModule()
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -201,14 +203,14 @@ system = rapid_generator.CreateSystemModule()
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

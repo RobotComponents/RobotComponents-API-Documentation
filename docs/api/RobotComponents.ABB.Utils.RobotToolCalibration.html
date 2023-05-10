@@ -1,0 +1,873 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>Class RobotToolCalibration
+ </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="Class RobotToolCalibration
+ ">
+    
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration">
+
+
+
+  <h1 id="RobotComponents_ABB_Utils_RobotToolCalibration" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration" class="text-break">Class RobotToolCalibration
+</h1>
+  <div class="markdown level0 summary"><p>Represents the Robot Tool Calibration class.
+This class uses Newton's method and numerical differentiation to calculate the TCP from given Joint Positions.
+If desired, the parameters for this optimization can be changed via the properties of this class.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+    <div class="level1"><span class="xref">RobotToolCalibration</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="RobotComponents.html">RobotComponents</a>.<a class="xref" href="RobotComponents.ABB.html">ABB</a>.<a class="xref" href="RobotComponents.ABB.Utils.html">Utils</a></h6>
+  <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
+  <h5 id="RobotComponents_ABB_Utils_RobotToolCalibration_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RobotToolCalibration</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+</h3>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor">RobotToolCalibration()</h4>
+  <div class="markdown level1 summary"><p>Initializes an empty instance of the Robot Tool Calibration class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotToolCalibration()</code></pre>
+  </div>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_RobotComponents_ABB_Definitions_Robot_System_Collections_Generic_IList_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Declarations.RobotJointPosition})">RobotToolCalibration(Robot, IList&lt;RobotJointPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions.
+The External Joint Positions are set with default values (9e9).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotToolCalibration(Robot robot, IList&lt;RobotJointPosition&gt; robotJointPositions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot the Joint Positions are given for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a>&gt;</td>
+        <td><span class="parametername">robotJointPositions</span></td>
+        <td><p>The Robot Joint Positions as a list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_RobotComponents_ABB_Definitions_Robot_System_Collections_Generic_IList_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__System_Collections_Generic_IList_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition__" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Declarations.RobotJointPosition},System.Collections.Generic.IList{RobotComponents.ABB.Actions.Declarations.ExternalJointPosition})">RobotToolCalibration(Robot, IList&lt;RobotJointPosition&gt;, IList&lt;ExternalJointPosition&gt;)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool Calibration class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotToolCalibration(Robot robot, IList&lt;RobotJointPosition&gt; robotJointPositions, IList&lt;ExternalJointPosition&gt; externalJointPositions)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot the Joint Positions are given for.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a>&gt;</td>
+        <td><span class="parametername">robotJointPositions</span></td>
+        <td><p>The Robot Joint Positions as a list.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a>&gt;</td>
+        <td><span class="parametername">externalJointPositions</span></td>
+        <td><p>The External Joint Positions as a list.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration__ctor_RobotComponents_ABB_Utils_RobotToolCalibration_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.#ctor(RobotComponents.ABB.Utils.RobotToolCalibration)">RobotToolCalibration(RobotToolCalibration)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool Calibration class by duplicating an existing Robot Tool Calibration instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotToolCalibration(RobotToolCalibration calibration)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Utils.RobotToolCalibration.html">RobotToolCalibration</a></td>
+        <td><span class="parametername">calibration</span></td>
+        <td><p>The Robot Tool Calibration instance to duplicate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+</h3>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Damping_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Damping*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Damping" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Damping">Damping</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the damping factor of the tool calibraton optimization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Damping { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Delta_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Delta*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Delta" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Delta">Delta</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the delta of the tool calibraton optimization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Delta { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsX_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsX*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsX" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsX">ErrorsX</h4>
+  <div class="markdown level1 summary"><p>Gets the resulting errors in x-direction for each given Joint Position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] ErrorsX { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsY_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsY*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsY" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsY">ErrorsY</h4>
+  <div class="markdown level1 summary"><p>Gets the resulting errors in y-direction for each given Joint Position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] ErrorsY { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsZ_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsZ*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ErrorsZ" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ErrorsZ">ErrorsZ</h4>
+  <div class="markdown level1 summary"><p>Gets the resulting errors in z-direction for each given Joint Position.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double[] ErrorsZ { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ExternalJointPositions_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ExternalJointPositions*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ExternalJointPositions" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ExternalJointPositions">ExternalJointPositions</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the External Joint Positions to calculate the tool center point from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;ExternalJointPosition&gt; ExternalJointPositions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_IsValid_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.IsValid*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_IsValid" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.IsValid">IsValid</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Iterations_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Iterations*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Iterations" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Iterations">Iterations</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the maximum number of iterations of the tool calibation optimization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Iterations { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_MaximumError_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.MaximumError*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_MaximumError" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.MaximumError">MaximumError</h4>
+  <div class="markdown level1 summary"><p>Gets the maximum errors in the x, y and z direction as a vector.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Vector3d MaximumError { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Vector3d</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Precision_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Precision*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Precision" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Precision">Precision</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the desired precision of the tool calibraton optimization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Precision { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Robot_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Robot*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Robot" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Robot">Robot</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot that is used for the tool calibration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Robot Robot { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_RobotJointPositions_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.RobotJointPositions*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_RobotJointPositions" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.RobotJointPositions">RobotJointPositions</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Joint Positions to calculate the TCP from.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;RobotJointPosition&gt; RobotJointPositions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_TargetPoint_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.TargetPoint*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_TargetPoint" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.TargetPoint">TargetPoint</h4>
+  <div class="markdown level1 summary"><p>Gets the target point in world coordinate space.
+This is the average point that is obtained from the given Robot Joint Positions and the calculated TCP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point3d TargetPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Point3d</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_TcpPoint_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.TcpPoint*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_TcpPoint" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.TcpPoint">TcpPoint</h4>
+  <div class="markdown level1 summary"><p>Gets the tool center point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Point3d TcpPoint { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Point3d</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_X_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.X*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_X" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.X">X</h4>
+  <div class="markdown level1 summary"><p>Gets the x-coordindate of the tool center point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double X { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_XInitial_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.XInitial*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_XInitial" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.XInitial">XInitial</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the initial x-coordinate of the tool center point to start the optimization with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double XInitial { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Y_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Y*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Y" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Y">Y</h4>
+  <div class="markdown level1 summary"><p>Gets the y-coordindate of the tool center point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Y { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_YInitial_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.YInitial*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_YInitial" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.YInitial">YInitial</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the initial y-coordinate of the tool center point to start the optimization with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double YInitial { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Z_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Z*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Z" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Z">Z</h4>
+  <div class="markdown level1 summary"><p>Gets the z-coordindate of the tool center point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double Z { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ZInitial_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ZInitial*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ZInitial" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ZInitial">ZInitial</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the initial z-coordinate of the tool center point to start the optimization with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double ZInitial { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+</h3>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Calculate_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Calculate*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Calculate" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Calculate">Calculate()</h4>
+  <div class="markdown level1 summary"><p>Calculates the Tool Center Point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void Calculate()</code></pre>
+  </div>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_CheckJointPositionsAxisLimits_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.CheckJointPositionsAxisLimits*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_CheckJointPositionsAxisLimits" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.CheckJointPositionsAxisLimits">CheckJointPositionsAxisLimits()</h4>
+  <div class="markdown level1 summary"><p>Checks if the given Joint Positions are within the axis limits of the robot.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CheckJointPositionsAxisLimits()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td><p>A list with erros messages. When the list is empty, all the joint positions are within the limits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_Duplicate_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Duplicate*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_Duplicate" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.Duplicate">Duplicate()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Tool Calibration instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotToolCalibration Duplicate()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Utils.RobotToolCalibration.html">RobotToolCalibration</a></td>
+        <td><p>A deep copy of the Robot Tool Calibration instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_RobotToolCalibration_ReInitialize_" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ReInitialize*"></a>
+  <h4 id="RobotComponents_ABB_Utils_RobotToolCalibration_ReInitialize" data-uid="RobotComponents.ABB.Utils.RobotToolCalibration.ReInitialize">ReInitialize()</h4>
+  <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid Robot Tool Calibration instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
+  </div>
+
+</article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

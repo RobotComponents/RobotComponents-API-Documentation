@@ -1,21 +1,20 @@
 ﻿<!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <html>
-  
+
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>C# example </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="C# example ">
-    <meta name="generator" content="docfx 2.59.0.0">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+      <title>C# example </title>
+      <meta name="viewport" content="width=device-width">
+      <meta name="title" content="C# example ">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+      <link rel="shortcut icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
+      <link rel="stylesheet" href="../styles/docfx.css">
+      <link rel="stylesheet" href="../styles/main.css">
+      <meta property="docfx:navrel" content="../toc.html">
+      <meta property="docfx:tocrel" content="toc.html">
     
     
     
@@ -23,7 +22,7 @@
   <body data-spy="scroll" data-target="#affix" data-offset="120">
     <div id="wrapper">
       <header>
-        
+
         <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
           <div class="container">
             <div class="navbar-header">
@@ -33,7 +32,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              
+
               <a class="navbar-brand" href="../index.html">
                 <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
@@ -47,7 +46,7 @@
             </div>
           </div>
         </nav>
-        
+
         <div class="subnav navbar navbar-default">
           <div class="container hide-when-search" id="breadcrumb">
             <ul class="breadcrumb">
@@ -57,7 +56,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
+
         <div class="sidenav hide-when-search">
           <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
           <div class="sidetoggle collapse" id="sidetoggle">
@@ -76,10 +75,14 @@ using System.Collections.Generic;
 // Rhino Libs
 using Rhino.Geometry;
 // Robot Components Libs
-using RobotComponents;
-using RobotComponents.Actions;
-using RobotComponents.Definitions;
-using RobotComponents.Enumerations;
+using RobotComponents.ABB.Actions;
+using RobotComponents.ABB.Actions.Declarations;
+using RobotComponents.ABB.Actions.Instructions;
+using RobotComponents.ABB.Actions.Dynamic;
+using RobotComponents.ABB.Definitions;
+using RobotComponents.ABB.Enumerations;
+using RobotComponents.ABB.Presets;
+using RobotComponents.ABB.Presets.Enumerations;
 </code></pre>
 <pre><code class="lang-csharp">// Construct a tool
 Plane tcp = new Plane(new Point3d(0, 0, 250), new Vector3d(0, 0, 1));
@@ -88,7 +91,7 @@ Mesh coneMesh = Mesh.CreateFromCone(cone, 100, 100);
 RobotTool tool = new RobotTool(&quot;tool1&quot;, coneMesh, Plane.WorldXY, tcp);
 
 // Construct a robot preset
-Robot robot = Robot.GetRobotPreset(RobotPreset.IRB4600_40_255, Plane.WorldXY, tool);
+Robot robot = Factory.GetRobotPreset(RobotPreset.IRB4600_40_255, Plane.WorldXY, tool);
 
 // Fabrication settings
 SpeedData speedLow = new SpeedData(&quot;speed_low&quot;, 20);
@@ -99,7 +102,7 @@ double offset = 100;
 string digitalOutputName = &quot;DO_01&quot;;
 
 // Create actions
-List&lt;RobotComponents.Actions.Action&gt; actions = new List&lt;RobotComponents.Actions.Action&gt;();
+List&lt;RobotComponents.ABB.Actions.Action&gt; actions = new List&lt;RobotComponents.ABB.Actions.Action&gt;();
 
 // Configuration control
 actions.Add(new JointConfigurationControl(true));
@@ -120,7 +123,7 @@ for (int i = 0; i != curves.Count; i++)
     // Reverse one another
     if (i % 2 == 0)
     {
-    curves[i].Reverse();
+        curves[i].Reverse();
     }
 
     // Curve parameters
@@ -158,8 +161,10 @@ for (int i = 0; i != curves.Count; i++)
             actions.Add(movementStart);
         }
 
-        RobotTarget target = new RobotTarget(String.Format(&quot;curve_{0}_{1}&quot;, i, j), plane);
-        Movement movement = new Movement(MovementType.MoveL, target, speedLow, zonePrecise);
+        RobotTarget target = 
+            new RobotTarget(String.Format(&quot;curve_{0}_{1}&quot;, i, j), plane);
+        Movement movement = 
+            new Movement(MovementType.MoveL, target, speedLow, zonePrecise);
         actions.Add(movement);
 
         // Enable digital output after start
@@ -167,8 +172,7 @@ for (int i = 0; i != curves.Count; i++)
         {
             actions.Add(new DigitalOutput(digitalOutputName, true));
         }
-
-        // Disable digital output after last target and offset above end
+            // Disable digital output after last target and offset above end
         else if (j == t.Length - 1)
         {
             // Disable digital output
@@ -193,14 +197,12 @@ for (int i = 0; i != curves.Count; i++)
 actions.Add(goHome);
 
 // Create the RAPID program
-RAPIDGenerator rapidGenerator = 
-    new RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;BASE&quot;, &quot;main&quot;);
-List&lt;string&gt; program = rapidGenerator.CreateProgramModule();
-List&lt;string&gt; system = rapidGenerator.CreateSystemModule();
+RAPIDGenerator rapidGenerator = new RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;main&quot;);
+List&lt;string&gt; program = rapidGenerator.CreateModule();
 </code></pre>
 </article>
           </div>
-          
+
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
               <div class="contribution">
@@ -218,7 +220,7 @@ List&lt;string&gt; system = rapidGenerator.CreateSystemModule();
           </div>
         </div>
       </div>
-      
+
       <footer>
         <div class="grad-bottom"></div>
         <div class="footer">
@@ -226,14 +228,14 @@ List&lt;string&gt; system = rapidGenerator.CreateSystemModule();
             <span class="pull-right">
               <a href="#top">Back to top</a>
             </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
           </div>
         </div>
       </footer>
     </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+
+    <script type="text/javascript" src="../styles/docfx.vendor.min.js"></script>
     <script type="text/javascript" src="../styles/docfx.js"></script>
     <script type="text/javascript" src="../styles/main.js"></script>
   </body>

@@ -1,0 +1,1344 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.ABB.Definitions.WorkObject
+  commentId: T:RobotComponents.ABB.Definitions.WorkObject
+  id: WorkObject
+  parent: RobotComponents.ABB.Definitions
+  children:
+  - RobotComponents.ABB.Definitions.WorkObject.#ctor
+  - RobotComponents.ABB.Definitions.WorkObject.#ctor(RobotComponents.ABB.Definitions.WorkObject,System.Boolean)
+  - RobotComponents.ABB.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane)
+  - RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)
+  - RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  - RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+  - RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+  - RobotComponents.ABB.Definitions.WorkObject.Duplicate
+  - RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+  - RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  - RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  - RobotComponents.ABB.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  - RobotComponents.ABB.Definitions.WorkObject.IsValid
+  - RobotComponents.ABB.Definitions.WorkObject.Name
+  - RobotComponents.ABB.Definitions.WorkObject.Orientation
+  - RobotComponents.ABB.Definitions.WorkObject.Plane
+  - RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+  - RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  - RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  - RobotComponents.ABB.Definitions.WorkObject.Scope
+  - RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+  - RobotComponents.ABB.Definitions.WorkObject.ToString
+  - RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  - RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  langs:
+  - csharp
+  - vb
+  name: WorkObject
+  nameWithType: WorkObject
+  fullName: RobotComponents.ABB.Definitions.WorkObject
+  type: Class
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Represents a Work Object.
+  example: []
+  syntax:
+    content: 'public class WorkObject : ISerializable'
+    content.vb: Public Class WorkObject Implements ISerializable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Runtime.Serialization.ISerializable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject(SerializationInfo, StreamingContext)
+  nameWithType: WorkObject.WorkObject(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Protected constructor needed for deserialization of the object.
+  example: []
+  syntax:
+    content: protected WorkObject(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: The SerializationInfo to extract the data from.
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: The context of this deserialization.
+    content.vb: Protected Sub New(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  nameWithType.vb: WorkObject.New(SerializationInfo, StreamingContext)
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  name.vb: New(SerializationInfo, StreamingContext)
+- uid: RobotComponents.ABB.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  id: GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: WorkObject.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: RobotComponents.ABB.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Populates a SerializationInfo with the data needed to serialize the object.
+  example: []
+  syntax:
+    content: public void GetObjectData(SerializationInfo info, StreamingContext context)
+    parameters:
+    - id: info
+      type: System.Runtime.Serialization.SerializationInfo
+      description: The SerializationInfo to populate with data.
+    - id: context
+      type: System.Runtime.Serialization.StreamingContext
+      description: The destination for this serialization.
+    content.vb: Public Sub GetObjectData(info As SerializationInfo, context As StreamingContext)
+  overload: RobotComponents.ABB.Definitions.WorkObject.GetObjectData*
+  implements:
+  - System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.#ctor
+  id: '#ctor'
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject()
+  nameWithType: WorkObject.WorkObject()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject()
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Initializes a new instance of the Work Object class with the default work object wobj0.
+  example: []
+  syntax:
+    content: public WorkObject()
+    content.vb: Public Sub New()
+  overload: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  nameWithType.vb: WorkObject.New()
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New()
+  name.vb: New()
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane)
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane)
+  id: '#ctor(System.String,Rhino.Geometry.Plane)'
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject(string, Plane)
+  nameWithType: WorkObject.WorkObject(string, Plane)
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject(string, Rhino.Geometry.Plane)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Initializes a new instance of the Work Object class with a fixed work object.
+  example: []
+  syntax:
+    content: public WorkObject(string name, Plane plane)
+    parameters:
+    - id: name
+      type: System.String
+      description: The work object name, must be unique.
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: The work object coordinate system.
+    content.vb: Public Sub New(name As String, plane As Plane)
+  overload: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  nameWithType.vb: WorkObject.New(String, Plane)
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New(String, Rhino.Geometry.Plane)
+  name.vb: New(String, Plane)
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)
+  id: '#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)'
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject(string, Plane, ExternalAxis)
+  nameWithType: WorkObject.WorkObject(string, Plane, ExternalAxis)
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject(string, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.ExternalAxis)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Initializes a new instance of the Work Object class with a movable work object.
+  example: []
+  syntax:
+    content: public WorkObject(string name, Plane plane, ExternalAxis externalAxis)
+    parameters:
+    - id: name
+      type: System.String
+      description: The work object name, must be unique.
+    - id: plane
+      type: Rhino.Geometry.Plane
+      description: The work object coordinate system.
+    - id: externalAxis
+      type: RobotComponents.ABB.Definitions.ExternalAxis
+      description: The coupled external axis (mechanical unit) that moves the work object.
+    content.vb: Public Sub New(name As String, plane As Plane, externalAxis As ExternalAxis)
+  overload: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  nameWithType.vb: WorkObject.New(String, Plane, ExternalAxis)
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New(String, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.ExternalAxis)
+  name.vb: New(String, Plane, ExternalAxis)
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor(RobotComponents.ABB.Definitions.WorkObject,System.Boolean)
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.#ctor(RobotComponents.ABB.Definitions.WorkObject,System.Boolean)
+  id: '#ctor(RobotComponents.ABB.Definitions.WorkObject,System.Boolean)'
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: WorkObject(WorkObject, bool)
+  nameWithType: WorkObject.WorkObject(WorkObject, bool)
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject(RobotComponents.ABB.Definitions.WorkObject, bool)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Initializes a new instance of the Work Object class by duplicating an existing Work Object instance.
+  example: []
+  syntax:
+    content: public WorkObject(WorkObject workObject, bool duplicateMesh = true)
+    parameters:
+    - id: workObject
+      type: RobotComponents.ABB.Definitions.WorkObject
+      description: The Work Object instance to duplicate.
+    - id: duplicateMesh
+      type: System.Boolean
+      description: Specifies whether the meshes should be duplicated.
+    content.vb: Public Sub New(workObject As WorkObject, duplicateMesh As Boolean = True)
+  overload: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  nameWithType.vb: WorkObject.New(WorkObject, Boolean)
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New(RobotComponents.ABB.Definitions.WorkObject, Boolean)
+  name.vb: New(WorkObject, Boolean)
+- uid: RobotComponents.ABB.Definitions.WorkObject.Duplicate
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.Duplicate
+  id: Duplicate
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: Duplicate()
+  nameWithType: WorkObject.Duplicate()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Duplicate()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns an exact duplicate of this Work Object instance.
+  example: []
+  syntax:
+    content: public WorkObject Duplicate()
+    return:
+      type: RobotComponents.ABB.Definitions.WorkObject
+      description: A deep copy of the Work Object instance.
+    content.vb: Public Function Duplicate() As WorkObject
+  overload: RobotComponents.ABB.Definitions.WorkObject.Duplicate*
+- uid: RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+  id: DuplicateWithoutMesh
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: DuplicateWithoutMesh()
+  nameWithType: WorkObject.DuplicateWithoutMesh()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns an exact duplicate of this Work Object instance without meshes.
+  example: []
+  syntax:
+    content: public WorkObject DuplicateWithoutMesh()
+    return:
+      type: RobotComponents.ABB.Definitions.WorkObject
+      description: A deep copy of the Work Object instance without meshes.
+    content.vb: Public Function DuplicateWithoutMesh() As WorkObject
+  overload: RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh*
+- uid: RobotComponents.ABB.Definitions.WorkObject.ToString
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.ToString
+  id: ToString
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: WorkObject.ToString()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ToString()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: public override string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Public Overrides Function ToString() As String
+  overridden: System.Object.ToString
+  overload: RobotComponents.ABB.Definitions.WorkObject.ToString*
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+  id: CalculateOrientation
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: CalculateOrientation()
+  nameWithType: WorkObject.CalculateOrientation()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Calculates and returns the quaternion orientation of the work object coordinate system.
+  example: []
+  syntax:
+    content: public Quaternion CalculateOrientation()
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: The quaternion orientation of the work object.
+    content.vb: Public Function CalculateOrientation() As Quaternion
+  overload: RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation*
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+  id: CalculateUserFrameOrientation
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: CalculateUserFrameOrientation()
+  nameWithType: WorkObject.CalculateUserFrameOrientation()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Calculates and returns the quaternion orientation of the user frame coordinate system.
+  example: []
+  syntax:
+    content: public Quaternion CalculateUserFrameOrientation()
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: The quaternion orientation of the user frame.
+    content.vb: Public Function CalculateUserFrameOrientation() As Quaternion
+  overload: RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation*
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  id: CalculateGlobalWorkObjectPlane
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: CalculateGlobalWorkObjectPlane()
+  nameWithType: WorkObject.CalculateGlobalWorkObjectPlane()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Calculates and returns the global work object plane.
+  example: []
+  syntax:
+    content: public Plane CalculateGlobalWorkObjectPlane()
+    return:
+      type: Rhino.Geometry.Plane
+      description: The global work object plane.
+    content.vb: Public Function CalculateGlobalWorkObjectPlane() As Plane
+  overload: RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*
+- uid: RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+  id: ReInitialize
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ReInitialize()
+  nameWithType: WorkObject.ReInitialize()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ReInitialize()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Reinitializes the fields and properties to construct a valid Work Object instance.
+  example: []
+  syntax:
+    content: public void ReInitialize()
+    content.vb: Public Sub ReInitialize()
+  overload: RobotComponents.ABB.Definitions.WorkObject.ReInitialize*
+- uid: RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+  commentId: M:RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+  id: ToRAPIDDeclaration
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration()
+  nameWithType: WorkObject.ToRAPIDDeclaration()
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns the RAPID declaration code line of the this Work Object.
+  example: []
+  syntax:
+    content: public string ToRAPIDDeclaration()
+    return:
+      type: System.String
+      description: The RAPID code line.
+    content.vb: Public Function ToRAPIDDeclaration() As String
+  overload: RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*
+- uid: RobotComponents.ABB.Definitions.WorkObject.IsValid
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.IsValid
+  id: IsValid
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: WorkObject.IsValid
+  fullName: RobotComponents.ABB.Definitions.WorkObject.IsValid
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets a value indicating whether or not the object is valid.
+  example: []
+  syntax:
+    content: public bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.ABB.Definitions.WorkObject.IsValid*
+- uid: RobotComponents.ABB.Definitions.WorkObject.Scope
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.Scope
+  id: Scope
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: WorkObject.Scope
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Scope
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets or sets the scope.
+  example: []
+  syntax:
+    content: public Scope Scope { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Enumerations.Scope
+    content.vb: Public Property Scope As Scope
+  overload: RobotComponents.ABB.Definitions.WorkObject.Scope*
+- uid: RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: WorkObject.ReferenceType
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets or sets the variable type.
+  example: []
+  syntax:
+    content: public VariableType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Enumerations.VariableType
+    content.vb: Public Property ReferenceType As VariableType
+  overload: RobotComponents.ABB.Definitions.WorkObject.ReferenceType*
+- uid: RobotComponents.ABB.Definitions.WorkObject.Name
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.Name
+  id: Name
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: WorkObject.Name
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Name
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets or sets the name of the workobject.
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: RobotComponents.ABB.Definitions.WorkObject.Name*
+- uid: RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  id: RobotHold
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: RobotHold
+  nameWithType: WorkObject.RobotHold
+  fullName: RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets a value indicating whether or not the robot is holding the work object.
+  example: []
+  syntax:
+    content: public bool RobotHold { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property RobotHold As Boolean
+  overload: RobotComponents.ABB.Definitions.WorkObject.RobotHold*
+- uid: RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  id: GlobalWorkObjectPlane
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: GlobalWorkObjectPlane
+  nameWithType: WorkObject.GlobalWorkObjectPlane
+  fullName: RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the global work object plane.
+  example: []
+  syntax:
+    content: public Plane GlobalWorkObjectPlane { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Plane
+    content.vb: Public ReadOnly Property GlobalWorkObjectPlane As Plane
+  overload: RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane*
+- uid: RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  id: UserFrame
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: UserFrame
+  nameWithType: WorkObject.UserFrame
+  fullName: RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: >-
+    Gets or sets the user coordinate system, i.e. the position of the current work surface or fixture.
+
+    If the robot is holding the tool, the user coordinate system is defined in the world coordinate system (in the wrist coordinate system if a stationary tool is used). 
+
+    For movable user frame (FixedFrame = false), the user frame is continuously defined by the system.
+  example: []
+  syntax:
+    content: public Plane UserFrame { get; set; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Plane
+    content.vb: Public Property UserFrame As Plane
+  overload: RobotComponents.ABB.Definitions.WorkObject.UserFrame*
+- uid: RobotComponents.ABB.Definitions.WorkObject.Plane
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.Plane
+  id: Plane
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: Plane
+  nameWithType: WorkObject.Plane
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Plane
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: >-
+    Gets or set the work object coordinate system as a plane (e.g. the position of the current work object).
+
+    The object coordinate system is defined in the user coordinate system.
+  example: []
+  syntax:
+    content: public Plane Plane { get; set; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Plane
+    content.vb: Public Property Plane As Plane
+  overload: RobotComponents.ABB.Definitions.WorkObject.Plane*
+- uid: RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  id: ExternalAxis
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: ExternalAxis
+  nameWithType: WorkObject.ExternalAxis
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: >-
+    Gets or sets the external axis (mechanical unit) with which the robot movements are coordinated. 
+
+    Only specified in the case of movable user coordinate systems.
+  example: []
+  syntax:
+    content: public ExternalAxis ExternalAxis { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Definitions.ExternalAxis
+    content.vb: Public Property ExternalAxis As ExternalAxis
+  overload: RobotComponents.ABB.Definitions.WorkObject.ExternalAxis*
+- uid: RobotComponents.ABB.Definitions.WorkObject.Orientation
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.Orientation
+  id: Orientation
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: Orientation
+  nameWithType: WorkObject.Orientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Orientation
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the Quaternion orientation of the work object coordinate system.
+  example: []
+  syntax:
+    content: public Quaternion Orientation { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Quaternion
+    content.vb: Public ReadOnly Property Orientation As Quaternion
+  overload: RobotComponents.ABB.Definitions.WorkObject.Orientation*
+- uid: RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  id: UserFrameOrientation
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: UserFrameOrientation
+  nameWithType: WorkObject.UserFrameOrientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the Quaternion orientation of the user frame coordinate system.
+  example: []
+  syntax:
+    content: public Quaternion UserFrameOrientation { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Quaternion
+    content.vb: Public ReadOnly Property UserFrameOrientation As Quaternion
+  overload: RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation*
+- uid: RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  commentId: P:RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  id: FixedFrame
+  parent: RobotComponents.ABB.Definitions.WorkObject
+  langs:
+  - csharp
+  - vb
+  name: FixedFrame
+  nameWithType: WorkObject.FixedFrame
+  fullName: RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: >-
+    Gets a value indicating whether or not a fixed user coordinate system is used.
+
+    True indicates that the user frame is fixed. 
+
+    False indicates that the user coordinate system is movable (e.g. coordinated external axes).
+  example: []
+  syntax:
+    content: public bool FixedFrame { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property FixedFrame As Boolean
+  overload: RobotComponents.ABB.Definitions.WorkObject.FixedFrame*
+references:
+- uid: RobotComponents.ABB.Definitions
+  commentId: N:RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Definitions
+  nameWithType: RobotComponents.ABB.Definitions
+  fullName: RobotComponents.ABB.Definitions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object
+  name: object
+  nameWithType: object
+  fullName: object
+  nameWithType.vb: Object
+  fullName.vb: Object
+  name.vb: Object
+- uid: System.Runtime.Serialization.ISerializable
+  commentId: T:System.Runtime.Serialization.ISerializable
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable
+  name: ISerializable
+  nameWithType: ISerializable
+  fullName: System.Runtime.Serialization.ISerializable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  name: Equals(object)
+  nameWithType: object.Equals(object)
+  fullName: object.Equals(object)
+  nameWithType.vb: Object.Equals(Object)
+  fullName.vb: Object.Equals(Object)
+  name.vb: Equals(Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  name: Equals(object, object)
+  nameWithType: object.Equals(object, object)
+  fullName: object.Equals(object, object)
+  nameWithType.vb: Object.Equals(Object, Object)
+  fullName.vb: Object.Equals(Object, Object)
+  name.vb: Equals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  name: ReferenceEquals(object, object)
+  nameWithType: object.ReferenceEquals(object, object)
+  fullName: object.ReferenceEquals(object, object)
+  nameWithType.vb: Object.ReferenceEquals(Object, Object)
+  fullName.vb: Object.ReferenceEquals(Object, Object)
+  name.vb: ReferenceEquals(Object, Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.referenceequals
+  - name: (
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: ','
+  - name: " "
+  - uid: System.Object
+    name: Object
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object
+  - name: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  name: GetHashCode()
+  nameWithType: object.GetHashCode()
+  fullName: object.GetHashCode()
+  nameWithType.vb: Object.GetHashCode()
+  fullName.vb: Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gethashcode
+  - name: (
+  - name: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  name: GetType()
+  nameWithType: object.GetType()
+  fullName: object.GetType()
+  nameWithType.vb: Object.GetType()
+  fullName.vb: Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.gettype
+  - name: (
+  - name: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  name: MemberwiseClone()
+  nameWithType: object.MemberwiseClone()
+  fullName: object.MemberwiseClone()
+  nameWithType.vb: Object.MemberwiseClone()
+  fullName.vb: Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
+  - name: (
+  - name: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Runtime.Serialization
+  commentId: N:System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Runtime.Serialization
+  nameWithType: System.Runtime.Serialization
+  fullName: System.Runtime.Serialization
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Runtime
+    name: Runtime
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime
+  - name: .
+  - uid: System.Runtime.Serialization
+    name: Serialization
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: RobotComponents.ABB.Definitions.WorkObject.#ctor*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.#ctor
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: WorkObject
+  nameWithType: WorkObject.WorkObject
+  fullName: RobotComponents.ABB.Definitions.WorkObject.WorkObject
+  nameWithType.vb: WorkObject.New
+  fullName.vb: RobotComponents.ABB.Definitions.WorkObject.New
+  name.vb: New
+- uid: System.Runtime.Serialization.SerializationInfo
+  commentId: T:System.Runtime.Serialization.SerializationInfo
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  name: SerializationInfo
+  nameWithType: SerializationInfo
+  fullName: System.Runtime.Serialization.SerializationInfo
+- uid: System.Runtime.Serialization.StreamingContext
+  commentId: T:System.Runtime.Serialization.StreamingContext
+  parent: System.Runtime.Serialization
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  name: StreamingContext
+  nameWithType: StreamingContext
+  fullName: System.Runtime.Serialization.StreamingContext
+- uid: RobotComponents.ABB.Definitions.WorkObject.GetObjectData*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.GetObjectData
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  name: GetObjectData
+  nameWithType: WorkObject.GetObjectData
+  fullName: RobotComponents.ABB.Definitions.WorkObject.GetObjectData
+- uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  commentId: M:System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  parent: System.Runtime.Serialization.ISerializable
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable.getobjectdata
+  name: GetObjectData(SerializationInfo, StreamingContext)
+  nameWithType: ISerializable.GetObjectData(SerializationInfo, StreamingContext)
+  fullName: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)
+  spec.csharp:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+  spec.vb:
+  - uid: System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+    name: GetObjectData
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable.getobjectdata
+  - name: (
+  - uid: System.Runtime.Serialization.SerializationInfo
+    name: SerializationInfo
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.serializationinfo
+  - name: ','
+  - name: " "
+  - uid: System.Runtime.Serialization.StreamingContext
+    name: StreamingContext
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
+  - name: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: Rhino.Geometry.Plane
+  isExternal: true
+  name: Plane
+  nameWithType: Plane
+  fullName: Rhino.Geometry.Plane
+- uid: RobotComponents.ABB.Definitions.ExternalAxis
+  commentId: T:RobotComponents.ABB.Definitions.ExternalAxis
+  parent: RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.ExternalAxis.html
+  name: ExternalAxis
+  nameWithType: ExternalAxis
+  fullName: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.WorkObject
+  commentId: T:RobotComponents.ABB.Definitions.WorkObject
+  parent: RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html
+  name: WorkObject
+  nameWithType: WorkObject
+  fullName: RobotComponents.ABB.Definitions.WorkObject
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RobotComponents.ABB.Definitions.WorkObject.Duplicate*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.Duplicate
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.Duplicate
+  name: Duplicate
+  nameWithType: WorkObject.Duplicate
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Duplicate
+- uid: RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+  name: DuplicateWithoutMesh
+  nameWithType: WorkObject.DuplicateWithoutMesh
+  fullName: RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Definitions.WorkObject.ToString*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.ToString
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.ToString
+  name: ToString
+  nameWithType: WorkObject.ToString
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ToString
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+  name: CalculateOrientation
+  nameWithType: WorkObject.CalculateOrientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation
+- uid: Rhino.Geometry.Quaternion
+  isExternal: true
+  name: Quaternion
+  nameWithType: Quaternion
+  fullName: Rhino.Geometry.Quaternion
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+  name: CalculateUserFrameOrientation
+  nameWithType: WorkObject.CalculateUserFrameOrientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation
+- uid: RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+  name: CalculateGlobalWorkObjectPlane
+  nameWithType: WorkObject.CalculateGlobalWorkObjectPlane
+  fullName: RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane
+- uid: RobotComponents.ABB.Definitions.WorkObject.ReInitialize*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+  name: ReInitialize
+  nameWithType: WorkObject.ReInitialize
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ReInitialize
+- uid: RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+  name: ToRAPIDDeclaration
+  nameWithType: WorkObject.ToRAPIDDeclaration
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration
+- uid: RobotComponents.ABB.Definitions.WorkObject.IsValid*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.IsValid
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.IsValid
+  name: IsValid
+  nameWithType: WorkObject.IsValid
+  fullName: RobotComponents.ABB.Definitions.WorkObject.IsValid
+- uid: RobotComponents.ABB.Definitions.WorkObject.Scope*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.Scope
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.Scope
+  name: Scope
+  nameWithType: WorkObject.Scope
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Scope
+- uid: RobotComponents.ABB.Enumerations.Scope
+  commentId: T:RobotComponents.ABB.Enumerations.Scope
+  parent: RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.ABB.Enumerations.Scope.html
+  name: Scope
+  nameWithType: Scope
+  fullName: RobotComponents.ABB.Enumerations.Scope
+- uid: RobotComponents.ABB.Enumerations
+  commentId: N:RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Enumerations
+  nameWithType: RobotComponents.ABB.Enumerations
+  fullName: RobotComponents.ABB.Enumerations
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html
+- uid: RobotComponents.ABB.Definitions.WorkObject.ReferenceType*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+  name: ReferenceType
+  nameWithType: WorkObject.ReferenceType
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ReferenceType
+- uid: RobotComponents.ABB.Enumerations.VariableType
+  commentId: T:RobotComponents.ABB.Enumerations.VariableType
+  parent: RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.ABB.Enumerations.VariableType.html
+  name: VariableType
+  nameWithType: VariableType
+  fullName: RobotComponents.ABB.Enumerations.VariableType
+- uid: RobotComponents.ABB.Definitions.WorkObject.Name*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.Name
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.Name
+  name: Name
+  nameWithType: WorkObject.Name
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Name
+- uid: RobotComponents.ABB.Definitions.WorkObject.RobotHold*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.RobotHold
+  name: RobotHold
+  nameWithType: WorkObject.RobotHold
+  fullName: RobotComponents.ABB.Definitions.WorkObject.RobotHold
+- uid: RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+  name: GlobalWorkObjectPlane
+  nameWithType: WorkObject.GlobalWorkObjectPlane
+  fullName: RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane
+- uid: RobotComponents.ABB.Definitions.WorkObject.UserFrame*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.UserFrame
+  name: UserFrame
+  nameWithType: WorkObject.UserFrame
+  fullName: RobotComponents.ABB.Definitions.WorkObject.UserFrame
+- uid: RobotComponents.ABB.Definitions.WorkObject.Plane*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.Plane
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.Plane
+  name: Plane
+  nameWithType: WorkObject.Plane
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Plane
+- uid: RobotComponents.ABB.Definitions.WorkObject.ExternalAxis*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+  name: ExternalAxis
+  nameWithType: WorkObject.ExternalAxis
+  fullName: RobotComponents.ABB.Definitions.WorkObject.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.WorkObject.Orientation*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.Orientation
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.Orientation
+  name: Orientation
+  nameWithType: WorkObject.Orientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.Orientation
+- uid: RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+  name: UserFrameOrientation
+  nameWithType: WorkObject.UserFrameOrientation
+  fullName: RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation
+- uid: RobotComponents.ABB.Definitions.WorkObject.FixedFrame*
+  commentId: Overload:RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.WorkObject.html#RobotComponents.ABB.Definitions.WorkObject.FixedFrame
+  name: FixedFrame
+  nameWithType: WorkObject.FixedFrame
+  fullName: RobotComponents.ABB.Definitions.WorkObject.FixedFrame

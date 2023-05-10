@@ -8,10 +8,14 @@ using System.Collections.Generic;
 // Rhino Libs
 using Rhino.Geometry;
 // Robot Components Libs
-using RobotComponents;
-using RobotComponents.Actions;
-using RobotComponents.Definitions;
-using RobotComponents.Enumerations;
+using RobotComponents.ABB.Actions;
+using RobotComponents.ABB.Actions.Declarations;
+using RobotComponents.ABB.Actions.Instructions;
+using RobotComponents.ABB.Actions.Dynamic;
+using RobotComponents.ABB.Definitions;
+using RobotComponents.ABB.Enumerations;
+using RobotComponents.ABB.Presets;
+using RobotComponents.ABB.Presets.Enumerations;
 ```
 
 ```csharp
@@ -22,7 +26,7 @@ Mesh coneMesh = Mesh.CreateFromCone(cone, 100, 100);
 RobotTool tool = new RobotTool("tool1", coneMesh, Plane.WorldXY, tcp);
 
 // Construct a robot preset
-Robot robot = Robot.GetRobotPreset(RobotPreset.IRB4600_40_255, Plane.WorldXY, tool);
+Robot robot = Factory.GetRobotPreset(RobotPreset.IRB4600_40_255, Plane.WorldXY, tool);
 
 // Fabrication settings
 SpeedData speedLow = new SpeedData("speed_low", 20);
@@ -33,7 +37,7 @@ double offset = 100;
 string digitalOutputName = "DO_01";
 
 // Create actions
-List<RobotComponents.Actions.Action> actions = new List<RobotComponents.Actions.Action>();
+List<RobotComponents.ABB.Actions.Action> actions = new List<RobotComponents.ABB.Actions.Action>();
 
 // Configuration control
 actions.Add(new JointConfigurationControl(true));
@@ -54,7 +58,7 @@ for (int i = 0; i != curves.Count; i++)
     // Reverse one another
     if (i % 2 == 0)
     {
-    curves[i].Reverse();
+        curves[i].Reverse();
     }
 
     // Curve parameters
@@ -92,8 +96,10 @@ for (int i = 0; i != curves.Count; i++)
             actions.Add(movementStart);
         }
 
-        RobotTarget target = new RobotTarget(String.Format("curve_{0}_{1}", i, j), plane);
-        Movement movement = new Movement(MovementType.MoveL, target, speedLow, zonePrecise);
+        RobotTarget target = 
+            new RobotTarget(String.Format("curve_{0}_{1}", i, j), plane);
+        Movement movement = 
+            new Movement(MovementType.MoveL, target, speedLow, zonePrecise);
         actions.Add(movement);
 
         // Enable digital output after start
@@ -101,8 +107,7 @@ for (int i = 0; i != curves.Count; i++)
         {
             actions.Add(new DigitalOutput(digitalOutputName, true));
         }
-
-        // Disable digital output after last target and offset above end
+            // Disable digital output after last target and offset above end
         else if (j == t.Length - 1)
         {
             // Disable digital output
@@ -127,8 +132,6 @@ for (int i = 0; i != curves.Count; i++)
 actions.Add(goHome);
 
 // Create the RAPID program
-RAPIDGenerator rapidGenerator = 
-    new RAPIDGenerator(robot, actions, "MainModule", "BASE", "main");
-List<string> program = rapidGenerator.CreateProgramModule();
-List<string> system = rapidGenerator.CreateSystemModule();
+RAPIDGenerator rapidGenerator = new RAPIDGenerator(robot, actions, "MainModule", "main");
+List<string> program = rapidGenerator.CreateModule();
 ```

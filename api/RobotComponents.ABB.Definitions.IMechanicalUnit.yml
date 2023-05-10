@@ -1,0 +1,562 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit
+  commentId: T:RobotComponents.ABB.Definitions.IMechanicalUnit
+  id: IMechanicalUnit
+  parent: RobotComponents.ABB.Definitions
+  children:
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  - RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  langs:
+  - csharp
+  - vb
+  name: IMechanicalUnit
+  nameWithType: IMechanicalUnit
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit
+  type: Interface
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Represent the interface of mechanical units
+  example: []
+  syntax:
+    content: public interface IMechanicalUnit
+    content.vb: Public Interface IMechanicalUnit
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  id: DuplicateMechanicalUnit
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnit()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnit()
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns an exact duplicate of this Mechanical Unit.
+  example: []
+  syntax:
+    content: IMechanicalUnit DuplicateMechanicalUnit()
+    return:
+      type: RobotComponents.ABB.Definitions.IMechanicalUnit
+      description: A deep copy of the Mechanical Unit.
+    content.vb: Function DuplicateMechanicalUnit() As IMechanicalUnit
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  id: DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns an exact duplicate of this Mechanical Unit without meshes.
+  example: []
+  syntax:
+    content: IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()
+    return:
+      type: RobotComponents.ABB.Definitions.IMechanicalUnit
+      description: A deep copy of the Mechanical Unit without meshes.
+    content.vb: Function DuplicateMechanicalUnitWithoutMesh() As IMechanicalUnit
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  id: ToString
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: ToString()
+  nameWithType: IMechanicalUnit.ToString()
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns a string that represents the current object.
+  example: []
+  syntax:
+    content: string ToString()
+    return:
+      type: System.String
+      description: A string that represents the current object.
+    content.vb: Function ToString() As String
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  id: PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: PoseMeshes(JointTarget)
+  nameWithType: IMechanicalUnit.PoseMeshes(JointTarget)
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Calculates and returns the position of the meshes for a given Joint Target.
+  example: []
+  syntax:
+    content: List<Mesh> PoseMeshes(JointTarget jointTarget)
+    parameters:
+    - id: jointTarget
+      type: RobotComponents.ABB.Actions.Declarations.JointTarget
+      description: The Joint Target.
+    return:
+      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+      description: The posed meshes.
+    content.vb: Function PoseMeshes(jointTarget As JointTarget) As List(Of Mesh)
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  id: Transform(Rhino.Geometry.Transform)
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: Transform(Transform)
+  nameWithType: IMechanicalUnit.Transform(Transform)
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Transforms the external axis spatial properties (planes and meshes).
+  example: []
+  syntax:
+    content: void Transform(Transform xform)
+    parameters:
+    - id: xform
+      type: Rhino.Geometry.Transform
+      description: The spatial deform.
+    content.vb: Sub Transform(xform As Transform)
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  id: GetBoundingBox(System.Boolean)
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: GetBoundingBox(bool)
+  nameWithType: IMechanicalUnit.GetBoundingBox(bool)
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(bool)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns the Bounding Box of the object.
+  example: []
+  syntax:
+    content: BoundingBox GetBoundingBox(bool accurate)
+    parameters:
+    - id: accurate
+      type: System.Boolean
+      description: If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed.
+    return:
+      type: Rhino.Geometry.BoundingBox
+      description: The Bounding Box.
+    content.vb: Function GetBoundingBox(accurate As Boolean) As BoundingBox
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox*
+  nameWithType.vb: IMechanicalUnit.GetBoundingBox(Boolean)
+  fullName.vb: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(Boolean)
+  name.vb: GetBoundingBox(Boolean)
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  id: IsValid
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: IMechanicalUnit.IsValid
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets a value indicating whether or not the object is valid.
+  example: []
+  syntax:
+    content: bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  id: Name
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IMechanicalUnit.Name
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets or sets the external axis name.
+  example: []
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.Name*
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  id: NumberOfAxes
+  parent: RobotComponents.ABB.Definitions.IMechanicalUnit
+  langs:
+  - csharp
+  - vb
+  name: NumberOfAxes
+  nameWithType: IMechanicalUnit.NumberOfAxes
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the number of axes for the mechanical unit.
+  example: []
+  syntax:
+    content: int NumberOfAxes { get; }
+    parameters: []
+    return:
+      type: System.Int32
+    content.vb: ReadOnly Property NumberOfAxes As Integer
+  overload: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes*
+references:
+- uid: RobotComponents.ABB.Definitions
+  commentId: N:RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Definitions
+  nameWithType: RobotComponents.ABB.Definitions
+  fullName: RobotComponents.ABB.Definitions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  name: DuplicateMechanicalUnit
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnit
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit
+  commentId: T:RobotComponents.ABB.Definitions.IMechanicalUnit
+  parent: RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html
+  name: IMechanicalUnit
+  nameWithType: IMechanicalUnit
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  name: DuplicateMechanicalUnitWithoutMesh
+  nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  name: ToString
+  nameWithType: IMechanicalUnit.ToString
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  name: PoseMeshes
+  nameWithType: IMechanicalUnit.PoseMeshes
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes
+- uid: RobotComponents.ABB.Actions.Declarations.JointTarget
+  commentId: T:RobotComponents.ABB.Actions.Declarations.JointTarget
+  parent: RobotComponents.ABB.Actions.Declarations
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.JointTarget.html
+  name: JointTarget
+  nameWithType: JointTarget
+  fullName: RobotComponents.ABB.Actions.Declarations.JointTarget
+- uid: System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  commentId: T:System.Collections.Generic.List{Rhino.Geometry.Mesh}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<Mesh>
+  nameWithType: List<Mesh>
+  fullName: System.Collections.Generic.List<Rhino.Geometry.Mesh>
+  nameWithType.vb: List(Of Mesh)
+  fullName.vb: System.Collections.Generic.List(Of Rhino.Geometry.Mesh)
+  name.vb: List(Of Mesh)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    isExternal: true
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: Rhino.Geometry.Mesh
+    name: Mesh
+    isExternal: true
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations
+  commentId: N:RobotComponents.ABB.Actions.Declarations
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions.Declarations
+  nameWithType: RobotComponents.ABB.Actions.Declarations
+  fullName: RobotComponents.ABB.Actions.Declarations
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Declarations
+    name: Declarations
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Declarations
+    name: Declarations
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.html
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - name: T
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - name: T
+  - name: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+  spec.csharp:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+  spec.vb:
+  - uid: System
+    name: System
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system
+  - name: .
+  - uid: System.Collections
+    name: Collections
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections
+  - name: .
+  - uid: System.Collections.Generic
+    name: Generic
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.Transform
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  name: Transform
+  nameWithType: IMechanicalUnit.Transform
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform
+- uid: Rhino.Geometry.Transform
+  isExternal: true
+  name: Transform
+  nameWithType: Transform
+  fullName: Rhino.Geometry.Transform
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  name: GetBoundingBox
+  nameWithType: IMechanicalUnit.GetBoundingBox
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: Rhino.Geometry.BoundingBox
+  isExternal: true
+  name: BoundingBox
+  nameWithType: BoundingBox
+  fullName: Rhino.Geometry.BoundingBox
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  name: IsValid
+  nameWithType: IMechanicalUnit.IsValid
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Name*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  name: Name
+  nameWithType: IMechanicalUnit.Name
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+- uid: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes*
+  commentId: Overload:RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  name: NumberOfAxes
+  nameWithType: IMechanicalUnit.NumberOfAxes
+  fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.int32
+  name: int
+  nameWithType: int
+  fullName: int
+  nameWithType.vb: Integer
+  fullName.vb: Integer
+  name.vb: Integer
