@@ -9,7 +9,7 @@ Robot Components is a plugin for intuitive robot programming for ABB robots insi
 - Support for work objects (including movable work objects)
 - Efficient forward and inverse kinematics
 - Possibility to add your own custom code lines
-- Real-time connection with IRC5 controllers
+- Real-time connection with IRC5 and OmniCore controllers
 - Robot Components API to develop your custom components using either Python or C#
 
 ## **Getting Started**
@@ -48,5 +48,5 @@ Robot Components is distributed in the hope that it will be useful, but WITHOUT 
 
 You should have received a copy of the GNU Lesser General Public License along with Robot Components; If not, see <http://www.gnu.org/licenses/>.
 
-@license GPL-3.0 <https://www.gnu.org/licenses/lgpl-3.0.html>
+@license LGPL-3.0 <https://www.gnu.org/licenses/lgpl-3.0.html>
 
