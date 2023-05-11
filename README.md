@@ -13,7 +13,7 @@ Pull requests are welcome. If you want to build the site yourself, to test your 
 
 We generate the API documentation with [docfx](https://dotnet.github.io/docfx/). The files are compiled and pushed manually. To update the docs, follow the next steps: 
 
-1) Install docfx v.2.59.0. You can find more information and the steps [here](https://dotnet.github.io/docfx/tutorial/walkthrough/walkthrough_create_a_docfx_project.html).
+1) Install docfx. You can find more information and the steps [here](https://dotnet.github.io/docfx/tutorial/walkthrough/walkthrough_create_a_docfx_project.html).
 2) Pull the files from this repo via git. 
 3) Update/replace the `.dll` and `.xml` files in the `src` folder. 
 4) Use the command prompt and nagivate to the folder of this repo.
