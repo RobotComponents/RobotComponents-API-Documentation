@@ -11,6 +11,7 @@ items:
   - RobotComponents.ABB.Kinematics.PathGenerator.ErrorText
   - RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions
   - RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
+  - RobotComponents.ABB.Kinematics.PathGenerator.InLimits
   - RobotComponents.ABB.Kinematics.PathGenerator.IsValid
   - RobotComponents.ABB.Kinematics.PathGenerator.Movements
   - RobotComponents.ABB.Kinematics.PathGenerator.Paths
@@ -315,6 +316,29 @@ items:
       type: System.Collections.Generic.List{RobotComponents.ABB.Actions.Declarations.ExternalJointPosition}
     content.vb: Public ReadOnly Property ExternalJointPositions As List(Of ExternalJointPosition)
   overload: RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions*
+- uid: RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  commentId: P:RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  id: InLimits
+  parent: RobotComponents.ABB.Kinematics.PathGenerator
+  langs:
+  - csharp
+  - vb
+  name: InLimits
+  nameWithType: PathGenerator.InLimits
+  fullName: RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Kinematics
+  summary: Gets the value indicating whether or not the internal and external values are within their limits.
+  example: []
+  syntax:
+    content: public List<bool> InLimits { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.Boolean}
+    content.vb: Public ReadOnly Property InLimits As List(Of Boolean)
+  overload: RobotComponents.ABB.Kinematics.PathGenerator.InLimits*
 - uid: RobotComponents.ABB.Kinematics.PathGenerator.ErrorText
   commentId: P:RobotComponents.ABB.Kinematics.PathGenerator.ErrorText
   id: ErrorText
@@ -1085,6 +1109,48 @@ references:
     name: ExternalJointPosition
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
+  - name: )
+- uid: RobotComponents.ABB.Kinematics.PathGenerator.InLimits*
+  commentId: Overload:RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.PathGenerator.html#RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  name: InLimits
+  nameWithType: PathGenerator.InLimits
+  fullName: RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+- uid: System.Collections.Generic.List{System.Boolean}
+  commentId: T:System.Collections.Generic.List{System.Boolean}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  name: List<bool>
+  nameWithType: List<bool>
+  fullName: System.Collections.Generic.List<bool>
+  nameWithType.vb: List(Of Boolean)
+  fullName.vb: System.Collections.Generic.List(Of Boolean)
+  name.vb: List(Of Boolean)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: <
+  - uid: System.Boolean
+    name: bool
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.Boolean
+    name: Boolean
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
 - uid: RobotComponents.ABB.Kinematics.PathGenerator.ErrorText*
   commentId: Overload:RobotComponents.ABB.Kinematics.PathGenerator.ErrorText

@@ -10,11 +10,19 @@ items:
   - RobotComponents.ABB.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool)
   - RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
+  - RobotComponents.ABB.Definitions.Robot.A1
+  - RobotComponents.ABB.Definitions.Robot.A2
+  - RobotComponents.ABB.Definitions.Robot.B
   - RobotComponents.ABB.Definitions.Robot.BasePlane
+  - RobotComponents.ABB.Definitions.Robot.C1
+  - RobotComponents.ABB.Definitions.Robot.C2
+  - RobotComponents.ABB.Definitions.Robot.C3
+  - RobotComponents.ABB.Definitions.Robot.C4
   - RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
   - RobotComponents.ABB.Definitions.Robot.Duplicate
   - RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit
   - RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+  - RobotComponents.ABB.Definitions.Robot.ElbowLength
   - RobotComponents.ABB.Definitions.Robot.ExternalAxes
   - RobotComponents.ABB.Definitions.Robot.ExternalAxisLimits
   - RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes
@@ -26,6 +34,7 @@ items:
   - RobotComponents.ABB.Definitions.Robot.InternalAxisPlanes
   - RobotComponents.ABB.Definitions.Robot.InverseKinematics
   - RobotComponents.ABB.Definitions.Robot.IsValid
+  - RobotComponents.ABB.Definitions.Robot.LowerArmLength
   - RobotComponents.ABB.Definitions.Robot.Meshes
   - RobotComponents.ABB.Definitions.Robot.MountingFrame
   - RobotComponents.ABB.Definitions.Robot.Name
@@ -35,6 +44,8 @@ items:
   - RobotComponents.ABB.Definitions.Robot.Tool
   - RobotComponents.ABB.Definitions.Robot.ToolPlane
   - RobotComponents.ABB.Definitions.Robot.Transform(Rhino.Geometry.Transform)
+  - RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  - RobotComponents.ABB.Definitions.Robot.WristOffset
   langs:
   - csharp
   - vb
@@ -856,6 +867,261 @@ items:
   overload: RobotComponents.ABB.Definitions.Robot.NumberOfAxes*
   implements:
   - RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+- uid: RobotComponents.ABB.Definitions.Robot.WristOffset
+  commentId: P:RobotComponents.ABB.Definitions.Robot.WristOffset
+  id: WristOffset
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: WristOffset
+  nameWithType: Robot.WristOffset
+  fullName: RobotComponents.ABB.Definitions.Robot.WristOffset
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the wrist offset.
+  example: []
+  syntax:
+    content: public Point3d WristOffset { get; }
+    parameters: []
+    return:
+      type: Rhino.Geometry.Point3d
+    content.vb: Public ReadOnly Property WristOffset As Point3d
+  overload: RobotComponents.ABB.Definitions.Robot.WristOffset*
+- uid: RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  commentId: P:RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  id: LowerArmLength
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: LowerArmLength
+  nameWithType: Robot.LowerArmLength
+  fullName: RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the length of the lower arm.
+  example: []
+  syntax:
+    content: public double LowerArmLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+      description: The length of the lower arm.
+    content.vb: Public ReadOnly Property LowerArmLength As Double
+  overload: RobotComponents.ABB.Definitions.Robot.LowerArmLength*
+- uid: RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  commentId: P:RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  id: UpperArmLength
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: UpperArmLength
+  nameWithType: Robot.UpperArmLength
+  fullName: RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the length of the upper arm.
+  example: []
+  syntax:
+    content: public double UpperArmLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+      description: The length of the upper arm.
+    content.vb: Public ReadOnly Property UpperArmLength As Double
+  overload: RobotComponents.ABB.Definitions.Robot.UpperArmLength*
+- uid: RobotComponents.ABB.Definitions.Robot.ElbowLength
+  commentId: P:RobotComponents.ABB.Definitions.Robot.ElbowLength
+  id: ElbowLength
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: ElbowLength
+  nameWithType: Robot.ElbowLength
+  fullName: RobotComponents.ABB.Definitions.Robot.ElbowLength
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the total length of the elbow.
+  example: []
+  syntax:
+    content: public double ElbowLength { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property ElbowLength As Double
+  overload: RobotComponents.ABB.Definitions.Robot.ElbowLength*
+- uid: RobotComponents.ABB.Definitions.Robot.A1
+  commentId: P:RobotComponents.ABB.Definitions.Robot.A1
+  id: A1
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: A1
+  nameWithType: Robot.A1
+  fullName: RobotComponents.ABB.Definitions.Robot.A1
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter A1.
+  example: []
+  syntax:
+    content: public double A1 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property A1 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.A1*
+- uid: RobotComponents.ABB.Definitions.Robot.A2
+  commentId: P:RobotComponents.ABB.Definitions.Robot.A2
+  id: A2
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: A2
+  nameWithType: Robot.A2
+  fullName: RobotComponents.ABB.Definitions.Robot.A2
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter A2.
+  example: []
+  syntax:
+    content: public double A2 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property A2 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.A2*
+- uid: RobotComponents.ABB.Definitions.Robot.B
+  commentId: P:RobotComponents.ABB.Definitions.Robot.B
+  id: B
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: B
+  nameWithType: Robot.B
+  fullName: RobotComponents.ABB.Definitions.Robot.B
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter B.
+  example: []
+  syntax:
+    content: public double B { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property B As Double
+  overload: RobotComponents.ABB.Definitions.Robot.B*
+- uid: RobotComponents.ABB.Definitions.Robot.C1
+  commentId: P:RobotComponents.ABB.Definitions.Robot.C1
+  id: C1
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: C1
+  nameWithType: Robot.C1
+  fullName: RobotComponents.ABB.Definitions.Robot.C1
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter C1.
+  example: []
+  syntax:
+    content: public double C1 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property C1 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.C1*
+- uid: RobotComponents.ABB.Definitions.Robot.C2
+  commentId: P:RobotComponents.ABB.Definitions.Robot.C2
+  id: C2
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: C2
+  nameWithType: Robot.C2
+  fullName: RobotComponents.ABB.Definitions.Robot.C2
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter C2.
+  example: []
+  syntax:
+    content: public double C2 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property C2 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.C2*
+- uid: RobotComponents.ABB.Definitions.Robot.C3
+  commentId: P:RobotComponents.ABB.Definitions.Robot.C3
+  id: C3
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: C3
+  nameWithType: Robot.C3
+  fullName: RobotComponents.ABB.Definitions.Robot.C3
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter C3.
+  example: []
+  syntax:
+    content: public double C3 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property C3 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.C3*
+- uid: RobotComponents.ABB.Definitions.Robot.C4
+  commentId: P:RobotComponents.ABB.Definitions.Robot.C4
+  id: C4
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: C4
+  nameWithType: Robot.C4
+  fullName: RobotComponents.ABB.Definitions.Robot.C4
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the OPW kinematics parameter C4.
+  example: []
+  syntax:
+    content: public double C4 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property C4 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.C4*
 references:
 - uid: RobotComponents.ABB.Definitions
   commentId: N:RobotComponents.ABB.Definitions
@@ -2146,3 +2412,96 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
+- uid: RobotComponents.ABB.Definitions.Robot.WristOffset*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.WristOffset
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.WristOffset
+  name: WristOffset
+  nameWithType: Robot.WristOffset
+  fullName: RobotComponents.ABB.Definitions.Robot.WristOffset
+- uid: Rhino.Geometry.Point3d
+  isExternal: true
+  name: Point3d
+  nameWithType: Point3d
+  fullName: Rhino.Geometry.Point3d
+- uid: RobotComponents.ABB.Definitions.Robot.LowerArmLength*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  name: LowerArmLength
+  nameWithType: Robot.LowerArmLength
+  fullName: RobotComponents.ABB.Definitions.Robot.LowerArmLength
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: RobotComponents.ABB.Definitions.Robot.UpperArmLength*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  name: UpperArmLength
+  nameWithType: Robot.UpperArmLength
+  fullName: RobotComponents.ABB.Definitions.Robot.UpperArmLength
+- uid: RobotComponents.ABB.Definitions.Robot.ElbowLength*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.ElbowLength
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ElbowLength
+  name: ElbowLength
+  nameWithType: Robot.ElbowLength
+  fullName: RobotComponents.ABB.Definitions.Robot.ElbowLength
+- uid: RobotComponents.ABB.Definitions.Robot.A1*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.A1
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.A1
+  name: A1
+  nameWithType: Robot.A1
+  fullName: RobotComponents.ABB.Definitions.Robot.A1
+- uid: RobotComponents.ABB.Definitions.Robot.A2*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.A2
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.A2
+  name: A2
+  nameWithType: Robot.A2
+  fullName: RobotComponents.ABB.Definitions.Robot.A2
+- uid: RobotComponents.ABB.Definitions.Robot.B*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.B
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.B
+  name: B
+  nameWithType: Robot.B
+  fullName: RobotComponents.ABB.Definitions.Robot.B
+- uid: RobotComponents.ABB.Definitions.Robot.C1*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.C1
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C1
+  name: C1
+  nameWithType: Robot.C1
+  fullName: RobotComponents.ABB.Definitions.Robot.C1
+- uid: RobotComponents.ABB.Definitions.Robot.C2*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.C2
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C2
+  name: C2
+  nameWithType: Robot.C2
+  fullName: RobotComponents.ABB.Definitions.Robot.C2
+- uid: RobotComponents.ABB.Definitions.Robot.C3*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.C3
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C3
+  name: C3
+  nameWithType: Robot.C3
+  fullName: RobotComponents.ABB.Definitions.Robot.C3
+- uid: RobotComponents.ABB.Definitions.Robot.C4*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.C4
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C4
+  name: C4
+  nameWithType: Robot.C4
+  fullName: RobotComponents.ABB.Definitions.Robot.C4

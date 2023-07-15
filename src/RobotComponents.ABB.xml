@@ -1151,21 +1151,30 @@
         <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.CheckCombination">
             <summary>
             Checks the combination between the movement type and the target type.
-            Throws an exception if the combination is not valid. 
             </summary>
+            <remarks>
+            Throws an exception if the combination is not valid. 
+            </remarks>
         </member>
         <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.GetGlobalTargetPlane">
             <summary>
             Calculates the position and the orientation of the target in world coordinate space. 
+            </summary>
+            <remarks>
             If an external axis is attached to the work object this method returns the pose of the 
             target plane in the world coorinate space for axis values equal to zero.
-            </summary>
+            </remarks>
             <returns> The the target plane in world coordinate space. </returns>
         </member>
         <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.GetPosedGlobalTargetPlane">
             <summary>
             Calculates the posed target plane for the defined Robot with attached external axes in world coordinate space.
             </summary>
+            <remarks>
+            Calculates the position and the orientation of the target plane in the world coordinate system. If there is 
+            an external axes connected to work object of the movement, the target plane will be re-oriented according to 
+            the pose of the this external axis. 
+            </remarks>
             <returns> The posed target plane in world coordinate space. </returns>
         </member>
         <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.ConvertTarget(RobotComponents.ABB.Actions.RAPIDGenerator)">
@@ -1215,14 +1224,18 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.Target">
             <summary>
             Gets or sets the Target.
+            <remarks>
             Defines the destination target of the robot and external axes.
+            </remarks>
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.SyncID">
             <summary>
             Gets or sets the synchronization id for multi move programming. 
+            <remarks>
             This ID number must be defined for coordinated synchronized movements in multi move systems. 
             Set this property to -1 to define normal movements (not coordinated / not synchronized).
+            </remarks>
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.SpeedData">
@@ -1233,9 +1246,11 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.Time">
             <summary>
             Gets the the total time which the robot will move in seconds. 
+            </summary>
+            <remarks>
             This overwrites the defined speeddata value.
             Set this property to a negative value to not overwrite the speeddata value. 
-            </summary>
+            </remarks>
         </member>
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.ZoneData">
             <summary>
@@ -1245,8 +1260,10 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.RobotTool">
             <summary>
             Gets or sets the Robot Tool.
-            If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used. 
             </summary>
+            <remarks>
+            If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used. 
+            </remarks>
         </member>
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.WorkObject">
             <summary>
@@ -1256,10 +1273,12 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput">
             <summary>
             Gets or set the Digital Output. 
+            </summary>
+            <remarks>
             If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
             If a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO). 
             If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).
-            </summary>
+            </remarks>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.WaitDI">
             <summary>
@@ -5792,6 +5811,11 @@
             Reinitializes the fields that are related to the attached external axes.
             </summary>
         </member>
+        <member name="M:RobotComponents.ABB.Definitions.Robot.UpdateKinematics">
+            <summary>
+            Reinitializes the fields that are related to the kinematics.
+            </summary>
+        </member>
         <member name="M:RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh">
             <summary>
             Returns the attached Robot Tool mesh in robot coordinate space.
@@ -5899,6 +5923,553 @@
         <member name="P:RobotComponents.ABB.Definitions.Robot.NumberOfAxes">
             <summary>
             Gets the number of axes for the mechanical unit.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.WristOffset">
+            <summary>
+            Gets the wrist offset.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.LowerArmLength">
+            <summary>
+            Gets the length of the lower arm.
+            </summary>
+            <returns> The length of the lower arm. </returns>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.UpperArmLength">
+            <summary>
+            Gets the length of the upper arm.
+            </summary>
+            <returns> The length of the upper arm. </returns>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.ElbowLength">
+            <summary>
+            Gets the total length of the elbow.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.A1">
+            <summary>
+            Gets the OPW kinematics parameter A1.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.A2">
+            <summary>
+            Gets the OPW kinematics parameter A2.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.B">
+            <summary>
+            Gets the OPW kinematics parameter B.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.C1">
+            <summary>
+            Gets the OPW kinematics parameter C1.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.C2">
+            <summary>
+            Gets the OPW kinematics parameter C2.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.C3">
+            <summary>
+            Gets the OPW kinematics parameter C3.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.C4">
+            <summary>
+            Gets the OPW kinematics parameter C4.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Kinematics.InverseKinematics">
+            <summary>
+            Represent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor">
+            <summary>
+            Initializes an empty instance of the Inverse Kinematics class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Initializes a new instance of the Inverse Kinematics class from a Movement.
+            </summary>
+            <param name="movement"> The Movement. </param>
+            <param name="robot"> The Robot. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Initializes a new instance of the Inverse Kinematics class from a Target.
+            </summary>
+            <remarks>
+            The target will be casted to a robot movement with a default work object (wobj0).
+            </remarks>
+            <param name="target"> The Target </param>
+            <param name="robot"> The Robot. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)">
+            <summary>
+            Initializes a new instance of the Inverse Kinematics class by duplicating an existing Inverse Kinematics instance. 
+            </summary>
+            <param name="inverseKinematics"> The Inverse Kinematics instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Inverse Kinematics instance.
+            </summary>
+            <returns> A deep copy of the Inverse Kinematics instance. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Initialize">
+            <summary>
+            Initialize the fields to construct a valid Inverse Kinematics instance. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize">
+            <summary>
+            Reinitialize all the fields to construct a valid Inverse Kinematics object. 
+            </summary>
+            <remarks>
+            This method also resets the solution. The method Calculate() has to be called to obtain a new solution. 
+            </remarks>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate">
+            <summary>
+            Calculates the inverse kinematics solution.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition">
+            <summary>
+            Calculates the Robot Joint Position of the Inverse Kinematics solution.
+            </summary>
+            <remarks>
+            This method does not check the internal axis limits.
+            </remarks>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">
+            <summary>
+            Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
+            </summary>
+            <remarks>
+            This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object. 
+            You first have to calculate the Inverse Kinematics solution before you call this method. 
+            This method is typically used for using Linear and Joint Configuration control inside the Path Generator.
+            </remarks>
+            <param name="prevJointPosition"> The previous Robot Joint Position. </param>
+            <returns> The closest Robot Joint Position. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition">
+            <summary>
+            Calculates the External Joint Position of the Inverse Kinematics solution.
+            </summary>
+            <remarks>
+            This method does not check the external axis limits. 
+            </remarks>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ClearCurrentSolutions">
+            <summary>
+            Clears the lists with the current solutions.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ResetRobotJointPositions">
+            <summary>
+            Resets the Robot Joint Position solutions
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ResetExternalJointPosition">
+            <summary>
+            Resest the the External Joint Position solution
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.GetEndPlanes">
+            <summary>
+            Calculates the end planes of joint 6.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.GetPositionPlane">
+            <summary>
+            Calculates the base position of the robot in world coordinate space if it is moved by an external axis.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CheckInternalAxisLimits">
+            <summary>
+            Checks if the positions of the robot axes are inside its limits.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CheckExternalAxisLimits">
+            <summary>
+            Checks if the positions of the external axes are inside its limits.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.Robot">
+            <summary>
+            Gets or sets the Robot.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.Movement">
+            <summary>
+            Gets or sets the Movement.
+            </summary>
+            <remarks>
+            The target and work object are obtained from this movement.
+            </remarks>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool">
+            <summary>
+            Gets the tool used by the this Inverse Kinematics.
+            </summary>
+            <remarks>
+            By default the tool attached to the robot is used. 
+            If a tool is set as a property of the movement, this tool will be used. 
+            </remarks>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions">
+            <summary>
+            Gets the eight latest calculated Robot Joint Positions.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition">
+            <summary>
+            Gets the latest calculated Robot Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition">
+            <summary>
+            Gets the latest calculated External Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText">
+            <summary>
+            Gets the collected error messages.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.InLimits">
+            <summary>
+            Gets a value indicating whether or not the internal and external values are within their limits.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Kinematics.ForwardKinematics">
+            <summary>
+            Represent the Forward Kinematics for a 6-axis spherical Robot and its attached external axes. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor">
+            <summary>
+            Initializes an empty instance of the Forward Kinematics class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)">
+            <summary>
+            Initializes a new instance of the Forward Kinematics class.
+            </summary>
+            <param name="robot"> The Robot. </param>
+            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)">
+            <summary>
+            Initializes a new instance of the Forward Kinematics class with defined Joint Positions.
+            </summary>
+            <param name="robot"> The Robot. </param>
+            <param name="robotJointPosition"> The Robot Joint Position. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)">
+            <summary>
+            Defines a Forward Kinematic object from a Joint Target with defined Joint Positions obtained from a Joint Target.
+            </summary>
+            <param name="robot"> The Robot. </param>
+            <param name="jointTarget"> The Joint Target. </param>
+            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)">
+            <summary>
+            Initializes a new instance of the Forward Kinematics class by duplicating an existing Forward Kinematics instance. 
+            </summary>
+            <param name="forwardKinematics"> The Forward Kinematics instance to duplicate. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate">
+            <summary>
+            Returns an exact duplicate of this Forward Kinematics instance.
+            </summary>
+            <returns> A deep copy of the Forward Kinematics instance. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate">
+            <summary>
+            Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">
+            <summary>
+            Calculates the forward kinematics solution with the given Robot Joint Positions and a default External Joint Position (9e9).
+            </summary>
+            <param name="robotJointPosition"> The Robot Joint Position. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
+            <summary>
+            Calculates the forward kinematics solution with the given Joint Positions.
+            </summary>
+            <param name="robotJointPosition"> The Robot Joint Position. </param>
+            <param name="externalJointPosition"> The External Joint Position. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CalculateExternalPlanes">
+            <summary>
+            Calculates the positions of the external axis planes.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CalculateRobotAxisPlanes">
+            <summary>
+            Calculates the positipn of the robot axis planes and TCP plane.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.PoseMeshes">
+            <summary>
+            Transforms the robot and external axis meshes.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)">
+            <summary>
+            Returns the Bounding Box of the posed meshes.
+            </summary>
+            <param name="accurate"> If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. </param>
+            <returns> The Bounding Box. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Clear">
+            <summary>
+            Clears the current solution.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CheckInternalAxisLimits">
+            <summary>
+            Checks if the positions of the robot axes are inside its limits.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CheckExternalAxisLimits">
+            <summary>
+            Checks if the positions of the external logical axes are inside its limits.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.Robot">
+            <summary>
+            Gets or sets the Robot.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition">
+            <summary>
+            Gets or sets the Robot Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition">
+            <summary>
+            Gets or sets the External Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes">
+            <summary>
+            Gets the latest calculated posed internal axis meshes.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes">
+            <summary>
+            Gets the latest calculated posed external axis meshes.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms">
+            <summary>
+            Gets the latest calculated robot transformations. 
+            </summary>
+            <remarks>
+            This array contains seven transformations. The transformation of the base and the six joints. 
+            Use the last transformation (joint 6) to transform the tool and TCP plane. 
+            </remarks>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms">
+            <summary>
+            Gets the latest calculated external axis transformations.
+            </summary>
+            <remarks>
+            Contains a transformation for each mesh. 
+            Including a zero transform of the base mesh of the external axis.
+            </remarks>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes">
+            <summary>
+            Gets the latest calculated posed external axis planes.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText">
+            <summary>
+            Gets the collected error messages.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane">
+            <summary>
+            Gets the latest calculated posed TCP plane of the robot tool. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits">
+            <summary>
+            Gets a value indicating whether or not the internal and external values are within their limits.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh">
+            <summary>
+            Gets or sets a value indicating whether the posed meshed wil be calculated. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes">
+            <summary>
+            Gets the latest calculated posed internal axis meshes.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Kinematics.PathGenerator">
+            <summary>
+            Represent the Path Generator.
+            This class is used to approximate of the path the Robot will follow for a given set of Actions. 
+            Speed Datas and Zone Datas are neglected. 
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.#ctor">
+            <summary>
+            Initializes an empty instance of the Path Generator class.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.#ctor(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Initializes a new instance of the Path Generator class.
+            </summary>
+            <param name="robot"> The Robot to generate the path for. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Reset">
+            <summary>
+            Resets / clears the current solution.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.Int32)">
+            <summary>
+            Calculates the path from a list with Actions.
+            </summary>
+            <param name="actions"> The list with Actions. </param>
+            <param name="interpolations"> The amount of interpolations between two targets. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.SetRobotTool(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Sets the correct Robot Tool for the defined movement.
+            </summary>
+            <param name="movement"> The Movement to set the Robot Tool for. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.JointMovementFromJointTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Calculates the interpolated path of a joint movement from a Joint Target. 
+            </summary>
+            <param name="movement"> The movement with as Target a Joint Target. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.JointMovementFromRobotTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Calculates the interpolated path of a joint movement from a Robot Target. 
+            </summary>
+            <param name="movement"> The movement with as Target a Robot Target. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.LinearMovementFromRobotTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Calculates the interpolated path for a linear movement.
+            </summary>
+            <param name="movement"> The movement as a linear movement type. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.InterpolateJointMovement(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,RobotComponents.ABB.Actions.Instructions.Movement,System.Boolean)">
+            <summary>
+            Calculates the interpolated path for a joint movement.
+            </summary>
+            <param name="towardsRobotJointPosition"> The final Robot Joint Position of the joint movement. </param>
+            <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
+            <param name="movement"> The movement that belongs to the given joint positions. </param>
+            <param name="inLimits"> Indicates whether or not the calculated solution is within limits </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+            <summary>
+            Checks whether the first movement type is an absolute joint movement.
+            Returns true if no movements were defined. 
+            </summary>
+            <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Robot">
+            <summary>
+            Gets or sets the Robot.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Planes">
+            <summary>
+            Gets the list with TCP planes the path follows.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Paths">
+            <summary>
+            Gets the path curve as list with curve.
+            For every move instruction a curve is constructed. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Movements">
+            <summary>
+            Gets the calculated Movements.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.RobotJointPositions">
+            <summary>
+            Gets the calculated Robot Joint Position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions">
+            <summary>
+            Gets the calculated External Joint Positions. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.InLimits">
+            <summary>
+            Gets the value indicating whether or not the internal and external values are within their limits.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.ErrorText">
+            <summary>
+            Gets the collected error messages.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ">
+            <summary>
+            Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Properties.Resources">
@@ -6210,481 +6781,6 @@
             <param name="search"> The text to search for. </param>
             <param name="replace"> The new text. </param>
             <returns> Returns a new string with replaced text. </returns>
-        </member>
-        <member name="T:RobotComponents.ABB.Kinematics.ForwardKinematics">
-            <summary>
-            Represent the Forward Kinematics for a 6-axis spherical Robot and its attached external axes. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor">
-            <summary>
-            Initializes an empty instance of the Forward Kinematics class.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)">
-            <summary>
-            Initializes a new instance of the Forward Kinematics class.
-            </summary>
-            <param name="robot"> The Robot. </param>
-            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)">
-            <summary>
-            Initializes a new instance of the Forward Kinematics class with defined Joint Positions.
-            </summary>
-            <param name="robot"> The Robot. </param>
-            <param name="robotJointPosition"> The Robot Joint Position. </param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)">
-            <summary>
-            Defines a Forward Kinematic object from a Joint Target with defined Joint Positions obtained from a Joint Target.
-            </summary>
-            <param name="robot"> The Robot. </param>
-            <param name="jointTarget"> The Joint Target. </param>
-            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)">
-            <summary>
-            Initializes a new instance of the Forward Kinematics class by duplicating an existing Forward Kinematics instance. 
-            </summary>
-            <param name="forwardKinematics"> The Forward Kinematics instance to duplicate. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate">
-            <summary>
-            Returns an exact duplicate of this Forward Kinematics instance.
-            </summary>
-            <returns> A deep copy of the Forward Kinematics instance. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> A string that represents the current object. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate">
-            <summary>
-            Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">
-            <summary>
-            Calculates the forward kinematics solution with the given Robot Joint Positions and a default External Joint Position (9e9).
-            </summary>
-            <param name="robotJointPosition"> The Robot Joint Position. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
-            <summary>
-            Calculates the forward kinematics solution with the given Joint Positions.
-            </summary>
-            <param name="robotJointPosition"> The Robot Joint Position. </param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CalculateExternalPlanes">
-            <summary>
-            Calculates the positions of the external axis planes.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CalculateRobotAxisPlanes">
-            <summary>
-            Calculates the positipn of the robot axis planes and TCP plane.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.PoseMeshes">
-            <summary>
-            Transforms the robot and external axis meshes.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)">
-            <summary>
-            Returns the Bounding Box of the posed meshes.
-            </summary>
-            <param name="accurate"> If true, a physically accurate bounding box will be computed. If not, a bounding box estimate will be computed. </param>
-            <returns> The Bounding Box. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Clear">
-            <summary>
-            Clears the current solution.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CheckInternalAxisLimits">
-            <summary>
-            Checks if the positions of the robot axes are inside its limits.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CheckExternalAxisLimits">
-            <summary>
-            Checks if the positions of the external logical axes are inside its limits.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.Robot">
-            <summary>
-            Gets or sets the Robot.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition">
-            <summary>
-            Gets or sets the Robot Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition">
-            <summary>
-            Gets or sets the External Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes">
-            <summary>
-            Gets the latest calculated posed internal axis meshes.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes">
-            <summary>
-            Gets the latest calculated posed external axis meshes.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms">
-            <summary>
-            Gets the latest calculated robot transformations. 
-            </summary>
-            <remarks>
-            This array contains seven transformations. The transformation of the base and the six joints. 
-            Use the last transformation (joint 6) to transform the tool and TCP plane. 
-            </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms">
-            <summary>
-            Gets the latest calculated external axis transformations.
-            </summary>
-            <remarks>
-            Contains a transformation for each mesh. 
-            Including a zero transform of the base mesh of the external axis.
-            </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes">
-            <summary>
-            Gets the latest calculated posed external axis planes.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText">
-            <summary>
-            Gets the collected error messages.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane">
-            <summary>
-            Gets the latest calculated posed TCP plane of the robot tool. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits">
-            <summary>
-            Gets a value indicating whether or not the internal and external values are within their limits.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh">
-            <summary>
-            Gets or sets a value indicating whether the posed meshed wil be calculated. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes">
-            <summary>
-            Gets the latest calculated posed internal axis meshes.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Kinematics.InverseKinematics">
-            <summary>
-            Represent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor">
-            <summary>
-            Initializes an empty instance of the Inverse Kinematics class.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Initializes a new instance of the Inverse Kinematics class from a Movement.
-            </summary>
-            <param name="movement"> The Movement. </param>
-            <param name="robot"> The Robot. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Initializes a new instance of the Inverse Kinematics class from a Target.
-            The target will be casted to robot movement with a default work object (wobj0). 
-            </summary>
-            <param name="target"> The Target </param>
-            <param name="robot"> The Robot. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)">
-            <summary>
-            Initializes a new instance of the Inverse Kinematics class by duplicating an existing Inverse Kinematics instance. 
-            </summary>
-            <param name="inverseKinematics"> The Inverse Kinematics instance to duplicate. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate">
-            <summary>
-            Returns an exact duplicate of this Inverse Kinematics instance.
-            </summary>
-            <returns> A deep copy of the Inverse Kinematics instance. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> A string that represents the current object. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Initialize">
-            <summary>
-            Initialize the fields to construct a valid Inverse Kinematics instance. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize">
-            <summary>
-            Reinitialize all the fields to construct a valid Inverse Kinematics object. 
-            This method also resets the solution. Calculate() has to be called to obtain a new solution. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate">
-            <summary>
-            Calculates the inverse kinematics solution.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition">
-            <summary>
-            Calculates the Robot Joint Position of the Inverse Kinematics solution.
-            This method does not check the internal axis limits. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">
-            <summary>
-            Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
-            This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object. 
-            You first have to calculate the Inverse Kinematics solution before you call this method. 
-            This method is typically used for using the Auto Axis Config inside the Path Generator.
-            </summary>
-            <param name="prevJointPosition"> The previous Robot Joint Position. </param>
-            <returns> The closest Robot Joint Position. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition">
-            <summary>
-            Calculates the External Joint Position of the Inverse Kinematics solution.
-            This method does not check the external axis limits. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ClearCurrentSolutions">
-            <summary>
-            Clears the lists with the current solutions.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ResetRobotJointPositions">
-            <summary>
-            Resets the Robot Joint Position solutions
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.ResetExternalJointPosition">
-            <summary>
-            Resest the the External Joint Position solution
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.TransformToolPlane(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Plane)">
-            <summary>
-            Returns the transformed tool plane. 
-            </summary>
-            <param name="targetPlane"> The global target plane defined in the world coordinate space. </param>
-            <param name="attachmentPlane"> The attachement plane of the robot defined in the robot coordinate space. </param>
-            <param name="toolPlane"> The TCP plane. </param>
-            <returns> The transfomed tool plane. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.GetPositionPlane">
-            <summary>
-            Returns the base position of the robot in world coordinate space if it is moved by an external axis.
-            </summary>
-            <returns> The position of the robot as a plane. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CheckInternalAxisLimits">
-            <summary>
-            Checks if the positions of the robot axes are inside its limits.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CheckExternalAxisLimits">
-            <summary>
-            Checks if the positions of the external axes are inside its limits.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.Robot">
-            <summary>
-            Gets or sets the Robot.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.Movement">
-            <summary>
-            Gets or sets the Movement.
-            The target and work object are obtained from this movement.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool">
-            <summary>
-            Gets the tool used by the this Inverse Kinematics.
-            By default the tool attached to the robot is used. 
-            If a tool is set as a property of the movement, this tool will be used. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions">
-            <summary>
-            Gets the eight latest calculated Robot Joint Positions.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition">
-            <summary>
-            Gets the latest calculated Robot Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition">
-            <summary>
-            Gets the latest calculated External Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText">
-            <summary>
-            Gets the collected error messages.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.InLimits">
-            <summary>
-            Gets a value indicating whether or not the internal and external values are within their limits.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Kinematics.PathGenerator">
-            <summary>
-            Represent the Path Generator.
-            This class is used to approximate of the path the Robot will follow for a given set of Actions. 
-            Speed Datas and Zone Datas are neglected. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.#ctor">
-            <summary>
-            Initializes an empty instance of the Path Generator class.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.#ctor(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Initializes a new instance of the Path Generator class.
-            </summary>
-            <param name="robot"> The Robot to generate the path for. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> A string that represents the current object. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Reset">
-            <summary>
-            Resets / clears the current solution.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.Int32)">
-            <summary>
-            Calculates the path from a list with Actions.
-            </summary>
-            <param name="actions"> The list with Actions. </param>
-            <param name="interpolations"> The amount of interpolations between two targets. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.SetRobotTool(RobotComponents.ABB.Actions.Instructions.Movement)">
-            <summary>
-            Sets the correct Robot Tool for the defined movement.
-            </summary>
-            <param name="movement"> The Movement to set the Robot Tool for. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.JointMovementFromJointTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
-            <summary>
-            Calculates the interpolated path of a joint movement from a Joint Target. 
-            </summary>
-            <param name="movement"> The movement with as Target a Joint Target. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.JointMovementFromRobotTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
-            <summary>
-            Calculates the interpolated path of a joint movement from a Robot Target. 
-            </summary>
-            <param name="movement"> The movement with as Target a Robot Target. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.LinearMovementFromRobotTarget(RobotComponents.ABB.Actions.Instructions.Movement)">
-            <summary>
-            Calculates the interpolated path for a linear movement.
-            </summary>
-            <param name="movement"> The movement as a linear movement type. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.InterpolateJointMovement(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,RobotComponents.ABB.Actions.Instructions.Movement)">
-            <summary>
-            Calculates the interpolated path for a joint movement.
-            </summary>
-            <param name="towardsRobotJointPosition"> The final Robot Joint Position of the joint movement. </param>
-            <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
-            <param name="movement"> The movement that belongs to the given joint positions. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
-            <summary>
-            Checks whether the first movement type is an absolute joint movement.
-            Returns true if no movements were defined. 
-            </summary>
-            <returns> Specifies whether the first movement type is an absolute joint movement. </returns>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Robot">
-            <summary>
-            Gets or sets the Robot.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Planes">
-            <summary>
-            Gets the list with TCP planes the path follows.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Paths">
-            <summary>
-            Gets the path curve as list with curve.
-            For every move instruction a curve is constructed. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.Movements">
-            <summary>
-            Gets the calculated Movements.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.RobotJointPositions">
-            <summary>
-            Gets the calculated Robot Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions">
-            <summary>
-            Gets the calculated External Joint Positions. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.ErrorText">
-            <summary>
-            Gets the collected error messages.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ">
-            <summary>
-            Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
-            </summary>
         </member>
         <member name="T:RobotComponents.ABB.Enumerations.AxisType">
             <summary>

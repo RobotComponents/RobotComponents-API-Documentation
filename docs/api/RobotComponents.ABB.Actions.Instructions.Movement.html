@@ -693,10 +693,7 @@ This constructor is typically used to cast a Robot Target to a movement.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput">DigitalOutput</h4>
-  <div class="markdown level1 summary"><p>Gets or set the Digital Output.
-If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ).
-If a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO).
-If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).</p>
+  <div class="markdown level1 summary"><p>Gets or set the Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -718,6 +715,11 @@ If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added th
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ).
+If a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO).
+If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_IsValid_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.IsValid*"></a>
@@ -776,8 +778,7 @@ If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added th
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_RobotTool_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.RobotTool*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_RobotTool" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.RobotTool">RobotTool</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Robot Tool.
-If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Tool.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -799,6 +800,9 @@ If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be us
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_RobotTool_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_SpeedData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.SpeedData*"></a>
@@ -830,8 +834,10 @@ If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be us
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_SyncID_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.SyncID*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_SyncID" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.SyncID">SyncID</h4>
   <div class="markdown level1 summary"><p>Gets or sets the synchronization id for multi move programming.
+<remarks>
 This ID number must be defined for coordinated synchronized movements in multi move systems.
-Set this property to -1 to define normal movements (not coordinated / not synchronized).</p>
+Set this property to -1 to define normal movements (not coordinated / not synchronized).
+</remarks></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -858,7 +864,9 @@ Set this property to -1 to define normal movements (not coordinated / not synchr
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_Target_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.Target*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_Target" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.Target">Target</h4>
   <div class="markdown level1 summary"><p>Gets or sets the Target.
-Defines the destination target of the robot and external axes.</p>
+<remarks>
+Defines the destination target of the robot and external axes.
+</remarks></p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -884,9 +892,7 @@ Defines the destination target of the robot and external axes.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_Time_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.Time*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_Time" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.Time">Time</h4>
-  <div class="markdown level1 summary"><p>Gets the the total time which the robot will move in seconds.
-This overwrites the defined speeddata value.
-Set this property to a negative value to not overwrite the speeddata value.</p>
+  <div class="markdown level1 summary"><p>Gets the the total time which the robot will move in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -908,6 +914,10 @@ Set this property to a negative value to not overwrite the speeddata value.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_Time_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This overwrites the defined speeddata value.
+Set this property to a negative value to not overwrite the speeddata value.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_WorkObject_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.WorkObject*"></a>
@@ -1076,9 +1086,7 @@ Set this property to a negative value to not overwrite the speeddata value.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_GetGlobalTargetPlane_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.GetGlobalTargetPlane*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_GetGlobalTargetPlane" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.GetGlobalTargetPlane">GetGlobalTargetPlane()</h4>
-  <div class="markdown level1 summary"><p>Calculates the position and the orientation of the target in world coordinate space.
-If an external axis is attached to the work object this method returns the pose of the
-target plane in the world coorinate space for axis values equal to zero.</p>
+  <div class="markdown level1 summary"><p>Calculates the position and the orientation of the target in world coordinate space.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1101,6 +1109,10 @@ target plane in the world coorinate space for axis values equal to zero.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_GetGlobalTargetPlane_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If an external axis is attached to the work object this method returns the pose of the
+target plane in the world coorinate space for axis values equal to zero.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_GetObjectData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.GetObjectData*"></a>
@@ -1163,6 +1175,11 @@ target plane in the world coorinate space for axis values equal to zero.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_GetPosedGlobalTargetPlane_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Calculates the position and the orientation of the target plane in the world coordinate system. If there is
+an external axes connected to work object of the movement, the target plane will be re-oriented according to
+the pose of the this external axis.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration*"></a>

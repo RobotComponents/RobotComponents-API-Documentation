@@ -4,6 +4,106 @@
         <name>RobotComponents</name>
     </assembly>
     <members>
+        <member name="T:RobotComponents.Generic.Kinematics.OPWKinematics">
+            <summary>
+            Represents the OPW Kinematics class.
+            </summary>
+            <remarks>
+            Based on the paper 'An Analytical Solution of the Inverse Kinematics Problem of 
+            Industrial Serial Manipulators with an Ortho-parallel Basis and a Spherical Wrist' 
+            by Mathias Brandstötter, Arthur Angerer, and Michael Hofbaur.
+            </remarks>
+        </member>
+        <member name="M:RobotComponents.Generic.Kinematics.OPWKinematics.#ctor">
+            <summary>
+            Initializes an empty instance of the OPW Kinematics class
+            </summary>
+        </member>
+        <member name="M:RobotComponents.Generic.Kinematics.OPWKinematics.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns> A string that represents the current object. </returns>
+        </member>
+        <member name="M:RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)">
+            <summary>
+            Calculates the end plane of joint 6 for a given pose.
+            </summary>
+            <param name="pose"> The pose as a collection with 6 rotations in radians. </param>
+            <param name="wristPosition"> The wrist position for the given pose. </param>
+            <returns> The end plane of the 6th joint. </returns>
+        </member>
+        <member name="M:RobotComponents.Generic.Kinematics.OPWKinematics.Inverse(Rhino.Geometry.Plane)">
+            <summary>
+            Calculates the inverse kinematic solutions.
+            </summary>
+            <param name="endPlane"> The end plane of joint 6. </param>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.Solutions">
+            <summary>
+            Gets the inverse kinematics solutions.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity">
+            <summary>
+            Gets a value indicating whether or not the solutions have an elbow singularity.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity">
+            <summary>
+            Gets a value indicating whether or not the solutions have a wrist singularity.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.Offsets">
+            <summary>
+            Gets or sets the offset corrections.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.Signs">
+            <summary>
+            Gets or sets the sign corrections.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.A1">
+            <summary>
+            Gets or sets the OPW kinematics parameter A1.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.A2">
+            <summary>
+            Gets or sets the OPW kinematics parameter A2.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.B">
+            <summary>
+            Gets or sets the OPW kinematics parameter B.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.C1">
+            <summary>
+            Gets or sets the OPW kinematics parameter C1.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.C2">
+            <summary>
+            Gets or sets the OPW kinematics parameter C2.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.C3">
+            <summary>
+            Gets or sets the OPW kinematics parameter C3.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.Generic.Kinematics.OPWKinematics.C4">
+            <summary>
+            Gets or sets the OPW kinematics parameter C4.
+            </summary>
+        </member>
         <member name="T:RobotComponents.Utils.MeshPreperation">
             <summary>
             Represents serialization methods 

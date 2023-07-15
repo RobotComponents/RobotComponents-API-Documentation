@@ -160,8 +160,7 @@
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)">InverseKinematics(ITarget, Robot)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Target.
-The target will be casted to robot movement with a default work object (wobj0).</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Target.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -192,6 +191,9 @@ The target will be casted to robot movement with a default work object (wobj0).<
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Definitions_Robot__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The target will be casted to a robot movement with a default work object (wobj0).</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*"></a>
@@ -331,8 +333,7 @@ The target will be casted to robot movement with a default work object (wobj0).<
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Movement*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Movement">Movement</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Movement.
-The target and work object are obtained from this movement.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Movement.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -354,6 +355,9 @@ The target and work object are obtained from this movement.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The target and work object are obtained from this movement.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Robot*"></a>
@@ -436,9 +440,7 @@ The target and work object are obtained from this movement.</p>
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_RobotTool_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_RobotTool" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool">RobotTool</h4>
-  <div class="markdown level1 summary"><p>Gets the tool used by the this Inverse Kinematics.
-By default the tool attached to the robot is used.
-If a tool is set as a property of the movement, this tool will be used.</p>
+  <div class="markdown level1 summary"><p>Gets the tool used by the this Inverse Kinematics.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -460,6 +462,10 @@ If a tool is set as a property of the movement, this tool will be used.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_RobotTool_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>By default the tool attached to the robot is used.
+If a tool is set as a property of the movement, this tool will be used.</p>
+</div>
   <h3 id="methods">Methods
 </h3>
 
@@ -477,10 +483,7 @@ If a tool is set as a property of the movement, this tool will be used.</p>
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">CalculateClosestRobotJointPosition(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
-This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object.
-You first have to calculate the Inverse Kinematics solution before you call this method.
-This method is typically used for using the Auto Axis Config inside the Path Generator.</p>
+  <div class="markdown level1 summary"><p>Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -521,30 +524,39 @@ This method is typically used for using the Auto Axis Config inside the Path Gen
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object.
+You first have to calculate the Inverse Kinematics solution before you call this method.
+This method is typically used for using Linear and Joint Configuration control inside the Path Generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition">CalculateExternalJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Calculates the External Joint Position of the Inverse Kinematics solution.
-This method does not check the external axis limits.</p>
+  <div class="markdown level1 summary"><p>Calculates the External Joint Position of the Inverse Kinematics solution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CalculateExternalJointPosition()</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method does not check the external axis limits.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition">CalculateRobotJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Calculates the Robot Joint Position of the Inverse Kinematics solution.
-This method does not check the internal axis limits.</p>
+  <div class="markdown level1 summary"><p>Calculates the Robot Joint Position of the Inverse Kinematics solution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void CalculateRobotJointPosition()</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method does not check the internal axis limits.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Duplicate_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate*"></a>
@@ -576,14 +588,16 @@ This method does not check the internal axis limits.</p>
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_ReInitialize_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize*"></a>
   <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_ReInitialize" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize">ReInitialize()</h4>
-  <div class="markdown level1 summary"><p>Reinitialize all the fields to construct a valid Inverse Kinematics object.
-This method also resets the solution. Calculate() has to be called to obtain a new solution.</p>
+  <div class="markdown level1 summary"><p>Reinitialize all the fields to construct a valid Inverse Kinematics object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_ReInitialize_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method also resets the solution. The method Calculate() has to be called to obtain a new solution.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_ToString_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.ToString*"></a>

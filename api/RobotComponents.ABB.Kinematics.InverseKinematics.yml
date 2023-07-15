@@ -116,10 +116,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Initializes a new instance of the Inverse Kinematics class from a Target.
-
-    The target will be casted to robot movement with a default work object (wobj0).
+  summary: Initializes a new instance of the Inverse Kinematics class from a Target.
+  remarks: The target will be casted to a robot movement with a default work object (wobj0).
   example: []
   syntax:
     content: public InverseKinematics(ITarget target, Robot robot)
@@ -223,10 +221,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Reinitialize all the fields to construct a valid Inverse Kinematics object. 
-
-    This method also resets the solution. Calculate() has to be called to obtain a new solution.
+  summary: Reinitialize all the fields to construct a valid Inverse Kinematics object.
+  remarks: This method also resets the solution. The method Calculate() has to be called to obtain a new solution.
   example: []
   syntax:
     content: public void ReInitialize()
@@ -266,10 +262,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Calculates the Robot Joint Position of the Inverse Kinematics solution.
-
-    This method does not check the internal axis limits.
+  summary: Calculates the Robot Joint Position of the Inverse Kinematics solution.
+  remarks: This method does not check the internal axis limits.
   example: []
   syntax:
     content: public void CalculateRobotJointPosition()
@@ -289,14 +283,13 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
-
+  summary: Calculates and returns the closest Robot Joint Position to a given previous Robot Joint Position.
+  remarks: >-
     This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object. 
 
     You first have to calculate the Inverse Kinematics solution before you call this method. 
 
-    This method is typically used for using the Auto Axis Config inside the Path Generator.
+    This method is typically used for using Linear and Joint Configuration control inside the Path Generator.
   example: []
   syntax:
     content: public RobotJointPosition CalculateClosestRobotJointPosition(RobotJointPosition prevJointPosition)
@@ -323,10 +316,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Calculates the External Joint Position of the Inverse Kinematics solution.
-
-    This method does not check the external axis limits.
+  summary: Calculates the External Joint Position of the Inverse Kinematics solution.
+  remarks: This method does not check the external axis limits.
   example: []
   syntax:
     content: public void CalculateExternalJointPosition()
@@ -392,10 +383,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Gets or sets the Movement.
-
-    The target and work object are obtained from this movement.
+  summary: Gets or sets the Movement.
+  remarks: The target and work object are obtained from this movement.
   example: []
   syntax:
     content: public Movement Movement { get; set; }
@@ -418,9 +407,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Gets the tool used by the this Inverse Kinematics.
-
+  summary: Gets the tool used by the this Inverse Kinematics.
+  remarks: >-
     By default the tool attached to the robot is used. 
 
     If a tool is set as a property of the movement, this tool will be used.

@@ -688,9 +688,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Calculates the position and the orientation of the target in world coordinate space. 
-
+  summary: Calculates the position and the orientation of the target in world coordinate space.
+  remarks: >-
     If an external axis is attached to the work object this method returns the pose of the 
 
     target plane in the world coorinate space for axis values equal to zero.
@@ -717,6 +716,12 @@ items:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
   summary: Calculates the posed target plane for the defined Robot with attached external axes in world coordinate space.
+  remarks: >-
+    Calculates the position and the orientation of the target plane in the world coordinate system. If there is 
+
+    an external axes connected to work object of the movement, the target plane will be re-oriented according to 
+
+    the pose of the this external axis.
   example: []
   syntax:
     content: public Plane GetPosedGlobalTargetPlane()
@@ -907,7 +912,11 @@ items:
   summary: >-
     Gets or sets the Target.
 
+    <remarks>
+
     Defines the destination target of the robot and external axes.
+
+    </remarks>
   example: []
   syntax:
     content: public ITarget Target { get; set; }
@@ -933,9 +942,13 @@ items:
   summary: >-
     Gets or sets the synchronization id for multi move programming. 
 
+    <remarks>
+
     This ID number must be defined for coordinated synchronized movements in multi move systems. 
 
     Set this property to -1 to define normal movements (not coordinated / not synchronized).
+
+    </remarks>
   example: []
   syntax:
     content: public int SyncID { get; set; }
@@ -981,9 +994,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Gets the the total time which the robot will move in seconds. 
-
+  summary: Gets the the total time which the robot will move in seconds.
+  remarks: >-
     This overwrites the defined speeddata value.
 
     Set this property to a negative value to not overwrite the speeddata value.
@@ -1032,10 +1044,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Gets or sets the Robot Tool.
-
-    If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used.
+  summary: Gets or sets the Robot Tool.
+  remarks: If an empty or no Robot Tool is used, the Robot Tool set at the Robot will be used.
   example: []
   syntax:
     content: public RobotTool RobotTool { get; set; }
@@ -1081,9 +1091,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Gets or set the Digital Output. 
-
+  summary: Gets or set the Digital Output.
+  remarks: >-
     If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
 
     If a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO). 

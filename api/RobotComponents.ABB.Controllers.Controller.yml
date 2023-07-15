@@ -10,6 +10,7 @@ items:
   - RobotComponents.ABB.Controllers.Controller.AnalogInputs
   - RobotComponents.ABB.Controllers.Controller.AnalogOutputs
   - RobotComponents.ABB.Controllers.Controller.Clear
+  - RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
   - RobotComponents.ABB.Controllers.Controller.ControllerABB
   - RobotComponents.ABB.Controllers.Controller.Controllers
   - RobotComponents.ABB.Controllers.Controller.DigitalInputs
@@ -700,6 +701,29 @@ items:
   nameWithType.vb: Controller.UploadModule(String, List(Of String), String)
   fullName.vb: RobotComponents.ABB.Controllers.Controller.UploadModule(String, System.Collections.Generic.List(Of String), String)
   name.vb: UploadModule(String, List(Of String), String)
+- uid: RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
+  commentId: M:RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
+  id: ClearLocalTemporaryDirectory
+  parent: RobotComponents.ABB.Controllers.Controller
+  langs:
+  - csharp
+  - vb
+  name: ClearLocalTemporaryDirectory()
+  nameWithType: Controller.ClearLocalTemporaryDirectory()
+  fullName: RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB.Controllers
+  namespace: RobotComponents.ABB.Controllers
+  summary: Removes all the files from the local folder with temporary files.
+  example: []
+  syntax:
+    content: public bool ClearLocalTemporaryDirectory()
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Function ClearLocalTemporaryDirectory() As Boolean
+  overload: RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory*
 - uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
   commentId: M:RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)
   id: ResetProgramPointers(System.String@)
@@ -2118,6 +2142,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory*
+  commentId: Overload:RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
+  isExternal: true
+  href: RobotComponents.ABB.Controllers.Controller.html#RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
+  name: ClearLocalTemporaryDirectory
+  nameWithType: Controller.ClearLocalTemporaryDirectory
+  fullName: RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory
 - uid: RobotComponents.ABB.Controllers.Controller.ResetProgramPointers*
   commentId: Overload:RobotComponents.ABB.Controllers.Controller.ResetProgramPointers
   isExternal: true
