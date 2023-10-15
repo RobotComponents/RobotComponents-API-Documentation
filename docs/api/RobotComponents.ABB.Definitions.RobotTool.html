@@ -84,6 +84,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">ISerializable</span></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -110,7 +111,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Definitions_RobotTool_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RobotTool : ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class RobotTool : ISerializable, IDeclaration</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -199,8 +200,7 @@
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane)">RobotTool(string, Mesh, Plane, Plane)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -243,6 +243,65 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the loaddata as load0.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_LoadData_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.LoadData)">RobotTool(string, Mesh, Plane, Plane, LoadData)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, LoadData loadData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The tool name, must be unique.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Mesh</span></td>
+        <td><span class="parametername">mesh</span></td>
+        <td><p>The tool mesh.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachement plane.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">toolPlane</span></td>
+        <td><p>The tool center point and tool orientation as a plane.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.LoadData.html">LoadData</a></td>
+        <td><span class="parametername">loadData</span></td>
+        <td><p>The tool loaddata as load data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_LoadData__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the loaddata as load0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
@@ -252,7 +311,8 @@ Sets the load data as defined for the default tool tool0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -323,7 +383,8 @@ Sets the load data as defined for the default tool tool0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, Mesh mesh, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -396,9 +457,7 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Point3d_Rhino_Geometry_Quaternion_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">RobotTool(string, Mesh, Point3d, Quaternion)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from a point and a quarternion.
-Sets the attachtment plane equal to the world xy-plane.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from a point and a quarternion.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -441,18 +500,21 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_Rhino_Geometry_Point3d_Rhino_Geometry_Quaternion__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.s</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(string, Mesh, double, double, double, double, double, double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.
-Sets the attachtment plane equal to the world xy-plane.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, Mesh mesh, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, Mesh mesh, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -514,18 +576,21 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(string, Mesh, double, double, double, double, double, double, double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
-Sets the attachtment plane equal to the world xy-plane.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, Mesh mesh, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, Mesh mesh, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -593,12 +658,15 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_Rhino_Geometry_Mesh_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_Rhino_Geometry_Plane_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane)">RobotTool(string, IList&lt;Mesh&gt;, Plane, Plane)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -641,6 +709,65 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_Rhino_Geometry_Plane__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the loaddata as load0.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_LoadData_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.LoadData)">RobotTool(string, IList&lt;Mesh&gt;, Plane, Plane, LoadData)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from planes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, Plane toolPlane, LoadData loadData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">name</span></td>
+        <td><p>The tool name, must be unique.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<span class="xref">Mesh</span>&gt;</td>
+        <td><span class="parametername">meshes</span></td>
+        <td><p>The tool mesh as The list with robot meshes.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">attachmentPlane</span></td>
+        <td><p>The attachement plane.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">toolPlane</span></td>
+        <td><p>The tool center point and tool orientation as a plane.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.LoadData.html">LoadData</a></td>
+        <td><span class="parametername">loadData</span></td>
+        <td><p>The tool loaddata as load data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_LoadData__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the loaddata as load0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
@@ -650,7 +777,8 @@ Sets the load data as defined for the default tool tool0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Plane centerOfGravity, Vector3d inertia)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -721,7 +849,8 @@ Sets the load data as defined for the default tool tool0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, Plane toolPlane, bool robotHold, double mass, Point3d centerOfGravityPosition, Quaternion centerOfGravityOrientation, Vector3d inertia)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -794,13 +923,13 @@ tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3,
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(string, IList&lt;Mesh&gt;, Plane, double, double, double, double, double, double, double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, IList&lt;Mesh&gt; meshes, Plane attachmentPlane, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -874,18 +1003,20 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__Rhino_Geometry_Plane_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the load data as defined for the default tool tool0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(string, IList&lt;Mesh&gt;, double, double, double, double, double, double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.
-Sets the attachtment plane equal to the world xy-plane.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from Euler data.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, IList&lt;Mesh&gt; meshes, double toolTransX, double toolTransY, double toolTransZ, double toolRotX, double toolRotY, double toolRotZ)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -947,18 +1078,21 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool__ctor_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_" data-uid="RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">RobotTool(string, IList&lt;Mesh&gt;, double, double, double, double, double, double, double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.
-Sets the attachtment plane equal to the world xy-plane.
-Sets the load data as defined for the default tool tool0.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotTool(string name, IList&lt;Mesh&gt; meshes, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
+public RobotTool(string name, IList&lt;Mesh&gt; meshes, double x, double y, double z, double q1, double q2, double q3, double q4)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1026,6 +1160,10 @@ Sets the load data as defined for the default tool tool0.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Sets the attachtment plane equal to the world xy-plane.
+Sets the load data as defined for the default tool tool0.</p>
+</div>
   <h3 id="properties">Properties
 </h3>
 
@@ -1063,7 +1201,8 @@ Sets the load data as defined for the default tool tool0.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Plane CenterOfGravity { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use LoadData instead.&quot;, false)]
+public Plane CenterOfGravity { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1084,13 +1223,13 @@ Sets the load data as defined for the default tool tool0.</p>
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_CenterOfGravityOrientation_" data-uid="RobotComponents.ABB.Definitions.RobotTool.CenterOfGravityOrientation*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_CenterOfGravityOrientation" data-uid="RobotComponents.ABB.Definitions.RobotTool.CenterOfGravityOrientation">CenterOfGravityOrientation</h4>
-  <div class="markdown level1 summary"><p>Gets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load.
-Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
+  <div class="markdown level1 summary"><p>Gets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion CenterOfGravityOrientation { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use LoadData.AxesOfMoment instead.&quot;, false)]
+public Quaternion CenterOfGravityOrientation { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1107,6 +1246,9 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool_CenterOfGravityOrientation_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_CenterOfGravityPosition_" data-uid="RobotComponents.ABB.Definitions.RobotTool.CenterOfGravityPosition*"></a>
@@ -1116,7 +1258,8 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point3d CenterOfGravityPosition { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use LoadData.CenterOfGravity instead.&quot;, false)]
+public Point3d CenterOfGravityPosition { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1135,6 +1278,32 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
   </table>
 
 
+  <a id="RobotComponents_ABB_Definitions_RobotTool_Datatype_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_Datatype" data-uid="RobotComponents.ABB.Definitions.RobotTool.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_RobotTool_Inertia_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Inertia*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_Inertia" data-uid="RobotComponents.ABB.Definitions.RobotTool.Inertia">Inertia</h4>
   <div class="markdown level1 summary"><p>Gets or set the moment of inertia of the load in kgm2.</p>
@@ -1142,7 +1311,8 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Vector3d Inertia { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use LoadData.InertialMoments instead.&quot;, false)]
+public Vector3d Inertia { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1187,6 +1357,32 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
   </table>
 
 
+  <a id="RobotComponents_ABB_Definitions_RobotTool_LoadData_" data-uid="RobotComponents.ABB.Definitions.RobotTool.LoadData*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_LoadData" data-uid="RobotComponents.ABB.Definitions.RobotTool.LoadData">LoadData</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the load data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LoadData LoadData { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.LoadData.html">LoadData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_RobotTool_Mass_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Mass*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_Mass" data-uid="RobotComponents.ABB.Definitions.RobotTool.Mass">Mass</h4>
   <div class="markdown level1 summary"><p>Gets or sets the weight of the load in kg.</p>
@@ -1194,7 +1390,8 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public double Mass { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use LoadData instead.&quot;, false)]
+public double Mass { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1241,8 +1438,7 @@ Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).</p>
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_Name_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Name*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_Name" data-uid="RobotComponents.ABB.Definitions.RobotTool.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the tool name.
-Each tool name has to be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the tool name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1264,6 +1460,9 @@ Each tool name has to be unique.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool_Name_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Each name has to be unique.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_Orientation_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Orientation*"></a>
@@ -1325,7 +1524,8 @@ Each tool name has to be unique.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VariableType ReferenceType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use VariableType instead.&quot;, false)]
+public VariableType ReferenceType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1346,9 +1546,7 @@ Each tool name has to be unique.</p>
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_RobotHold_" data-uid="RobotComponents.ABB.Definitions.RobotTool.RobotHold*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_RobotHold" data-uid="RobotComponents.ABB.Definitions.RobotTool.RobotHold">RobotHold</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the robot is holding the tool.
-Use true if the robot is holding the tool.
-Use false if the robot is not holding the tool (e.g. stationary tool).</p>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the robot is holding the tool.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1370,6 +1568,10 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool_RobotHold_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use true if the robot is holding the tool.
+Use false if the robot is not holding the tool (e.g. stationary tool).</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_Scope_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Scope*"></a>
@@ -1422,6 +1624,32 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_VariableType_" data-uid="RobotComponents.ABB.Definitions.RobotTool.VariableType*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_VariableType" data-uid="RobotComponents.ABB.Definitions.RobotTool.VariableType">VariableType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VariableType VariableType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Enumerations.VariableType.html">VariableType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
@@ -1433,7 +1661,8 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion CalculateCenterOfGravityOrientation()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is obsolete and will be removed in v3.&quot;, false)]
+public Quaternion CalculateCenterOfGravityOrientation()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1460,7 +1689,8 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point3d CalculateCenterOfGravityPosition()</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is obsolete and will be removed in v3.&quot;, false)]
+public Point3d CalculateCenterOfGravityPosition()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1555,6 +1785,33 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
       <tr>
         <td><a class="xref" href="RobotComponents.ABB.Definitions.RobotTool.html">RobotTool</a></td>
         <td><p>A deep copy of the Robot Tool instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_DuplicateDeclaration_" data-uid="RobotComponents.ABB.Definitions.RobotTool.DuplicateDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_DuplicateDeclaration" data-uid="RobotComponents.ABB.Definitions.RobotTool.DuplicateDeclaration">DuplicateDeclaration()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Tool instance as an IDeclaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDeclaration DuplicateDeclaration()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><p>A deep copy of the Robot Tool instance as an IDeclaration.</p>
 </td>
       </tr>
     </tbody>
@@ -1695,6 +1952,50 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   </table>
 
 
+  <a id="RobotComponents_ABB_Definitions_RobotTool_Parse_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_Parse_System_String_" data-uid="RobotComponents.ABB.Definitions.RobotTool.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Robot Tool instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RobotTool Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.RobotTool.html">RobotTool</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_RobotTool_ReInitialize_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ReInitialize*"></a>
   <h4 id="RobotComponents_ABB_Definitions_RobotTool_ReInitialize" data-uid="RobotComponents.ABB.Definitions.RobotTool.ReInitialize">ReInitialize()</h4>
   <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid Robot Tool instance.</p>
@@ -1704,6 +2005,38 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
   </div>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_ToRAPID_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPID*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_ToRAPID" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPID">ToRAPID()</h4>
+  <div class="markdown level1 summary"><p>Returns the tooldata in RAPID code format, e.g.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPID()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The string with tooldata values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Example outputs are
+&quot;[TRUE, [[215.448, 3.171, 102.332], [0.5, 0.5, 0.5, 0.5]], [0.001, [0, 0, 0.001], [1, 0, 0, 0], 0, 0, 0]] and
+&quot;[TRUE, [[215.448, 3.171, 102.332], [0.5, 0.5, 0.5, 0.5]], load1]</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration*"></a>
@@ -1727,6 +2060,83 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The RAPID code line.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
+        <td><span class="parametername">RAPIDGenerator</span></td>
+        <td><p>The RAPID Generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
+  <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration(Robot robot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot were the code is generated for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -1789,9 +2199,67 @@ Use false if the robot is not holding the tool (e.g. stationary tool).</p>
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_RobotTool_TryParse_" data-uid="RobotComponents.ABB.Definitions.RobotTool.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_RobotTool_TryParse_System_String_RobotComponents_ABB_Definitions_RobotTool__" data-uid="RobotComponents.ABB.Definitions.RobotTool.TryParse(System.String,RobotComponents.ABB.Definitions.RobotTool@)">TryParse(string, out RobotTool)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Robot Tool instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out RobotTool robotTool)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.RobotTool.html">RobotTool</a></td>
+        <td><span class="parametername">robotTool</span></td>
+        <td><p>The Robot Tool intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

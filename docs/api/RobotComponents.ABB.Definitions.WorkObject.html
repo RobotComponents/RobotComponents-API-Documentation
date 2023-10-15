@@ -84,6 +84,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">ISerializable</span></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -110,7 +111,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Definitions_WorkObject_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class WorkObject : ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class WorkObject : ISerializable, IDeclaration</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -275,10 +276,35 @@
 </h3>
 
 
+  <a id="RobotComponents_ABB_Definitions_WorkObject_Datatype_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_Datatype" data-uid="RobotComponents.ABB.Definitions.WorkObject.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_WorkObject_ExternalAxis_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ExternalAxis*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_ExternalAxis" data-uid="RobotComponents.ABB.Definitions.WorkObject.ExternalAxis">ExternalAxis</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the external axis (mechanical unit) with which the robot movements are coordinated.
-Only specified in the case of movable user coordinate systems.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the external axis (mechanical unit) with which the robot movements are coordinated.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -300,13 +326,14 @@ Only specified in the case of movable user coordinate systems.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_ExternalAxis_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Only specified in the case of movable user coordinate systems.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_FixedFrame_" data-uid="RobotComponents.ABB.Definitions.WorkObject.FixedFrame*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_FixedFrame" data-uid="RobotComponents.ABB.Definitions.WorkObject.FixedFrame">FixedFrame</h4>
-  <div class="markdown level1 summary"><p>Gets a value indicating whether or not a fixed user coordinate system is used.
-True indicates that the user frame is fixed.
-False indicates that the user coordinate system is movable (e.g. coordinated external axes).</p>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not a fixed user coordinate system is used.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -328,6 +355,10 @@ False indicates that the user coordinate system is movable (e.g. coordinated ext
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_FixedFrame_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>True indicates that the user frame is fixed.
+False indicates that the user coordinate system is movable (e.g. coordinated external axes).s</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_GlobalWorkObjectPlane_" data-uid="RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane*"></a>
@@ -436,8 +467,7 @@ False indicates that the user coordinate system is movable (e.g. coordinated ext
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_Plane_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Plane*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_Plane" data-uid="RobotComponents.ABB.Definitions.WorkObject.Plane">Plane</h4>
-  <div class="markdown level1 summary"><p>Gets or set the work object coordinate system as a plane (e.g. the position of the current work object).
-The object coordinate system is defined in the user coordinate system.</p>
+  <div class="markdown level1 summary"><p>Gets or set the work object coordinate system as a plane (e.g. the position of the current work object).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -459,6 +489,9 @@ The object coordinate system is defined in the user coordinate system.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_Plane_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The object coordinate system is defined in the user coordinate system.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_ReferenceType_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ReferenceType*"></a>
@@ -468,7 +501,8 @@ The object coordinate system is defined in the user coordinate system.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public VariableType ReferenceType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use VariableType instead.&quot;, false)]
+public VariableType ReferenceType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -541,9 +575,7 @@ The object coordinate system is defined in the user coordinate system.</p>
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_UserFrame_" data-uid="RobotComponents.ABB.Definitions.WorkObject.UserFrame*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_UserFrame" data-uid="RobotComponents.ABB.Definitions.WorkObject.UserFrame">UserFrame</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the user coordinate system, i.e. the position of the current work surface or fixture.
-If the robot is holding the tool, the user coordinate system is defined in the world coordinate system (in the wrist coordinate system if a stationary tool is used).
-For movable user frame (FixedFrame = false), the user frame is continuously defined by the system.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the user coordinate system, i.e. the position of the current work surface or fixture.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -565,6 +597,11 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_UserFrame_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the robot is holding the tool, the user coordinate system is defined in the
+world coordinate system (in the wrist coordinate system if a stationary tool is used).
+For movable user frame (FixedFrame = false), the user frame is continuously defined by the system.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_UserFrameOrientation_" data-uid="RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation*"></a>
@@ -587,6 +624,32 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
     <tbody>
       <tr>
         <td><span class="xref">Quaternion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_VariableType_" data-uid="RobotComponents.ABB.Definitions.WorkObject.VariableType*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_VariableType" data-uid="RobotComponents.ABB.Definitions.WorkObject.VariableType">VariableType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VariableType VariableType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Enumerations.VariableType.html">VariableType</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -703,6 +766,33 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </table>
 
 
+  <a id="RobotComponents_ABB_Definitions_WorkObject_DuplicateDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.DuplicateDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_DuplicateDeclaration" data-uid="RobotComponents.ABB.Definitions.WorkObject.DuplicateDeclaration">DuplicateDeclaration()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Work Object instance as an IDeclaration.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IDeclaration DuplicateDeclaration()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><p>A deep copy of the Work Object instance as an IDeclaration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_WorkObject_DuplicateWithoutMesh_" data-uid="RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_DuplicateWithoutMesh" data-uid="RobotComponents.ABB.Definitions.WorkObject.DuplicateWithoutMesh">DuplicateWithoutMesh()</h4>
   <div class="markdown level1 summary"><p>Returns an exact duplicate of this Work Object instance without meshes.</p>
@@ -765,6 +855,50 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </table>
 
 
+  <a id="RobotComponents_ABB_Definitions_WorkObject_Parse_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_Parse_System_String_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Work Object instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static WorkObject Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.WorkObject.html">WorkObject</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Definitions_WorkObject_ReInitialize_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ReInitialize*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_ReInitialize" data-uid="RobotComponents.ABB.Definitions.WorkObject.ReInitialize">ReInitialize()</h4>
   <div class="markdown level1 summary"><p>Reinitializes the fields and properties to construct a valid Work Object instance.</p>
@@ -774,6 +908,37 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
   </div>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPID_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPID*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPID" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPID">ToRAPID()</h4>
+  <div class="markdown level1 summary"><p>Returns the Configuration Data in RAPID code format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPID()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The RAPID data string with work object values.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An example output is
+&quot;[FALSE, TRUE, &quot;&quot;, [[0, 0, 0], [1, 0, 0, 0]], [[0.0009, -0.0082, 8.0304], [0.9999999, 0.0005131, 0.0000556, 0]]]&quot;</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
@@ -797,6 +962,83 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>The RAPID code line.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
+        <td><span class="parametername">RAPIDGenerator</span></td>
+        <td><p>The RAPID Generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
+  <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration(Robot robot)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
+        <td><span class="parametername">robot</span></td>
+        <td><p>The Robot were the code is generated for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -830,9 +1072,67 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_TryParse_" data-uid="RobotComponents.ABB.Definitions.WorkObject.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_TryParse_System_String_RobotComponents_ABB_Definitions_WorkObject__" data-uid="RobotComponents.ABB.Definitions.WorkObject.TryParse(System.String,RobotComponents.ABB.Definitions.WorkObject@)">TryParse(string, out WorkObject)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Work Object instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out WorkObject workObject)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.WorkObject.html">WorkObject</a></td>
+        <td><span class="parametername">workObject</span></td>
+        <td><p>The Work Object intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

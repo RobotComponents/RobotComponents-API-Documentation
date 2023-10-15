@@ -170,13 +170,13 @@ for (int i = 0; i != curves.Count; i++)
         // Enable digital output after start
         if (j == 0)
         {
-            actions.Add(new DigitalOutput(digitalOutputName, true));
+            actions.Add(new SetDigitalOutput(digitalOutputName, true));
         }
             // Disable digital output after last target and offset above end
         else if (j == t.Length - 1)
         {
             // Disable digital output
-            actions.Add(new DigitalOutput(digitalOutputName, false));
+            actions.Add(new SetDigitalOutput(digitalOutputName, false));
 
             // Above end
             vector = -plane.ZAxis;

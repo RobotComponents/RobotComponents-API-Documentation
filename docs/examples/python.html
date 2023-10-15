@@ -153,10 +153,10 @@ for i in range(len(curves)):
         
         ## Enable digital output
         if (j == 0):
-            actions.append(rc.Actions.Instructions.DigitalOutput(do_name, True))
+            actions.append(rc.Actions.Instructions.SetDigitalOutput(do_name, True))
     
     # Disable digital output
-    actions.append(rc.Actions.Instructions.DigitalOutput(do_name, False))
+    actions.append(rc.Actions.Instructions.SetDigitalOutput(do_name, False))
     
     ## Above end
     vector = -plane.ZAxis

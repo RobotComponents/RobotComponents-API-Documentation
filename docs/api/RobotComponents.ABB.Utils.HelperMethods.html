@@ -73,7 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Utils_HelperMethods" data-uid="RobotComponents.ABB.Utils.HelperMethods" class="text-break">Class HelperMethods
 </h1>
-  <div class="markdown level0 summary"><p>Represents general helper methods</p>
+  <div class="markdown level0 summary"><p>Represents general helper methods.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,6 +115,57 @@
 </h3>
 
 
+  <a id="RobotComponents_ABB_Utils_HelperMethods_DotProduct_" data-uid="RobotComponents.ABB.Utils.HelperMethods.DotProduct*"></a>
+  <h4 id="RobotComponents_ABB_Utils_HelperMethods_DotProduct_Rhino_Geometry_Quaternion_Rhino_Geometry_Quaternion_" data-uid="RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)">DotProduct(Quaternion, Quaternion)</h4>
+  <div class="markdown level1 summary"><p>Returns the dot product of two quaternions.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double DotProduct(this Quaternion quat1, Quaternion quat2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat1</span></td>
+        <td><p>The first quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat2</span></td>
+        <td><p>The second quaternion.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><p>The dot product.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Utils_HelperMethods_FlipPlaneX_" data-uid="RobotComponents.ABB.Utils.HelperMethods.FlipPlaneX*"></a>
   <h4 id="RobotComponents_ABB_Utils_HelperMethods_FlipPlaneX_Rhino_Geometry_Plane_" data-uid="RobotComponents.ABB.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)">FlipPlaneX(Plane)</h4>
   <div class="markdown level1 summary"><p>Flips a plane normal to the oposite direction by setting it's x-axis negative.</p>
@@ -153,7 +204,7 @@
     <tbody>
       <tr>
         <td><span class="xref">Plane</span></td>
-        <td><p>Tshe flipped plane.</p>
+        <td><p>The flipped plane.</p>
 </td>
       </tr>
     </tbody>
@@ -199,6 +250,63 @@
       <tr>
         <td><span class="xref">Plane</span></td>
         <td><p>The flipped plane.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_HelperMethods_Lerp_" data-uid="RobotComponents.ABB.Utils.HelperMethods.Lerp*"></a>
+  <h4 id="RobotComponents_ABB_Utils_HelperMethods_Lerp_Rhino_Geometry_Quaternion_Rhino_Geometry_Quaternion_System_Double_" data-uid="RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)">Lerp(Quaternion, Quaternion, double)</h4>
+  <div class="markdown level1 summary"><p>Interpolates between two quaternions using linear interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Lerp(Quaternion quat1, Quaternion quat2, double t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat1</span></td>
+        <td><p>The first quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat2</span></td>
+        <td><p>The second quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>The interpolation parameter in the range [0, 1].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><p>The interpolated quaternion.</p>
 </td>
       </tr>
     </tbody>
@@ -829,6 +937,100 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><p>Returns a new string with replaced text.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_" data-uid="RobotComponents.ABB.Utils.HelperMethods.SetDataFromString*"></a>
+  <h4 id="RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____" data-uid="RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)">SetDataFromString(IDeclaration, string, out string[])</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void SetDataFromString(this IDeclaration declaration, string rapidData, out string[] values)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><span class="parametername">declaration</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>[]</td>
+        <td><span class="parametername">values</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Utils_HelperMethods_Slerp_" data-uid="RobotComponents.ABB.Utils.HelperMethods.Slerp*"></a>
+  <h4 id="RobotComponents_ABB_Utils_HelperMethods_Slerp_Rhino_Geometry_Quaternion_Rhino_Geometry_Quaternion_System_Double_" data-uid="RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)">Slerp(Quaternion, Quaternion, double)</h4>
+  <div class="markdown level1 summary"><p>Interpolates between two quaternions using spherical linear interpolation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Quaternion Slerp(Quaternion quat1, Quaternion quat2, double t)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat1</span></td>
+        <td><p>The first quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><span class="parametername">quat2</span></td>
+        <td><p>The second quaternion.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">t</span></td>
+        <td><p>The interpolation parameter in the range [0, 1].</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Quaternion</span></td>
+        <td><p>The interpolated quaternion.</p>
 </td>
       </tr>
     </tbody>

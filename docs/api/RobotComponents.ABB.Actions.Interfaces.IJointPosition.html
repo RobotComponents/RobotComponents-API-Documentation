@@ -114,7 +114,7 @@
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Item_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Item_System_Int32_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)">this[int]</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the axis values through the indexer.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the joint position through the indexer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -150,7 +150,7 @@
     <tbody>
       <tr>
         <td><span class="xref">double</span></td>
-        <td><p>The axis value located at the given index.</p>
+        <td><p>The joint position located at the given index.</p>
 </td>
       </tr>
     </tbody>
@@ -185,8 +185,7 @@
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Name_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Name" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Joint Position variable name.
-Each Joint Position variable name has to be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Joint Position variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -208,6 +207,9 @@ Each Joint Position variable name has to be unique.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Name_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Each variable name has to be unique.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_VariableType_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType*"></a>
@@ -236,6 +238,33 @@ Each Joint Position variable name has to be unique.</p>
   </table>
   <h3 id="methods">Methods
 </h3>
+
+
+  <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_DuplicateJointPosition_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_DuplicateJointPosition" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition">DuplicateJointPosition()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this IJointPosition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IJointPosition DuplicateJointPosition()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IJointPosition.html">IJointPosition</a></td>
+        <td><p>The exact copy of this IJointPosition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_Reset_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset*"></a>
@@ -269,7 +298,7 @@ Each Joint Position variable name has to be unique.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</td>
-        <td><p>The array containing the axis values of the joint position.</p>
+        <td><p>The array containing the joint positions.</p>
 </td>
       </tr>
     </tbody>
@@ -296,7 +325,7 @@ Each Joint Position variable name has to be unique.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</td>
-        <td><p>The list containing the axis values of the joint position.</p>
+        <td><p>The list containing the the joint positions.</p>
 </td>
       </tr>
     </tbody>
@@ -323,7 +352,7 @@ Each Joint Position variable name has to be unique.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The string with axis values.</p>
+        <td><p>The string with joint positions.</p>
 </td>
       </tr>
     </tbody>
@@ -332,8 +361,7 @@ Each Joint Position variable name has to be unique.</p>
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -358,6 +386,9 @@ This method is called inside the RAPID generator.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Interfaces_IJointPosition_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration*"></a>

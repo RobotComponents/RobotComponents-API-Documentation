@@ -114,12 +114,13 @@
 
   <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ReferenceType_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ReferenceType" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType">ReferenceType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the reference type of the syncident.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">VariableType ReferenceType { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use VariableType instead.&quot;, false)]
+VariableType ReferenceType { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -162,6 +163,32 @@
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_VariableType_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_VariableType" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType">VariableType</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type of the syncident.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">VariableType VariableType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Enumerations.VariableType.html">VariableType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="methods">Methods
 </h3>
 
@@ -195,8 +222,7 @@
 
   <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -221,6 +247,9 @@ This method is called inside the RAPID generator.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration*"></a>
@@ -270,8 +299,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -296,6 +324,9 @@ This method is called inside the RAPID generator.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Interfaces_ISyncident_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction*"></a>

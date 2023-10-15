@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition" class="text-break">Class RobotJointPosition
 </h1>
-  <div class="markdown level0 summary"><p>Represents the Robot Joint Position declaration.
-This action is used to define the robot axis positions in degrees.</p>
+  <div class="markdown level0 summary"><p>Represents the Robot Joint Position declaration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -116,13 +115,16 @@ This action is used to define the robot axis positions in degrees.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class RobotJointPosition : Action, IDeclaration, IJointPosition, ISerializable</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This action is used to define the robot axis positions in degrees.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition__ctor" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor">RobotJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name an all axis values set to zero.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Joint Position class with an empty name an all joint positions set to zero.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -167,7 +169,7 @@ This action is used to define the robot axis positions in degrees.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotJointPosition(IList&lt;double&gt; internalAxisValues)</code></pre>
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(IList&lt;double&gt; internalJointPositions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -181,8 +183,8 @@ This action is used to define the robot axis positions in degrees.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</td>
-        <td><span class="parametername">internalAxisValues</span></td>
-        <td><p>The user defined internal axis values as a collection.</p>
+        <td><span class="parametername">internalJointPositions</span></td>
+        <td><p>The user defined internal joint positions as a collection.</p>
 </td>
       </tr>
     </tbody>
@@ -290,7 +292,7 @@ This action is used to define the robot axis positions in degrees.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name, IList&lt;double&gt; internalAxisValues)</code></pre>
+    <pre><code class="lang-csharp hljs">public RobotJointPosition(string name, IList&lt;double&gt; internalJointPositions)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -310,8 +312,8 @@ This action is used to define the robot axis positions in degrees.</p>
       </tr>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</td>
-        <td><span class="parametername">internalAxisValues</span></td>
-        <td><p>The user defined internal axis values as a colection.</p>
+        <td><span class="parametername">internalJointPositions</span></td>
+        <td><p>The user defined internal joint positions as a colection.</p>
 </td>
       </tr>
     </tbody>
@@ -385,6 +387,32 @@ This action is used to define the robot axis positions in degrees.</p>
 </h3>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Datatype_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Datatype" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_IsFixedSize_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.IsFixedSize*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_IsFixedSize" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.IsFixedSize">IsFixedSize</h4>
   <div class="markdown level1 summary"><p>Gets a value indicating whether or not the joint position array has a fixed size.</p>
@@ -441,7 +469,7 @@ This action is used to define the robot axis positions in degrees.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Item_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Item*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Item_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Item(System.Int32)">this[int]</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the axis values through the indexer.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the joint positions through the indexer.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -477,7 +505,7 @@ This action is used to define the robot axis positions in degrees.</p>
     <tbody>
       <tr>
         <td><span class="xref">double</span></td>
-        <td><p>The axis value located at the given index.</p>
+        <td><p>The joint position located at the given index.</p>
 </td>
       </tr>
     </tbody>
@@ -512,8 +540,7 @@ This action is used to define the robot axis positions in degrees.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Name_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Name" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Robot Joint Position variable name.
-Each Robot Joint Position variable name has to be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Robot Joint Position variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -535,6 +562,9 @@ Each Robot Joint Position variable name has to be unique.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Name_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Each variable name has to be unique.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Scope_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Scope*"></a>
@@ -593,8 +623,7 @@ Each Robot Joint Position variable name has to be unique.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Add_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Add*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Add_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Add(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">Add(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Adds the values of an Robot Joint Position to the values inside this Joint Position.
-Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.</p>
+  <div class="markdown level1 summary"><p>Adds the values of an Robot Joint Position to the values inside this Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -619,6 +648,9 @@ Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Add_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Add_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Add*"></a>
@@ -652,8 +684,7 @@ Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Divide_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Divide*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Divide_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Divide(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">Divide(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Divides the values inside this Joint Position with the values from another Robot Joint Position.
-Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
+  <div class="markdown level1 summary"><p>Divides the values inside this Joint Position with the values from another Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -678,6 +709,9 @@ Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Divide_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Divide_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Divide*"></a>
@@ -792,6 +826,33 @@ Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_DuplicateJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_DuplicateJointPosition" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition">DuplicateJointPosition()</h4>
+  <div class="markdown level1 summary"><p>Returns an exact duplicate of this Robot Joint Position instance as an IJointPosition.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IJointPosition DuplicateJointPosition()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IJointPosition.html">IJointPosition</a></td>
+        <td><p>A deep copy of the Robot Joint Position instance as an IJointPosition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_GetObjectData_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.GetObjectData*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">GetObjectData(SerializationInfo, StreamingContext)</h4>
   <div class="markdown level1 summary"><p>Populates a SerializationInfo with the data needed to serialize the object.</p>
@@ -829,8 +890,7 @@ Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Multiply_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Multiply*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Multiply_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Multiply(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">Multiply(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Multiplies the values inside this Joint Position with the values from another Robot Joint Position.
-Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.</p>
+  <div class="markdown level1 summary"><p>Multiplies the values inside this Joint Position with the values from another Robot Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -855,6 +915,9 @@ Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Multiply_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Multiply_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Multiply*"></a>
@@ -933,8 +996,52 @@ Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.</p>
     <tbody>
       <tr>
         <td><span class="xref">double</span></td>
-        <td><p>he square norm of this joint position.</p>
+        <td><p>The square norm of this joint position.</p>
 </td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Parse_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Parse_System_String_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Robot Joint Position instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RobotJointPosition Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a></td>
+        <td></td>
       </tr>
     </tbody>
   </table>
@@ -953,8 +1060,7 @@ Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Substract_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Substract*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Substract_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Substract(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)">Substract(RobotJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Substracts the values of an Robot Joint Position from the values inside this Joint Position.
-Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
+  <div class="markdown level1 summary"><p>Substracts the values of an Robot Joint Position from the values inside this Joint Position.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -979,6 +1085,9 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Substract_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_Substract_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Substract*"></a>
@@ -1039,7 +1148,7 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToArray_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToArray*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToArray" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToArray">ToArray()</h4>
-  <div class="markdown level1 summary"><p>Returns the Robot Joint Position as an array with axis values.</p>
+  <div class="markdown level1 summary"><p>Returns the Robot Joint Position as an array with joint positions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1057,7 +1166,7 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>[]</td>
-        <td><p>The array containing the axis values of the robot joint position.</p>
+        <td><p>The array containing the the robot joint positions.</p>
 </td>
       </tr>
     </tbody>
@@ -1066,7 +1175,7 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToList_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToList*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToList" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToList">ToList()</h4>
-  <div class="markdown level1 summary"><p>Returns the Robot Joint Position as an array with axis values.</p>
+  <div class="markdown level1 summary"><p>Returns the Robot Joint Position as an array with joint positions.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1084,7 +1193,7 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.double">double</a>&gt;</td>
-        <td><p>The list containing the axis values of the robot joint position.</p>
+        <td><p>The list containing of the robot joint positions.</p>
 </td>
       </tr>
     </tbody>
@@ -1093,7 +1202,7 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPID_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPID*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPID" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPID">ToRAPID()</h4>
-  <div class="markdown level1 summary"><p>Returns the Joint Position in RAPID code format, e.g. &quot;[0, 0, 0, 0, 45, 0]&quot;.</p>
+  <div class="markdown level1 summary"><p>Returns the Joint Position in RAPID code format, e.g.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1111,17 +1220,19 @@ Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The string with axis values.</p>
+        <td><p>The string with joint positions.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An example output is &quot;[0, 0, 0, 0, 45, 0]&quot;.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1148,6 +1259,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration*"></a>
@@ -1188,7 +1302,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>An empty string.</p>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -1199,8 +1313,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1227,6 +1340,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction*"></a>
@@ -1303,6 +1419,57 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_TryParse_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotJointPosition_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_RobotJointPosition__" data-uid="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)">TryParse(string, out RobotJointPosition)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Robot Joint Position instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out RobotJointPosition robotJointPosition)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a></td>
+        <td><span class="parametername">robotJointPosition</span></td>
+        <td><p>The Robot Joint Position intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="operators">Operators
 </h3>
 
@@ -1351,7 +1518,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html">RobotJointPosition</a></td>
-        <td><p>The addition of the two Robot Joint Poistion</p>
+        <td><p>The addition of the two Robot Joint Poistion.</p>
 </td>
       </tr>
     </tbody>
@@ -1722,6 +1889,10 @@ This method is called inside the RAPID generator.</p>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

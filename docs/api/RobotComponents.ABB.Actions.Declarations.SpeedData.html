@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_Declarations_SpeedData" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData" class="text-break">Class SpeedData
 </h1>
-  <div class="markdown level0 summary"><p>Represents a predefined or user definied Speed Data declaration.
-This action is used to specify the velocity at which both the robot and the external axes move.</p>
+  <div class="markdown level0 summary"><p>Represents a predefined or user definied Speed Data declaration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,6 +114,9 @@ This action is used to specify the velocity at which both the robot and the exte
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class SpeedData : Action, IDeclaration, ISerializable</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This action is used to specify the velocity at which both the robot and the external axes move.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -354,15 +356,99 @@ This action is used to specify the velocity at which both the robot and the exte
 </h3>
 
 
-  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ExactPredefinedValue*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ExactPredefinedValue">ExactPredefinedValue</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value.
-If false the nearest predefined speedata or a custom speeddata was used.</p>
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_Datatype_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_Datatype" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ExactPredefinedValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ExactPredefinedValue*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ExactPredefinedValue">ExactPredefinedValue</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsExactPredefinedValue instead.&quot;, false)]
+public bool ExactPredefinedValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ExactPredefinedValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If false, the nearest predefined speedata or a custom speeddata was used.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_IsExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.IsExactPredefinedValue*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_IsExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.IsExactPredefinedValue">IsExactPredefinedValue</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsExactPredefinedValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_IsExactPredefinedValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If false, the nearest predefined speedata or a custom speeddata was used.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_IsPreDefined_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.IsPreDefined*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_IsPreDefined" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.IsPreDefined">IsPreDefined</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this speeddata is a predefined speeddata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPreDefined { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -442,7 +528,8 @@ If false the nearest predefined speedata or a custom speeddata was used.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool PreDefined { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsPredefined instead.&quot;, false)]
+public bool PreDefined { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -494,7 +581,8 @@ If false the nearest predefined speedata or a custom speeddata was used.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UserDefinied { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsPredefined instead.&quot;, false)]
+public bool UserDefinied { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -541,8 +629,7 @@ If false the nearest predefined speedata or a custom speeddata was used.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_ORI_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.V_ORI*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_ORI" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.V_ORI">V_ORI</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the reorientation velocity of the TCP expressed in degrees/s.
-If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the reorientation velocity of the TCP expressed in degrees/s.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -564,6 +651,9 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_ORI_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_REAX_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.V_REAX*"></a>
@@ -594,8 +684,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_TCP_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.V_TCP*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_TCP" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.V_TCP">V_TCP</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the velocity of the tool center point (TCP) in mm/s.
-If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the velocity of the tool center point (TCP) in mm/s.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -617,6 +706,9 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_V_TCP_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If a stationary tool or coordinated external axes are used, the velocity is specified relative to the work object.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ValidPredefinedData_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ValidPredefinedData*"></a>
@@ -699,7 +791,7 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_VariableType_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.VariableType*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_VariableType" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.VariableType">VariableType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the reference type.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -887,9 +979,53 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_Parse_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_Parse_System_String_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Speed Data instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static SpeedData Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.SpeedData.html">SpeedData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPID_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPID*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPID" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPID">ToRAPID()</h4>
-  <div class="markdown level1 summary"><p>Returns the Speed Data in RAPID code format, e.g. &quot;[200, 500, 5000, 1000]&quot;.</p>
+  <div class="markdown level1 summary"><p>Returns the Speed Data in RAPID code format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -912,12 +1048,14 @@ If a stationary tool or coordinated external axes are used, the velocity is spec
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An example output is &quot;[200, 500, 5000, 1000]&quot;.s</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -944,6 +1082,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDDeclaration*"></a>
@@ -984,7 +1125,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The RAPID code line.</p>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -995,8 +1136,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1023,6 +1163,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDInstruction*"></a>
@@ -1099,12 +1242,67 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_SpeedData_TryParse_" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_SpeedData_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_SpeedData__" data-uid="RobotComponents.ABB.Actions.Declarations.SpeedData.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.SpeedData@)">TryParse(string, out SpeedData)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Speed Data instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out SpeedData speedData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.SpeedData.html">SpeedData</a></td>
+        <td><span class="parametername">speedData</span></td>
+        <td><p>The Speed Data intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

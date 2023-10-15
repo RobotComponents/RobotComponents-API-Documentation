@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_Declarations_ZoneData" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData" class="text-break">Class ZoneData
 </h1>
-  <div class="markdown level0 summary"><p>Represents a predefined or user definied Zone Data declaration.
-This action is used to specify how a position is to be terminated.</p>
+  <div class="markdown level0 summary"><p>Represents a predefined or user definied Zone Data declaration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,6 +114,9 @@ This action is used to specify how a position is to be terminated.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ZoneData : Action, IDeclaration, ISerializable</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This action is used to specify how a position is to be terminated.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -226,8 +228,7 @@ This action is used to specify how a position is to be terminated.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_System_Double_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.#ctor(System.Double)">ZoneData(double)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.
-Use -1 to define a fine point.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -252,12 +253,14 @@ Use -1 to define a fine point.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_System_Double__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use -1 to define a fine point.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.#ctor(System.Int32)">ZoneData(int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.
-Use -1 to define a fine point.</p>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Zone Data class with predefined values.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -282,6 +285,9 @@ Use -1 to define a fine point.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_System_Int32__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Use -1 to define a fine point.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.#ctor*"></a>
@@ -392,15 +398,70 @@ Use -1 to define a fine point.</p>
 </h3>
 
 
-  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ExactPredefinedValue*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ExactPredefinedValue">ExactPredefinedValue</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata was constructed from an exact predefined speeddata value.
-If false the nearest predefined speedata or a custom zonedata was used.</p>
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_Datatype_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_Datatype" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool ExactPredefinedValue { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ExactPredefinedValue*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ExactPredefinedValue">ExactPredefinedValue</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata was constructed from an exact predefined zonedata value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsExactPredefinedValue instead.&quot;, false)]
+public bool ExactPredefinedValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ExactPredefinedValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If false the nearest predefined zoneata or a custom zonedata was used.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_FinePoint_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.FinePoint*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_FinePoint" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.FinePoint">FinePoint</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the movement is to terminate as a stop point (fine point) or as a fly-by point.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FinePoint { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -419,14 +480,43 @@ If false the nearest predefined speedata or a custom zonedata was used.</p>
   </table>
 
 
-  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_FinePoint_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.FinePoint*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_FinePoint" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.FinePoint">FinePoint</h4>
-  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether the movement is to terminate as a stop point (fine point) or as a fly-by point.</p>
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_IsExactPredefinedValue_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.IsExactPredefinedValue*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_IsExactPredefinedValue" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.IsExactPredefinedValue">IsExactPredefinedValue</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata was constructed from an exact predefined zonedata value.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FinePoint { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsExactPredefinedValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_IsExactPredefinedValue_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If false the nearest predefined zoneata or a custom zonedata was used.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_IsPreDefined_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.IsPreDefined*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_IsPreDefined" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.IsPreDefined">IsPreDefined</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether this zonedata is a predefined zonedata.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsPreDefined { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -501,8 +591,7 @@ If false the nearest predefined speedata or a custom zonedata was used.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneExternalAxes_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.PathZoneExternalAxes*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneExternalAxes" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.PathZoneExternalAxes">PathZoneExternalAxes</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for external axes.
-The size is defined as the distance of the TCP from the programmed point in mm.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for external axes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -524,12 +613,14 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneExternalAxes_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The size is defined as the distance of the TCP from the programmed point in mm.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneOrientation_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.PathZoneOrientation*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneOrientation" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.PathZoneOrientation">PathZoneOrientation</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for the tool reorientation.
-The size is defined as the distance of the TCP from the programmed point in mm.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the zone size (the radius) for the tool reorientation.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -551,6 +642,9 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneOrientation_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The size is defined as the distance of the TCP from the programmed point in mm.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_PathZoneTCP_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.PathZoneTCP*"></a>
@@ -586,7 +680,8 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool PreDefined { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsPredefined instead.&quot;, false)]
+public bool PreDefined { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -638,7 +733,8 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool UserDefinied { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use IsPredefined instead.&quot;, false)]
+public bool UserDefinied { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -737,7 +833,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_VariableType_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.VariableType*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_VariableType" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.VariableType">VariableType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the reference type.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -815,8 +911,7 @@ The size is defined as the distance of the TCP from the programmed point in mm.<
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ZoneOrientation_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ZoneOrientation*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ZoneOrientation" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ZoneOrientation">ZoneOrientation</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the zone size for the tool reorientation in degrees.
-If the robot is holding the work object, this means an angle of rotation for the work object.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the zone size for the tool reorientation in degrees.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -838,6 +933,9 @@ If the robot is holding the work object, this means an angle of rotation for the
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ZoneOrientation_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>If the robot is holding the work object, this means an angle of rotation for the work object.</p>
+</div>
   <h3 id="methods">Methods
 </h3>
 
@@ -1004,9 +1102,53 @@ If the robot is holding the work object, this means an angle of rotation for the
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_Parse_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_Parse_System_String_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Zone Data instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ZoneData Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ZoneData.html">ZoneData</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPID_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPID*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPID" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPID">ToRAPID()</h4>
-  <div class="markdown level1 summary"><p>Returns the Zone Data in RAPID code format, e.g. &quot;[FALSE, 0, 0.3, 0.3, 0.3, 0.3, 0.03]&quot;.</p>
+  <div class="markdown level1 summary"><p>Returns the Zone Data in RAPID code format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1024,17 +1166,19 @@ If the robot is holding the work object, this means an angle of rotation for the
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The string with zone data values.</p>
+        <td><p>The RAPID data string.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>An example output is &quot;[FALSE, 0, 0.3, 0.3, 0.3, 0.3, 0.03]&quot;.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1061,6 +1205,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDDeclaration*"></a>
@@ -1101,7 +1248,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The RAPID code line.</p>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -1112,8 +1259,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -1140,6 +1286,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDInstruction*"></a>
@@ -1216,12 +1365,67 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_ZoneData_TryParse_" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_ZoneData_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_ZoneData__" data-uid="RobotComponents.ABB.Actions.Declarations.ZoneData.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.ZoneData@)">TryParse(string, out ZoneData)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Zone Data instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out ZoneData zoneData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ZoneData.html">ZoneData</a></td>
+        <td><span class="parametername">zoneData</span></td>
+        <td><p>The Zone Data intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

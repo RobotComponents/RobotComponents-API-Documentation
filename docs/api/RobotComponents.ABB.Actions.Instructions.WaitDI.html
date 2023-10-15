@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_Instructions_WaitDI" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI" class="text-break">Class WaitDI
 </h1>
-  <div class="markdown level0 summary"><p>Represents a Wait for Digital Input instruction.
-This action is used to wait until a digital input is set.</p>
+  <div class="markdown level0 summary"><p>Represents a Wait for Digital Input instruction.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -115,6 +114,9 @@ This action is used to wait until a digital input is set.</p>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class WaitDI : Action, IInstruction, ISerializable</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_WaitDI_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This action is used to wait until a digital input is set.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -195,13 +197,13 @@ This action is used to wait until a digital input is set.</p>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI__ctor_System_String_System_Boolean_System_Double_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double)">WaitDI(string, bool, double)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI__ctor_System_String_System_Boolean_System_Double_System_Boolean_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double,System.Boolean)">WaitDI(string, bool, double, bool)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Wait DI class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WaitDI(string name, bool value, double maxTime = -1)</code></pre>
+    <pre><code class="lang-csharp hljs">public WaitDI(string name, bool value, double maxTime = -1, bool timeFlag = false)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -229,6 +231,12 @@ This action is used to wait until a digital input is set.</p>
         <td><span class="xref">double</span></td>
         <td><span class="parametername">maxTime</span></td>
         <td><p>The maximum time to wait in seconds.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">timeFlag</span></td>
+        <td><p>Specifies whether the timeout flag is enabled.</p>
 </td>
       </tr>
     </tbody>
@@ -267,7 +275,7 @@ This action is used to wait until a digital input is set.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_MaxTime_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.MaxTime*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI_MaxTime" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.MaxTime">MaxTime</h4>
-  <div class="markdown level1 summary"><p>Gets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).</p>
+  <div class="markdown level1 summary"><p>Gets or sets te max. time to wait in seconds.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -289,6 +297,9 @@ This action is used to wait until a digital input is set.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_WaitDI_MaxTime_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Set a negative value to wait forever (default is -1).</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_Name_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.Name*"></a>
@@ -311,6 +322,32 @@ This action is used to wait until a digital input is set.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_TimeFlag_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI_TimeFlag" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag">TimeFlag</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the timeout flag.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool TimeFlag { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -465,8 +502,7 @@ This action is used to wait until a digital input is set.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -493,6 +529,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration*"></a>
@@ -544,8 +583,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -572,6 +610,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_WaitDI_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDInstruction*"></a>

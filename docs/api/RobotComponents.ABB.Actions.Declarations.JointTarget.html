@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_Declarations_JointTarget" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget" class="text-break">Class JointTarget
 </h1>
-  <div class="markdown level0 summary"><p>Represents a Joint Target declaration.
-This action is used to define each individual axis position, for both the robot and the external axes.</p>
+  <div class="markdown level0 summary"><p>Represents a Joint Target declaration.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -116,6 +115,9 @@ This action is used to define each individual axis position, for both the robot 
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class JointTarget : Action, ITarget, IDeclaration, ISerializable</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_JointTarget_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This action is used to define each individual axis position, for both the robot and the external axes.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -337,6 +339,32 @@ This action is used to define each individual axis position, for both the robot 
 </h3>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_Datatype_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Datatype*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_Datatype" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Datatype">Datatype</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID datatype.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Datatype { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ExternalJointPosition*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ExternalJointPosition" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ExternalJointPosition">ExternalJointPosition</h4>
   <div class="markdown level1 summary"><p>Gets or sets the External Joint Position.</p>
@@ -393,8 +421,7 @@ This action is used to define each individual axis position, for both the robot 
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_Name_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Name*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_Name" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Name">Name</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Joint Target variable name.
-Each Target variable name has to be unique.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the Joint Target variable name.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -416,6 +443,9 @@ Each Target variable name has to be unique.</p>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_JointTarget_Name_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Each variable name has to be unique.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_RobotJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.RobotJointPosition*"></a>
@@ -778,9 +808,53 @@ Each Target variable name has to be unique.</p>
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_Parse_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Parse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_Parse_System_String_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.Parse(System.String)">Parse(string)</h4>
+  <div class="markdown level1 summary"><p>Returns a Joint Target instance constructed from a RAPID data string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static JointTarget Parse(string rapidData)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string. s</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.JointTarget.html">JointTarget</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPID_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPID*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPID" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPID">ToRAPID()</h4>
-  <div class="markdown level1 summary"><p>Returns the Joint Target in RAPID code format, e.g. &quot;[[0, 0, 0, 0, 45, 0], [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]&quot;.</p>
+  <div class="markdown level1 summary"><p>Returns the Joint Target in RAPID code format.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -798,17 +872,22 @@ Each Target variable name has to be unique.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The string with joint target values.</p>
+        <td><p>The RAPID data string.</p>
 </td>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPID_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Example outputs are
+&quot;[[0, 0, 0, 0, 45, 0], [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]&quot;,
+&quot;[robjoint1, [1000, 9E9, 9E9, 9E9, 9E9, 9E9]]&quot; and
+&quot;[robjoint1, extjoint1]&quot;</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -835,6 +914,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDDeclaration*"></a>
@@ -875,7 +957,7 @@ This method is called inside the RAPID generator.</p>
     <tbody>
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><p>The RAPID code line.</p>
+        <td><p>The RAPID code line in case a variable name is defined.</p>
 </td>
       </tr>
     </tbody>
@@ -886,8 +968,7 @@ This method is called inside the RAPID generator.</p>
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDInstruction*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.
-This method is called inside the RAPID generator.</p>
+  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -914,6 +995,9 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDInstruction*"></a>
@@ -990,6 +1074,57 @@ This method is called inside the RAPID generator.</p>
   </table>
   <h5 class="overrides">Overrides</h5>
   <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+
+
+  <a id="RobotComponents_ABB_Actions_Declarations_JointTarget_TryParse_" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.TryParse*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_JointTarget_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_JointTarget__" data-uid="RobotComponents.ABB.Actions.Declarations.JointTarget.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.JointTarget@)">TryParse(string, out JointTarget)</h4>
+  <div class="markdown level1 summary"><p>Attempts to parse a RAPID data string into a Joint Target instance.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryParse(string rapidData, out JointTarget jointTarget)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
+        <td><span class="parametername">rapidData</span></td>
+        <td><p>The RAPID data string.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.JointTarget.html">JointTarget</a></td>
+        <td><span class="parametername">jointTarget</span></td>
+        <td><p>The Joint Target intance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><p>True on success, false on failure.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a>
@@ -999,6 +1134,10 @@ This method is called inside the RAPID generator.</p>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

@@ -73,8 +73,7 @@
 
   <h1 id="RobotComponents_ABB_Actions_RAPIDGenerator" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator" class="text-break">Class RAPIDGenerator
 </h1>
-  <div class="markdown level0 summary"><p>Represents the RAPID Generator.
-This is class is used to generate the RAPID program and system module from a given set of actions.</p>
+  <div class="markdown level0 summary"><p>Represents the RAPID Generator.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -109,6 +108,9 @@ This is class is used to generate the RAPID program and system module from a giv
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class RAPIDGenerator</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>This is class is used to generate the RAPID module from a given set of actions.</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -242,7 +244,7 @@ This is class is used to generate the RAPID program and system module from a giv
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public RAPIDGenerator(Robot robot, IList&lt;Action&gt; actions, string programModuleName, string systemModuleName, string procedureName)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -296,7 +298,7 @@ public RAPIDGenerator(Robot robot, IList&lt;Action&gt; actions, string programMo
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public RAPIDGenerator(Robot robot, IList&lt;Action&gt; actions, string programModuleName, string systemModuleName, string procedureName, string filePath, bool saveToFile)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -383,6 +385,32 @@ public RAPIDGenerator(Robot robot, IList&lt;Action&gt; actions, string programMo
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ConfigurationDatas_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ConfigurationDatas" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas">ConfigurationDatas</h4>
+  <div class="markdown level1 summary"><p>Gets the collection with unique Configuration Datas used to create the RAPID program module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, ConfigurationData&gt; ConfigurationDatas { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="RobotComponents.ABB.Actions.Declarations.ConfigurationData.html">ConfigurationData</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ErrorText_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ErrorText" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText">ErrorText</h4>
   <div class="markdown level1 summary"><p>Gets the collected error messages.</p>
@@ -416,7 +444,7 @@ public RAPIDGenerator(Robot robot, IList&lt;Action&gt; actions, string programMo
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public string FilePath { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -443,7 +471,8 @@ public string FilePath { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool FirstMovementIsMoveAbsJ { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.&quot;, false)]
+public bool FirstMovementIsMoveAbsJ { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -460,6 +489,61 @@ public string FilePath { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_IsFirstMovementMoveAbsJ_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_IsFirstMovementMoveAbsJ" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ">IsFirstMovementMoveAbsJ</h4>
+  <div class="markdown level1 summary"><p>Gets a value indicating whether or not the first movement is an Absolute Joint Movement.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFirstMovementMoveAbsJ { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_IsSynchronized_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_IsSynchronized" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized">IsSynchronized</h4>
+  <div class="markdown level1 summary"><p>Gets or sets a value indicating whether or not the movements are synchronized.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsSynchronized { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_IsSynchronized_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value is set inside the SyncMoveOn and SyncMoveOff instructions.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_IsValid_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.IsValid*"></a>
@@ -514,9 +598,35 @@ public string FilePath { get; set; }</code></pre>
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_LoadDatas_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_LoadDatas" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas">LoadDatas</h4>
+  <div class="markdown level1 summary"><p>Gets the collection with unique Load Datas used to create the RAPID program module.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Dictionary&lt;string, LoadData&gt; LoadDatas { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2">Dictionary</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>, <a class="xref" href="RobotComponents.ABB.Definitions.LoadData.html">LoadData</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_Module_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Module*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_Module" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Module">Module</h4>
-  <div class="markdown level1 summary"><p>Gest he RAPID module as a list with code lines.</p>
+  <div class="markdown level1 summary"><p>Gets the RAPID module as a list with code lines.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -670,6 +780,32 @@ public string FilePath { get; set; }</code></pre>
   </table>
 
 
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsLoadData_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsLoadData" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData">ProgramDeclarationsLoadData</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID loaddata code lines as list with RAPID code lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; ProgramDeclarationsLoadData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsMultiMove_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsMultiMove" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove">ProgramDeclarationsMultiMove</h4>
   <div class="markdown level1 summary"><p>Gets the program declarations for multi move programming as a list with RAPID code lines.</p>
@@ -678,6 +814,58 @@ public string FilePath { get; set; }</code></pre>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public List&lt;string&gt; ProgramDeclarationsMultiMove { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsToolData_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsToolData" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData">ProgramDeclarationsToolData</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID tooldata code lines as list with RAPID code lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; ProgramDeclarationsToolData { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsWorkObjectData_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData*"></a>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_ProgramDeclarationsWorkObjectData" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData">ProgramDeclarationsWorkObjectData</h4>
+  <div class="markdown level1 summary"><p>Gets the RAPID wobjdata code lines as list with RAPID code lines.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; ProgramDeclarationsWorkObjectData { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -729,7 +917,7 @@ public string FilePath { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public List&lt;string&gt; ProgramModule { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -756,7 +944,7 @@ public List&lt;string&gt; ProgramModule { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public string ProgramModuleName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -835,7 +1023,7 @@ public string ProgramModuleName { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public bool SaveToFile { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -888,7 +1076,8 @@ public bool SaveToFile { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool SynchronizedMovements { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v3. Use IsSynchronized instead.&quot;, false)]
+public bool SynchronizedMovements { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -905,6 +1094,9 @@ public bool SaveToFile { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_SynchronizedMovements_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Value is set inside the SyncMoveOn and SyncMoveOff instructions.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_Syncidents_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Syncidents*"></a>
@@ -940,7 +1132,7 @@ public bool SaveToFile { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public List&lt;string&gt; SystemModule { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -967,7 +1159,7 @@ public List&lt;string&gt; SystemModule { get; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public string SystemModuleName { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
@@ -1041,12 +1233,13 @@ public string SystemModuleName { get; set; }</code></pre>
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_Tooldata_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_Tooldata" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata">Tooldata</h4>
-  <div class="markdown level1 summary"><p>Gets the RAPID tooldata.</p>
+  <div class="markdown level1 summary"><p>Gets the RAPID tooldata code lines.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; Tooldata { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsToolData instead.&quot;, false)]
+public List&lt;string&gt; Tooldata { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1067,12 +1260,13 @@ public string SystemModuleName { get; set; }</code></pre>
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_Wobjdata_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_Wobjdata" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata">Wobjdata</h4>
-  <div class="markdown level1 summary"><p>Gets the RAPID wobjdata.</p>
+  <div class="markdown level1 summary"><p>Gets the RAPID wobjdata code lines.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; Wobjdata { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsWorkObjectData instead.&quot;, false)]
+public List&lt;string&gt; Wobjdata { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1146,13 +1340,13 @@ public string SystemModuleName { get; set; }</code></pre>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateModule_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule*"></a>
-  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateModule_System_Boolean_System_Boolean_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean)">CreateModule(bool, bool)</h4>
+  <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateModule_System_Boolean_System_Boolean_System_Boolean_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)">CreateModule(bool, bool, bool)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID module.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateModule(bool addTooldata = true, bool addWobjdata = true)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;string&gt; CreateModule(bool addTooldata = true, bool addWobjdata = true, bool addLoaddata = true)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1174,6 +1368,12 @@ public string SystemModuleName { get; set; }</code></pre>
         <td><span class="xref">bool</span></td>
         <td><span class="parametername">addWobjdata</span></td>
         <td><p>Specifies if the wobjdata should be added to the RAPID module.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">bool</span></td>
+        <td><span class="parametername">addLoaddata</span></td>
+        <td><p>Specifies if the loaddata should be added to the RAPID module.</p>
 </td>
       </tr>
     </tbody>
@@ -1198,13 +1398,12 @@ public string SystemModuleName { get; set; }</code></pre>
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateProgramModule_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateProgramModule*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateProgramModule" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateProgramModule">CreateProgramModule()</h4>
-  <div class="markdown level1 summary"><p>Returns the RAPID program code.
-This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.</p>
+  <div class="markdown level1 summary"><p>Returns the RAPID program code.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public List&lt;string&gt; CreateProgramModule()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
@@ -1223,18 +1422,19 @@ public List&lt;string&gt; CreateProgramModule()</code></pre>
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateProgramModule_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_RobotComponents_ABB_Definitions_RobotTool__System_Collections_Generic_IList_RobotComponents_ABB_Definitions_WorkObject__System_Collections_Generic_IList_System_String__" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.ABB.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.ABB.Definitions.WorkObject},System.Collections.Generic.IList{System.String})">CreateSystemModule(IList&lt;RobotTool&gt;, IList&lt;WorkObject&gt;, IList&lt;string&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-It is adds the robot tools, work objects and custom code lines from the given lists.
-This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
+  <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in v2.&quot;, false)]
 public List&lt;string&gt; CreateSystemModule(IList&lt;RobotTool&gt; robotTools, IList&lt;WorkObject&gt; workObjects, IList&lt;string&gt; customCode = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1283,19 +1483,20 @@ public List&lt;string&gt; CreateSystemModule(IList&lt;RobotTool&gt; robotTools, 
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_RobotComponents_ABB_Definitions_RobotTool__System_Collections_Generic_IList_RobotComponents_ABB_Definitions_WorkObject__System_Collections_Generic_IList_System_String___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>It is adds the robot tools, work objects and custom code lines from the given lists.
+This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule*"></a>
   <h4 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_System_String__" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})">CreateSystemModule(IList&lt;string&gt;)</h4>
-  <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-It adds the robot tools and work objects that are collected by this RAPID generator.
-For this you have to call the methode 'CreateProgamCode' first.
-This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
+  <div class="markdown level1 summary"><p>Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public List&lt;string&gt; CreateSystemModule(IList&lt;string&gt; customCode = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1332,6 +1533,11 @@ public List&lt;string&gt; CreateSystemModule(IList&lt;string&gt; customCode = nu
       </tr>
     </tbody>
   </table>
+  <h5 id="RobotComponents_ABB_Actions_RAPIDGenerator_CreateSystemModule_System_Collections_Generic_IList_System_String___remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>It adds the robot tools and work objects that are collected by this RAPID generator.
+For this you have to call the methode 'CreateProgamCode' first.
+This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Actions_RAPIDGenerator_Duplicate_" data-uid="RobotComponents.ABB.Actions.RAPIDGenerator.Duplicate*"></a>
@@ -1442,7 +1648,7 @@ public List&lt;string&gt; CreateSystemModule(IList&lt;string&gt; customCode = nu
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public void WriteProgramCodeToFile()</code></pre>
   </div>
 
@@ -1454,7 +1660,7 @@ public void WriteProgramCodeToFile()</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in the future.&quot;, false)]
+    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This method is OBSOLETE and will be removed in v2 or later.&quot;, false)]
 public void WriteSystemCodeToFile()</code></pre>
   </div>
 
