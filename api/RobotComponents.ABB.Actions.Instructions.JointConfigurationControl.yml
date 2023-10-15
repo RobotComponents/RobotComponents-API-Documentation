@@ -30,10 +30,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Represents the Configuration Joint instruction. 
-
-    This action is used to switch on or off the monitoring of joint movements.
+  summary: Represents the Joint Configuration Control instruction.
+  remarks: This action is used to switch on or off the monitoring of joint movements.
   example: []
   syntax:
     content: 'public class JointConfigurationControl : Action, IInstruction, ISerializable'
@@ -279,7 +277,9 @@ items:
     content: public override string ToString()
     return:
       type: System.String
-      description: A string that represents the current object.
+      description: >-
+        A
+                   string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
   overridden: RobotComponents.ABB.Actions.Action.ToString
   overload: RobotComponents.ABB.Actions.Instructions.JointConfigurationControl.ToString*
@@ -355,10 +355,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -383,10 +381,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)

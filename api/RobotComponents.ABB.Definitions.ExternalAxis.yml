@@ -221,10 +221,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Definitions
-  summary: >-
-    Calculates the position of the attachment plane for a given External Joint Position.
-
-    This calculation does not take into account the axis limits.
+  summary: Calculates the position of the attachment plane for a given External Joint Position.
+  remarks: This calculation does not take into account the axis limits.
   example: []
   syntax:
     content: public abstract Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)
@@ -257,10 +255,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Definitions
-  summary: >-
-    Calculates the the transformation matrix for a given External Joint Position.
-
-    This calculation does not take into account the axis limits.
+  summary: Calculates the the transformation matrix for a given External Joint Position..
+  remarks: This calculation does not take into account the axis limits.
   example: []
   syntax:
     content: public abstract Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)
@@ -293,9 +289,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Definitions
-  summary: >-
-    Calculates the position of the attachment plane for a given External Joint Position.
-
+  summary: Calculates the position of the attachment plane for a given External Joint Position..
+  remarks: >-
     This calculations takes into account the external axis limits. 
 
     If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.
@@ -325,9 +320,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Definitions
-  summary: >-
-    Calculates the the transformation matrix for a given External Joint Position.
-
+  summary: Calculates the the transformation matrix for a given External Joint Position.
+  remarks: >-
     This calculations takes into account the external axis limits. 
 
     If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.
@@ -610,9 +604,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Definitions
-  summary: >-
-    Gets or sets the axis plane.
-
+  summary: Gets or sets the axis plane.
+  remarks: >-
     In case of a rotational axis the z-axis of the plane defines the rotation center. 
 
     In case of linear axis the z-axis of the plane defines the movement direction.

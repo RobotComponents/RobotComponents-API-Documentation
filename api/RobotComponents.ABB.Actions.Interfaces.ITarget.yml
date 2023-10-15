@@ -71,7 +71,7 @@ items:
     content: string ToRAPID()
     return:
       type: System.String
-      description: The string with target values.
+      description: The RAPID data string.
     content.vb: Function ToRAPID() As String
   overload: RobotComponents.ABB.Actions.Interfaces.ITarget.ToRAPID*
 - uid: RobotComponents.ABB.Actions.Interfaces.ITarget.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -115,10 +115,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -165,7 +163,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: Gets or sets the Reference Type.
+  summary: Gets or sets the Variable Type.
   example: []
   syntax:
     content: VariableType VariableType { get; set; }

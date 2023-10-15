@@ -12,6 +12,7 @@ items:
   - RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions
   - RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   - RobotComponents.ABB.Kinematics.PathGenerator.InLimits
+  - RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
   - RobotComponents.ABB.Kinematics.PathGenerator.IsValid
   - RobotComponents.ABB.Kinematics.PathGenerator.Movements
   - RobotComponents.ABB.Kinematics.PathGenerator.Paths
@@ -29,9 +30,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Represent the Path Generator.
-
+  summary: Represent the Path Generator.
+  remarks: >-
     This class is used to approximate of the path the Robot will follow for a given set of Actions. 
 
     Speed Datas and Zone Datas are neglected.
@@ -189,7 +189,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: Gets or sets the Robot.
+  summary: Gets the Robot.
   example: []
   syntax:
     content: public Robot Robot { get; }
@@ -235,10 +235,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: >-
-    Gets the path curve as list with curve.
-
-    For every move instruction a curve is constructed.
+  summary: Gets the path curve as list with curve.
+  remarks: For every move instruction a curve is constructed.
   example: []
   syntax:
     content: public List<Curve> Paths { get; }
@@ -362,6 +360,29 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property ErrorText As List(Of String)
   overload: RobotComponents.ABB.Kinematics.PathGenerator.ErrorText*
+- uid: RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
+  commentId: P:RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
+  id: IsFirstMovementMoveAbsJ
+  parent: RobotComponents.ABB.Kinematics.PathGenerator
+  langs:
+  - csharp
+  - vb
+  name: IsFirstMovementMoveAbsJ
+  nameWithType: PathGenerator.IsFirstMovementMoveAbsJ
+  fullName: RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Kinematics
+  summary: Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
+  example: []
+  syntax:
+    content: public bool IsFirstMovementMoveAbsJ { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public ReadOnly Property IsFirstMovementMoveAbsJ As Boolean
+  overload: RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ*
 - uid: RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   commentId: P:RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   id: FirstMovementIsMoveAbsJ
@@ -379,12 +400,26 @@ items:
   summary: Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
   example: []
   syntax:
-    content: public bool FirstMovementIsMoveAbsJ { get; }
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.", false)]
+
+      public bool FirstMovementIsMoveAbsJ { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property FirstMovementIsMoveAbsJ As Boolean
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.", False)>
+
+      Public ReadOnly Property FirstMovementIsMoveAbsJ As Boolean
   overload: RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.
+    - type: System.Boolean
+      value: false
 references:
 - uid: RobotComponents.ABB.Kinematics
   commentId: N:RobotComponents.ABB.Kinematics
@@ -1194,6 +1229,13 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
+- uid: RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ*
+  commentId: Overload:RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.PathGenerator.html#RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
+  name: IsFirstMovementMoveAbsJ
+  nameWithType: PathGenerator.IsFirstMovementMoveAbsJ
+  fullName: RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ
 - uid: RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ*
   commentId: Overload:RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ
   isExternal: true

@@ -5,10 +5,12 @@ items:
   id: IDeclaration
   parent: RobotComponents.ABB.Actions.Interfaces
   children:
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
@@ -27,6 +29,8 @@ items:
   syntax:
     content: public interface IDeclaration
     content.vb: Public Interface IDeclaration
+  extensionMethods:
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
   commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
   id: DuplicateDeclaration
@@ -50,6 +54,29 @@ items:
       description: The exact copy of this Declaration.
     content.vb: Function DuplicateDeclaration() As IDeclaration
   overload: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration*
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  id: ToRAPID
+  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: ToRAPID()
+  nameWithType: IDeclaration.ToRAPID()
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Interfaces
+  summary: Returns the Declaration in RAPID code format.
+  example: []
+  syntax:
+    content: string ToRAPID()
+    return:
+      type: System.String
+      description: The RAPID data string.
+    content.vb: Function ToRAPID() As String
+  overload: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID*
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -91,10 +118,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -173,6 +198,29 @@ items:
       type: RobotComponents.ABB.Enumerations.VariableType
     content.vb: Property VariableType As VariableType
   overload: RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType*
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  id: Datatype
+  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  langs:
+  - csharp
+  - vb
+  name: Datatype
+  nameWithType: IDeclaration.Datatype
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Interfaces
+  summary: Gets the RAPID datatype.
+  example: []
+  syntax:
+    content: string Datatype { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Datatype As String
+  overload: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype*
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
   commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
   id: Name
@@ -188,6 +236,7 @@ items:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
   summary: Gets or sets the variable name of the declaration.
+  remarks: Each variable name has to be unique.
   example: []
   syntax:
     content: string Name { get; set; }
@@ -244,6 +293,176 @@ references:
     name: Interfaces
     isExternal: true
     href: RobotComponents.ABB.Actions.Interfaces.html
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  definition: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  name: SetDataFromString(IDeclaration, string, out string[])
+  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
+  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
+  name.vb: SetDataFromString(IDeclaration, String, String())
+  spec.csharp:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  name: SetDataFromString(IDeclaration, string, out string[])
+  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
+  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
+  name.vb: SetDataFromString(IDeclaration, String, String())
+  spec.csharp:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: RobotComponents.ABB.Utils.HelperMethods
+  commentId: T:RobotComponents.ABB.Utils.HelperMethods
+  parent: RobotComponents.ABB.Utils
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html
+  name: HelperMethods
+  nameWithType: HelperMethods
+  fullName: RobotComponents.ABB.Utils.HelperMethods
+- uid: RobotComponents.ABB.Utils
+  commentId: N:RobotComponents.ABB.Utils
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Utils
+  nameWithType: RobotComponents.ABB.Utils
+  fullName: RobotComponents.ABB.Utils
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Utils
+    name: Utils
+    isExternal: true
+    href: RobotComponents.ABB.Utils.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Utils
+    name: Utils
+    isExternal: true
+    href: RobotComponents.ABB.Utils.html
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
   isExternal: true
@@ -259,6 +478,31 @@ references:
   name: IDeclaration
   nameWithType: IDeclaration
   fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID*
+  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  name: ToRAPID
+  nameWithType: IDeclaration.ToRAPID
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration
   isExternal: true
@@ -274,17 +518,6 @@ references:
   name: Robot
   nameWithType: Robot
   fullName: RobotComponents.ABB.Definitions.Robot
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
 - uid: RobotComponents.ABB.Definitions
   commentId: N:RobotComponents.ABB.Definitions
   isExternal: true
@@ -322,13 +555,6 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: System
-  commentId: N:System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system
-  name: System
-  nameWithType: System
-  fullName: System
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator
   commentId: T:RobotComponents.ABB.Actions.RAPIDGenerator
   parent: RobotComponents.ABB.Actions
@@ -459,6 +685,13 @@ references:
   name: VariableType
   nameWithType: VariableType
   fullName: RobotComponents.ABB.Enumerations.VariableType
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype*
+  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  name: Datatype
+  nameWithType: IDeclaration.Datatype
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name*
   commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
   isExternal: true

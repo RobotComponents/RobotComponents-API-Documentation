@@ -14,11 +14,13 @@ items:
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor(System.String,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Add(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Add(System.Double)
+  - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Divide(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Divide(System.Double)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Duplicate
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateAction
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateDeclaration
+  - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.IsFixedSize
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.IsValid
@@ -29,6 +31,7 @@ items:
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Norm
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.NormSq
+  - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(System.String)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Reset
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Scope
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Substract(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
@@ -42,6 +45,7 @@ items:
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToString
+  - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.VariableType
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,System.Double)
@@ -61,10 +65,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Represents the Robot Joint Position declaration.
-
-    This action is used to define the robot axis positions in degrees.
+  summary: Represents the Robot Joint Position declaration.
+  remarks: This action is used to define the robot axis positions in degrees.
   example: []
   syntax:
     content: 'public class RobotJointPosition : Action, IDeclaration, IJointPosition, ISerializable'
@@ -83,6 +85,8 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  extensionMethods:
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
@@ -156,7 +160,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Initializes a new instance of the Robot Joint Position class with an empty name an all axis values set to zero.
+  summary: Initializes a new instance of the Robot Joint Position class with an empty name an all joint positions set to zero.
   example: []
   syntax:
     content: public RobotJointPosition()
@@ -224,12 +228,12 @@ items:
   summary: Initializes a new instance of the Robot Joint Position class with an empty name from a collection with values
   example: []
   syntax:
-    content: public RobotJointPosition(IList<double> internalAxisValues)
+    content: public RobotJointPosition(IList<double> internalJointPositions)
     parameters:
-    - id: internalAxisValues
+    - id: internalJointPositions
       type: System.Collections.Generic.IList{System.Double}
-      description: The user defined internal axis values as a collection.
-    content.vb: Public Sub New(internalAxisValues As IList(Of Double))
+      description: The user defined internal joint positions as a collection.
+    content.vb: Public Sub New(internalJointPositions As IList(Of Double))
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor*
   nameWithType.vb: RobotJointPosition.New(IList(Of Double))
   fullName.vb: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.New(System.Collections.Generic.IList(Of Double))
@@ -296,15 +300,15 @@ items:
   summary: Initializes a new instance of the Robot Joint Position class from a collection with values.
   example: []
   syntax:
-    content: public RobotJointPosition(string name, IList<double> internalAxisValues)
+    content: public RobotJointPosition(string name, IList<double> internalJointPositions)
     parameters:
     - id: name
       type: System.String
       description: The robot joint position name, must be unique.
-    - id: internalAxisValues
+    - id: internalJointPositions
       type: System.Collections.Generic.IList{System.Double}
-      description: The user defined internal axis values as a colection.
-    content.vb: Public Sub New(name As String, internalAxisValues As IList(Of Double))
+      description: The user defined internal joint positions as a colection.
+    content.vb: Public Sub New(name As String, internalJointPositions As IList(Of Double))
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor*
   nameWithType.vb: RobotJointPosition.New(String, IList(Of Double))
   fullName.vb: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.New(String, System.Collections.Generic.IList(Of Double))
@@ -408,6 +412,93 @@ items:
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateDeclaration*
   implements:
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
+  commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
+  id: DuplicateJointPosition
+  parent: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+  langs:
+  - csharp
+  - vb
+  name: DuplicateJointPosition()
+  nameWithType: RobotJointPosition.DuplicateJointPosition()
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Declarations
+  summary: Returns an exact duplicate of this Robot Joint Position instance as an IJointPosition.
+  example: []
+  syntax:
+    content: public IJointPosition DuplicateJointPosition()
+    return:
+      type: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+      description: A deep copy of the Robot Joint Position instance as an IJointPosition.
+    content.vb: Public Function DuplicateJointPosition() As IJointPosition
+  overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition*
+  implements:
+  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(System.String)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(System.String)
+  id: Parse(System.String)
+  parent: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+  langs:
+  - csharp
+  - vb
+  name: Parse(string)
+  nameWithType: RobotJointPosition.Parse(string)
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(string)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Declarations
+  summary: Returns a Robot Joint Position instance constructed from a RAPID data string.
+  example: []
+  syntax:
+    content: public static RobotJointPosition Parse(string rapidData)
+    parameters:
+    - id: rapidData
+      type: System.String
+      description: The RAPID data string. s
+    return:
+      type: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+    content.vb: Public Shared Function Parse(rapidData As String) As RobotJointPosition
+  overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse*
+  nameWithType.vb: RobotJointPosition.Parse(String)
+  fullName.vb: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(String)
+  name.vb: Parse(String)
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)
+  id: TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)
+  parent: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+  langs:
+  - csharp
+  - vb
+  name: TryParse(string, out RobotJointPosition)
+  nameWithType: RobotJointPosition.TryParse(string, out RobotJointPosition)
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(string, out RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Declarations
+  summary: Attempts to parse a RAPID data string into a Robot Joint Position instance.
+  example: []
+  syntax:
+    content: public static bool TryParse(string rapidData, out RobotJointPosition robotJointPosition)
+    parameters:
+    - id: rapidData
+      type: System.String
+      description: The RAPID data string.
+    - id: robotJointPosition
+      type: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+      description: The Robot Joint Position intance.
+    return:
+      type: System.Boolean
+      description: True on success, false on failure.
+    content.vb: Public Shared Function TryParse(rapidData As String, robotJointPosition As RobotJointPosition) As Boolean
+  overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse*
+  nameWithType.vb: RobotJointPosition.TryParse(String, RobotJointPosition)
+  fullName.vb: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(String, RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
+  name.vb: TryParse(String, RobotJointPosition)
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToString
   commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToString
   id: ToString
@@ -446,13 +537,13 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Returns the Robot Joint Position as an array with axis values.
+  summary: Returns the Robot Joint Position as an array with joint positions.
   example: []
   syntax:
     content: public double[] ToArray()
     return:
       type: System.Double[]
-      description: The array containing the axis values of the robot joint position.
+      description: The array containing the the robot joint positions.
     content.vb: Public Function ToArray() As Double()
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToArray*
   implements:
@@ -471,13 +562,13 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Returns the Robot Joint Position as an array with axis values.
+  summary: Returns the Robot Joint Position as an array with joint positions.
   example: []
   syntax:
     content: public List<double> ToList()
     return:
       type: System.Collections.Generic.List{System.Double}
-      description: The list containing the axis values of the robot joint position.
+      description: The list containing of the robot joint positions.
     content.vb: Public Function ToList() As List(Of Double)
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToList*
   implements:
@@ -548,7 +639,7 @@ items:
     content: public double NormSq()
     return:
       type: System.Double
-      description: he square norm of this joint position.
+      description: The square norm of this joint position.
     content.vb: Public Function NormSq() As Double
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.NormSq*
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Reset
@@ -614,10 +705,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Adds the values of an Robot Joint Position to the values inside this Joint Position. 
-
-    Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.
+  summary: Adds the values of an Robot Joint Position to the values inside this Joint Position.
+  remarks: Value 1 + value 1, value 2 + value 2, value 3 + value 3 etc.
   example: []
   syntax:
     content: public void Add(RobotJointPosition jointPosition)
@@ -668,10 +757,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Substracts the values of an Robot Joint Position from the values inside this Joint Position. 
-
-    Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.
+  summary: Substracts the values of an Robot Joint Position from the values inside this Joint Position.
+  remarks: Value 1 - value 1, value 2 - value 2, value 3 - value 3 etc.
   example: []
   syntax:
     content: public void Substract(RobotJointPosition jointPosition)
@@ -722,10 +809,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Multiplies the values inside this Joint Position with the values from another Robot Joint Position.
-
-    Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.
+  summary: Multiplies the values inside this Joint Position with the values from another Robot Joint Position.
+  remarks: Value 1 * value 1, value 2 * value 2, value 3 * value 3 etc.
   example: []
   syntax:
     content: public void Multiply(RobotJointPosition jointPosition)
@@ -776,10 +861,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Divides the values inside this Joint Position with the values from another Robot Joint Position.
-
-    Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.
+  summary: Divides the values inside this Joint Position with the values from another Robot Joint Position.
+  remarks: Value 1 / value 1, value 2 / value 2, value 3 / value 3 etc.
   example: []
   syntax:
     content: public void Divide(RobotJointPosition jointPosition)
@@ -803,16 +886,18 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
+  summary: Returns the Joint Position in RAPID code format, e.g.
+  remarks: An example output is "[0, 0, 0, 0, 45, 0]".
   example: []
   syntax:
     content: public string ToRAPID()
     return:
       type: System.String
-      description: The string with axis values.
+      description: The string with joint positions.
     content.vb: Public Function ToRAPID() As String
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPID*
   implements:
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
   - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -838,7 +923,7 @@ items:
       description: The Robot were the code is generated for.
     return:
       type: System.String
-      description: An empty string.
+      description: The RAPID code line in case a variable name is defined.
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration*
@@ -887,10 +972,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -918,10 +1001,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
@@ -1091,7 +1172,7 @@ items:
       description: The second Robot Joint Position.
     return:
       type: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
-      description: The addition of the two Robot Joint Poistion
+      description: The addition of the two Robot Joint Poistion.
     content.vb: Public Shared Operator +(p1 As RobotJointPosition, p2 As RobotJointPosition) As RobotJointPosition
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.op_Addition*
   nameWithType.vb: RobotJointPosition.+(RobotJointPosition, RobotJointPosition)
@@ -1273,6 +1354,31 @@ items:
   implements:
   - RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
   - RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+  commentId: P:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+  id: Datatype
+  parent: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
+  langs:
+  - csharp
+  - vb
+  name: Datatype
+  nameWithType: RobotJointPosition.Datatype
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Declarations
+  summary: Gets the RAPID datatype.
+  example: []
+  syntax:
+    content: public string Datatype { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Datatype As String
+  overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype*
+  implements:
+  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name
   commentId: P:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name
   id: Name
@@ -1287,10 +1393,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: >-
-    Gets or sets the Robot Joint Position variable name.
-
-    Each Robot Joint Position variable name has to be unique.
+  summary: Gets or sets the Robot Joint Position variable name.
+  remarks: Each variable name has to be unique.
   example: []
   syntax:
     content: public string Name { get; set; }
@@ -1341,7 +1445,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Gets or sets the axis values through the indexer.
+  summary: Gets or sets the joint positions through the indexer.
   example: []
   syntax:
     content: public double this[int index] { get; set; }
@@ -1351,7 +1455,7 @@ items:
       description: The index number.
     return:
       type: System.Double
-      description: The axis value located at the given index.
+      description: The joint position located at the given index.
     content.vb: Public Default Property this[](index As Integer) As Double
   overload: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Item*
   implements:
@@ -1670,6 +1774,69 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  definition: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  name: SetDataFromString(IDeclaration, string, out string[])
+  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
+  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
+  name.vb: SetDataFromString(IDeclaration, String, String())
+  spec.csharp:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1798,6 +1965,113 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
+- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  name: SetDataFromString(IDeclaration, string, out string[])
+  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
+  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
+  name.vb: SetDataFromString(IDeclaration, String, String())
+  spec.csharp:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - name: out
+  - name: " "
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+    name: SetDataFromString
+    isExternal: true
+    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    name: IDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+  - name: )
+- uid: RobotComponents.ABB.Utils.HelperMethods
+  commentId: T:RobotComponents.ABB.Utils.HelperMethods
+  parent: RobotComponents.ABB.Utils
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html
+  name: HelperMethods
+  nameWithType: HelperMethods
+  fullName: RobotComponents.ABB.Utils.HelperMethods
+- uid: RobotComponents.ABB.Utils
+  commentId: N:RobotComponents.ABB.Utils
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Utils
+  nameWithType: RobotComponents.ABB.Utils
+  fullName: RobotComponents.ABB.Utils
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Utils
+    name: Utils
+    isExternal: true
+    href: RobotComponents.ABB.Utils.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Utils
+    name: Utils
+    isExternal: true
+    href: RobotComponents.ABB.Utils.html
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.#ctor
   isExternal: true
@@ -2068,6 +2342,60 @@ references:
     href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
   - name: (
   - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html#RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
+  name: DuplicateJointPosition
+  nameWithType: RobotJointPosition.DuplicateJointPosition
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.DuplicateJointPosition
+- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  name: DuplicateJointPosition()
+  nameWithType: IJointPosition.DuplicateJointPosition()
+  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+    name: DuplicateJointPosition
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+    name: DuplicateJointPosition
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html#RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse(System.String)
+  name: Parse
+  nameWithType: RobotJointPosition.Parse
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Parse
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html#RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.RobotJointPosition@)
+  name: TryParse
+  nameWithType: RobotJointPosition.TryParse
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.TryParse
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
 - uid: RobotComponents.ABB.Actions.Action.ToString
   commentId: M:RobotComponents.ABB.Actions.Action.ToString
   parent: RobotComponents.ABB.Actions.Action
@@ -2326,6 +2654,28 @@ references:
   name: ToRAPID
   nameWithType: RobotJointPosition.ToRAPID
   fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPID
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  name: ToRAPID()
+  nameWithType: IDeclaration.ToRAPID()
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    name: ToRAPID
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    name: ToRAPID
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - name: (
+  - name: )
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
   commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
   parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
@@ -2746,17 +3096,6 @@ references:
   name: IsValid
   nameWithType: IDeclaration.IsValid
   fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
-- uid: System.Boolean
-  commentId: T:System.Boolean
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.boolean
-  name: bool
-  nameWithType: bool
-  fullName: bool
-  nameWithType.vb: Boolean
-  fullName.vb: Boolean
-  name.vb: Boolean
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Scope*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Scope
   isExternal: true
@@ -2848,6 +3187,21 @@ references:
   name: VariableType
   nameWithType: VariableType
   fullName: RobotComponents.ABB.Enumerations.VariableType
+- uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.html#RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+  name: Datatype
+  nameWithType: RobotJointPosition.Datatype
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Datatype
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  name: Datatype
+  nameWithType: IDeclaration.Datatype
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.Name
   isExternal: true

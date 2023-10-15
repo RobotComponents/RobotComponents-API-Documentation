@@ -5,6 +5,7 @@ items:
   id: IJointPosition
   parent: RobotComponents.ABB.Actions.Interfaces
   children:
+  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
   - RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
   - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
   - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
@@ -31,6 +32,29 @@ items:
   syntax:
     content: public interface IJointPosition
     content.vb: Public Interface IJointPosition
+- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  id: DuplicateJointPosition
+  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  langs:
+  - csharp
+  - vb
+  name: DuplicateJointPosition()
+  nameWithType: IJointPosition.DuplicateJointPosition()
+  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Interfaces
+  summary: Returns an exact duplicate of this IJointPosition.
+  example: []
+  syntax:
+    content: IJointPosition DuplicateJointPosition()
+    return:
+      type: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+      description: The exact copy of this IJointPosition.
+    content.vb: Function DuplicateJointPosition() As IJointPosition
+  overload: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition*
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
   commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
   id: ToArray
@@ -51,7 +75,7 @@ items:
     content: double[] ToArray()
     return:
       type: System.Double[]
-      description: The array containing the axis values of the joint position.
+      description: The array containing the joint positions.
     content.vb: Function ToArray() As Double()
   overload: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray*
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
@@ -74,7 +98,7 @@ items:
     content: List<double> ToList()
     return:
       type: System.Collections.Generic.List{System.Double}
-      description: The list containing the axis values of the joint position.
+      description: The list containing the the joint positions.
     content.vb: Function ToList() As List(Of Double)
   overload: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList*
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
@@ -97,7 +121,7 @@ items:
     content: string ToRAPID()
     return:
       type: System.String
-      description: The string with axis values.
+      description: The string with joint positions.
     content.vb: Function ToRAPID() As String
   overload: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID*
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -141,10 +165,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -188,10 +210,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Gets or sets the Joint Position variable name.
-
-    Each Joint Position variable name has to be unique.
+  summary: Gets or sets the Joint Position variable name.
+  remarks: Each variable name has to be unique.
   example: []
   syntax:
     content: string Name { get; set; }
@@ -260,7 +280,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: Gets or sets the axis values through the indexer.
+  summary: Gets or sets the joint position through the indexer.
   example: []
   syntax:
     content: double this[int index] { get; set; }
@@ -270,7 +290,7 @@ items:
       description: The index number.
     return:
       type: System.Double
-      description: The axis value located at the given index.
+      description: The joint position located at the given index.
     content.vb: Default Property this[](index As Integer) As Double
   overload: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item*
   nameWithType.vb: IJointPosition.this[](Integer)
@@ -347,6 +367,21 @@ references:
     name: Interfaces
     isExternal: true
     href: RobotComponents.ABB.Actions.Interfaces.html
+- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition*
+  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  name: DuplicateJointPosition
+  nameWithType: IJointPosition.DuplicateJointPosition
+  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  commentId: T:RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  parent: RobotComponents.ABB.Actions.Interfaces
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html
+  name: IJointPosition
+  nameWithType: IJointPosition
+  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition
 - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray*
   commentId: Overload:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
   isExternal: true

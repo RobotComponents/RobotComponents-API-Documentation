@@ -32,6 +32,7 @@ items:
   - System.Object
   derivedClasses:
   - RobotComponents.ABB.Actions.ActionGroup
+  - RobotComponents.ABB.Actions.Declarations.ConfigurationData
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
   - RobotComponents.ABB.Actions.Declarations.JointTarget
   - RobotComponents.ABB.Actions.Declarations.RobotJointPosition
@@ -41,14 +42,21 @@ items:
   - RobotComponents.ABB.Actions.Declarations.ZoneData
   - RobotComponents.ABB.Actions.Dynamic.CodeLine
   - RobotComponents.ABB.Actions.Dynamic.Comment
+  - RobotComponents.ABB.Actions.Instructions.AccelerationSet
   - RobotComponents.ABB.Actions.Instructions.AnalogOutput
+  - RobotComponents.ABB.Actions.Instructions.CirclePathMode
   - RobotComponents.ABB.Actions.Instructions.DigitalOutput
   - RobotComponents.ABB.Actions.Instructions.JointConfigurationControl
   - RobotComponents.ABB.Actions.Instructions.LinearConfigurationControl
   - RobotComponents.ABB.Actions.Instructions.Movement
   - RobotComponents.ABB.Actions.Instructions.OverrideRobotTool
+  - RobotComponents.ABB.Actions.Instructions.PathAccelerationLimitation
+  - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput
+  - RobotComponents.ABB.Actions.Instructions.SetAnalogOutput
+  - RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOff
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn
+  - RobotComponents.ABB.Actions.Instructions.VelocitySet
   - RobotComponents.ABB.Actions.Instructions.WaitAI
   - RobotComponents.ABB.Actions.Instructions.WaitDI
   - RobotComponents.ABB.Actions.Instructions.WaitSyncTask
@@ -198,10 +206,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public abstract void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -225,10 +231,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public abstract void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)

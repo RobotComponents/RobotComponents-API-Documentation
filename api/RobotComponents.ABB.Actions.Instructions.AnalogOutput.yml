@@ -31,14 +31,18 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Represents a Set Analog Output instruction. 
-
-    This action is used to set the value of an analog output signal.
+  summary: Represents a Set Analog Output instruction.
+  remarks: This action is used to set the value of an analog output signal.
   example: []
   syntax:
-    content: 'public class AnalogOutput : Action, IInstruction, ISerializable'
-    content.vb: Public Class AnalogOutput Inherits Action Implements IInstruction, ISerializable
+    content: >-
+      [Obsolete("This class is obsolete and will be removed in v3. Use SetAnalogOutput instead.", false)]
+
+      public class AnalogOutput : Action, IInstruction, ISerializable
+    content.vb: >-
+      <Obsolete("This class is obsolete and will be removed in v3. Use SetAnalogOutput instead.", False)>
+
+      Public Class AnalogOutput Inherits Action Implements IInstruction, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.ABB.Actions.Action
@@ -52,6 +56,14 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This class is obsolete and will be removed in v3. Use SetAnalogOutput instead.
+    - type: System.Boolean
+      value: false
 - uid: RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   commentId: M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
@@ -362,7 +374,11 @@ items:
   summary: >-
     Creates declarations in the RAPID program module inside the RAPID Generator. 
 
+    <remarks>
+
     This method is called inside the RAPID generator.
+
+    </remarks>
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -387,10 +403,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)

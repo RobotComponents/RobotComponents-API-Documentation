@@ -33,10 +33,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Represents a Wait for Analo Input instruction.
-
-    This action is used to wait until a value of a analog input is set.
+  summary: Represents a Wait for Analog Input instruction.
+  remarks: This action is used to wait until a value of a analog input is set.
   example: []
   syntax:
     content: 'public class WaitAI : Action, IInstruction, ISerializable'
@@ -367,10 +365,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -395,10 +391,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
@@ -520,7 +514,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Gets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).
+  summary: Gets or sets te max. time to wait in seconds.
+  remarks: Set a negative value to wait forever (default is -1).
   example: []
   syntax:
     content: public double MaxTime { get; set; }

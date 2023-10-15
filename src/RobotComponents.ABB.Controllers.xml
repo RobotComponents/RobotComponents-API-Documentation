@@ -217,8 +217,10 @@
         <member name="T:RobotComponents.ABB.Controllers.Controller">
             <summary>
             Represents the Controller class. 
-            This class is a wrapper around the ABB Controller class. 
             </summary>
+            <remarks>
+            This class is a wrapper around the ABB Controller class
+            </remarks>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.#ctor">
             <summary>
@@ -244,17 +246,21 @@
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetControllers">
             <summary>
             Returns a list with ABB Controllers that are found in the network. 
+            </summary>
             <remarks> 
             These controllers are not initialized. Call Initialize first if you want to use these controllers. 
             </remarks>
-            </summary>
-            <returns> A list with controlers. </returns>
+            <returns> 
+            A list with controlers. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ToString">
             <summary>
             Returns a string that represents the current object.
             </summary>
-            <returns> A string that represents the current object. </returns>
+            <returns> 
+            A string that represents the current object. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.Initiliaze">
             <summary>
@@ -281,85 +287,113 @@
             <summary>
             Logon to the set user. 
             </summary>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.Logoff">
             <summary>
             Logs off the current user.
             </summary>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.Dispose">
             <summary>
             Disposes the current controller object inside this instance.
             </summary>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetRobotBaseFrames">
             <summary>
             Returns the robot base frames.
             </summary>
-            <returns> A dictionary with as key the name of the robot and as value the base frame. </returns>
+            <returns> 
+            A dictionary with as key the name of the robot and as value the base frame. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetRobotToolPlanes(System.Int32)">
             <summary>
             Returns the current robot tool planes.
             </summary>
-            <returns> A dictionary with as key the name of the robot and as value the current tool planes. </returns>
+            <returns> 
+            A dictionary with as key the name of the robot and as value the current tool planes. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetExternalAxisPlanes(System.Int32)">
             <summary>
             Returns the current external axis planes.
             </summary>
-            <returns> A dictionary with as key the name of the external axis and as value the current plane. </returns>
+            <returns> 
+            A dictionary with as key the name of the external axis and as value the current plane.
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetRobotJointPositions">
             <summary>
             Returns the current robot joint positions.
             </summary>
-            <returns> A dictionary with as key the name of the robot and as value the current robot joint position. </returns>
+            <returns> 
+            A dictionary with as key the name of the robot and as value the current robot joint position. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetExternalJointPositions">
             <summary>
             Returns the current external joint positions.
             </summary>
-            <returns> A dictionary with as key the name of the external axis and as value the current external joint position. </returns>
+            <returns> 
+            A dictionary with as key the name of the external axis and as value the current external joint position. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetJointTargets">
             <summary>
             Returns the current joint targets. 
             </summary>
-            <returns> A dictionary with as key the name of the task and as value the current joint target.</returns>
+            <returns> 
+            A dictionary with as key the name of the task and as value the current joint target.
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetRobotTargets">
             <summary>
             Returns the current robot targets. 
             </summary>
-            <returns> A dictionary with as key the name of the task and as value the current robot target.</returns>
+            <returns> 
+            A dictionary with as key the name of the task and as value the current robot target.
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetAnalogOutputs">
             <summary>
             Returns the analog output signals. 
             </summary>
-            <returns> A list with analog output signals. </returns>
+            <returns> 
+            A list with analog output signals. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetDigitalOutputs">
             <summary>
             Returns the digital output signals. 
             </summary>
-            <returns> A list with digital output signals. </returns>
+            <returns> 
+            A list with digital output signals. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetAnalogInputs">
             <summary>
             Returns the analog inputs. 
             </summary>
-            <returns> A list with analog inputs. </returns>
+            <returns> 
+            A list with analog inputs. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetDigitalInputs">
             <summary>
             Returns the digital inputs.
             </summary>
-            <returns> A list with digital inputs. </returns>
+            <returns> 
+            A list with digital inputs. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.SetUserInfo(System.String,System.String)">
             <summary>
@@ -379,7 +413,9 @@
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="index"> The index number of the signal. The index is -1 if no signal was found. </param>
-            <returns> The analog input signal. Returns an empty signal if no signal was found. </returns>
+            <returns> 
+            The analog input signal. Returns an empty signal if no signal was found. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetAnalogOutput(System.String,System.Int32@)">
             <summary>
@@ -387,7 +423,9 @@
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="index"> The index number of the signal. The index is -1 if no signal was found. </param>
-            <returns> The analog output signal. Returns an empty signal if no signal was found. </returns>
+            <returns> 
+            The analog output signal. Returns an empty signal if no signal was found. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetDigitalInput(System.String,System.Int32@)">
             <summary>
@@ -395,7 +433,9 @@
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="index"> The index number of the signal. The index is -1 if no signal was found. </param>
-            <returns> The digital input signal. Returns an empty signal if no signal was found. </returns>
+            <returns> 
+            The digital input signal. Returns an empty signal if no signal was found. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.GetDigitalOutput(System.String,System.Int32@)">
             <summary>
@@ -403,7 +443,9 @@
             </summary>
             <param name="name"> The name of the signal. </param>
             <param name="index"> The index number of the signal. The index is -1 if no signal was found. </param>
-            <returns> The digital output signal. Returns an empty signal if no signal was found. </returns>
+            <returns> 
+            The digital output signal. Returns an empty signal if no signal was found. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.TryPickTask(System.String,ABB.Robotics.Controllers.RapidDomain.Task@)">
             <summary>
@@ -420,7 +462,9 @@
             <param name="taskName"> The task to upload to. </param>
             <param name="module"> The module to upload. </param>
             <param name="status"> The status message. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ClearLocalTemporaryDirectory">
             <summary>
@@ -434,14 +478,18 @@
             </summary>
             <param name="task"> The name of the task, </param>
             <param name="routine"> The name of the routine. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ResetProgramPointers(System.String@)">
             <summary>
             Resets all the program pointers to the main routine. 
             </summary>
             <param name="status"> The status message, </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ResetProgramPointer(System.String,System.String@)">
             <summary>
@@ -449,21 +497,27 @@
             </summary>
             <param name="taskName"> The task name. </param>
             <param name="status">The status message. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.RunProgram(System.String@)">
             <summary>
             Makes a call to run the program. 
             </summary>
             <param name="status"> The status message. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.StopProgram(System.String@)">
             <summary>
             Makes a call to stop the program. 
             </summary>
             <param name="status"> The status message. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure.
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ReadConfigurationDomain(System.String,System.String,System.String,System.String)">
             <summary>
@@ -473,7 +527,9 @@
             <param name="type"> The type name. </param>
             <param name="instance"> The instance name. </param>
             <param name="attribute">TThe attribute name. </param>
-            <returns> A value from the configuration database. </returns>
+            <returns> 
+            A value from the configuration database. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Controller.ReadRapidDomain(System.String,System.String,System.String)">
             <summary>
@@ -482,16 +538,18 @@
             <param name="task"> The task name. </param>
             <param name="module"> The module name. </param>
             <param name="variable"> The variable name. </param>
-            <returns> The rapid value. </returns>
+            <returns> 
+            The rapid value as a RAPID data string. 
+            </returns>
         </member>
         <member name="P:RobotComponents.ABB.Controllers.Controller.Controllers">
             <summary>
             Gets the controllers found in the network. 
+            </summary>
             <remarks> 
             Call the static method GetControllers first to scan the network. 
             Call Initialize before using one of the controllers. 
             </remarks>
-            </summary>
         </member>
         <member name="P:RobotComponents.ABB.Controllers.Controller.IsValid">
             <summary>
@@ -531,8 +589,10 @@
         <member name="P:RobotComponents.ABB.Controllers.Controller.IsEmpty">
             <summary>
             Gets a value indicating whether or not the controller instance is empty.
-            If empty, there is no ABB controller instance defined inside this instance. 
             </summary>
+            <remarks>
+            If empty, there is no ABB controller instance defined inside this instance.
+            </remarks>
         </member>
         <member name="P:RobotComponents.ABB.Controllers.Controller.IsInitialized">
             <summary>
@@ -578,8 +638,10 @@
         <member name="T:RobotComponents.ABB.Controllers.Signal">
             <summary>
             Represents the Signal class. 
-            This class is a wrapper around the ABB Signal class. 
             </summary>
+            <remarks>
+            This class is a wrapper around the ABB Signal class. 
+            </remarks>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Signal.#ctor">
             <summary>
@@ -604,7 +666,9 @@
             <summary>
             Returns a string that represents the current object.
             </summary>
-            <returns> A string that represents the current object. </returns>
+            <returns> 
+            A string that represents the current object. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Signal.SetAccesLevels(ABB.Robotics.Controllers.Controller)">
             <summary>
@@ -618,13 +682,17 @@
             </summary>
             <param name="value"> The desired signal state. </param>
             <param name="msg"> The status message. </param>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Controllers.Signal.Dispose">
             <summary>
             Disposes the current signal object inside this instance.
             </summary>
-            <returns> True on success, false on failure. </returns>
+            <returns> 
+            True on success, false on failure. 
+            </returns>
         </member>
         <member name="P:RobotComponents.ABB.Controllers.Signal.IsValid">
             <summary>

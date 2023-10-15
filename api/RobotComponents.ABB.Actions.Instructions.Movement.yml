@@ -12,12 +12,16 @@ items:
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.WorkObject)
   - RobotComponents.ABB.Actions.Instructions.Movement.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  - RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
   - RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput
   - RobotComponents.ABB.Actions.Instructions.Movement.Duplicate
   - RobotComponents.ABB.Actions.Instructions.Movement.DuplicateAction
@@ -29,6 +33,7 @@ items:
   - RobotComponents.ABB.Actions.Instructions.Movement.IsValid
   - RobotComponents.ABB.Actions.Instructions.Movement.MovementType
   - RobotComponents.ABB.Actions.Instructions.Movement.RobotTool
+  - RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
   - RobotComponents.ABB.Actions.Instructions.Movement.SpeedData
   - RobotComponents.ABB.Actions.Instructions.Movement.SyncID
   - RobotComponents.ABB.Actions.Instructions.Movement.Target
@@ -50,7 +55,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Represents several Move instructions (MoveAbsJ, MoveL, MoveJ, MoveLDO and MoveJDO).
+  summary: Represents several Move instructions (MoveAbsJ, MoveL, MoveJ, MoveC, MoveLDO, MoveJDO and MoveC).
   example: []
   syntax:
     content: 'public class Movement : Action, IInstruction, ISerializable'
@@ -164,17 +169,15 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Initializes a new instance of the Movement class.
-
-    This constructor is typically used to cast a Plane to a movement.
+  summary: Initializes a new instance of the Movement class.
+  remarks: This constructor is typically used to cast a Plane to a Movement.
   example: []
   syntax:
     content: public Movement(Plane plane)
     parameters:
     - id: plane
       type: Rhino.Geometry.Plane
-      description: The target plan.
+      description: The target plane.
     content.vb: Public Sub New(plane As Plane)
   overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
   nameWithType.vb: Movement.New(Plane)
@@ -194,10 +197,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Initializes a new instance of the Movement class.
-
-    This constructor is typically used to cast a Robot Target to a movement.
+  summary: Initializes a new instance of the Movement class.
+  remarks: This constructor is typically used to cast a Robot Target to a Movement.
   example: []
   syntax:
     content: public Movement(ITarget target)
@@ -357,45 +358,6 @@ items:
   nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, WorkObject)
   fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.WorkObject)
   name.vb: New(MovementType, ITarget, SpeedData, ZoneData, WorkObject)
-- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
-  parent: RobotComponents.ABB.Actions.Instructions.Movement
-  langs:
-  - csharp
-  - vb
-  name: Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
-  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
-  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  type: Constructor
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)
-  example: []
-  syntax:
-    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, DigitalOutput digitalOutput)
-    parameters:
-    - id: movementType
-      type: RobotComponents.ABB.Enumerations.MovementType
-      description: The Movement Type.
-    - id: target
-      type: RobotComponents.ABB.Actions.Interfaces.ITarget
-      description: The Target.
-    - id: speedData
-      type: RobotComponents.ABB.Actions.Declarations.SpeedData
-      description: The Speed Data.
-    - id: zoneData
-      type: RobotComponents.ABB.Actions.Declarations.ZoneData
-      description: The Zone Data.
-    - id: digitalOutput
-      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
-      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
-    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, digitalOutput As DigitalOutput)
-  overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
-  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
-  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)
   commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)
   id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)'
@@ -438,16 +400,55 @@ items:
   nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)
   fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject)
   name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)
-- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)'
   parent: RobotComponents.ABB.Actions.Instructions.Movement
   langs:
   - csharp
   - vb
-  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
-  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
-  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)
+  example: []
+  syntax:
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, SetDigitalOutput setDigitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.ABB.Enumerations.MovementType
+      description: The Movement Type.
+    - id: target
+      type: RobotComponents.ABB.Actions.Interfaces.ITarget
+      description: The Target.
+    - id: speedData
+      type: RobotComponents.ABB.Actions.Declarations.SpeedData
+      description: The Speed Data.
+    - id: zoneData
+      type: RobotComponents.ABB.Actions.Declarations.ZoneData
+      description: The Zone Data.
+    - id: setDigitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO, MoveJDO or MoveCDO instruction.
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, setDigitalOutput As SetDigitalOutput)
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)'
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -455,7 +456,7 @@ items:
   summary: Initializes a new instance of the Movement class with a default Work Object (wobj0).
   example: []
   syntax:
-    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, DigitalOutput digitalOutput)
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, SetDigitalOutput setDigitalOutput)
     parameters:
     - id: movementType
       type: RobotComponents.ABB.Enumerations.MovementType
@@ -472,24 +473,24 @@ items:
     - id: robotTool
       type: RobotComponents.ABB.Definitions.RobotTool
       description: The Robot Tool. This will override the set default tool.
-    - id: digitalOutput
-      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
-      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
-    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, digitalOutput As DigitalOutput)
+    - id: setDigitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO, MoveJDO or MoveCDO instruction.
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, setDigitalOutput As SetDigitalOutput)
   overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
-  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
-  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
-- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)'
   parent: RobotComponents.ABB.Actions.Instructions.Movement
   langs:
   - csharp
   - vb
-  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
-  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
-  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -497,7 +498,7 @@ items:
   summary: Initializes a new instance of the Movement class.
   example: []
   syntax:
-    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, DigitalOutput digitalOutput)
+    content: public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, SetDigitalOutput setDigitalOutput)
     parameters:
     - id: movementType
       type: RobotComponents.ABB.Enumerations.MovementType
@@ -517,14 +518,14 @@ items:
     - id: workObject
       type: RobotComponents.ABB.Definitions.WorkObject
       description: The Work Object.
-    - id: digitalOutput
-      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
-      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
-    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject, digitalOutput As DigitalOutput)
+    - id: setDigitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO, MoveJDO or MoveCDO instruction.
+    content.vb: Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject, setDigitalOutput As SetDigitalOutput)
   overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
-  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
-  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
-  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,System.Boolean)
   commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,System.Boolean)
   id: '#ctor(RobotComponents.ABB.Actions.Instructions.Movement,System.Boolean)'
@@ -802,10 +803,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -830,10 +829,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.s
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
@@ -846,6 +843,174 @@ items:
   overload: RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDInstruction*
   implements:
   - RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This constructor is obsolete and will be removed in v3.", false)]
+
+      public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.ABB.Enumerations.MovementType
+      description: The Movement Type.
+    - id: target
+      type: RobotComponents.ABB.Actions.Interfaces.ITarget
+      description: The Target.
+    - id: speedData
+      type: RobotComponents.ABB.Actions.Declarations.SpeedData
+      description: The Speed Data.
+    - id: zoneData
+      type: RobotComponents.ABB.Actions.Declarations.ZoneData
+      description: The Zone Data.
+    - id: digitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
+    content.vb: >-
+      <Obsolete("This constructor is obsolete and will be removed in v3.", False)>
+
+      Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, digitalOutput As DigitalOutput)
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This constructor is obsolete and will be removed in v3.
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Initializes a new instance of the Movement class with a default Work Object (wobj0).
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This constructor is obsolete and will be removed in v3.", false)]
+
+      public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.ABB.Enumerations.MovementType
+      description: The Movement Type.
+    - id: target
+      type: RobotComponents.ABB.Actions.Interfaces.ITarget
+      description: The Target.
+    - id: speedData
+      type: RobotComponents.ABB.Actions.Declarations.SpeedData
+      description: The Speed Data.
+    - id: zoneData
+      type: RobotComponents.ABB.Actions.Declarations.ZoneData
+      description: The Zone Data.
+    - id: robotTool
+      type: RobotComponents.ABB.Definitions.RobotTool
+      description: The Robot Tool. This will override the set default tool.
+    - id: digitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
+    content.vb: >-
+      <Obsolete("This constructor is obsolete and will be removed in v3.", False)>
+
+      Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, digitalOutput As DigitalOutput)
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This constructor is obsolete and will be removed in v3.
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  id: '#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)'
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  nameWithType: Movement.Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.Movement(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  type: Constructor
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Initializes a new instance of the Movement class.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This constructor is obsolete and will be removed in v3.", false)]
+
+      public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, DigitalOutput digitalOutput)
+    parameters:
+    - id: movementType
+      type: RobotComponents.ABB.Enumerations.MovementType
+      description: The Movement Type.
+    - id: target
+      type: RobotComponents.ABB.Actions.Interfaces.ITarget
+      description: The Target.
+    - id: speedData
+      type: RobotComponents.ABB.Actions.Declarations.SpeedData
+      description: The Speed Data.
+    - id: zoneData
+      type: RobotComponents.ABB.Actions.Declarations.ZoneData
+      description: The Zone Data.
+    - id: robotTool
+      type: RobotComponents.ABB.Definitions.RobotTool
+      description: The Robot Tool. This will override the set default tool.
+    - id: workObject
+      type: RobotComponents.ABB.Definitions.WorkObject
+      description: The Work Object.
+    - id: digitalOutput
+      type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
+      description: The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.
+    content.vb: >-
+      <Obsolete("This constructor is obsolete and will be removed in v3.", False)>
+
+      Public Sub New(movementType As MovementType, target As ITarget, speedData As SpeedData, zoneData As ZoneData, robotTool As RobotTool, workObject As WorkObject, digitalOutput As DigitalOutput)
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.#ctor*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This constructor is obsolete and will be removed in v3.
+    - type: System.Boolean
+      value: false
+  nameWithType.vb: Movement.New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.Movement.New(RobotComponents.ABB.Enumerations.MovementType, RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Actions.Declarations.SpeedData, RobotComponents.ABB.Actions.Declarations.ZoneData, RobotComponents.ABB.Definitions.RobotTool, RobotComponents.ABB.Definitions.WorkObject, RobotComponents.ABB.Actions.Instructions.DigitalOutput)
+  name.vb: New(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.IsValid
   commentId: P:RobotComponents.ABB.Actions.Instructions.Movement.IsValid
   id: IsValid
@@ -895,6 +1060,33 @@ items:
       type: RobotComponents.ABB.Enumerations.MovementType
     content.vb: Public Property MovementType As MovementType
   overload: RobotComponents.ABB.Actions.Instructions.Movement.MovementType*
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+  commentId: P:RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+  id: CircularPoint
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: CircularPoint
+  nameWithType: Movement.CircularPoint
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets or sets the circular point as a Robot Target.
+  remarks: >-
+    Defines the circular point for a MoveC instruction.
+
+    Positions of external axes are ignored.
+  example: []
+  syntax:
+    content: public RobotTarget CircularPoint { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Actions.Declarations.RobotTarget
+    content.vb: Public Property CircularPoint As RobotTarget
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint*
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.Target
   commentId: P:RobotComponents.ABB.Actions.Instructions.Movement.Target
   id: Target
@@ -909,14 +1101,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Gets or sets the Target.
-
-    <remarks>
-
-    Defines the destination target of the robot and external axes.
-
-    </remarks>
+  summary: Gets or sets the Target.
+  remarks: Defines the destination target of the robot and external axes.
   example: []
   syntax:
     content: public ITarget Target { get; set; }
@@ -939,16 +1125,11 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Gets or sets the synchronization id for multi move programming. 
-
-    <remarks>
-
+  summary: Gets or sets the synchronization id for multi move programming.
+  remarks: >-
     This ID number must be defined for coordinated synchronized movements in multi move systems. 
 
     Set this property to -1 to define normal movements (not coordinated / not synchronized).
-
-    </remarks>
   example: []
   syntax:
     content: public int SyncID { get; set; }
@@ -1077,6 +1258,35 @@ items:
       type: RobotComponents.ABB.Definitions.WorkObject
     content.vb: Public Property WorkObject As WorkObject
   overload: RobotComponents.ABB.Actions.Instructions.Movement.WorkObject*
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
+  commentId: P:RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
+  id: SetDigitalOutput
+  parent: RobotComponents.ABB.Actions.Instructions.Movement
+  langs:
+  - csharp
+  - vb
+  name: SetDigitalOutput
+  nameWithType: Movement.SetDigitalOutput
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets or set the Digital Output.
+  remarks: >-
+    If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
+
+    If a valid Digital Output is combined movement will be created (MoveLDO or MoveJDO). 
+
+    If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).
+  example: []
+  syntax:
+    content: public SetDigitalOutput SetDigitalOutput { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
+    content.vb: Public Property SetDigitalOutput As SetDigitalOutput
+  overload: RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput*
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput
   commentId: P:RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput
   id: DigitalOutput
@@ -1091,21 +1301,35 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Gets or set the Digital Output.
+  summary: Gets or sets the Digital Output.
   remarks: >-
     If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
 
-    If a valid Digital oOutput is combined movement will be created (MoveLDO or MoveJDO). 
+    If a valid Digital Output is combined movement will be created (MoveLDO or MoveJDO). 
 
     If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).
   example: []
   syntax:
-    content: public DigitalOutput DigitalOutput { get; set; }
+    content: >-
+      [Obsolete("This property is obsolete and will be removed in v3. Use SetDigitalOutput instead.", false)]
+
+      public DigitalOutput DigitalOutput { get; set; }
     parameters: []
     return:
       type: RobotComponents.ABB.Actions.Instructions.DigitalOutput
-    content.vb: Public Property DigitalOutput As DigitalOutput
+    content.vb: >-
+      <Obsolete("This property is obsolete and will be removed in v3. Use SetDigitalOutput instead.", False)>
+
+      Public Property DigitalOutput As DigitalOutput
   overload: RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is obsolete and will be removed in v3. Use SetDigitalOutput instead.
+    - type: System.Boolean
+      value: false
 references:
 - uid: RobotComponents.ABB.Actions.Instructions
   commentId: N:RobotComponents.ABB.Actions.Instructions
@@ -1761,14 +1985,14 @@ references:
   name: WorkObject
   nameWithType: WorkObject
   fullName: RobotComponents.ABB.Definitions.WorkObject
-- uid: RobotComponents.ABB.Actions.Instructions.DigitalOutput
-  commentId: T:RobotComponents.ABB.Actions.Instructions.DigitalOutput
+- uid: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
+  commentId: T:RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
   parent: RobotComponents.ABB.Actions.Instructions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.DigitalOutput.html
-  name: DigitalOutput
-  nameWithType: DigitalOutput
-  fullName: RobotComponents.ABB.Actions.Instructions.DigitalOutput
+  href: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.html
+  name: SetDigitalOutput
+  nameWithType: SetDigitalOutput
+  fullName: RobotComponents.ABB.Actions.Instructions.SetDigitalOutput
 - uid: RobotComponents.ABB.Actions.Instructions.Movement
   commentId: T:RobotComponents.ABB.Actions.Instructions.Movement
   parent: RobotComponents.ABB.Actions.Instructions
@@ -2124,6 +2348,14 @@ references:
     isExternal: true
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.DigitalOutput
+  commentId: T:RobotComponents.ABB.Actions.Instructions.DigitalOutput
+  parent: RobotComponents.ABB.Actions.Instructions
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.DigitalOutput.html
+  name: DigitalOutput
+  nameWithType: DigitalOutput
+  fullName: RobotComponents.ABB.Actions.Instructions.DigitalOutput
 - uid: RobotComponents.ABB.Actions.Action.IsValid
   commentId: P:RobotComponents.ABB.Actions.Action.IsValid
   parent: RobotComponents.ABB.Actions.Action
@@ -2154,6 +2386,21 @@ references:
   name: MovementType
   nameWithType: Movement.MovementType
   fullName: RobotComponents.ABB.Actions.Instructions.Movement.MovementType
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.Movement.html#RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+  name: CircularPoint
+  nameWithType: Movement.CircularPoint
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.CircularPoint
+- uid: RobotComponents.ABB.Actions.Declarations.RobotTarget
+  commentId: T:RobotComponents.ABB.Actions.Declarations.RobotTarget
+  parent: RobotComponents.ABB.Actions.Declarations
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.RobotTarget.html
+  name: RobotTarget
+  nameWithType: RobotTarget
+  fullName: RobotComponents.ABB.Actions.Declarations.RobotTarget
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.Target*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.Movement.Target
   isExternal: true
@@ -2225,6 +2472,13 @@ references:
   name: WorkObject
   nameWithType: Movement.WorkObject
   fullName: RobotComponents.ABB.Actions.Instructions.Movement.WorkObject
+- uid: RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.Movement.html#RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
+  name: SetDigitalOutput
+  nameWithType: Movement.SetDigitalOutput
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput
 - uid: RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput
   isExternal: true

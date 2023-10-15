@@ -43,9 +43,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Utils
-  summary: >-
-    Represents the Robot Tool Calibration class.
-
+  summary: Represents the Robot Tool Calibration class.
+  remarks: >-
     This class uses Newton's method and numerical differentiation to calculate the TCP from given Joint Positions. 
 
     If desired, the parameters for this optimization can be changed via the properties of this class.
@@ -100,10 +99,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Utils
-  summary: >-
-    Initializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions.
-
-    The External Joint Positions are set with default values (9e9).
+  summary: Initializes a new instance of the Robot Tool Calibration class from given Robot Joint Positions..
+  remarks: The External Joint Positions are set with default values (9e9).
   example: []
   syntax:
     content: public RobotToolCalibration(Robot robot, IList<RobotJointPosition> robotJointPositions)
@@ -624,10 +621,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Utils
-  summary: >-
-    Gets the target point in world coordinate space. 
-
-    This is the average point that is obtained from the given Robot Joint Positions and the calculated TCP.
+  summary: Gets the target point in world coordinate space.
+  remarks: This is the average point that is obtained from the given Robot Joint Positions and the calculated TCP.
   example: []
   syntax:
     content: public Point3d TargetPoint { get; }

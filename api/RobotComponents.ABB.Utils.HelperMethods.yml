@@ -5,8 +5,10 @@ items:
   id: HelperMethods
   parent: RobotComponents.ABB.Utils
   children:
+  - RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)
   - RobotComponents.ABB.Utils.HelperMethods.FlipPlaneX(Rhino.Geometry.Plane)
   - RobotComponents.ABB.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
+  - RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
   - RobotComponents.ABB.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane)
   - RobotComponents.ABB.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane)
   - RobotComponents.ABB.Utils.HelperMethods.PlaneToQuaternion(Rhino.Geometry.Plane,Rhino.Geometry.Plane,Rhino.Geometry.Point3d@)
@@ -17,6 +19,8 @@ items:
   - RobotComponents.ABB.Utils.HelperMethods.QuaternionToPlane(Rhino.Geometry.Point3d,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.ABB.Utils.HelperMethods.QuaternionToPlane(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)
   - RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
+  - RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  - RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
   langs:
   - csharp
   - vb
@@ -27,7 +31,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Utils
-  summary: Represents general helper methods
+  summary: Represents general helper methods.
   example: []
   syntax:
     content: public static class HelperMethods
@@ -66,7 +70,7 @@ items:
       description: The plane that needs to be flipped.
     return:
       type: Rhino.Geometry.Plane
-      description: Tshe flipped plane.
+      description: The flipped plane.
     content.vb: Public Shared Function FlipPlaneX(plane As Plane) As Plane
   overload: RobotComponents.ABB.Utils.HelperMethods.FlipPlaneX*
 - uid: RobotComponents.ABB.Utils.HelperMethods.FlipPlaneY(Rhino.Geometry.Plane)
@@ -438,6 +442,37 @@ items:
       description: The quaternion.
     content.vb: Public Shared Function PlaneToQuaternion(plane As Plane) As Quaternion
   overload: RobotComponents.ABB.Utils.HelperMethods.PlaneToQuaternion*
+- uid: RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)
+  id: DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)
+  isExtensionMethod: true
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: DotProduct(Quaternion, Quaternion)
+  nameWithType: HelperMethods.DotProduct(Quaternion, Quaternion)
+  fullName: RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion, Rhino.Geometry.Quaternion)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Utils
+  summary: Returns the dot product of two quaternions.
+  example: []
+  syntax:
+    content: public static double DotProduct(this Quaternion quat1, Quaternion quat2)
+    parameters:
+    - id: quat1
+      type: Rhino.Geometry.Quaternion
+      description: The first quaternion.
+    - id: quat2
+      type: Rhino.Geometry.Quaternion
+      description: The second quaternion.
+    return:
+      type: System.Double
+      description: The dot product.
+    content.vb: Public Shared Function DotProduct(quat1 As Quaternion, quat2 As Quaternion) As Double
+  overload: RobotComponents.ABB.Utils.HelperMethods.DotProduct*
 - uid: RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
   commentId: M:RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst(System.String,System.String,System.String)
   id: ReplaceFirst(System.String,System.String,System.String)
@@ -475,6 +510,107 @@ items:
   nameWithType.vb: HelperMethods.ReplaceFirst(String, String, String)
   fullName.vb: RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst(String, String, String)
   name.vb: ReplaceFirst(String, String, String)
+- uid: RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  id: Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: Slerp(Quaternion, Quaternion, double)
+  nameWithType: HelperMethods.Slerp(Quaternion, Quaternion, double)
+  fullName: RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion, Rhino.Geometry.Quaternion, double)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Utils
+  summary: Interpolates between two quaternions using spherical linear interpolation.
+  example: []
+  syntax:
+    content: public static Quaternion Slerp(Quaternion quat1, Quaternion quat2, double t)
+    parameters:
+    - id: quat1
+      type: Rhino.Geometry.Quaternion
+      description: The first quaternion.
+    - id: quat2
+      type: Rhino.Geometry.Quaternion
+      description: The second quaternion.
+    - id: t
+      type: System.Double
+      description: The interpolation parameter in the range [0, 1].
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: The interpolated quaternion.
+    content.vb: Public Shared Function Slerp(quat1 As Quaternion, quat2 As Quaternion, t As Double) As Quaternion
+  overload: RobotComponents.ABB.Utils.HelperMethods.Slerp*
+  nameWithType.vb: HelperMethods.Slerp(Quaternion, Quaternion, Double)
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion, Rhino.Geometry.Quaternion, Double)
+  name.vb: Slerp(Quaternion, Quaternion, Double)
+- uid: RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  id: Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: Lerp(Quaternion, Quaternion, double)
+  nameWithType: HelperMethods.Lerp(Quaternion, Quaternion, double)
+  fullName: RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion, Rhino.Geometry.Quaternion, double)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Utils
+  summary: Interpolates between two quaternions using linear interpolation.
+  example: []
+  syntax:
+    content: public static Quaternion Lerp(Quaternion quat1, Quaternion quat2, double t)
+    parameters:
+    - id: quat1
+      type: Rhino.Geometry.Quaternion
+      description: The first quaternion.
+    - id: quat2
+      type: Rhino.Geometry.Quaternion
+      description: The second quaternion.
+    - id: t
+      type: System.Double
+      description: The interpolation parameter in the range [0, 1].
+    return:
+      type: Rhino.Geometry.Quaternion
+      description: The interpolated quaternion.
+    content.vb: Public Shared Function Lerp(quat1 As Quaternion, quat2 As Quaternion, t As Double) As Quaternion
+  overload: RobotComponents.ABB.Utils.HelperMethods.Lerp*
+  nameWithType.vb: HelperMethods.Lerp(Quaternion, Quaternion, Double)
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion, Rhino.Geometry.Quaternion, Double)
+  name.vb: Lerp(Quaternion, Quaternion, Double)
+- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  id: SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  isExtensionMethod: true
+  parent: RobotComponents.ABB.Utils.HelperMethods
+  langs:
+  - csharp
+  - vb
+  name: SetDataFromString(IDeclaration, string, out string[])
+  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Utils
+  syntax:
+    content: public static void SetDataFromString(this IDeclaration declaration, string rapidData, out string[] values)
+    parameters:
+    - id: declaration
+      type: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+    - id: rapidData
+      type: System.String
+    - id: values
+      type: System.String[]
+    content.vb: Public Shared Sub SetDataFromString(declaration As IDeclaration, rapidData As String, values As String())
+  overload: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString*
+  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
+  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
+  name.vb: SetDataFromString(IDeclaration, String, String())
 references:
 - uid: RobotComponents.ABB.Utils
   commentId: N:RobotComponents.ABB.Utils
@@ -804,6 +940,13 @@ references:
   name: PlaneToQuaternion
   nameWithType: HelperMethods.PlaneToQuaternion
   fullName: RobotComponents.ABB.Utils.HelperMethods.PlaneToQuaternion
+- uid: RobotComponents.ABB.Utils.HelperMethods.DotProduct*
+  commentId: Overload:RobotComponents.ABB.Utils.HelperMethods.DotProduct
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.DotProduct(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion)
+  name: DotProduct
+  nameWithType: HelperMethods.DotProduct
+  fullName: RobotComponents.ABB.Utils.HelperMethods.DotProduct
 - uid: RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst*
   commentId: Overload:RobotComponents.ABB.Utils.HelperMethods.ReplaceFirst
   isExternal: true
@@ -822,3 +965,102 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
+- uid: RobotComponents.ABB.Utils.HelperMethods.Slerp*
+  commentId: Overload:RobotComponents.ABB.Utils.HelperMethods.Slerp
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.Slerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  name: Slerp
+  nameWithType: HelperMethods.Slerp
+  fullName: RobotComponents.ABB.Utils.HelperMethods.Slerp
+- uid: RobotComponents.ABB.Utils.HelperMethods.Lerp*
+  commentId: Overload:RobotComponents.ABB.Utils.HelperMethods.Lerp
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.Lerp(Rhino.Geometry.Quaternion,Rhino.Geometry.Quaternion,System.Double)
+  name: Lerp
+  nameWithType: HelperMethods.Lerp
+  fullName: RobotComponents.ABB.Utils.HelperMethods.Lerp
+- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString*
+  commentId: Overload:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString
+  isExternal: true
+  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
+  name: SetDataFromString
+  nameWithType: HelperMethods.SetDataFromString
+  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString
+- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  commentId: T:RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  parent: RobotComponents.ABB.Actions.Interfaces
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  name: IDeclaration
+  nameWithType: IDeclaration
+  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: System.String[]
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string[]
+  nameWithType: string[]
+  fullName: string[]
+  nameWithType.vb: String()
+  fullName.vb: String()
+  name.vb: String()
+  spec.csharp:
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Actions.Interfaces
+  commentId: N:RobotComponents.ABB.Actions.Interfaces
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions.Interfaces
+  nameWithType: RobotComponents.ABB.Actions.Interfaces
+  fullName: RobotComponents.ABB.Actions.Interfaces
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Interfaces
+    name: Interfaces
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Interfaces.html

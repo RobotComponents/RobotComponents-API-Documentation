@@ -12,7 +12,8 @@ items:
   - RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.String,System.String,System.String)
   - RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)
   - RobotComponents.ABB.Actions.RAPIDGenerator.Actions
-  - RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean)
+  - RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  - RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)
   - RobotComponents.ABB.Actions.RAPIDGenerator.CreateProgramModule
   - RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.ABB.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.ABB.Definitions.WorkObject},System.Collections.Generic.IList{System.String})
   - RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})
@@ -20,15 +21,21 @@ items:
   - RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
   - RobotComponents.ABB.Actions.RAPIDGenerator.FilePath
   - RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  - RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+  - RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
   - RobotComponents.ABB.Actions.RAPIDGenerator.IsValid
   - RobotComponents.ABB.Actions.RAPIDGenerator.JointPositions
+  - RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
   - RobotComponents.ABB.Actions.RAPIDGenerator.Module
   - RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProcedureName
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationComments
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationCustomCodeLines
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarations
+  - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+  - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModule
   - RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName
@@ -60,10 +67,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Represents the RAPID Generator.
-
-    This is class is used to generate the RAPID program and system module from a given set of actions.
+  summary: Represents the RAPID Generator.
+  remarks: This is class is used to generate the RAPID module from a given set of actions.
   example: []
   syntax:
     content: public class RAPIDGenerator
@@ -240,16 +245,16 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ToString*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean)
-  commentId: M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean)
-  id: CreateModule(System.Boolean,System.Boolean)
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)
+  commentId: M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)
+  id: CreateModule(System.Boolean,System.Boolean,System.Boolean)
   parent: RobotComponents.ABB.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: CreateModule(bool, bool)
-  nameWithType: RAPIDGenerator.CreateModule(bool, bool)
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(bool, bool)
+  name: CreateModule(bool, bool, bool)
+  nameWithType: RAPIDGenerator.CreateModule(bool, bool, bool)
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(bool, bool, bool)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -257,7 +262,7 @@ items:
   summary: Returns the RAPID module.
   example: []
   syntax:
-    content: public List<string> CreateModule(bool addTooldata = true, bool addWobjdata = true)
+    content: public List<string> CreateModule(bool addTooldata = true, bool addWobjdata = true, bool addLoaddata = true)
     parameters:
     - id: addTooldata
       type: System.Boolean
@@ -265,14 +270,17 @@ items:
     - id: addWobjdata
       type: System.Boolean
       description: Specifies if the wobjdata should be added to the RAPID module.
+    - id: addLoaddata
+      type: System.Boolean
+      description: Specifies if the loaddata should be added to the RAPID module.
     return:
       type: System.Collections.Generic.List{System.String}
       description: The RAPID module as a list with code lines.
-    content.vb: Public Function CreateModule(addTooldata As Boolean = True, addWobjdata As Boolean = True) As List(Of String)
+    content.vb: Public Function CreateModule(addTooldata As Boolean = True, addWobjdata As Boolean = True, addLoaddata As Boolean = True) As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule*
-  nameWithType.vb: RAPIDGenerator.CreateModule(Boolean, Boolean)
-  fullName.vb: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(Boolean, Boolean)
-  name.vb: CreateModule(Boolean, Boolean)
+  nameWithType.vb: RAPIDGenerator.CreateModule(Boolean, Boolean, Boolean)
+  fullName.vb: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(Boolean, Boolean, Boolean)
+  name.vb: CreateModule(Boolean, Boolean, Boolean)
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.WriteModuleToFile(System.String)
   commentId: M:RobotComponents.ABB.Actions.RAPIDGenerator.WriteModuleToFile(System.String)
   id: WriteModuleToFile(System.String)
@@ -321,7 +329,7 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This constructor is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This constructor is OBSOLETE and will be removed in v2 or later.", false)]
 
       public RAPIDGenerator(Robot robot, IList<Action> actions, string programModuleName, string systemModuleName, string procedureName)
     parameters:
@@ -341,7 +349,7 @@ items:
       type: System.String
       description: The name of the RAPID procedure
     content.vb: >-
-      <Obsolete("This constructor is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This constructor is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Sub New(robot As Robot, actions As IList(Of Action), programModuleName As String, systemModuleName As String, procedureName As String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.#ctor*
@@ -350,7 +358,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This constructor is OBSOLETE and will be removed in the future.
+      value: This constructor is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
   nameWithType.vb: RAPIDGenerator.New(Robot, IList(Of Action), String, String, String)
@@ -374,7 +382,7 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This constructor is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This constructor is OBSOLETE and will be removed in v2 or later.", false)]
 
       public RAPIDGenerator(Robot robot, IList<Action> actions, string programModuleName, string systemModuleName, string procedureName, string filePath, bool saveToFile)
     parameters:
@@ -400,7 +408,7 @@ items:
       type: System.Boolean
       description: A boolean that indicates if the file should be saved.
     content.vb: >-
-      <Obsolete("This constructor is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This constructor is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Sub New(robot As Robot, actions As IList(Of Action), programModuleName As String, systemModuleName As String, procedureName As String, filePath As String, saveToFile As Boolean)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.#ctor*
@@ -409,7 +417,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This constructor is OBSOLETE and will be removed in the future.
+      value: This constructor is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
   nameWithType.vb: RAPIDGenerator.New(Robot, IList(Of Action), String, String, String, String, Boolean)
@@ -429,21 +437,19 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Returns the RAPID program code.
-
-    This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.
+  summary: Returns the RAPID program code.
+  remarks: This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.
   example: []
   syntax:
     content: >-
-      [Obsolete("This method is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This method is OBSOLETE and will be removed in v2 or later.", false)]
 
       public List<string> CreateProgramModule()
     return:
       type: System.Collections.Generic.List{System.String}
       description: The RAPID program code as a list with code lines.
     content.vb: >-
-      <Obsolete("This method is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This method is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Function CreateProgramModule() As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.CreateProgramModule*
@@ -452,7 +458,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This method is OBSOLETE and will be removed in the future.
+      value: This method is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})
@@ -469,9 +475,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-
+  summary: Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
+  remarks: >-
     It adds the robot tools and work objects that are collected by this RAPID generator. 
 
     For this you have to call the methode 'CreateProgamCode' first. 
@@ -480,7 +485,7 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This method is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This method is OBSOLETE and will be removed in v2 or later.", false)]
 
       public List<string> CreateSystemModule(IList<string> customCode = null)
     parameters:
@@ -491,7 +496,7 @@ items:
       type: System.Collections.Generic.List{System.String}
       description: The RAPID system code as a list with code lines.
     content.vb: >-
-      <Obsolete("This method is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This method is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Function CreateSystemModule(customCode As IList(Of String) = Nothing) As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule*
@@ -500,7 +505,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This method is OBSOLETE and will be removed in the future.
+      value: This method is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
   nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of String))
@@ -520,16 +525,15 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: >-
-    Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-
+  summary: Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
+  remarks: >-
     It is adds the robot tools, work objects and custom code lines from the given lists. 
 
     This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
   example: []
   syntax:
     content: >-
-      [Obsolete("This method is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This method is OBSOLETE and will be removed in v2.", false)]
 
       public List<string> CreateSystemModule(IList<RobotTool> robotTools, IList<WorkObject> workObjects, IList<string> customCode = null)
     parameters:
@@ -546,7 +550,7 @@ items:
       type: System.Collections.Generic.List{System.String}
       description: The RAPID system code as a list with code lines.
     content.vb: >-
-      <Obsolete("This method is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This method is OBSOLETE and will be removed in v2.", False)>
 
       Public Function CreateSystemModule(robotTools As IList(Of RobotTool), workObjects As IList(Of WorkObject), customCode As IList(Of String) = Nothing) As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule*
@@ -555,7 +559,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This method is OBSOLETE and will be removed in the future.
+      value: This method is OBSOLETE and will be removed in v2.
     - type: System.Boolean
       value: false
   nameWithType.vb: RAPIDGenerator.CreateSystemModule(IList(Of RobotTool), IList(Of WorkObject), IList(Of String))
@@ -579,11 +583,11 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This method is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This method is OBSOLETE and will be removed in v2 or later.", false)]
 
       public void WriteProgramCodeToFile()
     content.vb: >-
-      <Obsolete("This method is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This method is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Sub WriteProgramCodeToFile()
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.WriteProgramCodeToFile*
@@ -592,7 +596,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This method is OBSOLETE and will be removed in the future.
+      value: This method is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.WriteSystemCodeToFile
@@ -613,11 +617,11 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This method is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This method is OBSOLETE and will be removed in v2 or later.", false)]
 
       public void WriteSystemCodeToFile()
     content.vb: >-
-      <Obsolete("This method is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This method is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Sub WriteSystemCodeToFile()
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.WriteSystemCodeToFile*
@@ -626,7 +630,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This method is OBSOLETE and will be removed in the future.
+      value: This method is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.IsValid
@@ -652,6 +656,29 @@ items:
       type: System.Boolean
     content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.IsValid*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Robot
+  id: Robot
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: Robot
+  nameWithType: RAPIDGenerator.Robot
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets or sets the Robot.
+  example: []
+  syntax:
+    content: public Robot Robot { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Definitions.Robot
+    content.vb: Public Property Robot As Robot
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Robot*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.Actions
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Actions
   id: Actions
@@ -689,7 +716,7 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: Gest he RAPID module as a list with code lines.
+  summary: Gets the RAPID module as a list with code lines.
   example: []
   syntax:
     content: public List<string> Module { get; }
@@ -698,29 +725,6 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property [Module] As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.Module*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Robot
-  id: Robot
-  parent: RobotComponents.ABB.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: Robot
-  nameWithType: RAPIDGenerator.Robot
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Gets or sets the Robot.
-  example: []
-  syntax:
-    content: public Robot Robot { get; set; }
-    parameters: []
-    return:
-      type: RobotComponents.ABB.Definitions.Robot
-    content.vb: Public Property Robot As Robot
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Robot*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName
   id: ModuleName
@@ -767,16 +771,39 @@ items:
       type: System.String
     content.vb: Public Property ProcedureName As String
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProcedureName*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
-  id: FirstMovementIsMoveAbsJ
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
+  id: ErrorText
   parent: RobotComponents.ABB.Actions.RAPIDGenerator
   langs:
   - csharp
   - vb
-  name: FirstMovementIsMoveAbsJ
-  nameWithType: RAPIDGenerator.FirstMovementIsMoveAbsJ
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  name: ErrorText
+  nameWithType: RAPIDGenerator.ErrorText
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the collected error messages.
+  example: []
+  syntax:
+    content: public List<string> ErrorText { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ErrorText As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+  id: IsFirstMovementMoveAbsJ
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: IsFirstMovementMoveAbsJ
+  nameWithType: RAPIDGenerator.IsFirstMovementMoveAbsJ
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
   type: Property
   assemblies:
   - RobotComponents.ABB
@@ -784,12 +811,59 @@ items:
   summary: Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
   example: []
   syntax:
-    content: public bool FirstMovementIsMoveAbsJ { get; }
+    content: public bool IsFirstMovementMoveAbsJ { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property FirstMovementIsMoveAbsJ As Boolean
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ*
+    content.vb: Public ReadOnly Property IsFirstMovementMoveAbsJ As Boolean
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+  id: IsSynchronized
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: IsSynchronized
+  nameWithType: RAPIDGenerator.IsSynchronized
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets or sets a value indicating whether or not the movements are synchronized.
+  remarks: Value is set inside the SyncMoveOn and SyncMoveOff instructions.
+  example: []
+  syntax:
+    content: public bool IsSynchronized { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property IsSynchronized As Boolean
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  id: ConfigurationDatas
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ConfigurationDatas
+  nameWithType: RAPIDGenerator.ConfigurationDatas
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the collection with unique Configuration Datas used to create the RAPID program module.
+  example: []
+  syntax:
+    content: public Dictionary<string, ConfigurationData> ConfigurationDatas { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.ConfigurationData}
+    content.vb: Public ReadOnly Property ConfigurationDatas As Dictionary(Of String, ConfigurationData)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.SpeedDatas
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.SpeedDatas
   id: SpeedDatas
@@ -905,6 +979,29 @@ items:
       type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Definitions.RobotTool}
     content.vb: Public ReadOnly Property RobotTools As Dictionary(Of String, RobotTool)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.RobotTools*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+  id: LoadDatas
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: LoadDatas
+  nameWithType: RAPIDGenerator.LoadDatas
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the collection with unique Load Datas used to create the RAPID program module.
+  example: []
+  syntax:
+    content: public Dictionary<string, LoadData> LoadDatas { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Definitions.LoadData}
+    content.vb: Public ReadOnly Property LoadDatas As Dictionary(Of String, LoadData)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.WorkObjects
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.WorkObjects
   id: WorkObjects
@@ -974,29 +1071,6 @@ items:
       type: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Interfaces.ISyncident}
     content.vb: Public ReadOnly Property Syncidents As Dictionary(Of String, ISyncident)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.Syncidents*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
-  id: ErrorText
-  parent: RobotComponents.ABB.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: ErrorText
-  nameWithType: RAPIDGenerator.ErrorText
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Gets the collected error messages.
-  example: []
-  syntax:
-    content: public List<string> ErrorText { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{System.String}
-    content.vb: Public ReadOnly Property ErrorText As List(Of String)
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarations
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarations
   id: ProgramDeclarations
@@ -1089,6 +1163,75 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property ProgramDeclarationsMultiMove As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  id: ProgramDeclarationsToolData
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationsToolData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsToolData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the RAPID tooldata code lines as list with RAPID code lines.
+  example: []
+  syntax:
+    content: public List<string> ProgramDeclarationsToolData { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationsToolData As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+  id: ProgramDeclarationsLoadData
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationsLoadData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsLoadData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the RAPID loaddata code lines as list with RAPID code lines.
+  example: []
+  syntax:
+    content: public List<string> ProgramDeclarationsLoadData { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationsLoadData As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData*
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  id: ProgramDeclarationsWorkObjectData
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: ProgramDeclarationsWorkObjectData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the RAPID wobjdata code lines as list with RAPID code lines.
+  example: []
+  syntax:
+    content: public List<string> ProgramDeclarationsWorkObjectData { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public ReadOnly Property ProgramDeclarationsWorkObjectData As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions
   id: ProgramInstructions
@@ -1112,75 +1255,6 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property ProgramInstructions As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-  id: SynchronizedMovements
-  parent: RobotComponents.ABB.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: SynchronizedMovements
-  nameWithType: RAPIDGenerator.SynchronizedMovements
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Gets or sets a value indicating whether or not the movements are synchronized.
-  example: []
-  syntax:
-    content: public bool SynchronizedMovements { get; set; }
-    parameters: []
-    return:
-      type: System.Boolean
-    content.vb: Public Property SynchronizedMovements As Boolean
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-  id: Tooldata
-  parent: RobotComponents.ABB.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: Tooldata
-  nameWithType: RAPIDGenerator.Tooldata
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Gets the RAPID tooldata.
-  example: []
-  syntax:
-    content: public List<string> Tooldata { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{System.String}
-    content.vb: Public ReadOnly Property Tooldata As List(Of String)
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata*
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
-  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
-  id: Wobjdata
-  parent: RobotComponents.ABB.Actions.RAPIDGenerator
-  langs:
-  - csharp
-  - vb
-  name: Wobjdata
-  nameWithType: RAPIDGenerator.Wobjdata
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Gets the RAPID wobjdata.
-  example: []
-  syntax:
-    content: public List<string> Wobjdata { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{System.String}
-    content.vb: Public ReadOnly Property Wobjdata As List(Of String)
-  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata*
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName
   commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName
   id: ProgramModuleName
@@ -1199,14 +1273,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public string ProgramModuleName { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Property ProgramModuleName As String
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName*
@@ -1215,7 +1289,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.SystemModuleName
@@ -1236,14 +1310,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public string SystemModuleName { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Property SystemModuleName As String
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.SystemModuleName*
@@ -1252,7 +1326,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModule
@@ -1273,14 +1347,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public List<string> ProgramModule { get; }
     parameters: []
     return:
       type: System.Collections.Generic.List{System.String}
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public ReadOnly Property ProgramModule As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModule*
@@ -1289,7 +1363,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.SystemModule
@@ -1310,14 +1384,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public List<string> SystemModule { get; }
     parameters: []
     return:
       type: System.Collections.Generic.List{System.String}
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public ReadOnly Property SystemModule As List(Of String)
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.SystemModule*
@@ -1326,7 +1400,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.FilePath
@@ -1347,14 +1421,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public string FilePath { get; set; }
     parameters: []
     return:
       type: System.String
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Property FilePath As String
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.FilePath*
@@ -1363,7 +1437,7 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
     - type: System.Boolean
       value: false
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.SaveToFile
@@ -1384,14 +1458,14 @@ items:
   example: []
   syntax:
     content: >-
-      [Obsolete("This property is OBSOLETE and will be removed in the future.", false)]
+      [Obsolete("This property is OBSOLETE and will be removed in v2 or later.", false)]
 
       public bool SaveToFile { get; set; }
     parameters: []
     return:
       type: System.Boolean
     content.vb: >-
-      <Obsolete("This property is OBSOLETE and will be removed in the future.", False)>
+      <Obsolete("This property is OBSOLETE and will be removed in v2 or later.", False)>
 
       Public Property SaveToFile As Boolean
   overload: RobotComponents.ABB.Actions.RAPIDGenerator.SaveToFile*
@@ -1400,7 +1474,156 @@ items:
     ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
     arguments:
     - type: System.String
-      value: This property is OBSOLETE and will be removed in the future.
+      value: This property is OBSOLETE and will be removed in v2 or later.
+    - type: System.Boolean
+      value: false
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  id: FirstMovementIsMoveAbsJ
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: FirstMovementIsMoveAbsJ
+  nameWithType: RAPIDGenerator.FirstMovementIsMoveAbsJ
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.", false)]
+
+      public bool FirstMovementIsMoveAbsJ { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.", False)>
+
+      Public ReadOnly Property FirstMovementIsMoveAbsJ As Boolean
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in v3. Use IsFirstMovementMoveAbsJ instead.
+    - type: System.Boolean
+      value: false
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+  id: SynchronizedMovements
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: SynchronizedMovements
+  nameWithType: RAPIDGenerator.SynchronizedMovements
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets or sets a value indicating whether or not the movements are synchronized.
+  remarks: Value is set inside the SyncMoveOn and SyncMoveOff instructions.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in v3. Use IsSynchronized instead.", false)]
+
+      public bool SynchronizedMovements { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in v3. Use IsSynchronized instead.", False)>
+
+      Public Property SynchronizedMovements As Boolean
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in v3. Use IsSynchronized instead.
+    - type: System.Boolean
+      value: false
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+  id: Tooldata
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: Tooldata
+  nameWithType: RAPIDGenerator.Tooldata
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the RAPID tooldata code lines.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsToolData instead.", false)]
+
+      public List<string> Tooldata { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsToolData instead.", False)>
+
+      Public ReadOnly Property Tooldata As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsToolData instead.
+    - type: System.Boolean
+      value: false
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
+  commentId: P:RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
+  id: Wobjdata
+  parent: RobotComponents.ABB.Actions.RAPIDGenerator
+  langs:
+  - csharp
+  - vb
+  name: Wobjdata
+  nameWithType: RAPIDGenerator.Wobjdata
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions
+  summary: Gets the RAPID wobjdata code lines.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsWorkObjectData instead.", false)]
+
+      public List<string> Wobjdata { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: >-
+      <Obsolete("This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsWorkObjectData instead.", False)>
+
+      Public ReadOnly Property Wobjdata As List(Of String)
+  overload: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is OBSOLETE and will be removed in v3. Use ProgramDeclarationsWorkObjectData instead.
     - type: System.Boolean
       value: false
 references:
@@ -1869,7 +2092,7 @@ references:
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule
   isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean)
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)
   name: CreateModule
   nameWithType: RAPIDGenerator.CreateModule
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule
@@ -2094,6 +2317,13 @@ references:
   name: IsValid
   nameWithType: RAPIDGenerator.IsValid
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.IsValid
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Robot*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Robot
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Robot
+  name: Robot
+  nameWithType: RAPIDGenerator.Robot
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.Actions*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Actions
   isExternal: true
@@ -2143,13 +2373,6 @@ references:
   name: Module
   nameWithType: RAPIDGenerator.Module
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Module
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Robot*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Robot
-  isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Robot
-  name: Robot
-  nameWithType: RAPIDGenerator.Robot
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Robot
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName
   isExternal: true
@@ -2164,13 +2387,115 @@ references:
   name: ProcedureName
   nameWithType: RAPIDGenerator.ProcedureName
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProcedureName
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
   isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
-  name: FirstMovementIsMoveAbsJ
-  nameWithType: RAPIDGenerator.FirstMovementIsMoveAbsJ
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
+  name: ErrorText
+  nameWithType: RAPIDGenerator.ErrorText
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+  name: IsFirstMovementMoveAbsJ
+  nameWithType: RAPIDGenerator.IsFirstMovementMoveAbsJ
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.IsFirstMovementMoveAbsJ
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+  name: IsSynchronized
+  nameWithType: RAPIDGenerator.IsSynchronized
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.IsSynchronized
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+  name: ConfigurationDatas
+  nameWithType: RAPIDGenerator.ConfigurationDatas
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ConfigurationDatas
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.ConfigurationData}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Actions.Declarations.ConfigurationData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, ConfigurationData>
+  nameWithType: Dictionary<string, ConfigurationData>
+  fullName: System.Collections.Generic.Dictionary<string, RobotComponents.ABB.Actions.Declarations.ConfigurationData>
+  nameWithType.vb: Dictionary(Of String, ConfigurationData)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, RobotComponents.ABB.Actions.Declarations.ConfigurationData)
+  name.vb: Dictionary(Of String, ConfigurationData)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData
+    name: ConfigurationData
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData
+    name: ConfigurationData
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html
+  - name: )
+- uid: System.Collections.Generic.Dictionary`2
+  commentId: T:System.Collections.Generic.Dictionary`2
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<TKey, TValue>
+  nameWithType: Dictionary<TKey, TValue>
+  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
+  nameWithType.vb: Dictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
+  name.vb: Dictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - name: TKey
+  - name: ','
+  - name: " "
+  - name: TValue
+  - name: )
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.SpeedDatas*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.SpeedDatas
   isExternal: true
@@ -2224,40 +2549,6 @@ references:
     name: SpeedData
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.SpeedData.html
-  - name: )
-- uid: System.Collections.Generic.Dictionary`2
-  commentId: T:System.Collections.Generic.Dictionary`2
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  name: Dictionary<TKey, TValue>
-  nameWithType: Dictionary<TKey, TValue>
-  fullName: System.Collections.Generic.Dictionary<TKey, TValue>
-  nameWithType.vb: Dictionary(Of TKey, TValue)
-  fullName.vb: System.Collections.Generic.Dictionary(Of TKey, TValue)
-  name.vb: Dictionary(Of TKey, TValue)
-  spec.csharp:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: <
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
-  - name: '>'
-  spec.vb:
-  - uid: System.Collections.Generic.Dictionary`2
-    name: Dictionary
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
-  - name: (
-  - name: Of
-  - name: " "
-  - name: TKey
-  - name: ','
-  - name: " "
-  - name: TValue
   - name: )
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ZoneDatas*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ZoneDatas
@@ -2475,6 +2766,60 @@ references:
     isExternal: true
     href: RobotComponents.ABB.Definitions.RobotTool.html
   - name: )
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+  name: LoadDatas
+  nameWithType: RAPIDGenerator.LoadDatas
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.LoadDatas
+- uid: System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Definitions.LoadData}
+  commentId: T:System.Collections.Generic.Dictionary{System.String,RobotComponents.ABB.Definitions.LoadData}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.Dictionary`2
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  name: Dictionary<string, LoadData>
+  nameWithType: Dictionary<string, LoadData>
+  fullName: System.Collections.Generic.Dictionary<string, RobotComponents.ABB.Definitions.LoadData>
+  nameWithType.vb: Dictionary(Of String, LoadData)
+  fullName.vb: System.Collections.Generic.Dictionary(Of String, RobotComponents.ABB.Definitions.LoadData)
+  name.vb: Dictionary(Of String, LoadData)
+  spec.csharp:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: <
+  - uid: System.String
+    name: string
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Definitions.LoadData
+    name: LoadData
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.LoadData.html
+  - name: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.Dictionary`2
+    name: Dictionary
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.dictionary-2
+  - name: (
+  - name: Of
+  - name: " "
+  - uid: System.String
+    name: String
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.string
+  - name: ','
+  - name: " "
+  - uid: RobotComponents.ABB.Definitions.LoadData
+    name: LoadData
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.LoadData.html
+  - name: )
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.WorkObjects*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.WorkObjects
   isExternal: true
@@ -2637,13 +2982,6 @@ references:
     isExternal: true
     href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html
   - name: )
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
-  isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
-  name: ErrorText
-  nameWithType: RAPIDGenerator.ErrorText
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarations*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarations
   isExternal: true
@@ -2672,6 +3010,27 @@ references:
   name: ProgramDeclarationsMultiMove
   nameWithType: RAPIDGenerator.ProgramDeclarationsMultiMove
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsMultiMove
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+  name: ProgramDeclarationsToolData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsToolData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsToolData
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+  name: ProgramDeclarationsLoadData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsLoadData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsLoadData
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  name: ProgramDeclarationsWorkObjectData
+  nameWithType: RAPIDGenerator.ProgramDeclarationsWorkObjectData
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramDeclarationsWorkObjectData
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions
   isExternal: true
@@ -2679,27 +3038,6 @@ references:
   name: ProgramInstructions
   nameWithType: RAPIDGenerator.ProgramInstructions
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramInstructions
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-  isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-  name: SynchronizedMovements
-  nameWithType: RAPIDGenerator.SynchronizedMovements
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-  isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-  name: Tooldata
-  nameWithType: RAPIDGenerator.Tooldata
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
-- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata*
-  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
-  isExternal: true
-  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
-  name: Wobjdata
-  nameWithType: RAPIDGenerator.Wobjdata
-  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
 - uid: RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName*
   commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName
   isExternal: true
@@ -2742,3 +3080,31 @@ references:
   name: SaveToFile
   nameWithType: RAPIDGenerator.SaveToFile
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator.SaveToFile
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+  name: FirstMovementIsMoveAbsJ
+  nameWithType: RAPIDGenerator.FirstMovementIsMoveAbsJ
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+  name: SynchronizedMovements
+  nameWithType: RAPIDGenerator.SynchronizedMovements
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+  name: Tooldata
+  nameWithType: RAPIDGenerator.Tooldata
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata*
+  commentId: Overload:RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html#RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata
+  name: Wobjdata
+  nameWithType: RAPIDGenerator.Wobjdata
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata

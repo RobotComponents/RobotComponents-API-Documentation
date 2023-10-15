@@ -60,10 +60,8 @@ items:
   assemblies:
   - RobotComponents.ABB.Controllers
   namespace: RobotComponents.ABB.Controllers
-  summary: >-
-    Represents the Controller class. 
-
-    This class is a wrapper around the ABB Controller class.
+  summary: Represents the Controller class.
+  remarks: This class is a wrapper around the ABB Controller class
   example: []
   syntax:
     content: public class Controller
@@ -141,14 +139,8 @@ items:
   assemblies:
   - RobotComponents.ABB.Controllers
   namespace: RobotComponents.ABB.Controllers
-  summary: >-
-    Returns a list with ABB Controllers that are found in the network. 
-
-    <remarks> 
-
-    These controllers are not initialized. Call Initialize first if you want to use these controllers. 
-
-    </remarks>
+  summary: Returns a list with ABB Controllers that are found in the network.
+  remarks: These controllers are not initialized. Call Initialize first if you want to use these controllers.
   example: []
   syntax:
     content: public static List<Controller> GetControllers()
@@ -916,7 +908,7 @@ items:
       description: The variable name.
     return:
       type: System.String
-      description: The rapid value.
+      description: The rapid value as a RAPID data string.
     content.vb: Public Function ReadRapidDomain(task As String, [module] As String, variable As String) As String
   overload: RobotComponents.ABB.Controllers.Controller.ReadRapidDomain*
   nameWithType.vb: Controller.ReadRapidDomain(String, String, String)
@@ -936,16 +928,11 @@ items:
   assemblies:
   - RobotComponents.ABB.Controllers
   namespace: RobotComponents.ABB.Controllers
-  summary: >-
-    Gets the controllers found in the network. 
-
-    <remarks> 
-
+  summary: Gets the controllers found in the network.
+  remarks: >-
     Call the static method GetControllers first to scan the network. 
 
-    Call Initialize before using one of the controllers. 
-
-    </remarks>
+    Call Initialize before using one of the controllers.
   example: []
   syntax:
     content: public static List<Controller> Controllers { get; }
@@ -1129,10 +1116,8 @@ items:
   assemblies:
   - RobotComponents.ABB.Controllers
   namespace: RobotComponents.ABB.Controllers
-  summary: >-
-    Gets a value indicating whether or not the controller instance is empty.
-
-    If empty, there is no ABB controller instance defined inside this instance.
+  summary: Gets a value indicating whether or not the controller instance is empty.
+  remarks: If empty, there is no ABB controller instance defined inside this instance.
   example: []
   syntax:
     content: public bool IsEmpty { get; }

@@ -13,6 +13,7 @@ items:
   - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
   langs:
   - csharp
   - vb
@@ -119,10 +120,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -146,10 +145,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator
   example: []
   syntax:
     content: void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
@@ -182,29 +179,29 @@ items:
       type: System.Boolean
     content.vb: ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid*
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  id: ReferenceType
+- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  id: VariableType
   parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
   langs:
   - csharp
   - vb
-  name: ReferenceType
-  nameWithType: ISyncident.ReferenceType
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  name: VariableType
+  nameWithType: ISyncident.VariableType
+  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
   type: Property
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Interfaces
-  summary: Gets or sets the reference type of the syncident.
+  summary: Gets or sets the variable type of the syncident.
   example: []
   syntax:
-    content: VariableType ReferenceType { get; set; }
+    content: VariableType VariableType { get; set; }
     parameters: []
     return:
       type: RobotComponents.ABB.Enumerations.VariableType
-    content.vb: Property ReferenceType As VariableType
-  overload: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType*
+    content.vb: Property VariableType As VariableType
+  overload: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType*
 - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
   commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
   id: SyncID
@@ -228,6 +225,43 @@ items:
       type: System.String
     content.vb: Property SyncID As String
   overload: RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID*
+- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  id: ReferenceType
+  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: ReferenceType
+  nameWithType: ISyncident.ReferenceType
+  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Interfaces
+  summary: Gets or sets the variable type.
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This property is obsolete and will be removed in v3. Use VariableType instead.", false)]
+
+      VariableType ReferenceType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Enumerations.VariableType
+    content.vb: >-
+      <Obsolete("This property is obsolete and will be removed in v3. Use VariableType instead.", False)>
+
+      Property ReferenceType As VariableType
+  overload: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This property is obsolete and will be removed in v3. Use VariableType instead.
+    - type: System.Boolean
+      value: false
 references:
 - uid: RobotComponents.ABB.Actions.Interfaces
   commentId: N:RobotComponents.ABB.Actions.Interfaces
@@ -431,13 +465,13 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType*
-  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType*
+  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  name: ReferenceType
-  nameWithType: ISyncident.ReferenceType
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  name: VariableType
+  nameWithType: ISyncident.VariableType
+  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
 - uid: RobotComponents.ABB.Enumerations.VariableType
   commentId: T:RobotComponents.ABB.Enumerations.VariableType
   parent: RobotComponents.ABB.Enumerations
@@ -490,3 +524,10 @@ references:
   name: SyncID
   nameWithType: ISyncident.SyncID
   fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
+- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType*
+  commentId: Overload:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
+  name: ReferenceType
+  nameWithType: ISyncident.ReferenceType
+  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType

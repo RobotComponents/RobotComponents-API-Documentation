@@ -8,7 +8,7 @@ items:
   - RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor
   - RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(RobotComponents.ABB.Actions.Instructions.WaitDI)
   - RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
+  - RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double,System.Boolean)
   - RobotComponents.ABB.Actions.Instructions.WaitDI.Duplicate
   - RobotComponents.ABB.Actions.Instructions.WaitDI.DuplicateAction
   - RobotComponents.ABB.Actions.Instructions.WaitDI.DuplicateInstruction
@@ -16,6 +16,7 @@ items:
   - RobotComponents.ABB.Actions.Instructions.WaitDI.IsValid
   - RobotComponents.ABB.Actions.Instructions.WaitDI.MaxTime
   - RobotComponents.ABB.Actions.Instructions.WaitDI.Name
+  - RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
   - RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
@@ -32,10 +33,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Represents a Wait for Digital Input instruction.
-
-    This action is used to wait until a digital input is set.
+  summary: Represents a Wait for Digital Input instruction.
+  remarks: This action is used to wait until a digital input is set.
   example: []
   syntax:
     content: 'public class WaitDI : Action, IInstruction, ISerializable'
@@ -135,16 +134,16 @@ items:
   nameWithType.vb: WaitDI.New()
   fullName.vb: RobotComponents.ABB.Actions.Instructions.WaitDI.New()
   name.vb: New()
-- uid: RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double)
-  id: '#ctor(System.String,System.Boolean,System.Double)'
+- uid: RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double,System.Boolean)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(System.String,System.Boolean,System.Double,System.Boolean)
+  id: '#ctor(System.String,System.Boolean,System.Double,System.Boolean)'
   parent: RobotComponents.ABB.Actions.Instructions.WaitDI
   langs:
   - csharp
   - vb
-  name: WaitDI(string, bool, double)
-  nameWithType: WaitDI.WaitDI(string, bool, double)
-  fullName: RobotComponents.ABB.Actions.Instructions.WaitDI.WaitDI(string, bool, double)
+  name: WaitDI(string, bool, double, bool)
+  nameWithType: WaitDI.WaitDI(string, bool, double, bool)
+  fullName: RobotComponents.ABB.Actions.Instructions.WaitDI.WaitDI(string, bool, double, bool)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -152,7 +151,7 @@ items:
   summary: Initializes a new instance of the Wait DI class.
   example: []
   syntax:
-    content: public WaitDI(string name, bool value, double maxTime = -1)
+    content: public WaitDI(string name, bool value, double maxTime = -1, bool timeFlag = false)
     parameters:
     - id: name
       type: System.String
@@ -163,11 +162,14 @@ items:
     - id: maxTime
       type: System.Double
       description: The maximum time to wait in seconds.
-    content.vb: Public Sub New(name As String, value As Boolean, maxTime As Double = -1)
+    - id: timeFlag
+      type: System.Boolean
+      description: Specifies whether the timeout flag is enabled.
+    content.vb: Public Sub New(name As String, value As Boolean, maxTime As Double = -1, timeFlag As Boolean = False)
   overload: RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor*
-  nameWithType.vb: WaitDI.New(String, Boolean, Double)
-  fullName.vb: RobotComponents.ABB.Actions.Instructions.WaitDI.New(String, Boolean, Double)
-  name.vb: New(String, Boolean, Double)
+  nameWithType.vb: WaitDI.New(String, Boolean, Double, Boolean)
+  fullName.vb: RobotComponents.ABB.Actions.Instructions.WaitDI.New(String, Boolean, Double, Boolean)
+  name.vb: New(String, Boolean, Double, Boolean)
 - uid: RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(RobotComponents.ABB.Actions.Instructions.WaitDI)
   commentId: M:RobotComponents.ABB.Actions.Instructions.WaitDI.#ctor(RobotComponents.ABB.Actions.Instructions.WaitDI)
   id: '#ctor(RobotComponents.ABB.Actions.Instructions.WaitDI)'
@@ -363,10 +365,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -391,10 +391,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
@@ -493,7 +491,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Gets or sets te max. time to wait in seconds. Set a negative value to wait for ever (default is -1).
+  summary: Gets or sets te max. time to wait in seconds.
+  remarks: Set a negative value to wait forever (default is -1).
   example: []
   syntax:
     content: public double MaxTime { get; set; }
@@ -502,6 +501,29 @@ items:
       type: System.Double
     content.vb: Public Property MaxTime As Double
   overload: RobotComponents.ABB.Actions.Instructions.WaitDI.MaxTime*
+- uid: RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
+  commentId: P:RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
+  id: TimeFlag
+  parent: RobotComponents.ABB.Actions.Instructions.WaitDI
+  langs:
+  - csharp
+  - vb
+  name: TimeFlag
+  nameWithType: WaitDI.TimeFlag
+  fullName: RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets or sets the timeout flag.
+  example: []
+  syntax:
+    content: public bool TimeFlag { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property TimeFlag As Boolean
+  overload: RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag*
 references:
 - uid: RobotComponents.ABB.Actions.Instructions
   commentId: N:RobotComponents.ABB.Actions.Instructions
@@ -1409,3 +1431,10 @@ references:
   name: MaxTime
   nameWithType: WaitDI.MaxTime
   fullName: RobotComponents.ABB.Actions.Instructions.WaitDI.MaxTime
+- uid: RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.WaitDI.html#RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag
+  name: TimeFlag
+  nameWithType: WaitDI.TimeFlag
+  fullName: RobotComponents.ABB.Actions.Instructions.WaitDI.TimeFlag

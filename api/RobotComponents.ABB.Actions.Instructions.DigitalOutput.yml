@@ -31,14 +31,18 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Represents a Set Digital Output instruction. 
-
-    This action is used to set the value (state) of a digital output signal.
+  summary: Represents a Set Digital Output instruction.
+  remarks: This action is used to set the value (state) of a digital output signal.
   example: []
   syntax:
-    content: 'public class DigitalOutput : Action, IInstruction, ISerializable'
-    content.vb: Public Class DigitalOutput Inherits Action Implements IInstruction, ISerializable
+    content: >-
+      [Obsolete("This class is obsolete and will be removed in v3. Use SetDigitalOutput instead.", false)]
+
+      public class DigitalOutput : Action, IInstruction, ISerializable
+    content.vb: >-
+      <Obsolete("This class is obsolete and will be removed in v3. Use SetDigitalOutput instead.", False)>
+
+      Public Class DigitalOutput Inherits Action Implements IInstruction, ISerializable
   inheritance:
   - System.Object
   - RobotComponents.ABB.Actions.Action
@@ -52,6 +56,14 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
+    arguments:
+    - type: System.String
+      value: This class is obsolete and will be removed in v3. Use SetDigitalOutput instead.
+    - type: System.Boolean
+      value: false
 - uid: RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   commentId: M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
@@ -311,7 +323,9 @@ items:
       description: The Robot were the code is generated for.
     return:
       type: System.String
-      description: An empty string.
+      description: >-
+        A
+                   n empty string.
     content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
   overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   overload: RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDDeclaration*
@@ -339,7 +353,9 @@ items:
       description: The Robot were the code is generated for.
     return:
       type: System.String
-      description: The RAPID code line.
+      description: >-
+        T
+                   he RAPID code line.
     content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
   overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   overload: RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDInstruction*
@@ -359,10 +375,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates declarations in the RAPID program module inside the RAPID Generator. 
-
-    This method is called inside the RAPID generator.
+  summary: Creates declarations in the RAPID program module inside the RAPID Generator. .
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
@@ -387,10 +401,8 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: >-
-    Creates instructions in the RAPID program module inside the RAPID Generator.
-
-    This method is called inside the RAPID generator.
+  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
     content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
