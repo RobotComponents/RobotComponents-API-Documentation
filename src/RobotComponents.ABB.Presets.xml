@@ -59,19 +59,19 @@
             IRB150-6/-.81
             </summary>
         </member>
-        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_X_120">
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_6_120">
             <summary>
             IRB1600-X/1.2
             </summary>
         </member>
-        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_X_145">
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_6_145">
             <summary>
-            IRB1600-X/1.45
+            IRB1600-6/1.45
             </summary>
         </member>
-        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1660ID_X_155">
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1660ID_4_155">
             <summary>
-            IRB1660ID-X/1.55
+            IRB1660ID-4/1.55
             </summary>
         </member>
         <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB2600_12_185">
@@ -79,9 +79,9 @@
             IRB2600-12/1.85
             </summary>
         </member>
-        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB2600_X_165">
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB2600_12_165">
             <summary>
-            IRB2600-X/1.65
+            IRB2600-12/1.65
             </summary>
         </member>
         <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB2600ID_15_185">
@@ -104,9 +104,9 @@
             IRB4600-40/2.55
             </summary>
         </member>
-        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB4600_X_205">
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB4600_45_205">
             <summary>
-            IRB4600-X/2.05
+            IRB4600-45/2.05
             </summary>
         </member>
         <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB6620_150_220">
@@ -229,12 +229,37 @@
             IRB1010ID-1.5/0.37
             </summary>
         </member>
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_10_120">
+            <summary>
+            IRB1600-10/1.2
+            </summary>
+        </member>
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1600_10_145">
+            <summary>
+            IRB1600-10/1.45
+            </summary>
+        </member>
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB1660ID_6_155">
+            <summary>
+            IRB1660ID-6/1.55
+            </summary>
+        </member>
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB2600_20_165">
+            <summary>
+            IRB2600-20/1.65
+            </summary>
+        </member>
+        <member name="F:RobotComponents.ABB.Presets.Enumerations.RobotPreset.IRB4600_60_205">
+            <summary>
+            IRB4600-60/2.05
+            </summary>
+        </member>
         <member name="T:RobotComponents.ABB.Presets.Factory">
             <summary>
             Represents the presets factory. 
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Factory.GetRobotPreset(RobotComponents.ABB.Presets.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Factory.GetRobotPreset(RobotComponents.ABB.Presets.Enumerations.RobotPreset,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a predefined ABB Robot preset. 
             </summary>
@@ -249,11 +274,10 @@
             Represents the pick robot preset form class.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Forms.PickRobotForm.#ctor(System.Collections.Generic.List{RobotComponents.ABB.Presets.Enumerations.RobotPreset})">
+        <member name="M:RobotComponents.ABB.Presets.Forms.PickRobotForm.#ctor">
             <summary>
-            Constructs the form from a given list with items.
+            Constructs the form.
             </summary>
-            <param name="items"> Items to fill the form with. </param>
         </member>
         <member name="M:RobotComponents.ABB.Presets.Forms.PickRobotForm.GetRobotPresetName(RobotComponents.ABB.Presets.Enumerations.RobotPreset)">
             <summary>
@@ -271,26 +295,9 @@
             <param name="replace"> The new text. </param>
             <returns> Returns a new string with replaced text. </returns>
         </member>
-        <member name="P:RobotComponents.ABB.Presets.Forms.PickRobotForm.Index">
+        <member name="P:RobotComponents.ABB.Presets.Forms.PickRobotForm.RobotPreset">
             <summary>
-            Gets the picked index.
-            </summary>
-        </member>
-        <member name="F:RobotComponents.ABB.Presets.Forms.PickRobotForm.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Presets.Forms.PickRobotForm.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:RobotComponents.ABB.Presets.Forms.PickRobotForm.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
+            Gets the picked robot preset.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Presets.Properties.Resources">
@@ -307,6 +314,76 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_0">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA4mECAAL6fwIA1mECAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCeYQIAAAAAADgvEQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/wZBcRO14ccBUI4mOfLOJQIPpJjEIAGvA1BSFuuolqEAAAAAAAAAAAAAAAAAAAAAAzswNwwEAyMIBQJyqAQDIQgEAyEIBAFZDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_1">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAz3UCAAL6fwIAw3UCAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCLdQIAAAAAADhSDgAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/1t5rYgIAVMC2zaOLCaWTQG5mZmZmxl7AOn4E5ZfooUAAAAAAAAAAAAAAAAAAAAAAwQKgwtpMvsLu/1ZDFPVlQzQz30IM/u9DAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_2">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAujQDAAL6fwIArjQDAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgB2NAMAAAAAADjhEQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/Vh9+0loGUsDesYqBbBqGQG9SU1eVAE/AReOwvEEUwkAAAAAAAAAAAAAAAAAAAAAA62+KQoa2S8OZmp9DrMdmQ5aZrMLW8pJEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_3">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAjlADAAL6fwIAglADAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgBKUAMAAAAAADhdEQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/gJzUXxjGT8DXkjkVxRR2QIic1F8Yxk/AeM4bCIIarEAAAAAAAAAAAAAAAAAAAAAA//+pQgEAqsJAQIJEAQB2QwEA3EJPsp5EAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_4">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAfToEAAL6fwIAcToEAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgA5OgQAAAAAADgeEwAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/+aK8ic2jXMAOZVLSgSR4QD8TuwSmEpbABVerN7ZUnUAAAAAAAAAAAAAAAAAAAAAA/v92Q3o/U8KuhZFEsXFRRHkXBUN5up5EAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_5">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA9dICAAL6fwIA6dICAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCx0gIAAAAAADgKEAAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/N73/FTw5AcDkrhEB/GglQLiJ9Fa7aArAn17Oy2ieXkAAAAAAAAAAAAAAAAAAAAAA/98kRAEAu8L/X5FEAcBVRAEAlUJqtKhEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_10_1_52_link_6">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA/xEDAAL6fwIA8xEDAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgC7EQMAAAAAADhgEgAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/oPqMhC9FSsBTfBPiDQ1zQPSEq2N5zFvAjVMOHoRcn0AAAAAAAAAAAAAAAAAAAAAAb9lVRH0pUsKzjptEHABeRKYvUkJNsahEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_0">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAA4mECAAL6fwIA1mECAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgCeYQIAAAAAADgvEQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/wZBcRO14ccBUI4mOfLOJQIPpJjEIAGvA1BSFuuolqEAAAAAAAAAAAAAAAAAAAAAAzswNwwEAyMIBQJyqAQDIQgEAyEIBAFZDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_1">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAej0CAAL6fwIAbj0CAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgA2PQIAAAAAADhjDgAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX//v//////U8Bqhq4f73V/QGRmZmZmxl7ANH4E5ZfooUAAAAAAAAAAAAAAAAAAAAAAFQCgwjdNvsJl5lZDGACgQjQz30IPDtFDAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_2">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAZTwEAAL6fwIAWTwEAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgAhPAQAAAAAADh4EQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/1W9fbZLlUcBE84glaBiGQJA2kEDAZ07AVMywvEEUwkAAAAAAAAAAAAAAAAAAAAAAPYihwgG3S8MNm4BDdIShQnGYrMK6MotEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_3">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAPUsDAAL6fwIAMUsDAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgD5SgMAAAAAADhREQAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/gJzUXxjGT8DWkjkVxRR2QICc1F8Yxk/Ad84bCIIarEAAAAAAAAAAAAAAAAAAAAAAAQCCwgEAqsKBAHVEAQDAQgEA3EJP8pZEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_4">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAXjcEAAL6fwIAUjcEAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgAaNwQAAAAAADj9EgAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/+qK8ic2jXMASZVLSgSR4QEa+RPxWW5PABFerN7ZUnUAAAAAAAAAAAAAAAAAAAAAA/v/BQr0/U8KuxYlEsTESRHoXBUNZ+pZEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_5">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAgtICAAL6fwIAdtICAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgA+0gIAAAAAADgPEAAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/J73/FTw5AcDkrhEB/GglQLeJ9Fa7aArAp17Oy2ieXkAAAAAAAAAAAAAAAAAAAAAA/z/LQwEAu8L/n4lEAYAWRAEAlUJq9KBEAACA [rest of string was truncated]&quot;;.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_12_1_27_link_6">
+            <summary>
+              Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAfBMDAAL6fwIAcBMDAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgA4EwMAAAAAADhhEgAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/oPqMhC9FSsBTfBPiDQ1zQPKEq2N5zFvAjFMOHoRcn0AAAAAAAAAAAAAAAAAAAAAAfpkWRH0pUsKzzpNEBMAeRKYvUkJN8aBEAACA [rest of string was truncated]&quot;;.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Presets.Properties.Resources.CRB15000_5_0_95_link_0">
@@ -1884,12 +1961,88 @@
               Looks up a localized string similar to AAEAAAD/////AQAAAAAAAAAMAgAAAFdSaGlub0NvbW1vbiwgVmVyc2lvbj02LjM1LjIxMjIyLjE3MDAxLCBDdWx0dXJlPW5ldXRyYWwsIFB1YmxpY0tleVRva2VuPTU1MjI4MWU5N2M3NTU1MzAFAQAAABNSaGluby5HZW9tZXRyeS5NZXNoBAAAAAd2ZXJzaW9uCmFyY2hpdmUzZG0Jb3Blbm51cmJzBGRhdGEAAAAHCAgIAgIAAAAQJwAAPAAAAOV7jIwJAwAAAA8DAAAAgYkCAAL6fwIAdYkCAAAAAAD7/wIAFAAAAAAAAADk1NdOR+nTEb/lABCDASLwLbkbXPz/AgA9iQIAAAAAADgREwAAiBMAANIdM569+OX/0h0znr345f/SHTOevfjl/9IdM569+OX/////////XsDNYRwPpT+EQAAAAAAAAG/AOUAYsNoYZkAAAAAAAAAAAAAAAAAAAAAA/4/RRAEA+sL/3+xEAoDWRAEA+kIBEAZFAACA [rest of string was truncated]&quot;;.
             </summary>
         </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.CRB15000_10_152">
+            <summary>
+            Represents a collection of methods to get the CRB15000-10/1.52 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_10_152.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new CRB15000-10/1.52 Robot instance. 
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_10_152.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_10_152.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> The list with axis planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_10_152.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_10_152.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.CRB15000_12_127">
+            <summary>
+            Represents a collection of methods to get the CRB15000-12/1.27 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_12_127.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new CRB15000-12/1.27 Robot instance. 
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_12_127.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_12_127.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> The list with axis planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_12_127.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_12_127.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
         <member name="T:RobotComponents.ABB.Presets.Robots.CRB15000_5_095">
             <summary>
             Represents a collection of methods to get the CRB15000-5/0.95 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_5_095.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.CRB15000_5_095.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new CRB15000-5/0.95 Robot instance. 
             </summary>
@@ -1927,7 +2080,7 @@
             Represents a collection of methods to get the IRB1010-1.5/0.37 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1010_15_037.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1010_15_037.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1010-1.5/0.37 Robot instance. 
             </summary>
@@ -1965,7 +2118,7 @@
             Represents a collection of methods to get the IRB1100-4/0.475 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1100_4_0475.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1100_4_0475.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1100-4/0.475 Robot instance. 
             </summary>
@@ -2003,7 +2156,7 @@
             Represents a collection of methods to get the IRB1100-4/0.58 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1100_4_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1100_4_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1100-4/0.58 Robot instance. 
             </summary>
@@ -2041,7 +2194,7 @@
             Represents a collection of methods to get the IRB1200-5/0.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1200_5_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1200_5_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1200-5/0.90 Robot instance.
             </summary>
@@ -2079,7 +2232,7 @@
             Represents a collection of methods to get the IRB1200-7/0.70 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1200_7_070.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1200_7_070.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1200-7/0.70 Robot instance.
             </summary>
@@ -2117,7 +2270,7 @@
             Represents a collection of methods to get the IRB120-3/0.58 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB120-3/0.58 Robot instance. 
             </summary>
@@ -2155,7 +2308,7 @@
             Represents a collection of methods to get the IRB1300-10/1.15 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_10_115.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_10_115.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1300-10/1.15 Robot instance. 
             </summary>
@@ -2193,7 +2346,7 @@
             Represents a collection of methods to get the IRB1300-11/0.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_11_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_11_090.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1300-11/0.90 Robot instance. 
             </summary>
@@ -2231,7 +2384,7 @@
             Represents a collection of methods to get the IRB1300-7/1.40 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_7_140.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1300_7_140.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1300-7/1.40 Robot instance. 
             </summary>
@@ -2269,7 +2422,7 @@
             Represents a collection of methods to get the IRB140-6/0.81 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB140_6_081.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB140_6_081.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB140-6/0.81 Robot instance.
             </summary>
@@ -2307,7 +2460,7 @@
             Represents a collection of methods to get the IRB1520ID-4/1.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1520ID_4_150.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1520ID_4_150.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB1520ID-4/1.5 Robot instance.
             </summary>
@@ -2340,115 +2493,229 @@
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
-        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_X_120">
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_10_120">
             <summary>
-            Represents a collection of methods to get the IRB1600-X/1.20 Robot instance.
+            Represents a collection of methods to get the IRB1600-10/1.20 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_120.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_120.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
-            Returns a new IRB1600-X/1.20 Robot instance.
+            Returns a new IRB1600-10/1.20 Robot instance.
             </summary>
             <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The external axes attached to the Robot. </param>
             <returns> The Robot preset. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_120.GetMeshes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_120.GetMeshes">
             <summary>
             Returns the list with the base and link meshes of the robot in robot coordinate space.
             </summary>
             <returns> The list with robot meshes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_120.GetAxisPlanes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_120.GetAxisPlanes">
             <summary>
             Returns the list with the axis planes in robot coordinate space. 
             </summary>
             <returns> Returns a list with planes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_120.GetAxisLimits">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_120.GetAxisLimits">
             <summary>
             Returns the list with axis limits.  
             </summary>
             <returns> The list with axis limits. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_120.GetToolMountingFrame">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_120.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
-        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_X_145">
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_6_120">
             <summary>
-            Represents a collection of methods to get the IRB1600-X/1.45 Robot instance.
+            Represents a collection of methods to get the IRB1600-6/1.20 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_145.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_120.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
-            Returns a new IRB1600-X/1.45 Robot instance.
+            Returns a new IRB1600-6/1.20 Robot instance.
             </summary>
             <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The external axes attached to the Robot. </param>
             <returns> The Robot preset. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_145.GetMeshes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_120.GetMeshes">
             <summary>
             Returns the list with the base and link meshes of the robot in robot coordinate space.
             </summary>
             <returns> The list with robot meshes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_145.GetAxisPlanes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_120.GetAxisPlanes">
             <summary>
             Returns the list with the axis planes in robot coordinate space. 
             </summary>
             <returns> Returns a list with planes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_145.GetAxisLimits">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_120.GetAxisLimits">
             <summary>
             Returns the list with axis limits.  
             </summary>
             <returns> The list with axis limits. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_X_145.GetToolMountingFrame">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_120.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
-        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155">
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_10_145">
             <summary>
-            Represents a collection of methods to get the IRB1660ID-X/1.55 Robot instance.
+            Represents a collection of methods to get the IRB1600-10/1.45 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_145.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
-            Returns a new IRB1660ID-X/1.55 Robot instance.
+            Returns a new IRB1600-10/1.45 Robot instance.
             </summary>
             <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The external axes attached to the Robot. </param>
             <returns> The Robot preset. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155.GetMeshes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_145.GetMeshes">
             <summary>
             Returns the list with the base and link meshes of the robot in robot coordinate space.
             </summary>
             <returns> The list with robot meshes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155.GetAxisPlanes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_145.GetAxisPlanes">
             <summary>
             Returns the list with the axis planes in robot coordinate space. 
             </summary>
             <returns> Returns a list with planes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155.GetAxisLimits">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_145.GetAxisLimits">
             <summary>
             Returns the list with axis limits.  
             </summary>
             <returns> The list with axis limits. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_X_155.GetToolMountingFrame">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_10_145.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1600_6_145">
+            <summary>
+            Represents a collection of methods to get the IRB1600-6/1.45 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_145.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new IRB1600-6/1.45 Robot instance.
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_145.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_145.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> Returns a list with planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_145.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.  
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1600_6_145.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155">
+            <summary>
+            Represents a collection of methods to get the IRB1660ID-6/1.55 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new IRB1660ID-6/1.55 Robot instance.
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> Returns a list with planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.  
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_6_155.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155">
+            <summary>
+            Represents a collection of methods to get the IRB1660ID-4/1.55 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new IRB1660ID-4/1.55 Robot instance.
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> Returns a list with planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.  
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB1660ID_4_155.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
@@ -2459,7 +2726,7 @@
             Represents a collection of methods to get the IRB2600ID-15/1.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600ID_15_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600ID_15_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB2600ID-15/1.85 Robot instance.
             </summary>
@@ -2497,7 +2764,7 @@
             Represents a collection of methods to get the IRB2600ID-8/2.00 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600ID_8_200.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600ID_8_200.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB2600ID-8/2.00 Robot instance.
             </summary>
@@ -2530,12 +2797,50 @@
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB2600_20_165">
+            <summary>
+            Represents a collection of methods to get the IRB2600-20/1.65 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_20_165.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new IRB2600-20/1.65 Robot instance.
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_20_165.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_20_165.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> Returns a list with planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_20_165.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.  
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_20_165.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
         <member name="T:RobotComponents.ABB.Presets.Robots.IRB2600_12_185">
             <summary>
             Represents a collection of methods to get the IRB2600-12/1.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_185.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB2600-12/1.85 Robot instance.
             </summary>
@@ -2568,39 +2873,39 @@
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
-        <member name="T:RobotComponents.ABB.Presets.Robots.IRB2600_X_165">
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB2600_12_165">
             <summary>
-            Represents a collection of methods to get the IRB2600-X/1.65 Robot instance.
+            Represents a collection of methods to get the IRB2600-12/1.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_X_165.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_165.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
-            Returns a new IRB2600-X/1.65 Robot instance.
+            Returns a new IRB2600-12/1.65 Robot instance.
             </summary>
             <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The external axes attached to the Robot. </param>
             <returns> The Robot preset. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_X_165.GetMeshes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_165.GetMeshes">
             <summary>
             Returns the list with the base and link meshes of the robot in robot coordinate space.
             </summary>
             <returns> The list with robot meshes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_X_165.GetAxisPlanes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_165.GetAxisPlanes">
             <summary>
             Returns the list with the axis planes in robot coordinate space. 
             </summary>
             <returns> Returns a list with planes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_X_165.GetAxisLimits">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_165.GetAxisLimits">
             <summary>
             Returns the list with axis limits.  
             </summary>
             <returns> The list with axis limits. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_X_165.GetToolMountingFrame">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB2600_12_165.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
@@ -2611,7 +2916,7 @@
             Represents a collection of methods to get the IRB4600-20/2.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_20_250.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_20_250.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB4600-20/2.5 Robot instance.
             </summary>
@@ -2649,7 +2954,7 @@
             Represents a collection of methods to get the IRB4600-40/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_40_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB4600-40/2.55 Robot instance.
             </summary>
@@ -2682,39 +2987,77 @@
             </summary>
             <returns> The tool mounting frame. </returns>
         </member>
-        <member name="T:RobotComponents.ABB.Presets.Robots.IRB4600_X_205">
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB4600_60_205">
             <summary>
-            Represents a collection of methods to get the IRB4600-X/2.05 Robot instance.
+            Represents a collection of methods to get the IRB4600-60/2.05 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_X_205.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_60_205.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
-            Returns a new IRB4600-X/2.05 Robot instance.
+            Returns a new IRB4600-60/2.05 Robot instance.
             </summary>
             <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
             <param name="externalAxes"> The external axes attached to the Robot. </param>
             <returns> The Robot preset. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_X_205.GetMeshes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_60_205.GetMeshes">
             <summary>
             Returns the list with the base and link meshes of the robot in robot coordinate space.
             </summary>
             <returns> The list with robot meshes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_X_205.GetAxisPlanes">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_60_205.GetAxisPlanes">
             <summary>
             Returns the list with the axis planes in robot coordinate space. 
             </summary>
             <returns> Returns a list with planes. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_X_205.GetAxisLimits">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_60_205.GetAxisLimits">
             <summary>
             Returns the list with axis limits.  
             </summary>
             <returns> The list with axis limits. </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_X_205.GetToolMountingFrame">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_60_205.GetToolMountingFrame">
+            <summary>
+            Returns the tool mounting frame in robot coordinate space.
+            </summary>
+            <returns> The tool mounting frame. </returns>
+        </member>
+        <member name="T:RobotComponents.ABB.Presets.Robots.IRB4600_45_205">
+            <summary>
+            Represents a collection of methods to get the IRB4600-45/2.05 Robot instance.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_45_205.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
+            <summary>
+            Returns a new IRB4600-45/2.05 Robot instance.
+            </summary>
+            <param name="positionPlane"> The position and orientation of the Robot in world coordinate space. </param>
+            <param name="tool"> The Robot Tool. </param>
+            <param name="externalAxes"> The external axes attached to the Robot. </param>
+            <returns> The Robot preset. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_45_205.GetMeshes">
+            <summary>
+            Returns the list with the base and link meshes of the robot in robot coordinate space.
+            </summary>
+            <returns> The list with robot meshes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_45_205.GetAxisPlanes">
+            <summary>
+            Returns the list with the axis planes in robot coordinate space. 
+            </summary>
+            <returns> Returns a list with planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_45_205.GetAxisLimits">
+            <summary>
+            Returns the list with axis limits.  
+            </summary>
+            <returns> The list with axis limits. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB4600_45_205.GetToolMountingFrame">
             <summary>
             Returns the tool mounting frame in robot coordinate space.
             </summary>
@@ -2725,7 +3068,7 @@
             Represents a collection of methods to get the IRB6620-150/2.20 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6620_150_220.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6620_150_220.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6620-150/2.20 Robot instance.
             </summary>
@@ -2763,7 +3106,7 @@
             Represents a collection of methods to get the IRB6640-185/2.80 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6640_185_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6640_185_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6640-185/2.80 Robot instance.
             </summary>
@@ -2801,7 +3144,7 @@
             Represents a collection of methods to get the IRB6640-235/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6640_235_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6640_235_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6640-135/2.55 Robot instance.
             </summary>
@@ -2839,7 +3182,7 @@
             Represents a collection of methods to get the IRB6650S-125/3.50 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_125_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_125_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6650S-125/3.50 Robot instance.
             </summary>
@@ -2877,7 +3220,7 @@
             Represents a collection of methods to get the IRB6650S-200/3.00 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_200_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_200_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6650S-200/3.00 Robot instance.
             </summary>
@@ -2915,7 +3258,7 @@
             Represents a collection of methods to get the IRB6650S-90/3.90 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_90_390.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650S_90_390.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6650S-90/3.90 Robot instance.
             </summary>
@@ -2953,7 +3296,7 @@
             Represents a collection of methods to get the IRB6650-125/3.2 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650_125_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650_125_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6650-125/3.2 Robot instance.
             </summary>
@@ -2991,7 +3334,7 @@
             Represents a collection of methods to get the IRB6650-200/2.75 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650_200_275.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6650_200_275.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6650-200/2.75 Robot instance.
             </summary>
@@ -3029,7 +3372,7 @@
             Represents a collection of methods to get the IRB6700-150/3.2 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_150_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_150_320.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-150/3.2 Robot instance.
             </summary>
@@ -3067,7 +3410,7 @@
             Represents a collection of methods to get the IRB6700-155/2.85 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_155_285.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_155_285.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-155/2.85 Robot instance.
             </summary>
@@ -3105,7 +3448,7 @@
             Represents a collection of methods to get the IRB6700-175/3.05 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_175_305.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_175_305.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-175/3.05 Robot instance.
             </summary>
@@ -3143,7 +3486,7 @@
             Represents a collection of methods to get the IRB6700-200/2.6 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_200_260.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_200_260.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-200/2.6 Robot instance.
             </summary>
@@ -3181,7 +3524,7 @@
             Represents a collection of methods to get the IRB6700-205/2.80 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-205/2.8 Robot instance.
             </summary>
@@ -3219,7 +3562,7 @@
             Represents a collection of methods to get the IRB6700-235/2.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-235/2.65 Robot instance.
             </summary>
@@ -3257,7 +3600,7 @@
             Represents a collection of methods to get the IRB6700-245/3.0 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_245_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_245_300.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-245/3.0 Robot instance.
             </summary>
@@ -3295,7 +3638,7 @@
             Represents a collection of methods to get the IRB6700-300/2.7 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_300_270.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6700_300_270.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6700-300/2.7 Robot instance.
             </summary>
@@ -3333,7 +3676,7 @@
             Represents a collection of methods to get the IRB6790-205/2.8 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6790_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6790_205_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6790-205/2.8 Robot instance.
             </summary>
@@ -3371,7 +3714,7 @@
             Represents a collection of methods to get the IRB6790-235/2.65 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6790_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB6790_235_265.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB6790-235/2.65 Robot instance.
             </summary>
@@ -3409,7 +3752,7 @@
             Represents a collection of methods to get the IRB7600-150/3.5 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_150_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_150_350.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB7600-150/3.5 Robot instance.
             </summary>
@@ -3447,7 +3790,7 @@
             Represents a collection of methods to get the IRB7600-325/3.1 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_325_310.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_325_310.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB7600-325/3.1 Robot instance.
             </summary>
@@ -3485,7 +3828,7 @@
             Represents a collection of methods to get the IRB7600-340/2.8 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_340_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_340_280.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB7600-340/2.8 Robot instance.
             </summary>
@@ -3523,7 +3866,7 @@
             Represents a collection of methods to get the IRB7600-400/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_400_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_400_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB7600-400/2.55 Robot instance.
             </summary>
@@ -3561,7 +3904,7 @@
             Represents a collection of methods to get the IRB7600-500/2.55 Robot instance.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_500_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Presets.Robots.IRB7600_500_255.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Returns a new IRB7600-500/2.55 Robot instance.
             </summary>

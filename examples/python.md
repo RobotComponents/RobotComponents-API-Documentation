@@ -105,6 +105,6 @@ for i in range(len(curves)):
 actions.append(go_home)
 
 # Create the RAPID program
-rapid_generator = rc.Actions.RAPIDGenerator(robot, actions, "MainModule", "main")
-program = rapid_generator.CreateModule()
+rapid_generator = rc.Actions.RAPIDGenerator(robot, "MainModule", "main")
+program = rapid_generator.CreateModule(actions)
 ```

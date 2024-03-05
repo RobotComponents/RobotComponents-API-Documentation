@@ -15,7 +15,7 @@ We generate the API documentation with [docfx](https://dotnet.github.io/docfx/).
 2) Pull the files from this repo via git. 
 3) Update/replace the `.dll` and `.xml` files in the `src` folder. 
 4) Use the command prompt and navigate to the folder of this repo.
-5) Build the new documentation pages by calling the command `docfx`. 
+5) Build the new documentation pages by calling the command `docfx build`. 
 6) Push the updated files. 
 
 ## License

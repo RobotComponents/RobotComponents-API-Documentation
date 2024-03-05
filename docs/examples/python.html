@@ -9,6 +9,7 @@
       <meta name="viewport" content="width=device-width">
       <meta name="title" content="Python example ">
     
+    
       <link rel="shortcut icon" href="../favicon.ico">
       <link rel="stylesheet" href="../styles/docfx.vendor.min.css">
       <link rel="stylesheet" href="../styles/docfx.css">
@@ -172,9 +173,10 @@ for i in range(len(curves)):
 actions.append(go_home)
 
 # Create the RAPID program
-rapid_generator = rc.Actions.RAPIDGenerator(robot, actions, &quot;MainModule&quot;, &quot;main&quot;)
-program = rapid_generator.CreateModule()
+rapid_generator = rc.Actions.RAPIDGenerator(robot, &quot;MainModule&quot;, &quot;main&quot;)
+program = rapid_generator.CreateModule(actions)
 </code></pre>
+
 </article>
           </div>
 
@@ -183,12 +185,12 @@ program = rapid_generator.CreateModule()
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/RobotComponents/RobotComponents-API-Documentation/blob/master/examples/python.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/RobotComponents/RobotComponents-API-Documentation/blob/master/examples/python.md/#L1" class="contribution-link">Edit this page</a>
                   </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-                <h5>In This Article</h5>
+                <h5>In this article</h5>
                 <div></div>
               </nav>
             </div>

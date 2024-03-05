@@ -28,13 +28,13 @@
             Initializes an empty instance of the Action Group class.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})">
             <summary>
             Initializes a new instance of the Action Group class with an empty name.
             </summary>
             <param name="actions"> The list with actions. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})">
             <summary>
             Initializes a new instance of the Action Group class.
             </summary>
@@ -87,13 +87,13 @@
             The duplicate of the list with actions as an array. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.IAction)">
             <summary>
             Adds and action to the end of this action group.
             </summary>
             <param name="action"></param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})">
             <summary>
             Adds the elements of the specified collection with actions to the end of this action group.
             </summary>
@@ -104,7 +104,7 @@
             Removes all elements from the action group.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.IAction)">
             <summary>
             Determines the index of a specific item in the list.
             </summary>
@@ -113,14 +113,14 @@
             The index of value if found in the list; otherwise, -1. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.Action)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.IAction)">
             <summary>
             Inserts an item to the list at the specified index.
             </summary>
             <param name="index"> The zero-based index at which value should be inserted. </param>
             <param name="action"> The object to insert into the list. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.IAction)">
             <summary>
             Determines whether the list contains a specific value.
             </summary>
@@ -129,7 +129,7 @@
             True if the Action is found in the list; otherwise, false. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.IAction)">
             <summary>
             Removes the first occurrence of a specific object from the List.
             </summary>
@@ -141,7 +141,7 @@
             </summary>
             <param name="index"> The zero-based index of the item to remove. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction[],System.Int32)">
             <summary>
             Copies the elements of the ICollection to an Array, starting at a particular Array index.
             </summary>
@@ -174,18 +174,9 @@
             The RAPID code line of a instructive actions as one string.
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -364,18 +355,9 @@
             An emptry string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -569,18 +551,9 @@
             An empty string.  
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.TaskList.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.TaskList.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.TaskList.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -629,6 +602,131 @@
         <member name="P:RobotComponents.ABB.Actions.Declarations.TaskList.IsFixedSize">
             <summary>
             Gets a value indicating whether or not the task collection has a fixed size.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Actions.Declarations.IDeclaration">
+            <summary>
+            Represents the interface for different declaration action types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration">
+            <summary>
+            Returns an exact duplicate of this Declaration.
+            </summary>
+            <returns> 
+            The exact copy of this Declaration. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID">
+            <summary>
+            Returns the Declaration in RAPID code format.
+            </summary>
+            <returns> 
+            The RAPID data string. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope">
+            <summary>
+            Gets or sets the scope
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType">
+            <summary>
+            Gets or sets the variable type. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype">
+            <summary>
+            Gets the RAPID datatype. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Name">
+            <summary>
+            Gets or sets the variable name of the declaration.
+            </summary>
+            <remarks>
+            Each variable name has to be unique. 
+            </remarks>
+        </member>
+        <member name="T:RobotComponents.ABB.Actions.Declarations.ITarget">
+            <summary>
+            Represents the interface for different target types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ITarget.DuplicateTarget">
+            <summary>
+            Returns an exact duplicate of this Target.
+            </summary>
+            <returns> The exact copy of this Target. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ITarget.ToRAPID">
+            <summary>
+            Returns the Target in RAPID code format.
+            </summary>
+            <returns> 
+            The RAPID data string. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ITarget.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ITarget.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.ITarget.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.ITarget.VariableType">
+            <summary>
+            Gets or sets the Variable Type.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.ITarget.Name">
+            <summary>
+            Gets or sets the Target variable name.
+            Each Target variable name has to be unique.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.ITarget.ExternalJointPosition">
+            <summary>
+            Gets or sets the External Joint Position.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Declarations.JointTarget">
@@ -816,18 +914,9 @@
             An empty string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.JointTarget.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -1152,18 +1241,9 @@
             An empty string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -1297,9 +1377,101 @@
             The first Robot Joint Position divided by the second Robot Joint Position. 
             </returns>
         </member>
+        <member name="T:RobotComponents.ABB.Actions.Declarations.IJointPosition">
+            <summary>
+            Represents the interface for different Joint Positions.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition">
+            <summary>
+            Returns an exact duplicate of this IJointPosition.
+            </summary>
+            <returns> 
+            The exact copy of this IJointPosition. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray">
+            <summary>
+            Returns the Joint Position as an array with axis values.
+            </summary>
+            <returns> 
+            The array containing the joint positions. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList">
+            <summary>
+            Returns the Joint Position as a list with axis values.
+            </summary>
+            <returns> 
+            The list containing the the joint positions. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID">
+            <summary>
+            Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
+            </summary>
+            <returns> 
+            The string with joint positions. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset">
+            <summary>
+            Sets all the elements in the joint position back to its default value.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Name">
+            <summary>
+            Gets or sets the Joint Position variable name.
+            </summary>
+            <remarks>
+            Each variable name has to be unique.
+            </remarks>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IJointPosition.VariableType">
+            <summary>
+            Gets or sets the variable type. 
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Length">
+            <summary>
+            Gets the number of elements in the joint position.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Item(System.Int32)">
+            <summary>
+            Gets or sets the joint position through the indexer. 
+            </summary>
+            <param name="index"> The index number. </param>
+            <returns> 
+            The joint position located at the given index. 
+            </returns>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Declarations.IJointPosition.IsFixedSize">
+            <summary>
+            Gets a value indicating whether or not the joint position array has a fixed size.
+            </summary>
+        </member>
         <member name="T:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition">
             <summary>
-            Represents an External Joint Position declaration.. 
+            Represents an External Joint Position declaration.
             </summary>
             <remarks>
             This action is used to defined define the axis positions of external axes, positioners and workpiece manipulators.
@@ -1553,18 +1725,9 @@
             An empty string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -1875,18 +2038,9 @@
             An emptry string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.ZoneData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -1989,24 +2143,6 @@
             <summary>
             Gets the valid predefined data as a dictionary.
             </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.ZoneData.PreDefined">
-            <summary>
-            Gets or sets a value indicating whether this zonedata is a predefined zonedata. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.ZoneData.UserDefinied">
-            <summary>
-            Gets or sets a value indicating whether this zonedata is a user definied zonedata. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.ZoneData.ExactPredefinedValue">
-            <summary>
-            Gets or sets a value indicating whether this zonedata was constructed from an exact predefined zonedata value. 
-            </summary>
-            <remarks>
-            If false the nearest predefined zoneata or a custom zonedata was used.
-            </remarks>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Declarations.SpeedData">
             <summary>
@@ -2162,18 +2298,9 @@
             An empty string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.SpeedData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -2258,24 +2385,6 @@
             <summary>
             Gets the valid predefined data as a dictionary.
             </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.SpeedData.PreDefined">
-            <summary>
-            Gets or sets a value indicating whether this speeddata is a predefined speeddata. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.SpeedData.UserDefinied">
-            <summary>
-            Gets or sets a value indicating whether this speeddata is a user definied speeddata. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.SpeedData.ExactPredefinedValue">
-            <summary>
-            Gets or sets a value indicating whether this speeddata was constructed from an exact predefined speeddata value. 
-            </summary>
-            <remarks>
-            If false, the nearest predefined speedata or a custom speeddata was used. 
-            </remarks>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Declarations.RobotTarget">
             <summary>
@@ -2442,18 +2551,9 @@
             An emptry string. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -2507,94 +2607,6 @@
             <summary>
             Gets or sets the External Joint Position.
             </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32)">
-            <summary>
-            Initializes a new instance of the Robot Target class with an undefined External Joint Position.
-            </summary>
-            <param name="plane"> Thr target plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32)">
-            <summary>
-            Initializes a new instance of the Robot Target class with an undefined External Joint Position.
-            </summary>
-            <param name="name"> The target name, must be unique. </param>
-            <param name="plane"> Thr target plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">
-            <summary>
-            Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position.
-            </summary>
-            <remarks>
-            The target plane will be reoriented from the reference plane to the world xy-plane.
-            </remarks>
-            <param name="plane"> The target plane. </param>
-            <param name="referencePlane"> The reference plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">
-            <summary>
-            Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position..
-            </summary>
-            <remarks>
-            The target plane will be reoriented from the reference plane to the world xy-plane.
-            </remarks>
-            <param name="name"> The target name, must be unique. </param>
-            <param name="plane"> The target plane. </param>
-            <param name="referencePlane"> The reference plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
-            <summary>
-            Initializes a new instance of the Robot Target class.
-            </summary>
-            <param name="plane"> The target plane.</param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
-            <summary>
-            Initializes a new instance of the Robot Target class.
-            </summary>
-            <param name="name"> The target name, must be unique. </param>
-            <param name="plane"> The target plane.</param>
-            <param name="axisConfig"> The axis configuration as a number (0-7). </param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
-            <summary>
-            Initializes a new instance of the Robot Target class.
-            </summary>
-            <remarks>
-            The target plane will be reoriented from the reference plane to the world xy-plane.
-            </remarks>
-            <param name="name"> The target name, must be unique.</param>
-            <param name="plane"> The target plane.</param>
-            <param name="referencePlane"> The Reference plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7).</param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
-            <summary>
-            Initializes a new instance of the Robot Target class.
-            </summary>
-            <remarks>
-            The target plane will be reoriented from the reference plane to the world xy-plane.
-            </remarks>
-            <param name="plane"> The target plane.</param>
-            <param name="referencePlane"> The Reference plane. </param>
-            <param name="axisConfig"> The axis configuration as a number (0-7).</param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Declarations.RobotTarget.AxisConfig">
-            <summary>
-            Gets or set the axis configuration.
-            </summary>
-            <remarks>
-            Min. value 0. Max. value 7.
-            </remarks>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.AccelerationSet">
             <summary>
@@ -2686,18 +2698,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AccelerationSet.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.AccelerationSet.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AccelerationSet.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -2724,127 +2727,6 @@
             <remarks>
             Use values from 10 till 100. 
             </remarks>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Instructions.AnalogOutput">
-            <summary>
-            Represents a Set Analog Output instruction. 
-            </summary>
-            <remarks>
-            This action is used to set the value of an analog output signal.
-            </remarks>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Protected constructor needed for deserialization of the object.  
-            </summary>
-            <param name="info"> The SerializationInfo to extract the data from. </param>
-            <param name="context"> The context of this deserialization. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Populates a SerializationInfo with the data needed to serialize the object.
-            </summary>
-            <param name="info"> The SerializationInfo to populate with data. </param>
-            <param name="context"> The destination for this serialization. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor">
-            <summary>
-            Initializes an empty instance of the Analog Output class.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor(System.String,System.Double)">
-            <summary>
-            Initializes a new instance of the Analog Output class.
-            </summary>
-            <param name="name"> The name of the Analog Output signal. </param>
-            <param name="value"> The desired value of the signal. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.#ctor(RobotComponents.ABB.Actions.Instructions.AnalogOutput)">
-            <summary>
-            Initializes a new instance of the Analog Output class by duplicating an existing Analog Output instance. 
-            </summary>
-            <param name="analogOutput"> The Analog Output instance to duplicate. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.Duplicate">
-            <summary>
-            Returns an exact duplicate of this Analog Output instance.
-            </summary>
-            <returns> A deep copy of the Analog Output instance. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.DuplicateInstruction">
-            <summary>
-            Returns an exact duplicate of this Analog Output instance as IInstruction.
-            </summary>
-            <returns> 
-            A deep copy of the Analog Output instance as an IInstruction. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.DuplicateAction">
-            <summary>
-            Returns an exact duplicate of this Analog Output instance as an Action. 
-            </summary>
-            <returns> 
-            A deep copy of the Analog Output instance as an Action. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> 
-            A string that represents the current object. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            An empty string. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            </summary>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.AnalogOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.AnalogOutput.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.AnalogOutput.Name">
-            <summary>
-            Gets or sets the name of the Analog Output signal.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.AnalogOutput.Value">
-            <summary>
-            Gets or sets the value of the signal.
-            </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.PathAccelerationLimitation">
             <summary>
@@ -2939,18 +2821,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.PathAccelerationLimitation.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.PathAccelerationLimitation.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.PathAccelerationLimitation.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3073,18 +2946,9 @@
             The RAPID code line.
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3202,18 +3066,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SetAnalogOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.SetAnalogOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SetAnalogOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3324,18 +3179,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.CirclePathMode.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.CirclePathMode.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.CirclePathMode.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3350,129 +3196,6 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.CirclePathMode.Mode">
             <summary>
             Gets or set the circular path mode.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Instructions.DigitalOutput">
-            <summary>
-            Represents a Set Digital Output instruction. 
-            </summary>
-            <remarks>
-            This action is used to set the value (state) of a digital output signal.
-            </remarks>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Protected constructor needed for deserialization of the object.  
-            </summary>
-            <param name="info"> The SerializationInfo to extract the data from. </param>
-            <param name="context"> The context of this deserialization. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
-            <summary>
-            Populates a SerializationInfo with the data needed to serialize the object.
-            </summary>
-            <param name="info"> The SerializationInfo to populate with data. </param>
-            <param name="context"> The destination for this serialization. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor">
-            <summary>
-            Initializes an empty instance of the Digital Output class.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor(System.String,System.Boolean)">
-            <summary>
-            Initializes a new instance of the Digital Output class.
-            </summary>
-            <param name="Name"> The name of the Digital Output signal. </param>
-            <param name="IsActive"> Specifies whether the Digital Output is active. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.#ctor(RobotComponents.ABB.Actions.Instructions.DigitalOutput)">
-            <summary>
-            Initializes a new instance of the Digital Output class by duplicating an existing Digital Output instance. 
-            </summary>
-            <param name="digitalOutput"> The Digital Output instance to duplicate. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.Duplicate">
-            <summary>
-            Returns an exact duplicate of this Digital Output instance.
-            </summary>
-            <returns> 
-            A deep copy of the Digital Output instance. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.DuplicateInstruction">
-            <summary>
-            Returns an exact duplicate of this Digital Output instance as IInstruction.
-            </summary>
-            <returns> 
-            A deep copy of the Digital Output instance as an IInstruction. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.DuplicateAction">
-            <summary>
-            Returns an exact duplicate of this Digital Output instance as an Action. 
-            </summary>
-            <returns> 
-            A deep copy of the Digital Output instance as an Action. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> 
-            A string that represents the current object. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> A
-            n empty string. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> T
-            he RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. .
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.DigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.DigitalOutput.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.DigitalOutput.Name">
-            <summary>
-            Gets or sets the name of the Digital Output signal.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.DigitalOutput.IsActive">
-            <summary>
-            Gets or sets a value indicating whether the Digital Output is active.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.VelocitySet">
@@ -3565,18 +3288,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.VelocitySet.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.VelocitySet.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.VelocitySet.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3599,6 +3313,59 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.VelocitySet.Max">
             <summary>
             Gets or sets the maximum TCP velocity in mm/s.
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Actions.Instructions.ISyncident">
+            <summary>
+            Represents the interface for actions that contain a synchronization identity.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident">
+            <summary>
+            Returns an exact duplicate of this Syncident.
+            </summary>
+            <returns>
+            The exact copy of this Syncident.
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> The RAPID code line. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType">
+            <summary>
+            Gets or sets the variable type of the syncident.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID">
+            <summary>
+            Gets or sets the name of the synchronization (meeting) point (syncident).
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.SyncMoveOff">
@@ -3696,18 +3463,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOff.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOff.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOff.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3736,11 +3494,6 @@
             <remarks>
             Set a negative value to wait for ever (default is -1).
             </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.SyncMoveOff.ReferenceType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.SyncMoveOn">
             <summary>
@@ -3837,18 +3590,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -3882,11 +3626,6 @@
             <remarks>
             Set a negative value to wait for ever (default is -1).
             </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.WaitAI">
             <summary>
@@ -3980,18 +3719,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitAI.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitAI.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitAI.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -4123,18 +3853,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitSyncTask.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitSyncTask.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitSyncTask.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -4174,11 +3895,6 @@
             <remarks>
             Set a negative value to wait for ever(default is -1).
             </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.WaitSyncTask.ReferenceType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.LinearConfigurationControl">
             <summary>
@@ -4269,18 +3985,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.LinearConfigurationControl.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.LinearConfigurationControl.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.LinearConfigurationControl.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -4386,18 +4093,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.JointConfigurationControl.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.JointConfigurationControl.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.JointConfigurationControl.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -4412,6 +4110,42 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.JointConfigurationControl.IsActive">
             <summary>
             Gets or set a value indicating whether Joint Configuration Control is enabled. 
+            </summary>
+        </member>
+        <member name="T:RobotComponents.ABB.Actions.Instructions.IInstruction">
+            <summary>
+            Represents the interface for different instruction action types.
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction">
+            <summary>
+            Returns an exact duplicate of this Instruction.
+            </summary>
+            <returns> 
+            The exact copy of this Instruction. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Instructions.Movement">
@@ -4447,7 +4181,7 @@
             </remarks>
             <param name="plane"> The target plane. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Declarations.ITarget)">
             <summary>
             Initializes a new instance of the Movement class.
             </summary>
@@ -4456,7 +4190,7 @@
             </remarks>
             <param name="target"> The Target. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData)">
             <summary>
             Initializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output. 
             </summary>
@@ -4464,7 +4198,7 @@
             <param name="target"> The Target. </param>
             <param name="speedData"> The Speed Data. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData)">
             <summary>
             Initializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output. 
             </summary>
@@ -4473,7 +4207,7 @@
             <param name="speedData"> The Speed Data. </param>
             <param name="zoneData"> The Zone Data. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool)">
             <summary>
             Initializes a new instance of the Movement class with a default Work object (wobj0) and an empty Digital Output.
             </summary>
@@ -4483,7 +4217,7 @@
             <param name="zoneData"> The Zone Data. </param>
             <param name="robotTool"> The Robot Tool. This will override the set default tool. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.WorkObject)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.WorkObject)">
             <summary>
             Initializes a new instance of the Movement class with an empty Robot Tool (no override) and an empty Digital Output.
             </summary>
@@ -4493,7 +4227,7 @@
             <param name="zoneData"> The Zone Data. </param>
             <param name="workObject"> The Work Object. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)">
             <summary>
             Initializes a new instance of the Movement class with an empty Digital Output.
             </summary>
@@ -4504,7 +4238,7 @@
             <param name="robotTool"> The Robot Tool. This will override the set default tool. </param>
             <param name="workObject"> The Work Object. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
             <summary>
             Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)
             </summary>
@@ -4514,7 +4248,7 @@
             <param name="zoneData"> The Zone Data. </param>
             <param name="setDigitalOutput"> The Digital Output. When set this will define a MoveLDO, MoveJDO or MoveCDO instruction. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
             <summary>
             Initializes a new instance of the Movement class with a default Work Object (wobj0). 
             </summary>
@@ -4525,7 +4259,7 @@
             <param name="robotTool"> The Robot Tool. This will override the set default tool. </param>
             <param name="setDigitalOutput"> The Digital Output. When set this will define a MoveLDO, MoveJDO or MoveCDO instruction. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">
             <summary>
             Initializes a new instance of the Movement class.
             </summary>
@@ -4641,21 +4375,12 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.s
             </remarks>
             <param name="RAPIDGenerator"> The RAPID Generator. </param>
         </member>
@@ -4730,49 +4455,6 @@
         <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.SetDigitalOutput">
             <summary>
             Gets or set the Digital Output. 
-            </summary>
-            <remarks>
-            If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
-            If a valid Digital Output is combined movement will be created (MoveLDO or MoveJDO). 
-            If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).
-            </remarks>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">
-            <summary>
-            Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)
-            </summary>
-            <param name="movementType"> The Movement Type. </param>
-            <param name="target"> The Target. </param>
-            <param name="speedData"> The Speed Data.</param>
-            <param name="zoneData"> The Zone Data. </param>
-            <param name="digitalOutput"> The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">
-            <summary>
-            Initializes a new instance of the Movement class with a default Work Object (wobj0). 
-            </summary>
-            <param name="movementType"> The Movement Type. </param>
-            <param name="target"> The Target. </param>
-            <param name="speedData"> The Speed Data. </param>
-            <param name="zoneData"> The Zone Data. </param>
-            <param name="robotTool"> The Robot Tool. This will override the set default tool. </param>
-            <param name="digitalOutput"> The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">
-            <summary>
-            Initializes a new instance of the Movement class.
-            </summary>
-            <param name="movementType"> The Movement Type. </param>
-            <param name="target"> The Target. </param>
-            <param name="speedData"> The Speed Data. </param>
-            <param name="zoneData"> The Zone Data. </param>
-            <param name="robotTool"> The Robot Tool. This will override the set default tool. </param>
-            <param name="workObject"> The Work Object. </param>
-            <param name="digitalOutput"> The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput">
-            <summary>
-            Gets or sets the Digital Output. 
             </summary>
             <remarks>
             If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ). 
@@ -4872,18 +4554,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitDI.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -5008,18 +4681,9 @@
             The RAPID code line.
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -5148,18 +4812,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitTime.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitTime.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.WaitTime.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -5274,18 +4929,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.OverrideRobotTool.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Instructions.OverrideRobotTool.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Instructions.OverrideRobotTool.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -5307,182 +4953,12 @@
             Gets the name of the Robot Tool.
             </summary>
         </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.ISyncident">
-            <summary>
-            Represents the interface for actions that contain a synchronization identity.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident">
-            <summary>
-            Returns an exact duplicate of this Syncident.
-            </summary>
-            <returns>
-            The exact copy of this Syncident.
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> The RAPID code line. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType">
-            <summary>
-            Gets or sets the variable type of the syncident.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID">
-            <summary>
-            Gets or sets the name of the synchronization (meeting) point (syncident).
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.IInstruction">
-            <summary>
-            Represents the interface for different instruction action types.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction">
-            <summary>
-            Returns an exact duplicate of this Instruction.
-            </summary>
-            <returns> 
-            The exact copy of this Instruction. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.IDeclaration">
-            <summary>
-            Represents the interface for different declaration action types.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration">
-            <summary>
-            Returns an exact duplicate of this Declaration.
-            </summary>
-            <returns> 
-            The exact copy of this Declaration. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID">
-            <summary>
-            Returns the Declaration in RAPID code format.
-            </summary>
-            <returns> 
-            The RAPID data string. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope">
-            <summary>
-            Gets or sets the scope
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype">
-            <summary>
-            Gets the RAPID datatype. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name">
-            <summary>
-            Gets or sets the variable name of the declaration.
-            </summary>
-            <remarks>
-            Each variable name has to be unique. 
-            </remarks>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.IDynamic">
+        <member name="T:RobotComponents.ABB.Actions.Dynamic.IDynamic">
             <summary>
             Represents the interface for different dynamic action types.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDynamic.DuplicateDynamic">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic">
             <summary>
             Returns an exact duplicate of this dynamic action.
             </summary>
@@ -5490,7 +4966,7 @@
             The exact copy of this dynamic action.
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
             <summary>
             Returns the RAPID declaration code line of the this action.
             </summary>
@@ -5499,7 +4975,7 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
             <summary>
             Returns the RAPID instruction code line of the this action. 
             </summary>
@@ -5508,249 +4984,23 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
             </remarks>
             <param name="RAPIDGenerator"> The RAPID Generator. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDynamic.IsValid">
+        <member name="P:RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid">
             <summary>
             Gets a value indicating whether or not the object is valid.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IDynamic.Type">
+        <member name="P:RobotComponents.ABB.Actions.Dynamic.IDynamic.Type">
             <summary>
             Gets or sets the Code Type.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.ITarget">
-            <summary>
-            Represents the interface for different target types.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ITarget.DuplicateTarget">
-            <summary>
-            Returns an exact duplicate of this Target.
-            </summary>
-            <returns> The exact copy of this Target. </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ITarget.ToRAPID">
-            <summary>
-            Returns the Target in RAPID code format.
-            </summary>
-            <returns> 
-            The RAPID data string. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ITarget.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.ITarget.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ITarget.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ITarget.VariableType">
-            <summary>
-            Gets or sets the Variable Type.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ITarget.Name">
-            <summary>
-            Gets or sets the Target variable name.
-            Each Target variable name has to be unique.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.ITarget.ExternalJointPosition">
-            <summary>
-            Gets or sets the External Joint Position.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Interfaces.IJointPosition">
-            <summary>
-            Represents the interface for different Joint Positions.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition">
-            <summary>
-            Returns an exact duplicate of this IJointPosition.
-            </summary>
-            <returns> 
-            The exact copy of this IJointPosition. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray">
-            <summary>
-            Returns the Joint Position as an array with axis values.
-            </summary>
-            <returns> 
-            The array containing the joint positions. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList">
-            <summary>
-            Returns the Joint Position as a list with axis values.
-            </summary>
-            <returns> 
-            The list containing the the joint positions. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID">
-            <summary>
-            Returns the Joint Position in RAPID code format, e.g. "[0, 0, 0, 0, 45, 0]".
-            </summary>
-            <returns> 
-            The string with joint positions. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset">
-            <summary>
-            Sets all the elements in the joint position back to its default value.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name">
-            <summary>
-            Gets or sets the Joint Position variable name.
-            </summary>
-            <remarks>
-            Each variable name has to be unique.
-            </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length">
-            <summary>
-            Gets the number of elements in the joint position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)">
-            <summary>
-            Gets or sets the joint position through the indexer. 
-            </summary>
-            <param name="index"> The index number. </param>
-            <returns> 
-            The joint position located at the given index. 
-            </returns>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize">
-            <summary>
-            Gets a value indicating whether or not the joint position array has a fixed size.
-            </summary>
-        </member>
-        <member name="T:RobotComponents.ABB.Actions.Action">
-            <summary>
-            Represents a base class for all robot actions (declarations and instructions).
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.#ctor">
-            <summary>
-            Initializes an empty instance of the Action class. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.DuplicateAction">
-            <summary>
-            Returns an exact duplicate of this Action.
-            </summary>
-            <returns> 
-            The exact copy of this Action. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> 
-            A string that represents the current object. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID declaration code line of the this action.
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Returns the RAPID instruction code line of the this action. 
-            </summary>
-            <param name="robot"> The Robot were the code is generated for. </param>
-            <returns> 
-            The RAPID code line. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.Action.IsValid">
-            <summary>
-            Gets a value indicating whether or not the object is valid.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Actions.Dynamic.CodeLine">
@@ -5846,18 +5096,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Dynamic.CodeLine.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.CodeLine.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Dynamic.CodeLine.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -5976,18 +5217,9 @@
             The RAPID code line. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.Dynamic.Comment.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Actions.Dynamic.Comment.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
-            </summary>
-            <remarks>
-            This method is called inside the RAPID generator.
-            </remarks>
-            <param name="RAPIDGenerator"> The RAPID Generator. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.Dynamic.Comment.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">
-            <summary>
-            Creates instructions in the RAPID program module inside the RAPID Generator.
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -6009,6 +5241,51 @@
             Gets or sets the comment Code Type.
             </summary>
         </member>
+        <member name="T:RobotComponents.ABB.Actions.IAction">
+            <summary>
+            Represents the interfaace for all actions (declarations and instructions).
+            </summary>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.IAction.DuplicateAction">
+            <summary>
+            Returns an exact duplicate of this Action.
+            </summary>
+            <returns> 
+            The exact copy of this Action. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID declaration code line of the this action.
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)">
+            <summary>
+            Returns the RAPID instruction code line of the this action. 
+            </summary>
+            <param name="robot"> The Robot were the code is generated for. </param>
+            <returns> 
+            The RAPID code line. 
+            </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
+            <summary>
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+            </summary>
+            <remarks>
+            This method is called inside the RAPID generator.
+            </remarks>
+            <param name="RAPIDGenerator"> The RAPID Generator. </param>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.IAction.IsValid">
+            <summary>
+            Gets a value indicating whether or not the object is valid.
+            </summary>
+        </member>
         <member name="T:RobotComponents.ABB.Actions.RAPIDGenerator">
             <summary>
             Represents the RAPID Generator.
@@ -6022,19 +5299,17 @@
             Initializes an empty instance of the RAPID Generator class.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot)">
             <summary>
             Initializes a new instance of the RAPID Generator class with a main routine.
             </summary>
             <param name="robot"> The robot info wherefore the code should be created. </param>
-            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.String,System.String)">
+        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.String,System.String)">
             <summary>
             Initializes a new instance of the RAPID Generator class with custom names.
             </summary>
             <param name="robot"> The robot info wherefore the code should be created. </param>
-            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
             <param name="moduleName"> The name of the program module </param>
             <param name="routineName"> The name of the RAPID procedure </param>
         </member>
@@ -6060,10 +5335,11 @@
             A string that represents the current object. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Boolean,System.Boolean,System.Boolean)">
+        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateModule(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction},System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Returns the RAPID module.
             </summary>
+            <param name="actions"> The list with robot actions wherefore the code will be created. </param>
             <param name="addTooldata"> Specifies if the tooldata should be added to the RAPID module. </param>
             <param name="addWobjdata"> Specifies if the wobjdata should be added to the RAPID module. </param>
             <param name="addLoaddata"> Specifies if the loaddata should be added to the RAPID module. </param>
@@ -6080,7 +5356,7 @@
             True on success, false on failure. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})">
             <summary>
             Checks whether the first movement type is an absolute joint movement.
             </summary>
@@ -6102,16 +5378,6 @@
             Gets or sets the Robot. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.Actions">
-            <summary>
-            Gets or sets the Actions. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.Module">
-            <summary>
-            Gets the RAPID module as a list with code lines.
-            </summary>
-        </member>
         <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.ModuleName">
             <summary>
             Gets or sets the name of the RAPID module.
@@ -6120,6 +5386,11 @@
         <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.ProcedureName">
             <summary>
             Gets or sets the name of the RAPID procedure.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.Module">
+            <summary>
+            Gets the RAPID module as a list with code lines.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.ErrorText">
@@ -6230,149 +5501,6 @@
             Gets the program instructions as a list with RAPID code lines.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.String,System.String,System.String)">
-            <summary>
-            Initializes a new instance of the RAPID Generator class with a main procedure.
-            </summary>
-            <param name="robot"> The robot info wherefore the code should be created. </param>
-            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
-            <param name="programModuleName"> The name of the program module </param>
-            <param name="systemModuleName"> The name of the system module </param>
-            <param name="procedureName"> The name of the RAPID procedure </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.#ctor(RobotComponents.ABB.Definitions.Robot,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.String,System.String,System.String,System.String,System.Boolean)">
-            <summary>
-            Initializes a new instance of the RAPID Generator class with a main procedure.
-            </summary>
-            <param name="robot"> The robot info wherefore the code should be created. </param>
-            <param name="actions"> The list with robot actions wherefore the code should be created. </param>
-            <param name="programModuleName"> The name of the program module </param>
-            <param name="systemModuleName"> The name of the system module </param>
-            <param name="procedureName"> The name of the RAPID procedure </param>
-            <param name="filePath"> The path where the code files should be saved. </param>
-            <param name="saveToFile"> A boolean that indicates if the file should be saved. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateProgramModule">
-            <summary>
-            Returns the RAPID program code.
-            </summary>
-            <remarks>
-            This method also overwrites or creates a file if the property 'SaveToFile is set equal to true.
-            </remarks>
-            <returns> 
-            The RAPID program code as a list with code lines. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{System.String})">
-            <summary>
-            Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-            </summary>
-            <remarks>
-            It adds the robot tools and work objects that are collected by this RAPID generator. 
-            For this you have to call the methode 'CreateProgamCode' first. 
-            This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
-            </remarks>
-            <param name="customCode"> Custom user definied base code as a list with strings. </param>
-            <returns> 
-            The RAPID system code as a list with code lines. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateSystemModule(System.Collections.Generic.IList{RobotComponents.ABB.Definitions.RobotTool},System.Collections.Generic.IList{RobotComponents.ABB.Definitions.WorkObject},System.Collections.Generic.IList{System.String})">
-            <summary>
-            Returns the RAPID system code with as default tool0, wobj0 and load0 if the system module name is equal to BASE.
-            </summary>
-            <remarks>
-            It is adds the robot tools, work objects and custom code lines from the given lists. 
-            This method also overwrites or creates a file if the property 'SaveToFile' is set equal to true.
-            </remarks>
-            <param name="robotTools"> The robot tools that should be added to the system code as a list. </param>
-            <param name="workObjects"> The work objects that should be added to the system code as a list. </param>
-            <param name="customCode"> Custom user definied base code as list with strings. </param>
-            <returns> 
-            The RAPID system code as a list with code lines. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateToolSystemCode(System.Collections.Generic.IList{RobotComponents.ABB.Definitions.RobotTool})">
-            <summary>
-            Returns the System Code for the given Robot Tools.
-            </summary>
-            <param name="robotTools"> The Robot Tools. </param>
-            <returns> 
-            The robot tool system code as a list with code lines. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.CreateWorkObjectSystemCode(System.Collections.Generic.IList{RobotComponents.ABB.Definitions.WorkObject})">
-            <summary>
-            Returns the System Code for all given Work Objects.
-            </summary>
-            <param name="workObjects"> The Work Objects. </param>
-            <returns> 
-            The Work Object system code as a list with code lines. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.WriteProgramCodeToFile">
-            <summary>
-            Writes the RAPID program code to a file if a file path is set.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Actions.RAPIDGenerator.WriteSystemCodeToFile">
-            <summary>
-            Writes the RAPID system code to a file if a file path is set.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModuleName">
-            <summary>
-            Gets or sets the name of the RAPID program module.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.SystemModuleName">
-            <summary>
-            Gets or sets the name of the RAPID system module.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.ProgramModule">
-            <summary>
-            Gest he RAPID code of the program module as a list with code lines.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.SystemModule">
-            <summary>
-            Gets the RAPID code of the system module as a list with code lines.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.FilePath">
-            <summary>
-            Gets or sets the file path for saving the program and system module.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.SaveToFile">
-            <summary>
-            Gets or sets a value indicating whether the program and system module should be saved to a file.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.FirstMovementIsMoveAbsJ">
-            <summary>
-            Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.SynchronizedMovements">
-            <summary>
-            Gets or sets a value indicating whether or not the movements are synchronized. 
-            </summary>
-            <remarks>
-            Value is set inside the SyncMoveOn and SyncMoveOff instructions.
-            </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.Tooldata">
-            <summary>
-            Gets the RAPID tooldata code lines.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Actions.RAPIDGenerator.Wobjdata">
-            <summary>
-            Gets the RAPID wobjdata code lines.
-            </summary>
-        </member>
         <member name="T:RobotComponents.ABB.Definitions.LoadData">
             <summary>
             Represent Load Data.
@@ -6401,11 +5529,11 @@
             <summary>
             Initializes a new instance of the Load Data class.
             </summary>
-            <param name="name"></param>
-            <param name="mass"></param>
-            <param name="centerOfGravity"></param>
-            <param name="axesOfMoment"></param>
-            <param name="inertialMoments"></param>
+            <param name="name"> The variable name of the load data declaration. </param>
+            <param name="mass"> The weight of the tool in kg. </param>
+            <param name="centerOfGravity"> The position of the center of gravity of the load. </param>
+            <param name="axesOfMoment"> The orientation of the load coordinate system defined by the principal inertial axes of the tool load. </param>
+            <param name="inertialMoments"> The moment of inertia of the load in kgm2. </param>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.LoadData.#ctor(RobotComponents.ABB.Definitions.LoadData)">
             <summary>
@@ -6488,9 +5616,9 @@
             The RAPID code line in case a variable name is defined. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.LoadData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Definitions.LoadData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -6532,12 +5660,12 @@
         </member>
         <member name="P:RobotComponents.ABB.Definitions.LoadData.CenterOfGravity">
             <summary>
-            Gets the position of the center of gravity of the load.
+            Gets or sets the position of the center of gravity of the load.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Definitions.LoadData.AxesOfMoment">
             <summary>
-            Gets the orientation of the load coordinate system defined by the principal inertial axes of the tool load. 
+            Gets or sets the orientation of the load coordinate system defined by the principal inertial axes of the tool load. 
             </summary>
             <remarks>
             Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).
@@ -6548,17 +5676,12 @@
             Gets or set the moment of inertia of the load in kgm2.
             </summary>
         </member>
-        <member name="T:RobotComponents.ABB.Definitions.ExternalAxis">
+        <member name="T:RobotComponents.ABB.Definitions.IExternalAxis">
             <summary>
-            Represents an abstract class for External Axes. 
+            Represents the interface for External Axes. 
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.#ctor">
-            <summary>
-            Initializes an empty instance of the External Axis class. 
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis">
             <summary>
             Returns an exact duplicate of this External Axis.
             </summary>
@@ -6566,7 +5689,7 @@
             A deep copy of the External Axis. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh">
             <summary>
             Returns an exact duplicate of this External Axis without meshes.
             </summary>
@@ -6574,7 +5697,7 @@
             A deep copy of the External Axis without meshes. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit">
             <summary>
             Returns an exact duplicate of this Mechanical Unit.
             </summary>
@@ -6582,7 +5705,7 @@
             A deep copy of the Mechanical Unit. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh">
             <summary>
             Returns an exact duplicate of this Mechanical Unit without meshes.
             </summary>
@@ -6590,15 +5713,7 @@
             A deep copy of the Mechanical Unit without meshes. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.ToString">
-            <summary>
-            Returns a string that represents the current object.
-            </summary>
-            <returns> 
-            A string that represents the current object. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)">
             <summary>
             Calculates the position of the attachment plane for a given External Joint Position.
             </summary>
@@ -6606,12 +5721,12 @@
             This calculation does not take into account the axis limits. 
             </remarks>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> 
             The posed attachement plane. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)">
             <summary>
             Calculates the the transformation matrix for a given External Joint Position.. 
             </summary>
@@ -6619,12 +5734,12 @@
             This calculation does not take into account the axis limits. 
             </remarks>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> 
             The transformation matrix.
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
             <summary>
             Calculates the position of the attachment plane for a given External Joint Position..  
             </summary>
@@ -6637,7 +5752,7 @@
             The posed attachement plane. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
             <summary>
             Calculates the the transformation matrix for a given External Joint Position.
             </summary>
@@ -6650,12 +5765,12 @@
             The transformation matrix. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize">
             <summary>
             Reinitializes the fields and properties to construct valid External Axis instance. 
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)">
             <summary>
             Calculates and returns the position of the meshes for a given Joint Target.
             </summary>
@@ -6664,7 +5779,7 @@
             The posed meshes. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
             <summary>
             Calculates the position of the external axis meshes for a given External Joint Position.
             </summary>
@@ -6673,13 +5788,13 @@
             The posed meshes. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)">
             <summary>
             Transforms the external axis spatial properties (planes and meshes). 
             </summary>
             <param name="xform"> The spatial deform. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)">
+        <member name="M:RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)">
             <summary>
             Returns the Bounding Box of the object.
             </summary>
@@ -6688,32 +5803,32 @@
             The Bounding Box. 
             </returns>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.IsValid">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.IsValid">
             <summary>
             Gets a value indicating whether or not the object is valid.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.Name">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.Name">
             <summary>
             Gets or sets the external axis name. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AxisLimits">
             <summary>
             Gets or sets the axis limits.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AxisType">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AxisType">
             <summary>
             Gets the Axis Type.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AttachmentPlane">
             <summary>
             Gets or sets the attachment plane to attach a robot or work object.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AxisPlane">
             <summary>
             Gets or sets the axis plane.
             </summary>
@@ -6722,37 +5837,37 @@
             In case of linear axis the z-axis of the plane defines the movement direction.
             </remarks>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AxisNumber">
             <summary>
             Gets or sets the axis logic as a number (-1, 0, 1, 2, 3, 4, 5).
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.AxisLogic">
             <summary>
             Gets the axis logic as a char (-, A, B, C, E, E, F).
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.BaseMesh">
             <summary>
             Gets or sets the fixed base mesh of the external axis. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.LinkMesh">
             <summary>
             Gets or sets the movable link mesh of the external axis posed for external axis value set to 0. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.PosedMeshes">
             <summary>
             Gets latest calculated posed axis meshes.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.MovesRobot">
             <summary>
             Gets a value indicating whether or not this External Axis moves the Robot.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes">
+        <member name="P:RobotComponents.ABB.Definitions.IExternalAxis.NumberOfAxes">
             <summary>
             Gets the number of axes for the mechanical unit.
             </summary>
@@ -6993,9 +6108,6 @@
             <summary>
             Calculates and returns the tool center orientation relative to the defined attachment plane. 
             </summary>
-            <returns> 
-            The quaternion orientation of the tool center plane. 
-            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.RobotTool.ToRAPID">
             <summary>
@@ -7027,9 +6139,9 @@
             The RAPID code line in case a variable name is defined. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Definitions.RobotTool.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -7112,225 +6224,9 @@
             Use false if the robot is not holding the tool (e.g. stationary tool).
             </remarks>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.Position">
-            <summary>
-            Gets the position of the the tool center point which is the offset between the tool center plane and the attachment plane.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.Orientation">
-            <summary>
-            Gets the orientation of the tool center point as a Quaternion.
-            </summary>
-        </member>
         <member name="P:RobotComponents.ABB.Definitions.RobotTool.LoadData">
             <summary>
             Gets or sets the load data.
-            </summary>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from Euler data.
-            </summary>
-            <remarks>
-            Sets the attachtment plane equal to the world xy-plane. 
-            Sets the load data as defined for the default tool tool0.
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="mesh"> The tool mesh. </param>
-            <param name="toolTransX"> The tool center point translation in x-direction. </param>
-            <param name="toolTransY"> The tool center point translation in y-direction. </param>
-            <param name="toolTransZ"> The tool center point translation in z-direction. </param>
-            <param name="toolRotX"> The orientation around the x-axis in radians. </param>
-            <param name="toolRotY"> The orientation around the y-axis in radians. </param>
-            <param name="toolRotZ"> The orientation around the y-axis in radians. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from Euler data.
-            </summary>
-            <remarks>
-            Sets the attachtment plane equal to the world xy-plane. 
-            Sets the load data as defined for the default tool tool0.
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="meshes"> The tool mesh. </param>
-            <param name="toolTransX"> The tool center point translation in x-direction. </param>
-            <param name="toolTransY"> The tool center point translation in y-direction. </param>
-            <param name="toolTransZ"> The tool center point translation in z-direction. </param>
-            <param name="toolRotX"> The orientation around the x-axis in radians. </param>
-            <param name="toolRotY"> The orientation around the y-axis in radians. </param>
-            <param name="toolRotZ"> The orientation around the y-axis in radians. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. 
-            </summary>
-            <remarks>
-            Sets the attachtment plane equal to the world xy-plane. 
-            Sets the load data as defined for the default tool tool0.
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="mesh"> The tool mesh. </param>
-            <param name="x"> The x coordinate of the TCP point. </param>
-            <param name="y"> The y coordinate of the TCP point. </param>
-            <param name="z"> The z coordinate of the TCP point.</param>
-            <param name="q1"> The real part of the quaternion. </param>
-            <param name="q2"> The first imaginary coefficient of the quaternion. </param>
-            <param name="q3"> The second imaginary coefficient of the quaternion. </param>
-            <param name="q4"> The third imaginary coefficient of the quaternion. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. 
-            </summary>
-            <remarks>
-            Sets the attachtment plane equal to the world xy-plane. 
-            Sets the load data as defined for the default tool tool0.
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="meshes"> The tool mesh. </param>
-            <param name="x"> The x coordinate of the TCP point. </param>
-            <param name="y"> The y coordinate of the TCP point. </param>
-            <param name="z"> The z coordinate of the TCP point.</param>
-            <param name="q1"> The real part of the quaternion. </param>
-            <param name="q2"> The first imaginary coefficient of the quaternion. </param>
-            <param name="q3"> The second imaginary coefficient of the quaternion. </param>
-            <param name="q4"> The third imaginary coefficient of the quaternion. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from the x, y and z coordinate and the four quarternion values of the TCP point. 
-            </summary>
-            <remarks>
-            Sets the load data as defined for the default tool tool0.
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="meshes"> The tool mesh. </param>
-            <param name="attachmentPlane"> The attachement plane. </param>
-            <param name="x"> The x coordinate of the TCP point. </param>
-            <param name="y"> The y coordinate of the TCP point. </param>
-            <param name="z"> The z coordinate of the TCP point.</param>
-            <param name="q1"> The real part of the quaternion. </param>
-            <param name="q2"> The first imaginary coefficient of the quaternion. </param>
-            <param name="q3"> The second imaginary coefficient of the quaternion. </param>
-            <param name="q4"> The third imaginary coefficient of the quaternion. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion)">
-            <summary>
-            Initializes a new instance of the Robot Tool class from a point and a quarternion.
-            </summary>
-            <remarks>
-            Sets the attachtment plane equal to the world xy-plane. 
-            Sets the load data as defined for the default tool tool0.s
-            </remarks>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="mesh"> The tool mesh defined in the tool coordinate space. </param>
-            <param name="point"> The point of the TCP point. </param>
-            <param name="quat"> The orientation of TCP point. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
-            <summary>
-            Initializes a new instance of the Robot Tool class.
-            </summary>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="mesh"> The tool mesh. </param>
-            <param name="attachmentPlane"> The attachement plane. </param>
-            <param name="toolPlane"> The tool center point and tool orientation. </param>
-            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
-            <param name="mass"> The weight of the tool in kg. </param>
-            <param name="centerOfGravityPosition"> The position of the  center of gravity of the tool load. </param>
-            <param name="centerOfGravityOrientation"> The orientation of the tool load coordinate system defined by the principal inertial axes of the 
-            tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). </param>
-            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Point3d,Rhino.Geometry.Quaternion,Rhino.Geometry.Vector3d)">
-            <summary>
-            Initializes a new instance of the Robot Tool class.
-            </summary>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="meshes"> The tool mesh. </param>
-            <param name="attachmentPlane"> The attachement plane. </param>
-            <param name="toolPlane"> The tool center point and tool orientation. </param>
-            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
-            <param name="mass"> The weight of the tool in kg. </param>
-            <param name="centerOfGravityPosition"> The position of the center of gravity of the tool load. </param>
-            <param name="centerOfGravityOrientation"> The orientation of the tool load coordinate system defined by the principal inertial axes of the 
-            tool load. Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4). </param>
-            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,Rhino.Geometry.Mesh,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
-            <summary>
-            Initializes a new instance of the Robot Tool class.
-            </summary>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="mesh"> The tool mesh. </param>
-            <param name="attachmentPlane"> The attachement plane. </param>
-            <param name="toolPlane"> The tool center point and tool orientation. </param>
-            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
-            <param name="mass"> The weight of the tool in kg. </param>
-            <param name="centerOfGravity"> The position and orientation of the center of gravity of the tool load. </param>
-            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Boolean,System.Double,Rhino.Geometry.Plane,Rhino.Geometry.Vector3d)">
-            <summary>
-            Initializes a new instance of the Robot Tool class.
-            </summary>
-            <param name="name"> The tool name, must be unique. </param>
-            <param name="meshes"> The tool mesh. </param>
-            <param name="attachmentPlane"> The attachement plane. </param>
-            <param name="toolPlane"> The tool center point and tool orientation. </param>
-            <param name="robotHold"> Specifies whether the robot is holding the tool. </param>
-            <param name="mass"> The weight of the tool in kg. </param>
-            <param name="centerOfGravity"> The position and orientation of the center of gravity of the tool load. </param>
-            <param name="inertia"> The moment of inertia of the load in kgm2. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.CalculateCenterOfGravityPosition">
-            <summary>
-            Calculates and returns the tool center of gravity relative to the defined attachment plane. 
-            </summary>
-            <returns> 
-            The center of gravity point. 
-            </returns>
-        </member>
-        <member name="M:RobotComponents.ABB.Definitions.RobotTool.CalculateCenterOfGravityOrientation">
-            <summary>
-            Calculates and returns the tool center of gravity orientation relative to the defined attachment plane. 
-            </summary>
-            <returns> 
-            The quaternion orientation of the tool center of gravity. 
-            </returns>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.ReferenceType">
-            <summary>
-            Gets or sets the variable type. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.Mass">
-            <summary>
-            Gets or sets the weight of the load in kg.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.CenterOfGravity">
-            <summary>
-            Gets or sets the position and orientation of the center of gravity of the tool load as a plane.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.CenterOfGravityPosition">
-            <summary>
-            Gets the position of the center of gravity of the tool load.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.CenterOfGravityOrientation">
-            <summary>
-            Gets the orientation of the tool load coordinate system defined by the principal inertial axes of the tool load. 
-            </summary>
-            <remarks>
-            Expressed in the wrist coordinate system as a quaternion (q1, q2, q3, q4).
-            </remarks>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.RobotTool.Inertia">
-            <summary>
-            Gets or set the moment of inertia of the load in kgm2.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Definitions.WorkObject">
@@ -7364,7 +6260,7 @@
             <param name="name"> The work object name, must be unique. </param>
             <param name="plane"> The work object coordinate system. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)">
+        <member name="M:RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.IExternalAxis)">
             <summary>
             Initializes a new instance of the Work Object class with a movable work object.
             </summary>
@@ -7440,25 +6336,16 @@
             <summary>
             Calculates and returns the quaternion orientation of the work object coordinate system. 
             </summary>
-            <returns> 
-            The quaternion orientation of the work object. 
-            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation">
             <summary>
             Calculates and returns the quaternion orientation of the user frame coordinate system. 
             </summary>
-            <returns> 
-            The quaternion orientation of the user frame. 
-            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane">
             <summary>
             Calculates and returns the global work object plane. 
             </summary>
-            <returns> 
-            The global work object plane. 
-            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.WorkObject.Initialize">
             <summary>
@@ -7499,9 +6386,9 @@
             The RAPID code line in case a variable name is defined. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">
+        <member name="M:RobotComponents.ABB.Definitions.WorkObject.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">
             <summary>
-            Creates declarations in the RAPID program module inside the RAPID Generator. 
+            Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
             </summary>
             <remarks>
             This method is called inside the RAPID generator.
@@ -7538,11 +6425,6 @@
             Gets a value indicating whether or not the robot is holding the work object. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane">
-            <summary>
-            Gets the global work object plane.
-            </summary>
-        </member>
         <member name="P:RobotComponents.ABB.Definitions.WorkObject.UserFrame">
             <summary>
             Gets or sets the user coordinate system, i.e. the position of the current work surface or fixture.
@@ -7569,16 +6451,6 @@
             Only specified in the case of movable user coordinate systems.
             </remarks>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.WorkObject.Orientation">
-            <summary>
-            Gets the Quaternion orientation of the work object coordinate system.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation">
-            <summary>
-            Gets the Quaternion orientation of the user frame coordinate system.
-            </summary>
-        </member>
         <member name="P:RobotComponents.ABB.Definitions.WorkObject.FixedFrame">
             <summary>
             Gets a value indicating whether or not a fixed user coordinate system is used.
@@ -7588,9 +6460,9 @@
             False indicates that the user coordinate system is movable (e.g. coordinated external axes).s
             </remarks>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.WorkObject.ReferenceType">
+        <member name="P:RobotComponents.ABB.Definitions.WorkObject.GlobalWorkObjectPlane">
             <summary>
-            Gets or sets the variable type. 
+            Gets the global work object plane.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Definitions.ExternalLinearAxis">
@@ -7937,7 +6809,7 @@
             This calculation does not take into account the axis limits.
             </remarks>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> 
             The posed attachement plane. 
             </returns>
@@ -7950,7 +6822,7 @@
             This calculation does not take into account the axis limits. 
             </remarks>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> 
             The transformation matrix. 
             </returns>
@@ -8310,7 +7182,7 @@
             This calculation does not take into account the axis limits. 
             </summary>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> The posed attachement plane. </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)">
@@ -8319,7 +7191,7 @@
             This calculation does not take into account the axis limits. 
             </summary>
             <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="inLimits"> Specifies whether the External Joint Position is inside its limits. </param>
+            <param name="isInLimits"> Specifies whether the External Joint Position is inside its limits. </param>
             <returns> The transformation matrix. </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.ExternalRotationalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">
@@ -8478,7 +7350,7 @@
             <param name="mountingFrame"> The tool mounting frame definied in the world coordinate space. </param>
             <param name="tool"> The Robot Tool. </param>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">
+        <member name="M:RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">
             <summary>
             Initializes a new instance of the Robot class with attached external axes.
             </summary>
@@ -8522,6 +7394,37 @@
             A deep copy of the Mechanical Unit without meshes. 
             </returns>
         </member>
+        <member name="M:RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)">
+            <summary>
+            Returns the axis planes for the given kinematics parameters in world coordinate space. 
+            </summary>
+            <param name="basePlane"> The position and orientation of the robot base in the world coordinate space. </param>
+            <param name="a1"> Kinematics parameter A1. </param>
+            <param name="a2"> Kinematics parameter A2. </param>
+            <param name="a3"> Kinematics parameter A3. </param>
+            <param name="b"> Kinematics parameter B. </param>
+            <param name="c1"> Kinematics parameter C1. </param>
+            <param name="c2"> Kinematics parameter C2. </param>
+            <param name="c3"> Kinematics parameter C3. </param>
+            <param name="c4"> Kinematics parameter C4. </param>
+            <param name="mountingFrame"> The tool mounting frame. </param>
+            <returns> The axis planes. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)">
+            <summary>
+            Returns the axis planes for the given kinematics parameters in local coordinate space. 
+            </summary>
+            <param name="a1"> Kinematics parameter A1. </param>
+            <param name="a2"> Kinematics parameter A2. </param>
+            <param name="a3"> Kinematics parameter A3. </param>
+            <param name="b"> Kinematics parameter B. </param>
+            <param name="c1"> Kinematics parameter C1. </param>
+            <param name="c2"> Kinematics parameter C2. </param>
+            <param name="c3"> Kinematics parameter C3. </param>
+            <param name="c4"> Kinematics parameter C4. </param>
+            <param name="mountingFrame"> The tool mounting frame. </param>
+            <returns> The axis planes. </returns>
+        </member>
         <member name="M:RobotComponents.ABB.Definitions.Robot.ToString">
             <summary>
             Returns a string that represents the current object.
@@ -8535,7 +7438,7 @@
             Reinitializes the fields that are related to the attached external axes.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Definitions.Robot.UpdateKinematics">
+        <member name="M:RobotComponents.ABB.Definitions.Robot.UpdateKinematicsParameters">
             <summary>
             Reinitializes the fields that are related to the kinematics.
             </summary>
@@ -8552,9 +7455,6 @@
             <summary>
             Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.
             </summary>
-            <returns> 
-            The TCP plane in robot coordinate space. 
-            </returns>
         </member>
         <member name="M:RobotComponents.ABB.Definitions.Robot.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)">
             <summary>
@@ -8661,11 +7561,6 @@
             Gets the number of axes for the mechanical unit.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Definitions.Robot.WristOffset">
-            <summary>
-            Gets the wrist offset.
-            </summary>
-        </member>
         <member name="P:RobotComponents.ABB.Definitions.Robot.LowerArmLength">
             <summary>
             Gets the length of the lower arm.
@@ -8691,6 +7586,11 @@
         <member name="P:RobotComponents.ABB.Definitions.Robot.A2">
             <summary>
             Gets the OPW kinematics parameter A2.
+            </summary>
+        </member>
+        <member name="P:RobotComponents.ABB.Definitions.Robot.A3">
+            <summary>
+            Gets the wrist offset kinematics parameter A3.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Definitions.Robot.B">
@@ -8722,27 +7622,31 @@
             <summary>
             Represent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.
             </summary>
+            <remarks>
+            Solution order:
+            
+            Sol.    Wrist center            Wrist center            Axis 5 angle
+            Cfx     relative to axis 1      relative to lower arm
+                    
+            0       In front of             In front of             Positive
+            1       In front of             In front of             Negative
+            2       In front of             Behind                  Positive
+            3       In front of             Behind                  Negative     
+            4       Behind                  In front of             Positive
+            5       Behind                  In front of             Negative
+            6       Behind                  Behind                  Positive
+            7       Behind                  Behind                  Negative
+            </remarks>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor">
             <summary>
             Initializes an empty instance of the Inverse Kinematics class.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)">
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Definitions.Robot)">
             <summary>
-            Initializes a new instance of the Inverse Kinematics class from a Movement.
+            Initializes a new instance of the Inverse Kinematics class.
             </summary>
-            <param name="movement"> The Movement. </param>
-            <param name="robot"> The Robot. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)">
-            <summary>
-            Initializes a new instance of the Inverse Kinematics class from a Target.
-            </summary>
-            <remarks>
-            The target will be casted to a robot movement with a default work object (wobj0).
-            </remarks>
-            <param name="target"> The Target </param>
             <param name="robot"> The Robot. </param>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)">
@@ -8776,10 +7680,17 @@
             This method also resets the solution. The method Calculate() has to be called to obtain a new solution. 
             </remarks>
         </member>
-        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate">
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)">
             <summary>
             Calculates the inverse kinematics solution.
             </summary>
+            <param name="movement"> The movement to calculate the solution for. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.SetMovement(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Sets the movement and associated fields.
+            </summary>
+            <param name="movement"> The movement to be set. </param>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition">
             <summary>
@@ -8800,6 +7711,16 @@
             </remarks>
             <param name="prevJointPosition"> The previous Robot Joint Position. </param>
             <returns> The closest Robot Joint Position. </returns>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition(RobotComponents.ABB.Actions.Instructions.Movement)">
+            <summary>
+            Calculates the External Joint Position for a given movement.
+            </summary>
+            <param name="movement"> The movement to calculate the external joint position for. </param>
+            <remarks>
+            Interally used in situation where only the external joint positions needs to be 
+            computed and not the robot joint position. 
+            </remarks>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition">
             <summary>
@@ -8854,14 +7775,6 @@
             Gets or sets the Robot.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.Movement">
-            <summary>
-            Gets or sets the Movement.
-            </summary>
-            <remarks>
-            The target and work object are obtained from this movement.
-            </remarks>
-        </member>
         <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool">
             <summary>
             Gets the tool used by the this Inverse Kinematics.
@@ -8891,7 +7804,7 @@
             Gets the collected error messages.
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.InLimits">
+        <member name="P:RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits">
             <summary>
             Gets a value indicating whether or not the internal and external values are within their limits.
             </summary>
@@ -8911,23 +7824,6 @@
             Initializes a new instance of the Forward Kinematics class.
             </summary>
             <param name="robot"> The Robot. </param>
-            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)">
-            <summary>
-            Initializes a new instance of the Forward Kinematics class with defined Joint Positions.
-            </summary>
-            <param name="robot"> The Robot. </param>
-            <param name="robotJointPosition"> The Robot Joint Position. </param>
-            <param name="externalJointPosition"> The External Joint Position. </param>
-            <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
-        </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)">
-            <summary>
-            Defines a Forward Kinematic object from a Joint Target with defined Joint Positions obtained from a Joint Target.
-            </summary>
-            <param name="robot"> The Robot. </param>
-            <param name="jointTarget"> The Joint Target. </param>
             <param name="hideMesh"> Specifies whether the mesh will be supressed. </param>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)">
@@ -8952,6 +7848,14 @@
             A string that represents the current object. 
             </returns>
         </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize">
+            <summary>
+            Reinitialize all the fields to construct a valid Forward Kinematics object. 
+            </summary>
+            <remarks>
+            This method also resets the solution. The method Calculate() has to be called to obtain a new solution. 
+            </remarks>
+        </member>
         <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate">
             <summary>
             Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
@@ -8969,6 +7873,12 @@
             </summary>
             <param name="robotJointPosition"> The Robot Joint Position. </param>
             <param name="externalJointPosition"> The External Joint Position. </param>
+        </member>
+        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)">
+            <summary>
+            Calculates the forward kinematics solution with the given Joint Target.
+            </summary>
+            <param name="jointTarget"> The Joint Target. </param>
         </member>
         <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CalculateExternalPlanes">
             <summary>
@@ -8994,11 +7904,6 @@
             The Bounding Box. 
             </returns>
         </member>
-        <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.Clear">
-            <summary>
-            Clears the current solution.
-            </summary>
-        </member>
         <member name="M:RobotComponents.ABB.Kinematics.ForwardKinematics.CheckInternalAxisLimits">
             <summary>
             Checks if the positions of the robot axes are inside its limits.
@@ -9017,16 +7922,6 @@
         <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.Robot">
             <summary>
             Gets or sets the Robot.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition">
-            <summary>
-            Gets or sets the Robot Joint Position.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition">
-            <summary>
-            Gets or sets the External Joint Position.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes">
@@ -9072,7 +7967,7 @@
             Gets the latest calculated posed TCP plane of the robot tool. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits">
+        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits">
             <summary>
             Gets a value indicating whether or not the internal and external values are within their limits.
             </summary>
@@ -9080,11 +7975,6 @@
         <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh">
             <summary>
             Gets or sets a value indicating whether the posed meshed wil be calculated. 
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes">
-            <summary>
-            Gets the latest calculated posed internal axis meshes.
             </summary>
         </member>
         <member name="T:RobotComponents.ABB.Kinematics.PathGenerator">
@@ -9120,7 +8010,7 @@
             Resets / clears the current solution.
             </summary>
         </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action},System.Int32)">
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.Calculate(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction},System.Int32)">
             <summary>
             Calculates the path from a list with Actions.
             </summary>
@@ -9164,9 +8054,9 @@
             <param name="towardsRobotJointPosition"> The final Robot Joint Position of the joint movement. </param>
             <param name="towardsExternalJointPosition"> The final External Joint Position of the joint movement. </param>
             <param name="movement"> The movement that belongs to the given joint positions. </param>
-            <param name="inLimits"> Indicates whether or not the calculated solution is within limits </param>
+            <param name="isInLimits"> Indicates whether or not the calculated solution is within limits </param>
         </member>
-        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})">
+        <member name="M:RobotComponents.ABB.Kinematics.PathGenerator.CheckFirstMovement(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})">
             <summary>
             Checks whether the first movement type is an absolute joint movement. 
             </summary>
@@ -9207,7 +8097,7 @@
         </member>
         <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.RobotJointPositions">
             <summary>
-            Gets the calculated Robot Joint Position.
+            Gets the calculated Robot Joint Positions.
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.ExternalJointPositions">
@@ -9215,7 +8105,7 @@
             Gets the calculated External Joint Positions. 
             </summary>
         </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.InLimits">
+        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.IsInLimits">
             <summary>
             Gets the value indicating whether or not the internal and external values are within their limits.
             </summary>
@@ -9226,11 +8116,6 @@
             </summary>
         </member>
         <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.IsFirstMovementMoveAbsJ">
-            <summary>
-            Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
-            </summary>
-        </member>
-        <member name="P:RobotComponents.ABB.Kinematics.PathGenerator.FirstMovementIsMoveAbsJ">
             <summary>
             Gets a value indicating whether or not the first movement is an Absolute Joint Movement.
             </summary>
@@ -9605,7 +8490,18 @@
             <param name="t"> The interpolation parameter in the range [0, 1]. </param>
             <returns> The interpolated quaternion. </returns>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)" -->
+        <member name="M:RobotComponents.ABB.Utils.HelperMethods.SetRapidDataFromString(RobotComponents.ABB.Actions.Declarations.IDeclaration,System.String,System.String[]@)">
+            <summary>
+            Sets the scope, variable type and variable name from a RAPID data string and outputs the values. 
+            </summary>
+            <remarks>
+            This method is used to parse declarations from a RAPID data string. 
+            The values are processed inside the different IDeclaration classes. 
+            </remarks>
+            <param name="declaration"> The declaration to set the values. </param>
+            <param name="rapidData"> The RAPID data string. </param>
+            <param name="values"> The values from the RAPID data string. </param>
+        </member>
         <member name="T:RobotComponents.ABB.Enumerations.AxisType">
             <summary>
             Defines if the axis moves linear or rotational.
