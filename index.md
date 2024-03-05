@@ -32,6 +32,7 @@ The Robot Components API consists of the following main namespaces:
 **Utils:** This namespace mainly contains helper methods that are used in all other namespaces. Most of these methods are also used in the utility components in the visual interface of the Grasshopper plugin. 
 
 ## **Credits**
+
 Robot Components is an open-source project that was initiated by the chair of [Experimental and Digital Design and Construction of the University of Kassel](https://www.uni-kassel.de/fb06/institute/architektur/fachgebiete/experimentelles-und-digitales-entwerfen-und-konstruieren/home). The plugin is currently further developed and maintained by [Arjen Deetman](http://www.arjendeetman.nl). All developers and contributors are listed [here](https://github.com/RobotComponents/RobotComponents/blob/master/AUTHORS.md).
 
 RobotComponents uses the ABB PC SDK for real-time connection to ABB Robots, you can find the .dll used in this project here: [ABB developercenter](http://developercenter.robotstudio.com/landing). 
