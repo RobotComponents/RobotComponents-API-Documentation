@@ -1,0 +1,469 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident
+  commentId: T:RobotComponents.ABB.Actions.Instructions.ISyncident
+  id: ISyncident
+  parent: RobotComponents.ABB.Actions.Instructions
+  children:
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  langs:
+  - csharp
+  - vb
+  name: ISyncident
+  nameWithType: ISyncident
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident
+  type: Interface
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Represents the interface for actions that contain a synchronization identity.
+  example: []
+  syntax:
+    content: public interface ISyncident
+    content.vb: Public Interface ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  id: DuplicateSyncident
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: DuplicateSyncident()
+  nameWithType: ISyncident.DuplicateSyncident()
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Returns an exact duplicate of this Syncident.
+  example: []
+  syntax:
+    content: ISyncident DuplicateSyncident()
+    return:
+      type: RobotComponents.ABB.Actions.Instructions.ISyncident
+      description: The exact copy of this Syncident.
+    content.vb: Function DuplicateSyncident() As ISyncident
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: ISyncident.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Returns the RAPID declaration code line of the this action.
+  example: []
+  syntax:
+    content: string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.ABB.Definitions.Robot
+      description: The Robot were the code is generated for.
+    return:
+      type: System.String
+      description: The RAPID code line.
+    content.vb: Function ToRAPIDDeclaration(robot As Robot) As String
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: ISyncident.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Returns the RAPID instruction code line of the this action.
+  example: []
+  syntax:
+    content: string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.ABB.Definitions.Robot
+      description: The Robot were the code is generated for.
+    return:
+      type: System.String
+      description: The RAPID code line.
+    content.vb: Function ToRAPIDInstruction(robot As Robot) As String
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: ISyncident.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
+  example: []
+  syntax:
+    content: void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.ABB.Actions.RAPIDGenerator
+      description: The RAPID Generator.
+    content.vb: Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  id: IsValid
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: ISyncident.IsValid
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets a value indicating whether or not the object is valid.
+  example: []
+  syntax:
+    content: bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  id: VariableType
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: VariableType
+  nameWithType: ISyncident.VariableType
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets or sets the variable type of the syncident.
+  example: []
+  syntax:
+    content: VariableType VariableType { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Enumerations.VariableType
+    content.vb: Property VariableType As VariableType
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType*
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  id: SyncID
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  langs:
+  - csharp
+  - vb
+  name: SyncID
+  nameWithType: ISyncident.SyncID
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Instructions
+  summary: Gets or sets the name of the synchronization (meeting) point (syncident).
+  example: []
+  syntax:
+    content: string SyncID { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SyncID As String
+  overload: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID*
+references:
+- uid: RobotComponents.ABB.Actions.Instructions
+  commentId: N:RobotComponents.ABB.Actions.Instructions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions.Instructions
+  nameWithType: RobotComponents.ABB.Actions.Instructions
+  fullName: RobotComponents.ABB.Actions.Instructions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Instructions
+    name: Instructions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Instructions
+    name: Instructions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.html
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_DuplicateSyncident
+  name: DuplicateSyncident
+  nameWithType: ISyncident.DuplicateSyncident
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident
+  commentId: T:RobotComponents.ABB.Actions.Instructions.ISyncident
+  parent: RobotComponents.ABB.Actions.Instructions
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html
+  name: ISyncident
+  nameWithType: ISyncident
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration
+  nameWithType: ISyncident.ToRAPIDDeclaration
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration
+- uid: RobotComponents.ABB.Definitions.Robot
+  commentId: T:RobotComponents.ABB.Definitions.Robot
+  parent: RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.ABB.Definitions.Robot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RobotComponents.ABB.Definitions
+  commentId: N:RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Definitions
+  nameWithType: RobotComponents.ABB.Definitions
+  fullName: RobotComponents.ABB.Definitions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction
+  nameWithType: ISyncident.ToRAPIDInstruction
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: ISyncident.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.ABB.Actions.RAPIDGenerator
+  parent: RobotComponents.ABB.Actions
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator
+- uid: RobotComponents.ABB.Actions
+  commentId: N:RobotComponents.ABB.Actions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions
+  nameWithType: RobotComponents.ABB.Actions
+  fullName: RobotComponents.ABB.Actions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_IsValid
+  name: IsValid
+  nameWithType: ISyncident.IsValid
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_VariableType
+  name: VariableType
+  nameWithType: ISyncident.VariableType
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+- uid: RobotComponents.ABB.Enumerations.VariableType
+  commentId: T:RobotComponents.ABB.Enumerations.VariableType
+  parent: RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.ABB.Enumerations.VariableType.html
+  name: VariableType
+  nameWithType: VariableType
+  fullName: RobotComponents.ABB.Enumerations.VariableType
+- uid: RobotComponents.ABB.Enumerations
+  commentId: N:RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Enumerations
+  nameWithType: RobotComponents.ABB.Enumerations
+  fullName: RobotComponents.ABB.Enumerations
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_SyncID
+  name: SyncID
+  nameWithType: ISyncident.SyncID
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID

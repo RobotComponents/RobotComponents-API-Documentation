@@ -77,13 +77,13 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></div>
-    <div class="level2"><span class="xref">RobotTarget</span></div>
+    <div class="level1"><span class="xref">RobotTarget</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></div>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></div>
     <div><span class="xref">ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
@@ -111,7 +111,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class RobotTarget : Action, ITarget, IDeclaration, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class RobotTarget : IAction, ITarget, IDeclaration, ISerializable</code></pre>
   </div>
   <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>This action is used to define the pose of the robot and the external axes.</p>
@@ -154,180 +154,6 @@
         <td><span class="xref">Plane</span></td>
         <td><span class="parametername">plane</span></td>
         <td><p>The target plane.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">RobotTarget(Plane, Plane, int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(Plane plane, Plane referencePlane, int axisConfig)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>The reference plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target plane will be reoriented from the reference plane to the world xy-plane.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">RobotTarget(Plane, Plane, int, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(Plane plane, Plane referencePlane, int axisConfig, ExternalJointPosition externalJointPosition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>The Reference plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a></td>
-        <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The External Joint Position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target plane will be reoriented from the reference plane to the world xy-plane.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32)">RobotTarget(Plane, int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined External Joint Position.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(Plane plane, int axisConfig)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Thr target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">RobotTarget(Plane, int, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(Plane plane, int axisConfig, ExternalJointPosition externalJointPosition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a></td>
-        <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The External Joint Position.</p>
 </td>
       </tr>
     </tbody>
@@ -490,114 +316,6 @@ public RobotTarget(Plane plane, int axisConfig, ExternalJointPosition externalJo
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32)">RobotTarget(string, Plane, Plane, int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined Extenal Joint Position..</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfig)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>The reference plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target plane will be reoriented from the reference plane to the world xy-plane.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">RobotTarget(string, Plane, Plane, int, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfig, ExternalJointPosition externalJointPosition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">referencePlane</span></td>
-        <td><p>The Reference plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a></td>
-        <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The External Joint Position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target plane will be reoriented from the reference plane to the world xy-plane.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_RobotComponents_ABB_Actions_Declarations_ConfigurationData_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Actions.Declarations.ConfigurationData,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">RobotTarget(string, Plane, ConfigurationData, ExternalJointPosition)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
 </div>
@@ -642,128 +360,8 @@ public RobotTarget(string name, Plane plane, Plane referencePlane, int axisConfi
       </tr>
     </tbody>
   </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_System_Int32_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32)">RobotTarget(string, Plane, int)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class with an undefined External Joint Position.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(string name, Plane plane, int axisConfig)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>Thr target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget__ctor_System_String_Rhino_Geometry_Plane_System_Int32_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.#ctor(System.String,Rhino.Geometry.Plane,System.Int32,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)">RobotTarget(string, Plane, int, ExternalJointPosition)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Robot Target class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public RobotTarget(string name, Plane plane, int axisConfig, ExternalJointPosition externalJointPosition)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
-        <td><span class="parametername">name</span></td>
-        <td><p>The target name, must be unique.</p>
-</td>
-      </tr>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><span class="parametername">plane</span></td>
-        <td><p>The target plane.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td><span class="parametername">axisConfig</span></td>
-        <td><p>The axis configuration as a number (0-7).</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html">ExternalJointPosition</a></td>
-        <td><span class="parametername">externalJointPosition</span></td>
-        <td><p>The External Joint Position.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="properties">Properties
 </h3>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_AxisConfig_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.AxisConfig*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_AxisConfig" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.AxisConfig">AxisConfig</h4>
-  <div class="markdown level1 summary"><p>Gets or set the axis configuration.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use ConfigurationData instead.&quot;, false)]
-public int AxisConfig { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_AxisConfig_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>Min. value 0. Max. value 7.</p>
-</div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ConfigurationData_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ConfigurationData*"></a>
@@ -851,7 +449,7 @@ public int AxisConfig { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsValid { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -868,8 +466,6 @@ public int AxisConfig { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_IsValid">Action.IsValid</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_Name_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.Name*"></a>
@@ -1041,7 +637,7 @@ public int AxisConfig { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Action DuplicateAction()</code></pre>
+    <pre><code class="lang-csharp hljs">public IAction DuplicateAction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1053,14 +649,12 @@ public int AxisConfig { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></td>
         <td><p>A deep copy of the Robot Target instance as an Action.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_DuplicateDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.DuplicateDeclaration*"></a>
@@ -1082,7 +676,7 @@ public int AxisConfig { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></td>
         <td><p>A deep copy of the Robot Target instance as an IDeclaration.</p>
 </td>
       </tr>
@@ -1109,7 +703,7 @@ public int AxisConfig { get; set; }</code></pre>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><p>A deep copy of the Robot Target instance as an ITarget.</p>
 </td>
       </tr>
@@ -1230,47 +824,13 @@ public int AxisConfig { get; set; }</code></pre>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDDeclaration*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
-        <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>The RAPID Generator.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDDeclaration(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1306,18 +866,16 @@ public int AxisConfig { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDDeclaration(Robot)</a></div>
 
 
-  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDInstruction*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
+  <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDGenerator*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDGenerator(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations and instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1337,9 +895,7 @@ public int AxisConfig { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <h5 id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
 </div>
 
@@ -1351,7 +907,7 @@ public int AxisConfig { get; set; }</code></pre>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDInstruction(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDInstruction(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1387,8 +943,6 @@ public int AxisConfig { get; set; }</code></pre>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDInstruction(Robot)</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_ToString_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.ToString*"></a>
@@ -1417,7 +971,7 @@ public int AxisConfig { get; set; }</code></pre>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Declarations_RobotTarget_TryParse_" data-uid="RobotComponents.ABB.Actions.Declarations.RobotTarget.TryParse*"></a>
@@ -1471,17 +1025,16 @@ public int AxisConfig { get; set; }</code></pre>
   </table>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a>
   </div>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
   </div>
 
 </article>

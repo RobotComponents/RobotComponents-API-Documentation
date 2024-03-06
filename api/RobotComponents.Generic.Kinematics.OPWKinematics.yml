@@ -13,9 +13,11 @@ items:
   - RobotComponents.Generic.Kinematics.OPWKinematics.C2
   - RobotComponents.Generic.Kinematics.OPWKinematics.C3
   - RobotComponents.Generic.Kinematics.OPWKinematics.C4
+  - RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double})
   - RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)
   - RobotComponents.Generic.Kinematics.OPWKinematics.Inverse(Rhino.Geometry.Plane)
   - RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
+  - RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
   - RobotComponents.Generic.Kinematics.OPWKinematics.IsValid
   - RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity
   - RobotComponents.Generic.Kinematics.OPWKinematics.Offsets
@@ -39,16 +41,33 @@ items:
     Industrial Serial Manipulators with an Ortho-parallel Basis and a Spherical Wrist' 
 
     by Mathias Brandstötter, Arthur Angerer, and Michael Hofbaur.
+
+
+    Solution order:
+
+
+    Sol.    Wrist center            Wrist center            Axis 5 angle
+            relative to axis 1      relative to lower arm
+
+    0       In front of             In front of             Positive
+
+    1       In front of             Behind                  Positive
+
+    2       Behind                  In front of             Positive
+
+    3       Behind                  Behind                  Positive
+
+    4       In front of             In front of             Negative
+
+    5       In front of             Behind                  Negative 
+
+    6       Behind                  In front of             Negative
+
+    7       Behind                  Behind                  Negative
   example: []
   syntax:
-    content: >-
-      [Obsolete("BETA: This class is under development and might heavily change within the current major release.", false)]
-
-      public class OPWKinematics
-    content.vb: >-
-      <Obsolete("BETA: This class is under development and might heavily change within the current major release.", False)>
-
-      Public Class OPWKinematics
+    content: public class OPWKinematics
+    content.vb: Public Class OPWKinematics
   inheritance:
   - System.Object
   inheritedMembers:
@@ -58,14 +77,6 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
-    arguments:
-    - type: System.String
-      value: 'BETA: This class is under development and might heavily change within the current major release.'
-    - type: System.Boolean
-      value: false
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.#ctor
   commentId: M:RobotComponents.Generic.Kinematics.OPWKinematics.#ctor
   id: '#ctor'
@@ -113,6 +124,36 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: RobotComponents.Generic.Kinematics.OPWKinematics.ToString*
+- uid: RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double})
+  commentId: M:RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double})
+  id: Forward(System.Collections.Generic.IList{System.Double})
+  parent: RobotComponents.Generic.Kinematics.OPWKinematics
+  langs:
+  - csharp
+  - vb
+  name: Forward(IList<double>)
+  nameWithType: OPWKinematics.Forward(IList<double>)
+  fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList<double>)
+  type: Method
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Generic.Kinematics
+  summary: Calculates the end plane of joint 6 for a given pose.
+  example: []
+  syntax:
+    content: public Plane Forward(IList<double> pose)
+    parameters:
+    - id: pose
+      type: System.Collections.Generic.IList{System.Double}
+      description: The pose as a collection with 6 rotations in radians.
+    return:
+      type: Rhino.Geometry.Plane
+      description: The end plane of the 6th joint.
+    content.vb: Public Function Forward(pose As IList(Of Double)) As Plane
+  overload: RobotComponents.Generic.Kinematics.OPWKinematics.Forward*
+  nameWithType.vb: OPWKinematics.Forward(IList(Of Double))
+  fullName.vb: RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList(Of Double))
+  name.vb: Forward(IList(Of Double))
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)
   commentId: M:RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)
   id: Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)
@@ -207,7 +248,7 @@ items:
   assemblies:
   - RobotComponents
   namespace: RobotComponents.Generic.Kinematics
-  summary: Gets the inverse kinematics solutions.
+  summary: Gets the inverse kinematics solutions in radians.
   example: []
   syntax:
     content: public double[][] Solutions { get; }
@@ -216,6 +257,29 @@ items:
       type: System.Double[][]
     content.vb: Public ReadOnly Property Solutions As Double()()
   overload: RobotComponents.Generic.Kinematics.OPWKinematics.Solutions*
+- uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
+  commentId: P:RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
+  id: IsShoulderSingularity
+  parent: RobotComponents.Generic.Kinematics.OPWKinematics
+  langs:
+  - csharp
+  - vb
+  name: IsShoulderSingularity
+  nameWithType: OPWKinematics.IsShoulderSingularity
+  fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
+  type: Property
+  assemblies:
+  - RobotComponents
+  namespace: RobotComponents.Generic.Kinematics
+  summary: Gets a value indicating whether or not the solutions have a shoulder singularity.
+  example: []
+  syntax:
+    content: public bool[] IsShoulderSingularity { get; }
+    parameters: []
+    return:
+      type: System.Boolean[]
+    content.vb: Public ReadOnly Property IsShoulderSingularity As Boolean()
+  overload: RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity*
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
   commentId: P:RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
   id: IsElbowSingularity
@@ -279,11 +343,11 @@ items:
   summary: Gets or sets the offset corrections.
   example: []
   syntax:
-    content: public double[] Offsets { get; set; }
+    content: public IList<double> Offsets { get; set; }
     parameters: []
     return:
-      type: System.Double[]
-    content.vb: Public Property Offsets As Double()
+      type: System.Collections.Generic.IList{System.Double}
+    content.vb: Public Property Offsets As IList(Of Double)
   overload: RobotComponents.Generic.Kinematics.OPWKinematics.Offsets*
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Signs
   commentId: P:RobotComponents.Generic.Kinematics.OPWKinematics.Signs
@@ -300,13 +364,14 @@ items:
   - RobotComponents
   namespace: RobotComponents.Generic.Kinematics
   summary: Gets or sets the sign corrections.
+  remarks: This property also checks the input values and adjusts them to -1 or 1 if needed.
   example: []
   syntax:
-    content: public int[] Signs { get; set; }
+    content: public IList<int> Signs { get; set; }
     parameters: []
     return:
-      type: System.Int32[]
-    content.vb: Public Property Signs As Integer()
+      type: System.Collections.Generic.IList{System.Int32}
+    content.vb: Public Property Signs As IList(Of Integer)
   overload: RobotComponents.Generic.Kinematics.OPWKinematics.Signs*
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.A1
   commentId: P:RobotComponents.Generic.Kinematics.OPWKinematics.A1
@@ -723,7 +788,7 @@ references:
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.#ctor*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.#ctor
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.#ctor
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics__ctor
   name: OPWKinematics
   nameWithType: OPWKinematics.OPWKinematics
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.OPWKinematics
@@ -757,7 +822,7 @@ references:
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.ToString*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.ToString
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.ToString
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_ToString
   name: ToString
   nameWithType: OPWKinematics.ToString
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.ToString
@@ -775,7 +840,7 @@ references:
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Forward*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.Forward
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.Forward(System.Collections.Generic.IList{System.Double},Rhino.Geometry.Point3d@)
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_Forward_System_Collections_Generic_IList_System_Double__
   name: Forward
   nameWithType: OPWKinematics.Forward
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Forward
@@ -814,11 +879,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.double
   - name: )
-- uid: Rhino.Geometry.Point3d
-  isExternal: true
-  name: Point3d
-  nameWithType: Point3d
-  fullName: Rhino.Geometry.Point3d
 - uid: Rhino.Geometry.Plane
   isExternal: true
   name: Plane
@@ -889,17 +949,22 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
+- uid: Rhino.Geometry.Point3d
+  isExternal: true
+  name: Point3d
+  nameWithType: Point3d
+  fullName: Rhino.Geometry.Point3d
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Inverse*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.Inverse
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.Inverse(Rhino.Geometry.Plane)
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_Inverse_Rhino_Geometry_Plane_
   name: Inverse
   nameWithType: OPWKinematics.Inverse
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Inverse
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsValid*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.IsValid
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.IsValid
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_IsValid
   name: IsValid
   nameWithType: OPWKinematics.IsValid
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsValid
@@ -917,7 +982,7 @@ references:
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Solutions*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.Solutions
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.Solutions
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_Solutions
   name: Solutions
   nameWithType: OPWKinematics.Solutions
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Solutions
@@ -948,13 +1013,13 @@ references:
   - name: )
   - name: (
   - name: )
-- uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity*
-  commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
+- uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity*
+  commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
-  name: IsElbowSingularity
-  nameWithType: OPWKinematics.IsElbowSingularity
-  fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_IsShoulderSingularity
+  name: IsShoulderSingularity
+  nameWithType: OPWKinematics.IsShoulderSingularity
+  fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsShoulderSingularity
 - uid: System.Boolean[]
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.boolean
@@ -978,77 +1043,73 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: (
   - name: )
+- uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity*
+  commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
+  isExternal: true
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_IsElbowSingularity
+  name: IsElbowSingularity
+  nameWithType: OPWKinematics.IsElbowSingularity
+  fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsElbowSingularity
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_IsWristSingularity
   name: IsWristSingularity
   nameWithType: OPWKinematics.IsWristSingularity
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.IsWristSingularity
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Offsets*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.Offsets
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.Offsets
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_Offsets
   name: Offsets
   nameWithType: OPWKinematics.Offsets
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Offsets
-- uid: System.Double[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double[]
-  nameWithType: double[]
-  fullName: double[]
-  nameWithType.vb: Double()
-  fullName.vb: Double()
-  name.vb: Double()
-  spec.csharp:
-  - uid: System.Double
-    name: double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: '['
-  - name: ']'
-  spec.vb:
-  - uid: System.Double
-    name: Double
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.double
-  - name: (
-  - name: )
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.Signs*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.Signs
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.Signs
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_Signs
   name: Signs
   nameWithType: OPWKinematics.Signs
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.Signs
-- uid: System.Int32[]
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int[]
-  nameWithType: int[]
-  fullName: int[]
-  nameWithType.vb: Integer()
-  fullName.vb: Integer()
-  name.vb: Integer()
+- uid: System.Collections.Generic.IList{System.Int32}
+  commentId: T:System.Collections.Generic.IList{System.Int32}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  name: IList<int>
+  nameWithType: IList<int>
+  fullName: System.Collections.Generic.IList<int>
+  nameWithType.vb: IList(Of Integer)
+  fullName.vb: System.Collections.Generic.IList(Of Integer)
+  name.vb: IList(Of Integer)
   spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: <
   - uid: System.Int32
     name: int
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: '['
-  - name: ']'
+  - name: '>'
   spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
+  - name: (
+  - name: Of
+  - name: " "
   - uid: System.Int32
     name: Integer
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.int32
-  - name: (
   - name: )
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.A1*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.A1
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.A1
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_A1
   name: A1
   nameWithType: OPWKinematics.A1
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.A1
@@ -1066,42 +1127,42 @@ references:
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.A2*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.A2
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.A2
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_A2
   name: A2
   nameWithType: OPWKinematics.A2
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.A2
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.B*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.B
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.B
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_B
   name: B
   nameWithType: OPWKinematics.B
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.B
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.C1*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.C1
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.C1
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_C1
   name: C1
   nameWithType: OPWKinematics.C1
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.C1
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.C2*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.C2
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.C2
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_C2
   name: C2
   nameWithType: OPWKinematics.C2
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.C2
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.C3*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.C3
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.C3
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_C3
   name: C3
   nameWithType: OPWKinematics.C3
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.C3
 - uid: RobotComponents.Generic.Kinematics.OPWKinematics.C4*
   commentId: Overload:RobotComponents.Generic.Kinematics.OPWKinematics.C4
   isExternal: true
-  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents.Generic.Kinematics.OPWKinematics.C4
+  href: RobotComponents.Generic.Kinematics.OPWKinematics.html#RobotComponents_Generic_Kinematics_OPWKinematics_C4
   name: C4
   nameWithType: OPWKinematics.C4
   fullName: RobotComponents.Generic.Kinematics.OPWKinematics.C4

@@ -8,7 +8,7 @@ items:
   - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisLimits
   - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisPlanes
   - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
-  - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
+  - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
   - RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetToolMountingFrame
   langs:
   - csharp
@@ -35,16 +35,16 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-- uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
-  commentId: M:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
-  id: GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
+- uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
+  commentId: M:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
+  id: GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
   parent: RobotComponents.ABB.Presets.Robots.IRB120_3_058
   langs:
   - csharp
   - vb
-  name: GetRobot(Plane, RobotTool, IList<ExternalAxis>)
-  nameWithType: IRB120_3_058.GetRobot(Plane, RobotTool, IList<ExternalAxis>)
-  fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.ABB.Definitions.ExternalAxis>)
+  name: GetRobot(Plane, RobotTool, IList<IExternalAxis>)
+  nameWithType: IRB120_3_058.GetRobot(Plane, RobotTool, IList<IExternalAxis>)
+  fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.ABB.Definitions.IExternalAxis>)
   type: Method
   assemblies:
   - RobotComponents.ABB.Presets
@@ -52,7 +52,7 @@ items:
   summary: Returns a new IRB120-3/0.58 Robot instance.
   example: []
   syntax:
-    content: public static Robot GetRobot(Plane positionPlane, RobotTool tool, IList<ExternalAxis> externalAxes = null)
+    content: public static Robot GetRobot(Plane positionPlane, RobotTool tool = null, IList<IExternalAxis> externalAxes = null)
     parameters:
     - id: positionPlane
       type: Rhino.Geometry.Plane
@@ -61,16 +61,16 @@ items:
       type: RobotComponents.ABB.Definitions.RobotTool
       description: The Robot Tool.
     - id: externalAxes
-      type: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
+      type: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
       description: The external axes attached to the Robot.
     return:
       type: RobotComponents.ABB.Definitions.Robot
       description: The Robot preset.
-    content.vb: Public Shared Function GetRobot(positionPlane As Plane, tool As RobotTool, externalAxes As IList(Of ExternalAxis) = Nothing) As Robot
+    content.vb: Public Shared Function GetRobot(positionPlane As Plane, tool As RobotTool = Nothing, externalAxes As IList(Of IExternalAxis) = Nothing) As Robot
   overload: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot*
-  nameWithType.vb: IRB120_3_058.GetRobot(Plane, RobotTool, IList(Of ExternalAxis))
-  fullName.vb: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.ExternalAxis))
-  name.vb: GetRobot(Plane, RobotTool, IList(Of ExternalAxis))
+  nameWithType.vb: IRB120_3_058.GetRobot(Plane, RobotTool, IList(Of IExternalAxis))
+  fullName.vb: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.IExternalAxis))
+  name.vb: GetRobot(Plane, RobotTool, IList(Of IExternalAxis))
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
   commentId: M:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
   id: GetMeshes
@@ -451,7 +451,7 @@ references:
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot*
   commentId: Overload:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot
   isExternal: true
-  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot(Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
+  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents_ABB_Presets_Robots_IRB120_3_058_GetRobot_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_RobotTool_System_Collections_Generic_IList_RobotComponents_ABB_Definitions_IExternalAxis__
   name: GetRobot
   nameWithType: IRB120_3_058.GetRobot
   fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetRobot
@@ -468,27 +468,27 @@ references:
   name: RobotTool
   nameWithType: RobotTool
   fullName: RobotComponents.ABB.Definitions.RobotTool
-- uid: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
-  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
+- uid: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IList`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
-  name: IList<ExternalAxis>
-  nameWithType: IList<ExternalAxis>
-  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Definitions.ExternalAxis>
-  nameWithType.vb: IList(Of ExternalAxis)
-  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.ExternalAxis)
-  name.vb: IList(Of ExternalAxis)
+  name: IList<IExternalAxis>
+  nameWithType: IList<IExternalAxis>
+  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Definitions.IExternalAxis>
+  nameWithType.vb: IList(Of IExternalAxis)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.IExternalAxis)
+  name.vb: IList(Of IExternalAxis)
   spec.csharp:
   - uid: System.Collections.Generic.IList`1
     name: IList
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
   - name: <
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IList`1
@@ -498,10 +498,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: )
 - uid: RobotComponents.ABB.Definitions.Robot
   commentId: T:RobotComponents.ABB.Definitions.Robot
@@ -616,7 +616,7 @@ references:
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes*
   commentId: Overload:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
   isExternal: true
-  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
+  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents_ABB_Presets_Robots_IRB120_3_058_GetMeshes
   name: GetMeshes
   nameWithType: IRB120_3_058.GetMeshes
   fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetMeshes
@@ -684,7 +684,7 @@ references:
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisPlanes*
   commentId: Overload:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisPlanes
   isExternal: true
-  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisPlanes
+  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents_ABB_Presets_Robots_IRB120_3_058_GetAxisPlanes
   name: GetAxisPlanes
   nameWithType: IRB120_3_058.GetAxisPlanes
   fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisPlanes
@@ -724,7 +724,7 @@ references:
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisLimits*
   commentId: Overload:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisLimits
   isExternal: true
-  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisLimits
+  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents_ABB_Presets_Robots_IRB120_3_058_GetAxisLimits
   name: GetAxisLimits
   nameWithType: IRB120_3_058.GetAxisLimits
   fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetAxisLimits
@@ -764,7 +764,7 @@ references:
 - uid: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetToolMountingFrame*
   commentId: Overload:RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetToolMountingFrame
   isExternal: true
-  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetToolMountingFrame
+  href: RobotComponents.ABB.Presets.Robots.IRB120_3_058.html#RobotComponents_ABB_Presets_Robots_IRB120_3_058_GetToolMountingFrame
   name: GetToolMountingFrame
   nameWithType: IRB120_3_058.GetToolMountingFrame
   fullName: RobotComponents.ABB.Presets.Robots.IRB120_3_058.GetToolMountingFrame

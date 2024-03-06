@@ -24,9 +24,8 @@ items:
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse(System.String)
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
-  - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString
   - RobotComponents.ABB.Actions.Declarations.ConfigurationData.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.ConfigurationData@)
@@ -44,13 +43,13 @@ items:
   summary: Represents the Configuration Data declaration.
   example: []
   syntax:
-    content: 'public class ConfigurationData : Action, IDeclaration, ISerializable'
-    content.vb: Public Class ConfigurationData Inherits Action Implements IDeclaration, ISerializable
+    content: 'public class ConfigurationData : IAction, IDeclaration, ISerializable'
+    content.vb: Public Class ConfigurationData Implements IAction, IDeclaration, ISerializable
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Actions.Action
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  - RobotComponents.ABB.Actions.IAction
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -59,8 +58,6 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  extensionMethods:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
@@ -287,12 +284,12 @@ items:
   syntax:
     content: public IDeclaration DuplicateDeclaration()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+      type: RobotComponents.ABB.Actions.Declarations.IDeclaration
       description: A deep copy of the Configuration Data instance as an IDeclaration.
     content.vb: Public Function DuplicateDeclaration() As IDeclaration
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction
   id: DuplicateAction
@@ -310,13 +307,14 @@ items:
   summary: Returns an exact duplicate of this Configuration Data instance as an Action.
   example: []
   syntax:
-    content: public override Action DuplicateAction()
+    content: public IAction DuplicateAction()
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: A deep copy of the Configuration Data instance as an Action.
-    content.vb: Public Overrides Function DuplicateAction() As Action
-  overridden: RobotComponents.ABB.Actions.Action.DuplicateAction
+    content.vb: Public Function DuplicateAction() As IAction
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.DuplicateAction
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse(System.String)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse(System.String)
   id: Parse(System.String)
@@ -401,7 +399,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Actions.Action.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString*
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
@@ -428,7 +426,7 @@ items:
     content.vb: Public Function ToRAPID() As String
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -446,7 +444,7 @@ items:
   summary: Returns the RAPID declaration code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDDeclaration(Robot robot)
+    content: public string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -454,11 +452,11 @@ items:
     return:
       type: System.String
       description: The RAPID code line in case a variable name is defined.
-    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
@@ -476,7 +474,7 @@ items:
   summary: Returns the RAPID instruction code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDInstruction(Robot robot)
+    content: public string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -484,63 +482,38 @@ items:
     return:
       type: System.String
       description: An emptry string.
-    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction*
-- uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Declarations.ConfigurationData
-  langs:
-  - csharp
-  - vb
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: ConfigurationData.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
-  remarks: This method is called inside the RAPID generator.
-  example: []
-  syntax:
-    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
-    parameters:
-    - id: RAPIDGenerator
-      type: RobotComponents.ABB.Actions.RAPIDGenerator
-      description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-- uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+- uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   parent: RobotComponents.ABB.Actions.Declarations.ConfigurationData
   langs:
   - csharp
   - vb
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: ConfigurationData.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: ConfigurationData.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
   remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
-    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    content: public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.ABB.Actions.RAPIDGenerator
       description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction*
+    content.vb: Public Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid
   id: IsValid
@@ -558,15 +531,15 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Actions.Action.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  - RobotComponents.ABB.Actions.IAction.IsValid
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
   id: Scope
@@ -591,7 +564,7 @@ items:
     content.vb: Public Property Scope As Scope
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType
   id: VariableType
@@ -616,7 +589,7 @@ items:
     content.vb: Public Property VariableType As VariableType
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype
   id: Datatype
@@ -641,7 +614,7 @@ items:
     content.vb: Public ReadOnly Property Datatype As String
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name
   id: Name
@@ -666,7 +639,7 @@ items:
     content.vb: Public Property Name As String
   overload: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1
   commentId: P:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1
   id: Cf1
@@ -818,22 +791,22 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Actions.Action
-  commentId: T:RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction
+  commentId: T:RobotComponents.ABB.Actions.IAction
   parent: RobotComponents.ABB.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action
-  nameWithType: Action
-  fullName: RobotComponents.ABB.Actions.Action
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  parent: RobotComponents.ABB.Actions.Interfaces
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: RobotComponents.ABB.Actions.IAction
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  commentId: T:RobotComponents.ABB.Actions.Declarations.IDeclaration
+  parent: RobotComponents.ABB.Actions.Declarations
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html
   name: IDeclaration
   nameWithType: IDeclaration
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -1037,69 +1010,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
-  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  parent: RobotComponents.ABB.Utils.HelperMethods
-  definition: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  name: SetDataFromString(IDeclaration, string, out string[])
-  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
-  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
-  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
-  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
-  name.vb: SetDataFromString(IDeclaration, String, String())
-  spec.csharp:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1144,53 +1054,6 @@ references:
     name: Actions
     isExternal: true
     href: RobotComponents.ABB.Actions.html
-- uid: RobotComponents.ABB.Actions.Interfaces
-  commentId: N:RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Actions.Interfaces
-  nameWithType: RobotComponents.ABB.Actions.Interfaces
-  fullName: RobotComponents.ABB.Actions.Interfaces
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
 - uid: System.Runtime.Serialization
   commentId: N:System.Runtime.Serialization
   isExternal: true
@@ -1228,117 +1091,10 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  isExternal: true
-  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  name: SetDataFromString(IDeclaration, string, out string[])
-  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
-  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
-  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
-  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
-  name.vb: SetDataFromString(IDeclaration, String, String())
-  spec.csharp:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
-  - name: )
-- uid: RobotComponents.ABB.Utils.HelperMethods
-  commentId: T:RobotComponents.ABB.Utils.HelperMethods
-  parent: RobotComponents.ABB.Utils
-  isExternal: true
-  href: RobotComponents.ABB.Utils.HelperMethods.html
-  name: HelperMethods
-  nameWithType: HelperMethods
-  fullName: RobotComponents.ABB.Utils.HelperMethods
-- uid: RobotComponents.ABB.Utils
-  commentId: N:RobotComponents.ABB.Utils
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Utils
-  nameWithType: RobotComponents.ABB.Utils
-  fullName: RobotComponents.ABB.Utils
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Utils
-    name: Utils
-    isExternal: true
-    href: RobotComponents.ABB.Utils.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Utils
-    name: Utils
-    isExternal: true
-    href: RobotComponents.ABB.Utils.html
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: ConfigurationData
   nameWithType: ConfigurationData.ConfigurationData
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ConfigurationData
@@ -1364,7 +1120,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: ConfigurationData.GetObjectData
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.GetObjectData
@@ -1443,79 +1199,79 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Duplicate*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Duplicate
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Duplicate
   name: Duplicate
   nameWithType: ConfigurationData.Duplicate
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Duplicate
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateDeclaration
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_DuplicateDeclaration
   name: DuplicateDeclaration
   nameWithType: ConfigurationData.DuplicateDeclaration
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
   name: DuplicateDeclaration()
   nameWithType: IDeclaration.DuplicateDeclaration()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
     name: DuplicateDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
     name: DuplicateDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-  commentId: M:RobotComponents.ABB.Actions.Action.DuplicateAction
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  name: DuplicateAction()
-  nameWithType: Action.DuplicateAction()
-  fullName: RobotComponents.ABB.Actions.Action.DuplicateAction()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_DuplicateAction
   name: DuplicateAction
   nameWithType: ConfigurationData.DuplicateAction
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.DuplicateAction
+- uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+  commentId: M:RobotComponents.ABB.Actions.IAction.DuplicateAction
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  name: DuplicateAction()
+  nameWithType: IAction.DuplicateAction()
+  fullName: RobotComponents.ABB.Actions.IAction.DuplicateAction()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse(System.String)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Parse_System_String_
   name: Parse
   nameWithType: ConfigurationData.Parse
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Parse
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.TryParse*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.TryParse
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.ConfigurationData@)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_ConfigurationData__
   name: TryParse
   nameWithType: ConfigurationData.TryParse
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.TryParse
@@ -1530,114 +1286,86 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: RobotComponents.ABB.Actions.Action.ToString
-  commentId: M:RobotComponents.ABB.Actions.Action.ToString
-  parent: RobotComponents.ABB.Actions.Action
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   name: ToString()
-  nameWithType: Action.ToString()
-  fullName: RobotComponents.ABB.Actions.Action.ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_ToString
   name: ToString
   nameWithType: ConfigurationData.ToString
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToString
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_ToRAPID
   name: ToRAPID
   nameWithType: ConfigurationData.ToRAPID
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPID
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   name: ToRAPID()
   nameWithType: IDeclaration.ToRAPID()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID()
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   - name: (
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDDeclaration(Robot)
-  nameWithType: Action.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration
   nameWithType: ConfigurationData.ToRAPIDDeclaration
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
-  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1645,10 +1373,40 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1700,56 +1458,63 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDInstruction(Robot)
-  nameWithType: Action.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction
   nameWithType: ConfigurationData.ToRAPIDInstruction
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDInstruction
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IAction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: ConfigurationData.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IAction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1757,29 +1522,29 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
     isExternal: true
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1787,10 +1552,10 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1805,74 +1570,44 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Action.IsValid
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.IsValid
-  name: IsValid
-  nameWithType: Action.IsValid
-  fullName: RobotComponents.ABB.Actions.Action.IsValid
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_IsValid
   name: IsValid
   nameWithType: ConfigurationData.IsValid
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.IsValid
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.IAction.IsValid
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_IsValid
+  name: IsValid
+  nameWithType: IAction.IsValid
+  fullName: RobotComponents.ABB.Actions.IAction.IsValid
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_IsValid
   name: IsValid
   nameWithType: IDeclaration.IsValid
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Scope
   name: Scope
   nameWithType: ConfigurationData.Scope
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Scope
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Scope
   name: Scope
   nameWithType: IDeclaration.Scope
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
 - uid: RobotComponents.ABB.Enumerations.Scope
   commentId: T:RobotComponents.ABB.Enumerations.Scope
   parent: RobotComponents.ABB.Enumerations
@@ -1921,18 +1656,18 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_VariableType
   name: VariableType
   nameWithType: ConfigurationData.VariableType
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.VariableType
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_VariableType
   name: VariableType
   nameWithType: IDeclaration.VariableType
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
 - uid: RobotComponents.ABB.Enumerations.VariableType
   commentId: T:RobotComponents.ABB.Enumerations.VariableType
   parent: RobotComponents.ABB.Enumerations
@@ -1944,58 +1679,58 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Datatype
   name: Datatype
   nameWithType: ConfigurationData.Datatype
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Datatype
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Datatype
   name: Datatype
   nameWithType: IDeclaration.Datatype
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Name
   name: Name
   nameWithType: ConfigurationData.Name
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Name
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Name
   name: Name
   nameWithType: IDeclaration.Name
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Cf1
   name: Cf1
   nameWithType: ConfigurationData.Cf1
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf1
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf4*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf4
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf4
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Cf4
   name: Cf4
   nameWithType: ConfigurationData.Cf4
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf4
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf6*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf6
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf6
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Cf6
   name: Cf6
   nameWithType: ConfigurationData.Cf6
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cf6
 - uid: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cfx*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cfx
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cfx
+  href: RobotComponents.ABB.Actions.Declarations.ConfigurationData.html#RobotComponents_ABB_Actions_Declarations_ConfigurationData_Cfx
   name: Cfx
   nameWithType: ConfigurationData.Cfx
   fullName: RobotComponents.ABB.Actions.Declarations.ConfigurationData.Cfx

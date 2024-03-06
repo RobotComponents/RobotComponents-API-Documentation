@@ -6,19 +6,15 @@ items:
   parent: RobotComponents.ABB.Kinematics
   children:
   - RobotComponents.ABB.Kinematics.InverseKinematics.#ctor
-  - RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)
-  - RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
+  - RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)
   - RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
-  - RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
-  - RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
   - RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
   - RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText
   - RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition
-  - RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
+  - RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits
   - RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
-  - RobotComponents.ABB.Kinematics.InverseKinematics.Movement
   - RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
   - RobotComponents.ABB.Kinematics.InverseKinematics.Robot
   - RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition
@@ -36,6 +32,30 @@ items:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
   summary: Represent the Inverse Kinematics for a 6-axis spherical Robot and its attached external axes.
+  remarks: >-
+    Solution order:
+
+
+    Sol.    Wrist center            Wrist center            Axis 5 angle
+
+    Cfx     relative to axis 1      relative to lower arm
+
+
+    0       In front of             In front of             Positive
+
+    1       In front of             In front of             Negative
+
+    2       In front of             Behind                  Positive
+
+    3       In front of             Behind                  Negative     
+
+    4       Behind                  In front of             Positive
+
+    5       Behind                  In front of             Negative
+
+    6       Behind                  Behind                  Positive
+
+    7       Behind                  Behind                  Negative
   example: []
   syntax:
     content: public class InverseKinematics
@@ -72,67 +92,33 @@ items:
   nameWithType.vb: InverseKinematics.New()
   fullName.vb: RobotComponents.ABB.Kinematics.InverseKinematics.New()
   name.vb: New()
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)
-  id: '#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)'
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Definitions.Robot)
+  id: '#ctor(RobotComponents.ABB.Definitions.Robot)'
   parent: RobotComponents.ABB.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: InverseKinematics(Movement, Robot)
-  nameWithType: InverseKinematics.InverseKinematics(Movement, Robot)
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InverseKinematics(RobotComponents.ABB.Actions.Instructions.Movement, RobotComponents.ABB.Definitions.Robot)
+  name: InverseKinematics(Robot)
+  nameWithType: InverseKinematics.InverseKinematics(Robot)
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InverseKinematics(RobotComponents.ABB.Definitions.Robot)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: Initializes a new instance of the Inverse Kinematics class from a Movement.
+  summary: Initializes a new instance of the Inverse Kinematics class.
   example: []
   syntax:
-    content: public InverseKinematics(Movement movement, Robot robot)
+    content: public InverseKinematics(Robot robot)
     parameters:
-    - id: movement
-      type: RobotComponents.ABB.Actions.Instructions.Movement
-      description: The Movement.
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
       description: The Robot.
-    content.vb: Public Sub New(movement As Movement, robot As Robot)
+    content.vb: Public Sub New(robot As Robot)
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*
-  nameWithType.vb: InverseKinematics.New(Movement, Robot)
-  fullName.vb: RobotComponents.ABB.Kinematics.InverseKinematics.New(RobotComponents.ABB.Actions.Instructions.Movement, RobotComponents.ABB.Definitions.Robot)
-  name.vb: New(Movement, Robot)
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)
-  id: '#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)'
-  parent: RobotComponents.ABB.Kinematics.InverseKinematics
-  langs:
-  - csharp
-  - vb
-  name: InverseKinematics(ITarget, Robot)
-  nameWithType: InverseKinematics.InverseKinematics(ITarget, Robot)
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InverseKinematics(RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Definitions.Robot)
-  type: Constructor
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Initializes a new instance of the Inverse Kinematics class from a Target.
-  remarks: The target will be casted to a robot movement with a default work object (wobj0).
-  example: []
-  syntax:
-    content: public InverseKinematics(ITarget target, Robot robot)
-    parameters:
-    - id: target
-      type: RobotComponents.ABB.Actions.Interfaces.ITarget
-      description: The Target
-    - id: robot
-      type: RobotComponents.ABB.Definitions.Robot
-      description: The Robot.
-    content.vb: Public Sub New(target As ITarget, robot As Robot)
-  overload: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*
-  nameWithType.vb: InverseKinematics.New(ITarget, Robot)
-  fullName.vb: RobotComponents.ABB.Kinematics.InverseKinematics.New(RobotComponents.ABB.Actions.Interfaces.ITarget, RobotComponents.ABB.Definitions.Robot)
-  name.vb: New(ITarget, Robot)
+  nameWithType.vb: InverseKinematics.New(Robot)
+  fullName.vb: RobotComponents.ABB.Kinematics.InverseKinematics.New(RobotComponents.ABB.Definitions.Robot)
+  name.vb: New(Robot)
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)
   commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)
   id: '#ctor(RobotComponents.ABB.Kinematics.InverseKinematics)'
@@ -228,16 +214,16 @@ items:
     content: public void ReInitialize()
     content.vb: Public Sub ReInitialize()
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize*
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
-  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
-  id: Calculate
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)
+  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)
+  id: Calculate(RobotComponents.ABB.Actions.Instructions.Movement)
   parent: RobotComponents.ABB.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: Calculate()
-  nameWithType: InverseKinematics.Calculate()
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate()
+  name: Calculate(Movement)
+  nameWithType: InverseKinematics.Calculate(Movement)
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -245,30 +231,13 @@ items:
   summary: Calculates the inverse kinematics solution.
   example: []
   syntax:
-    content: public void Calculate()
-    content.vb: Public Sub Calculate()
+    content: public void Calculate(Movement movement)
+    parameters:
+    - id: movement
+      type: RobotComponents.ABB.Actions.Instructions.Movement
+      description: The movement to calculate the solution for.
+    content.vb: Public Sub Calculate(movement As Movement)
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate*
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
-  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
-  id: CalculateRobotJointPosition
-  parent: RobotComponents.ABB.Kinematics.InverseKinematics
-  langs:
-  - csharp
-  - vb
-  name: CalculateRobotJointPosition()
-  nameWithType: InverseKinematics.CalculateRobotJointPosition()
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition()
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Calculates the Robot Joint Position of the Inverse Kinematics solution.
-  remarks: This method does not check the internal axis limits.
-  example: []
-  syntax:
-    content: public void CalculateRobotJointPosition()
-    content.vb: Public Sub CalculateRobotJointPosition()
-  overload: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition*
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   id: CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
@@ -302,27 +271,6 @@ items:
       description: The closest Robot Joint Position.
     content.vb: Public Function CalculateClosestRobotJointPosition(prevJointPosition As RobotJointPosition) As RobotJointPosition
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
-  commentId: M:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
-  id: CalculateExternalJointPosition
-  parent: RobotComponents.ABB.Kinematics.InverseKinematics
-  langs:
-  - csharp
-  - vb
-  name: CalculateExternalJointPosition()
-  nameWithType: InverseKinematics.CalculateExternalJointPosition()
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition()
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Calculates the External Joint Position of the Inverse Kinematics solution.
-  remarks: This method does not check the external axis limits.
-  example: []
-  syntax:
-    content: public void CalculateExternalJointPosition()
-    content.vb: Public Sub CalculateExternalJointPosition()
-  overload: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition*
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
   commentId: P:RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
   id: IsValid
@@ -369,30 +317,6 @@ items:
       type: RobotComponents.ABB.Definitions.Robot
     content.vb: Public Property Robot As Robot
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.Robot*
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Movement
-  commentId: P:RobotComponents.ABB.Kinematics.InverseKinematics.Movement
-  id: Movement
-  parent: RobotComponents.ABB.Kinematics.InverseKinematics
-  langs:
-  - csharp
-  - vb
-  name: Movement
-  nameWithType: InverseKinematics.Movement
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Movement
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Gets or sets the Movement.
-  remarks: The target and work object are obtained from this movement.
-  example: []
-  syntax:
-    content: public Movement Movement { get; set; }
-    parameters: []
-    return:
-      type: RobotComponents.ABB.Actions.Instructions.Movement
-    content.vb: Public Property Movement As Movement
-  overload: RobotComponents.ABB.Kinematics.InverseKinematics.Movement*
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool
   commentId: P:RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool
   id: RobotTool
@@ -512,16 +436,16 @@ items:
       type: System.Collections.Generic.List{System.String}
     content.vb: Public ReadOnly Property ErrorText As List(Of String)
   overload: RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText*
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
-  commentId: P:RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
-  id: InLimits
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits
+  commentId: P:RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits
+  id: IsInLimits
   parent: RobotComponents.ABB.Kinematics.InverseKinematics
   langs:
   - csharp
   - vb
-  name: InLimits
-  nameWithType: InverseKinematics.InLimits
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
+  name: IsInLimits
+  nameWithType: InverseKinematics.IsInLimits
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits
   type: Property
   assemblies:
   - RobotComponents.ABB
@@ -529,12 +453,12 @@ items:
   summary: Gets a value indicating whether or not the internal and external values are within their limits.
   example: []
   syntax:
-    content: public bool InLimits { get; }
+    content: public bool IsInLimits { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property InLimits As Boolean
-  overload: RobotComponents.ABB.Kinematics.InverseKinematics.InLimits*
+    content.vb: Public ReadOnly Property IsInLimits As Boolean
+  overload: RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits*
 references:
 - uid: RobotComponents.ABB.Kinematics
   commentId: N:RobotComponents.ABB.Kinematics
@@ -789,21 +713,13 @@ references:
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.#ctor
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics__ctor
   name: InverseKinematics
   nameWithType: InverseKinematics.InverseKinematics
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InverseKinematics
   nameWithType.vb: InverseKinematics.New
   fullName.vb: RobotComponents.ABB.Kinematics.InverseKinematics.New
   name.vb: New
-- uid: RobotComponents.ABB.Actions.Instructions.Movement
-  commentId: T:RobotComponents.ABB.Actions.Instructions.Movement
-  parent: RobotComponents.ABB.Actions.Instructions
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.Movement.html
-  name: Movement
-  nameWithType: Movement
-  fullName: RobotComponents.ABB.Actions.Instructions.Movement
 - uid: RobotComponents.ABB.Definitions.Robot
   commentId: T:RobotComponents.ABB.Definitions.Robot
   parent: RobotComponents.ABB.Definitions
@@ -812,6 +728,122 @@ references:
   name: Robot
   nameWithType: Robot
   fullName: RobotComponents.ABB.Definitions.Robot
+- uid: RobotComponents.ABB.Definitions
+  commentId: N:RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Definitions
+  nameWithType: RobotComponents.ABB.Definitions
+  fullName: RobotComponents.ABB.Definitions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics
+  commentId: T:RobotComponents.ABB.Kinematics.InverseKinematics
+  parent: RobotComponents.ABB.Kinematics
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html
+  name: InverseKinematics
+  nameWithType: InverseKinematics
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate*
+  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_Duplicate
+  name: Duplicate
+  nameWithType: InverseKinematics.Duplicate
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.ToString*
+  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ToString
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_ToString
+  name: ToString
+  nameWithType: InverseKinematics.ToString
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize*
+  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_ReInitialize
+  name: ReInitialize
+  nameWithType: InverseKinematics.ReInitialize
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate*
+  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_Calculate_RobotComponents_ABB_Actions_Instructions_Movement_
+  name: Calculate
+  nameWithType: InverseKinematics.Calculate
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
+- uid: RobotComponents.ABB.Actions.Instructions.Movement
+  commentId: T:RobotComponents.ABB.Actions.Instructions.Movement
+  parent: RobotComponents.ABB.Actions.Instructions
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.Movement.html
+  name: Movement
+  nameWithType: Movement
+  fullName: RobotComponents.ABB.Actions.Instructions.Movement
 - uid: RobotComponents.ABB.Actions.Instructions
   commentId: N:RobotComponents.ABB.Actions.Instructions
   isExternal: true
@@ -859,180 +891,10 @@ references:
     name: Instructions
     isExternal: true
     href: RobotComponents.ABB.Actions.Instructions.html
-- uid: RobotComponents.ABB.Definitions
-  commentId: N:RobotComponents.ABB.Definitions
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Definitions
-  nameWithType: RobotComponents.ABB.Definitions
-  fullName: RobotComponents.ABB.Definitions
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Definitions
-    name: Definitions
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Definitions
-    name: Definitions
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Interfaces.ITarget
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.ITarget
-  parent: RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ITarget.html
-  name: ITarget
-  nameWithType: ITarget
-  fullName: RobotComponents.ABB.Actions.Interfaces.ITarget
-- uid: RobotComponents.ABB.Actions.Interfaces
-  commentId: N:RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Actions.Interfaces
-  nameWithType: RobotComponents.ABB.Actions.Interfaces
-  fullName: RobotComponents.ABB.Actions.Interfaces
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics
-  commentId: T:RobotComponents.ABB.Kinematics.InverseKinematics
-  parent: RobotComponents.ABB.Kinematics
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html
-  name: InverseKinematics
-  nameWithType: InverseKinematics
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
-  name: Duplicate
-  nameWithType: InverseKinematics.Duplicate
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Duplicate
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.ToString*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ToString
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.ToString
-  name: ToString
-  nameWithType: InverseKinematics.ToString
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ToString
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
-  name: ReInitialize
-  nameWithType: InverseKinematics.ReInitialize
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ReInitialize
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
-  name: Calculate
-  nameWithType: InverseKinematics.Calculate
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Calculate
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
-  name: CalculateRobotJointPosition
-  nameWithType: InverseKinematics.CalculateRobotJointPosition
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_
   name: CalculateClosestRobotJointPosition
   nameWithType: InverseKinematics.CalculateClosestRobotJointPosition
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition
@@ -1091,17 +953,10 @@ references:
     name: Declarations
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.html
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
-  name: CalculateExternalJointPosition
-  nameWithType: InverseKinematics.CalculateExternalJointPosition
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.IsValid*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_IsValid
   name: IsValid
   nameWithType: InverseKinematics.IsValid
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.IsValid
@@ -1119,21 +974,14 @@ references:
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.Robot*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Robot
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.Robot
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_Robot
   name: Robot
   nameWithType: InverseKinematics.Robot
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Robot
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.Movement*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.Movement
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.Movement
-  name: Movement
-  nameWithType: InverseKinematics.Movement
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.Movement
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_RobotTool
   name: RobotTool
   nameWithType: InverseKinematics.RobotTool
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.RobotTool
@@ -1148,7 +996,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_RobotJointPositions
   name: RobotJointPositions
   nameWithType: InverseKinematics.RobotJointPositions
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPositions
@@ -1255,14 +1103,14 @@ references:
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_RobotJointPosition
   name: RobotJointPosition
   nameWithType: InverseKinematics.RobotJointPosition
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.RobotJointPosition
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_ExternalJointPosition
   name: ExternalJointPosition
   nameWithType: InverseKinematics.ExternalJointPosition
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ExternalJointPosition
@@ -1277,7 +1125,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText*
   commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_ErrorText
   name: ErrorText
   nameWithType: InverseKinematics.ErrorText
   fullName: RobotComponents.ABB.Kinematics.InverseKinematics.ErrorText
@@ -1316,10 +1164,10 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.string
   - name: )
-- uid: RobotComponents.ABB.Kinematics.InverseKinematics.InLimits*
-  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
+- uid: RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits*
+  commentId: Overload:RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
-  name: InLimits
-  nameWithType: InverseKinematics.InLimits
-  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.InLimits
+  href: RobotComponents.ABB.Kinematics.InverseKinematics.html#RobotComponents_ABB_Kinematics_InverseKinematics_IsInLimits
+  name: IsInLimits
+  nameWithType: InverseKinematics.IsInLimits
+  fullName: RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits

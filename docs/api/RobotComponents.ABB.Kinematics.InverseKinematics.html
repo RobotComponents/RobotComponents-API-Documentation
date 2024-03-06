@@ -106,6 +106,19 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class InverseKinematics</code></pre>
   </div>
+  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Solution order:</p>
+<p>Sol.    Wrist center            Wrist center            Axis 5 angle
+Cfx     relative to axis 1      relative to lower arm</p>
+<p>0       In front of             In front of             Positive
+1       In front of             In front of             Negative
+2       In front of             Behind                  Positive
+3       In front of             Behind                  Negative<br>
+4       Behind                  In front of             Positive
+5       Behind                  In front of             Negative
+6       Behind                  Behind                  Positive
+7       Behind                  Behind                  Negative</p>
+</div>
   <h3 id="constructors">Constructors
 </h3>
 
@@ -122,13 +135,13 @@
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Actions_Instructions_Movement_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,RobotComponents.ABB.Definitions.Robot)">InverseKinematics(Movement, Robot)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Movement.</p>
+  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Definitions.Robot)">InverseKinematics(Robot)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InverseKinematics(Movement movement, Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public InverseKinematics(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -141,12 +154,6 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.Movement.html">Movement</a></td>
-        <td><span class="parametername">movement</span></td>
-        <td><p>The Movement.</p>
-</td>
-      </tr>
-      <tr>
         <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
         <td><span class="parametername">robot</span></td>
         <td><p>The Robot.</p>
@@ -154,44 +161,6 @@
       </tr>
     </tbody>
   </table>
-
-
-  <a id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Definitions.Robot)">InverseKinematics(ITarget, Robot)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Inverse Kinematics class from a Target.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public InverseKinematics(ITarget target, Robot robot)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The Target</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.Robot.html">Robot</a></td>
-        <td><span class="parametername">robot</span></td>
-        <td><p>The Robot.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Definitions_Robot__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target will be casted to a robot movement with a default work object (wobj0).</p>
-</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics__ctor_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.#ctor*"></a>
@@ -277,14 +246,14 @@
   </table>
 
 
-  <a id="RobotComponents_ABB_Kinematics_InverseKinematics_InLimits_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.InLimits*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_InLimits" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.InLimits">InLimits</h4>
+  <a id="RobotComponents_ABB_Kinematics_InverseKinematics_IsInLimits_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits*"></a>
+  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_IsInLimits" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.IsInLimits">IsInLimits</h4>
   <div class="markdown level1 summary"><p>Gets a value indicating whether or not the internal and external values are within their limits.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public bool InLimits { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsInLimits { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -327,35 +296,6 @@
       </tr>
     </tbody>
   </table>
-
-
-  <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Movement*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Movement">Movement</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Movement.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Movement Movement { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.Movement.html">Movement</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_Movement_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>The target and work object are obtained from this movement.</p>
-</div>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Robot_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Robot*"></a>
@@ -469,14 +409,32 @@ If a tool is set as a property of the movement, this tool will be used.</p>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_Calculate_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Calculate*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_Calculate" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Calculate">Calculate()</h4>
+  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_Calculate_RobotComponents_ABB_Actions_Instructions_Movement_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.Calculate(RobotComponents.ABB.Actions.Instructions.Movement)">Calculate(Movement)</h4>
   <div class="markdown level1 summary"><p>Calculates the inverse kinematics solution.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void Calculate()</code></pre>
+    <pre><code class="lang-csharp hljs">public void Calculate(Movement movement)</code></pre>
   </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.Movement.html">Movement</a></td>
+        <td><span class="parametername">movement</span></td>
+        <td><p>The movement to calculate the solution for.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 
 
   <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateClosestRobotJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateClosestRobotJointPosition*"></a>
@@ -526,34 +484,6 @@ If a tool is set as a property of the movement, this tool will be used.</p>
   <div class="markdown level1 remarks"><p>This methods sets and returns the closest Robot Joint Poistion insides this Inverse Kinematics object.
 You first have to calculate the Inverse Kinematics solution before you call this method.
 This method is typically used for using Linear and Joint Configuration control inside the Path Generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateExternalJointPosition">CalculateExternalJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Calculates the External Joint Position of the Inverse Kinematics solution.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CalculateExternalJointPosition()</code></pre>
-  </div>
-  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateExternalJointPosition_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method does not check the external axis limits.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition_" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition*"></a>
-  <h4 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition" data-uid="RobotComponents.ABB.Kinematics.InverseKinematics.CalculateRobotJointPosition">CalculateRobotJointPosition()</h4>
-  <div class="markdown level1 summary"><p>Calculates the Robot Joint Position of the Inverse Kinematics solution.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void CalculateRobotJointPosition()</code></pre>
-  </div>
-  <h5 id="RobotComponents_ABB_Kinematics_InverseKinematics_CalculateRobotJointPosition_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method does not check the internal axis limits.</p>
 </div>
 
 

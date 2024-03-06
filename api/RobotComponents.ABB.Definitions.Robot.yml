@@ -9,16 +9,16 @@ items:
   - RobotComponents.ABB.Definitions.Robot.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)
   - RobotComponents.ABB.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool)
-  - RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
+  - RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
   - RobotComponents.ABB.Definitions.Robot.A1
   - RobotComponents.ABB.Definitions.Robot.A2
+  - RobotComponents.ABB.Definitions.Robot.A3
   - RobotComponents.ABB.Definitions.Robot.B
   - RobotComponents.ABB.Definitions.Robot.BasePlane
   - RobotComponents.ABB.Definitions.Robot.C1
   - RobotComponents.ABB.Definitions.Robot.C2
   - RobotComponents.ABB.Definitions.Robot.C3
   - RobotComponents.ABB.Definitions.Robot.C4
-  - RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
   - RobotComponents.ABB.Definitions.Robot.Duplicate
   - RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit
   - RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
@@ -28,6 +28,8 @@ items:
   - RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes
   - RobotComponents.ABB.Definitions.Robot.ForwardKinematics
   - RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh
+  - RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  - RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
   - RobotComponents.ABB.Definitions.Robot.GetBoundingBox(System.Boolean)
   - RobotComponents.ABB.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.ABB.Definitions.Robot.InternalAxisLimits
@@ -45,7 +47,6 @@ items:
   - RobotComponents.ABB.Definitions.Robot.ToolPlane
   - RobotComponents.ABB.Definitions.Robot.Transform(Rhino.Geometry.Transform)
   - RobotComponents.ABB.Definitions.Robot.UpperArmLength
-  - RobotComponents.ABB.Definitions.Robot.WristOffset
   langs:
   - csharp
   - vb
@@ -200,16 +201,16 @@ items:
   nameWithType.vb: Robot.New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool)
   fullName.vb: RobotComponents.ABB.Definitions.Robot.New(String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool)
   name.vb: New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool)
-- uid: RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
-  commentId: M:RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})
-  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})'
+- uid: RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
+  commentId: M:RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})
+  id: '#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})'
   parent: RobotComponents.ABB.Definitions.Robot
   langs:
   - csharp
   - vb
-  name: Robot(string, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<ExternalAxis>)
-  nameWithType: Robot.Robot(string, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<ExternalAxis>)
-  fullName: RobotComponents.ABB.Definitions.Robot.Robot(string, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Collections.Generic.IList<Rhino.Geometry.Plane>, System.Collections.Generic.IList<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.ABB.Definitions.ExternalAxis>)
+  name: Robot(string, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<IExternalAxis>)
+  nameWithType: Robot.Robot(string, IList<Mesh>, IList<Plane>, IList<Interval>, Plane, Plane, RobotTool, IList<IExternalAxis>)
+  fullName: RobotComponents.ABB.Definitions.Robot.Robot(string, System.Collections.Generic.IList<Rhino.Geometry.Mesh>, System.Collections.Generic.IList<Rhino.Geometry.Plane>, System.Collections.Generic.IList<Rhino.Geometry.Interval>, Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList<RobotComponents.ABB.Definitions.IExternalAxis>)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -217,7 +218,7 @@ items:
   summary: Initializes a new instance of the Robot class with attached external axes.
   example: []
   syntax:
-    content: public Robot(string name, IList<Mesh> meshes, IList<Plane> internalAxisPlanes, IList<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, IList<ExternalAxis> externalAxes)
+    content: public Robot(string name, IList<Mesh> meshes, IList<Plane> internalAxisPlanes, IList<Interval> internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, IList<IExternalAxis> externalAxes)
     parameters:
     - id: name
       type: System.String
@@ -241,13 +242,13 @@ items:
       type: RobotComponents.ABB.Definitions.RobotTool
       description: The Robot Tool.
     - id: externalAxes
-      type: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
+      type: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
       description: The attached external axes.
-    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), internalAxisPlanes As IList(Of Plane), internalAxisLimits As IList(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxes As IList(Of ExternalAxis))
+    content.vb: Public Sub New(name As String, meshes As IList(Of Mesh), internalAxisPlanes As IList(Of Plane), internalAxisLimits As IList(Of Interval), basePlane As Plane, mountingFrame As Plane, tool As RobotTool, externalAxes As IList(Of IExternalAxis))
   overload: RobotComponents.ABB.Definitions.Robot.#ctor*
-  nameWithType.vb: Robot.New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of ExternalAxis))
-  fullName.vb: RobotComponents.ABB.Definitions.Robot.New(String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.ExternalAxis))
-  name.vb: New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of ExternalAxis))
+  nameWithType.vb: Robot.New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of IExternalAxis))
+  fullName.vb: RobotComponents.ABB.Definitions.Robot.New(String, System.Collections.Generic.IList(Of Rhino.Geometry.Mesh), System.Collections.Generic.IList(Of Rhino.Geometry.Plane), System.Collections.Generic.IList(Of Rhino.Geometry.Interval), Rhino.Geometry.Plane, Rhino.Geometry.Plane, RobotComponents.ABB.Definitions.RobotTool, System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.IExternalAxis))
+  name.vb: New(String, IList(Of Mesh), IList(Of Plane), IList(Of Interval), Plane, Plane, RobotTool, IList(Of IExternalAxis))
 - uid: RobotComponents.ABB.Definitions.Robot.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)
   commentId: M:RobotComponents.ABB.Definitions.Robot.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)
   id: '#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)'
@@ -351,6 +352,117 @@ items:
   overload: RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh*
   implements:
   - RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+- uid: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  commentId: M:RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  id: GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: GetAxisPlanesFromKinematicsParameters(Plane, double, double, double, double, double, double, double, double, out Plane)
+  nameWithType: Robot.GetAxisPlanesFromKinematicsParameters(Plane, double, double, double, double, double, double, double, double, out Plane)
+  fullName: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane, double, double, double, double, double, double, double, double, out Rhino.Geometry.Plane)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns the axis planes for the given kinematics parameters in world coordinate space.
+  example: []
+  syntax:
+    content: public static Plane[] GetAxisPlanesFromKinematicsParameters(Plane basePlane, double a1, double a2, double a3, double b, double c1, double c2, double c3, double c4, out Plane mountingFrame)
+    parameters:
+    - id: basePlane
+      type: Rhino.Geometry.Plane
+      description: The position and orientation of the robot base in the world coordinate space.
+    - id: a1
+      type: System.Double
+      description: Kinematics parameter A1.
+    - id: a2
+      type: System.Double
+      description: Kinematics parameter A2.
+    - id: a3
+      type: System.Double
+      description: Kinematics parameter A3.
+    - id: b
+      type: System.Double
+      description: Kinematics parameter B.
+    - id: c1
+      type: System.Double
+      description: Kinematics parameter C1.
+    - id: c2
+      type: System.Double
+      description: Kinematics parameter C2.
+    - id: c3
+      type: System.Double
+      description: Kinematics parameter C3.
+    - id: c4
+      type: System.Double
+      description: Kinematics parameter C4.
+    - id: mountingFrame
+      type: Rhino.Geometry.Plane
+      description: The tool mounting frame.
+    return:
+      type: Rhino.Geometry.Plane[]
+      description: The axis planes.
+    content.vb: Public Shared Function GetAxisPlanesFromKinematicsParameters(basePlane As Plane, a1 As Double, a2 As Double, a3 As Double, b As Double, c1 As Double, c2 As Double, c3 As Double, c4 As Double, mountingFrame As Plane) As Plane()
+  overload: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters*
+  nameWithType.vb: Robot.GetAxisPlanesFromKinematicsParameters(Plane, Double, Double, Double, Double, Double, Double, Double, Double, Plane)
+  fullName.vb: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane, Double, Double, Double, Double, Double, Double, Double, Double, Rhino.Geometry.Plane)
+  name.vb: GetAxisPlanesFromKinematicsParameters(Plane, Double, Double, Double, Double, Double, Double, Double, Double, Plane)
+- uid: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  commentId: M:RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  id: GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: GetAxisPlanesFromKinematicsParameters(double, double, double, double, double, double, double, double, out Plane)
+  nameWithType: Robot.GetAxisPlanesFromKinematicsParameters(double, double, double, double, double, double, double, double, out Plane)
+  fullName: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(double, double, double, double, double, double, double, double, out Rhino.Geometry.Plane)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Returns the axis planes for the given kinematics parameters in local coordinate space.
+  example: []
+  syntax:
+    content: public static Plane[] GetAxisPlanesFromKinematicsParameters(double a1, double a2, double a3, double b, double c1, double c2, double c3, double c4, out Plane mountingFrame)
+    parameters:
+    - id: a1
+      type: System.Double
+      description: Kinematics parameter A1.
+    - id: a2
+      type: System.Double
+      description: Kinematics parameter A2.
+    - id: a3
+      type: System.Double
+      description: Kinematics parameter A3.
+    - id: b
+      type: System.Double
+      description: Kinematics parameter B.
+    - id: c1
+      type: System.Double
+      description: Kinematics parameter C1.
+    - id: c2
+      type: System.Double
+      description: Kinematics parameter C2.
+    - id: c3
+      type: System.Double
+      description: Kinematics parameter C3.
+    - id: c4
+      type: System.Double
+      description: Kinematics parameter C4.
+    - id: mountingFrame
+      type: Rhino.Geometry.Plane
+      description: The tool mounting frame.
+    return:
+      type: Rhino.Geometry.Plane[]
+      description: The axis planes.
+    content.vb: Public Shared Function GetAxisPlanesFromKinematicsParameters(a1 As Double, a2 As Double, a3 As Double, b As Double, c1 As Double, c2 As Double, c3 As Double, c4 As Double, mountingFrame As Plane) As Plane()
+  overload: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters*
+  nameWithType.vb: Robot.GetAxisPlanesFromKinematicsParameters(Double, Double, Double, Double, Double, Double, Double, Double, Plane)
+  fullName.vb: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Double, Double, Double, Double, Double, Double, Double, Double, Rhino.Geometry.Plane)
+  name.vb: GetAxisPlanesFromKinematicsParameters(Double, Double, Double, Double, Double, Double, Double, Double, Plane)
 - uid: RobotComponents.ABB.Definitions.Robot.ToString
   commentId: M:RobotComponents.ABB.Definitions.Robot.ToString
   id: ToString
@@ -400,29 +512,6 @@ items:
       description: The tool mesh in the robot coordinate space.
     content.vb: Public Function GetAttachedToolMesh() As Mesh
   overload: RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh*
-- uid: RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
-  commentId: M:RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
-  id: CalculateAttachedToolPlane
-  parent: RobotComponents.ABB.Definitions.Robot
-  langs:
-  - csharp
-  - vb
-  name: CalculateAttachedToolPlane()
-  nameWithType: Robot.CalculateAttachedToolPlane()
-  fullName: RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane()
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Definitions
-  summary: Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.
-  example: []
-  syntax:
-    content: public Plane CalculateAttachedToolPlane()
-    return:
-      type: Rhino.Geometry.Plane
-      description: The TCP plane in robot coordinate space.
-    content.vb: Public Function CalculateAttachedToolPlane() As Plane
-  overload: RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane*
 - uid: RobotComponents.ABB.Definitions.Robot.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   commentId: M:RobotComponents.ABB.Definitions.Robot.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   id: PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
@@ -740,11 +829,11 @@ items:
   summary: Gets or sets the attached external axes.
   example: []
   syntax:
-    content: public List<ExternalAxis> ExternalAxes { get; set; }
+    content: public List<IExternalAxis> ExternalAxes { get; set; }
     parameters: []
     return:
-      type: System.Collections.Generic.List{RobotComponents.ABB.Definitions.ExternalAxis}
-    content.vb: Public Property ExternalAxes As List(Of ExternalAxis)
+      type: System.Collections.Generic.List{RobotComponents.ABB.Definitions.IExternalAxis}
+    content.vb: Public Property ExternalAxes As List(Of IExternalAxis)
   overload: RobotComponents.ABB.Definitions.Robot.ExternalAxes*
 - uid: RobotComponents.ABB.Definitions.Robot.InverseKinematics
   commentId: P:RobotComponents.ABB.Definitions.Robot.InverseKinematics
@@ -863,29 +952,6 @@ items:
   overload: RobotComponents.ABB.Definitions.Robot.NumberOfAxes*
   implements:
   - RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
-- uid: RobotComponents.ABB.Definitions.Robot.WristOffset
-  commentId: P:RobotComponents.ABB.Definitions.Robot.WristOffset
-  id: WristOffset
-  parent: RobotComponents.ABB.Definitions.Robot
-  langs:
-  - csharp
-  - vb
-  name: WristOffset
-  nameWithType: Robot.WristOffset
-  fullName: RobotComponents.ABB.Definitions.Robot.WristOffset
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Definitions
-  summary: Gets the wrist offset.
-  example: []
-  syntax:
-    content: public Point3d WristOffset { get; }
-    parameters: []
-    return:
-      type: Rhino.Geometry.Point3d
-    content.vb: Public ReadOnly Property WristOffset As Point3d
-  overload: RobotComponents.ABB.Definitions.Robot.WristOffset*
 - uid: RobotComponents.ABB.Definitions.Robot.LowerArmLength
   commentId: P:RobotComponents.ABB.Definitions.Robot.LowerArmLength
   id: LowerArmLength
@@ -1003,6 +1069,29 @@ items:
       type: System.Double
     content.vb: Public ReadOnly Property A2 As Double
   overload: RobotComponents.ABB.Definitions.Robot.A2*
+- uid: RobotComponents.ABB.Definitions.Robot.A3
+  commentId: P:RobotComponents.ABB.Definitions.Robot.A3
+  id: A3
+  parent: RobotComponents.ABB.Definitions.Robot
+  langs:
+  - csharp
+  - vb
+  name: A3
+  nameWithType: Robot.A3
+  fullName: RobotComponents.ABB.Definitions.Robot.A3
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Definitions
+  summary: Gets the wrist offset kinematics parameter A3.
+  example: []
+  syntax:
+    content: public double A3 { get; }
+    parameters: []
+    return:
+      type: System.Double
+    content.vb: Public ReadOnly Property A3 As Double
+  overload: RobotComponents.ABB.Definitions.Robot.A3*
 - uid: RobotComponents.ABB.Definitions.Robot.B
   commentId: P:RobotComponents.ABB.Definitions.Robot.B
   id: B
@@ -1425,7 +1514,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.#ctor*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: Robot
   nameWithType: Robot.Robot
   fullName: RobotComponents.ABB.Definitions.Robot.Robot
@@ -1451,7 +1540,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: Robot.GetObjectData
   fullName: RobotComponents.ABB.Definitions.Robot.GetObjectData
@@ -1685,27 +1774,27 @@ references:
     name: Generic
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic
-- uid: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
-  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis}
+- uid: System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IList`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
-  name: IList<ExternalAxis>
-  nameWithType: IList<ExternalAxis>
-  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Definitions.ExternalAxis>
-  nameWithType.vb: IList(Of ExternalAxis)
-  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.ExternalAxis)
-  name.vb: IList(Of ExternalAxis)
+  name: IList<IExternalAxis>
+  nameWithType: IList<IExternalAxis>
+  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Definitions.IExternalAxis>
+  nameWithType.vb: IList(Of IExternalAxis)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Definitions.IExternalAxis)
+  name.vb: IList(Of IExternalAxis)
   spec.csharp:
   - uid: System.Collections.Generic.IList`1
     name: IList
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
   - name: <
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IList`1
@@ -1715,10 +1804,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: )
 - uid: RobotComponents.ABB.Definitions.Robot
   commentId: T:RobotComponents.ABB.Definitions.Robot
@@ -1742,14 +1831,14 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.Duplicate*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.Duplicate
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_Duplicate
   name: Duplicate
   nameWithType: Robot.Duplicate
   fullName: RobotComponents.ABB.Definitions.Robot.Duplicate
 - uid: RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_DuplicateMechanicalUnit
   name: DuplicateMechanicalUnit
   nameWithType: Robot.DuplicateMechanicalUnit
   fullName: RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnit
@@ -1757,7 +1846,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   name: DuplicateMechanicalUnit()
   nameWithType: IMechanicalUnit.DuplicateMechanicalUnit()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit()
@@ -1765,20 +1854,20 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
     name: DuplicateMechanicalUnit
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
     name: DuplicateMechanicalUnit
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_DuplicateMechanicalUnitWithoutMesh
   name: DuplicateMechanicalUnitWithoutMesh
   nameWithType: Robot.DuplicateMechanicalUnitWithoutMesh
   fullName: RobotComponents.ABB.Definitions.Robot.DuplicateMechanicalUnitWithoutMesh
@@ -1786,7 +1875,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
   name: DuplicateMechanicalUnitWithoutMesh()
   nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
@@ -1794,14 +1883,52 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
     name: DuplicateMechanicalUnitWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
     name: DuplicateMechanicalUnitWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_GetAxisPlanesFromKinematicsParameters_Rhino_Geometry_Plane_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_Rhino_Geometry_Plane__
+  name: GetAxisPlanesFromKinematicsParameters
+  nameWithType: Robot.GetAxisPlanesFromKinematicsParameters
+  fullName: RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters
+- uid: System.Double
+  commentId: T:System.Double
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.double
+  name: double
+  nameWithType: double
+  fullName: double
+  nameWithType.vb: Double
+  fullName.vb: Double
+  name.vb: Double
+- uid: Rhino.Geometry.Plane[]
+  isExternal: true
+  name: Plane[]
+  nameWithType: Plane[]
+  fullName: Rhino.Geometry.Plane[]
+  nameWithType.vb: Plane()
+  fullName.vb: Rhino.Geometry.Plane()
+  name.vb: Plane()
+  spec.csharp:
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    isExternal: true
+  - name: '['
+  - name: ']'
+  spec.vb:
+  - uid: Rhino.Geometry.Plane
+    name: Plane
+    isExternal: true
   - name: (
   - name: )
 - uid: System.Object.ToString
@@ -1831,7 +1958,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.ToString*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ToString
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ToString
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ToString
   name: ToString
   nameWithType: Robot.ToString
   fullName: RobotComponents.ABB.Definitions.Robot.ToString
@@ -1839,7 +1966,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   name: ToString()
   nameWithType: IMechanicalUnit.ToString()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString()
@@ -1847,20 +1974,20 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_GetAttachedToolMesh
   name: GetAttachedToolMesh
   nameWithType: Robot.GetAttachedToolMesh
   fullName: RobotComponents.ABB.Definitions.Robot.GetAttachedToolMesh
@@ -1869,17 +1996,10 @@ references:
   name: Mesh
   nameWithType: Mesh
   fullName: Rhino.Geometry.Mesh
-- uid: RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane*
-  commentId: Overload:RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
-  name: CalculateAttachedToolPlane
-  nameWithType: Robot.CalculateAttachedToolPlane
-  fullName: RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane
 - uid: RobotComponents.ABB.Definitions.Robot.PoseMeshes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.PoseMeshes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   name: PoseMeshes
   nameWithType: Robot.PoseMeshes
   fullName: RobotComponents.ABB.Definitions.Robot.PoseMeshes
@@ -1887,7 +2007,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   name: PoseMeshes(JointTarget)
   nameWithType: IMechanicalUnit.PoseMeshes(JointTarget)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
@@ -1895,7 +2015,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
@@ -1906,7 +2026,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
@@ -2032,7 +2152,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.Transform*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.Transform
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.Transform(Rhino.Geometry.Transform)
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_Transform_Rhino_Geometry_Transform_
   name: Transform
   nameWithType: Robot.Transform
   fullName: RobotComponents.ABB.Definitions.Robot.Transform
@@ -2040,7 +2160,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   name: Transform(Transform)
   nameWithType: IMechanicalUnit.Transform(Transform)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
@@ -2048,7 +2168,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
@@ -2058,7 +2178,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
@@ -2072,7 +2192,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.GetBoundingBox*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.GetBoundingBox
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.GetBoundingBox(System.Boolean)
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_GetBoundingBox_System_Boolean_
   name: GetBoundingBox
   nameWithType: Robot.GetBoundingBox
   fullName: RobotComponents.ABB.Definitions.Robot.GetBoundingBox
@@ -2080,7 +2200,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   name: GetBoundingBox(bool)
   nameWithType: IMechanicalUnit.GetBoundingBox(bool)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(bool)
@@ -2091,7 +2211,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: bool
@@ -2102,7 +2222,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: Boolean
@@ -2117,7 +2237,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.IsValid*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.IsValid
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_IsValid
   name: IsValid
   nameWithType: Robot.IsValid
   fullName: RobotComponents.ABB.Definitions.Robot.IsValid
@@ -2125,14 +2245,14 @@ references:
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_IsValid
   name: IsValid
   nameWithType: IMechanicalUnit.IsValid
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
 - uid: RobotComponents.ABB.Definitions.Robot.Name*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.Name
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.Name
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_Name
   name: Name
   nameWithType: Robot.Name
   fullName: RobotComponents.ABB.Definitions.Robot.Name
@@ -2140,21 +2260,21 @@ references:
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.Name
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Name
   name: Name
   nameWithType: IMechanicalUnit.Name
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
 - uid: RobotComponents.ABB.Definitions.Robot.Meshes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.Meshes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.Meshes
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_Meshes
   name: Meshes
   nameWithType: Robot.Meshes
   fullName: RobotComponents.ABB.Definitions.Robot.Meshes
 - uid: RobotComponents.ABB.Definitions.Robot.InternalAxisPlanes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.InternalAxisPlanes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.InternalAxisPlanes
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_InternalAxisPlanes
   name: InternalAxisPlanes
   nameWithType: Robot.InternalAxisPlanes
   fullName: RobotComponents.ABB.Definitions.Robot.InternalAxisPlanes
@@ -2194,7 +2314,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.InternalAxisLimits*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.InternalAxisLimits
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.InternalAxisLimits
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_InternalAxisLimits
   name: InternalAxisLimits
   nameWithType: Robot.InternalAxisLimits
   fullName: RobotComponents.ABB.Definitions.Robot.InternalAxisLimits
@@ -2234,59 +2354,59 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.BasePlane*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.BasePlane
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.BasePlane
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_BasePlane
   name: BasePlane
   nameWithType: Robot.BasePlane
   fullName: RobotComponents.ABB.Definitions.Robot.BasePlane
 - uid: RobotComponents.ABB.Definitions.Robot.MountingFrame*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.MountingFrame
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.MountingFrame
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_MountingFrame
   name: MountingFrame
   nameWithType: Robot.MountingFrame
   fullName: RobotComponents.ABB.Definitions.Robot.MountingFrame
 - uid: RobotComponents.ABB.Definitions.Robot.ToolPlane*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ToolPlane
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ToolPlane
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ToolPlane
   name: ToolPlane
   nameWithType: Robot.ToolPlane
   fullName: RobotComponents.ABB.Definitions.Robot.ToolPlane
 - uid: RobotComponents.ABB.Definitions.Robot.Tool*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.Tool
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.Tool
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_Tool
   name: Tool
   nameWithType: Robot.Tool
   fullName: RobotComponents.ABB.Definitions.Robot.Tool
 - uid: RobotComponents.ABB.Definitions.Robot.ExternalAxes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ExternalAxes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ExternalAxes
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ExternalAxes
   name: ExternalAxes
   nameWithType: Robot.ExternalAxes
   fullName: RobotComponents.ABB.Definitions.Robot.ExternalAxes
-- uid: System.Collections.Generic.List{RobotComponents.ABB.Definitions.ExternalAxis}
-  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Definitions.ExternalAxis}
+- uid: System.Collections.Generic.List{RobotComponents.ABB.Definitions.IExternalAxis}
+  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Definitions.IExternalAxis}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<ExternalAxis>
-  nameWithType: List<ExternalAxis>
-  fullName: System.Collections.Generic.List<RobotComponents.ABB.Definitions.ExternalAxis>
-  nameWithType.vb: List(Of ExternalAxis)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Definitions.ExternalAxis)
-  name.vb: List(Of ExternalAxis)
+  name: List<IExternalAxis>
+  nameWithType: List<IExternalAxis>
+  fullName: System.Collections.Generic.List<RobotComponents.ABB.Definitions.IExternalAxis>
+  nameWithType.vb: List(Of IExternalAxis)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Definitions.IExternalAxis)
+  name.vb: List(Of IExternalAxis)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -2296,15 +2416,15 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis
-    name: ExternalAxis
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis
+    name: IExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html
   - name: )
 - uid: RobotComponents.ABB.Definitions.Robot.InverseKinematics*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.InverseKinematics
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.InverseKinematics
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_InverseKinematics
   name: InverseKinematics
   nameWithType: Robot.InverseKinematics
   fullName: RobotComponents.ABB.Definitions.Robot.InverseKinematics
@@ -2356,7 +2476,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.ForwardKinematics*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ForwardKinematics
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ForwardKinematics
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ForwardKinematics
   name: ForwardKinematics
   nameWithType: Robot.ForwardKinematics
   fullName: RobotComponents.ABB.Definitions.Robot.ForwardKinematics
@@ -2371,21 +2491,21 @@ references:
 - uid: RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ExternalAxisPlanes
   name: ExternalAxisPlanes
   nameWithType: Robot.ExternalAxisPlanes
   fullName: RobotComponents.ABB.Definitions.Robot.ExternalAxisPlanes
 - uid: RobotComponents.ABB.Definitions.Robot.ExternalAxisLimits*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ExternalAxisLimits
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ExternalAxisLimits
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ExternalAxisLimits
   name: ExternalAxisLimits
   nameWithType: Robot.ExternalAxisLimits
   fullName: RobotComponents.ABB.Definitions.Robot.ExternalAxisLimits
 - uid: RobotComponents.ABB.Definitions.Robot.NumberOfAxes*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.NumberOfAxes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.NumberOfAxes
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_NumberOfAxes
   name: NumberOfAxes
   nameWithType: Robot.NumberOfAxes
   fullName: RobotComponents.ABB.Definitions.Robot.NumberOfAxes
@@ -2393,7 +2513,7 @@ references:
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_NumberOfAxes
   name: NumberOfAxes
   nameWithType: IMechanicalUnit.NumberOfAxes
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
@@ -2408,96 +2528,80 @@ references:
   nameWithType.vb: Integer
   fullName.vb: Integer
   name.vb: Integer
-- uid: RobotComponents.ABB.Definitions.Robot.WristOffset*
-  commentId: Overload:RobotComponents.ABB.Definitions.Robot.WristOffset
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.WristOffset
-  name: WristOffset
-  nameWithType: Robot.WristOffset
-  fullName: RobotComponents.ABB.Definitions.Robot.WristOffset
-- uid: Rhino.Geometry.Point3d
-  isExternal: true
-  name: Point3d
-  nameWithType: Point3d
-  fullName: Rhino.Geometry.Point3d
 - uid: RobotComponents.ABB.Definitions.Robot.LowerArmLength*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.LowerArmLength
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.LowerArmLength
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_LowerArmLength
   name: LowerArmLength
   nameWithType: Robot.LowerArmLength
   fullName: RobotComponents.ABB.Definitions.Robot.LowerArmLength
-- uid: System.Double
-  commentId: T:System.Double
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.double
-  name: double
-  nameWithType: double
-  fullName: double
-  nameWithType.vb: Double
-  fullName.vb: Double
-  name.vb: Double
 - uid: RobotComponents.ABB.Definitions.Robot.UpperArmLength*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.UpperArmLength
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.UpperArmLength
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_UpperArmLength
   name: UpperArmLength
   nameWithType: Robot.UpperArmLength
   fullName: RobotComponents.ABB.Definitions.Robot.UpperArmLength
 - uid: RobotComponents.ABB.Definitions.Robot.ElbowLength*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.ElbowLength
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.ElbowLength
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_ElbowLength
   name: ElbowLength
   nameWithType: Robot.ElbowLength
   fullName: RobotComponents.ABB.Definitions.Robot.ElbowLength
 - uid: RobotComponents.ABB.Definitions.Robot.A1*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.A1
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.A1
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_A1
   name: A1
   nameWithType: Robot.A1
   fullName: RobotComponents.ABB.Definitions.Robot.A1
 - uid: RobotComponents.ABB.Definitions.Robot.A2*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.A2
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.A2
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_A2
   name: A2
   nameWithType: Robot.A2
   fullName: RobotComponents.ABB.Definitions.Robot.A2
+- uid: RobotComponents.ABB.Definitions.Robot.A3*
+  commentId: Overload:RobotComponents.ABB.Definitions.Robot.A3
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_A3
+  name: A3
+  nameWithType: Robot.A3
+  fullName: RobotComponents.ABB.Definitions.Robot.A3
 - uid: RobotComponents.ABB.Definitions.Robot.B*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.B
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.B
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_B
   name: B
   nameWithType: Robot.B
   fullName: RobotComponents.ABB.Definitions.Robot.B
 - uid: RobotComponents.ABB.Definitions.Robot.C1*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.C1
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C1
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_C1
   name: C1
   nameWithType: Robot.C1
   fullName: RobotComponents.ABB.Definitions.Robot.C1
 - uid: RobotComponents.ABB.Definitions.Robot.C2*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.C2
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C2
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_C2
   name: C2
   nameWithType: Robot.C2
   fullName: RobotComponents.ABB.Definitions.Robot.C2
 - uid: RobotComponents.ABB.Definitions.Robot.C3*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.C3
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C3
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_C3
   name: C3
   nameWithType: Robot.C3
   fullName: RobotComponents.ABB.Definitions.Robot.C3
 - uid: RobotComponents.ABB.Definitions.Robot.C4*
   commentId: Overload:RobotComponents.ABB.Definitions.Robot.C4
   isExternal: true
-  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents.ABB.Definitions.Robot.C4
+  href: RobotComponents.ABB.Definitions.Robot.html#RobotComponents_ABB_Definitions_Robot_C4
   name: C4
   nameWithType: Robot.C4
   fullName: RobotComponents.ABB.Definitions.Robot.C4

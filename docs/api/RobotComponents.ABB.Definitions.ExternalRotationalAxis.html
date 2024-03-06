@@ -77,11 +77,11 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a></div>
-    <div class="level2"><span class="xref">ExternalRotationalAxis</span></div>
+    <div class="level1"><span class="xref">ExternalRotationalAxis</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
+    <div><a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a></div>
     <div><span class="xref">ISerializable</span></div>
     <div><a class="xref" href="RobotComponents.ABB.Definitions.IMechanicalUnit.html">IMechanicalUnit</a></div>
   </div>
@@ -110,7 +110,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class ExternalRotationalAxis : ExternalAxis, ISerializable, IMechanicalUnit</code></pre>
+    <pre><code class="lang-csharp hljs">public class ExternalRotationalAxis : IExternalAxis, ISerializable, IMechanicalUnit</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -253,7 +253,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td><span class="parametername">axisLogic</span></td>
         <td><p>The axis logic number.</p>
 </td>
@@ -359,7 +359,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td><span class="parametername">axisLogic</span></td>
         <td><p>The axis logic number.</p>
 </td>
@@ -594,7 +594,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td><span class="parametername">axisLogic</span></td>
         <td><p>The axis logic number.</p>
 </td>
@@ -777,7 +777,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td><span class="parametername">axisLogic</span></td>
         <td><p>The axis logic number.</p>
 </td>
@@ -866,7 +866,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Plane AttachmentPlane { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Plane AttachmentPlane { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -883,8 +883,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AttachmentPlane">ExternalAxis.AttachmentPlane</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_AxisLimits_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.AxisLimits*"></a>
@@ -894,7 +892,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Interval AxisLimits { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Interval AxisLimits { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -911,8 +909,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AxisLimits">ExternalAxis.AxisLimits</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_AxisLogic_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.AxisLogic*"></a>
@@ -922,7 +918,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override char AxisLogic { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public char AxisLogic { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -939,8 +935,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AxisLogic">ExternalAxis.AxisLogic</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_AxisNumber_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.AxisNumber*"></a>
@@ -950,7 +944,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int AxisNumber { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int AxisNumber { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -962,13 +956,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AxisNumber">ExternalAxis.AxisNumber</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_AxisPlane_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.AxisPlane*"></a>
@@ -978,7 +970,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Plane AxisPlane { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Plane AxisPlane { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -995,8 +987,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AxisPlane">ExternalAxis.AxisPlane</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_AxisType_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.AxisType*"></a>
@@ -1006,7 +996,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override AxisType AxisType { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public AxisType AxisType { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1023,8 +1013,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_AxisType">ExternalAxis.AxisType</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_BaseMesh_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.BaseMesh*"></a>
@@ -1034,7 +1022,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Mesh BaseMesh { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Mesh BaseMesh { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1051,8 +1039,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_BaseMesh">ExternalAxis.BaseMesh</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_IsValid_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.IsValid*"></a>
@@ -1062,7 +1048,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsValid { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1079,8 +1065,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_IsValid">ExternalAxis.IsValid</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_LinkMesh_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.LinkMesh*"></a>
@@ -1090,7 +1074,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Mesh LinkMesh { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public Mesh LinkMesh { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1107,8 +1091,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_LinkMesh">ExternalAxis.LinkMesh</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_MovesRobot_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.MovesRobot*"></a>
@@ -1118,7 +1100,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool MovesRobot { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool MovesRobot { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1135,8 +1117,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_MovesRobot">ExternalAxis.MovesRobot</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_Name_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.Name*"></a>
@@ -1146,7 +1126,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string Name { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1163,8 +1143,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_Name">ExternalAxis.Name</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_NumberOfAxes_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.NumberOfAxes*"></a>
@@ -1174,7 +1152,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override int NumberOfAxes { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public int NumberOfAxes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1186,13 +1164,11 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_NumberOfAxes">ExternalAxis.NumberOfAxes</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_PosedMeshes_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.PosedMeshes*"></a>
@@ -1202,7 +1178,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override List&lt;Mesh&gt; PosedMeshes { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Mesh&gt; PosedMeshes { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -1219,8 +1195,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_PosedMeshes">ExternalAxis.PosedMeshes</a></div>
   <h3 id="methods">Methods
 </h3>
 
@@ -1233,7 +1207,7 @@ This calculation does not take into account the axis limits.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)</code></pre>
+    <pre><code class="lang-csharp hljs">public Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool isInLimits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1253,7 +1227,7 @@ This calculation does not take into account the axis limits.</p>
       </tr>
       <tr>
         <td><span class="xref">bool</span></td>
-        <td><span class="parametername">inLimits</span></td>
+        <td><span class="parametername">isInLimits</span></td>
         <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
@@ -1275,8 +1249,6 @@ This calculation does not take into account the axis limits.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_CalculatePosition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__">ExternalAxis.CalculatePosition(ExternalJointPosition, out bool)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_CalculatePositionSave_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.CalculatePositionSave*"></a>
@@ -1288,7 +1260,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1324,8 +1296,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_CalculatePositionSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_">ExternalAxis.CalculatePositionSave(ExternalJointPosition)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_CalculateTransformationMatrix_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.CalculateTransformationMatrix*"></a>
@@ -1336,7 +1306,7 @@ This calculation does not take into account the axis limits.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)</code></pre>
+    <pre><code class="lang-csharp hljs">public Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool isInLimits)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1356,7 +1326,7 @@ This calculation does not take into account the axis limits.</p>
       </tr>
       <tr>
         <td><span class="xref">bool</span></td>
-        <td><span class="parametername">inLimits</span></td>
+        <td><span class="parametername">isInLimits</span></td>
         <td><p>Specifies whether the External Joint Position is inside its limits.</p>
 </td>
       </tr>
@@ -1378,8 +1348,6 @@ This calculation does not take into account the axis limits.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_CalculateTransformationMatrix_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__">ExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, out bool)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_CalculateTransformationMatrixSave_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.CalculateTransformationMatrixSave*"></a>
@@ -1391,7 +1359,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1427,8 +1395,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_CalculateTransformationMatrixSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_">ExternalAxis.CalculateTransformationMatrixSave(ExternalJointPosition)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_Duplicate_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.Duplicate*"></a>
@@ -1465,7 +1431,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override ExternalAxis DuplicateExternalAxis()</code></pre>
+    <pre><code class="lang-csharp hljs">public IExternalAxis DuplicateExternalAxis()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1477,14 +1443,12 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a></td>
         <td><p>A deep copy of the External Rotational Axis instance as an External Axis.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_DuplicateExternalAxis">ExternalAxis.DuplicateExternalAxis()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_DuplicateExternalAxisWithoutMesh_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.DuplicateExternalAxisWithoutMesh*"></a>
@@ -1494,7 +1458,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override ExternalAxis DuplicateExternalAxisWithoutMesh()</code></pre>
+    <pre><code class="lang-csharp hljs">public IExternalAxis DuplicateExternalAxisWithoutMesh()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1506,14 +1470,12 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a></td>
         <td><p>A deep copy of the External Rotational Axis instance as an External Axis without meshes.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_DuplicateExternalAxisWithoutMesh">ExternalAxis.DuplicateExternalAxisWithoutMesh()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnit_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnit*"></a>
@@ -1523,7 +1485,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override IMechanicalUnit DuplicateMechanicalUnit()</code></pre>
+    <pre><code class="lang-csharp hljs">public IMechanicalUnit DuplicateMechanicalUnit()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1541,8 +1503,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_DuplicateMechanicalUnit">ExternalAxis.DuplicateMechanicalUnit()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_DuplicateMechanicalUnitWithoutMesh_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.DuplicateMechanicalUnitWithoutMesh*"></a>
@@ -1552,7 +1512,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()</code></pre>
+    <pre><code class="lang-csharp hljs">public IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1570,8 +1530,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_DuplicateMechanicalUnitWithoutMesh">ExternalAxis.DuplicateMechanicalUnitWithoutMesh()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_DuplicateWithoutMesh_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.DuplicateWithoutMesh*"></a>
@@ -1608,7 +1566,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override BoundingBox GetBoundingBox(bool accurate)</code></pre>
+    <pre><code class="lang-csharp hljs">public BoundingBox GetBoundingBox(bool accurate)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1644,8 +1602,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_GetBoundingBox_System_Boolean_">ExternalAxis.GetBoundingBox(bool)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_GetObjectData_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.GetObjectData*"></a>
@@ -1690,7 +1646,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override List&lt;Mesh&gt; PoseMeshes(ExternalJointPosition externalJointPosition)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Mesh&gt; PoseMeshes(ExternalJointPosition externalJointPosition)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1726,8 +1682,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_">ExternalAxis.PoseMeshes(ExternalJointPosition)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_PoseMeshes_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.PoseMeshes*"></a>
@@ -1737,7 +1691,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override List&lt;Mesh&gt; PoseMeshes(JointTarget jointTarget)</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;Mesh&gt; PoseMeshes(JointTarget jointTarget)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1773,8 +1727,6 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_">ExternalAxis.PoseMeshes(JointTarget)</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_ReInitialize_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.ReInitialize*"></a>
@@ -1784,10 +1736,8 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ReInitialize()</code></pre>
+    <pre><code class="lang-csharp hljs">public void ReInitialize()</code></pre>
   </div>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_ReInitialize">ExternalAxis.ReInitialize()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_ToString_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.ToString*"></a>
@@ -1816,7 +1766,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_ToString">ExternalAxis.ToString()</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
 
 
   <a id="RobotComponents_ABB_Definitions_ExternalRotationalAxis_Transform_" data-uid="RobotComponents.ABB.Definitions.ExternalRotationalAxis.Transform*"></a>
@@ -1826,7 +1776,7 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void Transform(Transform xform)</code></pre>
+    <pre><code class="lang-csharp hljs">public void Transform(Transform xform)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1846,9 +1796,10 @@ If the defined External Joint Posiiton is outside its limits the closest valid e
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents_ABB_Definitions_ExternalAxis_Transform_Rhino_Geometry_Transform_">ExternalAxis.Transform(Transform)</a></div>
   <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a>
+  </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
   </div>

@@ -6,28 +6,23 @@ items:
   parent: RobotComponents.ABB.Kinematics
   children:
   - RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)
   - RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,System.Boolean)
   - RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
+  - RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)
   - RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   - RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
   - RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
   - RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText
   - RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
   - RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
   - RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
+  - RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
   - RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
   - RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
   - RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
   - RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
+  - RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize
   - RobotComponents.ABB.Kinematics.ForwardKinematics.Robot
-  - RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
   - RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms
   - RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane
   - RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
@@ -108,75 +103,6 @@ items:
   nameWithType.vb: ForwardKinematics.New(Robot, Boolean)
   fullName.vb: RobotComponents.ABB.Kinematics.ForwardKinematics.New(RobotComponents.ABB.Definitions.Robot, Boolean)
   name.vb: New(Robot, Boolean)
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)
-  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)
-  id: '#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.RobotJointPosition,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean)'
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: ForwardKinematics(Robot, RobotJointPosition, ExternalJointPosition, bool)
-  nameWithType: ForwardKinematics.ForwardKinematics(Robot, RobotJointPosition, ExternalJointPosition, bool)
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.ABB.Definitions.Robot, RobotComponents.ABB.Actions.Declarations.RobotJointPosition, RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, bool)
-  type: Constructor
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Initializes a new instance of the Forward Kinematics class with defined Joint Positions.
-  example: []
-  syntax:
-    content: public ForwardKinematics(Robot robot, RobotJointPosition robotJointPosition, ExternalJointPosition externalJointPosition, bool hideMesh = false)
-    parameters:
-    - id: robot
-      type: RobotComponents.ABB.Definitions.Robot
-      description: The Robot.
-    - id: robotJointPosition
-      type: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
-      description: The Robot Joint Position.
-    - id: externalJointPosition
-      type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-      description: The External Joint Position.
-    - id: hideMesh
-      type: System.Boolean
-      description: Specifies whether the mesh will be supressed.
-    content.vb: Public Sub New(robot As Robot, robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition, hideMesh As Boolean = False)
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor*
-  nameWithType.vb: ForwardKinematics.New(Robot, RobotJointPosition, ExternalJointPosition, Boolean)
-  fullName.vb: RobotComponents.ABB.Kinematics.ForwardKinematics.New(RobotComponents.ABB.Definitions.Robot, RobotComponents.ABB.Actions.Declarations.RobotJointPosition, RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
-  name.vb: New(Robot, RobotJointPosition, ExternalJointPosition, Boolean)
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)
-  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)
-  id: '#ctor(RobotComponents.ABB.Definitions.Robot,RobotComponents.ABB.Actions.Declarations.JointTarget,System.Boolean)'
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: ForwardKinematics(Robot, JointTarget, bool)
-  nameWithType: ForwardKinematics.ForwardKinematics(Robot, JointTarget, bool)
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ForwardKinematics(RobotComponents.ABB.Definitions.Robot, RobotComponents.ABB.Actions.Declarations.JointTarget, bool)
-  type: Constructor
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Defines a Forward Kinematic object from a Joint Target with defined Joint Positions obtained from a Joint Target.
-  example: []
-  syntax:
-    content: public ForwardKinematics(Robot robot, JointTarget jointTarget, bool hideMesh = false)
-    parameters:
-    - id: robot
-      type: RobotComponents.ABB.Definitions.Robot
-      description: The Robot.
-    - id: jointTarget
-      type: RobotComponents.ABB.Actions.Declarations.JointTarget
-      description: The Joint Target.
-    - id: hideMesh
-      type: System.Boolean
-      description: Specifies whether the mesh will be supressed.
-    content.vb: Public Sub New(robot As Robot, jointTarget As JointTarget, hideMesh As Boolean = False)
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor*
-  nameWithType.vb: ForwardKinematics.New(Robot, JointTarget, Boolean)
-  fullName.vb: RobotComponents.ABB.Kinematics.ForwardKinematics.New(RobotComponents.ABB.Definitions.Robot, RobotComponents.ABB.Actions.Declarations.JointTarget, Boolean)
-  name.vb: New(Robot, JointTarget, Boolean)
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)
   commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)
   id: '#ctor(RobotComponents.ABB.Kinematics.ForwardKinematics)'
@@ -251,26 +177,27 @@ items:
     content.vb: Public Overrides Function ToString() As String
   overridden: System.Object.ToString
   overload: RobotComponents.ABB.Kinematics.ForwardKinematics.ToString*
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
-  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
-  id: Calculate
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize
+  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize
+  id: ReInitialize
   parent: RobotComponents.ABB.Kinematics.ForwardKinematics
   langs:
   - csharp
   - vb
-  name: Calculate()
-  nameWithType: ForwardKinematics.Calculate()
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate()
+  name: ReInitialize()
+  nameWithType: ForwardKinematics.ReInitialize()
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize()
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Kinematics
-  summary: Calculates the forward kinematics solution with the Joint Positions stored inside this Forward Kinematics instance.
+  summary: Reinitialize all the fields to construct a valid Forward Kinematics object.
+  remarks: This method also resets the solution. The method Calculate() has to be called to obtain a new solution.
   example: []
   syntax:
-    content: public void Calculate()
-    content.vb: Public Sub Calculate()
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate*
+    content: public void ReInitialize()
+    content.vb: Public Sub ReInitialize()
+  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize*
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
   id: Calculate(RobotComponents.ABB.Actions.Declarations.RobotJointPosition)
@@ -322,6 +249,30 @@ items:
       description: The External Joint Position.
     content.vb: Public Sub Calculate(robotJointPosition As RobotJointPosition, externalJointPosition As ExternalJointPosition)
   overload: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate*
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  id: Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
+  langs:
+  - csharp
+  - vb
+  name: Calculate(JointTarget)
+  nameWithType: ForwardKinematics.Calculate(JointTarget)
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Kinematics
+  summary: Calculates the forward kinematics solution with the given Joint Target.
+  example: []
+  syntax:
+    content: public void Calculate(JointTarget jointTarget)
+    parameters:
+    - id: jointTarget
+      type: RobotComponents.ABB.Actions.Declarations.JointTarget
+      description: The Joint Target.
+    content.vb: Public Sub Calculate(jointTarget As JointTarget)
+  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate*
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
   commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
   id: GetBoundingBox(System.Boolean)
@@ -352,26 +303,6 @@ items:
   nameWithType.vb: ForwardKinematics.GetBoundingBox(Boolean)
   fullName.vb: RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(Boolean)
   name.vb: GetBoundingBox(Boolean)
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
-  commentId: M:RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
-  id: Clear
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: Clear()
-  nameWithType: ForwardKinematics.Clear()
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Clear()
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Clears the current solution.
-  example: []
-  syntax:
-    content: public void Clear()
-    content.vb: Public Sub Clear()
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.Clear*
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
   commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
   id: IsValid
@@ -418,52 +349,6 @@ items:
       type: RobotComponents.ABB.Definitions.Robot
     content.vb: Public Property Robot As Robot
   overload: RobotComponents.ABB.Kinematics.ForwardKinematics.Robot*
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-  commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-  id: RobotJointPosition
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: RobotJointPosition
-  nameWithType: ForwardKinematics.RobotJointPosition
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Gets or sets the Robot Joint Position.
-  example: []
-  syntax:
-    content: public RobotJointPosition RobotJointPosition { get; set; }
-    parameters: []
-    return:
-      type: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
-    content.vb: Public Property RobotJointPosition As RobotJointPosition
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition*
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
-  commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
-  id: ExternalJointPosition
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: ExternalJointPosition
-  nameWithType: ForwardKinematics.ExternalJointPosition
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Gets or sets the External Joint Position.
-  example: []
-  syntax:
-    content: public ExternalJointPosition ExternalJointPosition { get; set; }
-    parameters: []
-    return:
-      type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-    content.vb: Public Property ExternalJointPosition As ExternalJointPosition
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition*
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
   commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
   id: PosedRobotMeshes
@@ -633,16 +518,16 @@ items:
       type: Rhino.Geometry.Plane
     content.vb: Public ReadOnly Property TCPPlane As Plane
   overload: RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane*
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
-  commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
-  id: InLimits
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
+  commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
+  id: IsInLimits
   parent: RobotComponents.ABB.Kinematics.ForwardKinematics
   langs:
   - csharp
   - vb
-  name: InLimits
-  nameWithType: ForwardKinematics.InLimits
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
+  name: IsInLimits
+  nameWithType: ForwardKinematics.IsInLimits
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
   type: Property
   assemblies:
   - RobotComponents.ABB
@@ -650,12 +535,12 @@ items:
   summary: Gets a value indicating whether or not the internal and external values are within their limits.
   example: []
   syntax:
-    content: public bool InLimits { get; }
+    content: public bool IsInLimits { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public ReadOnly Property InLimits As Boolean
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits*
+    content.vb: Public ReadOnly Property IsInLimits As Boolean
+  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits*
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
   commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
   id: HideMesh
@@ -679,43 +564,6 @@ items:
       type: System.Boolean
     content.vb: Public Property HideMesh As Boolean
   overload: RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh*
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  commentId: P:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  id: PosedInternalAxisMeshes
-  parent: RobotComponents.ABB.Kinematics.ForwardKinematics
-  langs:
-  - csharp
-  - vb
-  name: PosedInternalAxisMeshes
-  nameWithType: ForwardKinematics.PosedInternalAxisMeshes
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Kinematics
-  summary: Gets the latest calculated posed internal axis meshes.
-  example: []
-  syntax:
-    content: >-
-      [Obsolete("This property is obsolete and will be removed v3. Use PosedRobotMeshes instead.", false)]
-
-      public List<Mesh> PosedInternalAxisMeshes { get; }
-    parameters: []
-    return:
-      type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-    content.vb: >-
-      <Obsolete("This property is obsolete and will be removed v3. Use PosedRobotMeshes instead.", False)>
-
-      Public ReadOnly Property PosedInternalAxisMeshes As List(Of Mesh)
-  overload: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes*
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
-    arguments:
-    - type: System.String
-      value: This property is obsolete and will be removed v3. Use PosedRobotMeshes instead.
-    - type: System.Boolean
-      value: false
 references:
 - uid: RobotComponents.ABB.Kinematics
   commentId: N:RobotComponents.ABB.Kinematics
@@ -970,7 +818,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.#ctor
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics__ctor
   name: ForwardKinematics
   nameWithType: ForwardKinematics.ForwardKinematics
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ForwardKinematics
@@ -1033,6 +881,77 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics
+  commentId: T:RobotComponents.ABB.Kinematics.ForwardKinematics
+  parent: RobotComponents.ABB.Kinematics
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html
+  name: ForwardKinematics
+  nameWithType: ForwardKinematics
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate*
+  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_Duplicate
+  name: Duplicate
+  nameWithType: ForwardKinematics.Duplicate
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ToString*
+  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_ToString
+  name: ToString
+  nameWithType: ForwardKinematics.ToString
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize*
+  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_ReInitialize
+  name: ReInitialize
+  nameWithType: ForwardKinematics.ReInitialize
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ReInitialize
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate*
+  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
+  isExternal: true
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_Calculate_RobotComponents_ABB_Actions_Declarations_RobotJointPosition_
+  name: Calculate
+  nameWithType: ForwardKinematics.Calculate
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
 - uid: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
   commentId: T:RobotComponents.ABB.Actions.Declarations.RobotJointPosition
   parent: RobotComponents.ABB.Actions.Declarations
@@ -1041,14 +960,6 @@ references:
   name: RobotJointPosition
   nameWithType: RobotJointPosition
   fullName: RobotComponents.ABB.Actions.Declarations.RobotJointPosition
-- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-  commentId: T:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-  parent: RobotComponents.ABB.Actions.Declarations
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
-  name: ExternalJointPosition
-  nameWithType: ExternalJointPosition
-  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
 - uid: RobotComponents.ABB.Actions.Declarations
   commentId: N:RobotComponents.ABB.Actions.Declarations
   isExternal: true
@@ -1096,6 +1007,14 @@ references:
     name: Declarations
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.html
+- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
+  commentId: T:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
+  parent: RobotComponents.ABB.Actions.Declarations
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
+  name: ExternalJointPosition
+  nameWithType: ExternalJointPosition
+  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
 - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
   commentId: T:RobotComponents.ABB.Actions.Declarations.JointTarget
   parent: RobotComponents.ABB.Actions.Declarations
@@ -1104,74 +1023,10 @@ references:
   name: JointTarget
   nameWithType: JointTarget
   fullName: RobotComponents.ABB.Actions.Declarations.JointTarget
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics
-  commentId: T:RobotComponents.ABB.Kinematics.ForwardKinematics
-  parent: RobotComponents.ABB.Kinematics
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html
-  name: ForwardKinematics
-  nameWithType: ForwardKinematics
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
-  name: Duplicate
-  nameWithType: ForwardKinematics.Duplicate
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Duplicate
-- uid: System.Object.ToString
-  commentId: M:System.Object.ToString
-  parent: System.Object
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  name: ToString()
-  nameWithType: object.ToString()
-  fullName: object.ToString()
-  nameWithType.vb: Object.ToString()
-  fullName.vb: Object.ToString()
-  spec.csharp:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: System.Object.ToString
-    name: ToString
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ToString*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
-  name: ToString
-  nameWithType: ForwardKinematics.ToString
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ToString
-- uid: System.String
-  commentId: T:System.String
-  parent: System
-  isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.string
-  name: string
-  nameWithType: string
-  fullName: string
-  nameWithType.vb: String
-  fullName.vb: String
-  name.vb: String
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
-  name: Calculate
-  nameWithType: ForwardKinematics.Calculate
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Calculate
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox(System.Boolean)
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_GetBoundingBox_System_Boolean_
   name: GetBoundingBox
   nameWithType: ForwardKinematics.GetBoundingBox
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.GetBoundingBox
@@ -1180,45 +1035,24 @@ references:
   name: BoundingBox
   nameWithType: BoundingBox
   fullName: Rhino.Geometry.BoundingBox
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Clear*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
-  name: Clear
-  nameWithType: ForwardKinematics.Clear
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Clear
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_IsValid
   name: IsValid
   nameWithType: ForwardKinematics.IsValid
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.IsValid
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.Robot*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.Robot
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.Robot
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_Robot
   name: Robot
   nameWithType: ForwardKinematics.Robot
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.Robot
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-  name: RobotJointPosition
-  nameWithType: ForwardKinematics.RobotJointPosition
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotJointPosition
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
-  name: ExternalJointPosition
-  nameWithType: ForwardKinematics.ExternalJointPosition
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalJointPosition
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_PosedRobotMeshes
   name: PosedRobotMeshes
   nameWithType: ForwardKinematics.PosedRobotMeshes
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedRobotMeshes
@@ -1323,7 +1157,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_PosedExternalAxisMeshes
   name: PosedExternalAxisMeshes
   nameWithType: ForwardKinematics.PosedExternalAxisMeshes
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisMeshes
@@ -1377,7 +1211,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_RobotTransforms
   name: RobotTransforms
   nameWithType: ForwardKinematics.RobotTransforms
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.RobotTransforms
@@ -1404,7 +1238,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_ExternalAxisTransforms
   name: ExternalAxisTransforms
   nameWithType: ForwardKinematics.ExternalAxisTransforms
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ExternalAxisTransforms
@@ -1458,7 +1292,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_PosedExternalAxisPlanes
   name: PosedExternalAxisPlanes
   nameWithType: ForwardKinematics.PosedExternalAxisPlanes
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedExternalAxisPlanes
@@ -1485,7 +1319,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_ErrorText
   name: ErrorText
   nameWithType: ForwardKinematics.ErrorText
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.ErrorText
@@ -1527,7 +1361,7 @@ references:
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_TCPPlane
   name: TCPPlane
   nameWithType: ForwardKinematics.TCPPlane
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.TCPPlane
@@ -1536,24 +1370,17 @@ references:
   name: Plane
   nameWithType: Plane
   fullName: Rhino.Geometry.Plane
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
+- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits*
+  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
-  name: InLimits
-  nameWithType: ForwardKinematics.InLimits
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.InLimits
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_IsInLimits
+  name: IsInLimits
+  nameWithType: ForwardKinematics.IsInLimits
+  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.IsInLimits
 - uid: RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh*
   commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
   isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
+  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents_ABB_Kinematics_ForwardKinematics_HideMesh
   name: HideMesh
   nameWithType: ForwardKinematics.HideMesh
   fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.HideMesh
-- uid: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes*
-  commentId: Overload:RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  isExternal: true
-  href: RobotComponents.ABB.Kinematics.ForwardKinematics.html#RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes
-  name: PosedInternalAxisMeshes
-  nameWithType: ForwardKinematics.PosedInternalAxisMeshes
-  fullName: RobotComponents.ABB.Kinematics.ForwardKinematics.PosedInternalAxisMeshes

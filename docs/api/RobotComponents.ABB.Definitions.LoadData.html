@@ -82,7 +82,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">ISerializable</span></div>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -212,27 +212,32 @@
       <tr>
         <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></td>
         <td><span class="parametername">name</span></td>
-        <td></td>
+        <td><p>The variable name of the load data declaration.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">double</span></td>
         <td><span class="parametername">mass</span></td>
-        <td></td>
+        <td><p>The weight of the tool in kg.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Point3d</span></td>
         <td><span class="parametername">centerOfGravity</span></td>
-        <td></td>
+        <td><p>The position of the center of gravity of the load.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Quaternion</span></td>
         <td><span class="parametername">axesOfMoment</span></td>
-        <td></td>
+        <td><p>The orientation of the load coordinate system defined by the principal inertial axes of the tool load.</p>
+</td>
       </tr>
       <tr>
         <td><span class="xref">Vector3d</span></td>
         <td><span class="parametername">inertialMoments</span></td>
-        <td></td>
+        <td><p>The moment of inertia of the load in kgm2.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -242,7 +247,7 @@
 
   <a id="RobotComponents_ABB_Definitions_LoadData_AxesOfMoment_" data-uid="RobotComponents.ABB.Definitions.LoadData.AxesOfMoment*"></a>
   <h4 id="RobotComponents_ABB_Definitions_LoadData_AxesOfMoment" data-uid="RobotComponents.ABB.Definitions.LoadData.AxesOfMoment">AxesOfMoment</h4>
-  <div class="markdown level1 summary"><p>Gets the orientation of the load coordinate system defined by the principal inertial axes of the tool load.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the orientation of the load coordinate system defined by the principal inertial axes of the tool load.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -271,7 +276,7 @@
 
   <a id="RobotComponents_ABB_Definitions_LoadData_CenterOfGravity_" data-uid="RobotComponents.ABB.Definitions.LoadData.CenterOfGravity*"></a>
   <h4 id="RobotComponents_ABB_Definitions_LoadData_CenterOfGravity" data-uid="RobotComponents.ABB.Definitions.LoadData.CenterOfGravity">CenterOfGravity</h4>
-  <div class="markdown level1 summary"><p>Gets the position of the center of gravity of the load.</p>
+  <div class="markdown level1 summary"><p>Gets or sets the position of the center of gravity of the load.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
@@ -528,7 +533,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></td>
         <td><p>A deep copy of the Load Data instance as an IDeclaration.</p>
 </td>
       </tr>
@@ -673,38 +678,6 @@
 
 
   <a id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDDeclaration*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
-        <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>The RAPID Generator.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
 </div>
@@ -747,6 +720,38 @@
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDGenerator*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDGenerator(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations and instructions in the RAPID program module inside the RAPID Generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
+        <td><span class="parametername">RAPIDGenerator</span></td>
+        <td><p>The RAPID Generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_LoadData_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_LoadData_ToString_" data-uid="RobotComponents.ABB.Definitions.LoadData.ToString*"></a>
@@ -832,11 +837,7 @@
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
   </div>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a>
   </div>
 
 </article>

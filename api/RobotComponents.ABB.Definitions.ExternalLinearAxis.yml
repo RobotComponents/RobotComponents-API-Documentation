@@ -73,12 +73,12 @@ items:
   summary: Represents an External Linear Axis.
   example: []
   syntax:
-    content: 'public class ExternalLinearAxis : ExternalAxis, ISerializable, IMechanicalUnit'
-    content.vb: Public Class ExternalLinearAxis Inherits ExternalAxis Implements ISerializable, IMechanicalUnit
+    content: 'public class ExternalLinearAxis : IExternalAxis, ISerializable, IMechanicalUnit'
+    content.vb: Public Class ExternalLinearAxis Implements IExternalAxis, ISerializable, IMechanicalUnit
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Definitions.ExternalAxis
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis
   - System.Runtime.Serialization.ISerializable
   - RobotComponents.ABB.Definitions.IMechanicalUnit
   inheritedMembers:
@@ -1139,13 +1139,14 @@ items:
   summary: Returns an exact duplicate of this External Linear Axis instance as an External Axis.
   example: []
   syntax:
-    content: public override ExternalAxis DuplicateExternalAxis()
+    content: public IExternalAxis DuplicateExternalAxis()
     return:
-      type: RobotComponents.ABB.Definitions.ExternalAxis
+      type: RobotComponents.ABB.Definitions.IExternalAxis
       description: A deep copy of the External Linear Axis instance as an External Axis.
-    content.vb: Public Overrides Function DuplicateExternalAxis() As ExternalAxis
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
+    content.vb: Public Function DuplicateExternalAxis() As IExternalAxis
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxis*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   id: DuplicateExternalAxisWithoutMesh
@@ -1163,13 +1164,14 @@ items:
   summary: Returns an exact duplicate of this External Linear Axis instance as an External Axis without meshes.
   example: []
   syntax:
-    content: public override ExternalAxis DuplicateExternalAxisWithoutMesh()
+    content: public IExternalAxis DuplicateExternalAxisWithoutMesh()
     return:
-      type: RobotComponents.ABB.Definitions.ExternalAxis
+      type: RobotComponents.ABB.Definitions.IExternalAxis
       description: A deep copy of the External Linear Axis instance as an External Axis without meshes.
-    content.vb: Public Overrides Function DuplicateExternalAxisWithoutMesh() As ExternalAxis
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
+    content.vb: Public Function DuplicateExternalAxisWithoutMesh() As IExternalAxis
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit
   id: DuplicateMechanicalUnit
@@ -1187,14 +1189,14 @@ items:
   summary: Returns an exact duplicate of this External Linear Axis as a Mechanical Unit.
   example: []
   syntax:
-    content: public override IMechanicalUnit DuplicateMechanicalUnit()
+    content: public IMechanicalUnit DuplicateMechanicalUnit()
     return:
       type: RobotComponents.ABB.Definitions.IMechanicalUnit
       description: A deep copy of the Mechanical Unit.
-    content.vb: Public Overrides Function DuplicateMechanicalUnit() As IMechanicalUnit
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    content.vb: Public Function DuplicateMechanicalUnit() As IMechanicalUnit
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit
   - RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
@@ -1213,14 +1215,14 @@ items:
   summary: Returns an exact duplicate of this External Linear Axis as Mechanical Unit without meshes.
   example: []
   syntax:
-    content: public override IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()
+    content: public IMechanicalUnit DuplicateMechanicalUnitWithoutMesh()
     return:
       type: RobotComponents.ABB.Definitions.IMechanicalUnit
       description: A deep copy of the Mechanical Unit without meshes.
-    content.vb: Public Overrides Function DuplicateMechanicalUnitWithoutMesh() As IMechanicalUnit
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    content.vb: Public Function DuplicateMechanicalUnitWithoutMesh() As IMechanicalUnit
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh
   - RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString
@@ -1244,7 +1246,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString*
   implements:
   - RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
@@ -1289,20 +1291,21 @@ items:
   remarks: This calculation does not take into account the axis limits.
   example: []
   syntax:
-    content: public override Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool inLimits)
+    content: public Plane CalculatePosition(ExternalJointPosition externalJointPosition, out bool isInLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
       description: The External Joint Position.
-    - id: inLimits
+    - id: isInLimits
       type: System.Boolean
       description: Specifies whether the External Joint Position is inside its limits.
     return:
       type: Rhino.Geometry.Plane
       description: The posed attachement plane.
-    content.vb: Public Overrides Function CalculatePosition(externalJointPosition As ExternalJointPosition, inLimits As Boolean) As Plane
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    content.vb: Public Function CalculatePosition(externalJointPosition As ExternalJointPosition, isInLimits As Boolean) As Plane
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
   nameWithType.vb: ExternalLinearAxis.CalculatePosition(ExternalJointPosition, Boolean)
   fullName.vb: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
   name.vb: CalculatePosition(ExternalJointPosition, Boolean)
@@ -1324,20 +1327,21 @@ items:
   remarks: This calculation does not take into account the axis limits.
   example: []
   syntax:
-    content: public override Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool inLimits)
+    content: public Transform CalculateTransformationMatrix(ExternalJointPosition externalJointPosition, out bool isInLimits)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
       description: The External Joint Position.
-    - id: inLimits
+    - id: isInLimits
       type: System.Boolean
       description: Specifies whether the External Joint Position is inside its limits.
     return:
       type: Rhino.Geometry.Transform
       description: The transformation matrix.
-    content.vb: Public Overrides Function CalculateTransformationMatrix(externalJointPosition As ExternalJointPosition, inLimits As Boolean) As Transform
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    content.vb: Public Function CalculateTransformationMatrix(externalJointPosition As ExternalJointPosition, isInLimits As Boolean) As Transform
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
   nameWithType.vb: ExternalLinearAxis.CalculateTransformationMatrix(ExternalJointPosition, Boolean)
   fullName.vb: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
   name.vb: CalculateTransformationMatrix(ExternalJointPosition, Boolean)
@@ -1362,7 +1366,7 @@ items:
     If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.
   example: []
   syntax:
-    content: public override Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)
+    content: public Plane CalculatePositionSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
@@ -1370,9 +1374,10 @@ items:
     return:
       type: Rhino.Geometry.Plane
       description: The posed attachement plane.
-    content.vb: Public Overrides Function CalculatePositionSave(externalJointPosition As ExternalJointPosition) As Plane
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    content.vb: Public Function CalculatePositionSave(externalJointPosition As ExternalJointPosition) As Plane
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePositionSave*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   id: CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
@@ -1394,7 +1399,7 @@ items:
     If the defined External Joint Posiiton is outside its limits the closest valid external axis value will be used.
   example: []
   syntax:
-    content: public override Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)
+    content: public Transform CalculateTransformationMatrixSave(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
@@ -1402,9 +1407,10 @@ items:
     return:
       type: Rhino.Geometry.Transform
       description: The transformation matrix.
-    content.vb: Public Overrides Function CalculateTransformationMatrixSave(externalJointPosition As ExternalJointPosition) As Transform
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    content.vb: Public Function CalculateTransformationMatrixSave(externalJointPosition As ExternalJointPosition) As Transform
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   id: PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
@@ -1422,7 +1428,7 @@ items:
   summary: Calculates and returns the position of the meshes for a given Joint Target.
   example: []
   syntax:
-    content: public override List<Mesh> PoseMeshes(JointTarget jointTarget)
+    content: public List<Mesh> PoseMeshes(JointTarget jointTarget)
     parameters:
     - id: jointTarget
       type: RobotComponents.ABB.Actions.Declarations.JointTarget
@@ -1430,10 +1436,10 @@ items:
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
       description: The posed meshes.
-    content.vb: Public Overrides Function PoseMeshes(jointTarget As JointTarget) As List(Of Mesh)
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    content.vb: Public Function PoseMeshes(jointTarget As JointTarget) As List(Of Mesh)
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   - RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
@@ -1452,7 +1458,7 @@ items:
   summary: Calculates and returns the position of the external axis meshes for a given External Joint Position.
   example: []
   syntax:
-    content: public override List<Mesh> PoseMeshes(ExternalJointPosition externalJointPosition)
+    content: public List<Mesh> PoseMeshes(ExternalJointPosition externalJointPosition)
     parameters:
     - id: externalJointPosition
       type: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
@@ -1460,9 +1466,10 @@ items:
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
       description: The posed meshes.
-    content.vb: Public Overrides Function PoseMeshes(externalJointPosition As ExternalJointPosition) As List(Of Mesh)
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    content.vb: Public Function PoseMeshes(externalJointPosition As ExternalJointPosition) As List(Of Mesh)
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize
   id: ReInitialize
@@ -1480,10 +1487,11 @@ items:
   summary: Reinitializes the fields and properties to construct a valid External Linear Axis instance.
   example: []
   syntax:
-    content: public override void ReInitialize()
-    content.vb: Public Overrides Sub ReInitialize()
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
+    content: public void ReInitialize()
+    content.vb: Public Sub ReInitialize()
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)
   id: Transform(Rhino.Geometry.Transform)
@@ -1501,15 +1509,15 @@ items:
   summary: Transforms the external axis spatial properties (planes and meshes).
   example: []
   syntax:
-    content: public override void Transform(Transform xform)
+    content: public void Transform(Transform xform)
     parameters:
     - id: xform
       type: Rhino.Geometry.Transform
       description: The spatial deform.
-    content.vb: Public Overrides Sub Transform(xform As Transform)
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+    content.vb: Public Sub Transform(xform As Transform)
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
   - RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
   commentId: M:RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
@@ -1528,7 +1536,7 @@ items:
   summary: Returns the Bounding Box of the object.
   example: []
   syntax:
-    content: public override BoundingBox GetBoundingBox(bool accurate)
+    content: public BoundingBox GetBoundingBox(bool accurate)
     parameters:
     - id: accurate
       type: System.Boolean
@@ -1536,10 +1544,10 @@ items:
     return:
       type: Rhino.Geometry.BoundingBox
       description: The Bounding Box.
-    content.vb: Public Overrides Function GetBoundingBox(accurate As Boolean) As BoundingBox
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+    content.vb: Public Function GetBoundingBox(accurate As Boolean) As BoundingBox
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)
   - RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   nameWithType.vb: ExternalLinearAxis.GetBoundingBox(Boolean)
   fullName.vb: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox(Boolean)
@@ -1561,14 +1569,14 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.IsValid*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.IsValid
   - RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Name
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.Name
@@ -1587,14 +1595,14 @@ items:
   summary: Gets or sets the external axis name.
   example: []
   syntax:
-    content: public override string Name { get; set; }
+    content: public string Name { get; set; }
     parameters: []
     return:
       type: System.String
-    content.vb: Public Overrides Property Name As String
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.Name
+    content.vb: Public Property Name As String
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.Name*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.Name
   - RobotComponents.ABB.Definitions.IMechanicalUnit.Name
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane
@@ -1613,13 +1621,14 @@ items:
   summary: Gets or sets the attachment plane to attach a robot or work object.
   example: []
   syntax:
-    content: public override Plane AttachmentPlane { get; set; }
+    content: public Plane AttachmentPlane { get; set; }
     parameters: []
     return:
       type: Rhino.Geometry.Plane
-    content.vb: Public Overrides Property AttachmentPlane As Plane
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane
+    content.vb: Public Property AttachmentPlane As Plane
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AttachmentPlane
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane
   id: AxisPlane
@@ -1638,13 +1647,14 @@ items:
   remarks: The z-axis of the place defines the positive movement direction of the external linear axis.
   example: []
   syntax:
-    content: public override Plane AxisPlane { get; set; }
+    content: public Plane AxisPlane { get; set; }
     parameters: []
     return:
       type: Rhino.Geometry.Plane
-    content.vb: Public Overrides Property AxisPlane As Plane
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane
+    content.vb: Public Property AxisPlane As Plane
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AxisPlane
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits
   id: AxisLimits
@@ -1662,13 +1672,14 @@ items:
   summary: Gets or sets the axis limits in meters.
   example: []
   syntax:
-    content: public override Interval AxisLimits { get; set; }
+    content: public Interval AxisLimits { get; set; }
     parameters: []
     return:
       type: Rhino.Geometry.Interval
-    content.vb: Public Overrides Property AxisLimits As Interval
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits
+    content.vb: Public Property AxisLimits As Interval
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AxisLimits
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber
   id: AxisNumber
@@ -1686,13 +1697,14 @@ items:
   summary: Gets or sets the axis logic as a number (-1, 0, 1, 2, 3, 4, 5).
   example: []
   syntax:
-    content: public override int AxisNumber { get; set; }
+    content: public int AxisNumber { get; set; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Overrides Property AxisNumber As Integer
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber
+    content.vb: Public Property AxisNumber As Integer
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AxisNumber
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic
   id: AxisLogic
@@ -1710,13 +1722,14 @@ items:
   summary: Gets the axis logic as a char (-, A, B, C, E, E, F).
   example: []
   syntax:
-    content: public override char AxisLogic { get; set; }
+    content: public char AxisLogic { get; set; }
     parameters: []
     return:
       type: System.Char
-    content.vb: Public Overrides Property AxisLogic As Char
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic
+    content.vb: Public Property AxisLogic As Char
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AxisLogic
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType
   id: AxisType
@@ -1734,13 +1747,14 @@ items:
   summary: Gets the Axis Type.
   example: []
   syntax:
-    content: public override AxisType AxisType { get; }
+    content: public AxisType AxisType { get; }
     parameters: []
     return:
       type: RobotComponents.ABB.Enumerations.AxisType
-    content.vb: Public Overrides ReadOnly Property AxisType As AxisType
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.AxisType
+    content.vb: Public ReadOnly Property AxisType As AxisType
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.AxisType
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh
   id: BaseMesh
@@ -1758,13 +1772,14 @@ items:
   summary: Gets or sets the fixed base mesh of the external axis.
   example: []
   syntax:
-    content: public override Mesh BaseMesh { get; set; }
+    content: public Mesh BaseMesh { get; set; }
     parameters: []
     return:
       type: Rhino.Geometry.Mesh
-    content.vb: Public Overrides Property BaseMesh As Mesh
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh
+    content.vb: Public Property BaseMesh As Mesh
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.BaseMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh
   id: LinkMesh
@@ -1782,13 +1797,14 @@ items:
   summary: Gets or sets the movable link mesh of the external axis posed for external axis value set to 0.
   example: []
   syntax:
-    content: public override Mesh LinkMesh { get; set; }
+    content: public Mesh LinkMesh { get; set; }
     parameters: []
     return:
       type: Rhino.Geometry.Mesh
-    content.vb: Public Overrides Property LinkMesh As Mesh
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh
+    content.vb: Public Property LinkMesh As Mesh
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.LinkMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve
   id: AxisCurve
@@ -1830,13 +1846,14 @@ items:
   summary: Gets latest calculated posed axis meshes.
   example: []
   syntax:
-    content: public override List<Mesh> PosedMeshes { get; }
+    content: public List<Mesh> PosedMeshes { get; }
     parameters: []
     return:
       type: System.Collections.Generic.List{Rhino.Geometry.Mesh}
-    content.vb: Public Overrides ReadOnly Property PosedMeshes As List(Of Mesh)
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes
+    content.vb: Public ReadOnly Property PosedMeshes As List(Of Mesh)
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.PosedMeshes*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.PosedMeshes
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot
   id: MovesRobot
@@ -1854,13 +1871,14 @@ items:
   summary: Gets or sets a value indicating whether or not this External Linear Axis moves the Robot.
   example: []
   syntax:
-    content: public override bool MovesRobot { get; set; }
+    content: public bool MovesRobot { get; set; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides Property MovesRobot As Boolean
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot
+    content.vb: Public Property MovesRobot As Boolean
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot*
+  implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.MovesRobot
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes
   commentId: P:RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes
   id: NumberOfAxes
@@ -1878,14 +1896,14 @@ items:
   summary: Gets the number of axes for the mechanical unit.
   example: []
   syntax:
-    content: public override int NumberOfAxes { get; }
+    content: public int NumberOfAxes { get; }
     parameters: []
     return:
       type: System.Int32
-    content.vb: Public Overrides ReadOnly Property NumberOfAxes As Integer
-  overridden: RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes
+    content.vb: Public ReadOnly Property NumberOfAxes As Integer
   overload: RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes*
   implements:
+  - RobotComponents.ABB.Definitions.IExternalAxis.NumberOfAxes
   - RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
 references:
 - uid: RobotComponents.ABB.Definitions
@@ -1936,14 +1954,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Definitions.ExternalAxis
-  commentId: T:RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis
+  commentId: T:RobotComponents.ABB.Definitions.IExternalAxis
   parent: RobotComponents.ABB.Definitions
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html
-  name: ExternalAxis
-  nameWithType: ExternalAxis
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html
+  name: IExternalAxis
+  nameWithType: IExternalAxis
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -2202,7 +2220,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.#ctor*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: ExternalLinearAxis
   nameWithType: ExternalLinearAxis.ExternalLinearAxis
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.ExternalLinearAxis
@@ -2228,7 +2246,7 @@ references:
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: ExternalLinearAxis.GetObjectData
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetObjectData
@@ -2436,109 +2454,109 @@ references:
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Duplicate*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.Duplicate
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_Duplicate
   name: Duplicate
   nameWithType: ExternalLinearAxis.Duplicate
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.Duplicate
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateWithoutMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateWithoutMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateWithoutMesh
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_DuplicateWithoutMesh
   name: DuplicateWithoutMesh
   nameWithType: ExternalLinearAxis.DuplicateWithoutMesh
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateWithoutMesh
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-  name: DuplicateExternalAxis()
-  nameWithType: ExternalAxis.DuplicateExternalAxis()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-    name: DuplicateExternalAxis
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-    name: DuplicateExternalAxis
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxis
-  - name: (
-  - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxis*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxis
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_DuplicateExternalAxis
   name: DuplicateExternalAxis
   nameWithType: ExternalLinearAxis.DuplicateExternalAxis
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxis
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
-  name: DuplicateExternalAxisWithoutMesh()
-  nameWithType: ExternalAxis.DuplicateExternalAxisWithoutMesh()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh()
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxis
+  name: DuplicateExternalAxis()
+  nameWithType: IExternalAxis.DuplicateExternalAxis()
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis()
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
-    name: DuplicateExternalAxisWithoutMesh
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis
+    name: DuplicateExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxis
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
-    name: DuplicateExternalAxisWithoutMesh
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxis
+    name: DuplicateExternalAxis
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateExternalAxisWithoutMesh
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxis
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_DuplicateExternalAxisWithoutMesh
   name: DuplicateExternalAxisWithoutMesh
   nameWithType: ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateExternalAxisWithoutMesh
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
-  name: DuplicateMechanicalUnit()
-  nameWithType: ExternalAxis.DuplicateMechanicalUnit()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit()
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxisWithoutMesh
+  name: DuplicateExternalAxisWithoutMesh()
+  nameWithType: IExternalAxis.DuplicateExternalAxisWithoutMesh()
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh()
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
-    name: DuplicateMechanicalUnit
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh
+    name: DuplicateExternalAxisWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxisWithoutMesh
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
-    name: DuplicateMechanicalUnit
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateExternalAxisWithoutMesh
+    name: DuplicateExternalAxisWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnit
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateExternalAxisWithoutMesh
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_DuplicateMechanicalUnit
   name: DuplicateMechanicalUnit
   nameWithType: ExternalLinearAxis.DuplicateMechanicalUnit
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnit
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnit
+  name: DuplicateMechanicalUnit()
+  nameWithType: IExternalAxis.DuplicateMechanicalUnit()
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnit
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnit
+    name: DuplicateMechanicalUnit
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnit
+  - name: (
+  - name: )
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   name: DuplicateMechanicalUnit()
   nameWithType: IMechanicalUnit.DuplicateMechanicalUnit()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit()
@@ -2546,50 +2564,50 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
     name: DuplicateMechanicalUnit
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
     name: DuplicateMechanicalUnit
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnit
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-  name: DuplicateMechanicalUnitWithoutMesh()
-  nameWithType: ExternalAxis.DuplicateMechanicalUnitWithoutMesh()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-    name: DuplicateMechanicalUnitWithoutMesh
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
-    name: DuplicateMechanicalUnitWithoutMesh
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnit
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_DuplicateMechanicalUnitWithoutMesh
   name: DuplicateMechanicalUnitWithoutMesh
   nameWithType: ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.DuplicateMechanicalUnitWithoutMesh
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnitWithoutMesh
+  name: DuplicateMechanicalUnitWithoutMesh()
+  nameWithType: IExternalAxis.DuplicateMechanicalUnitWithoutMesh()
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnitWithoutMesh
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.DuplicateMechanicalUnitWithoutMesh
+    name: DuplicateMechanicalUnitWithoutMesh
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_DuplicateMechanicalUnitWithoutMesh
+  - name: (
+  - name: )
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
   name: DuplicateMechanicalUnitWithoutMesh()
   nameWithType: IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh()
@@ -2597,42 +2615,44 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
     name: DuplicateMechanicalUnitWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
     name: DuplicateMechanicalUnitWithoutMesh
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.DuplicateMechanicalUnitWithoutMesh
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_DuplicateMechanicalUnitWithoutMesh
   - name: (
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.ToString
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.ToString
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ToString
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   name: ToString()
-  nameWithType: ExternalAxis.ToString()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_ToString
   name: ToString
   nameWithType: ExternalLinearAxis.ToString
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.ToString
@@ -2640,7 +2660,7 @@ references:
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   name: ToString()
   nameWithType: IMechanicalUnit.ToString()
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString()
@@ -2648,20 +2668,20 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   - name: (
   - name: )
   spec.vb:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.ToString
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_ToString
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetAxisCurve*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.GetAxisCurve
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.GetAxisCurve
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_GetAxisCurve
   name: GetAxisCurve
   nameWithType: ExternalLinearAxis.GetAxisCurve
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetAxisCurve
@@ -2670,22 +2690,29 @@ references:
   name: Curve
   nameWithType: Curve
   fullName: Rhino.Geometry.Curve
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition*
+  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_CalculatePosition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
+  name: CalculatePosition
+  nameWithType: ExternalLinearAxis.CalculatePosition
+  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePosition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   name: CalculatePosition(ExternalJointPosition, out bool)
-  nameWithType: ExternalAxis.CalculatePosition(ExternalJointPosition, out bool)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, out bool)
-  nameWithType.vb: ExternalAxis.CalculatePosition(ExternalJointPosition, Boolean)
-  fullName.vb: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
+  nameWithType: IExternalAxis.CalculatePosition(ExternalJointPosition, out bool)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, out bool)
+  nameWithType.vb: IExternalAxis.CalculatePosition(ExternalJointPosition, Boolean)
+  fullName.vb: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
   name.vb: CalculatePosition(ExternalJointPosition, Boolean)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
     name: CalculatePosition
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePosition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2701,10 +2728,10 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
     name: CalculatePosition
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePosition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2717,13 +2744,6 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition*
-  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  name: CalculatePosition
-  nameWithType: ExternalLinearAxis.CalculatePosition
-  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePosition
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
   commentId: T:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
   parent: RobotComponents.ABB.Actions.Declarations
@@ -2779,22 +2799,29 @@ references:
     name: Declarations
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.html
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*
+  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_CalculateTransformationMatrix_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
+  name: CalculateTransformationMatrix
+  nameWithType: ExternalLinearAxis.CalculateTransformationMatrix
+  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrix_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   name: CalculateTransformationMatrix(ExternalJointPosition, out bool)
-  nameWithType: ExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, out bool)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, out bool)
-  nameWithType.vb: ExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, Boolean)
-  fullName.vb: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
+  nameWithType: IExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, out bool)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, out bool)
+  nameWithType.vb: IExternalAxis.CalculateTransformationMatrix(ExternalJointPosition, Boolean)
+  fullName.vb: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition, Boolean)
   name.vb: CalculateTransformationMatrix(ExternalJointPosition, Boolean)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
     name: CalculateTransformationMatrix
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrix_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2810,10 +2837,10 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
     name: CalculateTransformationMatrix
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrix_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Boolean__
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2826,68 +2853,31 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix*
-  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Boolean@)
-  name: CalculateTransformationMatrix
-  nameWithType: ExternalLinearAxis.CalculateTransformationMatrix
-  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrix
 - uid: Rhino.Geometry.Transform
   isExternal: true
   name: Transform
   nameWithType: Transform
   fullName: Rhino.Geometry.Transform
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  name: CalculatePositionSave(ExternalJointPosition)
-  nameWithType: ExternalAxis.CalculatePositionSave(ExternalJointPosition)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-    name: CalculatePositionSave
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-    name: ExternalJointPosition
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-    name: CalculatePositionSave
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-    name: ExternalJointPosition
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
-  - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePositionSave*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePositionSave
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_CalculatePositionSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   name: CalculatePositionSave
   nameWithType: ExternalLinearAxis.CalculatePositionSave
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculatePositionSave
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  name: CalculateTransformationMatrixSave(ExternalJointPosition)
-  nameWithType: ExternalAxis.CalculateTransformationMatrixSave(ExternalJointPosition)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePositionSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
+  name: CalculatePositionSave(ExternalJointPosition)
+  nameWithType: IExternalAxis.CalculatePositionSave(ExternalJointPosition)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-    name: CalculateTransformationMatrixSave
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    name: CalculatePositionSave
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePositionSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2895,10 +2885,10 @@ references:
     href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-    name: CalculateTransformationMatrixSave
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculatePositionSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    name: CalculatePositionSave
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculatePositionSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -2908,23 +2898,60 @@ references:
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_CalculateTransformationMatrixSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   name: CalculateTransformationMatrixSave
   nameWithType: ExternalLinearAxis.CalculateTransformationMatrixSave
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.CalculateTransformationMatrixSave
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
-  name: PoseMeshes(JointTarget)
-  nameWithType: ExternalAxis.PoseMeshes(JointTarget)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrixSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
+  name: CalculateTransformationMatrixSave(ExternalJointPosition)
+  nameWithType: IExternalAxis.CalculateTransformationMatrixSave(ExternalJointPosition)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    name: CalculateTransformationMatrixSave
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrixSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
+    name: ExternalJointPosition
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.CalculateTransformationMatrixSave(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    name: CalculateTransformationMatrixSave
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_CalculateTransformationMatrixSave_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
+    name: ExternalJointPosition
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
+  - name: )
+- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes*
+  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
+  name: PoseMeshes
+  nameWithType: ExternalLinearAxis.PoseMeshes
+  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
+  name: PoseMeshes(JointTarget)
+  nameWithType: IExternalAxis.PoseMeshes(JointTarget)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
@@ -2932,28 +2959,21 @@ references:
     href: RobotComponents.ABB.Actions.Declarations.JointTarget.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.JointTarget.html
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes*
-  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
-  name: PoseMeshes
-  nameWithType: ExternalLinearAxis.PoseMeshes
-  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.PoseMeshes
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   name: PoseMeshes(JointTarget)
   nameWithType: IMechanicalUnit.PoseMeshes(JointTarget)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
@@ -2961,7 +2981,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
@@ -2972,7 +2992,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.PoseMeshes(RobotComponents.ABB.Actions.Declarations.JointTarget)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_PoseMeshes_RobotComponents_ABB_Actions_Declarations_JointTarget_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.JointTarget
     name: JointTarget
@@ -3048,19 +3068,19 @@ references:
   - name: " "
   - name: T
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   name: PoseMeshes(ExternalJointPosition)
-  nameWithType: ExternalAxis.PoseMeshes(ExternalJointPosition)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  nameWithType: IExternalAxis.PoseMeshes(ExternalJointPosition)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
@@ -3068,85 +3088,85 @@ references:
     href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
     name: PoseMeshes
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PoseMeshes(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PoseMeshes_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_
   - name: (
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
     name: ExternalJointPosition
     isExternal: true
     href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html
-  - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-  name: ReInitialize()
-  nameWithType: ExternalAxis.ReInitialize()
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-    name: ReInitialize
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-    name: ReInitialize
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.ReInitialize
-  - name: (
   - name: )
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_ReInitialize
   name: ReInitialize
   nameWithType: ExternalLinearAxis.ReInitialize
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.ReInitialize
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
-  name: Transform(Transform)
-  nameWithType: ExternalAxis.Transform(Transform)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_ReInitialize
+  name: ReInitialize()
+  nameWithType: IExternalAxis.ReInitialize()
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize()
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize
+    name: ReInitialize
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_ReInitialize
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.ReInitialize
+    name: ReInitialize
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_ReInitialize
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform*
+  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_Transform_Rhino_Geometry_Transform_
+  name: Transform
+  nameWithType: ExternalLinearAxis.Transform
+  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_Transform_Rhino_Geometry_Transform_
+  name: Transform(Transform)
+  nameWithType: IExternalAxis.Transform(Transform)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
     isExternal: true
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
     isExternal: true
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform*
-  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform(Rhino.Geometry.Transform)
-  name: Transform
-  nameWithType: ExternalLinearAxis.Transform
-  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.Transform
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   name: Transform(Transform)
   nameWithType: IMechanicalUnit.Transform(Transform)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
@@ -3154,7 +3174,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
@@ -3164,28 +3184,35 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
     name: Transform
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Transform(Rhino.Geometry.Transform)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Transform_Rhino_Geometry_Transform_
   - name: (
   - uid: Rhino.Geometry.Transform
     name: Transform
     isExternal: true
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
-  commentId: M:RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox*
+  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_GetBoundingBox_System_Boolean_
+  name: GetBoundingBox
+  nameWithType: ExternalLinearAxis.GetBoundingBox
+  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)
+  commentId: M:RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_GetBoundingBox_System_Boolean_
   name: GetBoundingBox(bool)
-  nameWithType: ExternalAxis.GetBoundingBox(bool)
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(bool)
-  nameWithType.vb: ExternalAxis.GetBoundingBox(Boolean)
-  fullName.vb: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(Boolean)
+  nameWithType: IExternalAxis.GetBoundingBox(bool)
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(bool)
+  nameWithType.vb: IExternalAxis.GetBoundingBox(Boolean)
+  fullName.vb: RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(Boolean)
   name.vb: GetBoundingBox(Boolean)
   spec.csharp:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: bool
@@ -3193,28 +3220,21 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+  - uid: RobotComponents.ABB.Definitions.IExternalAxis.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: Boolean
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.boolean
   - name: )
-- uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox*
-  commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox(System.Boolean)
-  name: GetBoundingBox
-  nameWithType: ExternalLinearAxis.GetBoundingBox
-  fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.GetBoundingBox
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   commentId: M:RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   name: GetBoundingBox(bool)
   nameWithType: IMechanicalUnit.GetBoundingBox(bool)
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(bool)
@@ -3225,7 +3245,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: bool
@@ -3236,7 +3256,7 @@ references:
   - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
     name: GetBoundingBox
     isExternal: true
-    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.GetBoundingBox(System.Boolean)
+    href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_GetBoundingBox_System_Boolean_
   - name: (
   - uid: System.Boolean
     name: Boolean
@@ -3248,127 +3268,127 @@ references:
   name: BoundingBox
   nameWithType: BoundingBox
   fullName: Rhino.Geometry.BoundingBox
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.IsValid
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.IsValid
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.IsValid
-  name: IsValid
-  nameWithType: ExternalAxis.IsValid
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.IsValid
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.IsValid*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.IsValid
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_IsValid
   name: IsValid
   nameWithType: ExternalLinearAxis.IsValid
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.IsValid
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.IsValid
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.IsValid
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_IsValid
+  name: IsValid
+  nameWithType: IExternalAxis.IsValid
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.IsValid
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_IsValid
   name: IsValid
   nameWithType: IMechanicalUnit.IsValid
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.IsValid
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.Name
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.Name
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.Name
-  name: Name
-  nameWithType: ExternalAxis.Name
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.Name
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.Name*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.Name
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.Name
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_Name
   name: Name
   nameWithType: ExternalLinearAxis.Name
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.Name
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.Name
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.Name
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_Name
+  name: Name
+  nameWithType: IExternalAxis.Name
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.Name
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.Name
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.Name
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_Name
   name: Name
   nameWithType: IMechanicalUnit.Name
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.Name
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane
-  name: AttachmentPlane
-  nameWithType: ExternalAxis.AttachmentPlane
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AttachmentPlane
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AttachmentPlane
   name: AttachmentPlane
   nameWithType: ExternalLinearAxis.AttachmentPlane
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AttachmentPlane
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AttachmentPlane
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AttachmentPlane
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane
-  name: AxisPlane
-  nameWithType: ExternalAxis.AxisPlane
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AxisPlane
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AttachmentPlane
+  name: AttachmentPlane
+  nameWithType: IExternalAxis.AttachmentPlane
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AttachmentPlane
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisPlane
   name: AxisPlane
   nameWithType: ExternalLinearAxis.AxisPlane
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisPlane
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AxisPlane
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AxisPlane
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits
-  name: AxisLimits
-  nameWithType: ExternalAxis.AxisLimits
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AxisLimits
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AxisPlane
+  name: AxisPlane
+  nameWithType: IExternalAxis.AxisPlane
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AxisPlane
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisLimits
   name: AxisLimits
   nameWithType: ExternalLinearAxis.AxisLimits
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLimits
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AxisLimits
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AxisLimits
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber
-  name: AxisNumber
-  nameWithType: ExternalAxis.AxisNumber
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AxisNumber
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AxisLimits
+  name: AxisLimits
+  nameWithType: IExternalAxis.AxisLimits
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AxisLimits
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisNumber
   name: AxisNumber
   nameWithType: ExternalLinearAxis.AxisNumber
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisNumber
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AxisNumber
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AxisNumber
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic
-  name: AxisLogic
-  nameWithType: ExternalAxis.AxisLogic
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AxisLogic
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AxisNumber
+  name: AxisNumber
+  nameWithType: IExternalAxis.AxisNumber
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AxisNumber
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisLogic
   name: AxisLogic
   nameWithType: ExternalLinearAxis.AxisLogic
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisLogic
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AxisLogic
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AxisLogic
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AxisLogic
+  name: AxisLogic
+  nameWithType: IExternalAxis.AxisLogic
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AxisLogic
 - uid: System.Char
   commentId: T:System.Char
   parent: System
@@ -3380,21 +3400,21 @@ references:
   nameWithType.vb: Char
   fullName.vb: Char
   name.vb: Char
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.AxisType
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.AxisType
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.AxisType
-  name: AxisType
-  nameWithType: ExternalAxis.AxisType
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.AxisType
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisType
   name: AxisType
   nameWithType: ExternalLinearAxis.AxisType
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisType
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.AxisType
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.AxisType
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_AxisType
+  name: AxisType
+  nameWithType: IExternalAxis.AxisType
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.AxisType
 - uid: RobotComponents.ABB.Enumerations.AxisType
   commentId: T:RobotComponents.ABB.Enumerations.AxisType
   parent: RobotComponents.ABB.Enumerations
@@ -3440,93 +3460,93 @@ references:
     name: Enumerations
     isExternal: true
     href: RobotComponents.ABB.Enumerations.html
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh
-  name: BaseMesh
-  nameWithType: ExternalAxis.BaseMesh
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.BaseMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_BaseMesh
   name: BaseMesh
   nameWithType: ExternalLinearAxis.BaseMesh
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.BaseMesh
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.BaseMesh
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.BaseMesh
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh
-  name: LinkMesh
-  nameWithType: ExternalAxis.LinkMesh
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.LinkMesh
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_BaseMesh
+  name: BaseMesh
+  nameWithType: IExternalAxis.BaseMesh
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.BaseMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_LinkMesh
   name: LinkMesh
   nameWithType: ExternalLinearAxis.LinkMesh
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.LinkMesh
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.LinkMesh
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.LinkMesh
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_LinkMesh
+  name: LinkMesh
+  nameWithType: IExternalAxis.LinkMesh
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.LinkMesh
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_AxisCurve
   name: AxisCurve
   nameWithType: ExternalLinearAxis.AxisCurve
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.AxisCurve
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
-  isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes
-  name: PosedMeshes
-  nameWithType: ExternalAxis.PosedMeshes
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.PosedMeshes
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.PosedMeshes*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.PosedMeshes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.PosedMeshes
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_PosedMeshes
   name: PosedMeshes
   nameWithType: ExternalLinearAxis.PosedMeshes
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.PosedMeshes
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.PosedMeshes
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.PosedMeshes
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot
-  name: MovesRobot
-  nameWithType: ExternalAxis.MovesRobot
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.MovesRobot
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_PosedMeshes
+  name: PosedMeshes
+  nameWithType: IExternalAxis.PosedMeshes
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.PosedMeshes
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_MovesRobot
   name: MovesRobot
   nameWithType: ExternalLinearAxis.MovesRobot
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.MovesRobot
-- uid: RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes
-  commentId: P:RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes
-  parent: RobotComponents.ABB.Definitions.ExternalAxis
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.MovesRobot
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.MovesRobot
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalAxis.html#RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes
-  name: NumberOfAxes
-  nameWithType: ExternalAxis.NumberOfAxes
-  fullName: RobotComponents.ABB.Definitions.ExternalAxis.NumberOfAxes
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_MovesRobot
+  name: MovesRobot
+  nameWithType: IExternalAxis.MovesRobot
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.MovesRobot
 - uid: RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes*
   commentId: Overload:RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes
   isExternal: true
-  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes
+  href: RobotComponents.ABB.Definitions.ExternalLinearAxis.html#RobotComponents_ABB_Definitions_ExternalLinearAxis_NumberOfAxes
   name: NumberOfAxes
   nameWithType: ExternalLinearAxis.NumberOfAxes
   fullName: RobotComponents.ABB.Definitions.ExternalLinearAxis.NumberOfAxes
+- uid: RobotComponents.ABB.Definitions.IExternalAxis.NumberOfAxes
+  commentId: P:RobotComponents.ABB.Definitions.IExternalAxis.NumberOfAxes
+  parent: RobotComponents.ABB.Definitions.IExternalAxis
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.IExternalAxis.html#RobotComponents_ABB_Definitions_IExternalAxis_NumberOfAxes
+  name: NumberOfAxes
+  nameWithType: IExternalAxis.NumberOfAxes
+  fullName: RobotComponents.ABB.Definitions.IExternalAxis.NumberOfAxes
 - uid: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
   commentId: P:RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
   parent: RobotComponents.ABB.Definitions.IMechanicalUnit
   isExternal: true
-  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes
+  href: RobotComponents.ABB.Definitions.IMechanicalUnit.html#RobotComponents_ABB_Definitions_IMechanicalUnit_NumberOfAxes
   name: NumberOfAxes
   nameWithType: IMechanicalUnit.NumberOfAxes
   fullName: RobotComponents.ABB.Definitions.IMechanicalUnit.NumberOfAxes

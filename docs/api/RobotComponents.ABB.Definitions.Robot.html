@@ -262,13 +262,13 @@
 
 
   <a id="RobotComponents_ABB_Definitions_Robot__ctor_" data-uid="RobotComponents.ABB.Definitions.Robot.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_Robot__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Collections_Generic_IList_Rhino_Geometry_Plane__System_Collections_Generic_IList_Rhino_Geometry_Interval__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_RobotTool_System_Collections_Generic_IList_RobotComponents_ABB_Definitions_ExternalAxis__" data-uid="RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.ExternalAxis})">Robot(string, IList&lt;Mesh&gt;, IList&lt;Plane&gt;, IList&lt;Interval&gt;, Plane, Plane, RobotTool, IList&lt;ExternalAxis&gt;)</h4>
+  <h4 id="RobotComponents_ABB_Definitions_Robot__ctor_System_String_System_Collections_Generic_IList_Rhino_Geometry_Mesh__System_Collections_Generic_IList_Rhino_Geometry_Plane__System_Collections_Generic_IList_Rhino_Geometry_Interval__Rhino_Geometry_Plane_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_RobotTool_System_Collections_Generic_IList_RobotComponents_ABB_Definitions_IExternalAxis__" data-uid="RobotComponents.ABB.Definitions.Robot.#ctor(System.String,System.Collections.Generic.IList{Rhino.Geometry.Mesh},System.Collections.Generic.IList{Rhino.Geometry.Plane},System.Collections.Generic.IList{Rhino.Geometry.Interval},Rhino.Geometry.Plane,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.RobotTool,System.Collections.Generic.IList{RobotComponents.ABB.Definitions.IExternalAxis})">Robot(string, IList&lt;Mesh&gt;, IList&lt;Plane&gt;, IList&lt;Interval&gt;, Plane, Plane, RobotTool, IList&lt;IExternalAxis&gt;)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Robot class with attached external axes.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Robot(string name, IList&lt;Mesh&gt; meshes, IList&lt;Plane&gt; internalAxisPlanes, IList&lt;Interval&gt; internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, IList&lt;ExternalAxis&gt; externalAxes)</code></pre>
+    <pre><code class="lang-csharp hljs">public Robot(string name, IList&lt;Mesh&gt; meshes, IList&lt;Plane&gt; internalAxisPlanes, IList&lt;Interval&gt; internalAxisLimits, Plane basePlane, Plane mountingFrame, RobotTool tool, IList&lt;IExternalAxis&gt; externalAxes)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -323,7 +323,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1">IList</a>&lt;<a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a>&gt;</td>
         <td><span class="parametername">externalAxes</span></td>
         <td><p>The attached external axes.</p>
 </td>
@@ -368,6 +368,32 @@
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public double A2 { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_Robot_A3_" data-uid="RobotComponents.ABB.Definitions.Robot.A3*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_Robot_A3" data-uid="RobotComponents.ABB.Definitions.Robot.A3">A3</h4>
+  <div class="markdown level1 summary"><p>Gets the wrist offset kinematics parameter A3.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public double A3 { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -575,7 +601,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public List&lt;ExternalAxis&gt; ExternalAxes { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public List&lt;IExternalAxis&gt; ExternalAxes { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -587,7 +613,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a>&gt;</td>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a>&gt;</td>
         <td></td>
       </tr>
     </tbody>
@@ -903,7 +929,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -987,61 +1013,8 @@
       </tr>
     </tbody>
   </table>
-
-
-  <a id="RobotComponents_ABB_Definitions_Robot_WristOffset_" data-uid="RobotComponents.ABB.Definitions.Robot.WristOffset*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_Robot_WristOffset" data-uid="RobotComponents.ABB.Definitions.Robot.WristOffset">WristOffset</h4>
-  <div class="markdown level1 summary"><p>Gets the wrist offset.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Point3d WristOffset { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Point3d</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
   <h3 id="methods">Methods
 </h3>
-
-
-  <a id="RobotComponents_ABB_Definitions_Robot_CalculateAttachedToolPlane_" data-uid="RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_Robot_CalculateAttachedToolPlane" data-uid="RobotComponents.ABB.Definitions.Robot.CalculateAttachedToolPlane">CalculateAttachedToolPlane()</h4>
-  <div class="markdown level1 summary"><p>Calculates and returns the TCP plane of the attached Robot Tool in robot coordinate space.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Plane CalculateAttachedToolPlane()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><p>The TCP plane in robot coordinate space.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <a id="RobotComponents_ABB_Definitions_Robot_Duplicate_" data-uid="RobotComponents.ABB.Definitions.Robot.Duplicate*"></a>
@@ -1146,6 +1119,198 @@
       <tr>
         <td><span class="xref">Mesh</span></td>
         <td><p>The tool mesh in the robot coordinate space.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_Robot_GetAxisPlanesFromKinematicsParameters_" data-uid="RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_Robot_GetAxisPlanesFromKinematicsParameters_Rhino_Geometry_Plane_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_Rhino_Geometry_Plane__" data-uid="RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(Rhino.Geometry.Plane,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)">GetAxisPlanesFromKinematicsParameters(Plane, double, double, double, double, double, double, double, double, out Plane)</h4>
+  <div class="markdown level1 summary"><p>Returns the axis planes for the given kinematics parameters in world coordinate space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane[] GetAxisPlanesFromKinematicsParameters(Plane basePlane, double a1, double a2, double a3, double b, double c1, double c2, double c3, double c4, out Plane mountingFrame)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">basePlane</span></td>
+        <td><p>The position and orientation of the robot base in the world coordinate space.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a1</span></td>
+        <td><p>Kinematics parameter A1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a2</span></td>
+        <td><p>Kinematics parameter A2.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a3</span></td>
+        <td><p>Kinematics parameter A3.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Kinematics parameter B.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c1</span></td>
+        <td><p>Kinematics parameter C1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c2</span></td>
+        <td><p>Kinematics parameter C2.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c3</span></td>
+        <td><p>Kinematics parameter C3.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c4</span></td>
+        <td><p>Kinematics parameter C4.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">mountingFrame</span></td>
+        <td><p>The tool mounting frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Plane</span>[]</td>
+        <td><p>The axis planes.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_Robot_GetAxisPlanesFromKinematicsParameters_" data-uid="RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_Robot_GetAxisPlanesFromKinematicsParameters_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_System_Double_Rhino_Geometry_Plane__" data-uid="RobotComponents.ABB.Definitions.Robot.GetAxisPlanesFromKinematicsParameters(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,Rhino.Geometry.Plane@)">GetAxisPlanesFromKinematicsParameters(double, double, double, double, double, double, double, double, out Plane)</h4>
+  <div class="markdown level1 summary"><p>Returns the axis planes for the given kinematics parameters in local coordinate space.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static Plane[] GetAxisPlanesFromKinematicsParameters(double a1, double a2, double a3, double b, double c1, double c2, double c3, double c4, out Plane mountingFrame)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a1</span></td>
+        <td><p>Kinematics parameter A1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a2</span></td>
+        <td><p>Kinematics parameter A2.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">a3</span></td>
+        <td><p>Kinematics parameter A3.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">b</span></td>
+        <td><p>Kinematics parameter B.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c1</span></td>
+        <td><p>Kinematics parameter C1.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c2</span></td>
+        <td><p>Kinematics parameter C2.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c3</span></td>
+        <td><p>Kinematics parameter C3.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">double</span></td>
+        <td><span class="parametername">c4</span></td>
+        <td><p>Kinematics parameter C4.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Plane</span></td>
+        <td><span class="parametername">mountingFrame</span></td>
+        <td><p>The tool mounting frame.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">Plane</span>[]</td>
+        <td><p>The axis planes.</p>
 </td>
       </tr>
     </tbody>

@@ -82,7 +82,7 @@
   <div class="implements">
     <h5>Implements</h5>
     <div><span class="xref">ISerializable</span></div>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -232,13 +232,13 @@
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject__ctor_" data-uid="RobotComponents.ABB.Definitions.WorkObject.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject__ctor_System_String_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_ExternalAxis_" data-uid="RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.ExternalAxis)">WorkObject(string, Plane, ExternalAxis)</h4>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject__ctor_System_String_Rhino_Geometry_Plane_RobotComponents_ABB_Definitions_IExternalAxis_" data-uid="RobotComponents.ABB.Definitions.WorkObject.#ctor(System.String,Rhino.Geometry.Plane,RobotComponents.ABB.Definitions.IExternalAxis)">WorkObject(string, Plane, IExternalAxis)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Work Object class with a movable work object.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public WorkObject(string name, Plane plane, ExternalAxis externalAxis)</code></pre>
+    <pre><code class="lang-csharp hljs">public WorkObject(string name, Plane plane, IExternalAxis externalAxis)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -263,7 +263,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a></td>
         <td><span class="parametername">externalAxis</span></td>
         <td><p>The coupled external axis (mechanical unit) that moves the work object.</p>
 </td>
@@ -307,7 +307,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public ExternalAxis ExternalAxis { get; set; }</code></pre>
+    <pre><code class="lang-csharp hljs">public IExternalAxis ExternalAxis { get; set; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -319,7 +319,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.ExternalAxis.html">ExternalAxis</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Definitions.IExternalAxis.html">IExternalAxis</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -437,32 +437,6 @@ False indicates that the user coordinate system is movable (e.g. coordinated ext
   </table>
 
 
-  <a id="RobotComponents_ABB_Definitions_WorkObject_Orientation_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Orientation*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_Orientation" data-uid="RobotComponents.ABB.Definitions.WorkObject.Orientation">Orientation</h4>
-  <div class="markdown level1 summary"><p>Gets the Quaternion orientation of the work object coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion Orientation { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Quaternion</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="RobotComponents_ABB_Definitions_WorkObject_Plane_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Plane*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_Plane" data-uid="RobotComponents.ABB.Definitions.WorkObject.Plane">Plane</h4>
   <div class="markdown level1 summary"><p>Gets or set the work object coordinate system as a plane (e.g. the position of the current work object).</p>
@@ -490,33 +464,6 @@ False indicates that the user coordinate system is movable (e.g. coordinated ext
   <h5 id="RobotComponents_ABB_Definitions_WorkObject_Plane_remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>The object coordinate system is defined in the user coordinate system.</p>
 </div>
-
-
-  <a id="RobotComponents_ABB_Definitions_WorkObject_ReferenceType_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ReferenceType*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ReferenceType" data-uid="RobotComponents.ABB.Definitions.WorkObject.ReferenceType">ReferenceType</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use VariableType instead.&quot;, false)]
-public VariableType ReferenceType { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Enumerations.VariableType.html">VariableType</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_RobotHold_" data-uid="RobotComponents.ABB.Definitions.WorkObject.RobotHold*"></a>
@@ -602,32 +549,6 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
 </div>
 
 
-  <a id="RobotComponents_ABB_Definitions_WorkObject_UserFrameOrientation_" data-uid="RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_UserFrameOrientation" data-uid="RobotComponents.ABB.Definitions.WorkObject.UserFrameOrientation">UserFrameOrientation</h4>
-  <div class="markdown level1 summary"><p>Gets the Quaternion orientation of the user frame coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion UserFrameOrientation { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Quaternion</span></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-
-
   <a id="RobotComponents_ABB_Definitions_WorkObject_VariableType_" data-uid="RobotComponents.ABB.Definitions.WorkObject.VariableType*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_VariableType" data-uid="RobotComponents.ABB.Definitions.WorkObject.VariableType">VariableType</h4>
   <div class="markdown level1 summary"><p>Gets or sets the variable type.</p>
@@ -654,87 +575,6 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
   </table>
   <h3 id="methods">Methods
 </h3>
-
-
-  <a id="RobotComponents_ABB_Definitions_WorkObject_CalculateGlobalWorkObjectPlane_" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_CalculateGlobalWorkObjectPlane" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateGlobalWorkObjectPlane">CalculateGlobalWorkObjectPlane()</h4>
-  <div class="markdown level1 summary"><p>Calculates and returns the global work object plane.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Plane CalculateGlobalWorkObjectPlane()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Plane</span></td>
-        <td><p>The global work object plane.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Definitions_WorkObject_CalculateOrientation_" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_CalculateOrientation" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateOrientation">CalculateOrientation()</h4>
-  <div class="markdown level1 summary"><p>Calculates and returns the quaternion orientation of the work object coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion CalculateOrientation()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Quaternion</span></td>
-        <td><p>The quaternion orientation of the work object.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Definitions_WorkObject_CalculateUserFrameOrientation_" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_CalculateUserFrameOrientation" data-uid="RobotComponents.ABB.Definitions.WorkObject.CalculateUserFrameOrientation">CalculateUserFrameOrientation()</h4>
-  <div class="markdown level1 summary"><p>Calculates and returns the quaternion orientation of the user frame coordinate system.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Quaternion CalculateUserFrameOrientation()</code></pre>
-  </div>
-  <h5 class="returns">Returns</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><span class="xref">Quaternion</span></td>
-        <td><p>The quaternion orientation of the user frame.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_Duplicate_" data-uid="RobotComponents.ABB.Definitions.WorkObject.Duplicate*"></a>
@@ -783,7 +623,7 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a></td>
         <td><p>A deep copy of the Work Object instance as an IDeclaration.</p>
 </td>
       </tr>
@@ -967,38 +807,6 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
-  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
-        <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>The RAPID Generator.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
 </div>
@@ -1041,6 +849,38 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
       </tr>
     </tbody>
   </table>
+
+
+  <a id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDGenerator*"></a>
+  <h4 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDGenerator(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations and instructions in the RAPID program module inside the RAPID Generator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
+        <td><span class="parametername">RAPIDGenerator</span></td>
+        <td><p>The RAPID Generator.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Definitions_WorkObject_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
+</div>
 
 
   <a id="RobotComponents_ABB_Definitions_WorkObject_ToString_" data-uid="RobotComponents.ABB.Definitions.WorkObject.ToString*"></a>
@@ -1126,11 +966,7 @@ For movable user frame (FixedFrame = false), the user frame is continuously defi
       <span class="xref">System.Runtime.Serialization.ISerializable</span>
   </div>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IDeclaration.html">IDeclaration</a>
-  </div>
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents_ABB_Utils_HelperMethods_SetDataFromString_RobotComponents_ABB_Actions_Interfaces_IDeclaration_System_String_System_String____">HelperMethods.SetDataFromString(IDeclaration, string, out string[])</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.Declarations.IDeclaration.html">IDeclaration</a>
   </div>
 
 </article>

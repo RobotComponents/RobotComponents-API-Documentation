@@ -38,9 +38,8 @@ items:
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID
-  - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString
   - RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition@)
@@ -63,18 +62,18 @@ items:
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Represents an External Joint Position declaration..
+  summary: Represents an External Joint Position declaration.
   remarks: This action is used to defined define the axis positions of external axes, positioners and workpiece manipulators.
   example: []
   syntax:
-    content: 'public class ExternalJointPosition : Action, IDeclaration, IJointPosition, ISerializable'
-    content.vb: Public Class ExternalJointPosition Inherits Action Implements IDeclaration, IJointPosition, ISerializable
+    content: 'public class ExternalJointPosition : IAction, IDeclaration, IJointPosition, ISerializable'
+    content.vb: Public Class ExternalJointPosition Implements IAction, IDeclaration, IJointPosition, ISerializable
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Actions.Action
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  - RobotComponents.ABB.Actions.IAction
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -83,8 +82,6 @@ items:
   - System.Object.GetHashCode
   - System.Object.GetType
   - System.Object.MemberwiseClone
-  extensionMethods:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   id: '#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)'
@@ -378,13 +375,14 @@ items:
   summary: Returns an exact duplicate of this External Joint Position instance as an Action.
   example: []
   syntax:
-    content: public override Action DuplicateAction()
+    content: public IAction DuplicateAction()
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: A deep copy of the External Joint Position instance as an Action.
-    content.vb: Public Overrides Function DuplicateAction() As Action
-  overridden: RobotComponents.ABB.Actions.Action.DuplicateAction
+    content.vb: Public Function DuplicateAction() As IAction
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateAction*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.DuplicateAction
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
   id: DuplicateDeclaration
@@ -404,12 +402,12 @@ items:
   syntax:
     content: public IDeclaration DuplicateDeclaration()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+      type: RobotComponents.ABB.Actions.Declarations.IDeclaration
       description: A deep copy of the External Joint Position instance as an IDeclaration.
     content.vb: Public Function DuplicateDeclaration() As IDeclaration
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition
   id: DuplicateJointPosition
@@ -429,12 +427,12 @@ items:
   syntax:
     content: public IJointPosition DuplicateJointPosition()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+      type: RobotComponents.ABB.Actions.Declarations.IJointPosition
       description: A deep copy of the External Joint Position instance as an IJointPosition.
     content.vb: Public Function DuplicateJointPosition() As IJointPosition
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse(System.String)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse(System.String)
   id: Parse(System.String)
@@ -519,7 +517,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Actions.Action.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString*
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
@@ -545,7 +543,7 @@ items:
     content.vb: Public Function ToArray() As Double()
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
   id: ToList
@@ -570,7 +568,7 @@ items:
     content.vb: Public Function ToList() As List(Of Double)
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset
   id: Reset
@@ -592,7 +590,7 @@ items:
     content.vb: Public Sub Reset()
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add(System.Double)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add(System.Double)
   id: Add(System.Double)
@@ -826,8 +824,8 @@ items:
     content.vb: Public Function ToRAPID() As String
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -845,7 +843,7 @@ items:
   summary: Returns the RAPID declaration code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDDeclaration(Robot robot)
+    content: public string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -853,12 +851,12 @@ items:
     return:
       type: System.String
       description: The RAPID data code line in case a variable name is defined.
-    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
@@ -876,7 +874,7 @@ items:
   summary: Returns the RAPID instruction code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDInstruction(Robot robot)
+    content: public string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -884,64 +882,39 @@ items:
     return:
       type: System.String
       description: An empty string.
-    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction*
-- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
-  langs:
-  - csharp
-  - vb
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: ExternalJointPosition.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
-  remarks: This method is called inside the RAPID generator.
-  example: []
-  syntax:
-    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
-    parameters:
-    - id: RAPIDGenerator
-      type: RobotComponents.ABB.Actions.RAPIDGenerator
-      description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   parent: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition
   langs:
   - csharp
   - vb
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: ExternalJointPosition.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: ExternalJointPosition.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Declarations
-  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
   remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
-    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
+    content: public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.ABB.Actions.RAPIDGenerator
       description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction*
+    content.vb: Public Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
   commentId: M:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
   id: op_Addition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
@@ -1223,15 +1196,15 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Actions.Action.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsValid*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  - RobotComponents.ABB.Actions.IAction.IsValid
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope
   id: Scope
@@ -1256,7 +1229,7 @@ items:
     content.vb: Public Property Scope As Scope
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType
   id: VariableType
@@ -1281,8 +1254,8 @@ items:
     content.vb: Public Property VariableType As VariableType
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.VariableType
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype
   id: Datatype
@@ -1307,7 +1280,7 @@ items:
     content.vb: Public ReadOnly Property Datatype As String
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name
   id: Name
@@ -1333,8 +1306,8 @@ items:
     content.vb: Public Property Name As String
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name
+  - RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.Name
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length
   id: Length
@@ -1359,7 +1332,7 @@ items:
     content.vb: Public ReadOnly Property Length As Integer
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.Length
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item(System.Int32)
   commentId: P:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item(System.Int32)
   id: Item(System.Int32)
@@ -1388,7 +1361,7 @@ items:
     content.vb: Public Default Property this[](index As Integer) As Double
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.Item(System.Int32)
   nameWithType.vb: ExternalJointPosition.this[](Integer)
   fullName.vb: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.this[](Integer)
   name.vb: this[](Integer)
@@ -1446,7 +1419,7 @@ items:
     content.vb: Public ReadOnly Property IsFixedSize As Boolean
   overload: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsFixedSize*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
+  - RobotComponents.ABB.Actions.Declarations.IJointPosition.IsFixedSize
 references:
 - uid: RobotComponents.ABB.Actions.Declarations
   commentId: N:RobotComponents.ABB.Actions.Declarations
@@ -1506,30 +1479,30 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Actions.Action
-  commentId: T:RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction
+  commentId: T:RobotComponents.ABB.Actions.IAction
   parent: RobotComponents.ABB.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action
-  nameWithType: Action
-  fullName: RobotComponents.ABB.Actions.Action
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  parent: RobotComponents.ABB.Actions.Interfaces
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: RobotComponents.ABB.Actions.IAction
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  commentId: T:RobotComponents.ABB.Actions.Declarations.IDeclaration
+  parent: RobotComponents.ABB.Actions.Declarations
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html
   name: IDeclaration
   nameWithType: IDeclaration
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.IJointPosition
-  parent: RobotComponents.ABB.Actions.Interfaces
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition
+  commentId: T:RobotComponents.ABB.Actions.Declarations.IJointPosition
+  parent: RobotComponents.ABB.Actions.Declarations
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html
   name: IJointPosition
   nameWithType: IJointPosition
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -1733,69 +1706,6 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone
   - name: (
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(System.String,System.String[]@)
-  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  parent: RobotComponents.ABB.Utils.HelperMethods
-  definition: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  name: SetDataFromString(IDeclaration, string, out string[])
-  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
-  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
-  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
-  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
-  name.vb: SetDataFromString(IDeclaration, String, String())
-  spec.csharp:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
-  - name: )
 - uid: System
   commentId: N:System
   isExternal: true
@@ -1840,53 +1750,6 @@ references:
     name: Actions
     isExternal: true
     href: RobotComponents.ABB.Actions.html
-- uid: RobotComponents.ABB.Actions.Interfaces
-  commentId: N:RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Actions.Interfaces
-  nameWithType: RobotComponents.ABB.Actions.Interfaces
-  fullName: RobotComponents.ABB.Actions.Interfaces
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
 - uid: System.Runtime.Serialization
   commentId: N:System.Runtime.Serialization
   isExternal: true
@@ -1924,117 +1787,10 @@ references:
     name: Serialization
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization
-- uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  commentId: M:RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  isExternal: true
-  href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  name: SetDataFromString(IDeclaration, string, out string[])
-  nameWithType: HelperMethods.SetDataFromString(IDeclaration, string, out string[])
-  fullName: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, string, out string[])
-  nameWithType.vb: HelperMethods.SetDataFromString(IDeclaration, String, String())
-  fullName.vb: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration, String, String())
-  name.vb: SetDataFromString(IDeclaration, String, String())
-  spec.csharp:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - name: out
-  - name: " "
-  - uid: System.String
-    name: string
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: '['
-  - name: ']'
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-    name: SetDataFromString
-    isExternal: true
-    href: RobotComponents.ABB.Utils.HelperMethods.html#RobotComponents.ABB.Utils.HelperMethods.SetDataFromString(RobotComponents.ABB.Actions.Interfaces.IDeclaration,System.String,System.String[]@)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-    name: IDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: ','
-  - name: " "
-  - uid: System.String
-    name: String
-    isExternal: true
-    href: https://learn.microsoft.com/dotnet/api/system.string
-  - name: (
-  - name: )
-  - name: )
-- uid: RobotComponents.ABB.Utils.HelperMethods
-  commentId: T:RobotComponents.ABB.Utils.HelperMethods
-  parent: RobotComponents.ABB.Utils
-  isExternal: true
-  href: RobotComponents.ABB.Utils.HelperMethods.html
-  name: HelperMethods
-  nameWithType: HelperMethods
-  fullName: RobotComponents.ABB.Utils.HelperMethods
-- uid: RobotComponents.ABB.Utils
-  commentId: N:RobotComponents.ABB.Utils
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Utils
-  nameWithType: RobotComponents.ABB.Utils
-  fullName: RobotComponents.ABB.Utils
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Utils
-    name: Utils
-    isExternal: true
-    href: RobotComponents.ABB.Utils.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Utils
-    name: Utils
-    isExternal: true
-    href: RobotComponents.ABB.Utils.html
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: ExternalJointPosition
   nameWithType: ExternalJointPosition.ExternalJointPosition
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ExternalJointPosition
@@ -2060,7 +1816,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: ExternalJointPosition.GetObjectData
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.GetObjectData
@@ -2239,108 +1995,108 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Duplicate*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Duplicate
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Duplicate
   name: Duplicate
   nameWithType: ExternalJointPosition.Duplicate
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Duplicate
-- uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-  commentId: M:RobotComponents.ABB.Actions.Action.DuplicateAction
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  name: DuplicateAction()
-  nameWithType: Action.DuplicateAction()
-  fullName: RobotComponents.ABB.Actions.Action.DuplicateAction()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateAction*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateAction
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_DuplicateAction
   name: DuplicateAction
   nameWithType: ExternalJointPosition.DuplicateAction
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateAction
-- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration*
-  commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+  commentId: M:RobotComponents.ABB.Actions.IAction.DuplicateAction
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
-  name: DuplicateDeclaration
-  nameWithType: ExternalJointPosition.DuplicateDeclaration
-  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-  name: DuplicateDeclaration()
-  nameWithType: IDeclaration.DuplicateDeclaration()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration()
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  name: DuplicateAction()
+  nameWithType: IAction.DuplicateAction()
+  fullName: RobotComponents.ABB.Actions.IAction.DuplicateAction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
-    name: DuplicateDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_DuplicateDeclaration
+  name: DuplicateDeclaration
+  nameWithType: ExternalJointPosition.DuplicateDeclaration
+  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
+  name: DuplicateDeclaration()
+  nameWithType: IDeclaration.DuplicateDeclaration()
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration()
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
     name: DuplicateDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.DuplicateDeclaration
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.DuplicateDeclaration
+    name: DuplicateDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_DuplicateDeclaration
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_DuplicateJointPosition
   name: DuplicateJointPosition
   nameWithType: ExternalJointPosition.DuplicateJointPosition
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.DuplicateJointPosition
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_DuplicateJointPosition
   name: DuplicateJointPosition()
   nameWithType: IJointPosition.DuplicateJointPosition()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition()
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition
     name: DuplicateJointPosition
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_DuplicateJointPosition
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.DuplicateJointPosition
     name: DuplicateJointPosition
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.DuplicateJointPosition
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_DuplicateJointPosition
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse(System.String)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Parse_System_String_
   name: Parse
   nameWithType: ExternalJointPosition.Parse
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Parse
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.TryParse*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.TryParse
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.TryParse(System.String,RobotComponents.ABB.Actions.Declarations.ExternalJointPosition@)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_TryParse_System_String_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition__
   name: TryParse
   nameWithType: ExternalJointPosition.TryParse
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.TryParse
@@ -2355,62 +2111,64 @@ references:
   nameWithType.vb: Boolean
   fullName.vb: Boolean
   name.vb: Boolean
-- uid: RobotComponents.ABB.Actions.Action.ToString
-  commentId: M:RobotComponents.ABB.Actions.Action.ToString
-  parent: RobotComponents.ABB.Actions.Action
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   name: ToString()
-  nameWithType: Action.ToString()
-  fullName: RobotComponents.ABB.Actions.Action.ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToString
   name: ToString
   nameWithType: ExternalJointPosition.ToString
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToString
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToArray
   name: ToArray
   nameWithType: ExternalJointPosition.ToArray
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToArray
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToArray
   name: ToArray()
   nameWithType: IJointPosition.ToArray()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray()
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray
     name: ToArray
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToArray
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToArray
     name: ToArray
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToArray
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToArray
   - name: (
   - name: )
 - uid: System.Double[]
@@ -2439,30 +2197,30 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToList
   name: ToList
   nameWithType: ExternalJointPosition.ToList
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToList
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToList
   name: ToList()
   nameWithType: IJointPosition.ToList()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList()
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList
     name: ToList
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToList
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToList
     name: ToList
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToList
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToList
   - name: (
   - name: )
 - uid: System.Collections.Generic.List{System.Double}
@@ -2531,161 +2289,161 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Reset
   name: Reset
   nameWithType: ExternalJointPosition.Reset
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Reset
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Reset
   name: Reset()
   nameWithType: IJointPosition.Reset()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset()
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset
     name: Reset
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Reset
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Reset
     name: Reset
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Reset
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Reset
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add(System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Add_System_Double_
   name: Add
   nameWithType: ExternalJointPosition.Add
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Add
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Substract*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Substract
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Substract(System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Substract_System_Double_
   name: Substract
   nameWithType: ExternalJointPosition.Substract
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Substract
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Multiply*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Multiply
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Multiply(System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Multiply_System_Double_
   name: Multiply
   nameWithType: ExternalJointPosition.Multiply
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Multiply
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Divide*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Divide
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Divide(System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Divide_System_Double_
   name: Divide
   nameWithType: ExternalJointPosition.Divide
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Divide
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToRAPID
   name: ToRAPID
   nameWithType: ExternalJointPosition.ToRAPID
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPID
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   name: ToRAPID()
   nameWithType: IDeclaration.ToRAPID()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID()
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPID
   - name: (
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPID
   name: ToRAPID()
   nameWithType: IJointPosition.ToRAPID()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID()
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPID
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPID
     name: ToRAPID
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPID
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPID
   - name: (
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDDeclaration(Robot)
-  nameWithType: Action.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration
   nameWithType: ExternalJointPosition.ToRAPIDDeclaration
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IAction.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
   nameWithType: IDeclaration.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -2693,29 +2451,29 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
   nameWithType: IJointPosition.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -2723,10 +2481,10 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -2778,56 +2536,63 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDInstruction(Robot)
-  nameWithType: Action.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction
   nameWithType: ExternalJointPosition.ToRAPIDInstruction
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDInstruction
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IAction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: ExternalJointPosition.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IAction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -2835,29 +2600,29 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
     isExternal: true
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: IDeclaration.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IDeclaration.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -2865,29 +2630,29 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
     isExternal: true
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: IJointPosition.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IJointPosition.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -2895,10 +2660,10 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -2913,40 +2678,10 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Addition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
   name: operator +
   nameWithType: ExternalJointPosition.operator +
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.operator +
@@ -2959,11 +2694,11 @@ references:
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition*
     name: +
     isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Addition(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Addition_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Subtraction*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Subtraction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Subtraction(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Subtraction_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
   name: operator -
   nameWithType: ExternalJointPosition.operator -
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.operator -
@@ -2976,11 +2711,11 @@ references:
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Subtraction*
     name: '-'
     isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Subtraction(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Subtraction_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Multiply*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Multiply
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Multiply(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Multiply_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
   name: operator *
   nameWithType: ExternalJointPosition.operator *
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.operator *
@@ -2993,11 +2728,11 @@ references:
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Multiply*
     name: '*'
     isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Multiply(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Multiply_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Division*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Division
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Division(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Division_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
   name: operator /
   nameWithType: ExternalJointPosition.operator /
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.operator /
@@ -3010,45 +2745,45 @@ references:
   - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Division*
     name: /
     isExternal: true
-    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.op_Division(RobotComponents.ABB.Actions.Declarations.ExternalJointPosition,System.Double)
-- uid: RobotComponents.ABB.Actions.Action.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Action.IsValid
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.IsValid
-  name: IsValid
-  nameWithType: Action.IsValid
-  fullName: RobotComponents.ABB.Actions.Action.IsValid
+    href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_op_Division_RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_System_Double_
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsValid*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsValid
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_IsValid
   name: IsValid
   nameWithType: ExternalJointPosition.IsValid
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsValid
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.IAction.IsValid
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_IsValid
+  name: IsValid
+  nameWithType: IAction.IsValid
+  fullName: RobotComponents.ABB.Actions.IAction.IsValid
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_IsValid
   name: IsValid
   nameWithType: IDeclaration.IsValid
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.IsValid
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.IsValid
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Scope
   name: Scope
   nameWithType: ExternalJointPosition.Scope
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Scope
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Scope
   name: Scope
   nameWithType: IDeclaration.Scope
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Scope
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Scope
 - uid: RobotComponents.ABB.Enumerations.Scope
   commentId: T:RobotComponents.ABB.Enumerations.Scope
   parent: RobotComponents.ABB.Enumerations
@@ -3097,26 +2832,26 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_VariableType
   name: VariableType
   nameWithType: ExternalJointPosition.VariableType
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.VariableType
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_VariableType
   name: VariableType
   nameWithType: IDeclaration.VariableType
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.VariableType
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.VariableType
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IJointPosition.VariableType
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_VariableType
   name: VariableType
   nameWithType: IJointPosition.VariableType
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.VariableType
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.VariableType
 - uid: RobotComponents.ABB.Enumerations.VariableType
   commentId: T:RobotComponents.ABB.Enumerations.VariableType
   parent: RobotComponents.ABB.Enumerations
@@ -3128,56 +2863,56 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Datatype
   name: Datatype
   nameWithType: ExternalJointPosition.Datatype
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Datatype
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Datatype
   name: Datatype
   nameWithType: IDeclaration.Datatype
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Datatype
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Datatype
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Name
   name: Name
   nameWithType: ExternalJointPosition.Name
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Name
-- uid: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-  parent: RobotComponents.ABB.Actions.Interfaces.IDeclaration
+- uid: RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+  parent: RobotComponents.ABB.Actions.Declarations.IDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IDeclaration.html#RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
+  href: RobotComponents.ABB.Actions.Declarations.IDeclaration.html#RobotComponents_ABB_Actions_Declarations_IDeclaration_Name
   name: Name
   nameWithType: IDeclaration.Name
-  fullName: RobotComponents.ABB.Actions.Interfaces.IDeclaration.Name
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+  fullName: RobotComponents.ABB.Actions.Declarations.IDeclaration.Name
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Name
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Name
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Name
   name: Name
   nameWithType: IJointPosition.Name
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Name
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.Name
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Length
   name: Length
   nameWithType: ExternalJointPosition.Length
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Length
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Length
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Length
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Length
   name: Length
   nameWithType: IJointPosition.Length
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Length
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.Length
 - uid: System.Int32
   commentId: T:System.Int32
   parent: System
@@ -3192,23 +2927,23 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.Item(System.Int32)
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_Item_System_Int32_
   name: this
   nameWithType: ExternalJointPosition.this
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.this
   nameWithType.vb: ExternalJointPosition.this[]
   fullName.vb: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.this[]
   name.vb: this[]
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Item(System.Int32)
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IJointPosition.Item(System.Int32)
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
   href: https://learn.microsoft.com/dotnet/api/system.int32
   name: this[int]
   nameWithType: IJointPosition.this[int]
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.this[int]
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.this[int]
   nameWithType.vb: IJointPosition.this[](Integer)
-  fullName.vb: RobotComponents.ABB.Actions.Interfaces.IJointPosition.this[](Integer)
+  fullName.vb: RobotComponents.ABB.Actions.Declarations.IJointPosition.this[](Integer)
   name.vb: this[](Integer)
   spec.csharp:
   - name: this
@@ -3219,10 +2954,10 @@ references:
     href: https://learn.microsoft.com/dotnet/api/system.int32
   - name: ']'
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
+  - uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.Item(System.Int32)
     name: this[]
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.Item(System.Int32)
+    href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_Item_System_Int32_
   - name: (
   - uid: System.Int32
     name: Integer
@@ -3243,15 +2978,15 @@ references:
 - uid: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsFixedSize*
   commentId: Overload:RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsFixedSize
   isExternal: true
-  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsFixedSize
+  href: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.html#RobotComponents_ABB_Actions_Declarations_ExternalJointPosition_IsFixedSize
   name: IsFixedSize
   nameWithType: ExternalJointPosition.IsFixedSize
   fullName: RobotComponents.ABB.Actions.Declarations.ExternalJointPosition.IsFixedSize
-- uid: RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
-  parent: RobotComponents.ABB.Actions.Interfaces.IJointPosition
+- uid: RobotComponents.ABB.Actions.Declarations.IJointPosition.IsFixedSize
+  commentId: P:RobotComponents.ABB.Actions.Declarations.IJointPosition.IsFixedSize
+  parent: RobotComponents.ABB.Actions.Declarations.IJointPosition
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IJointPosition.html#RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
+  href: RobotComponents.ABB.Actions.Declarations.IJointPosition.html#RobotComponents_ABB_Actions_Declarations_IJointPosition_IsFixedSize
   name: IsFixedSize
   nameWithType: IJointPosition.IsFixedSize
-  fullName: RobotComponents.ABB.Actions.Interfaces.IJointPosition.IsFixedSize
+  fullName: RobotComponents.ABB.Actions.Declarations.IJointPosition.IsFixedSize

@@ -1,0 +1,438 @@
+### YamlMime:ManagedReference
+items:
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  commentId: T:RobotComponents.ABB.Actions.Dynamic.IDynamic
+  id: IDynamic
+  parent: RobotComponents.ABB.Actions.Dynamic
+  children:
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+  langs:
+  - csharp
+  - vb
+  name: IDynamic
+  nameWithType: IDynamic
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  type: Interface
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Represents the interface for different dynamic action types.
+  example: []
+  syntax:
+    content: public interface IDynamic
+    content.vb: Public Interface IDynamic
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic
+  commentId: M:RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic
+  id: DuplicateDynamic
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: DuplicateDynamic()
+  nameWithType: IDynamic.DuplicateDynamic()
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic()
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Returns an exact duplicate of this dynamic action.
+  example: []
+  syntax:
+    content: IDynamic DuplicateDynamic()
+    return:
+      type: RobotComponents.ABB.Actions.Dynamic.IDynamic
+      description: The exact copy of this dynamic action.
+    content.vb: Function DuplicateDynamic() As IDynamic
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic*
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  id: ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: IDynamic.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Returns the RAPID declaration code line of the this action.
+  example: []
+  syntax:
+    content: string ToRAPIDDeclaration(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.ABB.Definitions.Robot
+      description: The Robot were the code is generated for.
+    return:
+      type: System.String
+      description: The RAPID code line.
+    content.vb: Function ToRAPIDDeclaration(robot As Robot) As String
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration*
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IDynamic.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Returns the RAPID instruction code line of the this action.
+  example: []
+  syntax:
+    content: string ToRAPIDInstruction(Robot robot)
+    parameters:
+    - id: robot
+      type: RobotComponents.ABB.Definitions.Robot
+      description: The Robot were the code is generated for.
+    return:
+      type: System.String
+      description: The RAPID code line.
+    content.vb: Function ToRAPIDInstruction(robot As Robot) As String
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction*
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IDynamic.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  type: Method
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
+  remarks: This method is called inside the RAPID generator.
+  example: []
+  syntax:
+    content: void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
+    parameters:
+    - id: RAPIDGenerator
+      type: RobotComponents.ABB.Actions.RAPIDGenerator
+      description: The RAPID Generator.
+    content.vb: Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator*
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+  id: IsValid
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: IsValid
+  nameWithType: IDynamic.IsValid
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Gets a value indicating whether or not the object is valid.
+  example: []
+  syntax:
+    content: bool IsValid { get; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: ReadOnly Property IsValid As Boolean
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid*
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+  commentId: P:RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+  id: Type
+  parent: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IDynamic.Type
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+  type: Property
+  assemblies:
+  - RobotComponents.ABB
+  namespace: RobotComponents.ABB.Actions.Dynamic
+  summary: Gets or sets the Code Type.
+  example: []
+  syntax:
+    content: CodeType Type { get; set; }
+    parameters: []
+    return:
+      type: RobotComponents.ABB.Enumerations.CodeType
+    content.vb: Property Type As CodeType
+  overload: RobotComponents.ABB.Actions.Dynamic.IDynamic.Type*
+references:
+- uid: RobotComponents.ABB.Actions.Dynamic
+  commentId: N:RobotComponents.ABB.Actions.Dynamic
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions.Dynamic
+  nameWithType: RobotComponents.ABB.Actions.Dynamic
+  fullName: RobotComponents.ABB.Actions.Dynamic
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Dynamic
+    name: Dynamic
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Dynamic.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions.Dynamic
+    name: Dynamic
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Dynamic.html
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_DuplicateDynamic
+  name: DuplicateDynamic
+  nameWithType: IDynamic.DuplicateDynamic
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.DuplicateDynamic
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic
+  commentId: T:RobotComponents.ABB.Actions.Dynamic.IDynamic
+  parent: RobotComponents.ABB.Actions.Dynamic
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html
+  name: IDynamic
+  nameWithType: IDynamic
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration
+  nameWithType: IDynamic.ToRAPIDDeclaration
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDDeclaration
+- uid: RobotComponents.ABB.Definitions.Robot
+  commentId: T:RobotComponents.ABB.Definitions.Robot
+  parent: RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.ABB.Definitions.Robot.html
+  name: Robot
+  nameWithType: Robot
+  fullName: RobotComponents.ABB.Definitions.Robot
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.string
+  name: string
+  nameWithType: string
+  fullName: string
+  nameWithType.vb: String
+  fullName.vb: String
+  name.vb: String
+- uid: RobotComponents.ABB.Definitions
+  commentId: N:RobotComponents.ABB.Definitions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Definitions
+  nameWithType: RobotComponents.ABB.Definitions
+  fullName: RobotComponents.ABB.Definitions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Definitions
+    name: Definitions
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.html
+- uid: System
+  commentId: N:System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction
+  nameWithType: IDynamic.ToRAPIDInstruction
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDInstruction
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: IDynamic.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.RAPIDGenerator
+  commentId: T:RobotComponents.ABB.Actions.RAPIDGenerator
+  parent: RobotComponents.ABB.Actions
+  isExternal: true
+  href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  name: RAPIDGenerator
+  nameWithType: RAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.RAPIDGenerator
+- uid: RobotComponents.ABB.Actions
+  commentId: N:RobotComponents.ABB.Actions
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Actions
+  nameWithType: RobotComponents.ABB.Actions
+  fullName: RobotComponents.ABB.Actions
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Actions
+    name: Actions
+    isExternal: true
+    href: RobotComponents.ABB.Actions.html
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_IsValid
+  name: IsValid
+  nameWithType: IDynamic.IsValid
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.IsValid
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.boolean
+  name: bool
+  nameWithType: bool
+  fullName: bool
+  nameWithType.vb: Boolean
+  fullName.vb: Boolean
+  name.vb: Boolean
+- uid: RobotComponents.ABB.Actions.Dynamic.IDynamic.Type*
+  commentId: Overload:RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Dynamic.IDynamic.html#RobotComponents_ABB_Actions_Dynamic_IDynamic_Type
+  name: Type
+  nameWithType: IDynamic.Type
+  fullName: RobotComponents.ABB.Actions.Dynamic.IDynamic.Type
+- uid: RobotComponents.ABB.Enumerations.CodeType
+  commentId: T:RobotComponents.ABB.Enumerations.CodeType
+  parent: RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.ABB.Enumerations.CodeType.html
+  name: CodeType
+  nameWithType: CodeType
+  fullName: RobotComponents.ABB.Enumerations.CodeType
+- uid: RobotComponents.ABB.Enumerations
+  commentId: N:RobotComponents.ABB.Enumerations
+  isExternal: true
+  href: RobotComponents.html
+  name: RobotComponents.ABB.Enumerations
+  nameWithType: RobotComponents.ABB.Enumerations
+  fullName: RobotComponents.ABB.Enumerations
+  spec.csharp:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html
+  spec.vb:
+  - uid: RobotComponents
+    name: RobotComponents
+    isExternal: true
+    href: RobotComponents.html
+  - name: .
+  - uid: RobotComponents.ABB
+    name: ABB
+    isExternal: true
+    href: RobotComponents.ABB.html
+  - name: .
+  - uid: RobotComponents.ABB.Enumerations
+    name: Enumerations
+    isExternal: true
+    href: RobotComponents.ABB.Enumerations.html

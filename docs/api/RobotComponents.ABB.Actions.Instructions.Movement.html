@@ -77,12 +77,12 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></div>
-    <div class="level2"><span class="xref">Movement</span></div>
+    <div class="level1"><span class="xref">Movement</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a></div>
     <div><span class="xref">ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
@@ -110,7 +110,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class Movement : Action, IInstruction, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class Movement : IAction, IInstruction, ISerializable</code></pre>
   </div>
   <h3 id="constructors">Constructors
 </h3>
@@ -160,6 +160,38 @@
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Actions_Declarations_ITarget_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Declarations.ITarget)">Movement(ITarget)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="declaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Movement(ITarget target)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
+        <td><span class="parametername">target</span></td>
+        <td><p>The Target.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Actions_Declarations_ITarget__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This constructor is typically used to cast a Robot Target to a Movement.</p>
+</div>
+
+
+  <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Actions_Instructions_Movement_System_Boolean_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Instructions.Movement,System.Boolean)">Movement(Movement, bool)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class by duplicating an existing Movement instance.</p>
 </div>
@@ -195,39 +227,7 @@
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Actions.Interfaces.ITarget)">Movement(ITarget)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Movement(ITarget target)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The Target.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Actions_Interfaces_ITarget__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This constructor is typically used to cast a Robot Target to a Movement.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData)">Movement(MovementType, ITarget, SpeedData)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData)">Movement(MovementType, ITarget, SpeedData)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -252,7 +252,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -268,7 +268,7 @@
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData)">Movement(MovementType, ITarget, SpeedData, ZoneData)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData)">Movement(MovementType, ITarget, SpeedData, ZoneData)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Robot Tool (no override), a default Work Object (wobj0) and an empty Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -293,7 +293,7 @@
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -315,61 +315,7 @@
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Actions_Instructions_DigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, DigitalOutput)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, DigitalOutput digitalOutput)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Enumerations.MovementType.html">MovementType</a></td>
-        <td><span class="parametername">movementType</span></td>
-        <td><p>The Movement Type.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The Target.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.SpeedData.html">SpeedData</a></td>
-        <td><span class="parametername">speedData</span></td>
-        <td><p>The Speed Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ZoneData.html">ZoneData</a></td>
-        <td><span class="parametername">zoneData</span></td>
-        <td><p>The Zone Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.DigitalOutput.html">DigitalOutput</a></td>
-        <td><span class="parametername">digitalOutput</span></td>
-        <td><p>The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, SetDigitalOutput)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Robot Tool (no override) and a default Work Object (wobj0)</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -394,7 +340,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -422,7 +368,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with a default Work object (wobj0) and an empty Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -447,7 +393,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -475,67 +421,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Actions_Instructions_DigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, DigitalOutput)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with a default Work Object (wobj0).</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, DigitalOutput digitalOutput)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Enumerations.MovementType.html">MovementType</a></td>
-        <td><span class="parametername">movementType</span></td>
-        <td><p>The Movement Type.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The Target.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.SpeedData.html">SpeedData</a></td>
-        <td><span class="parametername">speedData</span></td>
-        <td><p>The Speed Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ZoneData.html">ZoneData</a></td>
-        <td><span class="parametername">zoneData</span></td>
-        <td><p>The Zone Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><span class="parametername">robotTool</span></td>
-        <td><p>The Robot Tool. This will override the set default tool.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.DigitalOutput.html">DigitalOutput</a></td>
-        <td><span class="parametername">digitalOutput</span></td>
-        <td><p>The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, SetDigitalOutput)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with a default Work Object (wobj0).</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -560,7 +446,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -594,7 +480,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Definitions_WorkObject_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Definitions_WorkObject_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -619,7 +505,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Taret.</p>
 </td>
@@ -653,73 +539,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Definitions_WorkObject_RobotComponents_ABB_Actions_Instructions_DigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.DigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, DigitalOutput)</h4>
-  <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This constructor is obsolete and will be removed in v3.&quot;, false)]
-public Movement(MovementType movementType, ITarget target, SpeedData speedData, ZoneData zoneData, RobotTool robotTool, WorkObject workObject, DigitalOutput digitalOutput)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Enumerations.MovementType.html">MovementType</a></td>
-        <td><span class="parametername">movementType</span></td>
-        <td><p>The Movement Type.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
-        <td><span class="parametername">target</span></td>
-        <td><p>The Target.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.SpeedData.html">SpeedData</a></td>
-        <td><span class="parametername">speedData</span></td>
-        <td><p>The Speed Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ZoneData.html">ZoneData</a></td>
-        <td><span class="parametername">zoneData</span></td>
-        <td><p>The Zone Data.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.RobotTool.html">RobotTool</a></td>
-        <td><span class="parametername">robotTool</span></td>
-        <td><p>The Robot Tool. This will override the set default tool.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Definitions.WorkObject.html">WorkObject</a></td>
-        <td><span class="parametername">workObject</span></td>
-        <td><p>The Work Object.</p>
-</td>
-      </tr>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.DigitalOutput.html">DigitalOutput</a></td>
-        <td><span class="parametername">digitalOutput</span></td>
-        <td><p>The Digital Output. When set this will define a MoveLDO or a MoveJDO instruction.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Definitions_WorkObject_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_RobotTool_RobotComponents_ABB_Definitions_WorkObject_RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.RobotTool,RobotComponents.ABB.Definitions.WorkObject,RobotComponents.ABB.Actions.Instructions.SetDigitalOutput)">Movement(MovementType, ITarget, SpeedData, ZoneData, RobotTool, WorkObject, SetDigitalOutput)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -744,7 +564,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -784,7 +604,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Interfaces_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_WorkObject_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Interfaces.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.WorkObject)">Movement(MovementType, ITarget, SpeedData, ZoneData, WorkObject)</h4>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement__ctor_RobotComponents_ABB_Enumerations_MovementType_RobotComponents_ABB_Actions_Declarations_ITarget_RobotComponents_ABB_Actions_Declarations_SpeedData_RobotComponents_ABB_Actions_Declarations_ZoneData_RobotComponents_ABB_Definitions_WorkObject_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.#ctor(RobotComponents.ABB.Enumerations.MovementType,RobotComponents.ABB.Actions.Declarations.ITarget,RobotComponents.ABB.Actions.Declarations.SpeedData,RobotComponents.ABB.Actions.Declarations.ZoneData,RobotComponents.ABB.Definitions.WorkObject)">Movement(MovementType, ITarget, SpeedData, ZoneData, WorkObject)</h4>
   <div class="markdown level1 summary"><p>Initializes a new instance of the Movement class with an empty Robot Tool (no override) and an empty Digital Output.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
@@ -809,7 +629,7 @@ public Movement(MovementType movementType, ITarget target, SpeedData speedData, 
 </td>
       </tr>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td><span class="parametername">target</span></td>
         <td><p>The Target.</p>
 </td>
@@ -903,38 +723,6 @@ Positions of external axes are ignored.</p>
 </div>
 
 
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.DigitalOutput">DigitalOutput</h4>
-  <div class="markdown level1 summary"><p>Gets or sets the Digital Output.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Obsolete(&quot;This property is obsolete and will be removed in v3. Use SetDigitalOutput instead.&quot;, false)]
-public DigitalOutput DigitalOutput { get; set; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.DigitalOutput.html">DigitalOutput</a></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_DigitalOutput_remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>If an empty or invalid Digital Output is set a normal movement will be set (MoveAbsJ, MoveL or MoveJ).
-If a valid Digital Output is combined movement will be created (MoveLDO or MoveJDO).
-If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added that sets the Digital Output (SetDO).</p>
-</div>
-
-
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_IsValid_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.IsValid*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_IsValid" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.IsValid">IsValid</h4>
   <div class="markdown level1 summary"><p>Gets a value indicating whether or not the object is valid.</p>
@@ -942,7 +730,7 @@ If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added th
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsValid { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -959,8 +747,6 @@ If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added th
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_IsValid">Action.IsValid</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_MovementType_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.MovementType*"></a>
@@ -1094,7 +880,7 @@ If as Movement Type an MoveAbsJ is set an extra RAPID code line will be added th
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">int</a></td>
+        <td><span class="xref">int</span></td>
         <td></td>
       </tr>
     </tbody>
@@ -1124,7 +910,7 @@ Set this property to -1 to define normal movements (not coordinated / not synchr
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.ITarget.html">ITarget</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Declarations.ITarget.html">ITarget</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -1252,7 +1038,7 @@ Set this property to a negative value to not overwrite the speeddata value.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Action DuplicateAction()</code></pre>
+    <pre><code class="lang-csharp hljs">public IAction DuplicateAction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -1264,14 +1050,12 @@ Set this property to a negative value to not overwrite the speeddata value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></td>
         <td><p>A deep copy of the Movement instance as an Action.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_DuplicateInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.DuplicateInstruction*"></a>
@@ -1293,7 +1077,7 @@ Set this property to a negative value to not overwrite the speeddata value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a></td>
         <td><p>A deep copy of the Movement instance as an IInstruction.</p>
 </td>
       </tr>
@@ -1427,47 +1211,13 @@ the pose of the this external axis.</p>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
-        <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>The RAPID Generator.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDDeclaration(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1503,18 +1253,16 @@ the pose of the this external axis.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDDeclaration(Robot)</a></div>
 
 
-  <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDInstruction*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
+  <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDGenerator*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDGenerator(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations and instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1534,10 +1282,8 @@ the pose of the this external axis.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.s</p>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_Movement_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
 </div>
 
 
@@ -1548,7 +1294,7 @@ the pose of the this external axis.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDInstruction(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDInstruction(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -1584,8 +1330,6 @@ the pose of the this external axis.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDInstruction(Robot)</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_Movement_ToString_" data-uid="RobotComponents.ABB.Actions.Instructions.Movement.ToString*"></a>
@@ -1614,10 +1358,13 @@ the pose of the this external axis.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>

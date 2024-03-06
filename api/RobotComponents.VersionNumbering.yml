@@ -6,7 +6,7 @@ items:
   parent: RobotComponents
   children:
   - RobotComponents.VersionNumbering.CurrentVersion
-  - RobotComponents.VersionNumbering.CurrentVersionAsInt
+  - RobotComponents.VersionNumbering.Version
   langs:
   - csharp
   - vb
@@ -57,37 +57,39 @@ items:
     x.x.0 ---&gt; BUILD version when you make backwards compatible bug fixes
   example: []
   syntax:
-    content: public const string CurrentVersion = "2.2.0"
+    content: public const string CurrentVersion = "3.0.0"
     return:
       type: System.String
-    content.vb: Public Const CurrentVersion As String = "2.2.0"
-- uid: RobotComponents.VersionNumbering.CurrentVersionAsInt
-  commentId: F:RobotComponents.VersionNumbering.CurrentVersionAsInt
-  id: CurrentVersionAsInt
+    content.vb: Public Const CurrentVersion As String = "3.0.0"
+- uid: RobotComponents.VersionNumbering.Version
+  commentId: F:RobotComponents.VersionNumbering.Version
+  id: Version
   parent: RobotComponents.VersionNumbering
   langs:
   - csharp
   - vb
-  name: CurrentVersionAsInt
-  nameWithType: VersionNumbering.CurrentVersionAsInt
-  fullName: RobotComponents.VersionNumbering.CurrentVersionAsInt
+  name: Version
+  nameWithType: VersionNumbering.Version
+  fullName: RobotComponents.VersionNumbering.Version
   type: Field
   assemblies:
   - RobotComponents
   namespace: RobotComponents
-  summary: Gets the current version as an int.
+  summary: Gets the current version.
   remarks: >-
-    Typically used to check the version number inside the code.
+    Has to be manually updated each time. 
 
-    For internal use only. Not recommended to use. 
+    0.x.x ---&gt; MAJOR version when you make incompatible API changes
 
-    Used logic: major*10^6 + minor*10^3 + build.
+    x.0.x ---&gt; MINOR version when you add functionality in a backwards compatible manner,
+
+    x.x.0 ---&gt; BUILD version when you make backwards compatible bug fixes
   example: []
   syntax:
-    content: public const int CurrentVersionAsInt = 2002000
+    content: public static Version Version
     return:
-      type: System.Int32
-    content.vb: Public Const CurrentVersionAsInt As Integer = 2002000
+      type: System.Version
+    content.vb: Public Shared Version As Version
 references:
 - uid: RobotComponents
   commentId: N:RobotComponents
@@ -344,14 +346,11 @@ references:
   nameWithType.vb: String
   fullName.vb: String
   name.vb: String
-- uid: System.Int32
-  commentId: T:System.Int32
+- uid: System.Version
+  commentId: T:System.Version
   parent: System
   isExternal: true
-  href: https://learn.microsoft.com/dotnet/api/system.int32
-  name: int
-  nameWithType: int
-  fullName: int
-  nameWithType.vb: Integer
-  fullName.vb: Integer
-  name.vb: Integer
+  href: https://learn.microsoft.com/dotnet/api/system.version
+  name: Version
+  nameWithType: Version
+  fullName: System.Version

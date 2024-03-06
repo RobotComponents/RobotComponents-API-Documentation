@@ -15,13 +15,11 @@ items:
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
-  - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut
-  - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
   - RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
@@ -38,14 +36,14 @@ items:
   summary: Represents the SyncMoveOn instruction that starts a sequence of synchronized movements.
   example: []
   syntax:
-    content: 'public class SyncMoveOn : Action, IInstruction, ISyncident, ISerializable'
-    content.vb: Public Class SyncMoveOn Inherits Action Implements IInstruction, ISyncident, ISerializable
+    content: 'public class SyncMoveOn : IAction, IInstruction, ISyncident, ISerializable'
+    content.vb: Public Class SyncMoveOn Implements IAction, IInstruction, ISyncident, ISerializable
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Actions.Action
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident
+  - RobotComponents.ABB.Actions.IAction
+  - RobotComponents.ABB.Actions.Instructions.IInstruction
+  - RobotComponents.ABB.Actions.Instructions.ISyncident
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -238,12 +236,12 @@ items:
   syntax:
     content: public IInstruction DuplicateInstruction()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.IInstruction
+      type: RobotComponents.ABB.Actions.Instructions.IInstruction
       description: A deep copy of the SyncMoveOn instance as an IInstructions.
     content.vb: Public Function DuplicateInstruction() As IInstruction
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateInstruction*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
   commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
   id: DuplicateSyncident
@@ -263,12 +261,12 @@ items:
   syntax:
     content: public ISyncident DuplicateSyncident()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.ISyncident
+      type: RobotComponents.ABB.Actions.Instructions.ISyncident
       description: A deep copy of the SyncMoveOn instance as an ISyncident.
     content.vb: Public Function DuplicateSyncident() As ISyncident
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction
   commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction
   id: DuplicateAction
@@ -286,13 +284,14 @@ items:
   summary: Returns an exact duplicate of this SyncMoveOn instance as an Action.
   example: []
   syntax:
-    content: public override Action DuplicateAction()
+    content: public IAction DuplicateAction()
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: A deep copy of the SyncMoveOn instance as an Action.
-    content.vb: Public Overrides Function DuplicateAction() As Action
-  overridden: RobotComponents.ABB.Actions.Action.DuplicateAction
+    content.vb: Public Function DuplicateAction() As IAction
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.DuplicateAction
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
   commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
   id: ToString
@@ -315,7 +314,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Actions.Action.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString*
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -334,7 +333,7 @@ items:
   summary: Returns the RAPID declaration code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDDeclaration(Robot robot)
+    content: public string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -342,11 +341,11 @@ items:
     return:
       type: System.String
       description: The RAPID code line.
-    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
@@ -364,7 +363,7 @@ items:
   summary: Returns the RAPID instruction code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDInstruction(Robot robot)
+    content: public string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -372,69 +371,41 @@ items:
     return:
       type: System.String
       description: The RAPID code line.
-    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   parent: RobotComponents.ABB.Actions.Instructions.SyncMoveOn
   langs:
   - csharp
   - vb
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: SyncMoveOn.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: SyncMoveOn.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
   remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
-    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    content: public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.ABB.Actions.RAPIDGenerator
       description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration*
+    content.vb: Public Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Instructions.SyncMoveOn
-  langs:
-  - csharp
-  - vb
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: SyncMoveOn.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
-  remarks: This method is called inside the RAPID generator.
-  example: []
-  syntax:
-    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
-    parameters:
-    - id: RAPIDGenerator
-      type: RobotComponents.ABB.Actions.RAPIDGenerator
-      description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction*
-  implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
   commentId: P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
   id: IsValid
@@ -452,16 +423,16 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Actions.Action.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid
+  - RobotComponents.ABB.Actions.IAction.IsValid
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
   commentId: P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
   id: VariableType
@@ -486,7 +457,7 @@ items:
     content.vb: Public Property VariableType As VariableType
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
   commentId: P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
   id: SyncID
@@ -511,7 +482,7 @@ items:
     content.vb: Public Property SyncID As String
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
+  - RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
   commentId: P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
   id: TaskList
@@ -559,45 +530,6 @@ items:
       type: System.Double
     content.vb: Public Property TimeOut As Double
   overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut*
-- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-  commentId: P:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-  id: ReferenceType
-  parent: RobotComponents.ABB.Actions.Instructions.SyncMoveOn
-  langs:
-  - csharp
-  - vb
-  name: ReferenceType
-  nameWithType: SyncMoveOn.ReferenceType
-  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-  type: Property
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Gets or sets the variable type.
-  example: []
-  syntax:
-    content: >-
-      [Obsolete("This property is obsolete and will be removed in v3. Use VariableType instead.", false)]
-
-      public VariableType ReferenceType { get; set; }
-    parameters: []
-    return:
-      type: RobotComponents.ABB.Enumerations.VariableType
-    content.vb: >-
-      <Obsolete("This property is obsolete and will be removed in v3. Use VariableType instead.", False)>
-
-      Public Property ReferenceType As VariableType
-  overload: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType*
-  implements:
-  - RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  attributes:
-  - type: System.ObsoleteAttribute
-    ctor: System.ObsoleteAttribute.#ctor(System.String,System.Boolean)
-    arguments:
-    - type: System.String
-      value: This property is obsolete and will be removed in v3. Use VariableType instead.
-    - type: System.Boolean
-      value: false
 references:
 - uid: RobotComponents.ABB.Actions.Instructions
   commentId: N:RobotComponents.ABB.Actions.Instructions
@@ -657,30 +589,30 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Actions.Action
-  commentId: T:RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction
+  commentId: T:RobotComponents.ABB.Actions.IAction
   parent: RobotComponents.ABB.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action
-  nameWithType: Action
-  fullName: RobotComponents.ABB.Actions.Action
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.IInstruction
-  parent: RobotComponents.ABB.Actions.Interfaces
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: RobotComponents.ABB.Actions.IAction
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction
+  commentId: T:RobotComponents.ABB.Actions.Instructions.IInstruction
+  parent: RobotComponents.ABB.Actions.Instructions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html
   name: IInstruction
   nameWithType: IInstruction
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.ISyncident
-  parent: RobotComponents.ABB.Actions.Interfaces
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident
+  commentId: T:RobotComponents.ABB.Actions.Instructions.ISyncident
+  parent: RobotComponents.ABB.Actions.Instructions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html
   name: ISyncident
   nameWithType: ISyncident
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -928,53 +860,6 @@ references:
     name: Actions
     isExternal: true
     href: RobotComponents.ABB.Actions.html
-- uid: RobotComponents.ABB.Actions.Interfaces
-  commentId: N:RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Actions.Interfaces
-  nameWithType: RobotComponents.ABB.Actions.Interfaces
-  fullName: RobotComponents.ABB.Actions.Interfaces
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
 - uid: System.Runtime.Serialization
   commentId: N:System.Runtime.Serialization
   isExternal: true
@@ -1015,7 +900,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: SyncMoveOn
   nameWithType: SyncMoveOn.SyncMoveOn
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncMoveOn
@@ -1041,7 +926,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: SyncMoveOn.GetObjectData
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.GetObjectData
@@ -1175,176 +1060,148 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.Duplicate*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.Duplicate
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_Duplicate
   name: Duplicate
   nameWithType: SyncMoveOn.Duplicate
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.Duplicate
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateInstruction
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_DuplicateInstruction
   name: DuplicateInstruction
   nameWithType: SyncMoveOn.DuplicateInstruction
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateInstruction
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   name: DuplicateInstruction()
   nameWithType: IInstruction.DuplicateInstruction()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction()
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
     name: DuplicateInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
     name: DuplicateInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_DuplicateSyncident
   name: DuplicateSyncident
   nameWithType: SyncMoveOn.DuplicateSyncident
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateSyncident
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_DuplicateSyncident
   name: DuplicateSyncident()
   nameWithType: ISyncident.DuplicateSyncident()
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident()
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
     name: DuplicateSyncident
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_DuplicateSyncident
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.DuplicateSyncident
     name: DuplicateSyncident
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.DuplicateSyncident
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-  commentId: M:RobotComponents.ABB.Actions.Action.DuplicateAction
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  name: DuplicateAction()
-  nameWithType: Action.DuplicateAction()
-  fullName: RobotComponents.ABB.Actions.Action.DuplicateAction()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_DuplicateSyncident
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_DuplicateAction
   name: DuplicateAction
   nameWithType: SyncMoveOn.DuplicateAction
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.DuplicateAction
-- uid: RobotComponents.ABB.Actions.Action.ToString
-  commentId: M:RobotComponents.ABB.Actions.Action.ToString
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+  commentId: M:RobotComponents.ABB.Actions.IAction.DuplicateAction
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
-  name: ToString()
-  nameWithType: Action.ToString()
-  fullName: RobotComponents.ABB.Actions.Action.ToString()
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  name: DuplicateAction()
+  nameWithType: IAction.DuplicateAction()
+  fullName: RobotComponents.ABB.Actions.IAction.DuplicateAction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
-    name: ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_ToString
   name: ToString
   nameWithType: SyncMoveOn.ToString
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToString
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDDeclaration(Robot)
-  nameWithType: Action.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDDeclaration
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration
   nameWithType: SyncMoveOn.ToRAPIDDeclaration
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDDeclaration
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
-  nameWithType: ISyncident.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1352,10 +1209,40 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration(Robot)
+  nameWithType: ISyncident.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDDeclaration
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1407,56 +1294,56 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDInstruction(Robot)
-  nameWithType: Action.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction
   nameWithType: SyncMoveOn.ToRAPIDInstruction
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDInstruction
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IAction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction(Robot)
   nameWithType: IInstruction.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1464,29 +1351,29 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction(Robot)
   nameWithType: ISyncident.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1494,29 +1381,36 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: SyncMoveOn.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IAction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1524,29 +1418,29 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
     isExternal: true
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: ISyncident.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IInstruction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1554,10 +1448,40 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: ISyncident.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Instructions.ISyncident.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1572,127 +1496,37 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: IInstruction.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: ISyncident.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Action.IsValid
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.IsValid
-  name: IsValid
-  nameWithType: Action.IsValid
-  fullName: RobotComponents.ABB.Actions.Action.IsValid
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_IsValid
   name: IsValid
   nameWithType: SyncMoveOn.IsValid
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.IsValid
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.IAction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.IAction.IsValid
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_IsValid
+  name: IsValid
+  nameWithType: IAction.IsValid
+  fullName: RobotComponents.ABB.Actions.IAction.IsValid
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_IsValid
   name: IsValid
   nameWithType: IInstruction.IsValid
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_IsValid
   name: IsValid
   nameWithType: ISyncident.IsValid
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.IsValid
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.IsValid
 - uid: System.Boolean
   commentId: T:System.Boolean
   parent: System
@@ -1707,18 +1541,18 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_VariableType
   name: VariableType
   nameWithType: SyncMoveOn.VariableType
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.VariableType
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_VariableType
   name: VariableType
   nameWithType: ISyncident.VariableType
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.VariableType
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.VariableType
 - uid: RobotComponents.ABB.Enumerations.VariableType
   commentId: T:RobotComponents.ABB.Enumerations.VariableType
   parent: RobotComponents.ABB.Enumerations
@@ -1767,44 +1601,29 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_SyncID
   name: SyncID
   nameWithType: SyncMoveOn.SyncID
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.SyncID
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
+- uid: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  commentId: P:RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
+  parent: RobotComponents.ABB.Actions.Instructions.ISyncident
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
+  href: RobotComponents.ABB.Actions.Instructions.ISyncident.html#RobotComponents_ABB_Actions_Instructions_ISyncident_SyncID
   name: SyncID
   nameWithType: ISyncident.SyncID
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.SyncID
+  fullName: RobotComponents.ABB.Actions.Instructions.ISyncident.SyncID
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_TaskList
   name: TaskList
   nameWithType: SyncMoveOn.TaskList
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TaskList
 - uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut
+  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents_ABB_Actions_Instructions_SyncMoveOn_TimeOut
   name: TimeOut
   nameWithType: SyncMoveOn.TimeOut
   fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.TimeOut
-- uid: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType*
-  commentId: Overload:RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.html#RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-  name: ReferenceType
-  nameWithType: SyncMoveOn.ReferenceType
-  fullName: RobotComponents.ABB.Actions.Instructions.SyncMoveOn.ReferenceType
-- uid: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  parent: RobotComponents.ABB.Actions.Interfaces.ISyncident
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.ISyncident.html#RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType
-  name: ReferenceType
-  nameWithType: ISyncident.ReferenceType
-  fullName: RobotComponents.ABB.Actions.Interfaces.ISyncident.ReferenceType

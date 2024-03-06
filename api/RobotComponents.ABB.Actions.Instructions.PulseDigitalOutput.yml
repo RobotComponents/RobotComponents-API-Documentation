@@ -17,9 +17,8 @@ items:
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Length
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Name
-  - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
   langs:
@@ -36,13 +35,13 @@ items:
   remarks: This action is used to generate a pulse on a digital output signal.
   example: []
   syntax:
-    content: 'public class PulseDigitalOutput : Action, IInstruction, ISerializable'
-    content.vb: Public Class PulseDigitalOutput Inherits Action Implements IInstruction, ISerializable
+    content: 'public class PulseDigitalOutput : IAction, IInstruction, ISerializable'
+    content.vb: Public Class PulseDigitalOutput Implements IAction, IInstruction, ISerializable
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Actions.Action
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction
+  - RobotComponents.ABB.Actions.IAction
+  - RobotComponents.ABB.Actions.Instructions.IInstruction
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -235,12 +234,12 @@ items:
   syntax:
     content: public IInstruction DuplicateInstruction()
     return:
-      type: RobotComponents.ABB.Actions.Interfaces.IInstruction
+      type: RobotComponents.ABB.Actions.Instructions.IInstruction
       description: A deep copy of the Pulse Digital Output instance as an IInstruction.
     content.vb: Public Function DuplicateInstruction() As IInstruction
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateInstruction*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction
   commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction
   id: DuplicateAction
@@ -258,13 +257,14 @@ items:
   summary: Returns an exact duplicate of this Pulse Digital Output instance as an Action.
   example: []
   syntax:
-    content: public override Action DuplicateAction()
+    content: public IAction DuplicateAction()
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: A deep copy of the Pulse Digital Output instance as an Action.
-    content.vb: Public Overrides Function DuplicateAction() As Action
-  overridden: RobotComponents.ABB.Actions.Action.DuplicateAction
+    content.vb: Public Function DuplicateAction() As IAction
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.DuplicateAction
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
   commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
   id: ToString
@@ -287,7 +287,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Actions.Action.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString*
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -306,7 +306,7 @@ items:
   summary: Returns the RAPID declaration code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDDeclaration(Robot robot)
+    content: public string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -314,9 +314,10 @@ items:
     return:
       type: System.String
       description: An empty string.
-    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
@@ -334,7 +335,7 @@ items:
   summary: Returns the RAPID instruction code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDInstruction(Robot robot)
+    content: public string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -342,65 +343,39 @@ items:
     return:
       type: System.String
       description: The RAPID code line.
-    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   parent: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput
   langs:
   - csharp
   - vb
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: PulseDigitalOutput.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: PulseDigitalOutput.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
   remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
-    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    content: public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.ABB.Actions.RAPIDGenerator
       description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration*
-- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput
-  langs:
-  - csharp
-  - vb
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: PulseDigitalOutput.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions.Instructions
-  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
-  remarks: This method is called inside the RAPID generator.
-  example: []
-  syntax:
-    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
-    parameters:
-    - id: RAPIDGenerator
-      type: RobotComponents.ABB.Actions.RAPIDGenerator
-      description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction*
+    content.vb: Public Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
   commentId: P:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
   id: IsValid
@@ -418,15 +393,15 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Actions.Action.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid*
   implements:
-  - RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
+  - RobotComponents.ABB.Actions.IAction.IsValid
+  - RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High
   commentId: P:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High
   id: High
@@ -558,22 +533,22 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Actions.Action
-  commentId: T:RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction
+  commentId: T:RobotComponents.ABB.Actions.IAction
   parent: RobotComponents.ABB.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action
-  nameWithType: Action
-  fullName: RobotComponents.ABB.Actions.Action
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction
-  commentId: T:RobotComponents.ABB.Actions.Interfaces.IInstruction
-  parent: RobotComponents.ABB.Actions.Interfaces
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: RobotComponents.ABB.Actions.IAction
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction
+  commentId: T:RobotComponents.ABB.Actions.Instructions.IInstruction
+  parent: RobotComponents.ABB.Actions.Instructions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html
   name: IInstruction
   nameWithType: IInstruction
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -821,53 +796,6 @@ references:
     name: Actions
     isExternal: true
     href: RobotComponents.ABB.Actions.html
-- uid: RobotComponents.ABB.Actions.Interfaces
-  commentId: N:RobotComponents.ABB.Actions.Interfaces
-  isExternal: true
-  href: RobotComponents.html
-  name: RobotComponents.ABB.Actions.Interfaces
-  nameWithType: RobotComponents.ABB.Actions.Interfaces
-  fullName: RobotComponents.ABB.Actions.Interfaces
-  spec.csharp:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
-  spec.vb:
-  - uid: RobotComponents
-    name: RobotComponents
-    isExternal: true
-    href: RobotComponents.html
-  - name: .
-  - uid: RobotComponents.ABB
-    name: ABB
-    isExternal: true
-    href: RobotComponents.ABB.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions
-    name: Actions
-    isExternal: true
-    href: RobotComponents.ABB.Actions.html
-  - name: .
-  - uid: RobotComponents.ABB.Actions.Interfaces
-    name: Interfaces
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.html
 - uid: System.Runtime.Serialization
   commentId: N:System.Runtime.Serialization
   isExternal: true
@@ -908,7 +836,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: PulseDigitalOutput
   nameWithType: PulseDigitalOutput.PulseDigitalOutput
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.PulseDigitalOutput
@@ -934,7 +862,7 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: PulseDigitalOutput.GetObjectData
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.GetObjectData
@@ -1024,110 +952,119 @@ references:
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Duplicate*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Duplicate
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_Duplicate
   name: Duplicate
   nameWithType: PulseDigitalOutput.Duplicate
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Duplicate
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateInstruction
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_DuplicateInstruction
   name: DuplicateInstruction
   nameWithType: PulseDigitalOutput.DuplicateInstruction
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateInstruction
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   name: DuplicateInstruction()
   nameWithType: IInstruction.DuplicateInstruction()
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction()
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
     name: DuplicateInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.DuplicateInstruction
     name: DuplicateInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.DuplicateInstruction
-  - name: (
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-  commentId: M:RobotComponents.ABB.Actions.Action.DuplicateAction
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  name: DuplicateAction()
-  nameWithType: Action.DuplicateAction()
-  fullName: RobotComponents.ABB.Actions.Action.DuplicateAction()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_DuplicateInstruction
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_DuplicateAction
   name: DuplicateAction
   nameWithType: PulseDigitalOutput.DuplicateAction
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.DuplicateAction
-- uid: RobotComponents.ABB.Actions.Action.ToString
-  commentId: M:RobotComponents.ABB.Actions.Action.ToString
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+  commentId: M:RobotComponents.ABB.Actions.IAction.DuplicateAction
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
-  name: ToString()
-  nameWithType: Action.ToString()
-  fullName: RobotComponents.ABB.Actions.Action.ToString()
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  name: DuplicateAction()
+  nameWithType: IAction.DuplicateAction()
+  fullName: RobotComponents.ABB.Actions.IAction.DuplicateAction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
-    name: ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_ToString
   name: ToString
   nameWithType: PulseDigitalOutput.ToString
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToString
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration
+  nameWithType: PulseDigitalOutput.ToRAPIDDeclaration
+  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
-  nameWithType: Action.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1135,23 +1072,16 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration*
-  commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDDeclaration
-  nameWithType: PulseDigitalOutput.ToRAPIDDeclaration
-  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDDeclaration
 - uid: RobotComponents.ABB.Definitions.Robot
   commentId: T:RobotComponents.ABB.Definitions.Robot
   parent: RobotComponents.ABB.Definitions
@@ -1197,56 +1127,26 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDInstruction(Robot)
-  nameWithType: Action.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  - name: (
-  - uid: RobotComponents.ABB.Definitions.Robot
-    name: Robot
-    isExternal: true
-    href: RobotComponents.ABB.Definitions.Robot.html
-  - name: )
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction
   nameWithType: PulseDigitalOutput.ToRAPIDInstruction
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDInstruction
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction(Robot)
-  nameWithType: IInstruction.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1254,29 +1154,66 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction(Robot)
+  nameWithType: IInstruction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    name: ToRAPIDInstruction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  - name: (
+  - uid: RobotComponents.ABB.Definitions.Robot
+    name: Robot
+    isExternal: true
+    href: RobotComponents.ABB.Definitions.Robot.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: PulseDigitalOutput.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IAction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1284,10 +1221,40 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  - name: )
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IInstruction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  spec.csharp:
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  - name: (
+  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
+    name: RAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
+  - name: )
+  spec.vb:
+  - uid: RobotComponents.ABB.Actions.Instructions.IInstruction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
+    isExternal: true
+    href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1302,107 +1269,47 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: IInstruction.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Action.IsValid
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.IsValid
-  name: IsValid
-  nameWithType: Action.IsValid
-  fullName: RobotComponents.ABB.Actions.Action.IsValid
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_IsValid
   name: IsValid
   nameWithType: PulseDigitalOutput.IsValid
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.IsValid
-- uid: RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
-  parent: RobotComponents.ABB.Actions.Interfaces.IInstruction
+- uid: RobotComponents.ABB.Actions.IAction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.IAction.IsValid
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Interfaces.IInstruction.html#RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_IsValid
+  name: IsValid
+  nameWithType: IAction.IsValid
+  fullName: RobotComponents.ABB.Actions.IAction.IsValid
+- uid: RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
+  parent: RobotComponents.ABB.Actions.Instructions.IInstruction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.Instructions.IInstruction.html#RobotComponents_ABB_Actions_Instructions_IInstruction_IsValid
   name: IsValid
   nameWithType: IInstruction.IsValid
-  fullName: RobotComponents.ABB.Actions.Interfaces.IInstruction.IsValid
+  fullName: RobotComponents.ABB.Actions.Instructions.IInstruction.IsValid
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_High
   name: High
   nameWithType: PulseDigitalOutput.High
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.High
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Length*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Length
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Length
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_Length
   name: Length
   nameWithType: PulseDigitalOutput.Length
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Length
 - uid: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Name*
   commentId: Overload:RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Name
   isExternal: true
-  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Name
+  href: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.html#RobotComponents_ABB_Actions_Instructions_PulseDigitalOutput_Name
   name: Name
   nameWithType: PulseDigitalOutput.Name
   fullName: RobotComponents.ABB.Actions.Instructions.PulseDigitalOutput.Name

@@ -77,12 +77,12 @@
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
-    <div class="level1"><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></div>
-    <div class="level2"><span class="xref">SetDigitalOutput</span></div>
+    <div class="level1"><span class="xref">SetDigitalOutput</span></div>
   </div>
   <div class="implements">
     <h5>Implements</h5>
-    <div><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></div>
+    <div><a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a></div>
     <div><span class="xref">ISerializable</span></div>
   </div>
   <div class="inheritedMembers">
@@ -110,7 +110,7 @@
   <h6><strong>Assembly</strong>: RobotComponents.ABB.dll</h6>
   <h5 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class SetDigitalOutput : Action, IInstruction, ISerializable</code></pre>
+    <pre><code class="lang-csharp hljs">public class SetDigitalOutput : IAction, IInstruction, ISerializable</code></pre>
   </div>
   <h5 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>This action is used to set the value (state) of a digital output signal.</p>
@@ -267,7 +267,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override bool IsValid { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public bool IsValid { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-condensed">
@@ -284,8 +284,6 @@
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_IsValid">Action.IsValid</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_Name_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.Name*"></a>
@@ -406,7 +404,7 @@ until the signal is physically set to the specified value.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override Action DuplicateAction()</code></pre>
+    <pre><code class="lang-csharp hljs">public IAction DuplicateAction()</code></pre>
   </div>
   <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-condensed">
@@ -418,14 +416,12 @@ until the signal is physically set to the specified value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Action.html">Action</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a></td>
         <td><p>A deep copy of the Set Digital Output instance as an Action.</p>
 </td>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_DuplicateAction">Action.DuplicateAction()</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_DuplicateInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.DuplicateInstruction*"></a>
@@ -447,7 +443,7 @@ until the signal is physically set to the specified value.</p>
     </thead>
     <tbody>
       <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a></td>
+        <td><a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a></td>
         <td><p>A deep copy of the Set Digital Output instance as an IInstruction.</p>
 </td>
       </tr>
@@ -491,47 +487,13 @@ until the signal is physically set to the specified value.</p>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDDeclaration*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDDeclaration(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates declarations in the RAPID program module inside the RAPID Generator.</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="declaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)</code></pre>
-  </div>
-  <h5 class="parameters">Parameters</h5>
-  <table class="table table-bordered table-condensed">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><a class="xref" href="RobotComponents.ABB.Actions.RAPIDGenerator.html">RAPIDGenerator</a></td>
-        <td><span class="parametername">RAPIDGenerator</span></td>
-        <td><p>The RAPID Generator.</p>
-</td>
-      </tr>
-    </tbody>
-  </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDDeclaration(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDDeclaration_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
-  <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
-</div>
-
-
-  <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDDeclaration_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDDeclaration*"></a>
   <h4 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)">ToRAPIDDeclaration(Robot)</h4>
   <div class="markdown level1 summary"><p>Returns the RAPID declaration code line of the this action.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDDeclaration(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDDeclaration(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -567,18 +529,16 @@ until the signal is physically set to the specified value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDDeclaration(Robot)</a></div>
 
 
-  <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDInstruction_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDInstruction*"></a>
-  <h4 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDInstruction(RAPIDGenerator)</h4>
-  <div class="markdown level1 summary"><p>Creates instructions in the RAPID program module inside the RAPID Generator.</p>
+  <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDGenerator*"></a>
+  <h4 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)">ToRAPIDGenerator(RAPIDGenerator)</h4>
+  <div class="markdown level1 summary"><p>Creates declarations and instructions in the RAPID program module inside the RAPID Generator.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)</code></pre>
+    <pre><code class="lang-csharp hljs">public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -598,9 +558,7 @@ until the signal is physically set to the specified value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator_">Action.ToRAPIDInstruction(RAPIDGenerator)</a></div>
-  <h5 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDInstruction_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
+  <h5 id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator__remarks">Remarks</h5>
   <div class="markdown level1 remarks"><p>This method is called inside the RAPID generator.</p>
 </div>
 
@@ -612,7 +570,7 @@ until the signal is physically set to the specified value.</p>
   <div class="markdown level1 conceptual"></div>
   <h5 class="declaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override string ToRAPIDInstruction(Robot robot)</code></pre>
+    <pre><code class="lang-csharp hljs">public string ToRAPIDInstruction(Robot robot)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-condensed">
@@ -648,8 +606,6 @@ until the signal is physically set to the specified value.</p>
       </tr>
     </tbody>
   </table>
-  <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_">Action.ToRAPIDInstruction(Robot)</a></div>
 
 
   <a id="RobotComponents_ABB_Actions_Instructions_SetDigitalOutput_ToString_" data-uid="RobotComponents.ABB.Actions.Instructions.SetDigitalOutput.ToString*"></a>
@@ -678,10 +634,13 @@ until the signal is physically set to the specified value.</p>
     </tbody>
   </table>
   <h5 class="overrides">Overrides</h5>
-  <div><a class="xref" href="RobotComponents.ABB.Actions.Action.html#RobotComponents_ABB_Actions_Action_ToString">Action.ToString()</a></div>
+  <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a></div>
   <h3 id="implements">Implements</h3>
   <div>
-      <a class="xref" href="RobotComponents.ABB.Actions.Interfaces.IInstruction.html">IInstruction</a>
+      <a class="xref" href="RobotComponents.ABB.Actions.IAction.html">IAction</a>
+  </div>
+  <div>
+      <a class="xref" href="RobotComponents.ABB.Actions.Instructions.IInstruction.html">IInstruction</a>
   </div>
   <div>
       <span class="xref">System.Runtime.Serialization.ISerializable</span>

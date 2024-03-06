@@ -7,33 +7,32 @@ items:
   children:
   - RobotComponents.ABB.Actions.ActionGroup.#ctor
   - RobotComponents.ABB.Actions.ActionGroup.#ctor(RobotComponents.ABB.Actions.ActionGroup)
-  - RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
+  - RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
   - RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
+  - RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
   - RobotComponents.ABB.Actions.ActionGroup.Actions
-  - RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)
-  - RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
+  - RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.IAction)
+  - RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
   - RobotComponents.ABB.Actions.ActionGroup.Clear
-  - RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)
-  - RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)
+  - RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.IAction)
+  - RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction[],System.Int32)
   - RobotComponents.ABB.Actions.ActionGroup.Count
   - RobotComponents.ABB.Actions.ActionGroup.Duplicate
   - RobotComponents.ABB.Actions.ActionGroup.DuplicateAction
   - RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
   - RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
   - RobotComponents.ABB.Actions.ActionGroup.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
-  - RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)
-  - RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.Action)
+  - RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.IAction)
+  - RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.IAction)
   - RobotComponents.ABB.Actions.ActionGroup.IsFixedSize
   - RobotComponents.ABB.Actions.ActionGroup.IsReadOnly
   - RobotComponents.ABB.Actions.ActionGroup.IsValid
   - RobotComponents.ABB.Actions.ActionGroup.Item(System.Int32)
   - RobotComponents.ABB.Actions.ActionGroup.Name
-  - RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)
+  - RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.IAction)
   - RobotComponents.ABB.Actions.ActionGroup.RemoveAt(System.Int32)
-  - RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  - RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
+  - RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   - RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   - RobotComponents.ABB.Actions.ActionGroup.ToString
   - RobotComponents.ABB.Actions.ActionGroup.Ungroup
@@ -50,12 +49,12 @@ items:
   summary: Represents a group of Actions.
   example: []
   syntax:
-    content: 'public class ActionGroup : Action, ISerializable'
-    content.vb: Public Class ActionGroup Inherits Action Implements ISerializable
+    content: 'public class ActionGroup : IAction, ISerializable'
+    content.vb: Public Class ActionGroup Implements IAction, ISerializable
   inheritance:
   - System.Object
-  - RobotComponents.ABB.Actions.Action
   implements:
+  - RobotComponents.ABB.Actions.IAction
   - System.Runtime.Serialization.ISerializable
   inheritedMembers:
   - System.Object.Equals(System.Object)
@@ -146,16 +145,16 @@ items:
   nameWithType.vb: ActionGroup.New()
   fullName.vb: RobotComponents.ABB.Actions.ActionGroup.New()
   name.vb: New()
-- uid: RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  id: '#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})'
+- uid: RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  id: '#ctor(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})'
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: ActionGroup(IList<Action>)
-  nameWithType: ActionGroup.ActionGroup(IList<Action>)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ActionGroup(System.Collections.Generic.IList<RobotComponents.ABB.Actions.Action>)
+  name: ActionGroup(IList<IAction>)
+  nameWithType: ActionGroup.ActionGroup(IList<IAction>)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ActionGroup(System.Collections.Generic.IList<RobotComponents.ABB.Actions.IAction>)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -163,26 +162,26 @@ items:
   summary: Initializes a new instance of the Action Group class with an empty name.
   example: []
   syntax:
-    content: public ActionGroup(IList<Action> actions)
+    content: public ActionGroup(IList<IAction> actions)
     parameters:
     - id: actions
-      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action}
+      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction}
       description: The list with actions.
-    content.vb: Public Sub New(actions As IList(Of Action))
+    content.vb: Public Sub New(actions As IList(Of IAction))
   overload: RobotComponents.ABB.Actions.ActionGroup.#ctor*
-  nameWithType.vb: ActionGroup.New(IList(Of Action))
-  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.New(System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.Action))
-  name.vb: New(IList(Of Action))
-- uid: RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  id: '#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})'
+  nameWithType.vb: ActionGroup.New(IList(Of IAction))
+  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.New(System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.IAction))
+  name.vb: New(IList(Of IAction))
+- uid: RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  id: '#ctor(System.String,System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})'
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: ActionGroup(string, IList<Action>)
-  nameWithType: ActionGroup.ActionGroup(string, IList<Action>)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ActionGroup(string, System.Collections.Generic.IList<RobotComponents.ABB.Actions.Action>)
+  name: ActionGroup(string, IList<IAction>)
+  nameWithType: ActionGroup.ActionGroup(string, IList<IAction>)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ActionGroup(string, System.Collections.Generic.IList<RobotComponents.ABB.Actions.IAction>)
   type: Constructor
   assemblies:
   - RobotComponents.ABB
@@ -190,19 +189,19 @@ items:
   summary: Initializes a new instance of the Action Group class.
   example: []
   syntax:
-    content: public ActionGroup(string name, IList<Action> actions)
+    content: public ActionGroup(string name, IList<IAction> actions)
     parameters:
     - id: name
       type: System.String
       description: The name of the Action Group.
     - id: actions
-      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action}
+      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction}
       description: The list with actions.
-    content.vb: Public Sub New(name As String, actions As IList(Of Action))
+    content.vb: Public Sub New(name As String, actions As IList(Of IAction))
   overload: RobotComponents.ABB.Actions.ActionGroup.#ctor*
-  nameWithType.vb: ActionGroup.New(String, IList(Of Action))
-  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.New(String, System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.Action))
-  name.vb: New(String, IList(Of Action))
+  nameWithType.vb: ActionGroup.New(String, IList(Of IAction))
+  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.New(String, System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.IAction))
+  name.vb: New(String, IList(Of IAction))
 - uid: RobotComponents.ABB.Actions.ActionGroup.#ctor(RobotComponents.ABB.Actions.ActionGroup)
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.#ctor(RobotComponents.ABB.Actions.ActionGroup)
   id: '#ctor(RobotComponents.ABB.Actions.ActionGroup)'
@@ -270,13 +269,14 @@ items:
   summary: Returns an exact duplicate of this Action Group instance as an Action.
   example: []
   syntax:
-    content: public override Action DuplicateAction()
+    content: public IAction DuplicateAction()
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: A deep copy of the Action Group instance as an Action.
-    content.vb: Public Overrides Function DuplicateAction() As Action
-  overridden: RobotComponents.ABB.Actions.Action.DuplicateAction
+    content.vb: Public Function DuplicateAction() As IAction
   overload: RobotComponents.ABB.Actions.ActionGroup.DuplicateAction*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.DuplicateAction
 - uid: RobotComponents.ABB.Actions.ActionGroup.ToString
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToString
   id: ToString
@@ -299,7 +299,7 @@ items:
       type: System.String
       description: A string that represents the current object.
     content.vb: Public Overrides Function ToString() As String
-  overridden: RobotComponents.ABB.Actions.Action.ToString
+  overridden: System.Object.ToString
   overload: RobotComponents.ABB.Actions.ActionGroup.ToString*
 - uid: RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
@@ -318,11 +318,11 @@ items:
   summary: Returns a duplicate of the list with Actions as a list.
   example: []
   syntax:
-    content: public List<Action> DuplicateToList()
+    content: public List<IAction> DuplicateToList()
     return:
-      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.Action}
+      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.IAction}
       description: The duplicate of the list with actions.
-    content.vb: Public Function DuplicateToList() As List(Of Action)
+    content.vb: Public Function DuplicateToList() As List(Of IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.DuplicateToList*
 - uid: RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
@@ -341,22 +341,22 @@ items:
   summary: Returns a duplicate of the list with Actions as an array.
   example: []
   syntax:
-    content: public Action[] DuplicateToArray()
+    content: public IAction[] DuplicateToArray()
     return:
-      type: RobotComponents.ABB.Actions.Action[]
+      type: RobotComponents.ABB.Actions.IAction[]
       description: The duplicate of the list with actions as an array.
-    content.vb: Public Function DuplicateToArray() As Action()
+    content.vb: Public Function DuplicateToArray() As IAction()
   overload: RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray*
-- uid: RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)
-  id: Add(RobotComponents.ABB.Actions.Action)
+- uid: RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.IAction)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.IAction)
+  id: Add(RobotComponents.ABB.Actions.IAction)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: Add(Action)
-  nameWithType: ActionGroup.Add(Action)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)
+  name: Add(IAction)
+  nameWithType: ActionGroup.Add(IAction)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.IAction)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -364,23 +364,23 @@ items:
   summary: Adds and action to the end of this action group.
   example: []
   syntax:
-    content: public void Add(Action action)
+    content: public void Add(IAction action)
     parameters:
     - id: action
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: ''
-    content.vb: Public Sub Add(action As Action)
+    content.vb: Public Sub Add(action As IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.Add*
-- uid: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
-  id: AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
+- uid: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
+  id: AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction})
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: AddRange(IList<Action>)
-  nameWithType: ActionGroup.AddRange(IList<Action>)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList<RobotComponents.ABB.Actions.Action>)
+  name: AddRange(IList<IAction>)
+  nameWithType: ActionGroup.AddRange(IList<IAction>)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList<RobotComponents.ABB.Actions.IAction>)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -388,16 +388,16 @@ items:
   summary: Adds the elements of the specified collection with actions to the end of this action group.
   example: []
   syntax:
-    content: public void AddRange(IList<Action> collection)
+    content: public void AddRange(IList<IAction> collection)
     parameters:
     - id: collection
-      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action}
+      type: System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction}
       description: The colleciton with actions.
-    content.vb: Public Sub AddRange(collection As IList(Of Action))
+    content.vb: Public Sub AddRange(collection As IList(Of IAction))
   overload: RobotComponents.ABB.Actions.ActionGroup.AddRange*
-  nameWithType.vb: ActionGroup.AddRange(IList(Of Action))
-  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.Action))
-  name.vb: AddRange(IList(Of Action))
+  nameWithType.vb: ActionGroup.AddRange(IList(Of IAction))
+  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.IAction))
+  name.vb: AddRange(IList(Of IAction))
 - uid: RobotComponents.ABB.Actions.ActionGroup.Clear
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.Clear
   id: Clear
@@ -418,16 +418,16 @@ items:
     content: public void Clear()
     content.vb: Public Sub Clear()
   overload: RobotComponents.ABB.Actions.ActionGroup.Clear*
-- uid: RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)
-  id: IndexOf(RobotComponents.ABB.Actions.Action)
+- uid: RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.IAction)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.IAction)
+  id: IndexOf(RobotComponents.ABB.Actions.IAction)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: IndexOf(Action)
-  nameWithType: ActionGroup.IndexOf(Action)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)
+  name: IndexOf(IAction)
+  nameWithType: ActionGroup.IndexOf(IAction)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.IAction)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -435,26 +435,26 @@ items:
   summary: Determines the index of a specific item in the list.
   example: []
   syntax:
-    content: public int IndexOf(Action action)
+    content: public int IndexOf(IAction action)
     parameters:
     - id: action
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: The object to locate in the list.
     return:
       type: System.Int32
       description: The index of value if found in the list; otherwise, -1.
-    content.vb: Public Function IndexOf(action As Action) As Integer
+    content.vb: Public Function IndexOf(action As IAction) As Integer
   overload: RobotComponents.ABB.Actions.ActionGroup.IndexOf*
-- uid: RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.Action)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.Action)
-  id: Insert(System.Int32,RobotComponents.ABB.Actions.Action)
+- uid: RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.IAction)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.IAction)
+  id: Insert(System.Int32,RobotComponents.ABB.Actions.IAction)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: Insert(int, Action)
-  nameWithType: ActionGroup.Insert(int, Action)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.Insert(int, RobotComponents.ABB.Actions.Action)
+  name: Insert(int, IAction)
+  nameWithType: ActionGroup.Insert(int, IAction)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.Insert(int, RobotComponents.ABB.Actions.IAction)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -462,29 +462,29 @@ items:
   summary: Inserts an item to the list at the specified index.
   example: []
   syntax:
-    content: public void Insert(int index, Action action)
+    content: public void Insert(int index, IAction action)
     parameters:
     - id: index
       type: System.Int32
       description: The zero-based index at which value should be inserted.
     - id: action
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: The object to insert into the list.
-    content.vb: Public Sub Insert(index As Integer, action As Action)
+    content.vb: Public Sub Insert(index As Integer, action As IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.Insert*
-  nameWithType.vb: ActionGroup.Insert(Integer, Action)
-  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.Insert(Integer, RobotComponents.ABB.Actions.Action)
-  name.vb: Insert(Integer, Action)
-- uid: RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)
-  id: Contains(RobotComponents.ABB.Actions.Action)
+  nameWithType.vb: ActionGroup.Insert(Integer, IAction)
+  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.Insert(Integer, RobotComponents.ABB.Actions.IAction)
+  name.vb: Insert(Integer, IAction)
+- uid: RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.IAction)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.IAction)
+  id: Contains(RobotComponents.ABB.Actions.IAction)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: Contains(Action)
-  nameWithType: ActionGroup.Contains(Action)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)
+  name: Contains(IAction)
+  nameWithType: ActionGroup.Contains(IAction)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.IAction)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -492,26 +492,26 @@ items:
   summary: Determines whether the list contains a specific value.
   example: []
   syntax:
-    content: public bool Contains(Action action)
+    content: public bool Contains(IAction action)
     parameters:
     - id: action
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: The object to locate in the List.
     return:
       type: System.Boolean
       description: True if the Action is found in the list; otherwise, false.
-    content.vb: Public Function Contains(action As Action) As Boolean
+    content.vb: Public Function Contains(action As IAction) As Boolean
   overload: RobotComponents.ABB.Actions.ActionGroup.Contains*
-- uid: RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)
-  id: Remove(RobotComponents.ABB.Actions.Action)
+- uid: RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.IAction)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.IAction)
+  id: Remove(RobotComponents.ABB.Actions.IAction)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: Remove(Action)
-  nameWithType: ActionGroup.Remove(Action)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)
+  name: Remove(IAction)
+  nameWithType: ActionGroup.Remove(IAction)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.IAction)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -519,12 +519,12 @@ items:
   summary: Removes the first occurrence of a specific object from the List.
   example: []
   syntax:
-    content: public void Remove(Action action)
+    content: public void Remove(IAction action)
     parameters:
     - id: action
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: The object to remove from the IList.
-    content.vb: Public Sub Remove(action As Action)
+    content.vb: Public Sub Remove(action As IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.Remove*
 - uid: RobotComponents.ABB.Actions.ActionGroup.RemoveAt(System.Int32)
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.RemoveAt(System.Int32)
@@ -553,16 +553,16 @@ items:
   nameWithType.vb: ActionGroup.RemoveAt(Integer)
   fullName.vb: RobotComponents.ABB.Actions.ActionGroup.RemoveAt(Integer)
   name.vb: RemoveAt(Integer)
-- uid: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)
-  id: CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)
+- uid: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction[],System.Int32)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction[],System.Int32)
+  id: CopyTo(RobotComponents.ABB.Actions.IAction[],System.Int32)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: CopyTo(Action[], int)
-  nameWithType: ActionGroup.CopyTo(Action[], int)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[], int)
+  name: CopyTo(IAction[], int)
+  nameWithType: ActionGroup.CopyTo(IAction[], int)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction[], int)
   type: Method
   assemblies:
   - RobotComponents.ABB
@@ -570,19 +570,19 @@ items:
   summary: Copies the elements of the ICollection to an Array, starting at a particular Array index.
   example: []
   syntax:
-    content: public void CopyTo(Action[] array, int index)
+    content: public void CopyTo(IAction[] array, int index)
     parameters:
     - id: array
-      type: RobotComponents.ABB.Actions.Action[]
+      type: RobotComponents.ABB.Actions.IAction[]
       description: The one-dimensional Array that is the destination of the elements copied from ICollection. The Array must have zero-based indexing.
     - id: index
       type: System.Int32
       description: The zero-based index in array at which copying begins.
-    content.vb: Public Sub CopyTo(array As Action(), index As Integer)
+    content.vb: Public Sub CopyTo(array As IAction(), index As Integer)
   overload: RobotComponents.ABB.Actions.ActionGroup.CopyTo*
-  nameWithType.vb: ActionGroup.CopyTo(Action(), Integer)
-  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action(), Integer)
-  name.vb: CopyTo(Action(), Integer)
+  nameWithType.vb: ActionGroup.CopyTo(IAction(), Integer)
+  fullName.vb: RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.IAction(), Integer)
+  name.vb: CopyTo(IAction(), Integer)
 - uid: RobotComponents.ABB.Actions.ActionGroup.Ungroup
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.Ungroup
   id: Ungroup
@@ -600,11 +600,11 @@ items:
   summary: Returns the actions inside this group including the actions of the groups that are inside this group.
   example: []
   syntax:
-    content: public List<Action> Ungroup()
+    content: public List<IAction> Ungroup()
     return:
-      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.Action}
+      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.IAction}
       description: List with Actions.
-    content.vb: Public Function Ungroup() As List(Of Action)
+    content.vb: Public Function Ungroup() As List(Of IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.Ungroup*
 - uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
@@ -623,7 +623,7 @@ items:
   summary: Returns the RAPID declaration code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDDeclaration(Robot robot)
+    content: public string ToRAPIDDeclaration(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -631,9 +631,10 @@ items:
     return:
       type: System.String
       description: The RAPID data string of all declarative actions as one string.
-    content.vb: Public Overrides Function ToRAPIDDeclaration(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDDeclaration(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
 - uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   id: ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
@@ -651,7 +652,7 @@ items:
   summary: Returns the RAPID instruction code line of the this action.
   example: []
   syntax:
-    content: public override string ToRAPIDInstruction(Robot robot)
+    content: public string ToRAPIDInstruction(Robot robot)
     parameters:
     - id: robot
       type: RobotComponents.ABB.Definitions.Robot
@@ -659,61 +660,37 @@ items:
     return:
       type: System.String
       description: The RAPID code line of a instructive actions as one string.
-    content.vb: Public Overrides Function ToRAPIDInstruction(robot As Robot) As String
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    content.vb: Public Function ToRAPIDInstruction(robot As Robot) As String
   overload: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction*
-- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  id: ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   parent: RobotComponents.ABB.Actions.ActionGroup
   langs:
   - csharp
   - vb
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: ActionGroup.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: ActionGroup.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   type: Method
   assemblies:
   - RobotComponents.ABB
   namespace: RobotComponents.ABB.Actions
-  summary: Creates declarations in the RAPID program module inside the RAPID Generator.
+  summary: Creates declarations and instructions in the RAPID program module inside the RAPID Generator.
   remarks: This method is called inside the RAPID generator.
   example: []
   syntax:
-    content: public override void ToRAPIDDeclaration(RAPIDGenerator RAPIDGenerator)
+    content: public void ToRAPIDGenerator(RAPIDGenerator RAPIDGenerator)
     parameters:
     - id: RAPIDGenerator
       type: RobotComponents.ABB.Actions.RAPIDGenerator
       description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDDeclaration(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration*
-- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  id: ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.ActionGroup
-  langs:
-  - csharp
-  - vb
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: ActionGroup.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  type: Method
-  assemblies:
-  - RobotComponents.ABB
-  namespace: RobotComponents.ABB.Actions
-  summary: Creates instructions in the RAPID program module inside the RAPID Generator.
-  remarks: This method is called inside the RAPID generator.
-  example: []
-  syntax:
-    content: public override void ToRAPIDInstruction(RAPIDGenerator RAPIDGenerator)
-    parameters:
-    - id: RAPIDGenerator
-      type: RobotComponents.ABB.Actions.RAPIDGenerator
-      description: The RAPID Generator.
-    content.vb: Public Overrides Sub ToRAPIDInstruction(RAPIDGenerator As RAPIDGenerator)
-  overridden: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  overload: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction*
+    content.vb: Public Sub ToRAPIDGenerator(RAPIDGenerator As RAPIDGenerator)
+  overload: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
 - uid: RobotComponents.ABB.Actions.ActionGroup.IsValid
   commentId: P:RobotComponents.ABB.Actions.ActionGroup.IsValid
   id: IsValid
@@ -731,13 +708,14 @@ items:
   summary: Gets a value indicating whether or not the object is valid.
   example: []
   syntax:
-    content: public override bool IsValid { get; }
+    content: public bool IsValid { get; }
     parameters: []
     return:
       type: System.Boolean
-    content.vb: Public Overrides ReadOnly Property IsValid As Boolean
-  overridden: RobotComponents.ABB.Actions.Action.IsValid
+    content.vb: Public ReadOnly Property IsValid As Boolean
   overload: RobotComponents.ABB.Actions.ActionGroup.IsValid*
+  implements:
+  - RobotComponents.ABB.Actions.IAction.IsValid
 - uid: RobotComponents.ABB.Actions.ActionGroup.Name
   commentId: P:RobotComponents.ABB.Actions.ActionGroup.Name
   id: Name
@@ -778,11 +756,11 @@ items:
   summary: Gets or sets the collection with Actions.
   example: []
   syntax:
-    content: public List<Action> Actions { get; set; }
+    content: public List<IAction> Actions { get; set; }
     parameters: []
     return:
-      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.Action}
-    content.vb: Public Property Actions As List(Of Action)
+      type: System.Collections.Generic.List{RobotComponents.ABB.Actions.IAction}
+    content.vb: Public Property Actions As List(Of IAction)
   overload: RobotComponents.ABB.Actions.ActionGroup.Actions*
 - uid: RobotComponents.ABB.Actions.ActionGroup.Count
   commentId: P:RobotComponents.ABB.Actions.ActionGroup.Count
@@ -824,15 +802,15 @@ items:
   summary: Gets or sets the Actions through the indexer.
   example: []
   syntax:
-    content: public Action this[int index] { get; set; }
+    content: public IAction this[int index] { get; set; }
     parameters:
     - id: index
       type: System.Int32
       description: The index number.
     return:
-      type: RobotComponents.ABB.Actions.Action
+      type: RobotComponents.ABB.Actions.IAction
       description: The Action located at the given index.
-    content.vb: Public Default Property this[](index As Integer) As Action
+    content.vb: Public Default Property this[](index As Integer) As IAction
   overload: RobotComponents.ABB.Actions.ActionGroup.Item*
   nameWithType.vb: ActionGroup.this[](Integer)
   fullName.vb: RobotComponents.ABB.Actions.ActionGroup.this[](Integer)
@@ -932,14 +910,14 @@ references:
   nameWithType.vb: Object
   fullName.vb: Object
   name.vb: Object
-- uid: RobotComponents.ABB.Actions.Action
-  commentId: T:RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction
+  commentId: T:RobotComponents.ABB.Actions.IAction
   parent: RobotComponents.ABB.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action
-  nameWithType: Action
-  fullName: RobotComponents.ABB.Actions.Action
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction
+  nameWithType: IAction
+  fullName: RobotComponents.ABB.Actions.IAction
 - uid: System.Runtime.Serialization.ISerializable
   commentId: T:System.Runtime.Serialization.ISerializable
   parent: System.Runtime.Serialization
@@ -1190,7 +1168,7 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.#ctor*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.#ctor
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup__ctor_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: ActionGroup
   nameWithType: ActionGroup.ActionGroup
   fullName: RobotComponents.ABB.Actions.ActionGroup.ActionGroup
@@ -1216,7 +1194,7 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.GetObjectData*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.GetObjectData
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_
   name: GetObjectData
   nameWithType: ActionGroup.GetObjectData
   fullName: RobotComponents.ABB.Actions.ActionGroup.GetObjectData
@@ -1262,27 +1240,27 @@ references:
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.runtime.serialization.streamingcontext
   - name: )
-- uid: System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action}
-  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action}
+- uid: System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction}
+  commentId: T:System.Collections.Generic.IList{RobotComponents.ABB.Actions.IAction}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.IList`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
-  name: IList<Action>
-  nameWithType: IList<Action>
-  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Actions.Action>
-  nameWithType.vb: IList(Of Action)
-  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.Action)
-  name.vb: IList(Of Action)
+  name: IList<IAction>
+  nameWithType: IList<IAction>
+  fullName: System.Collections.Generic.IList<RobotComponents.ABB.Actions.IAction>
+  nameWithType.vb: IList(Of IAction)
+  fullName.vb: System.Collections.Generic.IList(Of RobotComponents.ABB.Actions.IAction)
+  name.vb: IList(Of IAction)
   spec.csharp:
   - uid: System.Collections.Generic.IList`1
     name: IList
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.ilist-1
   - name: <
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.IList`1
@@ -1292,10 +1270,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: )
 - uid: System.Collections.Generic.IList`1
   commentId: T:System.Collections.Generic.IList`1
@@ -1384,96 +1362,98 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.Duplicate*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Duplicate
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Duplicate
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Duplicate
   name: Duplicate
   nameWithType: ActionGroup.Duplicate
   fullName: RobotComponents.ABB.Actions.ActionGroup.Duplicate
-- uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-  commentId: M:RobotComponents.ABB.Actions.Action.DuplicateAction
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  name: DuplicateAction()
-  nameWithType: Action.DuplicateAction()
-  fullName: RobotComponents.ABB.Actions.Action.DuplicateAction()
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.DuplicateAction
-    name: DuplicateAction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.DuplicateAction
-  - name: (
-  - name: )
 - uid: RobotComponents.ABB.Actions.ActionGroup.DuplicateAction*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.DuplicateAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.DuplicateAction
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_DuplicateAction
   name: DuplicateAction
   nameWithType: ActionGroup.DuplicateAction
   fullName: RobotComponents.ABB.Actions.ActionGroup.DuplicateAction
-- uid: RobotComponents.ABB.Actions.Action.ToString
-  commentId: M:RobotComponents.ABB.Actions.Action.ToString
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+  commentId: M:RobotComponents.ABB.Actions.IAction.DuplicateAction
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
-  name: ToString()
-  nameWithType: Action.ToString()
-  fullName: RobotComponents.ABB.Actions.Action.ToString()
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  name: DuplicateAction()
+  nameWithType: IAction.DuplicateAction()
+  fullName: RobotComponents.ABB.Actions.IAction.DuplicateAction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
-    name: ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
   - name: (
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToString
+  - uid: RobotComponents.ABB.Actions.IAction.DuplicateAction
+    name: DuplicateAction
+    isExternal: true
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_DuplicateAction
+  - name: (
+  - name: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  name: ToString()
+  nameWithType: object.ToString()
+  fullName: object.ToString()
+  nameWithType.vb: Object.ToString()
+  fullName.vb: Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
     name: ToString
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToString
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
+  - name: (
+  - name: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    isExternal: true
+    href: https://learn.microsoft.com/dotnet/api/system.object.tostring
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.ActionGroup.ToString*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToString
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.ToString
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_ToString
   name: ToString
   nameWithType: ActionGroup.ToString
   fullName: RobotComponents.ABB.Actions.ActionGroup.ToString
 - uid: RobotComponents.ABB.Actions.ActionGroup.DuplicateToList*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_DuplicateToList
   name: DuplicateToList
   nameWithType: ActionGroup.DuplicateToList
   fullName: RobotComponents.ABB.Actions.ActionGroup.DuplicateToList
-- uid: System.Collections.Generic.List{RobotComponents.ABB.Actions.Action}
-  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Actions.Action}
+- uid: System.Collections.Generic.List{RobotComponents.ABB.Actions.IAction}
+  commentId: T:System.Collections.Generic.List{RobotComponents.ABB.Actions.IAction}
   parent: System.Collections.Generic
   definition: System.Collections.Generic.List`1
   href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
-  name: List<Action>
-  nameWithType: List<Action>
-  fullName: System.Collections.Generic.List<RobotComponents.ABB.Actions.Action>
-  nameWithType.vb: List(Of Action)
-  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Actions.Action)
-  name.vb: List(Of Action)
+  name: List<IAction>
+  nameWithType: List<IAction>
+  fullName: System.Collections.Generic.List<RobotComponents.ABB.Actions.IAction>
+  nameWithType.vb: List(Of IAction)
+  fullName.vb: System.Collections.Generic.List(Of RobotComponents.ABB.Actions.IAction)
+  name.vb: List(Of IAction)
   spec.csharp:
   - uid: System.Collections.Generic.List`1
     name: List
     isExternal: true
     href: https://learn.microsoft.com/dotnet/api/system.collections.generic.list-1
   - name: <
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: '>'
   spec.vb:
   - uid: System.Collections.Generic.List`1
@@ -1483,10 +1463,10 @@ references:
   - name: (
   - name: Of
   - name: " "
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: )
 - uid: System.Collections.Generic.List`1
   commentId: T:System.Collections.Generic.List`1
@@ -1519,58 +1499,58 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_DuplicateToArray
   name: DuplicateToArray
   nameWithType: ActionGroup.DuplicateToArray
   fullName: RobotComponents.ABB.Actions.ActionGroup.DuplicateToArray
-- uid: RobotComponents.ABB.Actions.Action[]
+- uid: RobotComponents.ABB.Actions.IAction[]
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html
-  name: Action[]
-  nameWithType: Action[]
-  fullName: RobotComponents.ABB.Actions.Action[]
-  nameWithType.vb: Action()
-  fullName.vb: RobotComponents.ABB.Actions.Action()
-  name.vb: Action()
+  href: RobotComponents.ABB.Actions.IAction.html
+  name: IAction[]
+  nameWithType: IAction[]
+  fullName: RobotComponents.ABB.Actions.IAction[]
+  nameWithType.vb: IAction()
+  fullName.vb: RobotComponents.ABB.Actions.IAction()
+  name.vb: IAction()
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: '['
   - name: ']'
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action
-    name: Action
+  - uid: RobotComponents.ABB.Actions.IAction
+    name: IAction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html
+    href: RobotComponents.ABB.Actions.IAction.html
   - name: (
   - name: )
 - uid: RobotComponents.ABB.Actions.ActionGroup.Add*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Add
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Add(RobotComponents.ABB.Actions.Action)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Add_RobotComponents_ABB_Actions_IAction_
   name: Add
   nameWithType: ActionGroup.Add
   fullName: RobotComponents.ABB.Actions.ActionGroup.Add
 - uid: RobotComponents.ABB.Actions.ActionGroup.AddRange*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.AddRange
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.AddRange(System.Collections.Generic.IList{RobotComponents.ABB.Actions.Action})
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_AddRange_System_Collections_Generic_IList_RobotComponents_ABB_Actions_IAction__
   name: AddRange
   nameWithType: ActionGroup.AddRange
   fullName: RobotComponents.ABB.Actions.ActionGroup.AddRange
 - uid: RobotComponents.ABB.Actions.ActionGroup.Clear*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Clear
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Clear
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Clear
   name: Clear
   nameWithType: ActionGroup.Clear
   fullName: RobotComponents.ABB.Actions.ActionGroup.Clear
 - uid: RobotComponents.ABB.Actions.ActionGroup.IndexOf*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.IndexOf
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.IndexOf(RobotComponents.ABB.Actions.Action)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_IndexOf_RobotComponents_ABB_Actions_IAction_
   name: IndexOf
   nameWithType: ActionGroup.IndexOf
   fullName: RobotComponents.ABB.Actions.ActionGroup.IndexOf
@@ -1588,14 +1568,14 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.Insert*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Insert
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Insert(System.Int32,RobotComponents.ABB.Actions.Action)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Insert_System_Int32_RobotComponents_ABB_Actions_IAction_
   name: Insert
   nameWithType: ActionGroup.Insert
   fullName: RobotComponents.ABB.Actions.ActionGroup.Insert
 - uid: RobotComponents.ABB.Actions.ActionGroup.Contains*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Contains
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Contains(RobotComponents.ABB.Actions.Action)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Contains_RobotComponents_ABB_Actions_IAction_
   name: Contains
   nameWithType: ActionGroup.Contains
   fullName: RobotComponents.ABB.Actions.ActionGroup.Contains
@@ -1613,44 +1593,51 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.Remove*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Remove
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Remove(RobotComponents.ABB.Actions.Action)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Remove_RobotComponents_ABB_Actions_IAction_
   name: Remove
   nameWithType: ActionGroup.Remove
   fullName: RobotComponents.ABB.Actions.ActionGroup.Remove
 - uid: RobotComponents.ABB.Actions.ActionGroup.RemoveAt*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.RemoveAt
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.RemoveAt(System.Int32)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_RemoveAt_System_Int32_
   name: RemoveAt
   nameWithType: ActionGroup.RemoveAt
   fullName: RobotComponents.ABB.Actions.ActionGroup.RemoveAt
 - uid: RobotComponents.ABB.Actions.ActionGroup.CopyTo*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.CopyTo
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.CopyTo(RobotComponents.ABB.Actions.Action[],System.Int32)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_CopyTo_RobotComponents_ABB_Actions_IAction___System_Int32_
   name: CopyTo
   nameWithType: ActionGroup.CopyTo
   fullName: RobotComponents.ABB.Actions.ActionGroup.CopyTo
 - uid: RobotComponents.ABB.Actions.ActionGroup.Ungroup*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Ungroup
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Ungroup
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Ungroup
   name: Ungroup
   nameWithType: ActionGroup.Ungroup
   fullName: RobotComponents.ABB.Actions.ActionGroup.Ungroup
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration*
+  commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDDeclaration
+  nameWithType: ActionGroup.ToRAPIDDeclaration
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDDeclaration(Robot)
-  nameWithType: Action.ToRAPIDDeclaration(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDDeclaration(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1658,23 +1645,16 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDDeclaration
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDDeclaration_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration*
-  commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration
-  isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDDeclaration
-  nameWithType: ActionGroup.ToRAPIDDeclaration
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDDeclaration
 - uid: RobotComponents.ABB.Definitions.Robot
   commentId: T:RobotComponents.ABB.Definitions.Robot
   parent: RobotComponents.ABB.Definitions
@@ -1720,19 +1700,26 @@ references:
     name: Definitions
     isExternal: true
     href: RobotComponents.ABB.Definitions.html
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  parent: RobotComponents.ABB.Actions.Action
+- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction*
+  commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
+  name: ToRAPIDInstruction
+  nameWithType: ActionGroup.ToRAPIDInstruction
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   name: ToRAPIDInstruction(Robot)
-  nameWithType: Action.ToRAPIDInstruction(Robot)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  nameWithType: IAction.ToRAPIDInstruction(Robot)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
@@ -1740,36 +1727,36 @@ references:
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
     name: ToRAPIDInstruction
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDInstruction_RobotComponents_ABB_Definitions_Robot_
   - name: (
   - uid: RobotComponents.ABB.Definitions.Robot
     name: Robot
     isExternal: true
     href: RobotComponents.ABB.Definitions.Robot.html
   - name: )
-- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction*
-  commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction
+- uid: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator*
+  commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction(RobotComponents.ABB.Definitions.Robot)
-  name: ToRAPIDInstruction
-  nameWithType: ActionGroup.ToRAPIDInstruction
-  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDInstruction
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator
+  nameWithType: ActionGroup.ToRAPIDGenerator
+  fullName: RobotComponents.ABB.Actions.ActionGroup.ToRAPIDGenerator
+- uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  commentId: M:RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+  parent: RobotComponents.ABB.Actions.IAction
   isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDDeclaration(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDDeclaration(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
+  name: ToRAPIDGenerator(RAPIDGenerator)
+  nameWithType: IAction.ToRAPIDGenerator(RAPIDGenerator)
+  fullName: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
   spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1777,10 +1764,10 @@ references:
     href: RobotComponents.ABB.Actions.RAPIDGenerator.html
   - name: )
   spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDDeclaration
+  - uid: RobotComponents.ABB.Actions.IAction.ToRAPIDGenerator(RobotComponents.ABB.Actions.RAPIDGenerator)
+    name: ToRAPIDGenerator
     isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDDeclaration(RobotComponents.ABB.Actions.RAPIDGenerator)
+    href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_ToRAPIDGenerator_RobotComponents_ABB_Actions_RAPIDGenerator_
   - name: (
   - uid: RobotComponents.ABB.Actions.RAPIDGenerator
     name: RAPIDGenerator
@@ -1795,76 +1782,46 @@ references:
   name: RAPIDGenerator
   nameWithType: RAPIDGenerator
   fullName: RobotComponents.ABB.Actions.RAPIDGenerator
-- uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  commentId: M:RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  name: ToRAPIDInstruction(RAPIDGenerator)
-  nameWithType: Action.ToRAPIDInstruction(RAPIDGenerator)
-  fullName: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  spec.csharp:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-  spec.vb:
-  - uid: RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-    name: ToRAPIDInstruction
-    isExternal: true
-    href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.ToRAPIDInstruction(RobotComponents.ABB.Actions.RAPIDGenerator)
-  - name: (
-  - uid: RobotComponents.ABB.Actions.RAPIDGenerator
-    name: RAPIDGenerator
-    isExternal: true
-    href: RobotComponents.ABB.Actions.RAPIDGenerator.html
-  - name: )
-- uid: RobotComponents.ABB.Actions.Action.IsValid
-  commentId: P:RobotComponents.ABB.Actions.Action.IsValid
-  parent: RobotComponents.ABB.Actions.Action
-  isExternal: true
-  href: RobotComponents.ABB.Actions.Action.html#RobotComponents.ABB.Actions.Action.IsValid
-  name: IsValid
-  nameWithType: Action.IsValid
-  fullName: RobotComponents.ABB.Actions.Action.IsValid
 - uid: RobotComponents.ABB.Actions.ActionGroup.IsValid*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.IsValid
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.IsValid
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_IsValid
   name: IsValid
   nameWithType: ActionGroup.IsValid
   fullName: RobotComponents.ABB.Actions.ActionGroup.IsValid
+- uid: RobotComponents.ABB.Actions.IAction.IsValid
+  commentId: P:RobotComponents.ABB.Actions.IAction.IsValid
+  parent: RobotComponents.ABB.Actions.IAction
+  isExternal: true
+  href: RobotComponents.ABB.Actions.IAction.html#RobotComponents_ABB_Actions_IAction_IsValid
+  name: IsValid
+  nameWithType: IAction.IsValid
+  fullName: RobotComponents.ABB.Actions.IAction.IsValid
 - uid: RobotComponents.ABB.Actions.ActionGroup.Name*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Name
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Name
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Name
   name: Name
   nameWithType: ActionGroup.Name
   fullName: RobotComponents.ABB.Actions.ActionGroup.Name
 - uid: RobotComponents.ABB.Actions.ActionGroup.Actions*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Actions
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Actions
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Actions
   name: Actions
   nameWithType: ActionGroup.Actions
   fullName: RobotComponents.ABB.Actions.ActionGroup.Actions
 - uid: RobotComponents.ABB.Actions.ActionGroup.Count*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Count
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Count
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Count
   name: Count
   nameWithType: ActionGroup.Count
   fullName: RobotComponents.ABB.Actions.ActionGroup.Count
 - uid: RobotComponents.ABB.Actions.ActionGroup.Item*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.Item
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.Item(System.Int32)
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_Item_System_Int32_
   name: this
   nameWithType: ActionGroup.this
   fullName: RobotComponents.ABB.Actions.ActionGroup.this
@@ -1874,14 +1831,14 @@ references:
 - uid: RobotComponents.ABB.Actions.ActionGroup.IsFixedSize*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.IsFixedSize
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.IsFixedSize
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_IsFixedSize
   name: IsFixedSize
   nameWithType: ActionGroup.IsFixedSize
   fullName: RobotComponents.ABB.Actions.ActionGroup.IsFixedSize
 - uid: RobotComponents.ABB.Actions.ActionGroup.IsReadOnly*
   commentId: Overload:RobotComponents.ABB.Actions.ActionGroup.IsReadOnly
   isExternal: true
-  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents.ABB.Actions.ActionGroup.IsReadOnly
+  href: RobotComponents.ABB.Actions.ActionGroup.html#RobotComponents_ABB_Actions_ActionGroup_IsReadOnly
   name: IsReadOnly
   nameWithType: ActionGroup.IsReadOnly
   fullName: RobotComponents.ABB.Actions.ActionGroup.IsReadOnly
