@@ -19,7 +19,8 @@ We generate the API documentation with [docfx](https://dotnet.github.io/docfx/).
 6) Push the updated files. 
 
 ## License
-Copyright (c) 2018-2024 [The Robot Components authors and/or their affiliations](https://github.com/RobotComponents/RobotComponents/blob/master/AUTHORS.md)
+Copyright (c) 2018-2020 EDEK Uni Kassel
+Copyright (c) 2020-2024 Arjen Deetman
 
 Robot Components is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License version 3.0 as published by the Free Software Foundation. 
 
